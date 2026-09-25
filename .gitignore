@@ -1,0 +1,29 @@
+# Active / Transient Output
+output.txt
+
+# Large test cases, logs, and fixtures
+*.log
+_*.txt
+*.big*.txt
+stress/fixtures/*.txt
+stress/*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Configuration
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local Claude / AI permissions cache
+.claude/settings.local.json
+
+# Node modules & npm logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

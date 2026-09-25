@@ -1,0 +1,28 @@
+{
+  "name": "cp-js",
+  "version": "1.0.0",
+  "description": "High-performance Competitive Programming in JavaScript (Node.js)",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js",
+    "solve": "node run.js",
+    "test": "node run.js",
+    "template": "node run.js cp"
+  },
+  "keywords": [
+    "competitive-programming",
+    "codeforces",
+    "atcoder",
+    "cses",
+    "leetcode",
+    "algorithms",
+    "data-structures",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "AKSHAYKUMAR SHIVAKUMAR PATIL",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
