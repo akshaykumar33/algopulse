@@ -8,7 +8,7 @@ let target = process.argv[2];
 if (!target) {
   // Find the most recently modified .js file excluding runner scripts, templates, and stress scripts
   const files = fs.readdirSync(__dirname)
-    .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && !f.startsWith('_'))
+    .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && f !== 'leetcode.js' && f !== 'lc.js' && !f.startsWith('_'))
     .map(f => ({ name: f, time: fs.statSync(path.join(__dirname, f)).mtimeMs }))
     .sort((a, b) => b.time - a.time);
 

@@ -13,7 +13,8 @@ A high-performance, strictly verified Competitive Programming toolkit and soluti
 
 ```
 a:\CP\
-├── cp.js                   # Universal clean starter boilerplate (never polluted)
+├── cp.js                   # Universal clean CP starter boilerplate (never polluted)
+├── leetcode.js             # Universal clean LeetCode starter boilerplate (never polluted)
 ├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
 ├── run.js                  # Smart execution runner (pipes input.txt -> solution -> output.txt)

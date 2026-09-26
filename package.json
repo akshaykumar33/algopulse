@@ -7,7 +7,8 @@
     "start": "node run.js",
     "solve": "node run.js",
     "test": "node run.js",
-    "template": "node run.js cp"
+    "template": "node run.js cp",
+    "template:lc": "node run.js leetcode"
   },
   "keywords": [
     "competitive-programming",
