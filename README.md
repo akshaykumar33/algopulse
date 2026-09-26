@@ -14,13 +14,13 @@ A high-performance, strictly verified Competitive Programming toolkit and soluti
 ```
 a:\CP\
 ├── cp.js                   # Universal clean starter boilerplate (never polluted)
-├── input.txt               # Active sample inputs (tracked clean)
+├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
 ├── run.js                  # Smart execution runner (pipes input.txt -> solution -> output.txt)
 ├── run.bat                 # Windows CMD runner shortcut
 ├── run.ps1                 # Windows PowerShell runner shortcut
 ├── package.json            # Node.js manifest with standard npm scripts
-├── .gitignore              # Ignores output.txt, heavy logs, and transient stress files
+├── .gitignore              # Ignores input.txt, output.txt, heavy logs, and transient stress files
 ├── .editorconfig           # Universal code style and indentation definitions
 ├── README.md               # User-facing master documentation
 ├── AGENTS.md               # AI operational guidelines & protocol specification

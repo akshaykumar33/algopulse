@@ -73,13 +73,13 @@ When presented with any problem (even if pasted raw with contest headers and for
 ```
 a:\CP\
 ├── cp.js                   # Universal clean starter template (never polluted)
-├── input.txt               # Active sample inputs
+├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
 ├── run.js                  # Node.js runner engine (pipes input.txt -> solution -> output.txt)
 ├── run.bat                 # Windows CMD runner shortcut
 ├── run.ps1                 # Windows PowerShell runner shortcut
 ├── package.json            # Node.js package manifest and scripts
-├── .gitignore              # Ignores output.txt, heavy logs, and transient stress files
+├── .gitignore              # Ignores input.txt, output.txt, heavy logs, and transient stress files
 ├── .editorconfig           # Uniform formatting rules
 ├── README.md               # User-facing master documentation
 ├── AGENTS.md               # Master AI system prompt & instructions
@@ -183,7 +183,7 @@ To maintain a clean and scalable codebase:
    - Solution files live directly at the root for instant CLI access (e.g. `node run goodContest`).
    - Clean, universal starter template `cp.js` remains pure boilerplate.
    - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
-   - Active sample input `input.txt` (tracked clean) and `output.txt` (strictly gitignored).
+   - Active sample input `input.txt` and generated `output.txt` (both strictly gitignored).
 2. **Stress Testing Directory (`/stress`):**
    - Place all independent brute-force references, fuzzers, and stress suites here (`stress/<problem>_stress.js`).
    - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
