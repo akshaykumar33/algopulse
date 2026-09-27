@@ -3,9 +3,10 @@
 ## 1. Problem Overview
 - **Platform:** Codeforces
 - **Problem ID:** [1992A](https://codeforces.com/problemset/problem/1992/A)
-- **Rating:** 800
+- **Difficulty / Rating:** 800
+- **Algorithmic Paradigm:** `greedy` / `brute force`
 - **Tags:** brute force, constructive algorithms, greedy, math, sortings
-- **Solution File:** `onlyPluses.js`
+- **Solution File:** `solutions/onlyPluses.js`
 - **Starter Template:** `templates/codeforces.js` / `cp.js`
 
 ---
