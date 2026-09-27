@@ -3,6 +3,7 @@ const path = require('path');
 const { fetchCodeforcesProblems, toFileName } = require('./providers/codeforces');
 const { fetchLeetCodeProblems } = require('./providers/leetcode');
 const { fetchCodeChefProblems } = require('./providers/codechef');
+const { rampStatus } = require('./lib/store');
 
 const ROOT = __dirname;
 const DAYS = path.join(ROOT, 'days');
@@ -177,6 +178,14 @@ async function main() {
 
   console.log(`[practice] Generating Day ${dayNumber} (${date}) problem set for platforms: ${platformsToRun.join(', ')} ...`);
 
+  // Adaptive difficulty (plan.json "adaptive": false restores the fixed weekly ramp).
+  const adaptive = config.adaptive !== false ? rampStatus() : null;
+  if (adaptive) {
+    for (const [plat, r] of Object.entries(adaptive)) {
+      console.log(`[practice] ${plat}: ${r.decision} → ${plat === 'leetcode' ? r.difficulty : r.rating} (${r.reason})`);
+    }
+  }
+
   const chosen = [];
   const platformsIncluded = [];
 
@@ -190,7 +199,15 @@ async function main() {
         stretchCount: 3,
       };
       if (customCount) cfConfig.perDay = customCount;
-      const targets = targetsFor(dayNumber, cfConfig);
+      const targets = adaptive
+        ? (() => {
+            const base = adaptive.codeforces.rating;
+            const perDay = cfConfig.perDay || 10;
+            const stretch = Math.min(cfConfig.stretchCount || 3, perDay);
+            const top = Math.min(base + 100, cfConfig.maxRating || 3500);
+            return top > base ? [{ rating: base, count: perDay - stretch }, { rating: top, count: stretch }] : [{ rating: base, count: perDay }];
+          })()
+        : targetsFor(dayNumber, cfConfig);
       console.log(`[practice] Fetching Codeforces target: ${targets.map((t) => `${t.count}x${t.rating}`).join(', ')} ...`);
       const cfProblems = await fetchCodeforcesProblems({
         handle: config.handle,
@@ -207,6 +224,7 @@ async function main() {
         difficulty: 'Easy',
       };
       const count = customCount || lcConfig.perDay || 10;
+      if (adaptive) lcConfig.difficulty = adaptive.leetcode.difficulty;
       console.log(`[practice] Fetching LeetCode ${count} problems (${lcConfig.difficulty}) ...`);
       const lcProblems = await fetchLeetCodeProblems({
         usedIds: exclude,
@@ -224,8 +242,8 @@ async function main() {
         endRating: 1200,
       };
       const count = customCount || ccConfig.perDay || 10;
-      const startRating = ccConfig.startRating || 800;
-      const endRating = ccConfig.endRating || ccConfig.maxRating || 1200;
+      const startRating = adaptive ? adaptive.codechef.rating : ccConfig.startRating || 800;
+      const endRating = adaptive ? startRating + 200 : ccConfig.endRating || ccConfig.maxRating || 1200;
       console.log(`[practice] Fetching CodeChef ${count} problems (${startRating}-${endRating}) ...`);
       const ccProblems = await fetchCodeChefProblems({
         usedIds: exclude,
