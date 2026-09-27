@@ -8,6 +8,12 @@ const DAYS = path.join(ROOT, 'days');
 
 const args = process.argv.slice(2);
 const useRef = args.includes('--ref');
+const flag = (name) => {
+  const i = args.indexOf(name);
+  return i === -1 ? null : args[i + 1];
+};
+
+const filterPlatform = flag('--platform');
 const days = fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort();
 const date = args.find((a) => !a.startsWith('--')) || days[days.length - 1];
 const dir = path.join(DAYS, date);
@@ -21,10 +27,18 @@ const normalize = (s) => s.trim().split(/\r?\n/).map((l) => l.trim().split(/\s+/
 const set = JSON.parse(fs.readFileSync(path.join(dir, 'set.json'), 'utf-8'));
 let failed = 0;
 
-for (const p of set.problems) {
+const problemsToVerify = filterPlatform
+  ? set.problems.filter((p) => (p.platform || 'Codeforces').toLowerCase() === filterPlatform.toLowerCase())
+  : set.problems;
+
+console.log(`[verify] Verifying Day ${set.day} (${date}) [${useRef ? 'Reference Solutions' : 'Active Root Solutions'}] ...`);
+
+for (const p of problemsToVerify) {
   const file = useRef ? path.join(dir, 'solutions', `${p.file}.js`) : path.join(REPO, `${p.file}.js`);
   const testsFile = path.join(dir, 'tests', `${p.file}.json`);
-  const label = `${p.id.padEnd(7)} ${p.file}`;
+  const platMap = { codeforces: 'CF', leetcode: 'LC', codechef: 'CC' };
+  const plat = platMap[(p.platform || 'CF').toLowerCase()] || (p.platform || 'CF').slice(0, 2).toUpperCase();
+  const label = `[${plat}] ${p.id.padEnd(10)} ${p.file}`;
 
   if (!fs.existsSync(file)) {
     console.log(`  ·  ${label}  (not attempted)`);
