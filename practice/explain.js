@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough } = require('./visualizer');
-const { getApiKey, generateWithGemini } = require('./gemini');
+const ai = require('./ai');
+const { generateExplanation } = require('./ai/prompts');
 
 const ROOT = __dirname;
 const DAYS = path.join(ROOT, 'days');
@@ -32,6 +33,16 @@ const existingDays = () =>
   fs.existsSync(DAYS)
     ? fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort()
     : [];
+
+// Reference solution + sample tests, so the AI explains the real problem instead of guessing it.
+function loadGrounding(dayDir, problem) {
+  const readIf = (p) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf-8') : null);
+  const solution =
+    readIf(path.join(dayDir, 'solutions', `${problem.file}.js`)) ||
+    readIf(path.join(ROOT, '..', 'solutions', `${problem.file}.js`));
+  const testsRaw = readIf(path.join(dayDir, 'tests', `${problem.file}.json`));
+  return { solution, tests: testsRaw ? JSON.parse(testsRaw) : [] };
+}
 
 function generateNativeExplanation(problem) {
   const platform = problem.platform || 'Codeforces';
@@ -129,9 +140,9 @@ async function main() {
     process.exit(1);
   }
 
-  const hasApiKey = Boolean(getApiKey());
-  const useAi = hasApiKey && !args.includes('--offline');
-  console.log(`[explain] Generating explanations for Day ${set.day} (${date}) [Mode: ${useAi ? 'Gemini AI Augmented' : 'Native Visualizer'}] ...`);
+  const provider = ai.activeProvider();
+  const useAi = ai.isReady() && !args.includes('--offline');
+  console.log(`[explain] Generating explanations for Day ${set.day} (${date}) [Mode: ${useAi ? `AI: ${provider.label} (${provider.getModel()})` : 'Native Visualizer'}] ...`);
 
   let generated = 0;
   for (const prob of problemsToExplain) {
@@ -139,8 +150,12 @@ async function main() {
     if (!fs.existsSync(docPath) || args.includes('--force')) {
       let content = null;
       if (useAi) {
-        console.log(`  [explain] Querying Gemini for deep analysis: ${prob.name} (${prob.id}) ...`);
-        content = await generateWithGemini(prob);
+        console.log(`  [explain] Asking the AI for a grounded walkthrough: ${prob.name} (${prob.id}) ...`);
+        try {
+          content = await generateExplanation(prob, loadGrounding(dayDir, prob));
+        } catch (err) {
+          console.warn(`  [explain] AI generation failed (${err.message}); using the offline template.`);
+        }
       }
 
       if (!content) {
