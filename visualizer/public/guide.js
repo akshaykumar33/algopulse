@@ -136,7 +136,7 @@ const PROVIDER_INFO = {
     blurb: 'Fast and has a generous free tier. Great default.',
     cost: 'Free tier',
     keyUrl: 'https://aistudio.google.com/apikey',
-    env: 'GEMINI_API_KEY=your-key\n# optional: GEMINI_MODEL=gemini-2.5-flash',
+    env: 'GEMINI_API_KEY=your-key\n# optional: GEMINI_MODEL=gemini-3.8-flash',
   },
   anthropic: {
     icon: 'ph-asterisk',

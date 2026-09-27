@@ -1,6 +1,7 @@
 /**
  * Google Gemini provider — native HTTPS, no dependencies.
- * Key: GEMINI_API_KEY (or GOOGLE_API_KEY). Model: GEMINI_MODEL (default gemini-2.5-flash).
+ * Key: GEMINI_API_KEY (or GOOGLE_API_KEY). Model: GEMINI_MODEL (default gemini-3.8-flash).
+ * Effort: GEMINI_THINKING = low | medium | high (default high) on Gemini 3 models.
  */
 
 const https = require('https');
@@ -24,7 +25,7 @@ module.exports = {
   label: 'Google Gemini',
   keyName: 'GEMINI_API_KEY',
   getKey: () => env('GEMINI_API_KEY') || env('GOOGLE_API_KEY'),
-  getModel: () => env('GEMINI_MODEL') || 'gemini-2.5-flash',
+  getModel: () => env('GEMINI_MODEL') || 'gemini-3.8-flash',
   isConfigured() {
     return Boolean(this.getKey());
   },
@@ -38,9 +39,12 @@ module.exports = {
       ...(system ? { systemInstruction: { parts: [{ text: system }] } } : {}),
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
       generationConfig: {
-        temperature: 0.2,
+        // Gemini 3 takes a thinking level and is tuned for its default temperature;
+        // 2.x models take a token budget and do better cooler for factual docs.
+        ...(/^gemini-[3-9]/.test(model)
+          ? { thinkingConfig: { thinkingLevel: env('GEMINI_THINKING') || 'high' } }
+          : { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } }),
         maxOutputTokens: maxTokens,
-        thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 },
         ...(schema ? { responseMimeType: 'application/json', responseSchema: toGeminiSchema(schema) } : {}),
       },
     });
