@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
+const { computeProgress, problemLevel } = require('./progression');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
@@ -106,33 +107,34 @@ function groundingFor(dayDir, problem) {
   return { solution: ref ? readIf(ref) : null, tests: loadTests(dayDir, problem.file) };
 }
 
+// The learner's local calendar date, YYYY-MM-DD.
+function localToday() {
+  const d = new Date();
+  const p = (x) => String(x).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
 /**
- * Consecutive calendar days, ending today (or yesterday, so an unfinished today does not
- * break it), on which at least one problem was verified. `best` is the longest such run.
+ * XP, level, rank, quests, achievements and streak, derived from verified solves
+ * (the [x] marks verify.js writes). A solve counts on the day of its set.
  */
+function progress() {
+  const solved = [];
+  const setSizes = {};
+  for (const date of listDays()) {
+    const set = loadSet(date);
+    const done = completedFiles(path.join(DAYS_DIR, date));
+    setSizes[date] = (set.problems || []).length;
+    for (const p of set.problems || []) {
+      if (done.has(p.file)) solved.push({ date, platform: (p.platform || 'codeforces').toLowerCase(), level: problemLevel(p) });
+    }
+  }
+  return computeProgress({ solved, setSizes, languages: solved.length ? ['javascript'] : [], today: localToday() });
+}
+
 function streaks() {
-  const solvedDays = new Set(listDays().filter((d) => completedFiles(path.join(DAYS_DIR, d)).size > 0));
-  const dayMs = 86400000;
-  const iso = (t) => new Date(t).toISOString().slice(0, 10);
-  const todayUtc = Date.parse(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
-
-  let current = 0;
-  let cursor = solvedDays.has(iso(todayUtc)) ? todayUtc : todayUtc - dayMs;
-  while (solvedDays.has(iso(cursor))) {
-    current++;
-    cursor -= dayMs;
-  }
-
-  let best = 0;
-  let run = 0;
-  let prev = null;
-  for (const d of [...solvedDays].sort()) {
-    const t = Date.parse(`${d}T00:00:00Z`);
-    run = prev !== null && t - prev === dayMs ? run + 1 : 1;
-    best = Math.max(best, run);
-    prev = t;
-  }
-  return { current, best, solvedToday: solvedDays.has(iso(todayUtc)) };
+  const p = progress();
+  return { current: p.streak, best: p.bestStreak, solvedToday: p.solvedToday > 0 };
 }
 
 /* ---------- running solutions ---------- */
@@ -225,7 +227,9 @@ module.exports = {
   storyPath,
   loadStory,
   groundingFor,
+  progress,
   streaks,
+  localToday,
   normalize,
   runNode,
   runScript,
