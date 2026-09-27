@@ -1,7 +1,10 @@
+const fs = require('fs');
 const { execFileSync } = require('child_process');
 const path = require('path');
 
-const targetSolution = path.resolve(__dirname, '..', 'dequeMalfunction.js');
+const targetSolution = fs.existsSync(path.resolve(__dirname, '..', 'solutions', 'dequeMalfunction.js'))
+  ? path.resolve(__dirname, '..', 'solutions', 'dequeMalfunction.js')
+  : path.resolve(__dirname, '..', 'dequeMalfunction.js');
 
 function brute(n, b) {
   const m = b.length;

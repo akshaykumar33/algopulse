@@ -5,15 +5,21 @@ const { spawnSync } = require('child_process');
 // Determine target file
 let target = process.argv[2];
 
-if (!target) {
-  // Find the most recently modified .js file excluding runner scripts, templates, and stress scripts
-  const files = fs.readdirSync(__dirname)
+const getCandidateFiles = (dir) => {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
     .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && !f.startsWith('_'))
-    .map(f => ({ name: f, time: fs.statSync(path.join(__dirname, f)).mtimeMs }))
-    .sort((a, b) => b.time - a.time);
+    .map(f => ({ name: f, fullPath: path.join(dir, f), time: fs.statSync(path.join(dir, f)).mtimeMs }));
+};
 
-  if (files.length > 0) {
-    target = files[0].name;
+if (!target) {
+  // Find the most recently modified .js file across solutions/ and root
+  const rootFiles = getCandidateFiles(__dirname);
+  const solutionFiles = getCandidateFiles(path.join(__dirname, 'solutions'));
+  const allFiles = [...rootFiles, ...solutionFiles].sort((a, b) => b.time - a.time);
+
+  if (allFiles.length > 0) {
+    target = allFiles[0].name;
     console.log(`[runner] No file specified. Auto-detected latest: ${target}`);
   } else {
     target = 'cp.js';
@@ -25,15 +31,24 @@ if (!target) {
   }
 }
 
-let targetPath = path.resolve(__dirname, target);
-if (!fs.existsSync(targetPath)) {
-  const stressPath = path.resolve(__dirname, 'stress', target);
-  if (fs.existsSync(stressPath)) {
-    targetPath = stressPath;
-  } else {
-    console.error(`[runner] Error: File "${target}" not found in ${__dirname} or ${path.join(__dirname, 'stress')}`);
-    process.exit(1);
+// Search order: root -> solutions/ -> stress/
+let targetPath = null;
+const searchPaths = [
+  path.resolve(__dirname, target),
+  path.resolve(__dirname, 'solutions', target),
+  path.resolve(__dirname, 'stress', target),
+];
+
+for (const p of searchPaths) {
+  if (fs.existsSync(p)) {
+    targetPath = p;
+    break;
   }
+}
+
+if (!targetPath) {
+  console.error(`[runner] Error: File "${target}" not found in root, solutions/, or stress/`);
+  process.exit(1);
 }
 
 const inputPath = path.join(__dirname, 'input.txt');
@@ -46,7 +61,7 @@ if (!fs.existsSync(inputPath)) {
 
 const inputData = fs.readFileSync(inputPath);
 
-console.log(`[runner] Running ${target} with input.txt -> output.txt ...`);
+console.log(`[runner] Running ${path.basename(targetPath)} (${path.relative(__dirname, targetPath)}) with input.txt -> output.txt ...`);
 const startTime = Date.now();
 
 const result = spawnSync('node', [targetPath], {

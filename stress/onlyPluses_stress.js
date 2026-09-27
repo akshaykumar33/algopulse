@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { spawnSync } = require('child_process');
 const path = require('path');
 
@@ -56,7 +57,9 @@ for (let tc = 0; tc < 10000; tc++) {
 console.log('[stress] 10,000 fuzz cases passed!');
 
 // Worst case benchmark on solution file
-const solutionPath = path.resolve(__dirname, '..', 'onlyPluses.js');
+const solutionPath = fs.existsSync(path.resolve(__dirname, '..', 'solutions', 'onlyPluses.js'))
+  ? path.resolve(__dirname, '..', 'solutions', 'onlyPluses.js')
+  : path.resolve(__dirname, '..', 'onlyPluses.js');
 console.log(`[stress] Benchmarking solution script: ${solutionPath}`);
 
 const maxT = 1000;
