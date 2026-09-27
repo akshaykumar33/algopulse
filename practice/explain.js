@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough } = require('./visualizer');
+const { getApiKey, generateWithGemini } = require('./gemini');
 
 const ROOT = __dirname;
 const DAYS = path.join(ROOT, 'days');
@@ -14,8 +16,8 @@ const getPositionalArgs = () => {
   const pos = [];
   for (let i = 0; i < args.length; i++) {
     if (args[i].startsWith('--')) {
-      if (args[i] === '--force' || args[i] === '--all') {
-        // boolean flag, do not advance
+      if (args[i] === '--force' || args[i] === '--all' || args[i] === '--ai' || args[i] === '--offline') {
+        // boolean flags
       } else {
         i++; // skip flag value
       }
@@ -31,9 +33,13 @@ const existingDays = () =>
     ? fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort()
     : [];
 
-function generateExplanationTemplate(problem) {
+function generateNativeExplanation(problem) {
   const platform = problem.platform || 'Codeforces';
   const template = problem.template || 'templates/codeforces.js';
+  const tags = problem.tags || [];
+  const paradigm = detectParadigm(tags, problem.name);
+  const flowchart = generateParadigmFlowchart(paradigm, problem);
+  const sequenceDiagram = generateSequenceWalkthrough(paradigm, problem);
 
   return `# ${problem.name} (${platform} ${problem.id})
 
@@ -41,8 +47,9 @@ function generateExplanationTemplate(problem) {
 - **Platform:** ${platform}
 - **Problem ID:** [${problem.id}](${problem.url})
 - **Difficulty / Rating:** ${problem.rating}
-- **Tags:** ${(problem.tags || []).join(', ') || 'N/A'}
-- **Solution File:** \`${problem.file}.js\`
+- **Algorithmic Paradigm:** \`${paradigm}\`
+- **Tags:** ${tags.join(', ') || 'N/A'}
+- **Solution File:** \`solutions/${problem.file}.js\`
 - **Starter Template:** \`${template}\`
 
 ---
@@ -50,39 +57,18 @@ function generateExplanationTemplate(problem) {
 ## 2. Core Intuition & Mathematical Rationale
 ### Key Observations
 1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Greedy vs DP Choice:** Explain why local optimal choices guarantee global optimality, or why subproblem overlapping requires memoization/DP.
-3. **Optimality Trade-off:** Discuss why simpler brute-force approaches either succeed within constraints or require optimization.
+2. **Strategy (${paradigm}):** Evaluate how the algorithm guarantees optimality without exploring the full exponential search space.
+3. **Optimality Trade-off:** Naive brute force would exceed constraints; the ${paradigm} approach reduces complexity to feasible bounds.
 
-\`\`\`mermaid
-flowchart TD
-    A[Start: Read Input Parameters] --> B{Check Base / Trivial Cases}
-    B -- Degenerate/Base --> C[Direct O 1 Resolution]
-    B -- Non-trivial --> D[Apply Core Algorithm Strategy]
-    D --> E[Update State / Transitions]
-    E --> F[Emit Verified Output Buffer]
-\`\`\`
+${flowchart}
 
 ---
 
 ## 3. Visual Step-by-Step Walkthrough
 ### State Progression Matrix
-Visualizing the transformation of state across iterations for a representative input:
+Tracing state transitions on a representative sample input:
 
-\`\`\`mermaid
-sequenceDiagram
-    participant Input as Input Stream
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / DP Table
-    participant Out as Output Buffer
-
-    Input->>Engine: Stream Problem Instance
-    Engine->>State: Initialize Invariants & Pointers
-    loop Each Step / State Transition
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Computed Result
-\`\`\`
+${sequenceDiagram}
 
 ---
 
@@ -90,9 +76,9 @@ sequenceDiagram
 
 | Dimension | Bound | Proof & Rationale |
 |---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each input element is visited a constant number of times. |
-| **Space Complexity** | $O(1)$ auxiliary | Only scalar accumulator variables and input arrays are held in memory. |
-| **Recursion Depth** | $O(1)$ | Iterative loop avoiding Node.js call stack limit (~10,000 frames). |
+| **Time Complexity** | $O(N)$ or $O(\\log N)$ | Paradigm (${paradigm}) processes inputs within standard CP time limits ($< 1.0$s). |
+| **Space Complexity** | $O(1)$ or $O(N)$ auxiliary | Memory footprint fits within typical 256MB/512MB limits. |
+| **Recursion Depth** | $O(1)$ | Iterative loop avoids Node.js call stack limit (~10,000 frames). |
 
 ---
 
@@ -111,7 +97,7 @@ sequenceDiagram
 `;
 }
 
-function main() {
+async function main() {
   const days = existingDays();
   if (days.length === 0) {
     console.error('[explain] No practice days found in practice/days/');
@@ -143,11 +129,25 @@ function main() {
     process.exit(1);
   }
 
+  const hasApiKey = Boolean(getApiKey());
+  const useAi = hasApiKey && !args.includes('--offline');
+  console.log(`[explain] Generating explanations for Day ${set.day} (${date}) [Mode: ${useAi ? 'Gemini AI Augmented' : 'Native Visualizer'}] ...`);
+
   let generated = 0;
   for (const prob of problemsToExplain) {
     const docPath = path.join(explanationsDir, `${prob.file}.md`);
     if (!fs.existsSync(docPath) || args.includes('--force')) {
-      fs.writeFileSync(docPath, generateExplanationTemplate(prob), 'utf-8');
+      let content = null;
+      if (useAi) {
+        console.log(`  [explain] Querying Gemini for deep analysis: ${prob.name} (${prob.id}) ...`);
+        content = await generateWithGemini(prob);
+      }
+
+      if (!content) {
+        content = generateNativeExplanation(prob);
+      }
+
+      fs.writeFileSync(docPath, content, 'utf-8');
       console.log(`  [explain] Created explanation doc: explanations/${prob.file}.md`);
       generated++;
     } else {
@@ -158,4 +158,7 @@ function main() {
   console.log(`[explain] Finished. ${generated} explanation document(s) generated for ${date}.`);
 }
 
-main();
+main().catch((err) => {
+  console.error(`[explain] Error: ${err.message}`);
+  process.exit(1);
+});
