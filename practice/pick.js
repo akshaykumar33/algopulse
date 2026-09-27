@@ -1,10 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
+const { fetchCodeforcesProblems, toFileName } = require('./providers/codeforces');
+const { fetchLeetCodeProblems } = require('./providers/leetcode');
+const { fetchCodeChefProblems } = require('./providers/codechef');
 
 const ROOT = __dirname;
 const DAYS = path.join(ROOT, 'days');
-const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'plan.json'), 'utf-8'));
+const planPath = path.join(ROOT, 'plan.json');
+const config = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -18,31 +21,6 @@ const today = () => {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 };
 
-const get = (url) =>
-  new Promise((resolve, reject) => {
-    https
-      .get(url, { headers: { 'User-Agent': 'cp-practice' } }, (res) => {
-        let body = '';
-        res.on('data', (c) => (body += c));
-        res.on('end', () => {
-          try {
-            const json = JSON.parse(body);
-            if (json.status !== 'OK') return reject(new Error(json.comment || 'Codeforces API error'));
-            resolve(json.result);
-          } catch (e) {
-            reject(e);
-          }
-        });
-      })
-      .on('error', reject);
-  });
-
-const toFileName = (title) => {
-  const words = title.replace(/\+/g, ' plus ').replace(/[^A-Za-z0-9 ]+/g, ' ').trim().split(/\s+/).filter(Boolean);
-  const name = words.map((w, i) => (i === 0 ? w[0].toLowerCase() + w.slice(1) : w[0].toUpperCase() + w.slice(1))).join('');
-  return /^[0-9]/.test(name) ? `p${name}` : name || 'problem';
-};
-
 const existingDays = () =>
   fs.existsSync(DAYS)
     ? fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort()
@@ -52,19 +30,20 @@ const usedIds = (skip) => {
   const used = new Set();
   for (const d of existingDays().filter((x) => x !== skip)) {
     const set = JSON.parse(fs.readFileSync(path.join(DAYS, d, 'set.json'), 'utf-8'));
-    set.problems.forEach((p) => used.add(p.id));
+    (set.problems || []).forEach((p) => used.add(p.id));
   }
   return used;
 };
 
-const targetsFor = (dayNumber) => {
+const targetsFor = (dayNumber, cfConfig) => {
   const week = Math.floor((dayNumber - 1) / 7);
-  const base = Math.min(config.startRating + config.ratingStepPerWeek * week, config.maxRating);
-  if (week === 0) return [{ rating: base, count: config.perDay }];
-  const stretch = Math.min(config.stretchCount, config.perDay);
+  const base = Math.min(cfConfig.startRating + cfConfig.ratingStepPerWeek * week, cfConfig.maxRating);
+  const perDay = cfConfig.perDay || 10;
+  if (week === 0) return [{ rating: base, count: perDay }];
+  const stretch = Math.min(cfConfig.stretchCount || 3, perDay);
   return [
-    { rating: base, count: config.perDay - stretch },
-    { rating: Math.min(base + 100, config.maxRating), count: stretch },
+    { rating: base, count: perDay - stretch },
+    { rating: Math.min(base + 100, cfConfig.maxRating), count: stretch },
   ];
 };
 
@@ -72,98 +51,234 @@ const renderReadme = (set) => {
   const lines = [
     `# Day ${set.day} — ${set.date}`,
     '',
-    `Target: ${set.targets.map((t) => `${t.count} × ${t.rating}`).join(', ')}`,
+    `**Curriculum Platforms:** ${set.platforms.join(', ')}`,
+    `**Total Problems:** ${set.problems.length}`,
     '',
-    'Solve each one yourself first. Create `<file>.js` at the repo root from `cp.js`, then check it:',
+    'Solve each problem at the repo root starting from the designated template, then run the verifier:',
     '',
-    '```',
+    '```bash',
     `node practice/verify ${set.date}`,
     '```',
     '',
-    'Reference solutions are in `solutions/` — open them only after an honest attempt (30–45 min).',
+    'Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagrams are in `explanations/`.',
     '',
-    '| # | Done | Problem | Rating | Tags | File |',
-    '|---|------|---------|--------|------|------|',
+    '| # | Platform | Done | Problem | Rating / Difficulty | Solution File | Template | Explanations & Diagrams |',
+    '|---|:---:|:---:|---|:---:|---|---|:---:|',
   ];
+
   set.problems.forEach((p, i) => {
-    lines.push(`| ${i + 1} | [ ] | [${p.id} ${p.name}](${p.url}) | ${p.rating} | ${p.tags.join(', ')} | \`${p.file}.js\` |`);
+    const platformBadge = `\`${p.platform}\``;
+    const docLink = `[View Docs & Diagrams](explanations/${p.file}.md)`;
+    lines.push(
+      `| ${i + 1} | ${platformBadge} | [ ] | [${p.id} — ${p.name}](${p.url}) | ${p.rating} | \`${p.file}.js\` | \`${p.template}\` | ${docLink} |`
+    );
   });
+
   return lines.join('\n') + '\n';
 };
+
+function generateExplanationDoc(problem) {
+  return `# ${problem.name} (${problem.platform} ${problem.id})
+
+## 1. Problem Overview
+- **Platform:** ${problem.platform}
+- **Problem ID:** [${problem.id}](${problem.url})
+- **Difficulty / Rating:** ${problem.rating}
+- **Tags:** ${(problem.tags || []).join(', ') || 'N/A'}
+- **Solution File:** \`${problem.file}.js\`
+- **Starter Template:** \`${problem.template}\`
+
+---
+
+## 2. Core Intuition & Mathematical Rationale
+### Key Observations
+1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
+2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
+3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
+
+\`\`\`mermaid
+flowchart TD
+    A[Start: Stream Input Instance] --> B{Validate Base Cases}
+    B -- Degenerate Case --> C[Direct O 1 Resolution]
+    B -- General Case --> D[Execute Primary Algorithm Strategy]
+    D --> E[Update State & Invariant Tracking]
+    E --> F[Output Verified Optimal Result]
+\`\`\`
+
+---
+
+## 3. Visual Step-by-Step Walkthrough
+### State Progression Matrix
+Tracing state transitions on a representative sample input:
+
+\`\`\`mermaid
+sequenceDiagram
+    participant In as Input Data
+    participant Engine as Algorithmic Engine
+    participant State as State Tracker / Invariant
+    participant Out as Output Buffer
+
+    In->>Engine: Send Input Stream
+    Engine->>State: Initialize Boundary Pointers / Accumulators
+    loop Transition Steps
+        Engine->>State: Evaluate Feasibility & Optimal Pick
+        State-->>Engine: Updated Invariant Value
+    end
+    Engine->>Out: Append Result
+\`\`\`
+
+---
+
+## 4. Algorithmic Complexity
+
+| Dimension | Bound | Proof & Rationale |
+|---|:---:|---|
+| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
+| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
+| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
+
+---
+
+## 5. Edge Cases & Boundary Conditions
+- **Minimum bounds:** Single elements, zero-values, minimal constraints.
+- **Maximum bounds:** Large scale arrays ($N = 2 \\cdot 10^5$), large values ($10^9$).
+- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \\approx 9 \\times 10^{15}$.
+
+---
+
+## 6. Idiomatic Implementation
+\`\`\`javascript
+// Reference: solutions/${problem.file}.js
+\`\`\`
+`;
+}
 
 async function main() {
   const date = flag('--date') || today();
   const dir = path.join(DAYS, date);
+
   if (fs.existsSync(path.join(dir, 'set.json')) && !args.includes('--force')) {
-    console.log(`[practice] Set for ${date} already exists: ${path.relative(process.cwd(), dir)}`);
+    console.log(`[practice] Set for ${date} already exists: ${path.relative(process.cwd(), dir)} (use --force to re-generate)`);
     return;
   }
 
   const prior = existingDays().filter((d) => d < date);
   const dayNumber = prior.length + 1;
-  const { problems, problemStatistics } = await get('https://codeforces.com/api/problemset.problems');
-  const solvedCount = new Map(problemStatistics.map((s) => [`${s.contestId}${s.index}`, s.solvedCount]));
-
   const exclude = usedIds(date);
-  if (config.handle) {
-    const subs = await get(`https://codeforces.com/api/user.status?handle=${encodeURIComponent(config.handle)}`);
-    subs.filter((s) => s.verdict === 'OK').forEach((s) => exclude.add(`${s.problem.contestId}${s.problem.index}`));
-  }
   const rootFiles = new Set(fs.readdirSync(path.join(ROOT, '..')).map((f) => f.replace(/\.js$/, '')));
 
-  const pool = problems
-    .filter((p) => p.type === 'PROGRAMMING' && p.rating)
-    .map((p) => ({
-      id: `${p.contestId}${p.index}`,
-      name: p.name,
-      rating: p.rating,
-      tags: p.tags,
-      url: `https://codeforces.com/problemset/problem/${p.contestId}/${p.index}`,
-      file: toFileName(p.name),
-      solved: solvedCount.get(`${p.contestId}${p.index}`) || 0,
-    }))
-    .filter((p) => !exclude.has(p.id) && !rootFiles.has(p.file));
+  const selectedPlatform = flag('--platform') || config.defaultPlatform || 'all';
+  const customCount = flag('--count') ? parseInt(flag('--count'), 10) : null;
 
-  const targets = targetsFor(dayNumber);
-  let chosen;
-  const forced = flag('--ids');
-  if (forced) {
-    const byId = new Map(pool.map((p) => [p.id, p]));
-    chosen = forced.split(',').map((id) => {
-      const p = byId.get(id.trim());
-      if (!p) throw new Error(`Problem ${id} not found or already used`);
-      return p;
-    });
-  } else {
-    chosen = [];
-    for (const t of targets) {
-      const candidates = pool
-        .filter((p) => p.rating === t.rating && !chosen.includes(p))
-        .sort((a, b) => b.solved - a.solved)
-        .slice(0, config.poolSize);
-      for (let i = candidates.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
-      }
-      chosen.push(...candidates.slice(0, t.count));
+  const platformsToRun =
+    selectedPlatform === 'all'
+      ? ['codeforces', 'leetcode', 'codechef']
+      : [selectedPlatform.toLowerCase()];
+
+  console.log(`[practice] Generating Day ${dayNumber} (${date}) problem set for platforms: ${platformsToRun.join(', ')} ...`);
+
+  const chosen = [];
+  const platformsIncluded = [];
+
+  for (const plat of platformsToRun) {
+    if (plat === 'codeforces') {
+      const cfConfig = config.platforms?.codeforces || {
+        startRating: 800,
+        ratingStepPerWeek: 100,
+        maxRating: 1600,
+        perDay: customCount || config.perPlatformCount || 10,
+        stretchCount: 3,
+      };
+      if (customCount) cfConfig.perDay = customCount;
+      const targets = targetsFor(dayNumber, cfConfig);
+      console.log(`[practice] Fetching Codeforces target: ${targets.map((t) => `${t.count}x${t.rating}`).join(', ')} ...`);
+      const cfProblems = await fetchCodeforcesProblems({
+        handle: config.handle,
+        usedIds: exclude,
+        rootFiles,
+        targets,
+        poolSize: config.poolSize || 200,
+      });
+      chosen.push(...cfProblems);
+      platformsIncluded.push('Codeforces');
+    } else if (plat === 'leetcode') {
+      const lcConfig = config.platforms?.leetcode || {
+        perDay: customCount || config.perPlatformCount || 10,
+        difficulty: 'Easy',
+      };
+      const count = customCount || lcConfig.perDay || 10;
+      console.log(`[practice] Fetching LeetCode ${count} problems (${lcConfig.difficulty}) ...`);
+      const lcProblems = await fetchLeetCodeProblems({
+        usedIds: exclude,
+        rootFiles,
+        count,
+        difficulty: lcConfig.difficulty || 'Easy',
+        poolSize: config.poolSize || 100,
+      });
+      chosen.push(...lcProblems);
+      platformsIncluded.push('LeetCode');
+    } else if (plat === 'codechef') {
+      const ccConfig = config.platforms?.codechef || {
+        perDay: customCount || config.perPlatformCount || 10,
+        startRating: 800,
+        endRating: 1200,
+      };
+      const count = customCount || ccConfig.perDay || 10;
+      const startRating = ccConfig.startRating || 800;
+      const endRating = ccConfig.endRating || ccConfig.maxRating || 1200;
+      console.log(`[practice] Fetching CodeChef ${count} problems (${startRating}-${endRating}) ...`);
+      const ccProblems = await fetchCodeChefProblems({
+        usedIds: exclude,
+        rootFiles,
+        count,
+        startRating,
+        endRating,
+        poolSize: config.poolSize || 100,
+      });
+      chosen.push(...ccProblems);
+      platformsIncluded.push('CodeChef');
+    } else {
+      console.warn(`[practice] Unknown platform "${plat}". Skipping.`);
     }
   }
+
+  const solutionsDir = path.join(dir, 'solutions');
+  const testsDir = path.join(dir, 'tests');
+  const explanationsDir = path.join(dir, 'explanations');
+
+  fs.mkdirSync(solutionsDir, { recursive: true });
+  fs.mkdirSync(testsDir, { recursive: true });
+  fs.mkdirSync(explanationsDir, { recursive: true });
 
   const set = {
     date,
     day: dayNumber,
-    targets,
-    problems: chosen.map(({ solved, ...p }) => p),
+    platforms: platformsIncluded,
+    problems: chosen,
   };
-  fs.mkdirSync(path.join(dir, 'solutions'), { recursive: true });
-  fs.mkdirSync(path.join(dir, 'tests'), { recursive: true });
+
   fs.writeFileSync(path.join(dir, 'set.json'), JSON.stringify(set, null, 2) + '\n');
   fs.writeFileSync(path.join(dir, 'README.md'), renderReadme(set));
-  console.log(`[practice] Day ${dayNumber} (${date}): ${set.problems.length} problems`);
-  set.problems.forEach((p) => console.log(`  ${p.id.padEnd(7)} ${String(p.rating).padEnd(5)} ${p.name}  ->  ${p.file}.js`));
+
+  // Generate explanation templates for any problem that doesn't have one
+  let createdDocs = 0;
+  for (const prob of chosen) {
+    const docPath = path.join(explanationsDir, `${prob.file}.md`);
+    if (!fs.existsSync(docPath)) {
+      fs.writeFileSync(docPath, generateExplanationDoc(prob), 'utf-8');
+      createdDocs++;
+    }
+  }
+
+  console.log(`[practice] Successfully generated set for ${date}:`);
+  console.log(`  - Total problems: ${set.problems.length}`);
+  console.log(`  - Platforms: ${platformsIncluded.join(', ')}`);
+  console.log(`  - Explanation docs created: ${createdDocs}`);
+  console.log(`  - Manifest: ${path.relative(process.cwd(), path.join(dir, 'set.json'))}`);
+  console.log(`  - Checklist: ${path.relative(process.cwd(), path.join(dir, 'README.md'))}`);
 }
 
-main().catch((e) => {
-  console.error(`[practice] ${e.message}`);
+main().catch((err) => {
+  console.error(`[practice] Error: ${err.message}`);
   process.exit(1);
 });
