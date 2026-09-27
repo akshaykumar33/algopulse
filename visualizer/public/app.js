@@ -352,6 +352,8 @@ async function loadDays() {
   const data = await api('/api/days');
   state.days = data.days;
   state.streak = data.streak;
+  state.progress = data.progress;
+  renderPlayer();
   applyAiStatus(data.ai);
   renderStreak();
 
@@ -1537,8 +1539,14 @@ async function verifyDay() {
     const before = state.problems.filter((p) => p.done).length;
     await loadDay(state.date, { keepFile: state.file, keepTab: state.tab });
     const after = state.problems.filter((p) => p.done).length;
+    const gained = await refreshProgress();
     if (after > before) {
-      toast(`${after - before} problem${after - before === 1 ? '' : 's'} marked solved.`);
+      const xp = gained.xp > 0 ? ` +${gained.xp} XP` : '';
+      toast(`${after - before} problem${after - before === 1 ? '' : 's'} marked solved.${xp}`);
+      celebrate();
+    }
+    if (gained.levelUp) {
+      toast(`Level up! You're now level ${state.progress.level.level} · ${state.progress.rank.title}.`);
       celebrate();
     }
   } catch (err) {

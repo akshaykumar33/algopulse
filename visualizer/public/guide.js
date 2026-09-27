@@ -32,6 +32,94 @@ function renderStreak() {
 }
 
 /* ==========================================================================
+   Game layer: player card, achievements, XP refresh
+   ========================================================================== */
+const QUEST_ICONS = { 'warm-up': 'ph-sun-horizon', 'hat-trick': 'ph-target', 'triple-crown': 'ph-crown', 'full-clear': 'ph-medal' };
+
+function renderPlayer() {
+  const p = state.progress;
+  const el = $('#player');
+  if (!p) return;
+  el.hidden = false;
+  const pct = Math.round((p.level.into / p.level.span) * 100);
+  el.innerHTML = `
+    <button class="player-head" type="button" data-open-guide="progress" aria-label="Level ${p.level.level}, ${escapeHtml(p.rank.title)}. ${p.xp} XP. Open achievements.">
+      <span class="player-level rank-${p.rank.tone}">${p.level.level}</span>
+      <span class="player-meta">
+        <strong class="rank-text rank-${p.rank.tone}">${escapeHtml(p.rank.title)}</strong>
+        <span class="player-xp">${p.xp.toLocaleString()} XP${p.xpToday ? ` · <em>+${p.xpToday} today</em>` : ''}</span>
+      </span>
+      <i class="ph-duotone ph-trophy" aria-hidden="true"></i>
+    </button>
+    <div class="xp-bar" role="progressbar" aria-label="XP to level ${p.level.level + 1}" aria-valuemin="0" aria-valuemax="${p.level.span}" aria-valuenow="${p.level.into}">
+      <span style="width:${pct}%"></span>
+    </div>
+    <p class="xp-next">${p.level.span - p.level.into} XP to level ${p.level.level + 1}${p.nextRank ? ` · ${escapeHtml(p.nextRank.title)} at level ${p.nextRank.minLevel}` : ''}</p>
+    <ul class="quests" aria-label="Today's quests">
+      ${p.quests
+        .map(
+          (q) => `<li class="quest ${q.done ? 'is-done' : ''}" title="${escapeHtml(q.description)} · +${q.xp} XP">
+            <i class="ph-duotone ${QUEST_ICONS[q.id]}" aria-hidden="true"></i>
+            <span class="quest-title">${escapeHtml(q.title)}</span>
+            <span class="quest-count">${q.done ? '✓' : `${q.current}/${q.target || '–'}`}</span>
+          </li>`
+        )
+        .join('')}
+    </ul>`;
+}
+
+// Re-read progress after a verify; returns what changed so the caller can celebrate.
+async function refreshProgress() {
+  const prev = state.progress;
+  try {
+    const data = await api('/api/days');
+    state.streak = data.streak;
+    state.progress = data.progress;
+    renderPlayer();
+    renderStreak();
+  } catch {
+    return { xp: 0, levelUp: false };
+  }
+  if (!prev) return { xp: 0, levelUp: false };
+  return { xp: state.progress.xp - prev.xp, levelUp: state.progress.level.level > prev.level.level };
+}
+
+function guideProgress() {
+  const p = state.progress;
+  if (!p) return '<p>Progress is loading…</p>';
+  const unlocked = p.achievements.filter((a) => a.unlocked).length;
+  const ranks = [
+    ['Newbie', 1, 'gray'], ['Pupil', 3, 'green'], ['Specialist', 6, 'cyan'], ['Expert', 10, 'blue'],
+    ['Candidate Master', 15, 'violet'], ['Master', 20, 'orange'], ['Grandmaster', 30, 'red'],
+  ];
+  return `
+    <h2 class="guide-h">Your progress</h2>
+    <p class="guide-lead">Level ${p.level.level} · <strong class="rank-text rank-${p.rank.tone}">${escapeHtml(p.rank.title)}</strong> · ${p.xp.toLocaleString()} XP · ${p.solvedTotal} solved · ${unlocked}/${p.achievements.length} achievements.</p>
+    <h3 class="guide-sub"><i class="ph-duotone ph-medal" aria-hidden="true"></i>Achievements</h3>
+    <ul class="achievements">${p.achievements
+      .map(
+        (a) => `<li class="achievement ${a.unlocked ? 'is-unlocked' : ''}">
+          <i class="ph-duotone ph-${a.icon}" aria-hidden="true"></i>
+          <strong>${escapeHtml(a.title)}</strong>
+          <span>${escapeHtml(a.description)}</span>
+          <span class="achievement-progress">${a.unlocked ? 'Unlocked' : `${a.current} / ${a.target}`}</span>
+        </li>`
+      )
+      .join('')}</ul>
+    <h3 class="guide-sub"><i class="ph-duotone ph-ranking" aria-hidden="true"></i>How XP works</h3>
+    <ul class="tool-list">
+      <li>Each verified solve earns <strong>10 XP + half its difficulty level</strong> (Codeforces 800 = level 0, +4 levels per 100 rating), so harder problems pay more.</li>
+      <li>Daily quests add bonuses: Warm up +10, Hat-trick +25, Triple crown +40, Full clear +100.</li>
+      <li>Level <em>L</em> starts at 50·<em>L</em>·(<em>L</em>−1) XP: 100, 300, 600, 1000…</li>
+      <li>Everything is computed from your verified history (the <code>[x]</code> marks), so it can never drift.</li>
+    </ul>
+    <h3 class="guide-sub"><i class="ph-duotone ph-steps" aria-hidden="true"></i>Ranks</h3>
+    <ol class="rank-ladder">${ranks
+      .map(([t, lvl, tone]) => `<li class="${t === p.rank.title ? 'is-current' : ''}"><span class="rank-text rank-${tone}">${t}</span><span>level ${lvl}+</span></li>`)
+      .join('')}</ol>`;
+}
+
+/* ==========================================================================
    Guide
    ========================================================================== */
 const PROVIDER_INFO = {
@@ -67,6 +155,7 @@ const PROVIDER_INFO = {
 
 const GUIDE_SECTIONS = [
   { id: 'welcome', icon: 'ph-hand-waving', label: 'Welcome' },
+  { id: 'progress', icon: 'ph-trophy', label: 'Progress & achievements' },
   { id: 'ai', icon: 'ph-sparkle', label: 'Choose your AI' },
   { id: 'how', icon: 'ph-gear-six', label: 'How it works' },
   { id: 'mcp', icon: 'ph-plugs-connected', label: 'Use with Claude (MCP)' },
@@ -264,7 +353,7 @@ function guideKeys() {
     <dl class="keys">${keys.map(([k, d]) => `<div><dt>${k}</dt><dd>${d}</dd></div>`).join('')}</dl>`;
 }
 
-const GUIDE_RENDER = { welcome: guideWelcome, ai: guideAi, how: guideHow, mcp: guideMcp, reminders: guideReminders, data: guideData, keys: guideKeys };
+const GUIDE_RENDER = { welcome: guideWelcome, ai: guideAi, how: guideHow, mcp: guideMcp, reminders: guideReminders, progress: guideProgress, data: guideData, keys: guideKeys };
 
 function renderGuideSection(id) {
   const body = $('#guideBody');
@@ -385,6 +474,7 @@ const TOUR = [
   { sel: '#tab-tests', tab: 'tests', title: 'Test it right here', text: 'Run every sample, or throw any input at it in the Playground with an optional expected output.' },
   { sel: '#btnVerifyDay', title: 'Mark it solved', text: 'Verify day runs the official checker and ticks off everything that passes.' },
   { sel: '#btnCoach', title: 'Stuck? Ask the coach', text: 'Hints without spoilers, grounded in the real solution and your own past notes.' },
+  { sel: '#player', title: 'Level up', text: 'Every verified solve earns XP — harder problems pay more. Finish daily quests for bonuses and climb from Newbie to Grandmaster.' },
   { sel: '#streakBadge', title: 'Keep your streak', text: 'Solve at least one problem a day. Set a reminder in the Guide so you never miss one.' },
   { sel: '#btnGuide', title: 'Help is always here', text: 'Open the Guide any time (G) to set up your AI, reminders, or connect Claude via MCP.' },
 ];
