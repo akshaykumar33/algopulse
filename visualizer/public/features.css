@@ -557,6 +557,97 @@
   .welcome p { margin: var(--s-1) 0 var(--s-3); }
 }
 
+/* ==========================================================================
+   Game layer: player card, quests, achievements, rank colours
+   ========================================================================== */
+@layer components {
+  /* Codeforces-style rank colours, tuned for contrast on both themes. */
+  .rank-gray { --rank: oklch(55% 0.01 60); }
+  .rank-green { --rank: oklch(55% 0.13 145); }
+  .rank-cyan { --rank: oklch(58% 0.1 200); }
+  .rank-blue { --rank: oklch(52% 0.15 255); }
+  .rank-violet { --rank: oklch(52% 0.17 305); }
+  .rank-orange { --rank: oklch(62% 0.16 55); }
+  .rank-red { --rank: oklch(55% 0.19 25); }
+  :root[data-theme="dark"] .rank-text { filter: brightness(1.45); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rank-text { filter: brightness(1.45); } }
+  .rank-text { color: var(--rank); font-weight: 800; }
+
+  .player {
+    display: grid;
+    gap: var(--s-2);
+    padding: var(--s-3) var(--s-4) var(--s-4);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(260px 120px at 100% 0%, color-mix(in oklch, var(--caramel) 18%, transparent), transparent 70%),
+      var(--surface);
+    box-shadow: var(--shadow-sm);
+  }
+  .player-head { display: flex; align-items: center; gap: var(--s-3); min-height: 2.75rem; text-align: left; border-radius: var(--r-md); }
+  .player-head > i { margin-left: auto; font-size: 1.4rem; color: var(--caramel-text); transition: transform var(--t-ui) var(--ease-pop); }
+  .player-head:hover > i { transform: rotate(-10deg) scale(1.1); }
+  .player-level {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: var(--rank);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: var(--fs-20);
+    font-weight: 800;
+    box-shadow: inset 0 -3px 0 oklch(0% 0 0 / 0.18);
+  }
+  .player-meta { display: grid; line-height: 1.25; }
+  .player-xp { font-size: var(--fs-12); font-weight: 700; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .player-xp em { font-style: normal; color: var(--moss); }
+  .xp-bar { height: 8px; border-radius: var(--r-pill); background: var(--surface-sunk); overflow: hidden; }
+  .xp-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--caramel), oklch(72% 0.15 75)); transition: width 700ms var(--ease-out); }
+  .xp-next { font-size: var(--fs-12); color: var(--text-faint); }
+  .quests { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-1); margin-top: var(--s-1); }
+  .quest {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+    padding: var(--s-1) var(--s-2);
+    border-radius: var(--r-sm);
+    background: var(--surface-2);
+    font-size: var(--fs-12);
+    font-weight: 700;
+    color: var(--text-muted);
+    min-width: 0;
+  }
+  .quest i { font-size: 1rem; flex: none; }
+  .quest-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .quest-count { margin-left: auto; font-variant-numeric: tabular-nums; }
+  .quest.is-done { background: var(--moss-soft); color: var(--moss); }
+
+  .achievements { list-style: none; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr)); }
+  .achievement {
+    display: grid;
+    gap: 2px;
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    border: 1px dashed var(--border-strong);
+    background: var(--surface-2);
+    color: var(--text-muted);
+    opacity: 0.8;
+  }
+  .achievement i { font-size: 1.9rem; margin-bottom: var(--s-1); }
+  .achievement strong { color: var(--text); }
+  .achievement span { font-size: var(--fs-14); }
+  .achievement-progress { margin-top: var(--s-2); font-size: var(--fs-12) !important; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .achievement.is-unlocked { opacity: 1; border-style: solid; border-color: color-mix(in oklch, var(--caramel) 55%, var(--border)); background: var(--surface); box-shadow: var(--shadow-sm); }
+  .achievement.is-unlocked i { color: var(--caramel-text); }
+  .achievement.is-unlocked .achievement-progress { color: var(--moss); }
+  .rank-ladder { list-style: none; padding: 0; display: grid; gap: var(--s-1); max-width: 26rem; }
+  .rank-ladder li { display: flex; justify-content: space-between; padding: var(--s-2) var(--s-3); border-radius: var(--r-sm); font-size: var(--fs-14); }
+  .rank-ladder li span:last-child { color: var(--text-faint); }
+  .rank-ladder li.is-current { background: var(--caramel-soft); }
+}
+
 @keyframes flicker {
   0%, 100% { transform: scale(1) rotate(0); }
   30% { transform: scale(1.08) rotate(-4deg); }

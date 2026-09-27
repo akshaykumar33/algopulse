@@ -108,6 +108,7 @@ const routes = {
       };
     }),
     streak: store.streaks(),
+    progress: store.progress(),
     ai: ai.status(),
   }),
 
