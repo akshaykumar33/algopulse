@@ -15,7 +15,13 @@
     "pick:cc": "node practice/pick.js --platform codechef",
     "verify": "node practice/verify.js",
     "verify:ref": "node practice/verify.js --ref",
-    "explain": "node practice/explain.js"
+    "explain": "node practice/explain.js",
+    "visualizer": "node visualizer/server.js",
+    "dashboard": "node visualizer/server.js",
+    "view": "node visualizer/server.js",
+    "mcp": "node practice/mcp/server.js",
+    "remind": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind.ps1",
+    "remind:install": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind-install.ps1"
   },
   "keywords": [
     "competitive-programming",
@@ -33,5 +39,8 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0"
   }
 }

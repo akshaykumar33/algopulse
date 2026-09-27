@@ -104,6 +104,30 @@ node practice/explain onlyPluses
 
 Explanations are located in `practice/days/<date>/explanations/<problem>.md`.
 
+### 5. AlgoPulse Studio (dashboard)
+
+```bash
+npm install     # once — only needed for the Claude provider
+npm run view    # → http://localhost:3333
+```
+
+Everything for a problem in one place: a plain-language **Story** with a step-by-step trace of a real sample, the **Walkthrough** and **Diagrams**, an interactive **Visualize** tab, an in-browser **Code** editor ("Create my file" writes `<problem>.js` from the template), and **Tests** — every sample plus a playground for your own inputs. Press `G` in the app for the Guide, or take the built-in tour.
+
+**AI coach — bring your own key.** Pick a provider in the Guide and add its key to `.env` (gitignored):
+
+| Provider | `.env` | Notes |
+|---|---|---|
+| Gemini | `GEMINI_API_KEY=…` | Free tier |
+| Claude | `ANTHROPIC_API_KEY=…` | Default model `claude-opus-5` |
+| OpenAI | `OPENAI_API_KEY=…`, `OPENAI_MODEL=…` | |
+| Ollama | none — run `ollama serve` | Free, fully offline |
+
+Prompts are grounded in the reference solution and samples; the coach also retrieves your own past notes (BM25, local), and every answer is cached in `.cache/ai/`. Story traces are checked against the sample output and badged ✓/⚠.
+
+**MCP:** `.mcp.json` registers `practice/mcp/server.js`, so Claude Code (and Claude Desktop — config in the Guide) can list days, read problems, run your tests and search your notes.
+
+**Reminders:** `npm run remind:install -- -Time 18:30` schedules a daily Windows toast with an *Open studio* button (`-Remove` to uninstall; `npm run remind` to test). The header tracks your solving streak.
+
 ---
 
 ## 📊 Visual Explanation & Mermaid Diagrams

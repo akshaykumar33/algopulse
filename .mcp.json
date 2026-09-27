@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "algopulse": {
+      "command": "node",
+      "args": ["practice/mcp/server.js"]
+    }
+  }
+}

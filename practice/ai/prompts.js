@@ -1,0 +1,180 @@
+/**
+ * The three AI jobs — walkthrough doc, layman story + trace, and coach answers — written
+ * once and run on whichever provider is active (practice/ai/index.js).
+ *
+ * The AI never sees the problem statement (we do not scrape it), so every prompt is
+ * grounded in what IS on disk: the verified reference solution and the sample tests.
+ * Without that grounding models guess the problem from its name and get it wrong
+ * (Gemini once turned Only Pluses' "at most 5 increments" into 9).
+ */
+
+const ai = require('./index');
+const rag = require('./rag');
+
+const norm = (s) => String(s || '').trim().split(/\r?\n/).map((l) => l.trim().split(/\s+/).join(' ')).join('\n');
+
+// Grounding goes in the system prompt: it is identical for every question about a
+// problem, so providers with prompt caching (Claude) reuse it across coach turns.
+function groundingSystem(problem, { solution, tests } = {}) {
+  const parts = [
+    `Problem: ${problem.name} (${problem.platform || 'Codeforces'} ${problem.id}), rating ${problem.rating}, tags: ${(problem.tags || []).join(', ')}. URL: ${problem.url}`,
+  ];
+  if (solution) parts.push(`Verified reference solution — ground truth; derive the problem's rules from it:\n\`\`\`javascript\n${solution.trim()}\n\`\`\``);
+  if (tests && tests.length) {
+    parts.push(
+      `Verified sample tests:\n${tests
+        .slice(0, 3)
+        .map((t, i) => `Sample ${i + 1} input:\n${t.input.trim()}\nSample ${i + 1} expected output:\n${t.output.trim()}`)
+        .join('\n\n')}`
+    );
+  }
+  if (!solution && !(tests && tests.length)) parts.push('No solution or tests are available: you do NOT know the exact statement.');
+  parts.push(`Accuracy rules, which override everything else:
+- Never invent constraints, operation counts or limits. State only what the material above proves; otherwise say "check the statement".
+- Mermaid: wrap EVERY node label in double quotes, e.g. A["Find min of a, b, c"]; use only flowchart TD/LR, sequenceDiagram or stateDiagram-v2; no HTML, no classDef.
+- Markdown tables: never pad cells with spaces or long dash runs; use "| --- |" separators.`);
+  return parts.join('\n\n');
+}
+
+// Models sometimes wrap a whole document in ```markdown or pad tables until they hit
+// the token cap. Unwrap, collapse padding, and refuse output that is still degenerate.
+function tidyMarkdown(text) {
+  const fenced = text.trim().match(/^```(?:markdown|md)?\s*\n([\s\S]*?)\n```\s*$/);
+  const lines = (fenced ? fenced[1] : text.trim())
+    .split('\n')
+    .map((line) => (line.trimStart().startsWith('|') ? line.replace(/ {2,}/g, ' ').replace(/-{4,}/g, '---') : line));
+  const worst = Math.max(...lines.map((l) => l.length));
+  if (worst > 4000) throw new Error(`degenerate output (a ${worst}-character line)`);
+  return lines.join('\n');
+}
+
+async function generateExplanation(problem, grounding, { cache = true } = {}) {
+  const platform = problem.platform || 'Codeforces';
+  const prompt = `Write a study note in GitHub Flavored Markdown for this problem. Pure Markdown, no preamble, exactly this structure:
+
+# ${problem.name} (${platform} ${problem.id})
+
+## 1. Problem Overview
+Bullets: Platform, Problem ID as a link to the URL, Rating, Tags, Solution File \`solutions/${problem.file}.js\`. Then a 2-sentence summary of what is computed.
+
+## 2. Core Intuition & Mathematical Rationale
+The key observation, why the approach is optimal, why naive alternatives fail. Use $...$ for math. One Mermaid flowchart of the decision structure.
+
+## 3. Visual Step-by-Step Walkthrough
+Trace one real sample input step by step (every number must match its expected output), then one Mermaid sequenceDiagram of the same trace.
+
+## 4. Algorithmic Complexity
+Four bullets (no table): time per test, total time, space, recursion depth — each with the arithmetic.
+
+## 5. Edge Cases & Boundary Conditions
+Minimum/maximum inputs, degenerate shapes, and the exact maximum of every accumulator vs. 2^53 - 1.
+
+## 6. Reference Implementation
+Node.js reading all of stdin with fs.readFileSync(0, 'utf-8') (never '/dev/stdin' — it fails on Windows), buffering output and printing once. No filler variables, no watermarks.`;
+
+  const res = await ai.complete({ system: groundingSystem(problem, grounding), prompt, maxTokens: 20000, cache });
+  const doc = tidyMarkdown(res.text);
+  // A doc that silently dropped sections is worse than the offline template — reject it.
+  const missing = [1, 2, 3, 4, 5, 6].filter((n) => !new RegExp(`^## ${n}\\.`, 'm').test(doc));
+  if (missing.length) throw new Error(`incomplete document (missing section ${missing.join(', ')})`);
+  return doc;
+}
+
+// Standard JSON Schema; every object closed and every property required, which is what
+// OpenAI strict mode and Claude structured outputs demand. Gemini's adapter converts it.
+const STORY_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['title', 'keyIdea', 'story', 'traceInput', 'steps', 'finalOutput'],
+  properties: {
+    title: { type: 'string', description: 'A whimsical storybook title, max 8 words' },
+    keyIdea: { type: 'string', description: 'The single insight that cracks the problem, one plain-English sentence' },
+    story: { type: 'string', description: 'Markdown, 150-280 words: an everyday analogy a non-programmer understands, then how it maps to the problem' },
+    traceInput: { type: 'string', description: 'The exact single test case being traced, copied from a real sample' },
+    steps: {
+      type: 'array',
+      description: '4 to 12 steps tracing the reference solution on traceInput',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['title', 'narration', 'vars', 'focus'],
+        properties: {
+          title: { type: 'string', description: 'Short step title, max 6 words' },
+          narration: { type: 'string', description: 'One or two friendly sentences: what happens and why' },
+          vars: {
+            type: 'array',
+            description: 'Program state after this step. Arrays/strings as JSON text, e.g. "[3,1,2]"',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              required: ['name', 'value'],
+              properties: { name: { type: 'string' }, value: { type: 'string' } },
+            },
+          },
+          focus: { type: 'array', items: { type: 'string' }, description: 'Names of vars that changed or matter in this step' },
+        },
+      },
+    },
+    finalOutput: { type: 'string', description: 'What the reference solution prints for traceInput' },
+  },
+};
+
+/**
+ * Layman story + a JSON trace of one real sample test case. The trace's final output is
+ * checked against the samples' expected outputs, so a hallucinated trace is flagged
+ * instead of being presented as truth.
+ */
+async function generateStory(problem, grounding, { cache = true } = {}) {
+  const prompt = `You are a warm storyteller who explains competitive programming problems to complete beginners, like a Studio Ghibli narrator.
+
+- The story uses a concrete everyday analogy (baking, gardens, trains, shops…) and plain words; explain any jargon.
+- traceInput must be ONE test case copied from a real sample (if the sample starts with a test count t, pick one case and drop t).
+- Trace the reference solution faithfully on traceInput: every value in vars must be what the code would really hold.
+- finalOutput must equal what the reference solution prints for traceInput.
+Return JSON matching the schema.`;
+
+  const res = await ai.complete({ system: groundingSystem(problem, grounding), prompt, schema: STORY_SCHEMA, maxTokens: 12000, cache });
+  let story;
+  try {
+    story = JSON.parse(res.text.trim().replace(/^```(?:json)?\s*|\s*```$/g, ''));
+  } catch {
+    throw new Error('the model returned malformed JSON for the story');
+  }
+  if (!Array.isArray(story.steps) || story.steps.length === 0) throw new Error('the story has no trace steps');
+
+  const expectedLines = (grounding.tests || []).flatMap((t) => norm(t.output).split('\n'));
+  const got = norm(story.finalOutput);
+  story.verified = expectedLines.length > 0 && got !== '' && got.split('\n').every((line) => expectedLines.includes(line));
+  story.provider = res.provider;
+  story.model = res.model;
+  story.generatedAt = new Date().toISOString();
+  return story;
+}
+
+async function ask(problem, question, grounding) {
+  // RAG: pull the most relevant notes from OTHER problems in your practice history.
+  const related = rag.search(`${question} ${problem.name} ${(problem.tags || []).join(' ')}`, { k: 3, excludeFile: problem.file, minScore: 5 });
+  const memory = related.length
+    ? `\n\nNotes from the student's own past practice (use only if genuinely relevant, and name the problem when you do):\n${related
+        .map((r) => `--- ${r.title}\n${r.text.slice(0, 1200)}`)
+        .join('\n')}`
+    : '';
+
+  const prompt = `You are a patient competitive programming coach. If the student asks for a hint, give a hint — not the full solution — unless they explicitly ask for it.${memory}
+
+Student question:
+${question}
+
+Answer concisely in Markdown. Use $...$ for math and a small Mermaid diagram only if it genuinely clarifies.`;
+
+  const res = await ai.complete({ system: groundingSystem(problem, grounding), prompt, maxTokens: 6000 });
+  return {
+    answer: tidyMarkdown(res.text),
+    provider: res.provider,
+    model: res.model,
+    cached: res.cached,
+    sources: related.map((r) => ({ title: r.title, date: r.date, file: r.file, kind: r.kind })),
+  };
+}
+
+module.exports = { generateExplanation, generateStory, ask, STORY_SCHEMA };
