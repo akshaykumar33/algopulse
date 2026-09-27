@@ -1585,25 +1585,43 @@ function renderCoachLog() {
   }
 
   const history = state.chats.get(p.file) || [];
+  $('#coach').classList.toggle('is-empty', history.length === 0);
   log.innerHTML = history.length
     ? ''
-    : `<div class="msg coach"><div class="msg-who">Coach</div><div class="msg-body"><p>Stuck on <strong>${escapeHtml(displayName(p.name))}</strong>? Ask for a hint and I'll nudge without spoiling it. I can see the reference solution and the samples, so I won't guess the rules.</p></div></div>`;
+    : `<div class="coach-welcome">
+        <svg class="coach-welcome-logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-logo"/></svg>
+        <h3>Stuck on ${escapeHtml(displayName(p.name))}?</h3>
+        <p>I nudge without spoiling. I can see the verified solution and the samples, so I never guess the rules.</p>
+        <div class="coach-suggest">
+          <button type="button" data-q="Give me a small hint without spoiling the solution."><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i><strong>Just a hint</strong><span>A nudge, no spoilers</span></button>
+          <button type="button" data-q="Explain this problem like I'm 10 years old, with an everyday analogy."><i class="ph-duotone ph-baby" aria-hidden="true"></i><strong>Explain like I'm 10</strong><span>Plain words, one analogy</span></button>
+          <button type="button" data-q="Why is this approach correct? Give the key invariant or exchange argument."><i class="ph-duotone ph-seal-check" aria-hidden="true"></i><strong>Why it works</strong><span>The key insight, proved</span></button>
+          <button type="button" data-q="Which edge cases usually cause wrong answers here?"><i class="ph-duotone ph-warning-diamond" aria-hidden="true"></i><strong>Edge cases</strong><span>Where solutions break</span></button>
+        </div>
+      </div>`;
   history.forEach((m) => appendMessage(m.role, m.text, { store: false }));
 }
+
+const COACH_AVATAR = '<svg class="msg-avatar" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-logo"/></svg>';
 
 function appendMessage(role, text, { store = true } = {}) {
   const log = $('#coachLog');
   const el = document.createElement('div');
   el.className = `msg ${role}`;
-  el.innerHTML = `<div class="msg-who">${role === 'user' ? 'You' : 'Coach'}</div><div class="msg-body"></div>`;
+  el.innerHTML = role === 'user'
+    ? '<div class="msg-main"><div class="msg-body"></div></div>'
+    : `${COACH_AVATAR}<div class="msg-main"><div class="msg-who">Coach</div><div class="msg-body chat-prose"></div>
+        <div class="msg-actions"><button class="btn btn-ghost btn-sm" type="button" data-copy="${escapeHtml(text.replace(/<sub>[\s\S]*?<\/sub>\s*$/, '').trim())}">${icon('copy')}<span>Copy</span></button></div></div>`;
   const body = $('.msg-body', el);
   if (role === 'user') body.textContent = text;
   else {
     body.innerHTML = renderMarkdown(text);
     enhance(body);
   }
+  $('#coach').classList.remove('is-empty');
   log.append(el);
-  log.scrollTop = log.scrollHeight;
+  // Long answers are read from the top: bring the start of a coach reply into view.
+  log.scrollTop = role === 'user' ? log.scrollHeight : Math.max(0, el.offsetTop - log.offsetTop - 12);
 
   if (store) {
     const p = current();
@@ -1623,7 +1641,8 @@ async function ask(question) {
 
   const typing = document.createElement('div');
   typing.className = 'msg coach';
-  typing.innerHTML = `<div class="msg-who">Coach</div><div class="msg-body"><span class="typing" aria-label="Coach is thinking"><i></i><i></i><i></i></span></div>`;
+  typing.innerHTML = `${COACH_AVATAR}<div class="msg-main"><div class="msg-who">Coach</div><div class="msg-body"><span class="typing" aria-label="Coach is thinking"><i></i><i></i><i></i><span class="typing-text">Thinking…</span></span></div></div>`;
+  $('#coach').classList.remove('is-empty');
   $('#coachLog').append(typing);
   $('#coachLog').scrollTop = $('#coachLog').scrollHeight;
   $('#btnAsk').disabled = true;
@@ -1811,9 +1830,10 @@ function bindEvents() {
   $('#btnCoach').addEventListener('click', openCoach);
   $('#btnCloseCoach').addEventListener('click', () => $('#coach').close());
   closeOnBackdrop($('#coach'));
-  $('#coachPrompts').addEventListener('click', (e) => {
+  // Quick prompts: the chip row and the welcome suggestion cards.
+  $('#coach').addEventListener('click', (e) => {
     const chip = e.target.closest('[data-q]');
-    if (chip) ask(chip.dataset.q);
+    if (chip && !chip.disabled) ask(chip.dataset.q);
   });
   $('#coachForm').addEventListener('submit', (e) => {
     e.preventDefault();

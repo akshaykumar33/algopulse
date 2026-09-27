@@ -651,6 +651,120 @@
   .rank-ladder li.is-current { background: var(--caramel-soft); }
 }
 
+/* ==========================================================================
+   Coach — spacious chat: wide sheet, avatar + readable answers, user bubbles
+   ========================================================================== */
+@layer components {
+  dialog.coach { width: min(46rem, 100vw); }
+  @media (min-width: 64rem) { dialog.coach { width: clamp(34rem, 44vw, 46rem); } }
+  .coach-head { padding: max(var(--s-5), env(safe-area-inset-top)) var(--s-6) var(--s-4); background: var(--surface); }
+  .coach-log {
+    gap: var(--s-8);
+    padding: var(--s-8) clamp(var(--s-4), 4vw, var(--s-8));
+    scroll-behavior: smooth;
+  }
+
+  .msg { max-width: none; display: flex; gap: var(--s-3); align-items: flex-start; }
+  .msg-main { min-width: 0; flex: 1; display: grid; gap: var(--s-2); }
+  .msg-avatar { flex: none; width: 2.25rem; height: 2.25rem; margin-top: 2px; }
+  .msg-who { margin: 0; font-size: var(--fs-14); font-weight: 800; letter-spacing: 0; color: var(--text); }
+
+  .msg.user { justify-content: flex-end; }
+  .msg.user .msg-main { flex: 0 1 auto; max-width: min(85%, 34rem); }
+  .msg.user .msg-body {
+    padding: var(--s-3) var(--s-5);
+    border-radius: var(--r-xl);
+    border-bottom-right-radius: 6px;
+    background: var(--choc);
+    color: var(--on-choc);
+    font-size: var(--fs-16);
+    line-height: 1.55;
+    white-space: pre-wrap;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Coach answers: no cramped bubble, just well-set text beside the avatar. */
+  .msg.coach .msg-body { padding: 0; border: 0; background: none; font-size: 1rem; line-height: 1.7; }
+  .chat-prose > * + * { margin-top: var(--s-3); }
+  .chat-prose h1, .chat-prose h2, .chat-prose h3, .chat-prose h4 {
+    margin-top: var(--s-5);
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 100;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .chat-prose > :first-child { margin-top: 0; }
+  .chat-prose h1, .chat-prose h2 { font-size: var(--fs-20); }
+  .chat-prose h3, .chat-prose h4 { font-size: var(--fs-16); }
+  .chat-prose ul, .chat-prose ol { padding-left: var(--s-6); display: grid; gap: var(--s-1); }
+  .chat-prose li::marker { color: var(--caramel); }
+  .chat-prose strong { font-weight: 800; }
+  .chat-prose a { font-weight: 700; }
+  .chat-prose :not(pre) > code { font-family: var(--font-mono); font-size: 0.88em; padding: 0.1em 0.4em; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); }
+  .chat-prose pre {
+    padding: var(--s-4);
+    border-radius: var(--r-md);
+    background: var(--code-bg, oklch(24% 0.03 45));
+    color: oklch(90% 0.025 80);
+    font-family: var(--font-mono);
+    font-size: var(--fs-14);
+    line-height: 1.6;
+    white-space: pre-wrap; /* wrap long lines instead of a tiny scrollbar */
+    overflow-wrap: anywhere;
+  }
+  .chat-prose pre code { background: none; border: 0; padding: 0; }
+  .chat-prose .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface); }
+  .chat-prose table { width: 100%; border-collapse: collapse; font-size: var(--fs-14); font-variant-numeric: tabular-nums; }
+  .chat-prose th, .chat-prose td { padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--border); text-align: left; }
+  .chat-prose th { background: var(--surface-2); font-weight: 800; }
+  .chat-prose tr:last-child td { border-bottom: 0; }
+  .chat-prose blockquote { padding: var(--s-2) var(--s-4); border-left: 3px solid var(--caramel); background: var(--caramel-soft); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+  .chat-prose hr { border: 0; border-top: 1px dashed var(--border-strong); margin: var(--s-4) 0; }
+  .chat-prose sub { font-size: var(--fs-12); color: var(--text-faint); }
+  .chat-prose .diagram { margin-top: var(--s-3); }
+  .chat-prose .katex-display { overflow-x: auto; overflow-y: hidden; }
+  .msg-actions { display: flex; gap: var(--s-1); margin-left: calc(-1 * var(--s-3)); opacity: 0.75; transition: opacity var(--t-fast); }
+  .msg:hover .msg-actions, .msg-actions:focus-within { opacity: 1; }
+  .msg.error .msg-body { padding: var(--s-3) var(--s-4); border-radius: var(--r-md); background: var(--berry-soft); }
+  .typing { align-items: center; }
+  .typing-text { margin-left: var(--s-2); font-size: var(--fs-14); color: var(--text-muted); }
+
+  /* Empty state with suggestion cards; the chip row only appears once chatting. */
+  .coach-welcome { display: grid; justify-items: center; gap: var(--s-3); margin: auto 0; padding: var(--s-6) 0; text-align: center; }
+  .coach-welcome-logo { width: 4rem; height: 4rem; }
+  .coach-welcome h3 { font-family: var(--font-display); font-variation-settings: "SOFT" 100, "WONK" 1; font-size: var(--fs-25); font-weight: 700; line-height: 1.2; text-wrap: balance; }
+  .coach-welcome p { max-width: 36ch; color: var(--text-muted); }
+  .coach-suggest { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); gap: var(--s-3); width: 100%; margin-top: var(--s-3); }
+  .coach-suggest button {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--s-3);
+    align-items: center;
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    text-align: left;
+    transition: border-color var(--t-fast), transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast);
+  }
+  .coach-suggest button:hover:not(:disabled) { border-color: var(--caramel); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .coach-suggest button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .coach-suggest i { grid-row: span 2; font-size: 1.6rem; color: var(--caramel-text); }
+  .coach-suggest span { font-size: var(--fs-14); color: var(--text-muted); }
+  dialog.coach.is-empty .coach-prompts { display: none; }
+  .coach-prompts { flex-wrap: nowrap; padding: var(--s-2) var(--s-6) var(--s-3); mask-image: linear-gradient(90deg, #000 88%, transparent); }
+  .coach-form { padding: var(--s-3) var(--s-6) max(var(--s-5), env(safe-area-inset-bottom)); background: var(--surface); }
+  .coach-form textarea { min-height: 3.25rem; padding: var(--s-3) var(--s-4); border-radius: var(--r-xl); }
+  .coach-form .btn-icon { width: 3.25rem; min-height: 3.25rem; }
+  @media (max-width: 40rem) {
+    .coach-head, .coach-prompts, .coach-form { padding-inline: var(--s-4); }
+    .msg-avatar { width: 1.9rem; height: 1.9rem; }
+    .msg.user .msg-main { max-width: 90%; }
+  }
+}
+
 @keyframes flicker {
   0%, 100% { transform: scale(1) rotate(0); }
   30% { transform: scale(1.08) rotate(-4deg); }
