@@ -822,6 +822,9 @@
 .reminder-card p { overflow-wrap: anywhere; }
 /* Five workflow steps in one row when there is room, never 4 + an orphan. */
 .flow { grid-template-columns: repeat(auto-fit, minmax(min(7.25rem, 100%), 1fr)); }
+.provider-ladder { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1); font-size: var(--fs-12); color: var(--text-muted); line-height: 1.8; }
+.provider-ladder i { font-size: 1rem; color: var(--caramel-text); }
+.provider-ladder code { font-family: var(--font-mono); padding: 0 0.35em; border-radius: 5px; background: var(--surface-2); }
 /* Disclosure summaries get a visible chevron. */
 .provider-setup summary { list-style: none; gap: var(--s-2); }
 .provider-setup summary::-webkit-details-marker { display: none; }

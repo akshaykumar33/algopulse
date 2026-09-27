@@ -32,20 +32,28 @@ module.exports = {
     return Boolean(this.getKey() || env('ANTHROPIC_AUTH_TOKEN'));
   },
 
-  async complete({ system, prompt, schema, maxTokens = 16000 }) {
-    const model = this.getModel();
+  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  fallbacks() {
+    const own = env(this.fallbackEnv);
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["claude-sonnet-5","claude-haiku-4-5"];
+  },
+  fallbackEnv: 'ANTHROPIC_FALLBACK_MODELS',
+
+  async complete({ system, prompt, schema, maxTokens = 16000, model: pick }) {
+    const model = pick || this.getModel();
+    // Haiku 4.5 predates adaptive thinking and effort; it takes a thinking budget instead.
+    const legacy = /haiku-4-5/.test(model);
     // Streaming + finalMessage() avoids HTTP timeouts on long generations.
     const stream = getClient().beta.messages.stream({
       model,
       max_tokens: Math.max(maxTokens, 16000),
-      thinking: { type: 'adaptive' },
+      thinking: legacy ? { type: 'enabled', budget_tokens: 4096 } : { type: 'adaptive' },
       output_config: {
-        effort: 'high',
+        ...(legacy ? {} : { effort: 'high' }),
         ...(schema ? { format: { type: 'json_schema', schema } } : {}),
       },
       // On a policy decline, re-run server-side on Anthropic's recommended fallback model.
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
+      ...(legacy ? {} : { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default' }),
       // Stable system prompt (grounding) is cached, so follow-up coach questions are cheaper.
       cache_control: { type: 'ephemeral' },
       ...(system ? { system } : {}),

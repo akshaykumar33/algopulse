@@ -222,6 +222,7 @@ function guideAi() {
             <span class="pill soft"><code>${escapeHtml(p.model)}</code></span>
             ${isActive ? '<span class="pill ok"><i class="ph-fill ph-star" aria-hidden="true"></i>In use</span>' : ''}
           </div>
+          <p class="provider-ladder"><i class="ph-duotone ph-stairs" aria-hidden="true"></i>${p.fallbacks?.length ? `Falls back to ${p.fallbacks.map((m) => `<code>${escapeHtml(m)}</code>`).join(' → ')}` : `No fallback set — add <code>${p.id.toUpperCase()}_FALLBACK_MODELS</code> to <code>.env</code>`}</p>
           <details class="provider-setup" ${!p.configured && !activeId ? 'open' : ''}>
             <summary>How to set it up</summary>
             <ol>

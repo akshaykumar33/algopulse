@@ -30,9 +30,16 @@ module.exports = {
     return Boolean(this.getKey());
   },
 
-  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000 }) {
+  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  fallbacks() {
+    const own = env(this.fallbackEnv);
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["gemini-3.7-flash","gemini-3.6-flash","gemini-3.5-flash","gemini-2.5-flash"];
+  },
+  fallbackEnv: 'GEMINI_FALLBACK_MODELS',
+
+  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000, model: pick }) {
     const apiKey = this.getKey();
-    const model = this.getModel();
+    const model = pick || this.getModel();
     if (!apiKey) return Promise.reject(new Error('GEMINI_API_KEY is not set'));
 
     const payload = JSON.stringify({
