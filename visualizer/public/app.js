@@ -353,6 +353,7 @@ async function loadDays() {
   state.days = data.days;
   state.streak = data.streak;
   state.progress = data.progress;
+  state.ramp = data.ramp;
   renderPlayer();
   applyAiStatus(data.ai);
   renderStreak();

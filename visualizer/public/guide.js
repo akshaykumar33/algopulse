@@ -75,6 +75,7 @@ async function refreshProgress() {
     const data = await api('/api/days');
     state.streak = data.streak;
     state.progress = data.progress;
+    state.ramp = data.ramp;
     renderPlayer();
     renderStreak();
   } catch {
@@ -105,6 +106,13 @@ function guideProgress() {
           <span class="achievement-progress">${a.unlocked ? 'Unlocked' : `${a.current} / ${a.target}`}</span>
         </li>`
       )
+      .join('')}</ul>
+    <h3 class="guide-sub"><i class="ph-duotone ph-chart-line-up" aria-hidden="true"></i>Next set's difficulty</h3>
+    <p>Adaptive: a week at 70%+ steps up 100 rating; two days under 40% steps back. Unfinished days never count.</p>
+    <ul class="ramp-list">${Object.entries(state.ramp || {})
+      .map(([plat, r]) => `<li><strong>${{ codeforces: 'Codeforces', codechef: 'CodeChef', leetcode: 'LeetCode' }[plat]}</strong>
+        <span class="pill ${r.decision === 'promote' ? 'ok' : r.decision === 'step_back' ? 'warn' : 'soft'}">${plat === 'leetcode' ? r.difficulty : r.rating}${r.decision === 'promote' ? ' ↑' : r.decision === 'step_back' ? ' ↓' : ''}</span>
+        <span class="muted">${escapeHtml(r.reason)}</span></li>`)
       .join('')}</ul>
     <h3 class="guide-sub"><i class="ph-duotone ph-ranking" aria-hidden="true"></i>How XP works</h3>
     <ul class="tool-list">

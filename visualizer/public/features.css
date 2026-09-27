@@ -642,6 +642,9 @@
   .achievement.is-unlocked { opacity: 1; border-style: solid; border-color: color-mix(in oklch, var(--caramel) 55%, var(--border)); background: var(--surface); box-shadow: var(--shadow-sm); }
   .achievement.is-unlocked i { color: var(--caramel-text); }
   .achievement.is-unlocked .achievement-progress { color: var(--moss); }
+  .ramp-list { list-style: none; padding: 0; display: grid; gap: var(--s-2); }
+  .ramp-list li { display: grid; grid-template-columns: 7rem auto 1fr; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-4); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); }
+  @media (max-width: 40rem) { .ramp-list li { grid-template-columns: 1fr auto; } .ramp-list li .muted { grid-column: 1 / -1; } }
   .rank-ladder { list-style: none; padding: 0; display: grid; gap: var(--s-1); max-width: 26rem; }
   .rank-ladder li { display: flex; justify-content: space-between; padding: var(--s-2) var(--s-3); border-radius: var(--r-sm); font-size: var(--fs-14); }
   .rank-ladder li span:last-child { color: var(--text-faint); }

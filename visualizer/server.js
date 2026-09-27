@@ -109,6 +109,7 @@ const routes = {
     }),
     streak: store.streaks(),
     progress: store.progress(),
+    ramp: store.rampStatus(),
     ai: ai.status(),
   }),
 
