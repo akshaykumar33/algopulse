@@ -31,10 +31,25 @@ const problemsToVerify = filterPlatform
   ? set.problems.filter((p) => (p.platform || 'Codeforces').toLowerCase() === filterPlatform.toLowerCase())
   : set.problems;
 
-console.log(`[verify] Verifying Day ${set.day} (${date}) [${useRef ? 'Reference Solutions' : 'Active Root Solutions'}] ...`);
+console.log(`[verify] Verifying Day ${set.day} (${date}) [${useRef ? 'Reference Solutions' : 'Active Practice Attempts'}] ...`);
+
+const readmePath = path.join(dir, 'README.md');
+let readmeLines = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf-8').split(/\r?\n/) : null;
+let readmeChanged = false;
 
 for (const p of problemsToVerify) {
-  const file = useRef ? path.join(dir, 'solutions', `${p.file}.js`) : path.join(REPO, `${p.file}.js`);
+  let file = null;
+  if (useRef) {
+    file = path.join(dir, 'solutions', `${p.file}.js`);
+  } else {
+    const candidates = [
+      path.join(dir, 'attempts', `${p.file}.js`),
+      path.join(REPO, 'solutions', `${p.file}.js`),
+      path.join(REPO, `${p.file}.js`),
+    ];
+    file = candidates.find((c) => fs.existsSync(c)) || candidates[0];
+  }
+
   const testsFile = path.join(dir, 'tests', `${p.file}.json`);
   const platMap = { codeforces: 'CF', leetcode: 'LC', codechef: 'CC' };
   const plat = platMap[(p.platform || 'CF').toLowerCase()] || (p.platform || 'CF').slice(0, 2).toUpperCase();
@@ -63,6 +78,16 @@ for (const p of problemsToVerify) {
 
   if (passed === tests.length) {
     console.log(`  ✓  ${label}  ${passed}/${tests.length}  (${slowest}ms)`);
+    // Auto-update remarks in README.md: mark problem as [x]
+    if (readmeLines) {
+      readmeLines = readmeLines.map((line) => {
+        if ((line.includes(`\`${p.file}.js\``) || line.includes(`${p.id}`)) && line.includes('[ ]')) {
+          readmeChanged = true;
+          return line.replace('[ ]', '[x]');
+        }
+        return line;
+      });
+    }
   } else {
     failed++;
     const { i, t, r } = firstFailure;
@@ -72,6 +97,11 @@ for (const p of problemsToVerify) {
     console.log(`       expected: ${JSON.stringify(normalize(t.output).slice(0, 200))}`);
     console.log(`       got:      ${JSON.stringify(normalize(r.stdout || '').slice(0, 200) || (r.stderr || '').split('\n')[0])}`);
   }
+}
+
+if (readmeChanged && readmeLines) {
+  fs.writeFileSync(readmePath, readmeLines.join('\n'), 'utf-8');
+  console.log(`[verify] Automatically updated completed remarks in ${path.relative(REPO, readmePath)}`);
 }
 
 process.exit(failed ? 1 : 0);
