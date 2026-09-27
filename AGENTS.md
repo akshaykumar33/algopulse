@@ -179,15 +179,22 @@ the observed maximum sits inside the cap.
 
 To maintain a clean and scalable codebase:
 
-1. **Root Directory (`/`):**
-   - Solution files live directly at the root for instant CLI access (e.g. `node run goodContest`).
-   - Clean, universal starter template `cp.js` remains pure boilerplate.
+1. **Solutions Directory (`/solutions`):**
+   - Active problem solutions live in `solutions/<problemName>.js`, keeping the root completely clean.
+   - The runner engine (`node run <problemName>` or `.\run <problemName>`) automatically resolves files from `solutions/`, `stress/`, and the root.
+2. **Root Directory (`/`):**
+   - Universal clean starter template `cp.js` remains pure boilerplate.
    - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
    - Active sample input `input.txt` and generated `output.txt` (both strictly gitignored).
-2. **Stress Testing Directory (`/stress`):**
+3. **Templates Directory (`/templates`):**
+   - Platform-specific starter templates (`codeforces.js`, `leetcode.js`, `codechef.js`).
+4. **Stress Testing Directory (`/stress`):**
    - Place all independent brute-force references, fuzzers, and stress suites here (`stress/<problem>_stress.js`).
    - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
-3. **Filename Standards:**
+5. **Practice Directory (`/practice`):**
+   - Automated multi-platform daily curriculum (`pick.js`, `verify.js`, `explain.js`).
+   - Daily directories `practice/days/<date>/` strictly segregated into `explanations/` (Mermaid diagrams & intuitions), `solutions/` (reference), `attempts/` (practice code), and `tests/` (test cases).
+6. **Filename Standards:**
    - Solutions: Strict camelCase or PascalCase matching the problem title (e.g., `goodContest.js`, `subRbsEasyVersion.js`).
    - Stress suites: `<problem>_stress.js` or `<problem>_stress2.js`.
    - Never use special characters (parentheses, brackets, spaces) in filenames to guarantee shell compatibility across PowerShell, CMD, and Bash.
