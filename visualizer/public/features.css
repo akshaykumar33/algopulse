@@ -814,6 +814,49 @@
   @media (max-width: 40rem) { .mascot { --size: 68px; } }
   @media print { .mascot { display: none; } }
 }
+/* ---------- Guide layout fixes from the UI audit ---------- */
+/* Grid items default to min-width:auto, so a long command forced the Windows card wider
+   than its column and under the next card. Let every guide grid child shrink. */
+.reminder-grid > *, .reminder-card > *, .provider-grid > *, .provider > *, .snippet, .guide-body > * { min-width: 0; }
+.reminder-card .snippet pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.reminder-card p { overflow-wrap: anywhere; }
+/* Five workflow steps in one row when there is room, never 4 + an orphan. */
+.flow { grid-template-columns: repeat(auto-fit, minmax(min(7.25rem, 100%), 1fr)); }
+/* Disclosure summaries get a visible chevron. */
+.provider-setup summary { list-style: none; gap: var(--s-2); }
+.provider-setup summary::-webkit-details-marker { display: none; }
+.provider-setup summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform var(--t-ui) var(--ease-out); }
+.provider-setup[open] summary::before { transform: rotate(45deg); }
+@media (max-width: 47.99rem) {
+  /* Section tabs scroll sideways: fade the edge so it is obvious there is more. */
+  .guide-nav { mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: var(--s-8); }
+  .guide { width: 100vw; height: 100dvh; max-height: 100dvh; border-radius: 0; border: 0; }
+  /* The data table becomes one card per row instead of a clipped grid. */
+  .data-table thead { display: none; }
+  .data-table tr { display: grid; gap: 2px; padding: var(--s-3) var(--s-4); border-bottom: 1px solid var(--border); }
+  .data-table tr:last-child { border-bottom: 0; }
+  .data-table td { padding: 0; border: 0; overflow-wrap: anywhere; }
+  .data-table td:first-child { font-weight: 800; }
+  .data-table td:last-child { color: var(--text-muted); font-size: var(--fs-12); }
+  .keys div { grid-template-columns: 7rem 1fr; }
+}
+
+/* Pip steps aside (faded, click-through) while you type, so it never blocks a control. */
+.mascot.is-shy { opacity: 0.18; pointer-events: none; transition: opacity 200ms var(--ease-out); }
+.mascot { transition: opacity 200ms var(--ease-out); }
+
+/* Header: one row only when everything genuinely fits. Below that, brand + actions on
+   top and the day picker + progress on a second row, instead of overlapping. */
+@media (max-width: 76rem) {
+  :root { --topbar-h: 7.5rem; }
+  .topbar { flex-wrap: wrap; row-gap: var(--s-2); align-content: center; }
+  .topbar-day { order: 3; flex: 1 0 100%; justify-content: space-between; }
+  .topbar-day .picker { flex: 1; }
+  .topbar-day .picker-button { max-width: none; width: 100%; }
+  .topbar-actions { margin-left: auto; }
+  .streak-unit { display: none; }
+}
+
 @keyframes mascot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes mascot-shadow { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.82); opacity: 0.6; } }
 @media (prefers-reduced-motion: reduce) { .mascot-float, .mascot-shadow { animation: none !important; } }

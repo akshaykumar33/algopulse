@@ -208,6 +208,11 @@
       place(r.left + d[0], r.top + d[1], true);
     });
 
+    // Step aside while the user types anywhere, so Pip never covers an input or button.
+    const editable = (t) => t instanceof Element && t.matches('input:not([type=radio]):not([type=checkbox]), textarea, select, [contenteditable]');
+    document.addEventListener('focusin', (e) => el.classList.toggle('is-shy', editable(e.target)));
+    document.addEventListener('focusout', () => setTimeout(() => el.classList.toggle('is-shy', editable(document.activeElement)), 0));
+
     function toggle(force) {
       el.hidden = typeof force === 'boolean' ? !force : !el.hidden;
       save({ hidden: el.hidden });

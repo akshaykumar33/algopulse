@@ -367,7 +367,9 @@ const GUIDE_RENDER = { welcome: guideWelcome, ai: guideAi, how: guideHow, mcp: g
 function renderGuideSection(id) {
   const body = $('#guideBody');
   body.innerHTML = GUIDE_RENDER[id]();
-  $$('#guideNav [data-guide-nav]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.guideNav === id)));
+  $('#guideNav [data-guide-nav]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.guideNav === id)));
+  // On phones the section tabs scroll sideways: keep the current one in view.
+  $(`#guideNav [data-guide-nav="${id}"]`)?.scrollIntoView({ block: 'nearest', inline: 'center' });
   body.scrollTop = 0;
   motion.popIn(body);
   if (id === 'how') renderMermaid($('#howDiagram'), HOW_DIAGRAM);
