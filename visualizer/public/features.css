@@ -765,6 +765,59 @@
   }
 }
 
+/* ==========================================================================
+   Pip — floating, draggable mascot
+   ========================================================================== */
+@layer components {
+  .mascot {
+    --size: 92px;
+    position: fixed;
+    z-index: 45; /* above page content, below dialogs, toasts and the tour */
+    width: var(--size);
+    height: calc(var(--size) + 14px);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mascot:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 50%; }
+  .mascot.is-dragging { cursor: grabbing; }
+  .mascot-float { position: absolute; inset: 0 0 14px 0; animation: mascot-float 3.6s ease-in-out infinite; }
+  .mascot.is-dragging .mascot-float { animation-play-state: paused; transform: scale(1.08) rotate(-4deg); transition: transform 160ms var(--ease-out); }
+  .mascot-squash { position: absolute; inset: 0; transform-origin: 50% 78%; filter: drop-shadow(0 6px 10px hsl(var(--shadow-tint) / 0.18)); }
+  .mascot-layer {
+    position: absolute;
+    inset: 0;
+    background-size: 300% 300%;
+    background-repeat: no-repeat;
+    transition: opacity 80ms linear;
+  }
+  .mascot-dir { background-image: url("mascots/hamster-directions.webp"); }
+  .mascot-react { background-image: url("mascots/hamster-reactions.webp"); opacity: 0; }
+  .mascot.is-reacting .mascot-dir { opacity: 0; }
+  .mascot.is-reacting .mascot-react { opacity: 1; }
+  .mascot-shadow {
+    position: absolute;
+    left: 22%;
+    right: 22%;
+    bottom: 2px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(var(--shadow-tint) / 0.18);
+    filter: blur(2px);
+    animation: mascot-shadow 3.6s ease-in-out infinite;
+  }
+  .mascot.is-dragging .mascot-shadow { opacity: 0.4; }
+  @media (max-width: 40rem) { .mascot { --size: 68px; } }
+  @media print { .mascot { display: none; } }
+}
+@keyframes mascot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes mascot-shadow { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.82); opacity: 0.6; } }
+@media (prefers-reduced-motion: reduce) { .mascot-float, .mascot-shadow { animation: none !important; } }
+
 @keyframes flicker {
   0%, 100% { transform: scale(1) rotate(0); }
   30% { transform: scale(1.08) rotate(-4deg); }

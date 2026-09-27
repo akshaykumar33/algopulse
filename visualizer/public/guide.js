@@ -354,6 +354,7 @@ function guideKeys() {
     ['<kbd>C</kbd>', 'Open the coach'],
     ['<kbd>T</kbd>', 'Toggle theme'],
     ['<kbd>G</kbd>', 'Open this guide'],
+    ['<kbd>M</kbd>', 'Hide or show Pip the hamster'],
     ['<kbd>Ctrl</kbd> + <kbd>S</kbd>', 'Save your attempt'],
   ];
   return `
@@ -484,6 +485,7 @@ const TOUR = [
   { sel: '#btnCoach', title: 'Stuck? Ask the coach', text: 'Hints without spoilers, grounded in the real solution and your own past notes.' },
   { sel: '#player', title: 'Level up', text: 'Every verified solve earns XP — harder problems pay more. Finish daily quests for bonuses and climb from Newbie to Grandmaster.' },
   { sel: '#streakBadge', title: 'Keep your streak', text: 'Solve at least one problem a day. Set a reminder in the Guide so you never miss one.' },
+  { sel: '#mascot', title: 'Meet Pip', text: 'Pip watches your cursor and cheers when your tests pass. Boop Pip, drag Pip anywhere, or press M to let Pip nap.' },
   { sel: '#btnGuide', title: 'Help is always here', text: 'Open the Guide any time (G) to set up your AI, reminders, or connect Claude via MCP.' },
 ];
 
