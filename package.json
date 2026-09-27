@@ -1,20 +1,29 @@
 {
   "name": "cp-js",
-  "version": "1.0.0",
-  "description": "High-performance Competitive Programming in JavaScript (Node.js)",
+  "version": "1.1.0",
+  "description": "High-performance Multi-Platform Competitive Programming in JavaScript (Node.js) supporting Codeforces, LeetCode, and CodeChef",
   "main": "run.js",
   "scripts": {
     "start": "node run.js",
     "solve": "node run.js",
     "test": "node run.js",
-    "template": "node run.js cp"
+    "template": "node run.js cp",
+    "pick": "node practice/pick.js",
+    "pick:all": "node practice/pick.js --platform all",
+    "pick:cf": "node practice/pick.js --platform codeforces",
+    "pick:lc": "node practice/pick.js --platform leetcode",
+    "pick:cc": "node practice/pick.js --platform codechef",
+    "verify": "node practice/verify.js",
+    "verify:ref": "node practice/verify.js --ref",
+    "explain": "node practice/explain.js"
   },
   "keywords": [
     "competitive-programming",
     "codeforces",
+    "leetcode",
+    "codechef",
     "atcoder",
     "cses",
-    "leetcode",
     "algorithms",
     "data-structures",
     "nodejs",
