@@ -1,0 +1,121 @@
+{
+  "date": "2026-09-25",
+  "day": 1,
+  "targets": [
+    {
+      "rating": 800,
+      "count": 10
+    }
+  ],
+  "problems": [
+    {
+      "id": "4A",
+      "name": "Watermelon",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/4/A",
+      "file": "watermelon"
+    },
+    {
+      "id": "71A",
+      "name": "Way Too Long Words",
+      "rating": 800,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/71/A",
+      "file": "wayTooLongWords"
+    },
+    {
+      "id": "231A",
+      "name": "Team",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/231/A",
+      "file": "team"
+    },
+    {
+      "id": "158A",
+      "name": "Next Round",
+      "rating": 800,
+      "tags": [
+        "*special",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/158/A",
+      "file": "nextRound"
+    },
+    {
+      "id": "50A",
+      "name": "Domino piling",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/50/A",
+      "file": "dominoPiling"
+    },
+    {
+      "id": "282A",
+      "name": "Bit++",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/282/A",
+      "file": "bitPlusPlus"
+    },
+    {
+      "id": "112A",
+      "name": "Petya and Strings",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/112/A",
+      "file": "petyaAndStrings"
+    },
+    {
+      "id": "263A",
+      "name": "Beautiful Matrix",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/263/A",
+      "file": "beautifulMatrix"
+    },
+    {
+      "id": "339A",
+      "name": "Helpful Maths",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/339/A",
+      "file": "helpfulMaths"
+    },
+    {
+      "id": "281A",
+      "name": "Word Capitalization",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/281/A",
+      "file": "wordCapitalization"
+    }
+  ]
+}

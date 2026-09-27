@@ -1,0 +1,9 @@
+{
+  "handle": null,
+  "perDay": 10,
+  "startRating": 800,
+  "ratingStepPerWeek": 100,
+  "maxRating": 1600,
+  "stretchCount": 3,
+  "poolSize": 200
+}
