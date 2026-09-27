@@ -1,0 +1,116 @@
+{
+  "date": "2026-09-26",
+  "day": 2,
+  "targets": [
+    {
+      "rating": 800,
+      "count": 10
+    }
+  ],
+  "problems": [
+    {
+      "id": "734A",
+      "name": "Anton and Danik",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/734/A",
+      "file": "antonAndDanik"
+    },
+    {
+      "id": "116A",
+      "name": "Tram",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/116/A",
+      "file": "tram"
+    },
+    {
+      "id": "2009A",
+      "name": "Minimize!",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2009/A",
+      "file": "minimize"
+    },
+    {
+      "id": "266A",
+      "name": "Stones on the Table",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/266/A",
+      "file": "stonesOnTheTable"
+    },
+    {
+      "id": "2094A",
+      "name": "Trippi Troppi",
+      "rating": 800,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2094/A",
+      "file": "trippiTroppi"
+    },
+    {
+      "id": "1335A",
+      "name": "Candies and Two Sisters",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1335/A",
+      "file": "candiesAndTwoSisters"
+    },
+    {
+      "id": "977A",
+      "name": "Wrong Subtraction",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/977/A",
+      "file": "wrongSubtraction"
+    },
+    {
+      "id": "2044B",
+      "name": "Normal Problem",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2044/B",
+      "file": "normalProblem"
+    },
+    {
+      "id": "59A",
+      "name": "Word",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/59/A",
+      "file": "word"
+    },
+    {
+      "id": "510A",
+      "name": "Fox And Snake",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/510/A",
+      "file": "foxAndSnake"
+    }
+  ]
+}

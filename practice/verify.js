@@ -1,0 +1,63 @@
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+const ROOT = __dirname;
+const REPO = path.join(ROOT, '..');
+const DAYS = path.join(ROOT, 'days');
+
+const args = process.argv.slice(2);
+const useRef = args.includes('--ref');
+const days = fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort();
+const date = args.find((a) => !a.startsWith('--')) || days[days.length - 1];
+const dir = path.join(DAYS, date);
+
+if (!fs.existsSync(path.join(dir, 'set.json'))) {
+  console.error(`[verify] No set for ${date}`);
+  process.exit(1);
+}
+
+const normalize = (s) => s.trim().split(/\r?\n/).map((l) => l.trim().split(/\s+/).join(' ')).join('\n');
+const set = JSON.parse(fs.readFileSync(path.join(dir, 'set.json'), 'utf-8'));
+let failed = 0;
+
+for (const p of set.problems) {
+  const file = useRef ? path.join(dir, 'solutions', `${p.file}.js`) : path.join(REPO, `${p.file}.js`);
+  const testsFile = path.join(dir, 'tests', `${p.file}.json`);
+  const label = `${p.id.padEnd(7)} ${p.file}`;
+
+  if (!fs.existsSync(file)) {
+    console.log(`  ·  ${label}  (not attempted)`);
+    continue;
+  }
+  if (!fs.existsSync(testsFile)) {
+    console.log(`  ?  ${label}  (no tests yet)`);
+    continue;
+  }
+
+  const tests = JSON.parse(fs.readFileSync(testsFile, 'utf-8'));
+  let passed = 0;
+  let firstFailure = null;
+  let slowest = 0;
+  for (const [i, t] of tests.entries()) {
+    const start = Date.now();
+    const r = spawnSync('node', [file], { input: t.input, encoding: 'utf-8', timeout: 10000, maxBuffer: 64 * 1024 * 1024 });
+    slowest = Math.max(slowest, Date.now() - start);
+    if (r.status === 0 && normalize(r.stdout || '') === normalize(t.output)) passed++;
+    else if (!firstFailure) firstFailure = { i, t, r };
+  }
+
+  if (passed === tests.length) {
+    console.log(`  ✓  ${label}  ${passed}/${tests.length}  (${slowest}ms)`);
+  } else {
+    failed++;
+    const { i, t, r } = firstFailure;
+    const verdict = r.error ? 'TLE/crash' : r.status !== 0 ? 'Runtime error' : 'Wrong answer';
+    console.log(`  ✗  ${label}  ${passed}/${tests.length}  ${verdict} on test ${i + 1}`);
+    console.log(`       input:    ${JSON.stringify(t.input.length > 200 ? t.input.slice(0, 200) + '…' : t.input)}`);
+    console.log(`       expected: ${JSON.stringify(normalize(t.output).slice(0, 200))}`);
+    console.log(`       got:      ${JSON.stringify(normalize(r.stdout || '').slice(0, 200) || (r.stderr || '').split('\n')[0])}`);
+  }
+}
+
+process.exit(failed ? 1 : 0);
