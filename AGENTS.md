@@ -84,6 +84,9 @@ a:\CP\
 ├── README.md               # User-facing master documentation
 ├── AGENTS.md               # Master AI system prompt & instructions
 ├── CLAUDE.md               # Claude CLI mirror instructions
+├── contests/               # Contest-specific solutions organized by platform and date/round
+│   └── <platform>/<dateOrRound>/ # e.g. contests/codechef/2026-09-28/<problem>.js
+├── solutions/              # Standalone / general problem solutions (camelCase / PascalCase)
 ├── stress/                 # Stress-testing scripts, brute-force oracles, and generators
 │   ├── fixtures/           # Large stress fixtures (*.txt gitignored)
 │   └── <problem>_stress.js # Dedicated stress suites
@@ -91,9 +94,8 @@ a:\CP\
 ```
 
 ### Runner Capabilities (`run.js` / `run.bat` / `run.ps1`)
-- **Explicit target:** `node run goodContest` (or `.\run goodContest`) runs `goodContest.js`.
-- **Auto-detection:** If no file is specified (`node run` or `.\run`), it automatically detects and executes the **most recently modified** problem `.js` file (ignoring `cp.js`, `run.js`, and scratch files).
-- **Stress-test discovery:** `node run <problem>_stress` checks the root and falls back to `stress/` seamlessly.
+- **Explicit target:** `node run <problemName>` (or `.\run <problemName>`) recursively discovers and executes the solution or stress file from `contests/`, `solutions/`, `stress/`, or root.
+- **Auto-detection:** If no file is specified (`node run` or `.\run`), it automatically detects and executes the **most recently modified** problem or stress `.js` file across all folders.
 - **Telemetry:** Measures execution time in milliseconds and displays stdout/stderr directly in the terminal while writing to `output.txt`.
 
 ---
@@ -179,9 +181,12 @@ the observed maximum sits inside the cap.
 
 To maintain a clean and scalable codebase:
 
-1. **Solutions Directory (`/solutions`):**
-   - Active problem solutions live in `solutions/<problemName>.js`, keeping the root completely clean.
-   - The runner engine (`node run <problemName>` or `.\run <problemName>`) automatically resolves files from `solutions/`, `stress/`, and the root.
+1. **Contests Directory (`/contests`):**
+   - Active contest problems and their companion stress suites are organized by platform and date/round: `contests/<platform>/<dateOrRound>/` (e.g. `contests/codechef/2026-09-28/`).
+   - Keeps contest problem sets neatly grouped, isolated, and self-contained.
+2. **Solutions Directory (`/solutions`):**
+   - General and standalone problem solutions live in `solutions/<problemName>.js`, keeping the root completely clean.
+   - The runner engine (`node run <problemName>` or `.\run <problemName>`) automatically resolves files recursively from `contests/`, `solutions/`, `stress/`, and the root.
 2. **Root Directory (`/`):**
    - Universal clean starter template `cp.js` remains pure boilerplate.
    - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).

@@ -2,52 +2,140 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-// Determine target file
-let target = process.argv[2];
+// Ignored directory names for recursive searching
+const IGNORED_DIRS = new Set([
+  'node_modules',
+  '.git',
+  '.cache',
+  '.claude',
+  'practice',
+  'visualizer',
+  'fixtures',
+]);
 
+/**
+ * Recursively retrieves candidate .js files from a directory
+ */
 const getCandidateFiles = (dir) => {
   if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && !f.startsWith('_'))
-    .map(f => ({ name: f, fullPath: path.join(dir, f), time: fs.statSync(path.join(dir, f)).mtimeMs }));
+  const results = [];
+
+  const traverse = (currentDir) => {
+    let entries = [];
+    try {
+      entries = fs.readdirSync(currentDir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        if (!IGNORED_DIRS.has(entry.name) && !entry.name.startsWith('.')) {
+          traverse(path.join(currentDir, entry.name));
+        }
+      } else if (entry.isFile() && entry.name.endsWith('.js')) {
+        if (entry.name !== 'run.js' && entry.name !== 'cp.js' && !entry.name.startsWith('_')) {
+          try {
+            const fullPath = path.join(currentDir, entry.name);
+            results.push({
+              name: entry.name,
+              fullPath,
+              time: fs.statSync(fullPath).mtimeMs,
+            });
+          } catch {
+            // stat failed, ignore
+          }
+        }
+      }
+    }
+  };
+
+  traverse(dir);
+  return results;
 };
 
+// Determine target file from CLI arguments
+let target = process.argv[2];
+
 if (!target) {
-  // Find the most recently modified .js file across solutions/ and root
-  const rootFiles = getCandidateFiles(__dirname);
+  // Find the most recently modified .js file across contests/, solutions/, stress/, and root
+  const rootFiles = fs.readdirSync(__dirname, { withFileTypes: true })
+    .filter(d => d.isFile() && d.name.endsWith('.js') && d.name !== 'run.js' && d.name !== 'cp.js' && !d.name.startsWith('_'))
+    .map(d => ({ name: d.name, fullPath: path.join(__dirname, d.name), time: fs.statSync(path.join(__dirname, d.name)).mtimeMs }));
+
+  const contestFiles = getCandidateFiles(path.join(__dirname, 'contests'));
   const solutionFiles = getCandidateFiles(path.join(__dirname, 'solutions'));
-  const allFiles = [...rootFiles, ...solutionFiles].sort((a, b) => b.time - a.time);
+  const stressFiles = getCandidateFiles(path.join(__dirname, 'stress'));
+
+  const allFiles = [...rootFiles, ...contestFiles, ...solutionFiles, ...stressFiles].sort((a, b) => b.time - a.time);
 
   if (allFiles.length > 0) {
-    target = allFiles[0].name;
-    console.log(`[runner] No file specified. Auto-detected latest: ${target}`);
+    target = allFiles[0].fullPath;
+    console.log(`[runner] No file specified. Auto-detected latest: ${path.relative(__dirname, target)}`);
   } else {
     target = 'cp.js';
     console.log(`[runner] No file specified. Defaulting to template: ${target}`);
   }
-} else {
-  if (!target.endsWith('.js')) {
-    target += '.js';
-  }
 }
 
-// Search order: root -> solutions/ -> stress/
+// Resolve targetPath
 let targetPath = null;
-const searchPaths = [
-  path.resolve(__dirname, target),
-  path.resolve(__dirname, 'solutions', target),
-  path.resolve(__dirname, 'stress', target),
-];
 
-for (const p of searchPaths) {
-  if (fs.existsSync(p)) {
-    targetPath = p;
-    break;
+// Case 1: Target was already resolved to a full path
+if (path.isAbsolute(target) && fs.existsSync(target)) {
+  targetPath = target;
+} else {
+  const targetWithExt = target.endsWith('.js') ? target : `${target}.js`;
+  const targetBase = path.basename(targetWithExt);
+
+  // Case 2: Direct path relative to cwd or known search directories
+  const directPaths = [
+    path.resolve(__dirname, target),
+    path.resolve(__dirname, targetWithExt),
+    path.resolve(__dirname, 'contests', target),
+    path.resolve(__dirname, 'contests', targetWithExt),
+    path.resolve(__dirname, 'solutions', target),
+    path.resolve(__dirname, 'solutions', targetWithExt),
+    path.resolve(__dirname, 'stress', target),
+    path.resolve(__dirname, 'stress', targetWithExt),
+  ];
+
+  for (const p of directPaths) {
+    if (fs.existsSync(p) && fs.statSync(p).isFile()) {
+      targetPath = p;
+      break;
+    }
+  }
+
+  // Case 3: Recursive search across contests, solutions, stress, root
+  if (!targetPath) {
+    const searchDirs = [
+      path.join(__dirname, 'contests'),
+      path.join(__dirname, 'solutions'),
+      path.join(__dirname, 'stress'),
+      __dirname,
+    ];
+
+    const matches = [];
+    for (const sDir of searchDirs) {
+      const candidates = getCandidateFiles(sDir);
+      for (const cand of candidates) {
+        if (cand.name.toLowerCase() === targetBase.toLowerCase()) {
+          matches.push(cand);
+        }
+      }
+    }
+
+    if (matches.length > 0) {
+      // Pick the most recently modified matching file
+      matches.sort((a, b) => b.time - a.time);
+      targetPath = matches[0].fullPath;
+    }
   }
 }
 
 if (!targetPath) {
-  console.error(`[runner] Error: File "${target}" not found in root, solutions/, or stress/`);
+  console.error(`[runner] Error: File "${target}" not found across root, contests/, solutions/, or stress/`);
   process.exit(1);
 }
 
