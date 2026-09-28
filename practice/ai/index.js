@@ -37,7 +37,7 @@ function status() {
     active: active ? { id: active.id, label: active.label, model: active.getModel(), ready: active.isConfigured() } : null,
     providers: ORDER.map((id) => {
       const p = PROVIDERS[id];
-      return { id, label: p.label, model: p.getModel(), keyName: p.keyName, configured: p.isConfigured() };
+      return { id, label: p.label, model: p.getModel(), fallbacks: p.fallbacks(), keyName: p.keyName, configured: p.isConfigured() };
     }),
     cache: cacheStats(),
     repoRoot: REPO_ROOT,
@@ -71,6 +71,14 @@ function clearCache() {
   return cacheStats();
 }
 
+// Errors a lower model could get past: overload, rate/quota limits, retired or unknown
+// models, timeouts, empty or truncated answers. Not auth or permission problems.
+function isRetryable(err) {
+  const m = String(err && err.message);
+  if (/api key|apikey|unauthori[sz]ed|permission|forbidden|invalid.*key|401|403|billing|credit balance/i.test(m)) return false;
+  return true;
+}
+
 async function complete({ system = '', prompt, schema = null, maxTokens, cache = true }) {
   const provider = activeProvider();
   if (!provider || !provider.isConfigured()) {
@@ -83,10 +91,23 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
   if (cache && fs.existsSync(file)) {
     return { text: JSON.parse(fs.readFileSync(file, 'utf-8')).text, provider: provider.id, model, cached: true };
   }
-  const text = await provider.complete({ system, prompt, schema, maxTokens });
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
-  fs.writeFileSync(file, JSON.stringify({ provider: provider.id, model, at: new Date().toISOString(), text }), 'utf-8');
-  return { text, provider: provider.id, model, cached: false };
+  // Try the chosen model, then step down the provider's ladder one level at a time.
+  const ladder = [model, ...provider.fallbacks().filter((m) => m !== model)];
+  const tried = [];
+  for (const candidate of ladder) {
+    try {
+      const text = await provider.complete({ system, prompt, schema, maxTokens, model: candidate });
+      fs.mkdirSync(CACHE_DIR, { recursive: true });
+      fs.writeFileSync(file, JSON.stringify({ provider: provider.id, model: candidate, at: new Date().toISOString(), text }), 'utf-8');
+      if (tried.length) console.warn(`[ai] ${model} failed; answered by fallback ${candidate}`);
+      return { text, provider: provider.id, model: candidate, cached: false, ...(tried.length ? { fallbackFrom: model, tried } : {}) };
+    } catch (err) {
+      tried.push(`${candidate}: ${err.message}`);
+      // A bad key or missing permission fails the same way on every model — stop.
+      if (!isRetryable(err)) throw err;
+    }
+  }
+  throw new Error(`every ${provider.label} model failed — ${tried.join(' | ')}`);
 }
 
-module.exports = { PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache };
+module.exports = { isRetryable, PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache };

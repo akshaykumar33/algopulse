@@ -16,9 +16,16 @@ module.exports = {
     return Boolean(this.getKey());
   },
 
-  complete({ system, prompt, schema, maxTokens = 16000, timeoutMs = 120000 }) {
+  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  fallbacks() {
+    const own = env(this.fallbackEnv);
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : [];
+  },
+  fallbackEnv: 'OPENAI_FALLBACK_MODELS',
+
+  complete({ system, prompt, schema, maxTokens = 16000, timeoutMs = 120000, model: pick }) {
     const apiKey = this.getKey();
-    const model = this.getModel();
+    const model = pick || this.getModel();
     if (!apiKey) return Promise.reject(new Error('OPENAI_API_KEY is not set'));
 
     const payload = JSON.stringify({

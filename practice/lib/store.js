@@ -132,6 +132,40 @@ function progress() {
   return computeProgress({ solved, setSizes, languages: solved.length ? ['javascript'] : [], today: localToday() });
 }
 
+/**
+ * Adaptive difficulty per platform: replays every FINISHED day (today and later are
+ * excluded, so an unfinished set never counts as failures) through the ramp rule.
+ * Starts from plan.json's startRating (LeetCode: Easy).
+ */
+function rampStatus() {
+  const ramp = require('./ramp');
+  const plan = JSON.parse(readIf(path.join(REPO_ROOT, 'practice', 'plan.json')) || '{}');
+  const today = localToday();
+  const records = { codeforces: [], codechef: [], leetcode: [] };
+  for (const date of listDays()) {
+    if (date >= today) continue;
+    const done = completedFiles(path.join(DAYS_DIR, date));
+    for (const p of loadSet(date).problems || []) {
+      const plat = (p.platform || 'codeforces').toLowerCase();
+      if (records[plat]) records[plat].push({ date, outcome: done.has(p.file) ? 'solved' : 'unsolved' });
+    }
+  }
+  const out = {};
+  for (const plat of Object.keys(records)) {
+    const cfg = plan.platforms?.[plat] || {};
+    const start = plat === 'leetcode' ? ramp.ratingToLevel(1000) : ramp.ratingToLevel(cfg.startRating || 800);
+    const r = ramp.replay(start, records[plat]);
+    const max = cfg.maxRating || 3500;
+    out[plat] = {
+      ...r,
+      days: new Set(records[plat].map((x) => x.date)).size,
+      rating: Math.min(ramp.levelToRating(r.level), max),
+      difficulty: ramp.leetCodeDifficultyFor(r.level),
+    };
+  }
+  return out;
+}
+
 function streaks() {
   const p = progress();
   return { current: p.streak, best: p.bestStreak, solvedToday: p.solvedToday > 0 };
@@ -230,6 +264,7 @@ module.exports = {
   progress,
   streaks,
   localToday,
+  rampStatus,
   normalize,
   runNode,
   runScript,

@@ -1,6 +1,7 @@
 /**
  * Google Gemini provider — native HTTPS, no dependencies.
- * Key: GEMINI_API_KEY (or GOOGLE_API_KEY). Model: GEMINI_MODEL (default gemini-2.5-flash).
+ * Key: GEMINI_API_KEY (or GOOGLE_API_KEY). Model: GEMINI_MODEL (default gemini-3.8-flash).
+ * Effort: GEMINI_THINKING = low | medium | high (default high) on Gemini 3 models.
  */
 
 const https = require('https');
@@ -24,23 +25,33 @@ module.exports = {
   label: 'Google Gemini',
   keyName: 'GEMINI_API_KEY',
   getKey: () => env('GEMINI_API_KEY') || env('GOOGLE_API_KEY'),
-  getModel: () => env('GEMINI_MODEL') || 'gemini-2.5-flash',
+  getModel: () => env('GEMINI_MODEL') || 'gemini-3.8-flash',
   isConfigured() {
     return Boolean(this.getKey());
   },
 
-  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000 }) {
+  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  fallbacks() {
+    const own = env(this.fallbackEnv);
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["gemini-3.7-flash","gemini-3.6-flash","gemini-3.5-flash","gemini-2.5-flash"];
+  },
+  fallbackEnv: 'GEMINI_FALLBACK_MODELS',
+
+  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000, model: pick }) {
     const apiKey = this.getKey();
-    const model = this.getModel();
+    const model = pick || this.getModel();
     if (!apiKey) return Promise.reject(new Error('GEMINI_API_KEY is not set'));
 
     const payload = JSON.stringify({
       ...(system ? { systemInstruction: { parts: [{ text: system }] } } : {}),
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
       generationConfig: {
-        temperature: 0.2,
+        // Gemini 3 takes a thinking level and is tuned for its default temperature;
+        // 2.x models take a token budget and do better cooler for factual docs.
+        ...(/^gemini-[3-9]/.test(model)
+          ? { thinkingConfig: { thinkingLevel: env('GEMINI_THINKING') || 'high' } }
+          : { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } }),
         maxOutputTokens: maxTokens,
-        thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 },
         ...(schema ? { responseMimeType: 'application/json', responseSchema: toGeminiSchema(schema) } : {}),
       },
     });

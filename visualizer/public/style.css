@@ -1116,7 +1116,7 @@
   .field-hint { font-size: var(--fs-12); color: var(--text-faint); }
 
   /* Coach (side sheet) */
-  .coach {
+  dialog.coach {
     margin: 0 0 0 auto;
     width: min(28rem, 100vw);
     max-width: 100vw;
@@ -1129,7 +1129,7 @@
     background: var(--bg);
     box-shadow: var(--shadow-lg);
   }
-  .coach[open] { display: flex; flex-direction: column; animation: sheet-in var(--t-sheet) var(--ease-out); }
+  dialog.coach[open] { display: flex; flex-direction: column; animation: sheet-in var(--t-sheet) var(--ease-out); }
   .coach-head {
     display: flex;
     align-items: flex-start;

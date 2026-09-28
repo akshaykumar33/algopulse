@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\n1\n3\n4\n5\n11\n1000\n",
+    "output": "First\nSecond\nFirst\nFirst\nFirst\nFirst\n"
+  }
+]

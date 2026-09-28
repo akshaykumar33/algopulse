@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n0 0 1\n",
+    "output": "HARD\n"
+  },
+  {
+    "input": "1\n0\n",
+    "output": "EASY\n"
+  }
+]

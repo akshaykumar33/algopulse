@@ -65,11 +65,19 @@ module.exports = {
     return reachable === true;
   },
 
-  async complete({ system, prompt, schema, timeoutMs = 300000 }) {
+  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  fallbacks() {
+    const own = env(this.fallbackEnv);
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : [];
+  },
+  fallbackEnv: 'OLLAMA_FALLBACK_MODELS',
+
+  async complete({ system, prompt, schema, timeoutMs = 300000, model: pick }) {
+    const model = pick || this.getModel();
     const res = await request(
       '/api/chat',
       {
-        model: this.getModel(),
+        model,
         stream: false,
         messages: [...(system ? [{ role: 'system', content: system }] : []), { role: 'user', content: prompt }],
         ...(schema ? { format: schema } : {}),
@@ -78,7 +86,7 @@ module.exports = {
       timeoutMs
     );
     const text = res.message?.content;
-    if (!text) throw new Error(`${this.getModel()}: empty response`);
+    if (!text) throw new Error(`${model}: empty response`);
     return text;
   },
 };
