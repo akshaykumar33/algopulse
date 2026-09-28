@@ -46,6 +46,8 @@
     el.setAttribute('aria-label', 'Pip the hamster. Click to boop, drag or use arrow keys to move, M to hide.');
     el.title = 'Boop me · drag me · M to hide';
     el.innerHTML = `
+      <span class="mascot-bubble" aria-live="polite" hidden></span>
+      <span class="mascot-status" aria-hidden="true"><i class="ph-fill ph-microphone mascot-mic"></i><i class="ph-fill ph-eye mascot-eye"></i></span>
       <span class="mascot-float">
         <span class="mascot-squash">
           <span class="mascot-layer mascot-dir"></span>
@@ -54,6 +56,33 @@
       </span>
       <span class="mascot-shadow" aria-hidden="true"></span>`;
     document.body.append(el);
+
+    // Character: hamster (default) or bunny, remembered per browser.
+    const CHARACTERS = { hamster: 'Pip the hamster', bunny: 'Bun the bunny' };
+    function setCharacter(name) {
+      const c = CHARACTERS[name] ? name : 'hamster';
+      el.dataset.character = c;
+      el.style.setProperty('--sheet-dir', `url("mascots/${c}-directions.webp")`);
+      el.style.setProperty('--sheet-react', `url("mascots/${c}-reactions.webp")`);
+      el.setAttribute('aria-label', `${CHARACTERS[c]}. Click to boop, drag or use arrow keys to move, M to hide.`);
+      save({ character: c });
+      return c;
+    }
+    setCharacter(load().character);
+
+    // Speech-bubble captions (what Pip heard, or what it is doing).
+    const bubble = el.querySelector('.mascot-bubble');
+    let bubbleTimer = null;
+    function say(text, ms = 2600) {
+      clearTimeout(bubbleTimer);
+      if (!text) {
+        bubble.hidden = true;
+        return;
+      }
+      bubble.textContent = text;
+      bubble.hidden = false;
+      if (ms) bubbleTimer = setTimeout(() => (bubble.hidden = true), ms);
+    }
 
     const dirLayer = el.querySelector('.mascot-dir');
     const reactLayer = el.querySelector('.mascot-react');
@@ -232,6 +261,17 @@
     });
 
     window.mascot = {
+      el,
+      say,
+      setCharacter,
+      character: () => el.dataset.character,
+      name: () => CHARACTERS[el.dataset.character].split(' ')[0],
+      listening(on) {
+        el.classList.toggle('is-listening', on);
+      },
+      watching(on) {
+        el.classList.toggle('is-watching', on);
+      },
       react(name, ms = 900) {
         if (el.hidden || !REACTIONS.includes(name)) return;
         play([[name, ms]]);

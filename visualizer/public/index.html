@@ -33,6 +33,7 @@
   <script defer src="app.js"></script>
   <script defer src="guide.js"></script>
   <script defer src="mascot.js"></script>
+  <script defer src="assistant.js"></script>
 </head>
 <body>
   <!-- Boot loader: an acorn brewing cocoa while the first data arrives -->
@@ -115,6 +116,12 @@
     <div class="topbar-actions">
       <button class="streak" id="streakBadge" type="button" hidden>
         <i class="ph-duotone ph-fire" aria-hidden="true"></i><span class="streak-count">0</span><span class="streak-unit hide-sm">day streak</span>
+      </button>
+      <button class="btn btn-ghost btn-icon assist-btn" id="btnVoice" type="button" aria-pressed="false" aria-label="Voice control" title="Voice control (V)">
+        <i class="ph-duotone ph-microphone" aria-hidden="true" style="font-size:1.3rem"></i>
+      </button>
+      <button class="btn btn-ghost btn-icon assist-btn" id="btnGestures" type="button" aria-pressed="false" aria-label="Gesture control" title="Gesture control (W)">
+        <i class="ph-duotone ph-hand-waving" aria-hidden="true" style="font-size:1.3rem"></i>
       </button>
       <button class="btn btn-ghost btn-icon" id="btnGuide" type="button" aria-label="Open the guide" title="Guide (G)">
         <i class="ph-duotone ph-question" aria-hidden="true" style="font-size:1.3rem"></i>

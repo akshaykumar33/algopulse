@@ -128,6 +128,232 @@ function guideProgress() {
 }
 
 /* ==========================================================================
+   Voice & gestures page
+   ========================================================================== */
+const actionOptions = (selected) =>
+  Object.entries(assistant.ACTIONS)
+    .map(([id, a]) => `<option value="${id}" ${id === selected ? 'selected' : ''}>${escapeHtml(a.label)}</option>`)
+    .join('');
+
+function guideAssistant() {
+  const cfg = assistant.load();
+  const v = assistant.voice;
+  const g = assistant.gestures;
+  const map = assistant.bindings();
+  const examples = [
+    ['“next problem” · “previous one”', 'Move between problems'],
+    ['“open tests” · “story” · “code” · “next tab”', 'Switch tabs'],
+    ['“run my tests” · “verify”', 'Check your solution / mark the day'],
+    ['“go to Buttons” · “open Beautiful Year”', 'Jump to a problem by name'],
+    ['“search greedy”', 'Filter the problem list'],
+    ['“ask coach why greedy works”', 'Send a question to the coach'],
+    ['“read the story”', 'The buddy reads it aloud'],
+    ['“dark mode” · “scroll down” · “close”', 'Everything else'],
+    ['“stop listening”', 'Turn the mic off'],
+  ];
+  return `
+    <h2 class="guide-h">Voice & gestures</h2>
+    <p class="guide-lead">Drive the whole studio hands-free. Your buddy listens, watches, shows what it understood, and can answer out loud.</p>
+
+    <div class="assist-grid">
+      <section class="card assist-card">
+        <h3 class="guide-sub"><i class="ph-duotone ph-microphone" aria-hidden="true"></i>Voice</h3>
+        <p>${v.supported ? 'Say a command any time while it is on. Press <kbd>V</kbd> or the mic in the header.' : '<strong>This browser has no speech recognition.</strong> Use Chrome or Edge for voice.'}</p>
+        <div class="assist-row">
+          <button class="btn ${v.on ? 'btn-secondary' : 'btn-primary'}" type="button" data-assist="voice" ${v.supported ? '' : 'disabled'}>${v.on ? 'Stop listening' : 'Start listening'}</button>
+          <span class="pill ${v.on ? 'ok' : 'soft'}">${v.on ? '● Listening' : 'Off'}</span>
+        </div>
+        <label class="switch"><input type="checkbox" data-assist-set="talkBack" ${cfg.talkBack ? 'checked' : ''}><span>Buddy talks back</span></label>
+      </section>
+
+      <section class="card assist-card">
+        <h3 class="guide-sub"><i class="ph-duotone ph-hand-waving" aria-hidden="true"></i>Gestures</h3>
+        <p>Uses your camera; every frame is processed on this PC and never uploaded. Press <kbd>W</kbd> or the hand in the header.</p>
+        <div class="assist-row">
+          <button class="btn ${g.on ? 'btn-secondary' : 'btn-primary'}" type="button" data-assist="gestures">${g.on ? 'Stop camera' : 'Start camera'}</button>
+          <span class="pill ${g.on ? 'ok' : 'soft'}">${g.on ? '● Watching' : 'Off'}</span>
+        </div>
+        <div class="field">
+          <label for="assistChar">Buddy</label>
+          <select id="assistChar" data-assist-char>
+            <option value="hamster" ${window.mascot?.character() === 'hamster' ? 'selected' : ''}>🐹 Pip the hamster</option>
+            <option value="bunny" ${window.mascot?.character() === 'bunny' ? 'selected' : ''}>🐰 Bun the bunny</option>
+          </select>
+        </div>
+      </section>
+    </div>
+
+    <section class="assist-live card" ${g.on ? '' : 'hidden'} id="assistLive">
+      <div class="assist-cam"><video id="assistVideo" muted playsinline></video><canvas id="assistCanvas"></canvas></div>
+      <div class="assist-live-info">
+        <strong>I see:</strong> <span id="assistSeeing">no hand</span>
+        <ul class="assist-log" id="assistantLog">${assistant.events.map((e) => `<li>${escapeHtml(e)}</li>`).join('')}</ul>
+      </div>
+    </section>
+
+    <h3 class="guide-sub"><i class="ph-duotone ph-chat-circle-text" aria-hidden="true"></i>Things you can say</h3>
+    <div class="table-wrap"><table class="data-table"><tbody>${examples.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</tbody></table></div>
+    <p class="muted">You can start with your buddy's name — “Pip, next problem” works the same.</p>
+
+    <h3 class="guide-sub"><i class="ph-duotone ph-plus-circle" aria-hidden="true"></i>Add your own voice command</h3>
+    <form class="assist-form" id="phraseForm">
+      <div class="field"><label for="phraseText">When I say…</label><input id="phraseText" required maxlength="60" placeholder="e.g. let's go"></div>
+      <div class="field"><label for="phraseAction">…do this</label><select id="phraseAction">${actionOptions('run-tests')}</select></div>
+      <button class="btn btn-primary" type="submit">Add phrase</button>
+    </form>
+    <ul class="assist-list">${(cfg.phrases || [])
+      .map((p, i) => `<li><span>“${escapeHtml(p.phrase)}” → ${escapeHtml(assistant.ACTIONS[p.action]?.label || p.action)}</span><button class="btn btn-ghost btn-sm" type="button" data-del-phrase="${i}" aria-label="Delete phrase ${escapeHtml(p.phrase)}">Remove</button></li>`)
+      .join('') || '<li class="muted">No custom phrases yet.</li>'}</ul>
+
+    <h3 class="guide-sub"><i class="ph-duotone ph-hand-pointing" aria-hidden="true"></i>Built-in gestures</h3>
+    <p class="muted">Hold a sign for about half a second. Change what each one does:</p>
+    <div class="gesture-map">${Object.entries(assistant.BUILTIN)
+      .map(([k, b]) => `<label class="gesture-item"><span class="gesture-emoji" aria-hidden="true">${b.emoji}</span><span>${escapeHtml(b.label)}</span>
+        <select data-gesture-map="${k}" aria-label="Action for ${escapeHtml(b.label)}">${actionOptions(map[k])}</select></label>`)
+      .join('')}</div>
+
+    <h3 class="guide-sub"><i class="ph-duotone ph-graduation-cap" aria-hidden="true"></i>Train a custom gesture</h3>
+    <ol class="tool-list">
+      <li>Start the camera above and make sure your hand shows in the preview.</li>
+      <li>Name the gesture and pick what it should do.</li>
+      <li>Press <em>Record</em> and hold the pose still for ~3 seconds (move it a little closer and farther for a sturdier match).</li>
+      <li>Try it: the preview shows what it recognises. Custom gestures win over built-in ones.</li>
+    </ol>
+    <form class="assist-form" id="trainForm">
+      <div class="field"><label for="trainName">Name</label><input id="trainName" required maxlength="30" placeholder="e.g. rock on"></div>
+      <div class="field"><label for="trainAction">Action</label><select id="trainAction">${actionOptions('verify-day')}</select></div>
+      <button class="btn btn-primary" type="submit" id="trainBtn" ${g.on ? '' : 'disabled'}>${g.on ? 'Record' : 'Start the camera first'}</button>
+    </form>
+    <div class="train-progress" id="trainProgress" hidden><span></span></div>
+    <ul class="assist-list">${assistant.customs()
+      .map((c) => `<li><span>✋ ${escapeHtml(c.name)} → ${escapeHtml(assistant.ACTIONS[c.action]?.label || c.action)} <span class="muted">(${c.samples.length} samples)</span></span><button class="btn btn-ghost btn-sm" type="button" data-del-gesture="${escapeHtml(c.id)}" aria-label="Delete gesture ${escapeHtml(c.name)}">Remove</button></li>`)
+      .join('') || '<li class="muted">No custom gestures yet.</li>'}</ul>
+
+    <div class="guide-note">
+      <i class="ph-duotone ph-shield-check" aria-hidden="true"></i>
+      <p><strong>Privacy.</strong> Both are off until you turn them on and stop when you close the tab. <em>Gestures</em> run entirely on your PC (MediaPipe in the browser); no video is stored or sent, and trained gestures are saved in this browser only. <em>Voice</em> uses your browser's speech recognition — in Chrome and Edge, audio is sent to Google/Microsoft to be transcribed. Talk-back speech is generated locally.</p>
+    </div>`;
+}
+
+// The live preview + landmark overlay only runs while this page is open.
+let assistantDraw = null;
+function mountAssistantPanel() {
+  unmountAssistantPanel();
+  const g = assistant.gestures;
+  const video = $('#assistVideo');
+  const canvas = $('#assistCanvas');
+  if (g.on && g.stream && video) {
+    video.srcObject = g.stream;
+    video.play().catch(() => {});
+    const ctx = canvas.getContext('2d');
+    const bones = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [0, 17], [17, 18], [18, 19], [19, 20]];
+    assistantDraw = (res, v) => {
+      canvas.width = v.videoWidth;
+      canvas.height = v.videoHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const lm = res.landmarks?.[0];
+      const seeing = $('#assistSeeing');
+      if (!lm) {
+        if (seeing) seeing.textContent = 'no hand';
+        return;
+      }
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = '#d9975b';
+      ctx.fillStyle = '#fdf3e4';
+      for (const [a, b] of bones) {
+        ctx.beginPath();
+        ctx.moveTo(lm[a].x * canvas.width, lm[a].y * canvas.height);
+        ctx.lineTo(lm[b].x * canvas.width, lm[b].y * canvas.height);
+        ctx.stroke();
+      }
+      for (const p of lm) {
+        ctx.beginPath();
+        ctx.arc(p.x * canvas.width, p.y * canvas.height, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      if (seeing) {
+        const live = g.live;
+        let label = 'a hand';
+        if (g.recording) label = `recording… ${g.recording.samples.length}/${g.recording.target}`;
+        else if (live?.name?.startsWith('custom:')) label = `✋ ${assistant.customs().find((c) => `custom:${c.id}` === live.name)?.name || 'custom'} (${Math.round(live.score * 100)}%)`;
+        else if (live) label = `${assistant.BUILTIN[live.name]?.emoji || ''} ${assistant.BUILTIN[live.name]?.label || live.name} (${Math.round(live.score * 100)}%)`;
+        seeing.textContent = label;
+      }
+    };
+    g.listeners.add(assistantDraw);
+  }
+}
+function unmountAssistantPanel() {
+  if (assistantDraw) assistant.gestures.listeners.delete(assistantDraw);
+  assistantDraw = null;
+}
+
+function bindAssistantPanel() {
+  const body = $('#guideBody');
+  const rerender = () => $('#guide').open && $('[data-guide-nav="assistant"]')?.getAttribute('aria-current') === 'true' && renderGuideSection('assistant');
+  document.addEventListener('assistant:change', rerender);
+  body.addEventListener('click', (e) => {
+    const t = e.target;
+    const which = t.closest('[data-assist]')?.dataset.assist;
+    if (which === 'voice') assistant.voice.toggle();
+    if (which === 'gestures') assistant.gestures.toggle();
+    const dp = t.closest('[data-del-phrase]');
+    if (dp) {
+      const phrases = [...(assistant.load().phrases || [])];
+      phrases.splice(Number(dp.dataset.delPhrase), 1);
+      assistant.save({ phrases });
+      renderGuideSection('assistant');
+    }
+    const dg = t.closest('[data-del-gesture]');
+    if (dg) {
+      assistant.save({ gestures: assistant.customs().filter((c) => c.id !== dg.dataset.delGesture) });
+      renderGuideSection('assistant');
+    }
+  });
+  body.addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.dataset.assistSet) assistant.save({ [t.dataset.assistSet]: t.checked });
+    if (t.matches('[data-assist-char]')) {
+      window.mascot?.setCharacter(t.value);
+      window.mascot?.react('delighted', 900);
+      window.mascot?.say(`Hi, I'm ${window.mascot.name()}!`);
+    }
+    if (t.dataset.gestureMap) assistant.save({ gestureMap: { ...(assistant.load().gestureMap || {}), [t.dataset.gestureMap]: t.value } });
+  });
+  body.addEventListener('submit', (e) => {
+    if (e.target.id === 'phraseForm') {
+      e.preventDefault();
+      const phrase = $('#phraseText').value.trim();
+      if (!phrase) return;
+      assistant.save({ phrases: [...(assistant.load().phrases || []), { phrase, action: $('#phraseAction').value }] });
+      toast(`Say “${phrase}” any time voice is on.`);
+      renderGuideSection('assistant');
+    }
+    if (e.target.id === 'trainForm') {
+      e.preventDefault();
+      const name = $('#trainName').value.trim();
+      if (!name || !assistant.gestures.on) return;
+      const bar = $('#trainProgress');
+      const btn = $('#trainBtn');
+      btn.disabled = true;
+      btn.textContent = 'Hold the pose…';
+      bar.hidden = false;
+      window.mascot?.say(`Show me “${name}” and hold still!`, 4000);
+      assistant.gestures.record({
+        name,
+        action: $('#trainAction').value,
+        onProgress: (p) => ($('#trainProgress span').style.width = `${Math.round(p * 100)}%`),
+        onDone: () => {
+          toast(`Learned “${name}”. Try it now!`);
+          renderGuideSection('assistant');
+        },
+      });
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', bindAssistantPanel);
+
+/* ==========================================================================
    Guide
    ========================================================================== */
 const PROVIDER_INFO = {
@@ -164,6 +390,7 @@ const PROVIDER_INFO = {
 const GUIDE_SECTIONS = [
   { id: 'welcome', icon: 'ph-hand-waving', label: 'Welcome' },
   { id: 'progress', icon: 'ph-trophy', label: 'Progress & achievements' },
+  { id: 'assistant', icon: 'ph-hand-waving', label: 'Voice & gestures' },
   { id: 'ai', icon: 'ph-sparkle', label: 'Choose your AI' },
   { id: 'how', icon: 'ph-gear-six', label: 'How it works' },
   { id: 'mcp', icon: 'ph-plugs-connected', label: 'Use with Claude (MCP)' },
@@ -355,7 +582,9 @@ function guideKeys() {
     ['<kbd>C</kbd>', 'Open the coach'],
     ['<kbd>T</kbd>', 'Toggle theme'],
     ['<kbd>G</kbd>', 'Open this guide'],
-    ['<kbd>M</kbd>', 'Hide or show Pip the hamster'],
+    ['<kbd>M</kbd>', 'Hide or show your buddy'],
+    ['<kbd>V</kbd>', 'Voice control on / off'],
+    ['<kbd>W</kbd>', 'Gesture control (camera) on / off'],
     ['<kbd>Ctrl</kbd> + <kbd>S</kbd>', 'Save your attempt'],
   ];
   return `
@@ -363,7 +592,7 @@ function guideKeys() {
     <dl class="keys">${keys.map(([k, d]) => `<div><dt>${k}</dt><dd>${d}</dd></div>`).join('')}</dl>`;
 }
 
-const GUIDE_RENDER = { welcome: guideWelcome, ai: guideAi, how: guideHow, mcp: guideMcp, reminders: guideReminders, progress: guideProgress, data: guideData, keys: guideKeys };
+const GUIDE_RENDER = { welcome: guideWelcome, ai: guideAi, how: guideHow, mcp: guideMcp, reminders: guideReminders, progress: guideProgress, assistant: guideAssistant, data: guideData, keys: guideKeys };
 
 function renderGuideSection(id) {
   const body = $('#guideBody');
@@ -374,6 +603,8 @@ function renderGuideSection(id) {
   body.scrollTop = 0;
   motion.popIn(body);
   if (id === 'how') renderMermaid($('#howDiagram'), HOW_DIAGRAM);
+  if (id === 'assistant') mountAssistantPanel();
+  else unmountAssistantPanel();
 }
 
 async function openGuide(section = 'welcome') {
@@ -489,6 +720,8 @@ const TOUR = [
   { sel: '#player', title: 'Level up', text: 'Every verified solve earns XP — harder problems pay more. Finish daily quests for bonuses and climb from Newbie to Grandmaster.' },
   { sel: '#streakBadge', title: 'Keep your streak', text: 'Solve at least one problem a day. Set a reminder in the Guide so you never miss one.' },
   { sel: '#mascot', title: 'Meet Pip', text: 'Pip watches your cursor and cheers when your tests pass. Boop Pip, drag Pip anywhere, or press M to let Pip nap.' },
+  { sel: '#btnVoice', title: 'Talk to your buddy', text: 'Turn on voice and just say it: “next problem”, “open tests”, “run tests”, “ask coach why greedy works”.' },
+  { sel: '#btnGestures', title: 'Or wave at it', text: 'Gestures use your camera, processed only on your PC: 👍 runs tests, ✌️ next problem, swipe to change tabs. Train your own in the Guide.' },
   { sel: '#btnGuide', title: 'Help is always here', text: 'Open the Guide any time (G) to set up your AI, reminders, or connect Claude via MCP.' },
 ];
 

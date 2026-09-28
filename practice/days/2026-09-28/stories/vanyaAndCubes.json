@@ -1,0 +1,176 @@
+{
+  "title": "Vanya's Tower of Dreams",
+  "keyIdea": "We can build the cube tower layer by layer, adding the required cubes for each new level until we run out of available cubes.",
+  "story": "Imagine Vanya is building a magnificent tower out of colorful building blocks, but it's a special kind of tower. Each new floor he adds needs more blocks than the one below it. The first floor needs just 1 block. The second floor needs 1 + 2 = 3 blocks. The third floor needs 1 + 2 + 3 = 6 blocks, and so on. Each floor 'k' needs blocks equal to the sum of numbers from 1 to 'k'. Vanya has a big box of blocks, and he wants to build the tallest possible tower. He keeps adding floors, one by one, checking if he has enough blocks for the next floor. If he does, he uses the blocks and counts that floor as built. If he doesn't, he stops, and the number of floors he successfully completed is his answer. This is just like our problem: we have a total number of cubes (blocks), and we want to find the maximum number of layers (floors) we can build following this specific pattern.",
+  "traceInput": "25",
+  "steps": [
+    {
+      "title": "Initialize the Build",
+      "narration": "Vanya starts with a clean slate. He hasn't built any layers yet, and no cubes have been used. He's ready to build the very first layer.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "0"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "0"
+        },
+        {
+          "name": "next_level_height",
+          "value": "1"
+        }
+      ],
+      "focus": [
+        "available_cubes",
+        "completed_layers",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    },
+    {
+      "title": "Build Layer 1",
+      "narration": "For the first layer (height 1), Vanya needs 1 cube. He checks if he has enough (0 + 1 <= 25), which he does. He uses 1 cube and completes the first layer.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "1"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "1"
+        },
+        {
+          "name": "next_level_height",
+          "value": "2"
+        }
+      ],
+      "focus": [
+        "completed_layers",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    },
+    {
+      "title": "Build Layer 2",
+      "narration": "Now for the second layer (height 2), Vanya needs 1+2 = 3 cubes. He checks if he has enough (1 + 3 <= 25), which he does. He uses 3 more cubes, bringing his total spent to 4, and completes the second layer.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "2"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "4"
+        },
+        {
+          "name": "next_level_height",
+          "value": "3"
+        }
+      ],
+      "focus": [
+        "completed_layers",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    },
+    {
+      "title": "Build Layer 3",
+      "narration": "For the third layer (height 3), Vanya needs 1+2+3 = 6 cubes. He checks if he has enough (4 + 6 <= 25), which he does. He uses 6 more cubes, totaling 10 spent, and completes the third layer.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "3"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "10"
+        },
+        {
+          "name": "next_level_height",
+          "value": "4"
+        }
+      ],
+      "focus": [
+        "completed_layers",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    },
+    {
+      "title": "Build Layer 4",
+      "narration": "For the fourth layer (height 4), Vanya needs 1+2+3+4 = 10 cubes. He checks if he has enough (10 + 10 <= 25), which he does. He uses 10 more cubes, bringing his total spent to 20, and completes the fourth layer.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "4"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "20"
+        },
+        {
+          "name": "next_level_height",
+          "value": "5"
+        }
+      ],
+      "focus": [
+        "completed_layers",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    },
+    {
+      "title": "Cannot Build Layer 5",
+      "narration": "Now for the fifth layer (height 5), Vanya needs 1+2+3+4+5 = 15 cubes. He checks if he has enough (20 + 15 <= 25), but 35 is greater than 25! He doesn't have enough cubes for this layer, so he must stop.",
+      "vars": [
+        {
+          "name": "available_cubes",
+          "value": "25"
+        },
+        {
+          "name": "completed_layers",
+          "value": "4"
+        },
+        {
+          "name": "total_cubes_spent",
+          "value": "20"
+        },
+        {
+          "name": "next_level_height",
+          "value": "5"
+        }
+      ],
+      "focus": [
+        "available_cubes",
+        "total_cubes_spent",
+        "next_level_height"
+      ]
+    }
+  ],
+  "finalOutput": "4",
+  "verified": false,
+  "provider": "gemini",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-09-27T17:09:31.480Z"
+}
