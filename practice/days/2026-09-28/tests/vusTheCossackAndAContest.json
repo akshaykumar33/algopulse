@@ -1,0 +1,14 @@
+[
+  {
+    "input": "5 8 6\n",
+    "output": "Yes\n"
+  },
+  {
+    "input": "3 9 3\n",
+    "output": "Yes\n"
+  },
+  {
+    "input": "8 5 20\n",
+    "output": "No\n"
+  }
+]

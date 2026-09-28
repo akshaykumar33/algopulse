@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n1 1 1\n9 3 5\n99 99 1000\n1024 1024 0\n54321 54322 0\n",
+    "output": "First\nFirst\nSecond\nSecond\nSecond\n"
+  }
+]

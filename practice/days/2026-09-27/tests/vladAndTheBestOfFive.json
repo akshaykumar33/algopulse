@@ -1,0 +1,6 @@
+[
+  {
+    "input": "8\nABABB\nABABA\nBBBAB\nAAAAA\nBBBBB\nBABAA\nBABBA\nBABAB\n",
+    "output": "B\nA\nB\nA\nB\nA\nB\nB\n"
+  }
+]
