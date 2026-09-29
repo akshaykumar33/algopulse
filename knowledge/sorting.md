@@ -1,0 +1,89 @@
+# Sorting & Custom Comparators — Algorithmic Patterns & Knowledge Base
+
+## 1. Core Principles & Mental Model
+Sorting arranges elements into a monotonic total order. In competitive programming, sorting is often the critical preprocessing step ($O(N \log N)$) that unlocks $O(N)$ two-pointer scans, $O(\log N)$ binary searches, coordinate compression, or greedy choices.
+
+---
+
+## 2. Recognition Signals ("When you see X, think Y")
+- **"Sort pairs by first element ascending, then second descending":** $\implies$ Custom multi-key comparator.
+- **"Replace large coordinates ($X_i \le 10^9$) with relative ranks ($1 \le rank \le N$)":** $\implies$ Coordinate Compression.
+- **"Count number of inversions in an array":** $\implies$ Merge Sort or Fenwick Tree / Segment Tree.
+- **"Order tasks by completion deadline or score density":** $\implies$ Greedy sorting with custom comparator.
+
+---
+
+## 3. Key Mathematical Theorems & Invariants
+1. **Total Order Requirements:**
+   A valid comparator `comp(a, b)` must define a strict weak ordering:
+   - *Irreflexivity:* `comp(a, a) === false` (or `0`).
+   - *Asymmetry:* If `comp(a, b) < 0`, then `comp(b, a) > 0`.
+   - *Transitivity:* If `comp(a, b) < 0` and `comp(b, c) < 0`, then `comp(a, c) < 0`.
+   *Violation of these rules in V8 causes erratic sorting or infinite loops!*
+2. **Inversion Parity:**
+   Any swap of two adjacent elements changes the total number of inversions by exactly $+1$ or $-1$.
+
+---
+
+## 4. Node.js / JavaScript Implementation Patterns & Traps
+
+### Pattern 1: Multi-Key Sorting
+```javascript
+// Sort points: x ascending; if x equal, y descending
+points.sort((a, b) => {
+  if (a.x !== b.x) return a.x - b.x;
+  return b.y - a.y;
+});
+```
+
+### Pattern 2: Coordinate Compression ($O(N \log N)$)
+```javascript
+function compressCoordinates(arr) {
+  // 1. Extract unique values and sort
+  const sortedUnique = Array.from(new Set(arr)).sort((a, b) => a - b);
+  // 2. Map original value to compressed index (0-based rank)
+  const rankMap = new Map();
+  for (let i = 0; i < sortedUnique.length; i++) {
+    rankMap.set(sortedUnique[i], i);
+  }
+  // 3. Transform array
+  return arr.map((x) => rankMap.get(x));
+}
+```
+
+### Pattern 3: High-Performance TypedArray Sorting
+```javascript
+// TypedArray sort() defaults to numerical ascending sort in V8!
+const uintArr = new Int32Array([10, 2, 5, 1]);
+uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
+```
+
+### Critical Traps:
+- **Default `Array.prototype.sort()` is Lexicographic:**
+  ```javascript
+  [10, 2, 5].sort(); // Yields [10, 2, 5] because '10' < '2' alphabetically!
+  [10, 2, 5].sort((a, b) => a - b); // Yields [2, 5, 10] correctly!
+  ```
+- **Subtraction Overflow with Extreme Bounds:** If `a = -2e9` and `b = 2e9`, `a - b` is `-4e9`, which exceeds 32-bit signed integers (fine in standard JS `Number` up to $9 \times 10^{15}$, but causes bugs if cast to bitwise).
+
+---
+
+## 5. Sub-Patterns & Archetypes
+1. **Parallel Sorting:** Sorting indices `[0, 1, ..., N-1]` by `arr[i]` instead of sorting the array directly.
+2. **Bucket / Counting Sort ($O(N + K)$):** When element values are small ($K \le 10^6$), count frequencies in a flat array and reconstruct in linear time.
+
+---
+
+## 6. Solved Problems Catalog & Takeaways
+
+| Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
+|---|---|---|---|---|
+| [Helpful Maths](https://codeforces.com/problemset/problem/339/A) | `Codeforces` | `800` | `helpfulMaths.js` | Extract single-digit summands, sort in ascending numerical order, join with `+`. |
+| [Two Arrays And Swaps](https://codeforces.com/problemset/problem/1353/B) | `Codeforces` | `800` | `twoArraysAndSwaps.js` | Dual sorting: sort $A$ ascending, $B$ descending; greedily swap larger elements. |
+
+---
+| [Only Pluses](https://codeforces.com/problemset/problem/1992/A) | `undefined` | `800` | `onlyPluses.js` | Key algorithmic application from Day 2026-09-27. |
+
+
+## 7. Common Pitfalls & Anti-Patterns
+- **Non-Deterministic Sort in Older Engines:** In modern Node.js (V8 $\ge$ 7.0), `Array.prototype.sort` is guaranteed to be stable (TimSort), but never rely on undefined comparator return values (returning `true`/`false` instead of negative/zero/positive integers).

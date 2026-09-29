@@ -1,0 +1,78 @@
+# Constructive Algorithms — Algorithmic Patterns & Knowledge Base
+
+## 1. Core Principles & Mental Model
+In Constructive problems, you are not asked to find the *number* of solutions or the *optimal value*; rather, you must construct a concrete configuration (an array, a matrix, or a sequence of operations) that satisfies given invariants and constraints.
+
+### Golden Rules of Constructive Thinking:
+1. **Reduce the Degrees of Freedom:** Instead of seeking the most general configuration, look for the most symmetric, regular, or periodic pattern that trivially satisfies the rules.
+2. **Find the Invariant:** What property must hold across all elements or sub-blocks?
+3. **Tile by Small Periodic Patterns:** Many 2D grid constructions can be solved by tiling a repeating $2 \times 2$ or $4 \times 4$ kernel across the entire board.
+4. **Extreme / Boundary-First Construction:** Place extreme values at boundaries or alternating positions to neutralize conflicting constraints.
+
+---
+
+## 2. Recognition Signals ("When you see X, think Y")
+- **"Construct any array / matrix satisfying...":** $\implies$ Constructive problem.
+- **"Output any valid sequence of operations":** $\implies$ Constructive step reduction.
+- **"Ensure every cell has exactly $K$ equal neighbors":** $\implies 2 \times 2$ block tiling.
+- **"Maximize adjacent differences $\sum |a_i - a_{i+1}|$":** $\implies$ Alternate 0s and extreme values (e.g. $[0, M, 0]$).
+
+---
+
+## 3. Key Mathematical Theorems & Construction Kernels
+1. **Checkerboard / Parity Tiling:**
+   Assigning values based on $(r + c) \pmod 2$ guarantees that any adjacent cell has the opposite parity/value.
+2. **$2 \times 2$ Inversion Kernels:**
+   In [Almost Ternary Matrix (CF 1699B)](https://codeforces.com/problemset/problem/1699/B), constructing repeating blocks of:
+   $$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \quad \text{and} \quad \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$$
+   guarantees that every internal and boundary cell has exactly 1 same-value neighbor.
+
+---
+
+## 4. Node.js / JavaScript Implementation Patterns & Traps
+
+### Pattern: Periodic 2D Matrix Synthesis
+```javascript
+// Constructs an N x M matrix from a 2x2 repeating kernel
+function constructMatrix(n, m) {
+  const grid = [];
+  for (let r = 0; r < n; r++) {
+    const row = new Int32Array(m);
+    for (let c = 0; c < m; c++) {
+      // Determine value based on periodic 4x4 or 2x2 block
+      const blockRow = Math.floor(r / 2) % 2;
+      const blockCol = Math.floor(c / 2) % 2;
+      const cellInBlock = (r % 2) ^ (c % 2);
+      row[c] = (blockRow ^ blockCol) ? cellInBlock : 1 - cellInBlock;
+    }
+    grid.push(row.join(' '));
+  }
+  return grid.join('\n');
+}
+```
+
+### Critical Traps:
+- **Overcomplicating the Pattern:** Resist the temptation to simulate dynamic placement. Formulate the mathematical closed formula $(r, c) \mapsto \text{value}$ directly.
+- **Boundary Collisions:** Always test minimum valid dimensions ($N=2, M=2$) and odd/even boundary configurations to ensure the pattern doesn't violate edge constraints.
+
+---
+
+## 5. Sub-Patterns & Archetypes
+1. **Periodic Block Tiling:** Repeating a verified $2 \times 2$ or $4 \times 4$ pattern across $N \times M$.
+2. **Bipartite / Checkerboard Coloring:** Coloring nodes based on depth parity or $(r + c) \pmod 2$.
+3. **Extreme Value Interleaving:** Constructing $[1, N, 2, N-1, 3, N-2, \dots]$ to maximize differences between consecutive elements.
+
+---
+
+## 6. Solved Problems Catalog & Takeaways
+
+| Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
+|---|---|---|---|---|
+| [Almost Ternary Matrix](https://codeforces.com/problemset/problem/1699/B) | `Codeforces` | `900` | `almostTernaryMatrix.js` | Tile alternating $2 \times 2$ blocks to guarantee every cell has exactly 1 equal neighbor. |
+| [Most Unstable Array](https://codeforces.com/problemset/problem/1353/A) | `Codeforces` | `800` | `mostUnstableArray.js` | For $n=1$, ans is 0; for $n=2$, ans is $m$; for $n \ge 3$, place all sum $m$ in middle $[0, m, 0]$ to achieve $2m$. |
+| [Only Pluses](https://codeforces.com/problemset/problem/1992/A) | `Codeforces` | `800` | `onlyPluses.js` | Product $a \cdot b \cdot c$ is maximized by greedily incrementing the smallest of the three integers at each of the 5 operations. |
+
+---
+
+## 7. Common Pitfalls & Anti-Patterns
+- **Ignoring Constraints on $N$:** Ensure the construction holds for small $N$ ($N=1, 2$) where boundary effects can collapse the general pattern.
