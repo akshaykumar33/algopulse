@@ -1,0 +1,380 @@
+{
+  "date": "2026-09-29",
+  "day": 5,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1791B",
+      "name": "Following Directions",
+      "rating": 800,
+      "tags": [
+        "geometry",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1791/B",
+      "file": "followingDirections",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1353A",
+      "name": "Most Unstable Array",
+      "rating": 800,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1353/A",
+      "file": "mostUnstableArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "630A",
+      "name": "Again Twenty Five!",
+      "rating": 800,
+      "tags": [
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/630/A",
+      "file": "againTwentyFive",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1371A",
+      "name": "Magical Sticks",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1371/A",
+      "file": "magicalSticks",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1294A",
+      "name": "Collecting Coins",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1294/A",
+      "file": "collectingCoins",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1472B",
+      "name": "Fair Division",
+      "rating": 800,
+      "tags": [
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1472/B",
+      "file": "fairDivision",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "32B",
+      "name": "Borze",
+      "rating": 800,
+      "tags": [
+        "expression parsing",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/32/B",
+      "file": "borze",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "439A",
+      "name": "Devu, the Singer and Churu, the Joker",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/439/A",
+      "file": "devuTheSingerAndChuruTheJoker",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1699B",
+      "name": "Almost Ternary Matrix",
+      "rating": 900,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "matrices"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1699/B",
+      "file": "almostTernaryMatrix",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2110B",
+      "name": "Down with Brackets",
+      "rating": 900,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2110/B",
+      "file": "downWithBrackets",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1662",
+      "name": "Check If Two String Arrays are Equivalent",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/",
+      "file": "checkIfTwoStringArraysAreEquivalent",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-101",
+      "name": "Symmetric Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/symmetric-tree/",
+      "file": "symmetricTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-700",
+      "name": "Search in a Binary Search Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+      "file": "searchInABinarySearchTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-171",
+      "name": "Excel Sheet Column Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/excel-sheet-column-number/",
+      "file": "excelSheetColumnNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-268",
+      "name": "Missing Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/missing-number/",
+      "file": "missingNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-169",
+      "name": "Majority Element",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/majority-element/",
+      "file": "majorityElement",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-182",
+      "name": "Duplicate Emails",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/duplicate-emails/",
+      "file": "duplicateEmails",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-203",
+      "name": "Remove Linked List Elements",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-linked-list-elements/",
+      "file": "removeLinkedListElements",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-104",
+      "name": "Maximum Depth of Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+      "file": "maximumDepthOfBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-108",
+      "name": "Convert Sorted Array to Binary Search Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+      "file": "convertSortedArrayToBinarySearchTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SOCKS1",
+      "name": "Valid Pair",
+      "rating": 851,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SOCKS1",
+      "file": "validPair",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COCONUT",
+      "name": "Summer Heat",
+      "rating": 852,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COCONUT",
+      "file": "summerHeat",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SNAPE",
+      "name": "Snape and Ladder",
+      "rating": 828,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SNAPE",
+      "file": "snapeAndLadder",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BMI",
+      "name": "Body Mass Index",
+      "rating": 845,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BMI",
+      "file": "bodyMassIndex",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MELTGOLD",
+      "name": "Melt Gold",
+      "rating": 835,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MELTGOLD",
+      "file": "meltGold",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BOTTOM",
+      "name": "Guess the bottom face",
+      "rating": 815,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BOTTOM",
+      "file": "guessTheBottomFace",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CREDITS",
+      "name": "Complete the credits",
+      "rating": 809,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CREDITS",
+      "file": "completeTheCredits",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHSFORMT",
+      "name": "Chess Format",
+      "rating": 844,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHSFORMT",
+      "file": "chessFormat",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SUBAADDB",
+      "name": "Sub A Add B",
+      "rating": 817,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUBAADDB",
+      "file": "subAAddB",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MIXTURE",
+      "name": "Which Mixture",
+      "rating": 841,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MIXTURE",
+      "file": "whichMixture",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
