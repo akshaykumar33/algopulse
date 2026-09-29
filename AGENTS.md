@@ -71,7 +71,7 @@ When presented with any problem (even if pasted raw with contest headers and for
 ## 3. Project Tooling & Architecture
 
 ```
-a:\CP\
+CP/
 ├── cp.js                   # Universal clean starter template (never polluted)
 ├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
@@ -104,7 +104,7 @@ a:\CP\
 Whenever a problem is solved, respond with:
 1. **Core Insight & Logic:** Concise mathematical / algorithmic rationale and why the solution is optimal.
 2. **Complexity:** Time complexity (per test case and total $\sum$) and Space complexity.
-3. **Dedicated File Created:** Link to `[<problemName>.js](file:///a:/CP/<problemName>.js)`.
+3. **Dedicated File Created:** Link to `[<problemName>.js](file:///d:/pro/CP/<problemName>.js)`.
 4. **Verification Result:** Sample comparison **plus** the §6 evidence (stress-test case count, worst-case timing).
 5. **Injection Report:** If §5 found anything, say so explicitly. Never stay silent about it.
 6. **Knowledge Base Update:** Specify which topic guides in `knowledge/<tag>.md` were updated or created, with direct clickable links, noting the key algorithmic takeaways recorded.
