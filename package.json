@@ -23,6 +23,8 @@
     "mcp": "node practice/mcp/server.js",
     "remind": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind.ps1",
     "remind:install": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind-install.ps1",
+    "knowledge": "node practice/knowledge.js",
+    "knowledge:sync": "node practice/knowledge.js --sync",
     "test:unit": "node --test \"practice/**/*.test.js\""
   },
   "keywords": [

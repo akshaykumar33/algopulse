@@ -1,0 +1,109 @@
+# Number Theory — Algorithmic Patterns & Knowledge Base
+
+## 1. Core Principles & Mental Model
+Number theory deals with integers, divisibility, prime numbers, modular arithmetic, and arithmetic functions. In competitive programming, the majority of number theory problems rely on Euclidean GCD, prime factorization, the Sieve of Eratosthenes, or modular exponentiation.
+
+---
+
+## 2. Recognition Signals ("When you see X, think Y")
+- **"Find GCD or LCM of numbers":** $\implies$ Euclidean algorithm $O(\log(\min(A, B)))$ and $\text{LCM}(A, B) = \frac{A \cdot B}{\text{GCD}(A, B)}$.
+- **"Answer modulo $10^9 + 7$ or $998244353$":** $\implies$ Modular arithmetic at every addition and multiplication step.
+- **"Count divisors or factorize $N \le 10^{12}$":** $\implies$ Trial division up to $\sqrt{N}$ in $O(\sqrt{N})$.
+- **"Primes up to $10^7$":** $\implies$ Sieve of Eratosthenes in $O(N \log \log N)$.
+- **"Compute $A^B \pmod M$ for $B \le 10^{18}$":** $\implies$ Fast Binary Exponentiation in $O(\log B)$.
+
+---
+
+## 3. Key Mathematical Theorems & Formulas
+1. **Euclidean Algorithm for GCD:**
+   $$\gcd(a, b) = \gcd(b, a \pmod b) \quad \text{with } \gcd(a, 0) = a$$
+2. **Modular Arithmetic Identities:**
+   - $(A + B) \pmod M = ((A \pmod M) + (B \pmod M)) \pmod M$
+   - $(A \cdot B) \pmod M = ((A \pmod M) \cdot (B \pmod M)) \pmod M$
+   - $(A - B) \pmod M = ((A \pmod M) - (B \pmod M) + M) \pmod M$
+3. **Fermat's Little Theorem:**
+   If $p$ is prime and $\gcd(a, p) = 1$, then:
+   $$a^{p-1} \equiv 1 \pmod p \implies a^{-1} \equiv a^{p-2} \pmod p$$
+4. **Last Digits of Powers (Cycles):**
+   - For any base ending in 5, $5^n$ ends in $25$ for all $n \ge 2$.
+
+---
+
+## 4. Node.js / JavaScript Implementation Patterns & Traps
+
+### Pattern: Euclidean GCD (Iterative & Fast)
+```javascript
+function gcd(a, b) {
+  while (b !== 0) {
+    const t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+function lcm(a, b) {
+  if (a === 0 || b === 0) return 0;
+  return (a / gcd(a, b)) * b;
+}
+```
+
+### Pattern: Binary Exponentiation with BigInt
+```javascript
+function powerMod(base, exp, mod) {
+  let res = 1n;
+  let b = BigInt(base) % BigInt(mod);
+  let e = BigInt(exp);
+  const m = BigInt(mod);
+
+  while (e > 0n) {
+    if (e & 1n) res = (res * b) % m;
+    b = (b * b) % m;
+    e >>= 1n;
+  }
+  return Number(res);
+}
+```
+
+### Pattern: Linear / Standard Sieve of Eratosthenes ($N \le 10^7$)
+```javascript
+function sieve(maxN) {
+  const isPrime = new Uint8Array(maxN + 1);
+  isPrime.fill(1);
+  isPrime[0] = isPrime[1] = 0;
+
+  for (let p = 2; p * p <= maxN; p++) {
+    if (isPrime[p]) {
+      for (let i = p * p; i <= maxN; i += p) {
+        isPrime[i] = 0;
+      }
+    }
+  }
+  return isPrime;
+}
+```
+
+### Critical Traps:
+- **Product Overflow before Modulo:** In JavaScript, `(a * b) % MOD` will silently lose precision if $a, b \approx 10^9$ because $10^{18} > 9 \times 10^{15}$. **Always** cast to `BigInt` when multiplying two large integers before modulo: `Number((BigInt(a) * BigInt(b)) % BigInt(MOD))`.
+
+---
+
+## 5. Sub-Patterns & Archetypes
+1. **Coprimality & Reduction:** Reducing fractions $A/B$ by dividing by $\gcd(A, B)$.
+2. **Divisor Counting:** Prime factorize $N = p_1^{e_1} p_2^{e_2} \dots p_k^{e_k}$. Total divisors $d(N) = \prod (e_i + 1)$.
+3. **Power Cycle Observation:** When computing high powers modulo $10^k$, inspect the periodic cycle of the last digits.
+
+---
+
+## 6. Solved Problems Catalog & Takeaways
+
+| Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
+|---|---|---|---|---|
+| [Again Twenty Five!](https://codeforces.com/problemset/problem/630/A) | `Codeforces` | `800` | `againTwentyFive.js` | For any $n \ge 2$, $5^n \pmod{100} = 25$. Constant time $O(1)$! |
+| [Game with Integers](https://codeforces.com/problemset/problem/1899/A) | `Codeforces` | `800` | `gameWithIntegers.js` | If $n \pmod 3 \ne 0$, Vanya can add/subtract 1 on turn 1 to reach a multiple of 3 and win immediately. |
+
+---
+
+## 7. Common Pitfalls & Anti-Patterns
+- **LCM Overflow:** Never do `(a * b) / gcd(a, b)`. Always divide first: `(a / gcd(a, b)) * b` to prevent unnecessary overflow.
+- **Divisor Enumeration Bound:** Always stop loop at `i * i <= n`, never `i <= n / 2`.
