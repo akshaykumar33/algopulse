@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n1 2\n0 3\n5 0\n",
+    "output": "Solution\nLiquid\nSolid\n"
+  }
+]
