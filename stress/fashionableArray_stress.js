@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { spawnSync } = require('child_process');
 const path = require('path');
 
@@ -43,7 +44,9 @@ function verifyProperties(n, arr, res) {
 
 function runStress() {
   console.log('=== Phase 1: Small Exhaustive & Randomized Tests ===');
-  const targetScript = path.join(__dirname, '..', 'fashionableArray.js');
+  const targetScript = fs.existsSync(path.join(__dirname, '..', 'solutions', 'fashionableArray.js'))
+    ? path.join(__dirname, '..', 'solutions', 'fashionableArray.js')
+    : path.join(__dirname, '..', 'fashionableArray.js');
 
   const testCases = [];
   // Small edge cases

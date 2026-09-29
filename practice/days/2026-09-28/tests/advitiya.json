@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nADVITIYA\nADVITIYY\nADVITIYX\n",
+    "output": "0\n2\n3\n"
+  }
+]

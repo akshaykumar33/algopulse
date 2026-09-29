@@ -1,21 +1,37 @@
 {
   "name": "cp-js",
-  "version": "1.0.0",
-  "description": "High-performance Competitive Programming in JavaScript (Node.js)",
+  "version": "1.1.0",
+  "description": "High-performance Multi-Platform Competitive Programming in JavaScript (Node.js) supporting Codeforces, LeetCode, and CodeChef",
   "main": "run.js",
   "scripts": {
     "start": "node run.js",
     "solve": "node run.js",
     "test": "node run.js",
     "template": "node run.js cp",
-    "template:lc": "node run.js leetcode"
+    "template:lc": "node run.js leetcode",
+    "pick": "node practice/pick.js",
+    "pick:all": "node practice/pick.js --platform all",
+    "pick:cf": "node practice/pick.js --platform codeforces",
+    "pick:lc": "node practice/pick.js --platform leetcode",
+    "pick:cc": "node practice/pick.js --platform codechef",
+    "verify": "node practice/verify.js",
+    "verify:ref": "node practice/verify.js --ref",
+    "explain": "node practice/explain.js",
+    "visualizer": "node visualizer/server.js",
+    "dashboard": "node visualizer/server.js",
+    "view": "node visualizer/server.js",
+    "mcp": "node practice/mcp/server.js",
+    "remind": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind.ps1",
+    "remind:install": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind-install.ps1",
+    "test:unit": "node --test \"practice/**/*.test.js\""
   },
   "keywords": [
     "competitive-programming",
     "codeforces",
+    "leetcode",
+    "codechef",
     "atcoder",
     "cses",
-    "leetcode",
     "algorithms",
     "data-structures",
     "nodejs",
@@ -25,5 +41,8 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0"
   }
 }

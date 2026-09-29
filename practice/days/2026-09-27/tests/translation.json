@@ -1,0 +1,14 @@
+[
+  {
+    "input": "code\nedoc\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "abb\naba\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "code\ncode\n",
+    "output": "NO\n"
+  }
+]

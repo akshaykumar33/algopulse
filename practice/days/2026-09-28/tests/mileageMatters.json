@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n20 10 8 10 8\n50 12 15 10 10\n40 3 15 8 40\n21 9 9 3 3\n",
+    "output": "ANY\nPETROL\nANY\nANY\n"
+  }
+]

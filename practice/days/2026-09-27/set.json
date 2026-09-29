@@ -1,0 +1,122 @@
+{
+  "date": "2026-09-27",
+  "day": 3,
+  "targets": [
+    {
+      "rating": 800,
+      "count": 10
+    }
+  ],
+  "problems": [
+    {
+      "id": "1992A",
+      "name": "Only Pluses",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1992/A",
+      "file": "onlyPluses"
+    },
+    {
+      "id": "1829B",
+      "name": "Blank Space",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1829/B",
+      "file": "blankSpace"
+    },
+    {
+      "id": "509A",
+      "name": "Maximum in Table",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/509/A",
+      "file": "maximumInTable"
+    },
+    {
+      "id": "41A",
+      "name": "Translation",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/41/A",
+      "file": "translation"
+    },
+    {
+      "id": "1858A",
+      "name": "Buttons",
+      "rating": 800,
+      "tags": [
+        "games",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1858/A",
+      "file": "buttons"
+    },
+    {
+      "id": "271A",
+      "name": "Beautiful Year",
+      "rating": 800,
+      "tags": [
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/271/A",
+      "file": "beautifulYear"
+    },
+    {
+      "id": "1926A",
+      "name": "Vlad and the Best of Five",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1926/A",
+      "file": "vladAndTheBestOfFive"
+    },
+    {
+      "id": "1872A",
+      "name": "Two Vessels",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1872/A",
+      "file": "twoVessels"
+    },
+    {
+      "id": "1772A",
+      "name": "A+B?",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1772/A",
+      "file": "aPlusB"
+    },
+    {
+      "id": "155A",
+      "name": "I_love_\\%username\\%",
+      "rating": 800,
+      "tags": [
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/155/A",
+      "file": "iLoveUsername"
+    }
+  ]
+}

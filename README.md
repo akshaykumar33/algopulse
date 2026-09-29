@@ -5,70 +5,150 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-A high-performance, strictly verified Competitive Programming toolkit and solution repository targeting platforms like **Codeforces**, **AtCoder**, **CSES**, and **LeetCode** using **JavaScript (Node.js)**.
+A high-performance, strictly verified Competitive Programming toolkit and multi-platform daily curriculum system targeting **Codeforces**, **LeetCode**, and **CodeChef** using **JavaScript (Node.js)**.
 
 ---
 
 ## 📁 Repository Architecture & Structurization
 
 ```
-a:\CP\
+CP/
 ├── cp.js                   # Universal clean CP starter boilerplate (never polluted)
 ├── leetcode.js             # Universal clean LeetCode starter boilerplate (never polluted)
+├── templates/              # Platform-specific idiomatic starting templates
+│   ├── codeforces.js       # Fast synchronous buffer I/O for Codeforces & AtCoder
+│   ├── leetcode.js         # LeetCode function export + local test execution harness
+│   └── codechef.js         # Fast I/O tailored for CodeChef multi-test cases
 ├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
 ├── run.js                  # Smart execution runner (pipes input.txt -> solution -> output.txt)
 ├── run.bat                 # Windows CMD runner shortcut
 ├── run.ps1                 # Windows PowerShell runner shortcut
 ├── package.json            # Node.js manifest with standard npm scripts
-├── .gitignore              # Ignores input.txt, output.txt, heavy logs, and transient stress files
-├── .editorconfig           # Universal code style and indentation definitions
+├── .gitignore              # Ignores input.txt, output.txt, heavy logs, and stress fixtures
 ├── README.md               # User-facing master documentation
 ├── AGENTS.md               # AI operational guidelines & protocol specification
 ├── CLAUDE.md               # Claude CLI mirror instructions
 ├── stress/                 # Stress-testing suites, brute-force oracles, and fuzzers
-│   ├── fixtures/           # Large adversarial inputs (*.txt gitignored)
 │   └── <problem>_stress.js # Dedicated multi-round stress tests
+├── practice/               # Automated multi-platform daily curriculum system
+│   ├── plan.json           # Daily problem quota, ratings, and platform configuration
+│   ├── pick.js             # Multi-platform problem fetcher (Codeforces, LeetCode, CodeChef)
+│   ├── verify.js           # Automated local test suite runner & multi-platform judge
+│   ├── explain.js          # Automated explanation & Mermaid diagram doc generator
+│   ├── remind.ps1          # Task Scheduler daily reminder script
+│   ├── providers/          # Modular platform API integrations
+│   │   ├── codeforces.js   # Codeforces API fetcher & filter
+│   │   ├── leetcode.js     # LeetCode REST API & difficulty mapper
+│   │   └── codechef.js     # CodeChef API fetcher & difficulty filter
+│   └── days/<date>/        # Daily problem sets, tests, and documentation
+│       ├── README.md       # Interactive daily checklist & platform table
+│       ├── set.json        # Structured day manifest
+│       ├── solutions/      # Clean reference solutions
+│       ├── tests/          # Local test cases per problem (*.json)
+│       └── explanations/   # Rich algorithmic intuitions & Mermaid diagrams (*.md)
 └── <problemName>.js        # Problem solutions (clean camelCase / PascalCase)
 ```
 
 ---
 
-## ⚡ Quickstart & Runner Tooling
+## ⚡ Quickstart & Daily Practice Workflow
 
-The repository provides a fast runner engine (`run.js`) that automatically pipes `input.txt` to `stdin`, records execution time in milliseconds, writes to `output.txt`, and streams stdout directly to your console.
+### 1. Generating Daily Practice Sets (Multi-Platform)
+The `practice/pick.js` engine fetches from **Codeforces**, **LeetCode**, and **CodeChef**:
 
-### 1. Execute a Specific Problem
-```powershell
-# Windows PowerShell
-.\run goodContest
+```bash
+# Fetch 10 problems from EACH platform (30 total)
+npm run pick:all
 
-# Windows CMD
-run goodContest
+# Fetch 10 problems from a specific platform
+npm run pick:cf      # Codeforces
+npm run pick:lc      # LeetCode
+npm run pick:cc      # CodeChef
 
-# Direct Node or npm
-node run goodContest
-npm run solve goodContest
+# Custom date and count
+node practice/pick.js --date 2026-09-28 --platform all --count 10
 ```
 
-### 2. Auto-Detect the Latest Solution
-If no filename is specified, the runner automatically detects and runs the **most recently modified** problem file (ignoring templates, runner scripts, and stress suites):
+### 2. Solving with Dedicated Platform Templates
+Start new solutions using clean starter templates from `templates/`:
+- **Codeforces / CodeChef**: Uses `templates/codeforces.js` or `templates/codechef.js` (fast buffer `stdin`/`stdout`).
+- **LeetCode**: Uses `templates/leetcode.js` (function/class export with local stdin test harness).
+
+### 3. Running & Verifying Locally
 ```powershell
-.\run
-# or: node run
+# Run a specific problem with input.txt -> output.txt
+node run onlyPluses
+# or auto-detect most recently edited solution:
+node run
+
+# Verify entire daily set against test suites
+npm run verify
+
+# Verify reference solutions
+npm run verify:ref
+
+# Verify a specific day
+node practice/verify 2026-09-27
 ```
 
-### 3. Run Stress-Testing Harnesses
-The runner automatically resolves scripts located in the `stress/` directory:
-```powershell
-node run dequeMalfunction_stress
+### 4. Explanations, Intuitions & Mermaid Diagrams
+Generate and view complete Markdown explanations for problems featuring step-by-step state traces, complexity proofs, and Mermaid diagrams:
+
+```bash
+# Generate explanation docs for latest day's set
+npm run explain
+
+# Generate for a specific problem
+node practice/explain onlyPluses
+```
+
+Explanations are located in `practice/days/<date>/explanations/<problem>.md`.
+
+### 5. AlgoPulse Studio (dashboard)
+
+```bash
+npm install     # once — only needed for the Claude provider
+npm run view    # → http://localhost:3333
+```
+
+Everything for a problem in one place: a plain-language **Story** with a step-by-step trace of a real sample, the **Walkthrough** and **Diagrams**, an interactive **Visualize** tab, an in-browser **Code** editor ("Create my file" writes `<problem>.js` from the template), and **Tests** — every sample plus a playground for your own inputs. Press `G` in the app for the Guide, or take the built-in tour.
+
+**AI coach — bring your own key.** Pick a provider in the Guide and add its key to `.env` (gitignored):
+
+| Provider | `.env` | Notes |
+|---|---|---|
+| Gemini | `GEMINI_API_KEY=…` | Free tier |
+| Claude | `ANTHROPIC_API_KEY=…` | Default model `claude-opus-5` |
+| OpenAI | `OPENAI_API_KEY=…`, `OPENAI_MODEL=…` | |
+| Ollama | none — run `ollama serve` | Free, fully offline |
+
+Prompts are grounded in the reference solution and samples; the coach also retrieves your own past notes (BM25, local), and every answer is cached in `.cache/ai/`. Story traces are checked against the sample output and badged ✓/⚠.
+
+**MCP:** `.mcp.json` registers `practice/mcp/server.js`, so Claude Code (and Claude Desktop — config in the Guide) can list days, read problems, run your tests and search your notes.
+
+**Reminders:** `npm run remind:install -- -Time 18:30` schedules a daily Windows toast with an *Open studio* button (`-Remove` to uninstall; `npm run remind` to test). The header tracks your solving streak.
+
+---
+
+## 📊 Visual Explanation & Mermaid Diagrams
+
+Every problem documentation includes architectural and state-transition Mermaid diagrams:
+
+```mermaid
+flowchart TD
+    A[Read Problem Instance] --> B{Base Cases & Boundaries}
+    B -- Degenerate/Base --> C[O 1 Direct Answer]
+    B -- General Case --> D[Evaluate Invariant & State Transitions]
+    D --> E[Greedy / DP Transition Update]
+    E --> F[Buffer Optimal Result & Print]
 ```
 
 ---
 
 ## 🧠 5-Phase Problem Solving Protocol
 
-Every problem follows a strict 5-phase engineering protocol:
+Every solution follows a strict 5-phase engineering protocol:
 
 ```mermaid
 graph TD
@@ -86,7 +166,7 @@ graph TD
    - $N \le 2000$: $O(N^2)$ nested loops / DP.
    - $N \le 2 \cdot 10^5$: $O(N \log N)$ or $O(N)$ with sorting, two pointers, binary search, segment tree, DSU.
    - $N \ge 10^9$: $O(\log N)$ or $O(1)$ math / matrix exponentiation.
-3. **Implementation**: Build `<problemName>.js` using boilerplate from `cp.js`.
+3. **Implementation**: Build `<problemName>.js` using boilerplate from `templates/` or `cp.js`.
 4. **Sample Verification**: Run `node run <problemName>` and verify against sample output.
 5. **Verification & Stress Testing**: Validate through independent reference, brute-force oracles, and worst-case timing before committing.
 

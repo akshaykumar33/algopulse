@@ -1,0 +1,513 @@
+{
+  "title": "The Magical Fruit Stand's Sweetest Harvest",
+  "keyIdea": "To find the biggest product, we must try every possible way to distribute the five extra 'plus' operations among the three numbers and pick the best result.",
+  "story": "Imagine three little garden patches, each growing a different kind of magical fruit. Let's say the first patch has 2 fruits, the second has 3, and the third has 4. You've been given 5 special 'growth sprinkles' that you can use to make your fruit patches bigger. Each sprinkle you add to a patch makes it grow by one fruit.\n\nYour goal is to make the 'total magic power' of your garden as big as possible. The total magic power is calculated by multiplying the number of fruits in the first patch, the second patch, and the third patch together. You can distribute your 5 sprinkles however you like – maybe all 5 on one patch, or 2 on one, 2 on another, and 1 on the last. You just need to use exactly 5 sprinkles in total.\n\nThis problem is just like that! The initial numbers `a`, `b`, and `c` are our fruit patches. The 5 'plus' operations are our growth sprinkles. We need to figure out how many sprinkles (`i`, `j`, `k`) to give to each number so that `i + j + k = 5`, and the final product `(a+i) * (b+j) * (c+k)` is the largest it can be. We'll simply try every single way to distribute those 5 sprinkles and see which one gives us the biggest magic power!",
+  "traceInput": "2 3 4",
+  "steps": [
+    {
+      "title": "Initialize Garden and Max Power",
+      "narration": "We start with our three fruit patches, `a`, `b`, and `c`, and set our `maxProduct` to zero, ready to find the highest magic power.",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "maxProduct",
+          "value": "0"
+        }
+      ],
+      "focus": [
+        "a",
+        "b",
+        "c",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 0, 0, 5",
+      "narration": "Let's try giving 0 sprinkles to 'a', 0 to 'b', and all 5 to 'c'. The new sizes are (2+0), (3+0), (4+5). Their product is 2 * 3 * 9 = 54. This is our first `maxProduct`!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "0"
+        },
+        {
+          "name": "j",
+          "value": "0"
+        },
+        {
+          "name": "k",
+          "value": "5"
+        },
+        {
+          "name": "prod",
+          "value": "54"
+        },
+        {
+          "name": "maxProduct",
+          "value": "54"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 0, 1, 4",
+      "narration": "Next, we try 0 sprinkles for 'a', 1 for 'b', and 4 for 'c'. The sizes become (2+0), (3+1), (4+4). Their product is 2 * 4 * 8 = 64. This is greater than 54, so `maxProduct` is updated.",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "0"
+        },
+        {
+          "name": "j",
+          "value": "1"
+        },
+        {
+          "name": "k",
+          "value": "4"
+        },
+        {
+          "name": "prod",
+          "value": "64"
+        },
+        {
+          "name": "maxProduct",
+          "value": "64"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 0, 2, 3",
+      "narration": "Now, 0 sprinkles for 'a', 2 for 'b', and 3 for 'c'. The sizes are (2+0), (3+2), (4+3). The product is 2 * 5 * 7 = 70. This is a new maximum!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "0"
+        },
+        {
+          "name": "j",
+          "value": "2"
+        },
+        {
+          "name": "k",
+          "value": "3"
+        },
+        {
+          "name": "prod",
+          "value": "70"
+        },
+        {
+          "name": "maxProduct",
+          "value": "70"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 0, 3, 2",
+      "narration": "Trying 0 sprinkles for 'a', 3 for 'b', and 2 for 'c'. The sizes are (2+0), (3+3), (4+2). The product is 2 * 6 * 6 = 72. Another new maximum!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "0"
+        },
+        {
+          "name": "j",
+          "value": "3"
+        },
+        {
+          "name": "k",
+          "value": "2"
+        },
+        {
+          "name": "prod",
+          "value": "72"
+        },
+        {
+          "name": "maxProduct",
+          "value": "72"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 1, 1, 3",
+      "narration": "Now, let's try giving 1 sprinkle to 'a', 1 to 'b', and 3 to 'c'. The sizes become (2+1), (3+1), (4+3). The product is 3 * 4 * 7 = 84. This is even better!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "1"
+        },
+        {
+          "name": "j",
+          "value": "1"
+        },
+        {
+          "name": "k",
+          "value": "3"
+        },
+        {
+          "name": "prod",
+          "value": "84"
+        },
+        {
+          "name": "maxProduct",
+          "value": "84"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 1, 2, 2",
+      "narration": "Let's try 1 sprinkle for 'a', 2 for 'b', and 2 for 'c'. The sizes are (2+1), (3+2), (4+2). The product is 3 * 5 * 6 = 90. Our `maxProduct` grows again!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "1"
+        },
+        {
+          "name": "j",
+          "value": "2"
+        },
+        {
+          "name": "k",
+          "value": "2"
+        },
+        {
+          "name": "prod",
+          "value": "90"
+        },
+        {
+          "name": "maxProduct",
+          "value": "90"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 2, 1, 2",
+      "narration": "How about 2 sprinkles for 'a', 1 for 'b', and 2 for 'c'? The sizes are (2+2), (3+1), (4+2). The product is 4 * 4 * 6 = 96. This is our new highest magic power!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "2"
+        },
+        {
+          "name": "j",
+          "value": "1"
+        },
+        {
+          "name": "k",
+          "value": "2"
+        },
+        {
+          "name": "prod",
+          "value": "96"
+        },
+        {
+          "name": "maxProduct",
+          "value": "96"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 2, 2, 1",
+      "narration": "Let's try 2 sprinkles for 'a', 2 for 'b', and 1 for 'c'. The sizes are (2+2), (3+2), (4+1). The product is 4 * 5 * 5 = 100. This is the biggest product we've found so far!",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "2"
+        },
+        {
+          "name": "j",
+          "value": "2"
+        },
+        {
+          "name": "k",
+          "value": "1"
+        },
+        {
+          "name": "prod",
+          "value": "100"
+        },
+        {
+          "name": "maxProduct",
+          "value": "100"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod",
+        "maxProduct"
+      ]
+    },
+    {
+      "title": "Sprinkle 3, 1, 1",
+      "narration": "We continue checking all combinations. With 3 sprinkles for 'a', 1 for 'b', and 1 for 'c', the sizes are (2+3), (3+1), (4+1). The product is 5 * 4 * 5 = 100. This matches our current `maxProduct`, so it doesn't change.",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "3"
+        },
+        {
+          "name": "j",
+          "value": "1"
+        },
+        {
+          "name": "k",
+          "value": "1"
+        },
+        {
+          "name": "prod",
+          "value": "100"
+        },
+        {
+          "name": "maxProduct",
+          "value": "100"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod"
+      ]
+    },
+    {
+      "title": "Sprinkle 4, 1, 0",
+      "narration": "Trying 4 sprinkles for 'a', 1 for 'b', and 0 for 'c'. The sizes are (2+4), (3+1), (4+0). The product is 6 * 4 * 4 = 96. This is less than our `maxProduct`, so it remains 100.",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "i",
+          "value": "4"
+        },
+        {
+          "name": "j",
+          "value": "1"
+        },
+        {
+          "name": "k",
+          "value": "0"
+        },
+        {
+          "name": "prod",
+          "value": "96"
+        },
+        {
+          "name": "maxProduct",
+          "value": "100"
+        }
+      ],
+      "focus": [
+        "i",
+        "j",
+        "k",
+        "prod"
+      ]
+    },
+    {
+      "title": "All Combinations Checked",
+      "narration": "After checking every single way to distribute the 5 sprinkles, we've found the highest possible magic power. No other combination yielded a product greater than 100.",
+      "vars": [
+        {
+          "name": "a",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "value": "3"
+        },
+        {
+          "name": "c",
+          "value": "4"
+        },
+        {
+          "name": "maxProduct",
+          "value": "100"
+        }
+      ],
+      "focus": [
+        "maxProduct"
+      ]
+    }
+  ],
+  "finalOutput": "100",
+  "verified": true,
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-09-27T12:04:58.652Z"
+}

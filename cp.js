@@ -7,6 +7,7 @@ const readLine = () => input[inputIndex++];
 const readInt = () => parseInt(readLine(), 10);
 const readIntArray = () => readLine().trim().split(/\s+/).map(Number);
 const readStringArray = () => readLine().trim().split(/\s+/);
+const readStringIndividualArray = () => readLine().trim().split('');
 const readBigInt = () => BigInt(readLine().trim());
 const readBigIntArray = () => readLine().trim().split(/\s+/).map(BigInt);
 

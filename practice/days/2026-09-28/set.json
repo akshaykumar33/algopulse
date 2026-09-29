@@ -1,0 +1,380 @@
+{
+  "date": "2026-09-28",
+  "day": 4,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "492A",
+      "name": "Vanya and Cubes",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/492/A",
+      "file": "vanyaAndCubes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1352A",
+      "name": "Sum of Round Numbers",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1352/A",
+      "file": "sumOfRoundNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1353B",
+      "name": "Two Arrays And Swaps",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1353/B",
+      "file": "twoArraysAndSwaps",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1788A",
+      "name": "One and Two",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1788/A",
+      "file": "oneAndTwo",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1186A",
+      "name": "Vus the Cossack and a Contest",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1186/A",
+      "file": "vusTheCossackAndAContest",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "381A",
+      "name": "Sereja and Dima",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/381/A",
+      "file": "serejaAndDima",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2162A",
+      "name": "Beautiful Average",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2162/A",
+      "file": "beautifulAverage",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "791A",
+      "name": "Bear and Big Brother",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/791/A",
+      "file": "bearAndBigBrother",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1899A",
+      "name": "Game with Integers",
+      "rating": 800,
+      "tags": [
+        "games",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1899/A",
+      "file": "gameWithIntegers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2060A",
+      "name": "Fibonacciness",
+      "rating": 800,
+      "tags": [
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2060/A",
+      "file": "fibonacciness",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-119",
+      "name": "Pascal's Triangle II",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/pascals-triangle-ii/",
+      "file": "pascalSTriangleII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-367",
+      "name": "Valid Perfect Square",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/valid-perfect-square/",
+      "file": "validPerfectSquare",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-520",
+      "name": "Detect Capital",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/detect-capital/",
+      "file": "detectCapital",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-21",
+      "name": "Merge Two Sorted Lists",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "file": "mergeTwoSortedLists",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-645",
+      "name": "Set Mismatch",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/set-mismatch/",
+      "file": "setMismatch",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1251",
+      "name": "Average Selling Price",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/average-selling-price/",
+      "file": "averageSellingPrice",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-83",
+      "name": "Remove Duplicates from Sorted List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+      "file": "removeDuplicatesFromSortedList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1633",
+      "name": "Percentage of Users Attended a Contest",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/percentage-of-users-attended-a-contest/",
+      "file": "percentageOfUsersAttendedAContest",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-342",
+      "name": "Power of Four",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/power-of-four/",
+      "file": "powerOfFour",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1075",
+      "name": "Project Employees I",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/project-employees-i/",
+      "file": "projectEmployeesI",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TYRES",
+      "name": "Cars and Bikes",
+      "rating": 809,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TYRES",
+      "file": "carsAndBikes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SALE2",
+      "name": "Buy 2 Get 1 Free",
+      "rating": 821,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SALE2",
+      "file": "buy2Get1Free",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MXSCWN",
+      "name": "Maximum Score",
+      "rating": 843,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MXSCWN",
+      "file": "maximumScore",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LOOP",
+      "name": "Circular Track",
+      "rating": 838,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LOOP",
+      "file": "circularTrack",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLOW010",
+      "name": "Id and Ship",
+      "rating": 847,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLOW010",
+      "file": "idAndShip",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-INCREAR",
+      "name": "Equal Integers",
+      "rating": 852,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/INCREAR",
+      "file": "equalIntegers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADVITIYA",
+      "name": "Advitiya",
+      "rating": 844,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADVITIYA",
+      "file": "advitiya",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NEARESTCOURT",
+      "name": "Nearest Court",
+      "rating": 819,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NEARESTCOURT",
+      "file": "nearestCourt",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MILEAGE",
+      "name": "Mileage matters",
+      "rating": 831,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MILEAGE",
+      "file": "mileageMatters",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BESTOFTENNIS",
+      "name": "Best of N Sets",
+      "rating": 830,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BESTOFTENNIS",
+      "file": "bestOfNSets",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

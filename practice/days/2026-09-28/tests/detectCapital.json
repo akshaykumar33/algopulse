@@ -1,0 +1,6 @@
+[
+  {
+    "input": "\"USA\"\n\"FlaG\"\n",
+    "output": "true\nfalse\n"
+  }
+]

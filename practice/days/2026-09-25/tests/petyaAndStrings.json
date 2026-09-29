@@ -1,0 +1,22 @@
+[
+  {
+    "input": "aaaa\naaaA\n",
+    "output": "0\n"
+  },
+  {
+    "input": "abs\nAbz\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "abcdefg\nAbCdEfF\n",
+    "output": "1\n"
+  },
+  {
+    "input": "A\nb\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "Z\na\n",
+    "output": "1\n"
+  }
+]

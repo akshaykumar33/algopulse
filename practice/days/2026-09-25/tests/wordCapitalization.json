@@ -1,0 +1,18 @@
+[
+  {
+    "input": "ApPLe\n",
+    "output": "ApPLe\n"
+  },
+  {
+    "input": "konjac\n",
+    "output": "Konjac\n"
+  },
+  {
+    "input": "a\n",
+    "output": "A\n"
+  },
+  {
+    "input": "Z\n",
+    "output": "Z\n"
+  }
+]
