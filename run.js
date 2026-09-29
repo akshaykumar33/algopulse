@@ -8,7 +8,7 @@ let target = process.argv[2];
 const getCandidateFiles = (dir) => {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir)
-    .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && !f.startsWith('_'))
+    .filter(f => f.endsWith('.js') && f !== 'run.js' && f !== 'cp.js' && f !== 'leetcode.js' && f !== 'lc.js' && !f.startsWith('_'))
     .map(f => ({ name: f, fullPath: path.join(dir, f), time: fs.statSync(path.join(dir, f)).mtimeMs }));
 };
 
@@ -31,12 +31,13 @@ if (!target) {
   }
 }
 
-// Search order: root -> solutions/ -> stress/
+// Search order: root -> solutions/ -> stress/ -> templates/
 let targetPath = null;
 const searchPaths = [
   path.resolve(__dirname, target),
   path.resolve(__dirname, 'solutions', target),
   path.resolve(__dirname, 'stress', target),
+  path.resolve(__dirname, 'templates', target),
 ];
 
 for (const p of searchPaths) {

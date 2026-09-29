@@ -8,6 +8,7 @@
     "solve": "node run.js",
     "test": "node run.js",
     "template": "node run.js cp",
+    "template:lc": "node run.js leetcode",
     "pick": "node practice/pick.js",
     "pick:all": "node practice/pick.js --platform all",
     "pick:cf": "node practice/pick.js --platform codeforces",
