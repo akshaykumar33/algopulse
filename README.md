@@ -14,7 +14,6 @@ A high-performance, strictly verified Competitive Programming toolkit and multi-
 ```
 CP/
 ├── cp.js                   # Universal clean CP starter boilerplate (never polluted)
-├── leetcode.js             # Universal clean LeetCode starter boilerplate (never polluted)
 ├── templates/              # Platform-specific idiomatic starting templates
 │   ├── codeforces.js       # Fast synchronous buffer I/O for Codeforces & AtCoder
 │   ├── leetcode.js         # LeetCode function export + local test execution harness

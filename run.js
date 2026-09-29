@@ -66,7 +66,7 @@ let target = process.argv[2];
 if (!target) {
   // Find the most recently modified .js file across contests/, solutions/, stress/, and root
   const rootFiles = fs.readdirSync(__dirname, { withFileTypes: true })
-    .filter(d => d.isFile() && d.name.endsWith('.js') && d.name !== 'run.js' && d.name !== 'cp.js' && !d.name.startsWith('_'))
+    .filter(d => d.isFile() && d.name.endsWith('.js') && d.name !== 'run.js' && d.name !== 'cp.js' && d.name !== 'leetcode.js' && d.name !== 'lc.js' && !d.name.startsWith('_'))
     .map(d => ({ name: d.name, fullPath: path.join(__dirname, d.name), time: fs.statSync(path.join(__dirname, d.name)).mtimeMs }));
 
   const contestFiles = getCandidateFiles(path.join(__dirname, 'contests'));
