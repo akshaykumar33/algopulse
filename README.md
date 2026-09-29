@@ -13,7 +13,8 @@ A high-performance, strictly verified Competitive Programming toolkit and multi-
 
 ```
 CP/
-├── cp.js                   # Universal clean starter boilerplate (never polluted)
+├── cp.js                   # Universal clean CP starter boilerplate (never polluted)
+├── leetcode.js             # Universal clean LeetCode starter boilerplate (never polluted)
 ├── templates/              # Platform-specific idiomatic starting templates
 │   ├── codeforces.js       # Fast synchronous buffer I/O for Codeforces & AtCoder
 │   ├── leetcode.js         # LeetCode function export + local test execution harness
@@ -30,6 +31,9 @@ CP/
 ├── CLAUDE.md               # Claude CLI mirror instructions
 ├── stress/                 # Stress-testing suites, brute-force oracles, and fuzzers
 │   └── <problem>_stress.js # Dedicated multi-round stress tests
+├── knowledge/              # Algorithmic Knowledge Base & Pattern Catalog
+│   ├── README.md           # Master index, topic matrix, and learning roadmaps
+│   └── <tag>.md            # Tag-specific guides (greedy, math, dp, two-pointers, etc.)
 ├── practice/               # Automated multi-platform daily curriculum system
 │   ├── plan.json           # Daily problem quota, ratings, and platform configuration
 │   ├── pick.js             # Multi-platform problem fetcher (Codeforces, LeetCode, CodeChef)
@@ -145,7 +149,44 @@ flowchart TD
 
 ---
 
-## 🧠 5-Phase Problem Solving Protocol
+## 🧠 Algorithmic Knowledge Base & Pattern Catalog
+
+The repository houses a structured **Knowledge Base** (`knowledge/`) that catalogs competitive programming algorithms, mental models, mathematical invariants, and idiomatic Node.js patterns organized by tags.
+
+Every time a problem is solved, its core takeaway and mathematical invariant are recorded in its corresponding tag guide:
+
+- **[Master Index & Taxonomy](file:///d:/pro/CP/knowledge/README.md)**
+- **[Greedy Algorithms](file:///d:/pro/CP/knowledge/greedy.md)**: Exchange arguments, interval scheduling, sorting + greedy
+- **[Mathematics & Parity Invariants](file:///d:/pro/CP/knowledge/math.md)**: Parity invariants, arithmetic series, bounds
+- **[Number Theory](file:///d:/pro/CP/knowledge/number-theory.md)**: Euclidean GCD, modular exponentiation, prime sieves
+- **[Two Pointers & Sliding Window](file:///d:/pro/CP/knowledge/two-pointers.md)**: Inward-facing pointers, dynamic sliding windows
+- **[Dynamic Programming](file:///d:/pro/CP/knowledge/dynamic-programming.md)**: State space design, 1D space optimizations, subset sum
+- **[Strings & Parsing](file:///d:/pro/CP/knowledge/strings.md)**: Frequency maps, palindromes, tokenization
+- **[Binary Search](file:///d:/pro/CP/knowledge/binary-search.md)**: Monotonic answer spaces, predicate functions
+- **[Bitmasks & Bitwise Operations](file:///d:/pro/CP/knowledge/bitmasks.md)**: XOR invariants, popcount, subset iteration
+- **[Constructive Algorithms](file:///d:/pro/CP/knowledge/constructive-algorithms.md)**: Periodic tiling, matrix balancing, parity kernels
+- **[Data Structures & Prefix Sums](file:///d:/pro/CP/knowledge/data-structures.md)**: Prefix sums, heaps, monotonic stacks
+- **[Trees & Graphs](file:///d:/pro/CP/knowledge/trees-and-graphs.md)**: Iterative BFS/DFS (avoiding call stack limits), reachability
+- **[Game Theory](file:///d:/pro/CP/knowledge/game-theory.md)**: Impartial games, terminal states, $N$/$P$-positions
+- **[Sorting & Comparators](file:///d:/pro/CP/knowledge/sorting.md)**: V8 sorting mechanics, coordinate compression
+- **[Brute Force & Backtracking](file:///d:/pro/CP/knowledge/brute-force.md)**: State space bounds, search pruning, meet-in-the-middle
+- **[Implementation & Simulation](file:///d:/pro/CP/knowledge/implementation.md)**: Grid navigation vectors (`dx`/`dy`), boundary checks
+
+### Knowledge Base CLI Commands
+```bash
+# Audit knowledge base coverage across all solved problems
+npm run knowledge
+
+# Synchronize problem catalogs across all tag files and README.md
+npm run knowledge:sync
+
+# Add a specific problem to its tag guides
+node practice/knowledge --add <problemFile>
+```
+
+---
+
+## 🚀 6-Phase Problem Solving Protocol
 
 Every solution follows a strict 5-phase engineering protocol:
 

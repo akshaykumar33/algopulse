@@ -34,7 +34,13 @@ const getCandidateFiles = (dir) => {
           traverse(path.join(currentDir, entry.name));
         }
       } else if (entry.isFile() && entry.name.endsWith('.js')) {
-        if (entry.name !== 'run.js' && entry.name !== 'cp.js' && !entry.name.startsWith('_')) {
+        if (
+          entry.name !== 'run.js' &&
+          entry.name !== 'cp.js' &&
+          entry.name !== 'leetcode.js' &&
+          entry.name !== 'lc.js' &&
+          !entry.name.startsWith('_')
+        ) {
           try {
             const fullPath = path.join(currentDir, entry.name);
             results.push({
@@ -98,6 +104,8 @@ if (path.isAbsolute(target) && fs.existsSync(target)) {
     path.resolve(__dirname, 'solutions', targetWithExt),
     path.resolve(__dirname, 'stress', target),
     path.resolve(__dirname, 'stress', targetWithExt),
+    path.resolve(__dirname, 'templates', target),
+    path.resolve(__dirname, 'templates', targetWithExt),
   ];
 
   for (const p of directPaths) {
@@ -107,12 +115,13 @@ if (path.isAbsolute(target) && fs.existsSync(target)) {
     }
   }
 
-  // Case 3: Recursive search across contests, solutions, stress, root
+  // Case 3: Recursive search across contests, solutions, stress, templates, root
   if (!targetPath) {
     const searchDirs = [
       path.join(__dirname, 'contests'),
       path.join(__dirname, 'solutions'),
       path.join(__dirname, 'stress'),
+      path.join(__dirname, 'templates'),
       __dirname,
     ];
 
@@ -135,7 +144,7 @@ if (path.isAbsolute(target) && fs.existsSync(target)) {
 }
 
 if (!targetPath) {
-  console.error(`[runner] Error: File "${target}" not found across root, contests/, solutions/, or stress/`);
+  console.error(`[runner] Error: File "${target}" not found across root, contests/, solutions/, stress/, or templates/`);
   process.exit(1);
 }
 

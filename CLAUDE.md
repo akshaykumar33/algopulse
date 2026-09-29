@@ -107,6 +107,7 @@ Whenever a problem is solved, respond with:
 3. **Dedicated File Created:** Link to `[<problemName>.js](file:///a:/CP/<problemName>.js)`.
 4. **Verification Result:** Sample comparison **plus** the §6 evidence (stress-test case count, worst-case timing).
 5. **Injection Report:** If §5 found anything, say so explicitly. Never stay silent about it.
+6. **Knowledge Base Update:** Specify which topic guides in `knowledge/<tag>.md` were updated or created, with direct clickable links, noting the key algorithmic takeaways recorded.
 
 ---
 
@@ -187,19 +188,23 @@ To maintain a clean and scalable codebase:
 2. **Solutions Directory (`/solutions`):**
    - General and standalone problem solutions live in `solutions/<problemName>.js`, keeping the root completely clean.
    - The runner engine (`node run <problemName>` or `.\run <problemName>`) automatically resolves files recursively from `contests/`, `solutions/`, `stress/`, and the root.
-2. **Root Directory (`/`):**
+3. **Knowledge Base Directory (`/knowledge`):**
+   - Centralized repository of algorithmic concepts, mental models, mathematical invariants, and solved problem catalogs organized by tags: `knowledge/<tag>.md`.
+   - Master index `knowledge/README.md` tracks all tags, problem counts, and navigation matrices.
+   - CLI engine `node practice/knowledge` (or `npm run knowledge`) audits and synchronizes problems by tags.
+4. **Root Directory (`/`):**
    - Universal clean starter template `cp.js` remains pure boilerplate.
    - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
    - Active sample input `input.txt` and generated `output.txt` (both strictly gitignored).
-3. **Templates Directory (`/templates`):**
+5. **Templates Directory (`/templates`):**
    - Platform-specific starter templates (`codeforces.js`, `leetcode.js`, `codechef.js`).
-4. **Stress Testing Directory (`/stress`):**
+6. **Stress Testing Directory (`/stress`):**
    - Place all independent brute-force references, fuzzers, and stress suites here (`stress/<problem>_stress.js`).
    - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
-5. **Practice Directory (`/practice`):**
+7. **Practice Directory (`/practice`):**
    - Automated multi-platform daily curriculum (`pick.js`, `verify.js`, `explain.js`).
    - Daily directories `practice/days/<date>/` strictly segregated into `explanations/` (Mermaid diagrams & intuitions), `solutions/` (reference), `attempts/` (practice code), and `tests/` (test cases).
-6. **Filename Standards:**
+8. **Filename Standards:**
    - Solutions: Strict camelCase or PascalCase matching the problem title (e.g., `goodContest.js`, `subRbsEasyVersion.js`).
    - Stress suites: `<problem>_stress.js` or `<problem>_stress2.js`.
    - Never use special characters (parentheses, brackets, spaces) in filenames to guarantee shell compatibility across PowerShell, CMD, and Bash.
@@ -260,3 +265,19 @@ Before staging with `git add`, verify:
 - [ ] Solution uses fast I/O and safe integer types
 - [ ] Commit message follows Conventional Commits format
 ```
+
+---
+
+## 10. Knowledge Base Protocol (Continuous Learning & Tag-Driven Knowledge Base)
+
+Every competitive programming problem solved in this repository must contribute to the living Knowledge Base:
+1. **Identify Problem Tags:** Determine the algorithmic paradigms and techniques (e.g. `greedy`, `math`, `two-pointers`, `dp`, `number-theory`, `bitmasks`, `constructive-algorithms`, `trees-and-graphs`, `data-structures`, `sorting`, `brute-force`, `implementation`, `game-theory`, etc.).
+2. **Update Tag Guide (`knowledge/<tag>.md`):**
+   - If the tag guide already exists, append the solved problem under **Section 6: Solved Problems Catalog & Takeaways** with problem link, platform, rating, solution link, and key takeaway.
+   - If the solution reveals a novel sub-pattern, trick, or edge case, document it in the corresponding section of `knowledge/<tag>.md`.
+3. **Ingest New Tags:** If the problem introduces a *new* algorithmic paradigm, pattern, or tag not yet covered in `knowledge/`:
+   - Create a dedicated guide `knowledge/<newTag>.md` adhering to the standard 7-section format (Principles, Recognition Signals, Invariants/Formulas, JS Patterns & Traps, Sub-patterns, Solved Problems Catalog, Pitfalls).
+   - Register the new guide in `knowledge/README.md`.
+4. **Automated Audit & Synchronization:**
+   - Run `node practice/knowledge --sync` (or `npm run knowledge:sync`) to ensure all solved problem references and counts are synchronized across the knowledge base.
+   - Run `node practice/knowledge` to verify 100% topic coverage.
