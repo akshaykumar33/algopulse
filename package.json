@@ -8,6 +8,7 @@
     "solve": "node run.js",
     "test": "node run.js",
     "template": "node run.js cp",
+    "template:lc": "node run.js leetcode",
     "pick": "node practice/pick.js",
     "pick:all": "node practice/pick.js --platform all",
     "pick:cf": "node practice/pick.js --platform codeforces",
@@ -22,6 +23,8 @@
     "mcp": "node practice/mcp/server.js",
     "remind": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind.ps1",
     "remind:install": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind-install.ps1",
+    "knowledge": "node practice/knowledge.js",
+    "knowledge:sync": "node practice/knowledge.js --sync",
     "test:unit": "node --test \"practice/**/*.test.js\""
   },
   "keywords": [

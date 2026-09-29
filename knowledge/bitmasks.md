@@ -1,0 +1,107 @@
+# Bitwise Operations & Bitmasks — Algorithmic Patterns & Knowledge Base
+
+## 1. Core Principles & Mental Model
+Computers represent integers as binary bit strings. Bitwise operations (`&`, `|`, `^`, `~`, `<<`, `>>`) execute in a single CPU cycle. In competitive programming, bit manipulation is used for:
+1. Compact representation of sets of elements (Bitmask where the $i$-th bit represents presence of element $i$).
+2. XOR conservation invariants ($x \oplus x = 0$, $x \oplus 0 = x$).
+3. Fast state compression in Dynamic Programming ($N \le 20 \implies 2^N \le 10^6$).
+
+---
+
+## 2. Recognition Signals ("When you see X, think Y")
+- **"Find element that appears once while all others appear twice":** $\implies$ XOR accumulator ($A \oplus A = 0$).
+- **"Check if a number is a power of two":** $\implies (n > 0) \land ((n \ \& \ (n - 1)) == 0)$.
+- **"Find missing number in range $[0, n]$":** $\implies$ XOR all indices with all values.
+- **Constraints: $N \le 20$ elements with subset selection":** $\implies$ Bitmask iteration from $0$ to $(1 \ll N) - 1$.
+- **"Bitwise operations on independent bit positions":** $\implies$ Solve problem bit-by-bit from bit 0 to bit 30 independently.
+
+---
+
+## 3. Key Mathematical Theorems & Bit Identities
+1. **XOR Cancellation & Commutativity:**
+   $$x \oplus y = y \oplus x, \quad x \oplus (y \oplus z) = (x \oplus y) \oplus z$$
+   $$x \oplus x = 0, \quad x \oplus 0 = x$$
+2. **Lowest Set Bit Isolation:**
+   $$\text{LSB}(x) = x \ \& \ (-x)$$
+3. **Clearing Lowest Set Bit:**
+   $$x \ \& \ (x - 1) \quad \text{(removes lowest 1-bit)}$$
+4. **Iterating All Submasks of Mask $M$:**
+   ```javascript
+   for (let sub = m; sub > 0; sub = (sub - 1) & m) {
+     // processes every submask in O(3^N) total across all masks
+   }
+   ```
+
+---
+
+## 4. Node.js / JavaScript Implementation Patterns & Traps
+
+### Pattern 1: Bitmask Subset Operations
+```javascript
+// Test if i-th bit is set
+const isSet = (mask, i) => (mask & (1 << i)) !== 0;
+
+// Set i-th bit
+const setBit = (mask, i) => mask | (1 << i);
+
+// Clear i-th bit
+const clearBit = (mask, i) => mask & ~(1 << i);
+
+// Toggle i-th bit
+const toggleBit = (mask, i) => mask ^ (1 << i);
+
+// Count set bits (popcount)
+function popcount(n) {
+  let count = 0;
+  while (n > 0) {
+    n &= (n - 1);
+    count++;
+  }
+  return count;
+}
+```
+
+### Pattern 2: Missing Number via XOR Invariant
+```javascript
+// Example: LeetCode 268 (Missing Number)
+function missingNumber(nums) {
+  let xor = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+    xor ^= i ^ nums[i];
+  }
+  return xor;
+}
+```
+
+### Critical Traps:
+- **32-Bit Bitwise Truncation:** In JavaScript, bitwise operators (`&`, `|`, `^`, `<<`, `>>`) coerce numbers into **32-bit signed integers** ($[-2^{31}, 2^{31}-1]$).
+  - `(1 << 31)` becomes `-2147483648`.
+  - `(1 << 32)` becomes `1` (wraps around mod 32!).
+  - If you need bit manipulation on 64-bit numbers ($> 2^{31}-1$), **you MUST use `BigInt`** (`1n << 40n`).
+- **Operator Precedence:** Bitwise operators have **lower precedence** than comparison and arithmetic operators!
+  - `if (mask & 1 === 0)` evaluates as `mask & (1 === 0)` $\implies$ `mask & false` $\implies 0$!
+  - **Always wrap in parentheses:** `if ((mask & 1) === 0)`.
+
+---
+
+## 5. Sub-Patterns & Archetypes
+1. **Bitwise Independence:** Analyzing each bit column (0 through 30) independently.
+2. **Subset Iteration:** Outer loop from `0` to `(1 << N) - 1`.
+3. **XOR Prefix Sums:** $\text{XOR}(L, R) = \text{pref}[R] \oplus \text{pref}[L - 1]$.
+
+---
+
+## 6. Solved Problems Catalog & Takeaways
+
+| Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
+|---|---|---|---|---|
+| [Missing Number](https://leetcode.com/problems/missing-number/) | `LeetCode` | `Easy` | `missingNumber.js` | XOR invariant cancels all duplicate values, leaving only the missing integer. $O(N)$ time, $O(1)$ space. |
+| [Bit++](https://codeforces.com/problemset/problem/282/A) | `Codeforces` | `800` | `bitPlusPlus.js` | Increment / decrement simulation depending on `+` character presence. |
+
+---
+| [Almost Ternary Matrix](https://codeforces.com/problemset/problem/1699/B) | `Codeforces` | `900` | `almostTernaryMatrix.js` | Key algorithmic application from Day 2026-09-29. |
+
+
+## 7. Common Pitfalls & Anti-Patterns
+- **Shift of 31 or Higher with Standard Numbers:** `1 << 31` yields negative numbers; `1 << 32` resets to 1.
+- **Missing Parentheses:** Never write `x & 1 == 0` without parentheses `(x & 1) == 0`.
