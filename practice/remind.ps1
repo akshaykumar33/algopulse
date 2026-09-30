@@ -13,11 +13,28 @@ try {
     Add-Content $log "[$date] pick failed: $_"
 }
 
-# 2. Ensure all explanation docs, intuitions, and Mermaid diagrams are generated
+# 2. Automatically generate reference solutions and sample tests
 try {
+    Write-Output "[$date] Solving daily practice set..." | Out-File -FilePath $log -Append
+    node "$PSScriptRoot\solve.js" --date $date *>> $log
+} catch {
+    Add-Content $log "[$date] solve failed: $_"
+}
+
+# 3. Ensure all explanation docs, intuitions, and Mermaid diagrams are generated
+try {
+    Write-Output "[$date] Generating explanations..." | Out-File -FilePath $log -Append
     node "$PSScriptRoot\explain.js" --date $date *>> $log
 } catch {
     Add-Content $log "[$date] explain generation failed: $_"
+}
+
+# 4. Verify solutions, create branch, push, open PR, and auto-merge if green
+try {
+    Write-Output "[$date] Running automated ship and PR pipeline..." | Out-File -FilePath $log -Append
+    node "$PSScriptRoot\ship.js" --date $date *>> $log
+} catch {
+    Add-Content $log "[$date] ship failed: $_"
 }
 
 $dayDir = Join-Path $PSScriptRoot "days\$date"
