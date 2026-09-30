@@ -34,6 +34,7 @@ function getProblemPlatform(p) {
 
 function findSolutionFile(problem, dayDir) {
   const candidates = [
+    path.join(dayDir, 'solutions', `${problem.file}.sql`),
     path.join(dayDir, 'solutions', `${problem.file}.js`),
     path.join(dayDir, 'attempts', `${problem.file}.js`),
     path.join(REPO_ROOT, 'solutions', `${problem.file}.js`),

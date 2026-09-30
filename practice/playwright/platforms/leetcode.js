@@ -29,25 +29,33 @@ function prepareLeetCodeCode(rawCode) {
  * Checks if the current page has an active logged-in LeetCode session
  */
 async function checkAuth(page) {
-  // Check for login button or user avatar
+  // 1. Check cookies across the browser context (definitive source of truth)
+  try {
+    const cookies = await page.context().cookies();
+    const sessionCookie = cookies.find((c) => /leetcode_session/i.test(c.name) && c.value);
+    if (sessionCookie) {
+      return { authenticated: true };
+    }
+  } catch {}
+
+  // 2. Check if page has redirected away from login and shows user avatar or profile elements
+  const currentUrl = page.url();
+  const isLoginPage = currentUrl.includes('/accounts/login') || currentUrl.includes('/accounts.google');
+
+  if (!isLoginPage && currentUrl.includes('leetcode.com')) {
+    const avatar = await page.$(
+      '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], button[id*="headlessui-menu-button"], a[href*="/profile/"]'
+    );
+    if (avatar) {
+      return { authenticated: true };
+    }
+  }
+
+  // 3. Fallback check for visible login link
   const loginButton = await page.$('a[href*="/accounts/login"]');
   if (loginButton) {
     const isVisible = await loginButton.isVisible().catch(() => false);
     if (isVisible) return { authenticated: false };
-  }
-
-  const avatar = await page.$(
-    '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], button[id*="headlessui-menu-button"]'
-  );
-  if (avatar) {
-    return { authenticated: true };
-  }
-
-  // Also check cookies for LEETCODE_SESSION
-  const cookies = await page.context().cookies('https://leetcode.com');
-  const sessionCookie = cookies.find((c) => c.name === 'LEETCODE_SESSION');
-  if (sessionCookie && sessionCookie.value) {
-    return { authenticated: true };
   }
 
   return { authenticated: false };
@@ -79,21 +87,47 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   console.log(`    [LeetCode] Waiting for code editor ...`);
   await page.waitForSelector('.monaco-editor, [data-track-load="code_editor"]', { timeout: 25000 });
 
-  // 2. Ensure Language is JavaScript
+  // 2. Ensure Language matches solution type (MySQL for SQL queries, JavaScript otherwise)
+  const isSql = /^\s*(--[\s\S]*?\n\s*)?select\s+[\s\S]+\s+from\s+/i.test(code) || (problem.tags || []).includes('database');
+  const targetLang = isSql ? 'MySQL' : 'JavaScript';
+
   try {
-    const langBtn = await page.$(
-      'button[id*="headlessui-listbox-button"], [data-cy="lang-select"], button:has-text("JavaScript")'
-    );
-    if (langBtn) {
-      const currentLang = (await langBtn.textContent()).trim();
-      if (!/javascript/i.test(currentLang)) {
-        await langBtn.click();
-        await page.waitForTimeout(500);
-        const jsOption = await page.$('div[role="option"]:has-text("JavaScript"), li:has-text("JavaScript")');
-        if (jsOption) {
-          await jsOption.click();
-          await page.waitForTimeout(500);
+    const buttons = await page.$$('button');
+    let langBtn = null;
+    let currentLang = '';
+    const knownLanguages = [
+      'MySQL', 'MS SQL Server', 'Oracle', 'PostgreSQL', 'Pandas',
+      'C++', 'Java', 'Python', 'Python3', 'JavaScript', 'TypeScript',
+      'C', 'C#', 'Go', 'Rust', 'Ruby', 'Swift', 'Kotlin', 'Dart', 'Scala'
+    ];
+
+    for (const b of buttons) {
+      const text = (await b.textContent()).trim();
+      if (knownLanguages.includes(text)) {
+        langBtn = b;
+        currentLang = text;
+        break;
+      }
+    }
+
+    if (langBtn && currentLang !== targetLang) {
+      console.log(`    [LeetCode] Switching language from "${currentLang}" to "${targetLang}" ...`);
+      await langBtn.click();
+      await page.waitForTimeout(600);
+
+      const switched = await page.evaluate((target) => {
+        const els = Array.from(document.querySelectorAll('.group.cursor-pointer, [data-state="open"] div'));
+        const el = els.find((e) => e.innerText && e.innerText.trim() === target);
+        if (el) {
+          el.click();
+          return true;
         }
+        return false;
+      }, targetLang);
+
+      if (switched) {
+        await page.waitForTimeout(1000);
+        console.log(`    [LeetCode] ✓ Language switched to ${targetLang}`);
       }
     }
   } catch (err) {
@@ -101,17 +135,45 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   }
 
   // 3. Inject solution code into Monaco editor
-  console.log(`    [LeetCode] Inserting JavaScript solution ...`);
-  const setViaMonaco = await page.evaluate((src) => {
+  console.log(`    [LeetCode] Inserting ${targetLang} solution ...`);
+  await page.waitForTimeout(1000);
+
+  const setViaMonaco = await page.evaluate(({ src, isSql }) => {
     if (window.monaco && window.monaco.editor) {
       const models = window.monaco.editor.getModels();
-      if (models && models.length > 0) {
-        models[0].setValue(src);
+      // 1. Find model by target language
+      const targetModel = models.find((m) => {
+        const lang = (m.getLanguageId() || '').toLowerCase();
+        if (isSql) return lang.includes('sql') || lang.includes('mysql');
+        return lang === 'javascript' || lang === 'typescript';
+      });
+      if (targetModel) {
+        targetModel.setValue(src);
+        return true;
+      }
+
+      // 2. Try editors with matching model
+      const editors = window.monaco.editor.getEditors();
+      for (const ed of editors) {
+        const model = ed.getModel();
+        if (model) {
+          const lang = (model.getLanguageId() || '').toLowerCase();
+          if ((isSql && (lang.includes('sql') || lang.includes('mysql'))) ||
+              (!isSql && (lang === 'javascript' || lang === 'typescript'))) {
+            model.setValue(src);
+            return true;
+          }
+        }
+      }
+
+      // 3. Fallback to first editor
+      if (editors.length > 0) {
+        editors[0].setValue(src);
         return true;
       }
     }
     return false;
-  }, code);
+  }, { src: code, isSql });
 
   if (!setViaMonaco) {
     // Fallback: click editor, select all, fill/paste

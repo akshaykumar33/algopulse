@@ -25,7 +25,7 @@ const LEVEL_MAP = {
 };
 
 async function fetchLeetCodeProblems({ usedIds, rootFiles, count = 10, difficulty = 'Easy', poolSize = 100 }) {
-  const data = await fetchJson('https://leetcode.com/api/problems/all/');
+  const data = await fetchJson('https://leetcode.com/api/problems/algorithms/');
   const pairs = data.stat_status_pairs || [];
   const exclude = new Set(usedIds);
 
