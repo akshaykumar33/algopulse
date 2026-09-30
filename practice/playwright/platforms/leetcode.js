@@ -87,12 +87,19 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   console.log(`    [LeetCode] Waiting for code editor ...`);
   await page.waitForSelector('.monaco-editor, [data-track-load="code_editor"]', { timeout: 25000 });
 
-  // 2. Ensure Language is JavaScript
+  // 2. Ensure Language matches solution type (MySQL for SQL queries, JavaScript otherwise)
+  const isSql = /^\s*(--[\s\S]*?\n\s*)?select\s+[\s\S]+\s+from\s+/i.test(code) || (problem.tags || []).includes('database');
+  const targetLang = isSql ? 'MySQL' : 'JavaScript';
+
   try {
     const buttons = await page.$$('button');
     let langBtn = null;
     let currentLang = '';
-    const knownLanguages = ['C++', 'Java', 'Python', 'Python3', 'JavaScript', 'TypeScript', 'C', 'C#', 'Go', 'Rust', 'Ruby', 'Swift', 'Kotlin', 'Dart', 'Scala'];
+    const knownLanguages = [
+      'MySQL', 'MS SQL Server', 'Oracle', 'PostgreSQL', 'Pandas',
+      'C++', 'Java', 'Python', 'Python3', 'JavaScript', 'TypeScript',
+      'C', 'C#', 'Go', 'Rust', 'Ruby', 'Swift', 'Kotlin', 'Dart', 'Scala'
+    ];
 
     for (const b of buttons) {
       const text = (await b.textContent()).trim();
@@ -103,24 +110,24 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       }
     }
 
-    if (langBtn && currentLang !== 'JavaScript') {
-      console.log(`    [LeetCode] Switching language from "${currentLang}" to "JavaScript" ...`);
+    if (langBtn && currentLang !== targetLang) {
+      console.log(`    [LeetCode] Switching language from "${currentLang}" to "${targetLang}" ...`);
       await langBtn.click();
       await page.waitForTimeout(600);
 
-      const switched = await page.evaluate(() => {
+      const switched = await page.evaluate((target) => {
         const els = Array.from(document.querySelectorAll('.group.cursor-pointer, [data-state="open"] div'));
-        const jsEl = els.find((el) => el.innerText && el.innerText.trim() === 'JavaScript');
-        if (jsEl) {
-          jsEl.click();
+        const el = els.find((e) => e.innerText && e.innerText.trim() === target);
+        if (el) {
+          el.click();
           return true;
         }
         return false;
-      });
+      }, targetLang);
 
       if (switched) {
         await page.waitForTimeout(1000);
-        console.log(`    [LeetCode] ✓ Language switched to JavaScript`);
+        console.log(`    [LeetCode] ✓ Language switched to ${targetLang}`);
       }
     }
   } catch (err) {
@@ -128,26 +135,31 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   }
 
   // 3. Inject solution code into Monaco editor
-  console.log(`    [LeetCode] Inserting JavaScript solution ...`);
+  console.log(`    [LeetCode] Inserting ${targetLang} solution ...`);
   await page.waitForTimeout(1000);
 
-  const setViaMonaco = await page.evaluate((src) => {
+  const setViaMonaco = await page.evaluate(({ src, isSql }) => {
     if (window.monaco && window.monaco.editor) {
       const models = window.monaco.editor.getModels();
-      // 1. Find model by JavaScript language ID
-      const jsModel = models.find((m) => m.getLanguageId() === 'javascript' || m.getLanguageId() === 'typescript');
-      if (jsModel) {
-        jsModel.setValue(src);
+      // 1. Find model by target language
+      const targetModel = models.find((m) => {
+        const lang = (m.getLanguageId() || '').toLowerCase();
+        if (isSql) return lang.includes('sql') || lang.includes('mysql');
+        return lang === 'javascript' || lang === 'typescript';
+      });
+      if (targetModel) {
+        targetModel.setValue(src);
         return true;
       }
 
-      // 2. Try editors with JavaScript model
+      // 2. Try editors with matching model
       const editors = window.monaco.editor.getEditors();
       for (const ed of editors) {
         const model = ed.getModel();
         if (model) {
-          const lang = model.getLanguageId();
-          if (lang === 'javascript' || lang === 'typescript') {
+          const lang = (model.getLanguageId() || '').toLowerCase();
+          if ((isSql && (lang.includes('sql') || lang.includes('mysql'))) ||
+              (!isSql && (lang === 'javascript' || lang === 'typescript'))) {
             model.setValue(src);
             return true;
           }
@@ -161,7 +173,7 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       }
     }
     return false;
-  }, code);
+  }, { src: code, isSql });
 
   if (!setViaMonaco) {
     // Fallback: click editor, select all, fill/paste
