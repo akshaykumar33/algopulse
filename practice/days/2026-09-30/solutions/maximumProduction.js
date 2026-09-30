@@ -7,8 +7,8 @@ const out = [];
 for (let i = 1; i <= t; i++) {
   if (!input[i]) continue;
   const [d, x, y, z] = input[i].trim().split(/\s+/).map(Number);
-  const opt1 = 7 * d;
-  const opt2 = x * y + z * (7 - y);
+  const opt1 = 7 * x;
+  const opt2 = d * y + (7 - d) * z;
   out.push(Math.max(opt1, opt2));
 }
 console.log(out.join('\n'));

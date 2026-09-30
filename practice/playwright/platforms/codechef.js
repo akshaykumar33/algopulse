@@ -8,24 +8,26 @@ const { PLATFORMS } = require('../config');
  * Checks if the current page has an active logged-in CodeChef session
  */
 async function checkAuth(page) {
-  // Check for login button or user profile
-  const loginButton = await page.$('a[href*="/login"], button:has-text("Sign In")');
-  if (loginButton) {
-    const isVisible = await loginButton.isVisible().catch(() => false);
-    if (isVisible) return { authenticated: false };
-  }
+  // 1. Check cookies for SESS, session, or user_id
+  const cookies = await page.context().cookies('https://www.codechef.com');
+  const sessionCookie = cookies.find((c) => /SESS|session|user_id/i.test(c.name) && c.value);
 
+  // 2. Check for user profile element
   const profile = await page.$('.user-name, [data-testid="user-profile-button"], a[href*="/users/"]');
   if (profile) {
     const handle = await profile.textContent().catch(() => null);
     return { authenticated: true, handle: handle ? handle.trim() : null };
   }
 
-  // Also check cookies
-  const cookies = await page.context().cookies('https://www.codechef.com');
-  const sessionCookie = cookies.find((c) => /session|user_id/i.test(c.name));
-  if (sessionCookie && sessionCookie.value) {
+  if (sessionCookie) {
     return { authenticated: true };
+  }
+
+  // 3. Check for login button
+  const loginButton = await page.$('a[href*="/login"], button:has-text("Sign In")');
+  if (loginButton) {
+    const isVisible = await loginButton.isVisible().catch(() => false);
+    if (isVisible) return { authenticated: false };
   }
 
   return { authenticated: false };
@@ -51,24 +53,33 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
 
   // 2. Wait for IDE / Editor
   console.log(`    [CodeChef] Locating editor ...`);
-  await page.waitForSelector('.monaco-editor, #editor, [data-testid="editor"]', { timeout: 25000 });
+  await page.waitForSelector('.monaco-editor, #editor, [data-testid="editor"], .ace_editor', { timeout: 30000 });
 
   // 3. Language Selection: Node.js / JavaScript
   try {
-    const langSelect = await page.$(
-      'button[aria-haspopup="listbox"]:has-text("JavaScript"), button[aria-haspopup="listbox"]:has-text("Node"), select[id*="language"]'
-    );
-    if (!langSelect) {
-      // Open language list and select JavaScript / Node.js
-      const langDropdown = await page.$('button[id*="headlessui-listbox-button"], [data-testid="language-select"]');
-      if (langDropdown) {
-        await langDropdown.click();
+    const isJsSelected = await page.evaluate(() => {
+      const selectBox = document.querySelector('[class*="_language__select"], div[role="combobox"]');
+      if (selectBox && /javascript|node/i.test(selectBox.innerText)) return true;
+      // Also check if Ace mode is already javascript
+      const aceEl = document.querySelector('.ace_editor');
+      if (aceEl && window.ace) {
+        try {
+          const mode = window.ace.edit(aceEl).session.getMode().$id;
+          if (/javascript/i.test(mode)) return true;
+        } catch {}
+      }
+      return false;
+    });
+
+    if (!isJsSelected) {
+      const langSelect = await page.$('[class*="_language__select"], div[role="combobox"]');
+      if (langSelect) {
+        console.log(`    [CodeChef] Switching language to JavaScript ...`);
+        await langSelect.click({ timeout: 2000 }).catch(() => {});
         await page.waitForTimeout(500);
-        const nodeOpt = await page.$(
-          'div[role="option"]:has-text("Node.js"), div[role="option"]:has-text("JavaScript"), li:has-text("JavaScript")'
-        );
-        if (nodeOpt) {
-          await nodeOpt.click();
+        const jsOption = await page.$('li[role="option"]:has-text("JavaScript"), li:has-text("JavaScript")');
+        if (jsOption) {
+          await jsOption.click().catch(() => {});
           await page.waitForTimeout(500);
         }
       }
@@ -79,7 +90,17 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
 
   // 4. Set Code into editor
   console.log(`    [CodeChef] Inserting JavaScript solution ...`);
-  const setViaMonaco = await page.evaluate((src) => {
+  const setViaEditor = await page.evaluate((src) => {
+    // 1. Try Ace editor (CodeChef's standard editor)
+    const editorEl = document.querySelector('.ace_editor');
+    if (editorEl && window.ace) {
+      try {
+        const editor = window.ace.edit(editorEl);
+        editor.setValue(src, -1);
+        return true;
+      } catch {}
+    }
+    // 2. Try Monaco
     if (window.monaco && window.monaco.editor) {
       const models = window.monaco.editor.getModels();
       if (models && models.length > 0) {
@@ -87,17 +108,11 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
         return true;
       }
     }
-    if (typeof window.ace !== 'undefined' && window.ace.edit) {
-      try {
-        window.ace.edit('editor').setValue(src);
-        return true;
-      } catch {}
-    }
     return false;
   }, code);
 
-  if (!setViaMonaco) {
-    const editor = await page.$('.monaco-editor, #editor');
+  if (!setViaEditor) {
+    const editor = await page.$('.ace_editor, .monaco-editor, #editor');
     if (editor) {
       await editor.click();
       await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
@@ -120,29 +135,42 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
   console.log(`    [CodeChef] Waiting for verdict ...`);
   const startTime = Date.now();
   let verdict = 'Pending';
+  let submissionId = null;
   let timeConsumed = null;
 
   while (Date.now() - startTime < timeout) {
-    const verdictBanner = await page.$(
-      '[data-testid="submission-result"], .submission-result, h3:has-text("Correct Answer"), h3:has-text("Wrong Answer"), span:has-text("Correct Answer"), span:has-text("Wrong Answer"), span:has-text("Runtime Error"), span:has-text("Time Limit Exceeded")'
-    );
+    const verdictInfo = await page.evaluate(() => {
+      // Find elements containing verdict text
+      const elements = Array.from(document.querySelectorAll('*')).filter((el) => {
+        const text = el.innerText || '';
+        return /Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted/i.test(
+          text
+        );
+      });
 
-    if (verdictBanner) {
-      const text = (await verdictBanner.textContent()).trim();
-      if (/correct answer|wrong answer|runtime error|time limit|partially accepted/i.test(text)) {
-        verdict = text;
-        try {
-          const stats = await page.$$eval('span, div', (els) => {
-            for (const el of els) {
-              const t = el.textContent || '';
-              if (/^\d+(\.\d+)?\s*s$/i.test(t.trim())) return t.trim();
-            }
-            return null;
-          });
-          if (stats) timeConsumed = stats;
-        } catch {}
-        break;
+      for (const el of elements) {
+        const text = el.innerText || '';
+        const match = text.match(
+          /(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i
+        );
+        if (match) {
+          const idMatch = text.match(/Submission ID:\s*(\d+)/i);
+          const timeMatch = text.match(/\((\d+(?:\.\d+)?)\)/);
+          return {
+            verdict: match[1],
+            submissionId: idMatch ? idMatch[1] : null,
+            time: timeMatch ? `${timeMatch[1]}s` : null,
+          };
+        }
       }
+      return null;
+    });
+
+    if (verdictInfo) {
+      verdict = verdictInfo.verdict;
+      submissionId = verdictInfo.submissionId;
+      timeConsumed = verdictInfo.time;
+      break;
     }
 
     await page.waitForTimeout(2000);
@@ -151,9 +179,10 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
   return {
     platform: 'CodeChef',
     problemId: problem.id,
+    submissionId,
     verdict,
     time: timeConsumed,
-    submissionUrl: page.url(),
+    submissionUrl: submissionId ? `https://www.codechef.com/viewsolution/${submissionId}` : page.url(),
   };
 }
 
@@ -161,3 +190,4 @@ module.exports = {
   checkAuth,
   submitCodeChef,
 };
+

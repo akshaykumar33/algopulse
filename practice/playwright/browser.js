@@ -33,21 +33,11 @@ function isChromeRunning() {
  */
 async function applyStealthScripts(context) {
   await context.addInitScript(() => {
-    Object.defineProperty(navigator, 'webdriver', {
-      get: () => undefined,
-    });
-    window.chrome = {
-      runtime: {},
-      loadTimes: function () {},
-      csi: function () {},
-      app: {},
-    };
-    Object.defineProperty(navigator, 'plugins', {
-      get: () => [1, 2, 3, 4, 5],
-    });
-    Object.defineProperty(navigator, 'languages', {
-      get: () => ['en-US', 'en'],
-    });
+    try {
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => undefined,
+      });
+    } catch {}
   });
 }
 
@@ -89,8 +79,6 @@ async function launchBrowser({ headless = false, channel } = {}) {
 async function createStealthContext(browser, { storageStatePath, viewport = { width: 1280, height: 800 } } = {}) {
   const contextOptions = {
     viewport,
-    userAgent:
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
     locale: 'en-US',
     timezoneId: 'America/New_York',
   };
@@ -104,7 +92,6 @@ async function createStealthContext(browser, { storageStatePath, viewport = { wi
   }
 
   const context = await browser.newContext(contextOptions);
-  await applyStealthScripts(context);
   return context;
 }
 
@@ -144,8 +131,6 @@ async function launchPersistentBrowserContext({
     channel: selectedChannel,
     headless,
     viewport,
-    userAgent:
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
     args: [
       '--disable-blink-features=AutomationControlled',
       '--no-sandbox',
@@ -155,7 +140,6 @@ async function launchPersistentBrowserContext({
     ],
   });
 
-  await applyStealthScripts(context);
   return context;
 }
 
