@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { launchBrowser, createStealthContext } = require('./browser');
+const { launchBrowser, createStealthContext, launchPersistentBrowserContext } = require('./browser');
 const { PLATFORMS, AUTH_DIR } = require('./config');
 const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
@@ -65,9 +65,9 @@ async function authenticatePlatform(platformKey) {
   console.log(`A visible browser window will open. Please log in to your account.`);
   console.log(`-------------------------------------------------------------\n`);
 
-  const browser = await launchBrowser({ headless: false });
-  const context = await createStealthContext(browser, {
-    storageStatePath: plat.authFile,
+  const context = await launchPersistentBrowserContext({
+    headless: false,
+    profileDir: path.join(AUTH_DIR, 'browser-profile'),
     viewport: { width: 1280, height: 850 },
   });
   const page = await context.newPage();
@@ -82,19 +82,35 @@ async function authenticatePlatform(platformKey) {
     const maxWaitTime = 10 * 60 * 1000; // 10 minutes timeout
     const start = Date.now();
 
+    let pollCount = 0;
     while (Date.now() - start < maxWaitTime) {
-      if (browser.isConnected() === false) {
-        throw new Error('Browser was closed before login completed.');
-      }
-
+      pollCount++;
       let check = { authenticated: false };
       try {
-        if (platformKey === 'codeforces') {
-          check = await cfEngine.checkAuth(page);
-        } else if (platformKey === 'leetcode') {
-          check = await lcEngine.checkAuth(page);
+        // Direct context cookie check
+        const cookies = await context.cookies();
+        if (platformKey === 'leetcode') {
+          const session = cookies.find((c) => /leetcode_session/i.test(c.name) && c.value);
+          if (session) check = { authenticated: true };
         } else if (platformKey === 'codechef') {
-          check = await ccEngine.checkAuth(page);
+          const session = cookies.find((c) => /session|user_id/i.test(c.name) && c.value);
+          if (session) check = { authenticated: true };
+        }
+
+        // Platform-specific engine check
+        if (!check.authenticated) {
+          if (platformKey === 'codeforces') {
+            check = await cfEngine.checkAuth(page);
+          } else if (platformKey === 'leetcode') {
+            check = await lcEngine.checkAuth(page);
+          } else if (platformKey === 'codechef') {
+            check = await ccEngine.checkAuth(page);
+          }
+        }
+
+        if (pollCount % 4 === 0 && !check.authenticated) {
+          const currentUrl = page.url();
+          console.log(`[auth] Current page: ${currentUrl.slice(0, 65)} | Cookies: ${cookies.length} | Waiting for login ...`);
         }
       } catch {}
 
@@ -104,7 +120,7 @@ async function authenticatePlatform(platformKey) {
         break;
       }
 
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(1500);
     }
 
     if (authenticated) {
@@ -120,7 +136,7 @@ async function authenticatePlatform(platformKey) {
     console.error(`[auth] Error during authentication: ${err.message}`);
     return false;
   } finally {
-    await browser.close().catch(() => {});
+    await context.close().catch(() => {});
   }
 }
 
