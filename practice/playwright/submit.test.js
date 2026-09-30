@@ -104,3 +104,23 @@ describe('Submitter Solution Resolver', () => {
     assert.ok(resolved.endsWith('calculatingFunction.js'));
   });
 });
+
+describe('Option B: Chrome Profile & Persistent Context Engine', () => {
+  const { SYSTEM_CHROME_USER_DATA_DIR, PERSISTENT_CHROME_PROFILE_DIR } = require('./config');
+  const { isChromeRunning, launchPersistentBrowserContext } = require('./browser');
+
+  it('resolves valid system Chrome User Data path and persistent profile path', () => {
+    assert.ok(SYSTEM_CHROME_USER_DATA_DIR.includes('Google'));
+    assert.ok(SYSTEM_CHROME_USER_DATA_DIR.includes('Chrome'));
+    assert.ok(PERSISTENT_CHROME_PROFILE_DIR.includes('chrome-profile'));
+  });
+
+  it('checks isChromeRunning without throwing exceptions', () => {
+    const running = isChromeRunning();
+    assert.equal(typeof running, 'boolean');
+  });
+
+  it('exports launchPersistentBrowserContext function', () => {
+    assert.equal(typeof launchPersistentBrowserContext, 'function');
+  });
+});

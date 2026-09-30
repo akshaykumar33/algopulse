@@ -10,6 +10,14 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const AUTH_DIR = path.join(REPO_ROOT, '.auth');
 const PRACTICE_DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
 
+const SYSTEM_CHROME_USER_DATA_DIR = path.join(
+  process.env.LOCALAPPDATA || 'C:\\Users\\AKKIE\\AppData\\Local',
+  'Google',
+  'Chrome',
+  'User Data'
+);
+const PERSISTENT_CHROME_PROFILE_DIR = path.join(AUTH_DIR, 'chrome-profile');
+
 // Ensure .auth directory exists
 if (!fs.existsSync(AUTH_DIR)) {
   fs.mkdirSync(AUTH_DIR, { recursive: true });
@@ -64,6 +72,8 @@ module.exports = {
   REPO_ROOT,
   AUTH_DIR,
   PRACTICE_DAYS_DIR,
+  SYSTEM_CHROME_USER_DATA_DIR,
+  PERSISTENT_CHROME_PROFILE_DIR,
   PLATFORMS,
   getBrowserChannel,
 };

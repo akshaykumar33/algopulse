@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { launchBrowser, createStealthContext } = require('./browser');
+const { launchBrowser, createStealthContext, launchPersistentBrowserContext } = require('./browser');
 const { PLATFORMS, PRACTICE_DAYS_DIR, REPO_ROOT } = require('./config');
 const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
@@ -180,9 +180,25 @@ async function main() {
     } catch {}
   }
 
-  // Launch browser instance
-  console.log(`[submit] Launching browser engine ...`);
-  const browser = await launchBrowser({ headless: isHeadless });
+  const useSystemChrome = args.includes('--use-system-chrome') || args.includes('--chrome-profile');
+  const usePersistent = args.includes('--persistent');
+  const isPersistentMode = useSystemChrome || usePersistent;
+
+  let browser = null;
+  let persistentContext = null;
+
+  if (isPersistentMode) {
+    console.log(
+      `[submit] Launching persistent Chrome context (${useSystemChrome ? 'System Chrome Profile' : 'Dedicated Automation Profile'}) ...`
+    );
+    persistentContext = await launchPersistentBrowserContext({
+      useSystemProfile: useSystemChrome,
+      headless: isHeadless,
+    });
+  } else {
+    console.log(`[submit] Launching browser engine ...`);
+    browser = await launchBrowser({ headless: isHeadless });
+  }
 
   try {
     for (const [idx, prob] of problems.entries()) {
@@ -218,26 +234,32 @@ async function main() {
         continue;
       }
 
-      // Check auth file
-      if (!fs.existsSync(platConfig.authFile)) {
-        console.warn(
-          `    ✗ No saved session for ${platConfig.name}. Please authenticate first via: npm run submit:auth -- --platform ${platKey}`
-        );
-        results.push({
-          platform: prob.platform,
-          id: prob.id,
-          name: prob.name,
-          verdict: 'NOT_AUTHENTICATED',
-          success: false,
-        });
-        continue;
-      }
+      let context = null;
+      let page = null;
 
-      // Create isolated context with persistent session
-      const context = await createStealthContext(browser, {
-        storageStatePath: platConfig.authFile,
-      });
-      const page = await context.newPage();
+      if (isPersistentMode) {
+        page = await persistentContext.newPage();
+      } else {
+        // Check auth file
+        if (!fs.existsSync(platConfig.authFile)) {
+          console.warn(
+            `    ✗ No saved session for ${platConfig.name}. Please authenticate first via: npm run submit:auth -- --platform ${platKey}`
+          );
+          results.push({
+            platform: prob.platform,
+            id: prob.id,
+            name: prob.name,
+            verdict: 'NOT_AUTHENTICATED',
+            success: false,
+          });
+          continue;
+        }
+
+        context = await createStealthContext(browser, {
+          storageStatePath: platConfig.authFile,
+        });
+        page = await context.newPage();
+      }
 
       try {
         let subRes = null;
@@ -269,7 +291,8 @@ async function main() {
           success: false,
         });
       } finally {
-        await context.close().catch(() => {});
+        if (context) await context.close().catch(() => {});
+        else if (page) await page.close().catch(() => {});
       }
 
       // Cooldown delay between submissions
@@ -279,7 +302,8 @@ async function main() {
       }
     }
   } finally {
-    await browser.close().catch(() => {});
+    if (browser) await browser.close().catch(() => {});
+    if (persistentContext) await persistentContext.close().catch(() => {});
   }
 
   // Save submissions log
