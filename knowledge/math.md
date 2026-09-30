@@ -92,6 +92,12 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Ordinary Numbers](https://codeforces.com/problemset/problem/1520/B) | `Codeforces` | `800` | `ordinaryNumbers.js` | Key algorithmic application from Day 2026-09-30. |
 | [New World, New Me, New Array](https://codeforces.com/problemset/problem/2072/A) | `Codeforces` | `800` | `newWorldNewMeNewArray.js` | Key algorithmic application from Day 2026-09-30. |
 | [Chess For Three](https://codeforces.com/problemset/problem/1973/A) | `Codeforces` | `900` | `chessForThree.js` | Key algorithmic application from Day 2026-09-30. |
+| [Sandwiches](https://www.codechef.com) | `CodeChef` | `500` | `sandwiches.js` | Resource bottleneck formulation: min(floor(B/2), H + C). |
+| [Chocolate Cutting](https://www.codechef.com) | `CodeChef` | `500` | `chocolateCutting.js` | Grid line bipartition parity: rectangle N x M can be split into two equal pieces with a parallel cut iff N is even or M is even. |
+| [Staircase Edits](https://www.codechef.com) | `CodeChef` | `1000` | `staircaseEdits.js` | Arithmetic invariant transformation: array is staircase iff A[i] - i = C. Minimum edits is N - max_freq(A[i] - i). |
+| [Shuffle (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `shuffleEasy.js` | Permutation window-sort preimage counting: K! * K^(N - K) mod 998244353. |
+| [MEX Game (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `mexGameEasy.js` | Arithmetic sum invariant under MEX preservation: sum_{x > M} (x - (M+1)) + sum_{x < M} x - M(M-1)/2. |
+| [Shuffle (Hard)](https://www.codechef.com) | `CodeChef` | `1700` | `shuffleHard.js` | Preimage count of sliding window sort on general Q: K! * K^(prefix_maxima - 1). |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
