@@ -75,6 +75,7 @@ dp.fill(-1); // Memoization sentinel
 | Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
 |---|---|---|---|---|
 | [Fair Division](https://codeforces.com/problemset/problem/1472/B) | `Codeforces` | `800` | `fairDivision.js` | Subset sum / parity balance: partition candies of weight 1 and 2 into equal sums. Total sum must be even; if weight 1 count is 0, weight 2 count must be even. |
+| [Chess For Three](https://codeforces.com/problemset/problem/1973/A) | `Codeforces` | `900` | `chessForThree.js` | Key algorithmic application from Day 2026-09-30. |
 
 ---
 

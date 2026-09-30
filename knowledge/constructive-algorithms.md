@@ -71,6 +71,8 @@ function constructMatrix(n, m) {
 | [Almost Ternary Matrix](https://codeforces.com/problemset/problem/1699/B) | `Codeforces` | `900` | `almostTernaryMatrix.js` | Tile alternating $2 \times 2$ blocks to guarantee every cell has exactly 1 equal neighbor. |
 | [Most Unstable Array](https://codeforces.com/problemset/problem/1353/A) | `Codeforces` | `800` | `mostUnstableArray.js` | For $n=1$, ans is 0; for $n=2$, ans is $m$; for $n \ge 3$, place all sum $m$ in middle $[0, m, 0]$ to achieve $2m$. |
 | [Only Pluses](https://codeforces.com/problemset/problem/1992/A) | `Codeforces` | `800` | `onlyPluses.js` | Product $a \cdot b \cdot c$ is maximized by greedily incrementing the smallest of the three integers at each of the 5 operations. |
+| [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
+| [Mark the Dust Sweeper](https://codeforces.com/problemset/problem/1705/B) | `Codeforces` | `900` | `markTheDustSweeper.js` | Key algorithmic application from Day 2026-09-30. |
 
 ---
 

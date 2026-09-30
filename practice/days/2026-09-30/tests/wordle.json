@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nABCDE\nEDCBA\nROUND\nRINGS\nSTART\nSTUNT\n",
+    "output": "BBGBB\nGBBBB\nGGBBG\n"
+  }
+]

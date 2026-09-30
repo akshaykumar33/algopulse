@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[]\n[{},null,42]\n",
+    "output": "\"Hello World\"\n\"Hello World\"\n"
+  }
+]

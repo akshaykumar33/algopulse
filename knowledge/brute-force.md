@@ -94,6 +94,8 @@ function backtrack(index, currentSum, target, arr) {
 | [One and Two](https://codeforces.com/problemset/problem/1788/A) | `Codeforces` | `800` | `oneAndTwo.js` | Key algorithmic application from Day 2026-09-28. |
 | [Beautiful Average](https://codeforces.com/problemset/problem/2162/A) | `Codeforces` | `800` | `beautifulAverage.js` | Key algorithmic application from Day 2026-09-28. |
 | [Fibonacciness](https://codeforces.com/problemset/problem/2060/A) | `Codeforces` | `800` | `fibonacciness.js` | Key algorithmic application from Day 2026-09-28. |
+| [Ordinary Numbers](https://codeforces.com/problemset/problem/1520/B) | `Codeforces` | `800` | `ordinaryNumbers.js` | Key algorithmic application from Day 2026-09-30. |
+| [Chess For Three](https://codeforces.com/problemset/problem/1973/A) | `Codeforces` | `900` | `chessForThree.js` | Key algorithmic application from Day 2026-09-30. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

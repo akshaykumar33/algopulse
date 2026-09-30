@@ -1,0 +1,6 @@
+[
+  {
+    "input": "\"thequickbrownfoxjumpsoverthelazydog\"\n\"leetcode\"\n",
+    "output": "true\nfalse\n"
+  }
+]

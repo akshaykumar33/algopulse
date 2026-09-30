@@ -25,7 +25,14 @@ function treeToArray(root) {
   return res;
 }
 
-var solve = function(nums) {
+// ============================================================================
+// Paste the function below directly into LeetCode:
+// ============================================================================
+/**
+ * @param {number[]} nums
+ * @return {TreeNode}
+ */
+var sortedArrayToBST = function(nums) {
   function build(left, right) {
     if (left > right) return null;
     const mid = Math.floor((left + right) / 2);
@@ -34,7 +41,12 @@ var solve = function(nums) {
     node.right = build(mid + 1, right);
     return node;
   }
-  const tree = build(0, nums.length - 1);
+  return build(0, nums.length - 1);
+};
+
+// Local runner wrapper (serializes TreeNode -> Array for CLI/verifier testing)
+var solve = function(nums) {
+  const tree = sortedArrayToBST(nums);
   return treeToArray(tree);
 };
 

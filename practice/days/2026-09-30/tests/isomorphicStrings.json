@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"egg\", \"add\"]\n[\"foo\", \"bar\"]\n[\"paper\", \"title\"]\n",
+    "output": "true\nfalse\ntrue\n"
+  }
+]
