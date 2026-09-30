@@ -66,6 +66,19 @@ When presented with any problem (even if pasted raw with contest headers and for
   - Check boundary conditions and 0/1 indexing.
   - Fix logic systematically.
 
+### Phase 5: Categorization & Platform Submissions (Playwright Flow)
+- Every day, once day solutions are verified 100% green:
+  - Mirror solutions into platform-specific directories (`contests/<platform>/<date>/`).
+  - Execute automated platform submissions via Playwright:
+    ```bash
+    npm run submit:parallel
+    # Or platform specific:
+    npm run submit:lc
+    npm run submit:cf
+    npm run submit:cc
+    ```
+  - **On-the-fly login fallback**: If a platform session is missing, the runner automatically prompts with an interactive browser login window, saves the session, and seamlessly resumes submissions without aborting.
+
 ---
 
 ## 3. Project Tooling & Architecture

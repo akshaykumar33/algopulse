@@ -70,16 +70,32 @@ async function main() {
   }
   console.log('  ✓ Verification passed (all solutions green).');
 
-  // 2. Synchronize Knowledge Base
-  console.log('[ship] Step 2: Synchronizing Knowledge Base ...');
+  // 2. Automated Platform Submissions (Playwright)
+  const skipSubmit = args.includes('--no-submit');
+  if (!skipSubmit) {
+    console.log('[ship] Step 2: Running automated platform submissions (Playwright) ...');
+    const submitRes = run('node', ['practice/playwright/submit.js', '--date', date, '--parallel'], {
+      stdio: 'inherit',
+    });
+    if (submitRes.status === 0) {
+      console.log('  ✓ Automated platform submissions completed.');
+    } else {
+      console.warn('  ! Some submissions finished with warnings or were skipped.');
+    }
+  } else {
+    console.log('[ship] Step 2: Skipping platform submissions (--no-submit flag).');
+  }
+
+  // 3. Synchronize Knowledge Base
+  console.log('[ship] Step 3: Synchronizing Knowledge Base ...');
   const syncRes = run('node', ['practice/knowledge.js', '--sync']);
   if (syncRes.status === 0) {
     console.log('  ✓ Knowledge base synchronized.');
   }
 
-  // 3. Git Operations
+  // 4. Git Operations
   const branchName = `feat/practice-day-${date}`;
-  console.log(`[ship] Step 3: Git branching & staging (${branchName}) ...`);
+  console.log(`[ship] Step 4: Git branching & staging (${branchName}) ...`);
 
   // Ensure on branch
   const currentBranch = runSh('git rev-parse --abbrev-ref HEAD');
@@ -92,8 +108,8 @@ async function main() {
     }
   }
 
-  // Stage changes
-  runSh(`git add practice/days/${date}/ solutions/ knowledge/`);
+  // Stage changes including categorized platform solutions
+  runSh(`git add practice/days/${date}/ solutions/ contests/ knowledge/`);
   const status = runSh('git status --porcelain');
 
   if (status) {
