@@ -188,6 +188,7 @@ function solve() {
 | [FIND A and B](https://www.codechef.com/problems/FINDK3) | `CodeChef` | `802` | `fINDAAndB.js` | Key algorithmic application from Day 2026-09-30. |
 | [Paper Cutting](https://www.codechef.com/problems/CUTPAPER) | `CodeChef` | `800` | `paperCutting.js` | Key algorithmic application from Day 2026-09-30. |
 | [The Block Game](https://www.codechef.com/problems/PALL01) | `CodeChef` | `830` | `theBlockGame.js` | Key algorithmic application from Day 2026-09-30. |
+| [Seating](https://www.codechef.com) | `CodeChef` | `500` | `seating.js` | Direct boolean occupancy array tracking for sequential lowest-seat queries. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

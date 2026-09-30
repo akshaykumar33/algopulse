@@ -73,6 +73,8 @@ function constructMatrix(n, m) {
 | [Only Pluses](https://codeforces.com/problemset/problem/1992/A) | `Codeforces` | `800` | `onlyPluses.js` | Product $a \cdot b \cdot c$ is maximized by greedily incrementing the smallest of the three integers at each of the 5 operations. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
 | [Mark the Dust Sweeper](https://codeforces.com/problemset/problem/1705/B) | `Codeforces` | `900` | `markTheDustSweeper.js` | Key algorithmic application from Day 2026-09-30. |
+| [Shuffle (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `shuffleEasy.js` | Window sort preimage combinatorics: reversing consecutive length-K sorts yields K! * K^(N-K) valid starting permutations. |
+| [Shuffle (Hard)](https://www.codechef.com) | `CodeChef` | `1700` | `shuffleHard.js` | General window-sort preimage counting: valid iff suffix Q[L..N] is identity; count is K! * K^(prefix_max_count(0..pos(L)) - 1). |
 
 ---
 

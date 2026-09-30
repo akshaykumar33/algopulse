@@ -84,6 +84,9 @@ for (const x of arr) {
 | [New World, New Me, New Array](https://codeforces.com/problemset/problem/2072/A) | `Codeforces` | `800` | `newWorldNewMeNewArray.js` | Key algorithmic application from Day 2026-09-30. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
 | [Mark the Dust Sweeper](https://codeforces.com/problemset/problem/1705/B) | `Codeforces` | `900` | `markTheDustSweeper.js` | Key algorithmic application from Day 2026-09-30. |
+| [Sandwiches](https://www.codechef.com) | `CodeChef` | `500` | `sandwiches.js` | Bottleneck analysis: sandwiches are bounded by min(floor(B/2), H + C). |
+| [Seating](https://www.codechef.com) | `CodeChef` | `500` | `seating.js` | Sequential minimum allocation: greedily scan and assign the lowest unoccupied indices. |
+| [Staircase Edits](https://www.codechef.com) | `CodeChef` | `1000` | `staircaseEdits.js` | Maximum invariant preservation: keeping the max frequency cluster of A[i] - i minimizes edits to N - max_freq. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -33,10 +33,14 @@ function getProblemPlatform(p) {
 }
 
 function findSolutionFile(problem, dayDir) {
+  const dateStr = path.basename(dayDir);
+  const platKey = getProblemPlatform(problem).toLowerCase();
   const candidates = [
     path.join(dayDir, 'solutions', `${problem.file}.sql`),
     path.join(dayDir, 'solutions', `${problem.file}.js`),
     path.join(dayDir, 'attempts', `${problem.file}.js`),
+    path.join(REPO_ROOT, 'practice', 'platforms', platKey, dateStr, `${problem.file}.js`),
+    path.join(REPO_ROOT, 'contests', platKey, dateStr, `${problem.file}.js`),
     path.join(REPO_ROOT, 'solutions', `${problem.file}.js`),
     path.join(REPO_ROOT, `${problem.file}.js`),
   ];
@@ -88,10 +92,10 @@ async function runDryRun(problems, dayDir, date, isParallel = false) {
 }
 
 /**
- * Organizes or mirrors day-wise solutions into platform-specific contest/archive folders
+ * Organizes or mirrors day-wise solutions into platform-specific practice directories
  */
 function mirrorSolutionsByPlatform(problems, dayDir, date) {
-  console.log(`\n[mirror] Mirroring Day ${date} solutions into platform directories ...`);
+  console.log(`\n[mirror] Mirroring Day ${date} practice solutions into platform directories ...`);
   let mirrored = 0;
 
   for (const p of problems) {
@@ -99,7 +103,7 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
     if (!solPath) continue;
 
     const platKey = getProblemPlatform(p).toLowerCase();
-    const targetDir = path.join(REPO_ROOT, 'contests', platKey, date);
+    const targetDir = path.join(REPO_ROOT, 'practice', 'platforms', platKey, date);
     fs.mkdirSync(targetDir, { recursive: true });
 
     const targetFile = path.join(targetDir, `${p.file}.js`);
@@ -107,7 +111,7 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
     mirrored++;
   }
 
-  console.log(`  ✓ Mirrored ${mirrored} solutions into contests/<platform>/${date}/\n`);
+  console.log(`  ✓ Mirrored ${mirrored} solutions into practice/platforms/<platform>/${date}/\n`);
 }
 
 /**
