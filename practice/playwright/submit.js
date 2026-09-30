@@ -242,7 +242,7 @@ async function main() {
       try {
         let subRes = null;
         if (platKey === 'codeforces') {
-          subRes = await cfEngine.submitCodeforces(page, prob, rawCode);
+          subRes = await cfEngine.submitCodeforces(page, prob, rawCode, { filePath: solPath });
         } else if (platKey === 'leetcode') {
           subRes = await lcEngine.submitLeetCode(page, prob, rawCode);
         } else if (platKey === 'codechef') {

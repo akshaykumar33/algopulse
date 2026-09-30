@@ -32,7 +32,7 @@ async function checkAuth(page) {
 /**
  * Submits solution code to Codeforces and waits for verdict
  */
-async function submitCodeforces(page, problem, code, { timeout = 60000 } = {}) {
+async function submitCodeforces(page, problem, code, { filePath, timeout = 60000 } = {}) {
   const parsed = parseCodeforcesId(problem);
   if (!parsed) {
     throw new Error(`Unable to parse Codeforces contest ID and index from: ${problem.id || problem.url}`);
@@ -73,12 +73,18 @@ async function submitCodeforces(page, problem, code, { timeout = 60000 } = {}) {
       }
     }
 
-    // Set code in textarea or Ace editor
-    const hasAce = await page.evaluate(() => typeof window.ace !== 'undefined' && Boolean(window.ace.edit('editor')));
-    if (hasAce) {
-      await page.evaluate((src) => window.ace.edit('editor').setValue(src), code);
+    // Prefer native file upload if available, otherwise set code in textarea or Ace editor
+    const fileInput = await page.$('.submit-form input[name="sourceFile"]');
+    if (fileInput && filePath) {
+      console.log(`    [Codeforces] Uploading source file directly: ${filePath} ...`);
+      await page.setInputFiles('.submit-form input[name="sourceFile"]', filePath);
     } else {
-      await page.fill('.submit-form textarea[name="source"]', code);
+      const hasAce = await page.evaluate(() => typeof window.ace !== 'undefined' && Boolean(window.ace.edit('editor')));
+      if (hasAce) {
+        await page.evaluate((src) => window.ace.edit('editor').setValue(src), code);
+      } else {
+        await page.fill('.submit-form textarea[name="source"]', code);
+      }
     }
 
     console.log(`    [Codeforces] Submitting solution ...`);
@@ -105,7 +111,14 @@ async function submitCodeforces(page, problem, code, { timeout = 60000 } = {}) {
       }
     }
 
-    await page.fill('textarea[name="source"]', code);
+    const fileInput = await page.$('input[name="sourceFile"]');
+    if (fileInput && filePath) {
+      console.log(`    [Codeforces] Uploading source file directly: ${filePath} ...`);
+      await page.setInputFiles('input[name="sourceFile"]', filePath);
+    } else {
+      await page.fill('textarea[name="source"]', code);
+    }
+
     console.log(`    [Codeforces] Submitting solution ...`);
     await Promise.all([
       page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout }).catch(() => {}),
