@@ -35,3 +35,8 @@ yarn-error.log*
 # AI response cache and local, non-secret AI settings (provider choice)
 .cache/
 practice/ai/settings.local.json
+
+# Playwright session auth state and artifacts
+.auth/
+test-results/
+playwright-report/
