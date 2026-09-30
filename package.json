@@ -16,6 +16,8 @@
     "pick:cc": "node practice/pick.js --platform codechef",
     "verify": "node practice/verify.js",
     "verify:ref": "node practice/verify.js --ref",
+    "solve:day": "node practice/solve.js",
+    "ship:day": "node practice/ship.js",
     "explain": "node practice/explain.js",
     "visualizer": "node visualizer/server.js",
     "dashboard": "node visualizer/server.js",
