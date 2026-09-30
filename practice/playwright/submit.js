@@ -1,6 +1,7 @@
 /**
  * Playwright Day-Wise Platform Submission Engine
  * Submits solved problems for any practice day directly to Codeforces, LeetCode, and CodeChef.
+ * Supports sequential single-platform runs and multi-platform parallel worker queues.
  */
 
 const fs = require('fs');
@@ -40,9 +41,14 @@ function findSolutionFile(problem, dayDir) {
   return candidates.find((c) => fs.existsSync(c)) || null;
 }
 
-async function runDryRun(problems, dayDir, date) {
+async function runDryRun(problems, dayDir, date, isParallel = false) {
   console.log(`\n=== DRY RUN: Day-Wise Submission Preview for ${date} ===\n`);
   console.log(`Total Problems in Set: ${problems.length}`);
+  if (isParallel) {
+    console.log(`Execution Strategy: Parallel Platform Workers (LeetCode, Codeforces, CodeChef in parallel)`);
+  } else {
+    console.log(`Execution Strategy: Sequential One-by-One Queue`);
+  }
 
   let readyCount = 0;
   let missingCount = 0;
@@ -102,6 +108,124 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
   console.log(`  ✓ Mirrored ${mirrored} solutions into contests/<platform>/${date}/\n`);
 }
 
+/**
+ * Submits a single problem using the provided browser and context setup
+ */
+async function submitSingleProblem(prob, { dayDir, browser, persistentContext, isPersistentMode }) {
+  const solPath = findSolutionFile(prob, dayDir);
+  if (!solPath) {
+    console.warn(`    ✗ Missing solution code for ${prob.file}. Skipping.`);
+    return {
+      platform: prob.platform,
+      id: prob.id,
+      name: prob.name,
+      file: prob.file,
+      verdict: 'NO_SOLUTION_FILE',
+      success: false,
+    };
+  }
+
+  const rawCode = fs.readFileSync(solPath, 'utf-8');
+  const platKey = getProblemPlatform(prob).toLowerCase();
+  const platConfig = PLATFORMS[platKey];
+
+  if (!platConfig) {
+    console.warn(`    ✗ Unsupported platform: "${prob.platform}". Skipping.`);
+    return {
+      platform: prob.platform,
+      id: prob.id,
+      name: prob.name,
+      verdict: 'UNSUPPORTED_PLATFORM',
+      success: false,
+    };
+  }
+
+  let context = null;
+  let page = null;
+
+  if (isPersistentMode) {
+    page = await persistentContext.newPage();
+  } else {
+    if (!fs.existsSync(platConfig.authFile)) {
+      console.warn(
+        `    ✗ No saved session for ${platConfig.name}. Please authenticate first via: npm run submit:auth -- --platform ${platKey}`
+      );
+      return {
+        platform: prob.platform,
+        id: prob.id,
+        name: prob.name,
+        file: prob.file,
+        verdict: 'NOT_AUTHENTICATED',
+        success: false,
+      };
+    }
+
+    context = await createStealthContext(browser, {
+      storageStatePath: platConfig.authFile,
+    });
+    page = await context.newPage();
+  }
+
+  try {
+    let subRes = null;
+    if (platKey === 'codeforces') {
+      subRes = await cfEngine.submitCodeforces(page, prob, rawCode, { filePath: solPath });
+    } else if (platKey === 'leetcode') {
+      subRes = await lcEngine.submitLeetCode(page, prob, rawCode);
+    } else if (platKey === 'codechef') {
+      subRes = await ccEngine.submitCodeChef(page, prob, rawCode);
+    }
+
+    console.log(`    ✓ Submission completed! Verdict: ${subRes?.verdict || 'Submitted'}`);
+    return {
+      ...subRes,
+      id: prob.id,
+      name: prob.name,
+      file: prob.file,
+      timestamp: new Date().toISOString(),
+      success: !/wrong answer|runtime error|compile error|time limit/i.test(subRes?.verdict || ''),
+    };
+  } catch (err) {
+    console.error(`    ✗ Submission failed: ${err.message}`);
+    return {
+      platform: prob.platform,
+      id: prob.id,
+      name: prob.name,
+      file: prob.file,
+      verdict: `ERROR: ${err.message}`,
+      success: false,
+    };
+  } finally {
+    if (context) await context.close().catch(() => {});
+    else if (page) await page.close().catch(() => {});
+  }
+}
+
+/**
+ * Worker queue that processes a single platform's problems sequentially one-by-one with cooldown
+ */
+async function processPlatformQueue(platKey, queue, options) {
+  const platConfig = PLATFORMS[platKey];
+  const tag = `[${platConfig?.name || platKey}]`;
+  const queueResults = [];
+
+  console.log(`\n>>> Starting worker for ${tag} (${queue.length} problems) ...`);
+
+  for (const [idx, prob] of queue.entries()) {
+    console.log(`\n${tag} (${idx + 1}/${queue.length}) Processing: ${prob.name} (${prob.id}) ...`);
+    const res = await submitSingleProblem(prob, options);
+    queueResults.push(res);
+
+    if (idx < queue.length - 1) {
+      console.log(`    ${tag} [cooldown] Waiting ${options.cooldownMs / 1000}s before next problem ...`);
+      await new Promise((r) => setTimeout(r, options.cooldownMs));
+    }
+  }
+
+  console.log(`\n<<< Worker for ${tag} finished all ${queue.length} problems.`);
+  return queueResults;
+}
+
 async function main() {
   const days = existingDays();
   if (days.length === 0) {
@@ -124,11 +248,12 @@ async function main() {
   const isDryRun = args.includes('--dry-run');
   const isHeadless = args.includes('--headless');
   const shouldMirror = args.includes('--mirror');
+  const isParallel = args.includes('--parallel');
   const cooldownMs = parseInt(flag('--cooldown') || '4000', 10);
 
   let problems = set.problems || [];
   if (filterPlatform) {
-    problems = problems.filter((p) => (p.platform || '').toLowerCase() === filterPlatform.toLowerCase());
+    problems = problems.filter((p) => getProblemPlatform(p).toLowerCase() === filterPlatform.toLowerCase());
   }
   if (filterProblem) {
     problems = problems.filter(
@@ -139,7 +264,9 @@ async function main() {
   }
 
   if (problems.length === 0) {
-    console.warn(`[submit] No matching problems found for criteria (platform: ${filterPlatform || 'any'}, problem: ${filterProblem || 'any'}).`);
+    console.warn(
+      `[submit] No matching problems found for criteria (platform: ${filterPlatform || 'any'}, problem: ${filterProblem || 'any'}).`
+    );
     return;
   }
 
@@ -162,16 +289,17 @@ async function main() {
   }
 
   if (isDryRun) {
-    await runDryRun(problems, dayDir, date);
+    await runDryRun(problems, dayDir, date, isParallel);
     return;
   }
 
   console.log(`\n================================================================`);
   console.log(`Initiating Playwright Platform Submissions for Day ${set.day} (${date})`);
-  console.log(`Target Problems: ${problems.length} | Mode: ${isHeadless ? 'Headless' : 'Headed'}`);
+  console.log(
+    `Target Problems: ${problems.length} | Strategy: ${isParallel ? 'Parallel Platforms' : 'Sequential'} | Mode: ${isHeadless ? 'Headless' : 'Headed'}`
+  );
   console.log(`================================================================\n`);
 
-  const results = [];
   const submissionsLogPath = path.join(dayDir, 'submissions.json');
   let historicalSubmissions = [];
   if (fs.existsSync(submissionsLogPath)) {
@@ -200,105 +328,48 @@ async function main() {
     browser = await launchBrowser({ headless: isHeadless });
   }
 
+  const workerOptions = {
+    dayDir,
+    browser,
+    persistentContext,
+    isPersistentMode,
+    cooldownMs,
+  };
+
+  let results = [];
+
   try {
-    for (const [idx, prob] of problems.entries()) {
-      console.log(`\n[${idx + 1}/${problems.length}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
-
-      const solPath = findSolutionFile(prob, dayDir);
-      if (!solPath) {
-        console.warn(`    ✗ Missing solution code for ${prob.file}. Skipping.`);
-        results.push({
-          platform: prob.platform,
-          id: prob.id,
-          name: prob.name,
-          file: prob.file,
-          verdict: 'NO_SOLUTION_FILE',
-          success: false,
-        });
-        continue;
+    if (isParallel) {
+      // Group problems by platform
+      const queueMap = {};
+      for (const prob of problems) {
+        const platKey = getProblemPlatform(prob).toLowerCase();
+        if (!queueMap[platKey]) queueMap[platKey] = [];
+        queueMap[platKey].push(prob);
       }
 
-      const rawCode = fs.readFileSync(solPath, 'utf-8');
-      const platKey = (prob.platform || '').toLowerCase();
-      const platConfig = PLATFORMS[platKey];
-
-      if (!platConfig) {
-        console.warn(`    ✗ Unsupported platform: "${prob.platform}". Skipping.`);
-        results.push({
-          platform: prob.platform,
-          id: prob.id,
-          name: prob.name,
-          verdict: 'UNSUPPORTED_PLATFORM',
-          success: false,
-        });
-        continue;
+      console.log(`[submit] Running ${Object.keys(queueMap).length} platform workers in PARALLEL:`);
+      for (const [k, q] of Object.entries(queueMap)) {
+        console.log(`  · ${PLATFORMS[k]?.name || k}: ${q.length} problems one-by-one`);
       }
 
-      let context = null;
-      let page = null;
+      const workerPromises = Object.entries(queueMap).map(([platKey, queue]) =>
+        processPlatformQueue(platKey, queue, workerOptions)
+      );
 
-      if (isPersistentMode) {
-        page = await persistentContext.newPage();
-      } else {
-        // Check auth file
-        if (!fs.existsSync(platConfig.authFile)) {
-          console.warn(
-            `    ✗ No saved session for ${platConfig.name}. Please authenticate first via: npm run submit:auth -- --platform ${platKey}`
-          );
-          results.push({
-            platform: prob.platform,
-            id: prob.id,
-            name: prob.name,
-            verdict: 'NOT_AUTHENTICATED',
-            success: false,
-          });
-          continue;
+      const workerOutputs = await Promise.all(workerPromises);
+      results = workerOutputs.flat();
+    } else {
+      // Sequential single queue
+      for (const [idx, prob] of problems.entries()) {
+        console.log(`\n[${idx + 1}/${problems.length}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
+        const res = await submitSingleProblem(prob, workerOptions);
+        results.push(res);
+
+        if (idx < problems.length - 1) {
+          console.log(`    [cooldown] Waiting ${cooldownMs / 1000}s before next submission ...`);
+          await new Promise((r) => setTimeout(r, cooldownMs));
         }
-
-        context = await createStealthContext(browser, {
-          storageStatePath: platConfig.authFile,
-        });
-        page = await context.newPage();
-      }
-
-      try {
-        let subRes = null;
-        if (platKey === 'codeforces') {
-          subRes = await cfEngine.submitCodeforces(page, prob, rawCode, { filePath: solPath });
-        } else if (platKey === 'leetcode') {
-          subRes = await lcEngine.submitLeetCode(page, prob, rawCode);
-        } else if (platKey === 'codechef') {
-          subRes = await ccEngine.submitCodeChef(page, prob, rawCode);
-        }
-
-        console.log(`    ✓ Submission completed! Verdict: ${subRes.verdict || 'Submitted'}`);
-        results.push({
-          ...subRes,
-          id: prob.id,
-          name: prob.name,
-          file: prob.file,
-          timestamp: new Date().toISOString(),
-          success: !/wrong answer|runtime error|compile error|time limit/i.test(subRes.verdict || ''),
-        });
-      } catch (err) {
-        console.error(`    ✗ Submission failed: ${err.message}`);
-        results.push({
-          platform: prob.platform,
-          id: prob.id,
-          name: prob.name,
-          file: prob.file,
-          verdict: `ERROR: ${err.message}`,
-          success: false,
-        });
-      } finally {
-        if (context) await context.close().catch(() => {});
-        else if (page) await page.close().catch(() => {});
-      }
-
-      // Cooldown delay between submissions
-      if (idx < problems.length - 1) {
-        console.log(`    [cooldown] Waiting ${cooldownMs / 1000}s before next submission ...`);
-        await new Promise((r) => setTimeout(r, cooldownMs));
       }
     }
   } finally {
@@ -334,6 +405,9 @@ if (require.main === module) {
 
 module.exports = {
   findSolutionFile,
+  getProblemPlatform,
+  submitSingleProblem,
+  processPlatformQueue,
   runDryRun,
   mirrorSolutionsByPlatform,
 };
