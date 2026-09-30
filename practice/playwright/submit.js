@@ -11,6 +11,7 @@ const { PLATFORMS, PRACTICE_DAYS_DIR, REPO_ROOT } = require('./config');
 const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
 const ccEngine = require('./platforms/codechef');
+const { authenticatePlatform } = require('./auth');
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -147,17 +148,17 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
     page = await persistentContext.newPage();
   } else {
     if (!fs.existsSync(platConfig.authFile)) {
-      console.warn(
-        `    ✗ No saved session for ${platConfig.name}. Please authenticate first via: npm run submit:auth -- --platform ${platKey}`
-      );
-      return {
-        platform: prob.platform,
-        id: prob.id,
-        name: prob.name,
-        file: prob.file,
-        verdict: 'NOT_AUTHENTICATED',
-        success: false,
-      };
+      const ok = await ensurePlatformAuth(platKey, { isPersistentMode });
+      if (!ok) {
+        return {
+          platform: prob.platform,
+          id: prob.id,
+          name: prob.name,
+          file: prob.file,
+          verdict: 'NOT_AUTHENTICATED',
+          success: false,
+        };
+      }
     }
 
     context = await createStealthContext(browser, {
@@ -202,13 +203,56 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
 }
 
 /**
+ * Ensures valid authentication exists for a platform.
+ * If missing, automatically prompts the user with an interactive browser login window,
+ * saves the session, and seamlessly resumes submissions!
+ */
+async function ensurePlatformAuth(platKey, options = {}) {
+  if (options.isPersistentMode) return true;
+  const platConfig = PLATFORMS[platKey];
+  if (!platConfig) return false;
+
+  if (fs.existsSync(platConfig.authFile)) {
+    return true;
+  }
+
+  console.log(`\n============================================================`);
+  console.log(`[auth-required] No active session found for ${platConfig.name}.`);
+  console.log(`Opening browser window for you to log in now...`);
+  console.log(`Log in to your account; we will automatically save your session and continue!`);
+  console.log(`============================================================\n`);
+
+  const ok = await authenticatePlatform(platKey);
+  if (ok) {
+    console.log(`[submit] ✓ Successfully logged in to ${platConfig.name}! Resuming submissions...\n`);
+    return true;
+  } else {
+    console.warn(`[submit] ✗ Login was not completed for ${platConfig.name}.\n`);
+    return false;
+  }
+}
+
+/**
  * Worker queue that processes a single platform's problems sequentially one-by-one with cooldown
  */
 async function processPlatformQueue(platKey, queue, options) {
   const platConfig = PLATFORMS[platKey];
   const tag = `[${platConfig?.name || platKey}]`;
-  const queueResults = [];
 
+  const isAuthed = await ensurePlatformAuth(platKey, options);
+  if (!isAuthed) {
+    console.warn(`    ✗ Skipping ${queue.length} problems for ${tag} due to missing authentication.`);
+    return queue.map((p) => ({
+      platform: p.platform,
+      id: p.id,
+      name: p.name,
+      file: p.file,
+      verdict: 'NOT_AUTHENTICATED',
+      success: false,
+    }));
+  }
+
+  const queueResults = [];
   console.log(`\n>>> Starting worker for ${tag} (${queue.length} problems) ...`);
 
   for (const [idx, prob] of queue.entries()) {
