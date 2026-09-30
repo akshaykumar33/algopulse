@@ -40,3 +40,5 @@ practice/ai/settings.local.json
 .auth/
 test-results/
 playwright-report/
+practice/days/*/submissions.json
+submissions.json
