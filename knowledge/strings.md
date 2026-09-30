@@ -96,6 +96,7 @@ function isPalindrome(s) {
 | [Normal Problem](https://codeforces.com/problemset/problem/2044/B) | `undefined` | `800` | `normalProblem.js` | Key algorithmic application from Day 2026-09-26. |
 | [Translation](https://codeforces.com/problemset/problem/41/A) | `undefined` | `800` | `translation.js` | Key algorithmic application from Day 2026-09-27. |
 | [Down with Brackets](https://codeforces.com/problemset/problem/2110/B) | `Codeforces` | `900` | `downWithBrackets.js` | Key algorithmic application from Day 2026-09-29. |
+| [Skibidus and Ohio](https://codeforces.com/problemset/problem/2065/B) | `Codeforces` | `800` | `skibidusAndOhio.js` | Key algorithmic application from Day 2026-09-30. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

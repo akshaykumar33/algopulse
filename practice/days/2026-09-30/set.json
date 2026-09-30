@@ -1,0 +1,387 @@
+{
+  "date": "2026-09-30",
+  "day": 6,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1807A",
+      "name": "Plus or Minus",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1807/A",
+      "file": "plusOrMinus",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "486A",
+      "name": "Calculating Function",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/486/A",
+      "file": "calculatingFunction",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1760A",
+      "name": "Medium Number",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1760/A",
+      "file": "mediumNumber",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1520B",
+      "name": "Ordinary Numbers",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1520/B",
+      "file": "ordinaryNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2072A",
+      "name": "New World, New Me, New Array",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2072/A",
+      "file": "newWorldNewMeNewArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2065B",
+      "name": "Skibidus and Ohio",
+      "rating": 800,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2065/B",
+      "file": "skibidusAndOhio",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1462A",
+      "name": "Favorite Sequence",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1462/A",
+      "file": "favoriteSequence",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1918B",
+      "name": "Minimize Inversions",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "data structures",
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1918/B",
+      "file": "minimizeInversions",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1973A",
+      "name": "Chess For Three",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "dp",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1973/A",
+      "file": "chessForThree",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1705B",
+      "name": "Mark the Dust Sweeper",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1705/B",
+      "file": "markTheDustSweeper",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2667",
+      "name": "Create Hello World Function",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/create-hello-world-function/",
+      "file": "createHelloWorldFunction",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-191",
+      "name": "Number of 1 Bits",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-1-bits/",
+      "file": "numberOf1Bits",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-628",
+      "name": "Maximum Product of Three Numbers",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-product-of-three-numbers/",
+      "file": "maximumProductOfThreeNumbers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-653",
+      "name": "Two Sum IV - Input is a BST",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+      "file": "twoSumIVInputIsABST",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-136",
+      "name": "Single Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/single-number/",
+      "file": "singleNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-121",
+      "name": "Best Time to Buy and Sell Stock",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "file": "bestTimeToBuyAndSellStock",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-205",
+      "name": "Isomorphic Strings",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/isomorphic-strings/",
+      "file": "isomorphicStrings",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1832",
+      "name": "Check if the Sentence Is Pangram",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-the-sentence-is-pangram/",
+      "file": "checkIfTheSentenceIsPangram",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-619",
+      "name": "Biggest Single Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/biggest-single-number/",
+      "file": "biggestSingleNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1200",
+      "name": "Minimum Absolute Difference",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-absolute-difference/",
+      "file": "minimumAbsoluteDifference",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SUPCHEF",
+      "name": "The Preparations",
+      "rating": 823,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUPCHEF",
+      "file": "thePreparations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MATCH_ALK",
+      "name": "Man of the Match",
+      "rating": 825,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MATCH_ALK",
+      "file": "manOfTheMatch",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FRUITCHAAT",
+      "name": "Chef and His Fruit Stand",
+      "rating": 822,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FRUITCHAAT",
+      "file": "chefAndHisFruitStand",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-WORDLE",
+      "name": "Wordle",
+      "rating": 804,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/WORDLE",
+      "file": "wordle",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DNASTORAGE",
+      "name": "DNA Storage",
+      "rating": 801,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DNASTORAGE",
+      "file": "dNAStorage",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAKENZERO",
+      "name": "Make N Zero",
+      "rating": 846,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKENZERO",
+      "file": "makeNZero",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EITA",
+      "name": "Maximum Production",
+      "rating": 833,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EITA",
+      "file": "maximumProduction",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FINDK3",
+      "name": "FIND A and B",
+      "rating": 802,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FINDK3",
+      "file": "fINDAAndB",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CUTPAPER",
+      "name": "Paper Cutting",
+      "rating": 800,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CUTPAPER",
+      "file": "paperCutting",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PALL01",
+      "name": "The Block Game",
+      "rating": 830,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PALL01",
+      "file": "theBlockGame",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
