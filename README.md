@@ -131,6 +131,30 @@ Prompts are grounded in the reference solution and samples; the coach also retri
 
 **Reminders:** `npm run remind:install -- -Time 18:30` schedules a daily Windows toast with an *Open studio* button (`-Remove` to uninstall; `npm run remind` to test). The header tracks your solving streak.
 
+### 6. Automated Platform Submissions (Playwright Engine)
+
+Automates submitting day-wise solved problems directly to **Codeforces**, **LeetCode**, and **CodeChef** profiles with persistent session state and judge verdict tracking:
+
+```bash
+# Check saved platform sessions
+npm run submit:status
+
+# Interactive login to save authenticated session state (.auth/ is gitignored)
+npm run submit:auth
+
+# Dry-run submission matrix preview
+npm run submit:dry
+
+# Automated platform submission for active practice day
+npm run submit
+
+# Submit for a specific day or platform
+node practice/playwright/submit.js --date 2026-09-30 --platform leetcode
+
+# Organize/mirror all day-wise code into platform directories
+node practice/playwright/submit.js --mirror --all --dry-run
+```
+
 ---
 
 ## 📊 Visual Explanation & Mermaid Diagrams

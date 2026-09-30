@@ -27,6 +27,11 @@
     "remind:install": "powershell -NoProfile -ExecutionPolicy Bypass -File practice/remind-install.ps1",
     "knowledge": "node practice/knowledge.js",
     "knowledge:sync": "node practice/knowledge.js --sync",
+    "submit": "node practice/playwright/submit.js",
+    "submit:dry": "node practice/playwright/submit.js --dry-run",
+    "submit:auth": "node practice/playwright/auth.js",
+    "submit:status": "node practice/playwright/auth.js --status",
+    "test:playwright": "node --test practice/playwright/submit.test.js",
     "test:unit": "node --test \"practice/**/*.test.js\""
   },
   "keywords": [
@@ -47,6 +52,7 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.128.0"
+    "@anthropic-ai/sdk": "^0.128.0",
+    "playwright": "^1.63.0"
   }
 }
