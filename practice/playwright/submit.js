@@ -12,6 +12,7 @@ const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
 const ccEngine = require('./platforms/codechef');
 const { authenticatePlatform } = require('./auth');
+const { sanitizeCodeForSubmission } = require('./sanitize');
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -47,7 +48,289 @@ function findSolutionFile(problem, dayDir) {
   return candidates.find((c) => fs.existsSync(c)) || null;
 }
 
-async function runDryRun(problems, dayDir, date, isParallel = false) {
+/**
+ * Normalizes problem IDs to allow robust matching across representations
+ * e.g., 'CC-BULBLIFE' -> 'bulblife', '1328/A' -> '1328a', 'LC-345' -> '345'
+ */
+function normalizeId(id) {
+  if (!id) return '';
+  return String(id).toLowerCase().replace(/^(cc|lc)[-_]/, '').replace(/[\/\-_]/g, '').trim();
+}
+
+/**
+ * Checks if a historical record matches a given problem
+ */
+function isRecordForProblem(prob, sub) {
+  if (!prob || !sub) return false;
+  const probPlat = getProblemPlatform(prob).toLowerCase();
+  const subPlat = String(sub.platform || '').toLowerCase();
+  if (probPlat !== subPlat) return false;
+
+  const probFile = String(prob.file || '').toLowerCase();
+  const subFile = String(sub.file || '').toLowerCase();
+  if (probFile && subFile && probFile === subFile) return true;
+
+  const probId = normalizeId(prob.id);
+  const subId = normalizeId(sub.id || sub.problemId);
+  if (probId && subId && probId === subId) return true;
+
+  return false;
+}
+
+/**
+ * Checks if a single submission or any of its historical attempts is an accepted verdict
+ */
+function isVerdictAccepted(sub) {
+  if (!sub) return false;
+  if (sub.success === true) return true;
+  const verdict = String(sub.verdict || '').toLowerCase();
+  return (
+    verdict.includes('accepted') ||
+    verdict.includes('correct answer') ||
+    verdict.includes('passed')
+  );
+}
+
+/**
+ * Checks if a problem has already been successfully solved on the platform
+ */
+function isProblemAccepted(problem, historicalSubmissions = []) {
+  if (!Array.isArray(historicalSubmissions)) return null;
+
+  for (const sub of historicalSubmissions) {
+    if (!isRecordForProblem(problem, sub)) continue;
+
+    // Check primary record
+    if (isVerdictAccepted(sub)) {
+      return sub;
+    }
+
+    // Check prior attempts inside history
+    if (Array.isArray(sub.history)) {
+      const acceptedHist = sub.history.find((h) => isVerdictAccepted(h));
+      if (acceptedHist) {
+        return {
+          ...sub,
+          ...acceptedHist,
+          attempts: sub.attempts || sub.history.length + 1,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Resolves comprehensive problem status:
+ * - status: 'ACCEPTED' | 'FAILED' | 'PENDING' | 'MISSING_CODE'
+ * - attempts: number
+ * - latestRecord: object | null
+ * - acceptedRecord: object | null
+ */
+function getProblemStatus(problem, historicalSubmissions = [], dayDir = null) {
+  if (dayDir && !findSolutionFile(problem, dayDir)) {
+    return { status: 'MISSING_CODE', attempts: 0, latestRecord: null, acceptedRecord: null };
+  }
+
+  const accepted = isProblemAccepted(problem, historicalSubmissions);
+  if (accepted) {
+    return {
+      status: 'ACCEPTED',
+      attempts: accepted.attempts || (Array.isArray(accepted.history) ? accepted.history.length + 1 : 1),
+      latestRecord: accepted,
+      acceptedRecord: accepted,
+    };
+  }
+
+  const match = Array.isArray(historicalSubmissions)
+    ? historicalSubmissions.find((s) => isRecordForProblem(problem, s))
+    : null;
+
+  if (match) {
+    const attempts = match.attempts || (Array.isArray(match.history) ? match.history.length + 1 : 1);
+    return {
+      status: 'FAILED',
+      attempts,
+      latestRecord: match,
+      acceptedRecord: null,
+    };
+  }
+
+  return { status: 'PENDING', attempts: 0, latestRecord: null, acceptedRecord: null };
+}
+
+/**
+ * Merges new submission results with historical records, deduplicating by problem
+ * and preserving attempt history.
+ * Invariant: If a problem was already accepted, keep accepted status primary
+ * and push transient re-run failures into history.
+ */
+function mergeSubmissions(existing = [], updates = []) {
+  const map = new Map();
+  const makeKey = (r) => {
+    const plat = String(r.platform || '').toLowerCase();
+    const file = String(r.file || '').toLowerCase();
+    const id = normalizeId(r.id || r.problemId);
+    return `${plat}::${file || id}`;
+  };
+
+  // Seed map with existing records
+  for (const r of existing) {
+    const key = makeKey(r);
+    if (!map.has(key)) {
+      map.set(key, { ...r, history: Array.isArray(r.history) ? [...r.history] : [] });
+    } else {
+      // Deduplicate existing records if legacy array had duplicates
+      const current = map.get(key);
+      const isRNewAcc = isVerdictAccepted(r);
+      const isCurrAcc = isVerdictAccepted(current);
+
+      if (isRNewAcc && !isCurrAcc) {
+        const { history = [], ...currWithoutHist } = current;
+        map.set(key, { ...r, history: [...history, currWithoutHist] });
+      } else {
+        const { history = [], ...rWithoutHist } = r;
+        current.history.push(rWithoutHist);
+      }
+    }
+  }
+
+  // Apply new updates
+  for (const r of updates) {
+    const key = makeKey(r);
+    const prev = map.get(key);
+    if (prev) {
+      const history = Array.isArray(prev.history) ? [...prev.history] : [];
+      const isUpdateAcc = isVerdictAccepted(r);
+      const isPrevAcc = isVerdictAccepted(prev);
+
+      if (!isUpdateAcc && isPrevAcc) {
+        // Keep accepted as primary if an accidental rerun failed, but log new failed attempt in history
+        const { history: _, ...updateWithoutHist } = r;
+        history.push(updateWithoutHist);
+        map.set(key, {
+          ...prev,
+          attempts: history.length + 1,
+          history,
+        });
+      } else {
+        // Update is accepted or both share same status tier: update becomes primary
+        const { history: _, ...prevRecord } = prev;
+        history.push(prevRecord);
+        map.set(key, {
+          ...r,
+          attempts: history.length + 1,
+          history,
+        });
+      }
+    } else {
+      map.set(key, {
+        ...r,
+        attempts: (r.history ? r.history.length : 0) + 1,
+        history: Array.isArray(r.history) ? [...r.history] : [],
+      });
+    }
+  }
+
+  return Array.from(map.values()).map((r) => ({
+    ...r,
+    attempts: (r.history ? r.history.length : 0) + 1,
+  }));
+}
+
+/**
+ * Displays full tracking status dashboard for the day
+ */
+function printSubmissionStatus(problems, historicalSubmissions, date, dayDir) {
+  console.log(`\n================================================================`);
+  console.log(`📊 Submission Tracking Status for Date ${date}`);
+  console.log(`================================================================\n`);
+
+  let acceptedCount = 0;
+  let failedCount = 0;
+  let pendingCount = 0;
+  let missingCount = 0;
+
+  const platformStats = {};
+
+  const rows = [];
+  for (const [i, p] of problems.entries()) {
+    const platName = getProblemPlatform(p);
+    const platKey = platName.toLowerCase();
+    if (!platformStats[platKey]) {
+      platformStats[platKey] = { name: platName, total: 0, accepted: 0, failed: 0, pending: 0 };
+    }
+    platformStats[platKey].total++;
+
+    const statusInfo = getProblemStatus(p, historicalSubmissions, dayDir);
+    let statusBadge = '';
+    let verdictText = '-';
+    let urlOrDetails = '-';
+
+    if (statusInfo.status === 'ACCEPTED') {
+      acceptedCount++;
+      platformStats[platKey].accepted++;
+      statusBadge = '✓ ACCEPTED';
+      verdictText = statusInfo.acceptedRecord?.verdict || 'Accepted';
+      urlOrDetails = statusInfo.acceptedRecord?.submissionUrl || (statusInfo.acceptedRecord?.submissionId ? `#${statusInfo.acceptedRecord.submissionId}` : '-');
+    } else if (statusInfo.status === 'FAILED') {
+      failedCount++;
+      platformStats[platKey].failed++;
+      statusBadge = '✗ FAILED (RETRY)';
+      verdictText = statusInfo.latestRecord?.verdict || 'Failed';
+      urlOrDetails = statusInfo.latestRecord?.submissionUrl || statusInfo.latestRecord?.submissionId || '-';
+    } else if (statusInfo.status === 'MISSING_CODE') {
+      missingCount++;
+      statusBadge = 'MISSING_CODE';
+      verdictText = 'No solution file found';
+    } else {
+      pendingCount++;
+      platformStats[platKey].pending++;
+      statusBadge = '⏳ PENDING';
+      verdictText = 'Not attempted';
+    }
+
+    rows.push({
+      num: i + 1,
+      platform: platName,
+      id: p.id,
+      name: p.name,
+      status: statusBadge,
+      attempts: statusInfo.attempts,
+      verdict: verdictText,
+      url: urlOrDetails,
+    });
+  }
+
+  console.log(`Summary: ${problems.length} Total Problems | ✓ ${acceptedCount} Accepted | ✗ ${failedCount} Failed | ⏳ ${pendingCount} Pending\n`);
+
+  console.log('Platform Breakdown:');
+  for (const stat of Object.values(platformStats)) {
+    const pct = stat.total > 0 ? Math.round((stat.accepted / stat.total) * 100) : 0;
+    console.log(`  • ${stat.name.padEnd(12)}: ${stat.accepted} / ${stat.total} Accepted (${pct}%)${stat.failed > 0 ? ` [${stat.failed} failed]` : ''}`);
+  }
+  console.log('');
+
+  console.log('| # | Platform | Problem ID | Title | Status | Attempts | Verdict | Details / URL |');
+  console.log('|---|:---:|:---:|---|:---:|:---:|:---:|---|');
+  for (const r of rows) {
+    console.log(
+      `| ${r.num} | ${r.platform} | ${r.id} | ${r.name} | **${r.status}** | ${r.attempts} | ${r.verdict} | ${r.url} |`
+    );
+  }
+  console.log('\n================================================================');
+
+  if (failedCount > 0) {
+    console.log(`\n💡 To resubmit ONLY the ${failedCount} failed case(s), run:`);
+    console.log(`   node practice/playwright/submit.js --date ${date} --failed-only`);
+    console.log(`   (Or platform specific: npm run submit:cc -- --failed-only)\n`);
+  } else if (acceptedCount === problems.length) {
+    console.log(`\n🎉 All ${problems.length} problems are 100% Accepted! No resubmissions required.\n`);
+  }
+}
+
+async function runDryRun(problems, dayDir, date, isParallel = false, historicalSubmissions = []) {
   console.log(`\n=== DRY RUN: Day-Wise Submission Preview for ${date} ===\n`);
   console.log(`Total Problems in Set: ${problems.length}`);
   if (isParallel) {
@@ -58,9 +341,11 @@ async function runDryRun(problems, dayDir, date, isParallel = false) {
 
   let readyCount = 0;
   let missingCount = 0;
+  let acceptedCount = 0;
+  let failedCount = 0;
 
-  console.log('\n| # | Platform | Problem ID | Title | Solution File | Auth Saved | Status |');
-  console.log('|---|:---:|:---:|---|---|:---:|:---:|');
+  console.log('\n| # | Platform | Problem ID | Title | Solution File | Attempts | Auth | Status | Action |');
+  console.log('|---|:---:|:---:|---|---|:---:|:---:|:---:|:---:|');
 
   for (const [i, p] of problems.entries()) {
     const solPath = findSolutionFile(p, dayDir);
@@ -68,28 +353,50 @@ async function runDryRun(problems, dayDir, date, isParallel = false) {
     const platKey = platformName.toLowerCase();
     const plat = PLATFORMS[platKey];
     const hasAuth = plat && fs.existsSync(plat.authFile);
+    const statusInfo = getProblemStatus(p, historicalSubmissions, dayDir);
 
     let status = 'READY';
+    let action = 'SUBMIT';
+
     if (!solPath) {
       status = 'MISSING_CODE';
+      action = 'SKIP';
       missingCount++;
+    } else if (statusInfo.status === 'ACCEPTED') {
+      status = '✓ ACCEPTED';
+      action = 'SKIP (ALREADY DONE)';
+      acceptedCount++;
+    } else if (statusInfo.status === 'FAILED') {
+      status = '✗ FAILED';
+      action = 'RETRY RESUBMISSION';
+      failedCount++;
+      readyCount++;
     } else if (!hasAuth) {
       status = 'NO_AUTH';
+      action = 'PROMPT LOGIN';
       readyCount++;
     } else {
+      status = '⏳ PENDING';
+      action = 'SUBMIT';
       readyCount++;
     }
 
     const relPath = solPath ? path.relative(REPO_ROOT, solPath) : 'NOT FOUND';
     const authStatus = hasAuth ? '✓' : '✗';
     console.log(
-      `| ${i + 1} | ${platformName} | ${p.id} | ${p.name} | \`${relPath}\` | ${authStatus} | **${status}** |`
+      `| ${i + 1} | ${platformName} | ${p.id} | ${p.name} | \`${relPath}\` | ${statusInfo.attempts} | ${authStatus} | **${status}** | ${action} |`
     );
   }
 
-  console.log(`\nDry run completed: ${readyCount} code files located, ${missingCount} missing code files.`);
-  console.log(`To perform actual submissions, run without --dry-run:\n  node practice/playwright/submit.js --date ${date}\n`);
+  console.log(
+    `\nDry run completed: ${acceptedCount} already accepted (will be skipped), ${failedCount} failed (eligible for retry), ${readyCount - failedCount} pending, ${missingCount} missing code.`
+  );
+  console.log(`\nNext steps:`);
+  console.log(`  • To submit unaccepted/failed problems: node practice/playwright/submit.js --date ${date}`);
+  console.log(`  • To resubmit ONLY failed cases:        node practice/playwright/submit.js --date ${date} --failed-only`);
+  console.log(`  • To force resubmission of all:          node practice/playwright/submit.js --date ${date} --force\n`);
 }
+
 
 /**
  * Organizes or mirrors day-wise solutions into platform-specific practice directories
@@ -173,13 +480,14 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
   }
 
   try {
+    const code = sanitizeCodeForSubmission(rawCode, prob.platform);
     let subRes = null;
     if (platKey === 'codeforces') {
-      subRes = await cfEngine.submitCodeforces(page, prob, rawCode, { filePath: solPath });
+      subRes = await cfEngine.submitCodeforces(page, prob, code, { filePath: solPath });
     } else if (platKey === 'leetcode') {
-      subRes = await lcEngine.submitLeetCode(page, prob, rawCode);
+      subRes = await lcEngine.submitLeetCode(page, prob, code);
     } else if (platKey === 'codechef') {
-      subRes = await ccEngine.submitCodeChef(page, prob, rawCode);
+      subRes = await ccEngine.submitCodeChef(page, prob, code);
     }
 
     console.log(`    ✓ Submission completed! Verdict: ${subRes?.verdict || 'Submitted'}`);
@@ -337,10 +645,96 @@ async function main() {
     mirrorSolutionsByPlatform(problems, dayDir, date);
   }
 
-  if (isDryRun) {
-    await runDryRun(problems, dayDir, date, isParallel);
+  const submissionsLogPath = path.join(dayDir, 'submissions.json');
+  let historicalSubmissions = [];
+  if (fs.existsSync(submissionsLogPath)) {
+    try {
+      historicalSubmissions = JSON.parse(fs.readFileSync(submissionsLogPath, 'utf-8'));
+    } catch {}
+  }
+
+  const isStatus = args.includes('--status');
+  const isFailedOnly = args.includes('--failed-only') || args.includes('--retry');
+  const forceResubmit = args.includes('--force');
+
+  if (isStatus) {
+    printSubmissionStatus(problems, historicalSubmissions, date, dayDir);
     return;
   }
+
+  if (isDryRun) {
+    await runDryRun(problems, dayDir, date, isParallel, historicalSubmissions);
+    return;
+  }
+
+  // Filter problems based on status
+  let pendingProblems = [];
+  let retryProblems = [];
+  let skippedProblems = [];
+  let missingCodeProblems = [];
+
+  for (const p of problems) {
+    const statusInfo = getProblemStatus(p, historicalSubmissions, dayDir);
+    if (statusInfo.status === 'MISSING_CODE') {
+      missingCodeProblems.push(p);
+      continue;
+    }
+
+    if (statusInfo.status === 'ACCEPTED' && !forceResubmit) {
+      skippedProblems.push({ problem: p, record: statusInfo.acceptedRecord });
+    } else if (statusInfo.status === 'FAILED') {
+      retryProblems.push(p);
+    } else {
+      if (isFailedOnly) {
+        skippedProblems.push({ problem: p, record: null, reason: 'Pending (skipped due to --failed-only)' });
+      } else {
+        pendingProblems.push(p);
+      }
+    }
+  }
+
+  if (skippedProblems.length > 0) {
+    console.log(`\n[submit] Skipping ${skippedProblems.length} problem(s):`);
+    for (const { problem: p, record: r } of skippedProblems) {
+      if (r) {
+        const idStr = r.submissionId ? ` (#${r.submissionId})` : '';
+        console.log(`  ✓ [${p.platform}] ${p.name || p.id}: Already Accepted${idStr}`);
+      } else {
+        console.log(`  - [${p.platform}] ${p.name || p.id}: Pending (skipped due to --failed-only)`);
+      }
+    }
+  }
+
+  if (missingCodeProblems.length > 0) {
+    console.warn(`\n[submit] Missing code for ${missingCodeProblems.length} problem(s) (cannot submit):`);
+    for (const p of missingCodeProblems) {
+      console.warn(`  ✗ [${p.platform}] ${p.name || p.id}: ${p.file}.js not found`);
+    }
+  }
+
+  const toSubmit = [...retryProblems, ...pendingProblems];
+
+  if (toSubmit.length === 0) {
+    if (skippedProblems.length > 0 && retryProblems.length === 0 && pendingProblems.length === 0) {
+      console.log(`\n🎉 All ${problems.length} problems for ${date} have already been successfully submitted and Accepted!`);
+      console.log(`   (Pass --force to re-submit all problems anyway).\n`);
+    } else {
+      console.log(`\n[submit] No problems eligible for submission with current filters.`);
+    }
+    return;
+  }
+
+  console.log(`\n[submit] Execution Plan for Day ${set.day} (${date}):`);
+  console.log(`  • Already Accepted (SKIPPED): ${skippedProblems.filter((x) => x.record).length}`);
+  if (retryProblems.length > 0) {
+    console.log(`  • Failed Cases (RETRYING):    ${retryProblems.length}`);
+  }
+  if (pendingProblems.length > 0) {
+    console.log(`  • Pending Cases (SUBMITTING): ${pendingProblems.length}`);
+  }
+  console.log(`  • Total to Submit Now:        ${toSubmit.length}\n`);
+
+  problems = toSubmit;
 
   console.log(`\n================================================================`);
   console.log(`Initiating Playwright Platform Submissions for Day ${set.day} (${date})`);
@@ -349,13 +743,6 @@ async function main() {
   );
   console.log(`================================================================\n`);
 
-  const submissionsLogPath = path.join(dayDir, 'submissions.json');
-  let historicalSubmissions = [];
-  if (fs.existsSync(submissionsLogPath)) {
-    try {
-      historicalSubmissions = JSON.parse(fs.readFileSync(submissionsLogPath, 'utf-8'));
-    } catch {}
-  }
 
   const useSystemChrome = args.includes('--use-system-chrome') || args.includes('--chrome-profile');
   const usePersistent = args.includes('--persistent');
@@ -426,10 +813,11 @@ async function main() {
     if (persistentContext) await persistentContext.close().catch(() => {});
   }
 
-  // Save submissions log
-  const combinedLog = [...historicalSubmissions, ...results];
+  // Save submissions log (deduplicated by platform and problem)
+  const combinedLog = mergeSubmissions(historicalSubmissions, results);
   fs.writeFileSync(submissionsLogPath, JSON.stringify(combinedLog, null, 2) + '\n', 'utf-8');
   console.log(`\n[submit] Saved submission records to: ${path.relative(REPO_ROOT, submissionsLogPath)}`);
+
 
   // Summary Table
   console.log(`\n================================================================`);
@@ -459,4 +847,12 @@ module.exports = {
   processPlatformQueue,
   runDryRun,
   mirrorSolutionsByPlatform,
+  normalizeId,
+  isRecordForProblem,
+  isVerdictAccepted,
+  isProblemAccepted,
+  getProblemStatus,
+  mergeSubmissions,
+  printSubmissionStatus,
 };
+

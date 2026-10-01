@@ -2,6 +2,9 @@
  * Codeforces Submission Engine (Playwright)
  */
 
+const os = require('os');
+const fs = require('fs');
+const path = require('path');
 const { PLATFORMS } = require('../config');
 
 /**
@@ -84,11 +87,13 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 60000
     }
   }
 
-  // 4. Attach source file or code
+  // 4. Attach sanitized source file or code
   const fileInput = await page.$('input[name="sourceFile"]');
-  if (fileInput && filePath) {
-    console.log(`    [Codeforces] Uploading source file directly: ${filePath} ...`);
-    await page.setInputFiles('input[name="sourceFile"]', filePath);
+  if (fileInput) {
+    const tempFile = path.join(os.tmpdir(), `${problem.file || 'solution'}.js`);
+    fs.writeFileSync(tempFile, code, 'utf-8');
+    console.log(`    [Codeforces] Uploading sanitized source file ...`);
+    await page.setInputFiles('input[name="sourceFile"]', tempFile);
   } else {
     await page.fill('textarea[name="source"]', code);
   }

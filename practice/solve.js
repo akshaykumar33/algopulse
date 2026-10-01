@@ -102,6 +102,9 @@ Problem Details:
 
 Implementation Guidelines:
 ${formatInstructions}
+- STRICT RULE: ABSOLUTELY NO COMMENTS (no '//', no '/* */', no JSDoc) in the solution code. Pure logic only.
+- STRICT NAMING: Use standard, concise, natural competitive programming variable names ('n', 'm', 'k', 'ans', 'res', 'cnt', 'freq', 'adj', 'vis', 'dp', 'arr', 'nums', 'val', 'cur', 'sum', 'solve'). Strictly NO filler variables, watermarks (e.g. 'ballast', 'mexoramax'), or verbose enterprise names.
+- Zero AI signatures or watermarks. The code must look 100% like authentic human-written competitive programming code.
 - Use plain JS Number where safe integers (< 9e15) suffice; only use BigInt if numbers exceed 9e15.
 - Fast, clean, optimal time and space complexity.
 - Return ONLY valid JSON in this exact structure:
