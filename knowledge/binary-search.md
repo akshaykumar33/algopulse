@@ -91,6 +91,7 @@ function lowerBound(arr, target) {
 | Problem | Platform | Rating | Solution File | Core Insight / Takeaway |
 |---|---|---|---|---|
 | [Melt Gold](https://www.codechef.com/problems/MELTGOLD) | `CodeChef` | `835` | `meltGold.js` | Time $T$ satisfies $\frac{T(T+1)}{2} \ge Y - X$. Solve via binary search or quadratic formula. |
+| [Legs](https://codeforces.com/problemset/problem/1996/A) | `Codeforces` | `800` | `legs.js` | Key algorithmic application from Day 2026-10-01. |
 
 ---
 

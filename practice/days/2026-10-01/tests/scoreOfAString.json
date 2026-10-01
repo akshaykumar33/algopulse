@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"hello\"",
+    "output": "13"
+  },
+  {
+    "input": "\"zaz\"",
+    "output": "50"
+  }
+]

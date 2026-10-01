@@ -100,6 +100,7 @@ function missingNumber(nums) {
 
 ---
 | [Almost Ternary Matrix](https://codeforces.com/problemset/problem/1699/B) | `Codeforces` | `900` | `almostTernaryMatrix.js` | Key algorithmic application from Day 2026-09-29. |
+| [Sum in Binary Tree](https://codeforces.com/problemset/problem/1843/C) | `Codeforces` | `800` | `sumInBinaryTree.js` | Key algorithmic application from Day 2026-10-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
