@@ -10,7 +10,15 @@ const fs = require('fs');
 const { PLATFORMS, AUTH_DIR, PRACTICE_DAYS_DIR } = require('./config');
 const { parseCodeforcesId } = require('./platforms/codeforces');
 const { prepareLeetCodeCode } = require('./platforms/leetcode');
-const { findSolutionFile } = require('./submit');
+const {
+  findSolutionFile,
+  normalizeId,
+  isRecordForProblem,
+  isVerdictAccepted,
+  isProblemAccepted,
+  getProblemStatus,
+  mergeSubmissions,
+} = require('./submit');
 
 describe('Playwright Configuration & Paths', () => {
   it('defines valid configurations for Codeforces, LeetCode, and CodeChef', () => {
@@ -124,3 +132,164 @@ describe('Option B: Chrome Profile & Persistent Context Engine', () => {
     assert.equal(typeof launchPersistentBrowserContext, 'function');
   });
 });
+
+describe('Smart Resubmission & Submission Tracking Engine', () => {
+  it('normalizes problem IDs accurately', () => {
+    assert.equal(normalizeId('CC-BULBLIFE'), 'bulblife');
+    assert.equal(normalizeId('LC-345'), '345');
+    assert.equal(normalizeId('1328/A'), '1328a');
+    assert.equal(normalizeId('1328A'), '1328a');
+    assert.equal(normalizeId(''), '');
+  });
+
+  it('detects accepted verdicts accurately', () => {
+    assert.equal(isVerdictAccepted({ verdict: 'Accepted', success: true }), true);
+    assert.equal(isVerdictAccepted({ verdict: 'Correct Answer', success: false }), true);
+    assert.equal(isVerdictAccepted({ verdict: 'Passed', success: false }), true);
+    assert.equal(isVerdictAccepted({ verdict: 'Wrong Answer', success: false }), false);
+    assert.equal(isVerdictAccepted({ verdict: 'Runtime Error', success: false }), false);
+    assert.equal(isVerdictAccepted(null), false);
+  });
+
+  it('matches problem and historical submission without false substring positives', () => {
+    const probB = { platform: 'Codeforces', id: 'B', file: 'problemB' };
+    const sub2000B = { platform: 'Codeforces', id: '2000B', file: 'problem2000B' };
+    const subB = { platform: 'Codeforces', id: 'B', file: 'problemB' };
+
+    assert.equal(isRecordForProblem(probB, sub2000B), false);
+    assert.equal(isRecordForProblem(probB, subB), true);
+  });
+
+  it('identifies accepted problems from primary record and history', () => {
+    const prob1 = { platform: 'LeetCode', id: 'LC-345', file: 'reverseVowelsOfAString' };
+    const prob2 = { platform: 'CodeChef', id: 'CC-GENE01', file: 'genes' };
+
+    const historyWithAccepted = [
+      {
+        platform: 'LeetCode',
+        id: 'LC-345',
+        file: 'reverseVowelsOfAString',
+        verdict: 'Accepted',
+        success: true,
+        submissionUrl: 'https://leetcode.com/1',
+      },
+      {
+        platform: 'CodeChef',
+        id: 'CC-GENE01',
+        file: 'genes',
+        verdict: 'Wrong Answer',
+        success: false,
+      },
+    ];
+
+    assert.ok(isProblemAccepted(prob1, historyWithAccepted));
+    assert.equal(isProblemAccepted(prob2, historyWithAccepted), null);
+
+    // Prior attempt in history
+    const historyWithPastSuccess = [
+      {
+        platform: 'CodeChef',
+        id: 'CC-GENE01',
+        file: 'genes',
+        verdict: 'Wrong Answer',
+        success: false,
+        history: [
+          {
+            verdict: 'Correct Answer',
+            success: true,
+            submissionUrl: 'https://codechef.com/1',
+          },
+        ],
+      },
+    ];
+    assert.ok(isProblemAccepted(prob2, historyWithPastSuccess));
+  });
+
+  it('classifies problem status as ACCEPTED, FAILED, PENDING, or MISSING_CODE', () => {
+    const prob = { platform: 'Codeforces', id: '1328A', file: 'divisibilityProblem' };
+
+    // Pending (no submissions)
+    const pendingStatus = getProblemStatus(prob, []);
+    assert.equal(pendingStatus.status, 'PENDING');
+    assert.equal(pendingStatus.attempts, 0);
+
+    // Failed
+    const failedStatus = getProblemStatus(prob, [
+      { platform: 'Codeforces', id: '1328A', file: 'divisibilityProblem', verdict: 'Wrong Answer', success: false },
+    ]);
+    assert.equal(failedStatus.status, 'FAILED');
+    assert.equal(failedStatus.attempts, 1);
+
+    // Accepted
+    const acceptedStatus = getProblemStatus(prob, [
+      { platform: 'Codeforces', id: '1328A', file: 'divisibilityProblem', verdict: 'Accepted', success: true },
+    ]);
+    assert.equal(acceptedStatus.status, 'ACCEPTED');
+    assert.equal(acceptedStatus.attempts, 1);
+  });
+
+  it('merges and deduplicates submissions while preserving attempt history', () => {
+    const existing = [
+      {
+        platform: 'LeetCode',
+        id: 'LC-345',
+        file: 'reverseVowelsOfAString',
+        verdict: 'Runtime Error',
+        success: false,
+        timestamp: '2026-10-01T06:00:00.000Z',
+      },
+    ];
+
+    const updates = [
+      {
+        platform: 'LeetCode',
+        id: 'LC-345',
+        file: 'reverseVowelsOfAString',
+        verdict: 'Accepted',
+        success: true,
+        submissionUrl: 'https://leetcode.com/accepted',
+        timestamp: '2026-10-01T06:05:00.000Z',
+      },
+    ];
+
+    const merged = mergeSubmissions(existing, updates);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].verdict, 'Accepted');
+    assert.equal(merged[0].success, true);
+    assert.equal(merged[0].attempts, 2);
+    assert.equal(merged[0].history.length, 1);
+    assert.equal(merged[0].history[0].verdict, 'Runtime Error');
+  });
+
+  it('keeps accepted status primary even if an accidental rerun fails', () => {
+    const existing = [
+      {
+        platform: 'CodeChef',
+        id: 'CC-EQUALISE',
+        file: 'makeAAndBEqual',
+        verdict: 'Correct Answer',
+        success: true,
+        submissionUrl: 'https://codechef.com/acc',
+      },
+    ];
+
+    const accidentalFailedRerun = [
+      {
+        platform: 'CodeChef',
+        id: 'CC-EQUALISE',
+        file: 'makeAAndBEqual',
+        verdict: 'Wrong Answer',
+        success: false,
+      },
+    ];
+
+    const merged = mergeSubmissions(existing, accidentalFailedRerun);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].verdict, 'Correct Answer');
+    assert.equal(merged[0].success, true);
+    assert.equal(merged[0].attempts, 2);
+    assert.equal(merged[0].history.length, 1);
+    assert.equal(merged[0].history[0].verdict, 'Wrong Answer');
+  });
+});
+

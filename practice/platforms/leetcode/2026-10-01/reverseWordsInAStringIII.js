@@ -2,9 +2,11 @@
  * @param {string} s
  * @return {string}
  */
-var solve = function(s) {
+var reverseWords = function(s) {
     return s.split(' ').map(word => word.split('').reverse().join('')).join(' ');
 };
+
+var solve = reverseWords;
 
 if (require.main === module) {
   const fs = require('fs');

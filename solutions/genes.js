@@ -8,11 +8,12 @@ function solve() {
     
     if (c1 === 'R' || c2 === 'R') {
         console.log('R');
-    } else if (c1 === 'G' || c2 === 'G') {
-        console.log('G');
-    } else {
+    } else if (c1 === 'B' || c2 === 'B') {
         console.log('B');
+    } else {
+        console.log('G');
     }
 }
+
 
 solve();

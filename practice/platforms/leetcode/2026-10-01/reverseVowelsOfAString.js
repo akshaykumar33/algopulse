@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var solve = function(s) {
+var reverseVowels = function(s) {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
     const arr = s.split('');
     let left = 0, right = arr.length - 1;
@@ -23,6 +23,8 @@ var solve = function(s) {
     }
     return arr.join('');
 };
+
+var solve = reverseVowels;
 
 if (require.main === module) {
   const fs = require('fs');
