@@ -75,9 +75,11 @@ function clearCache() {
 // models, timeouts, empty or truncated answers. Not auth or permission problems.
 function isRetryable(err) {
   const m = String(err && err.message);
-  if (/api key|apikey|unauthori[sz]ed|permission|forbidden|invalid.*key|401|403|billing|credit balance/i.test(m)) return false;
+  if (/quota exceeded|rate-limit|resource_exhausted|429|too many requests|retry in/i.test(m)) return true;
+  if (/api key|apikey|unauthori[sz]ed|permission|forbidden|invalid.*key|401|403|credit balance/i.test(m)) return false;
   return true;
 }
+
 
 async function complete({ system = '', prompt, schema = null, maxTokens, cache = true }) {
   const provider = activeProvider();

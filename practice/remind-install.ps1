@@ -30,11 +30,35 @@ if ($Remove) {
 $at = [datetime]::ParseExact($Time, 'HH:mm', $null)
 $script = Join-Path $PSScriptRoot 'remind.ps1'
 $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$script`""
-$trigger = New-ScheduledTaskTrigger -Daily -At $at
-# Catch up if the PC was asleep at reminder time.
-$settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 
-Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Settings $settings `
+# Triggers: 1) Daily schedule, 2) User logon
+$triggerDaily = New-ScheduledTaskTrigger -Daily -At $at
+$triggerLogon = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$triggers = @($triggerDaily, $triggerLogon)
+
+# Catch up if PC was asleep, wake if supported, run on battery
+$settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -WakeToRun
+
+Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $triggers -Settings $settings `
     -Description 'AlgoPulse: build the daily practice set and show a reminder toast.' -Force | Out-Null
 
-Write-Output "Daily reminder set for $($at.ToString('HH:mm')). Test it now with: npm run remind"
+# Add SessionUnlock trigger via Task Scheduler COM API (triggers when laptop lid is opened / screen unlocked)
+try {
+    $ts = New-Object -ComObject Schedule.Service
+    $ts.Connect()
+    $root = $ts.GetFolder('\')
+    $task = $root.GetTask($taskName)
+    $def = $task.Definition
+    $unlockTrigger = $def.Triggers.Create(11) # TASK_TRIGGER_SESSION_STATE_CHANGE
+    $unlockTrigger.StateChange = 8           # TASK_SESSION_UNLOCK
+    $unlockTrigger.UserId = "$env:USERDOMAIN\$env:USERNAME"
+    $unlockTrigger.Enabled = $true
+    $def.Settings.WakeToRun = $true
+    $def.Settings.StartWhenAvailable = $true
+    $root.RegisterTaskDefinition($taskName, $def, 6, $null, $null, 3) | Out-Null
+} catch {
+    Write-Warning "Could not register SessionUnlock trigger: $_"
+}
+
+Write-Output "Daily reminder configured for $($at.ToString('HH:mm')) (with wake/logon/unlock catch-up). Test it now with: npm run remind"
+

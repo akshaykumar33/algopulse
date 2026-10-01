@@ -33,8 +33,9 @@ module.exports = {
   // Fallback ladder, one level down at a time; override with a comma list in the env.
   fallbacks() {
     const own = env(this.fallbackEnv);
-    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["gemini-3.7-flash","gemini-3.6-flash","gemini-3.5-flash","gemini-2.5-flash"];
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["gemini-flash-lite-latest","gemini-3.5-flash-lite","gemini-3.1-flash-lite","gemini-3.7-flash","gemini-3.6-flash","gemini-3.5-flash","gemini-2.5-flash"];
   },
+
   fallbackEnv: 'GEMINI_FALLBACK_MODELS',
 
   complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000, model: pick }) {
