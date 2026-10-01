@@ -28,13 +28,16 @@ const existingDays = () =>
     : [];
 
 function runCode(code, input) {
-  return spawnSync('node', ['-e', code], {
+  // Ensure require.main === module is true when executing via node -e
+  const runner = `require.main = module;\n${code}`;
+  return spawnSync('node', ['-e', runner], {
     input,
     encoding: 'utf-8',
     timeout: 8000,
     maxBuffer: 32 * 1024 * 1024,
   });
 }
+
 
 function extractJson(text) {
   let cleaned = text.trim();
@@ -126,6 +129,7 @@ async function solveProblem(problem, dayDir, force = false) {
 
   const prompt = buildPrompt(problem);
   let attempts = 0;
+  let rateLimitPauses = 0;
   const maxAttempts = 3;
   let lastError = null;
 
@@ -167,10 +171,22 @@ async function solveProblem(problem, dayDir, force = false) {
       }
     } catch (err) {
       lastError = err.message;
+      if (/quota exceeded|rate-limit|resource_exhausted|429|too many requests|retry in/i.test(err.message)) {
+        rateLimitPauses++;
+        if (rateLimitPauses <= 2) {
+          const waitMatch = err.message.match(/retry in ([\d\.]+)s/i);
+          const waitSec = waitMatch ? Math.ceil(parseFloat(waitMatch[1])) + 3 : 25;
+          process.stdout.write(`(rate-limited, waiting ${waitSec}s) ... `);
+          await new Promise((r) => setTimeout(r, waitSec * 1000));
+          attempts--; // Don't count rate-limit pauses against code logic attempts
+        }
+      }
     }
   }
 
+
   return { status: 'failed', problem: problem.file, error: lastError };
+
 }
 
 async function main() {
@@ -208,6 +224,7 @@ async function main() {
     if (res.status === 'solved') {
       console.log(`✓ solved (attempt ${res.attempts})`);
       solved++;
+      await new Promise((r) => setTimeout(r, 1500));
     } else if (res.status === 'skipped') {
       console.log(`- already solved`);
       skipped++;

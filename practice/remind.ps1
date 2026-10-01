@@ -1,9 +1,22 @@
+param(
+    [switch]$Force
+)
+
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
 Set-Location $repo
 
 $date = Get-Date -Format 'yyyy-MM-dd'
+$dayDir = Join-Path $PSScriptRoot "days\$date"
+$marker = Join-Path $dayDir '.done'
+
+# If today's practice set has already completed and shipped, skip silently unless -Force
+if (-not $Force -and (Test-Path $marker)) {
+    exit 0
+}
+
 $log = Join-Path $PSScriptRoot 'remind.log'
+
 
 # 1. Fetch today's multi-platform problem set (Codeforces, LeetCode, CodeChef)
 try {
@@ -76,3 +89,9 @@ $xml = New-Object Windows.Data.Xml.Dom.XmlDocument
 $xml.LoadXml("<toast scenario='reminder' activationType='protocol' launch='$(& $e $studioUrl)'><visual><binding template='ToastGeneric'><text>$(& $e $title)</text><text>$(& $e $body)</text></binding></visual><actions><action content='Open studio' activationType='protocol' arguments='$(& $e $studioUrl)'/><action content='Later' arguments='dismiss' activationType='system'/></actions></toast>")
 $appId = '{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsPowerShell\v1.0\powershell.exe'
 [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($appId).Show([Windows.UI.Notifications.ToastNotification]::new($xml))
+
+# Mark today's practice set as completed so subsequent unlock/wake triggers don't re-run
+if (Test-Path $dayDir) {
+    Set-Content -Path $marker -Value (Get-Date -Format 'o')
+}
+

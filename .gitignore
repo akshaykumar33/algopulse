@@ -42,3 +42,6 @@ test-results/
 playwright-report/
 practice/days/*/submissions.json
 submissions.json
+practice/days/*/.done
+.done
+
