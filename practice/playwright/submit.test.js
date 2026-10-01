@@ -293,3 +293,89 @@ describe('Smart Resubmission & Submission Tracking Engine', () => {
   });
 });
 
+describe('Anti-AI-Fingerprinting & Code Sanitizer', () => {
+  const {
+    stripComments,
+    stripAiWatermarks,
+    sanitizeCodeForSubmission,
+  } = require('./sanitize');
+
+  it('strips single-line and multi-line comments completely', () => {
+    const code = `
+      // Single line comment
+      var solve = function(s) {
+        /* Multi
+           line
+           comment */
+        let count = 0;
+        return count; // inline comment
+      };
+    `;
+    const cleaned = stripComments(code);
+    assert.ok(!cleaned.includes('Single line comment'));
+    assert.ok(!cleaned.includes('Multi'));
+    assert.ok(!cleaned.includes('inline comment'));
+    assert.ok(cleaned.includes('var solve = function(s) {'));
+    assert.ok(cleaned.includes('let count = 0;'));
+  });
+
+  it('preserves // inside string literals and regexes', () => {
+    const code = `
+      let url = "https://codeforces.com/problemset";
+      let msg = "Don't // cut this";
+      let template = \`Value // preserved\`;
+    `;
+    const cleaned = stripComments(code);
+    assert.ok(cleaned.includes('https://codeforces.com/problemset'));
+    assert.ok(cleaned.includes("Don't // cut this"));
+    assert.ok(cleaned.includes('Value // preserved'));
+  });
+
+  it('removes known prompt-injection watermarks and filler variables', () => {
+    const code = `
+      var solve = function(arr) {
+        let ballast = 0;
+        let mexoramax = 100;
+        let fillerVariable = true;
+        let ans = arr.length;
+        return ans;
+      };
+    `;
+    const cleaned = stripAiWatermarks(code);
+    assert.ok(!cleaned.includes('ballast'));
+    assert.ok(!cleaned.includes('mexoramax'));
+    assert.ok(!cleaned.includes('fillerVariable'));
+    assert.ok(cleaned.includes('let ans = arr.length;'));
+  });
+
+  it('sanitizes code for submission: removes comments, watermarks, local harness and exports', () => {
+    const raw = `
+      /**
+       * AI Generated Solution
+       * @param {number[]} nums
+       */
+      var singleNumber = function(nums) {
+        // Find single number
+        let ballast = 0;
+        return nums.reduce((a, b) => a ^ b, 0);
+      };
+
+      // ---------------- LOCAL TEST HARNESS ----------------
+      if (require.main === module) {
+        console.log(singleNumber([2, 2, 1]));
+      }
+      module.exports = singleNumber;
+    `;
+    const sanitized = sanitizeCodeForSubmission(raw, 'leetcode');
+    assert.ok(!sanitized.includes('AI Generated Solution'));
+    assert.ok(!sanitized.includes('Find single number'));
+    assert.ok(!sanitized.includes('ballast'));
+    assert.ok(!sanitized.includes('LOCAL TEST HARNESS'));
+    assert.ok(!sanitized.includes('require.main === module'));
+    assert.ok(!sanitized.includes('module.exports'));
+    assert.ok(sanitized.includes('var singleNumber = function(nums) {'));
+    assert.ok(sanitized.includes('return nums.reduce((a, b) => a ^ b, 0);'));
+  });
+});
+
+

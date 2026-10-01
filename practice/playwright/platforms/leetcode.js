@@ -3,26 +3,13 @@
  */
 
 const { PLATFORMS } = require('../config');
+const { sanitizeCodeForSubmission } = require('../sanitize');
 
 /**
- * Strips local Node.js test harness and exports from LeetCode solution code
+ * Strips local Node.js test harness, exports, comments, and AI watermarks from LeetCode solution code
  */
 function prepareLeetCodeCode(rawCode) {
-  let cleaned = rawCode;
-
-  // Cut off test harness separator
-  const harnessIndex = cleaned.indexOf('// ---------------- LOCAL TEST HARNESS ----------------');
-  if (harnessIndex !== -1) {
-    cleaned = cleaned.slice(0, harnessIndex);
-  }
-
-  // Remove require.main === module block if still present
-  cleaned = cleaned.replace(/if\s*\(\s*require\.main\s*===\s*module\s*\)[\s\S]*?(?=module\.exports|$)/g, '');
-
-  // Remove module.exports
-  cleaned = cleaned.replace(/module\.exports\s*=\s*[^;\n]+;?/g, '');
-
-  return cleaned.trim() + '\n';
+  return sanitizeCodeForSubmission(rawCode, 'leetcode');
 }
 
 /**

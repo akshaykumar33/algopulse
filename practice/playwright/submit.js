@@ -12,6 +12,7 @@ const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
 const ccEngine = require('./platforms/codechef');
 const { authenticatePlatform } = require('./auth');
+const { sanitizeCodeForSubmission } = require('./sanitize');
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -479,13 +480,14 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
   }
 
   try {
+    const code = sanitizeCodeForSubmission(rawCode, prob.platform);
     let subRes = null;
     if (platKey === 'codeforces') {
-      subRes = await cfEngine.submitCodeforces(page, prob, rawCode, { filePath: solPath });
+      subRes = await cfEngine.submitCodeforces(page, prob, code, { filePath: solPath });
     } else if (platKey === 'leetcode') {
-      subRes = await lcEngine.submitLeetCode(page, prob, rawCode);
+      subRes = await lcEngine.submitLeetCode(page, prob, code);
     } else if (platKey === 'codechef') {
-      subRes = await ccEngine.submitCodeChef(page, prob, rawCode);
+      subRes = await ccEngine.submitCodeChef(page, prob, code);
     }
 
     console.log(`    ✓ Submission completed! Verdict: ${subRes?.verdict || 'Submitted'}`);
