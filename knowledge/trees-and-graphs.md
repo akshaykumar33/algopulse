@@ -103,6 +103,7 @@ function dfsIterative(start, adj, n) {
 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | `LeetCode` | `Easy` | `symmetricTree.js` | Mirror equality check: left child of Left must equal right child of Right. |
 | [Search in a BST](https://leetcode.com/problems/search-in-a-binary-search-tree/) | `LeetCode` | `Easy` | `searchInABinarySearchTree.js` | Binary Search Tree property: compare value and traverse strictly left or right in $O(H)$ time. |
 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | `LeetCode` | `Easy` | `maximumDepthOfBinaryTree.js` | Tree recursion or level-order BFS returning max level depth. |
+| [Sum in Binary Tree](https://codeforces.com/problemset/problem/1843/C) | `Codeforces` | `800` | `sumInBinaryTree.js` | Key algorithmic application from Day 2026-10-01. |
 
 ---
 

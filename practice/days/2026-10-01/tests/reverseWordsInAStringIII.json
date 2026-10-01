@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"Let's take LeetCode contest\"\n",
+    "output": "\"s'teL ekat edoCteeL tsetnoc\"\n"
+  },
+  {
+    "input": "\"God Ding\"\n",
+    "output": "\"doG gniD\"\n"
+  }
+]

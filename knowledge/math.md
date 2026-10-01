@@ -98,6 +98,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Shuffle (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `shuffleEasy.js` | Permutation window-sort preimage counting: K! * K^(N - K) mod 998244353. |
 | [MEX Game (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `mexGameEasy.js` | Arithmetic sum invariant under MEX preservation: sum_{x > M} (x - (M+1)) + sum_{x < M} x - M(M-1)/2. |
 | [Shuffle (Hard)](https://www.codechef.com) | `CodeChef` | `1700` | `shuffleHard.js` | Preimage count of sliding window sort on general Q: K! * K^(prefix_maxima - 1). |
+| [Divisibility Problem](https://codeforces.com/problemset/problem/1328/A) | `Codeforces` | `800` | `divisibilityProblem.js` | Key algorithmic application from Day 2026-10-01. |
+| [Sum in Binary Tree](https://codeforces.com/problemset/problem/1843/C) | `Codeforces` | `800` | `sumInBinaryTree.js` | Key algorithmic application from Day 2026-10-01. |
+| [Elephant](https://codeforces.com/problemset/problem/617/A) | `Codeforces` | `800` | `elephant.js` | Key algorithmic application from Day 2026-10-01. |
+| [Yogurt Sale](https://codeforces.com/problemset/problem/1955/A) | `Codeforces` | `800` | `yogurtSale.js` | Key algorithmic application from Day 2026-10-01. |
+| [Legs](https://codeforces.com/problemset/problem/1996/A) | `Codeforces` | `800` | `legs.js` | Key algorithmic application from Day 2026-10-01. |
+| [Permutation Swap](https://codeforces.com/problemset/problem/1828/B) | `Codeforces` | `900` | `permutationSwap.js` | Key algorithmic application from Day 2026-10-01. |
+| [Make it Divisible by 25](https://codeforces.com/problemset/problem/1593/B) | `Codeforces` | `900` | `makeItDivisibleBy25.js` | Key algorithmic application from Day 2026-10-01. |
+| [Everyone Loves to Sleep](https://codeforces.com/problemset/problem/1714/A) | `Codeforces` | `900` | `everyoneLovesToSleep.js` | Key algorithmic application from Day 2026-10-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -1,0 +1,382 @@
+{
+  "date": "2026-10-01",
+  "day": 7,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1328A",
+      "name": "Divisibility Problem",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1328/A",
+      "file": "divisibilityProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1843C",
+      "name": "Sum in Binary Tree",
+      "rating": 800,
+      "tags": [
+        "bitmasks",
+        "combinatorics",
+        "math",
+        "trees"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1843/C",
+      "file": "sumInBinaryTree",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "617A",
+      "name": "Elephant",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/617/A",
+      "file": "elephant",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "228A",
+      "name": "Is your horseshoe on the other hoof?",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/228/A",
+      "file": "isYourHorseshoeOnTheOtherHoof",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1955A",
+      "name": "Yogurt Sale",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1955/A",
+      "file": "yogurtSale",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1520A",
+      "name": "Do Not Be Distracted!",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1520/A",
+      "file": "doNotBeDistracted",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1996A",
+      "name": "Legs",
+      "rating": 800,
+      "tags": [
+        "binary search",
+        "math",
+        "ternary search"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1996/A",
+      "file": "legs",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1828B",
+      "name": "Permutation Swap",
+      "rating": 900,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1828/B",
+      "file": "permutationSwap",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1593B",
+      "name": "Make it Divisible by 25",
+      "rating": 900,
+      "tags": [
+        "dfs and similar",
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1593/B",
+      "file": "makeItDivisibleBy25",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1714A",
+      "name": "Everyone Loves to Sleep",
+      "rating": 900,
+      "tags": [
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1714/A",
+      "file": "everyoneLovesToSleep",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1672",
+      "name": "Richest Customer Wealth",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/richest-customer-wealth/",
+      "file": "richestCustomerWealth",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-345",
+      "name": "Reverse Vowels of a String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reverse-vowels-of-a-string/",
+      "file": "reverseVowelsOfAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-557",
+      "name": "Reverse Words in a String III",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reverse-words-in-a-string-iii/",
+      "file": "reverseWordsInAStringIII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1903",
+      "name": "Largest Odd Number in String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/largest-odd-number-in-string/",
+      "file": "largestOddNumberInString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-168",
+      "name": "Excel Sheet Column Title",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/excel-sheet-column-title/",
+      "file": "excelSheetColumnTitle",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-860",
+      "name": "Lemonade Change",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/lemonade-change/",
+      "file": "lemonadeChange",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-643",
+      "name": "Maximum Average Subarray I",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-average-subarray-i/",
+      "file": "maximumAverageSubarrayI",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1351",
+      "name": "Count Negative Numbers in a Sorted Matrix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
+      "file": "countNegativeNumbersInASortedMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1021",
+      "name": "Remove Outermost Parentheses",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-outermost-parentheses/",
+      "file": "removeOutermostParentheses",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3110",
+      "name": "Score of a String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/score-of-a-string/",
+      "file": "scoreOfAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BULBLIFE",
+      "name": "Good Quality Bulbs",
+      "rating": 846,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BULBLIFE",
+      "file": "goodQualityBulbs",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLOW005",
+      "name": "Smallest Numbers of Notes",
+      "rating": 839,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLOW005",
+      "file": "smallestNumbersOfNotes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLOW011",
+      "name": "Gross Salary",
+      "rating": 823,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLOW011",
+      "file": "grossSalary",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LAZYCHF",
+      "name": "Lazy Chef",
+      "rating": 801,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LAZYCHF",
+      "file": "lazyChef",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQUALISE",
+      "name": "Make A and B equal",
+      "rating": 851,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQUALISE",
+      "file": "makeAAndBEqual",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GENE01",
+      "name": "Genes",
+      "rating": 826,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GENE01",
+      "file": "genes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DIVKIDS",
+      "name": "DIividing Candies",
+      "rating": 845,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIVKIDS",
+      "file": "dIividingCandies",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BFLY",
+      "name": "Butterfly",
+      "rating": 824,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BFLY",
+      "file": "butterfly",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLOW014",
+      "name": "Grade The Steel",
+      "rating": 838,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLOW014",
+      "file": "gradeTheSteel",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BID",
+      "name": "Pep Bidding",
+      "rating": 833,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BID",
+      "file": "pepBidding",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

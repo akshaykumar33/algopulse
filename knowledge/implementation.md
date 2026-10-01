@@ -189,6 +189,29 @@ function solve() {
 | [Paper Cutting](https://www.codechef.com/problems/CUTPAPER) | `CodeChef` | `800` | `paperCutting.js` | Key algorithmic application from Day 2026-09-30. |
 | [The Block Game](https://www.codechef.com/problems/PALL01) | `CodeChef` | `830` | `theBlockGame.js` | Key algorithmic application from Day 2026-09-30. |
 | [Seating](https://www.codechef.com) | `CodeChef` | `500` | `seating.js` | Direct boolean occupancy array tracking for sequential lowest-seat queries. |
+| [Is your horseshoe on the other hoof?](https://codeforces.com/problemset/problem/228/A) | `Codeforces` | `800` | `isYourHorseshoeOnTheOtherHoof.js` | Key algorithmic application from Day 2026-10-01. |
+| [Do Not Be Distracted!](https://codeforces.com/problemset/problem/1520/A) | `Codeforces` | `800` | `doNotBeDistracted.js` | Key algorithmic application from Day 2026-10-01. |
+| [Everyone Loves to Sleep](https://codeforces.com/problemset/problem/1714/A) | `Codeforces` | `900` | `everyoneLovesToSleep.js` | Key algorithmic application from Day 2026-10-01. |
+| [Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/) | `LeetCode` | `Easy` | `richestCustomerWealth.js` | Key algorithmic application from Day 2026-10-01. |
+| [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | `LeetCode` | `Easy` | `reverseVowelsOfAString.js` | Key algorithmic application from Day 2026-10-01. |
+| [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | `LeetCode` | `Easy` | `reverseWordsInAStringIII.js` | Key algorithmic application from Day 2026-10-01. |
+| [Largest Odd Number in String](https://leetcode.com/problems/largest-odd-number-in-string/) | `LeetCode` | `Easy` | `largestOddNumberInString.js` | Key algorithmic application from Day 2026-10-01. |
+| [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/) | `LeetCode` | `Easy` | `excelSheetColumnTitle.js` | Key algorithmic application from Day 2026-10-01. |
+| [Lemonade Change](https://leetcode.com/problems/lemonade-change/) | `LeetCode` | `Easy` | `lemonadeChange.js` | Key algorithmic application from Day 2026-10-01. |
+| [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) | `LeetCode` | `Easy` | `maximumAverageSubarrayI.js` | Key algorithmic application from Day 2026-10-01. |
+| [Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) | `LeetCode` | `Easy` | `countNegativeNumbersInASortedMatrix.js` | Key algorithmic application from Day 2026-10-01. |
+| [Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses/) | `LeetCode` | `Easy` | `removeOutermostParentheses.js` | Key algorithmic application from Day 2026-10-01. |
+| [Score of a String](https://leetcode.com/problems/score-of-a-string/) | `LeetCode` | `Easy` | `scoreOfAString.js` | Key algorithmic application from Day 2026-10-01. |
+| [Good Quality Bulbs](https://www.codechef.com/problems/BULBLIFE) | `CodeChef` | `846` | `goodQualityBulbs.js` | Key algorithmic application from Day 2026-10-01. |
+| [Smallest Numbers of Notes](https://www.codechef.com/problems/FLOW005) | `CodeChef` | `839` | `smallestNumbersOfNotes.js` | Key algorithmic application from Day 2026-10-01. |
+| [Gross Salary](https://www.codechef.com/problems/FLOW011) | `CodeChef` | `823` | `grossSalary.js` | Key algorithmic application from Day 2026-10-01. |
+| [Lazy Chef](https://www.codechef.com/problems/LAZYCHF) | `CodeChef` | `801` | `lazyChef.js` | Key algorithmic application from Day 2026-10-01. |
+| [Make A and B equal](https://www.codechef.com/problems/EQUALISE) | `CodeChef` | `851` | `makeAAndBEqual.js` | Key algorithmic application from Day 2026-10-01. |
+| [Genes](https://www.codechef.com/problems/GENE01) | `CodeChef` | `826` | `genes.js` | Key algorithmic application from Day 2026-10-01. |
+| [DIividing Candies](https://www.codechef.com/problems/DIVKIDS) | `CodeChef` | `845` | `dIividingCandies.js` | Key algorithmic application from Day 2026-10-01. |
+| [Butterfly](https://www.codechef.com/problems/BFLY) | `CodeChef` | `824` | `butterfly.js` | Key algorithmic application from Day 2026-10-01. |
+| [Grade The Steel](https://www.codechef.com/problems/FLOW014) | `CodeChef` | `838` | `gradeTheSteel.js` | Key algorithmic application from Day 2026-10-01. |
+| [Pep Bidding](https://www.codechef.com/problems/BID) | `CodeChef` | `833` | `pepBidding.js` | Key algorithmic application from Day 2026-10-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
