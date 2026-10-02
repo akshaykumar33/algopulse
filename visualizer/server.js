@@ -126,12 +126,19 @@ const routes = {
         const attempt = store.attemptPath(dayDir, p.file);
         const ref = store.referencePath(dayDir, p.file);
         const template = store.templateFor(p);
+        const reveals = store.loadReveals(dayDir);
+        const unlocked = done.has(p.file) || Boolean(reveals[p.file]);
         return {
           ...p,
           platform: p.platform || 'Codeforces',
           done: done.has(p.file),
           explanation: readIf(path.join(dayDir, 'explanations', `${p.file}.md`)),
-          reference: ref ? readIf(ref) : null,
+          // The solution lock: the reference never leaves the server until solved or revealed.
+          hasReference: Boolean(ref),
+          reference: ref && unlocked ? readIf(ref) : null,
+          locked: !unlocked,
+          revealed: Boolean(reveals[p.file]),
+          statement: store.loadStatement(dayDir, p.file),
           attempt: attempt ? { path: toRepoRel(attempt), code: readIf(attempt) } : null,
           template: template.code,
           templatePath: template.path,
@@ -210,12 +217,43 @@ const routes = {
 
   'POST /api/ai/cache/clear': () => ({ cache: ai.clearCache() }),
 
+  // Reveal the reference solution. Recorded: a reveal before solving earns no XP.
+  'POST /api/reveal': async (req) => {
+    const { date, file } = await readJsonBody(req);
+    const { dayDir } = store.findProblem(date, file);
+    const ref = store.referencePath(dayDir, file);
+    if (!ref) throw new HttpError(404, 'This problem has no reference solution.');
+    const record = store.reveal(dayDir, file);
+    return { reference: readIf(ref), revealed: record };
+  },
+
+  // Save a pasted statement after removing sentences aimed at AI; report them verbatim.
+  'POST /api/statement': async (req) => {
+    const { date, file, text } = await readJsonBody(req);
+    if (typeof text !== 'string' || !text.trim()) throw new HttpError(400, 'Paste the statement first.');
+    const { dayDir } = store.findProblem(date, file);
+    return store.saveStatement(dayDir, file, text.slice(0, 50000));
+  },
+
   'POST /api/ai/ask': async (req) => {
-    const { date, file, question } = await readJsonBody(req);
+    const { date, file, question = '', mode = 'chat', hintLevel, code, lastRun } = await readJsonBody(req);
     requireAi();
-    if (typeof question !== 'string' || !question.trim()) throw new HttpError(400, 'Question is empty');
+    if (mode === 'chat' && (typeof question !== 'string' || !question.trim())) throw new HttpError(400, 'Question is empty');
+    if (!prompts.TUTOR_MODES.includes(mode)) throw new HttpError(400, `Unknown tutor mode "${mode}"`);
     const { problem, dayDir } = store.findProblem(date, file);
-    return prompts.ask(problem, question.trim().slice(0, 4000), store.groundingFor(dayDir, problem)).catch(aiError('Coach'));
+    // The lock is decided here from what is on disk, never from what the browser claims.
+    const unlocked = store.isUnlocked(dayDir, file);
+    if (mode === 'solution' && !unlocked) throw new HttpError(403, 'The full solution unlocks after you solve the problem or press Reveal.');
+    const attempt = typeof code === 'string' ? code : (store.attemptPath(dayDir, file) && readIf(store.attemptPath(dayDir, file))) || '';
+    return prompts
+      .ask(problem, String(question).trim().slice(0, 4000), store.groundingFor(dayDir, problem), {
+        mode,
+        hintLevel,
+        unlocked,
+        code: String(attempt).slice(0, 20000),
+        lastRun: lastRun && typeof lastRun === 'object' ? lastRun : null,
+      })
+      .catch(aiError('Coach'));
   },
 
   'POST /api/explain': async (req) => {
