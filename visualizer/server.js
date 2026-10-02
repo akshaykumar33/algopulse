@@ -12,6 +12,7 @@ const store = require('../practice/lib/store');
 const ai = require('../practice/ai');
 const prompts = require('../practice/ai/prompts');
 const rag = require('../practice/ai/rag');
+const agent = require('../practice/ai/agent');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
@@ -158,9 +159,9 @@ const routes = {
     const existing = store.attemptPath(dayDir, file);
     if (existing) return { path: toRepoRel(existing), code: readIf(existing), created: false };
     const template = store.templateFor(problem);
-    const header = `// ${problem.name} — ${problem.platform || 'Codeforces'} ${problem.id}\n// ${problem.url || ''}\n\n`;
+    // No header comment: solution files stay comment-free (CLAUDE.md 1.7).
     const target = path.join(REPO_ROOT, `${file}.js`);
-    fs.writeFileSync(target, header + (template.code || "const fs = require('fs');\n"), { encoding: 'utf-8', flag: 'wx' });
+    fs.writeFileSync(target, template.code || "const fs = require('fs');\n", { encoding: 'utf-8', flag: 'wx' });
     return { path: toRepoRel(target), code: readIf(target), created: true };
   },
 
@@ -216,6 +217,65 @@ const routes = {
   },
 
   'POST /api/ai/cache/clear': () => ({ cache: ai.clearCache() }),
+
+  /* --- voice agent --- */
+
+  // Free speech -> a plan of studio actions (any language, mixed languages, misheard words).
+  'POST /api/agent/plan': async (req) => {
+    const { utterance, ctx = {} } = await readJsonBody(req);
+    requireAi();
+    if (typeof utterance !== 'string' || !utterance.trim()) throw new HttpError(400, 'Nothing was said');
+    const date = store.DATE_RE.test(ctx.date || '') ? ctx.date : store.listDays()[0];
+    const set = store.loadSet(date);
+    const done = store.completedFiles(path.join(DAYS_DIR, date));
+    return agent
+      .plan(utterance.trim(), {
+        ...ctx,
+        date,
+        today: store.localToday(),
+        days: store.listDays().slice(0, 14),
+        problems: (set.problems || []).map((p) => ({ file: p.file, id: p.id, name: p.name, rating: p.rating, done: done.has(p.file) })),
+      })
+      .catch(aiError('Assistant'));
+  },
+
+  // Write the attempt with AI: back up the old file, write, check against the samples.
+  // Writing code for an unsolved problem counts as a reveal (no XP), like reading the answer.
+  'POST /api/agent/code': async (req) => {
+    const { date, file, instructions = '', currentCode } = await readJsonBody(req);
+    requireAi();
+    const { problem, dayDir } = store.findProblem(date, file);
+    const target = store.attemptPath(dayDir, file) || path.join(REPO_ROOT, `${file}.js`);
+    const before = typeof currentCode === 'string' ? currentCode : readIf(target) || '';
+    const { code, model } = await agent
+      .writeCode(problem, store.groundingFor(dayDir, problem), { instructions: String(instructions).slice(0, 2000), currentCode: before })
+      .catch(aiError('Code writer'));
+    let backup = null;
+    if (fs.existsSync(target)) {
+      const dir = path.join(REPO_ROOT, '.cache', 'attempt-backups');
+      fs.mkdirSync(dir, { recursive: true });
+      backup = path.join(dir, `${date}-${file}-${Date.now()}.js`);
+      fs.copyFileSync(target, backup);
+    }
+    fs.writeFileSync(target, code, 'utf-8');
+    const revealed = !store.completedFiles(dayDir).has(file) && store.referencePath(dayDir, file) ? store.reveal(dayDir, file) : null;
+    const run = store.loadTests(dayDir, file).length ? await store.runSamples(date, file, 'attempt') : null;
+    return { code, path: toRepoRel(target), model, backup: backup ? toRepoRel(backup) : null, revealed, run };
+  },
+
+  // Put back the newest backup of this problem's attempt.
+  'POST /api/agent/undo': async (req) => {
+    const { date, file } = await readJsonBody(req);
+    const { dayDir } = store.findProblem(date, file);
+    const dir = path.join(REPO_ROOT, '.cache', 'attempt-backups');
+    const prefix = `${date}-${file}-`;
+    const latest = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.startsWith(prefix)).sort().pop() : null;
+    if (!latest) throw new HttpError(404, 'There is no earlier version to restore.');
+    const target = store.attemptPath(dayDir, file) || path.join(REPO_ROOT, `${file}.js`);
+    fs.copyFileSync(path.join(dir, latest), target);
+    fs.unlinkSync(path.join(dir, latest));
+    return { code: readIf(target), path: toRepoRel(target) };
+  },
 
   // Reveal the reference solution. Recorded: a reveal before solving earns no XP.
   'POST /api/reveal': async (req) => {
