@@ -141,19 +141,26 @@ function guideAssistant() {
   const g = assistant.gestures;
   const map = assistant.bindings();
   const examples = [
-    ['“next problem” · “previous one”', 'Move between problems'],
-    ['“open tests” · “story” · “code” · “next tab”', 'Switch tabs'],
-    ['“run my tests” · “verify”', 'Check your solution / mark the day'],
-    ['“go to Buttons” · “open Beautiful Year”', 'Jump to a problem by name'],
-    ['“search greedy”', 'Filter the problem list'],
-    ['“ask coach why greedy works”', 'Send a question to the coach'],
-    ['“read the story”', 'The buddy reads it aloud'],
-    ['“dark mode” · “scroll down” · “close”', 'Everything else'],
+    ['“open Buttons and run my tests”', 'Several steps in one sentence'],
+    ['“write a solution for this and test it” · “undo that”', 'AI writes code in your style (backed up; no XP for that problem)'],
+    ['“next wala problem kholo aur hint do”', 'Mixed languages (Hinglish, Spanglish…)'],
+    ['“अगला सवाल खोलो” · “abre el siguiente problema” · “次の問題を開いて”', 'Any language'],
+    ['“review my code” · “explain this problem” · “give me a hint”', 'Coach modes'],
+    ['“go to yesterday’s set” · “show only unsolved”', 'Moving around'],
+    ['“read the story” · “dark mode” · “switch to Hindi”', 'Everything else'],
     ['“stop listening”', 'Turn the mic off'],
   ];
+  const lang = cfg.lang || 'en-US';
+  const cur = copilot.cursor.settings();
   return `
     <h2 class="guide-h">Voice & gestures</h2>
-    <p class="guide-lead">Drive the whole studio hands-free. Your buddy listens, watches, shows what it understood, and can answer out loud.</p>
+    <p class="guide-lead">Just say what you want — in any language, or several mixed — and your buddy plans it and does it, step by step. With the camera on, your finger becomes a mouse.</p>
+
+    <ol class="flow assist-steps">
+      <li class="flow-step" style="--i:0"><i class="ph-duotone ph-microphone" aria-hidden="true"></i><strong>Press V</strong><span>or the mic. A voice bar shows what it hears.</span></li>
+      <li class="flow-step" style="--i:1"><i class="ph-duotone ph-chat-circle-dots" aria-hidden="true"></i><strong>Say anything</strong><span>“open Buttons and run my tests”.</span></li>
+      <li class="flow-step" style="--i:2"><i class="ph-duotone ph-hand-pointing" aria-hidden="true"></i><strong>Press W</strong><span>point to move, pinch to click.</span></li>
+    </ol>
 
     <div class="assist-grid">
       <section class="card assist-card">
@@ -163,7 +170,12 @@ function guideAssistant() {
           <button class="btn ${v.on ? 'btn-secondary' : 'btn-primary'}" type="button" data-assist="voice" ${v.supported ? '' : 'disabled'}>${v.on ? 'Stop listening' : 'Start listening'}</button>
           <span class="pill ${v.on ? 'ok' : 'soft'}">${v.on ? '● Listening' : 'Off'}</span>
         </div>
-        <label class="switch"><input type="checkbox" data-assist-set="talkBack" ${cfg.talkBack ? 'checked' : ''}><span>Buddy talks back</span></label>
+        <label class="switch"><input type="checkbox" data-assist-set="talkBack" ${cfg.talkBack ? 'checked' : ''}><span>Buddy talks back (in your language)</span></label>
+        <div class="field">
+          <label for="assistLang">Listening language</label>
+          <select id="assistLang" data-assist-lang>${copilot.LANGUAGES.map(([c, n]) => `<option value="${c}" ${c === lang ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('')}</select>
+          <span class="field-hint">The mic hears one language at a time; the AI understands any. For Hinglish pick English (India).</span>
+        </div>
       </section>
 
       <section class="card assist-card">
@@ -191,9 +203,29 @@ function guideAssistant() {
       </div>
     </section>
 
+    <h3 class="guide-sub"><i class="ph-duotone ph-cursor-click" aria-hidden="true"></i>Air cursor</h3>
+    <section class="card assist-card">
+      <ul class="tool-list">
+        <li><strong>Point</strong> with your index finger to move the blue cursor. Whatever is under it gets a blue outline.</li>
+        <li><strong>Pinch</strong> thumb and index together to click. Pinch on a text box to type into it.</li>
+        <li><strong>Open hand</strong> (all fingers up) moving up or down scrolls the page or the panel under the cursor.</li>
+        <li>Signs still work as shortcuts: 👍 run tests · ✌️ next problem · 🤟 read the story · swipe to change tabs.</li>
+        <li>Tip: sit about an arm's length away, with your hand inside the middle of the camera view.</li>
+      </ul>
+      <label class="switch"><input type="checkbox" data-assist-set="airCursor" ${cur.enabled ? 'checked' : ''}><span>Air cursor on</span></label>
+      <div class="assist-sliders">
+        <div class="field"><label for="curSens">Reach — how far a small move goes (${cur.sensitivity.toFixed(1)}×)</label><input id="curSens" type="range" min="1" max="2.6" step="0.1" value="${cur.sensitivity}" data-assist-num="cursorSensitivity"></div>
+        <div class="field"><label for="curSmooth">Steadiness — less jitter, a little more lag (${Math.round(cur.smoothing * 100)}%)</label><input id="curSmooth" type="range" min="0" max="0.8" step="0.05" value="${cur.smoothing}" data-assist-num="cursorSmoothing"></div>
+      </div>
+      <div class="practice">
+        <p class="muted">Practice: point and pinch each target.</p>
+        <div class="practice-row">${['🍫', '🌰', '🥕'].map((e, i) => `<button type="button" class="practice-target" data-practice="${i}" aria-label="Practice target ${i + 1}">${e}</button>`).join('')}</div>
+      </div>
+    </section>
+
     <h3 class="guide-sub"><i class="ph-duotone ph-chat-circle-text" aria-hidden="true"></i>Things you can say</h3>
     <div class="table-wrap"><table class="data-table"><tbody>${examples.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</tbody></table></div>
-    <p class="muted">You can start with your buddy's name — “Pip, next problem” works the same.</p>
+    <p class="muted">Short English commands (“next”, “open tests”) run instantly. Anything longer, in another language, or with several steps goes to the AI, which plans it first — the voice bar shows each step as it happens. Problem names are matched by how they sound, so “baton” still finds Buttons.</p>
 
     <h3 class="guide-sub"><i class="ph-duotone ph-plus-circle" aria-hidden="true"></i>Add your own voice command</h3>
     <form class="assist-form" id="phraseForm">
@@ -294,6 +326,12 @@ function bindAssistantPanel() {
   document.addEventListener('assistant:change', rerender);
   body.addEventListener('click', (e) => {
     const t = e.target;
+    const target = t.closest('[data-practice]');
+    if (target) {
+      target.classList.add('is-hit');
+      window.mascot?.react('sparkle', 600);
+      if ($('.practice-target').every((b) => b.classList.contains('is-hit'))) toast('Nice aim! You have got the air cursor.');
+    }
     const which = t.closest('[data-assist]')?.dataset.assist;
     if (which === 'voice') assistant.voice.toggle();
     if (which === 'gestures') assistant.gestures.toggle();
@@ -312,7 +350,18 @@ function bindAssistantPanel() {
   });
   body.addEventListener('change', (e) => {
     const t = e.target;
-    if (t.dataset.assistSet) assistant.save({ [t.dataset.assistSet]: t.checked });
+    if (t.dataset.assistSet) {
+      assistant.save({ [t.dataset.assistSet]: t.checked });
+      if (t.dataset.assistSet === 'airCursor') copilot.cursor.syncSuppress();
+    }
+    if (t.matches('[data-assist-lang]')) {
+      assistant.voice.setLanguage(t.value);
+      toast(`Listening in ${t.selectedOptions[0].textContent.split(' · ')[0]}.`);
+    }
+    if (t.dataset.assistNum) {
+      assistant.save({ [t.dataset.assistNum]: Number(t.value) });
+      renderGuideSection('assistant');
+    }
     if (t.matches('[data-assist-char]')) {
       window.mascot?.setCharacter(t.value);
       window.mascot?.react('delighted', 900);
