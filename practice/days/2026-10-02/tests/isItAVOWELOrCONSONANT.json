@@ -1,0 +1,10 @@
+[
+  {
+    "input": "Z\n",
+    "output": "Consonant\n"
+  },
+  {
+    "input": "E\n",
+    "output": "Vowel\n"
+  }
+]

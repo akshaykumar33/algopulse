@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n3\naba\n5\na?b?a\n4\nab?a\n3\n???\n5\n?ab?a\n",
+    "output": "YES\nNO\nYES\nNO\nYES\n"
+  }
+]

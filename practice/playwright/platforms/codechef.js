@@ -90,28 +90,38 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
 
   // 4. Set Code into editor
   console.log(`    [CodeChef] Inserting JavaScript solution ...`);
-  const setViaEditor = await page.evaluate((src) => {
-    // 1. Try Ace editor (CodeChef's standard editor)
-    const editorEl = document.querySelector('.ace_editor');
-    if (editorEl && window.ace) {
-      try {
-        const editor = window.ace.edit(editorEl);
-        editor.setValue(src, -1);
-        return true;
-      } catch {}
-    }
-    // 2. Try Monaco
-    if (window.monaco && window.monaco.editor) {
-      const models = window.monaco.editor.getModels();
-      if (models && models.length > 0) {
-        models[0].setValue(src);
-        return true;
-      }
-    }
-    return false;
-  }, code);
+  await page.waitForTimeout(2000);
 
-  if (!setViaEditor) {
+  let codeSet = false;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const success = await page.evaluate((src) => {
+      const editorEl = document.querySelector('.ace_editor');
+      if (editorEl && window.ace) {
+        try {
+          const editor = window.ace.edit(editorEl);
+          editor.setValue(src, -1);
+          editor.session.getUndoManager().reset();
+          return editor.getValue().trim() === src.trim();
+        } catch {}
+      }
+      if (window.monaco && window.monaco.editor) {
+        const models = window.monaco.editor.getModels();
+        if (models && models.length > 0) {
+          models[0].setValue(src);
+          return models[0].getValue().trim() === src.trim();
+        }
+      }
+      return false;
+    }, code);
+
+    if (success) {
+      codeSet = true;
+      break;
+    }
+    await page.waitForTimeout(1000);
+  }
+
+  if (!codeSet) {
     const editor = await page.$('.ace_editor, .monaco-editor, #editor');
     if (editor) {
       await editor.click();
@@ -121,7 +131,7 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
     }
   }
 
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(1500);
 
   // 5. Submit solution
   console.log(`    [CodeChef] Submitting solution ...`);

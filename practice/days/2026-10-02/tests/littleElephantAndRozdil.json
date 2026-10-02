@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n7 4 4\n",
+    "output": "Still Rozdil\n"
+  },
+  {
+    "input": "4\n6 1 3 4\n",
+    "output": "2\n"
+  }
+]

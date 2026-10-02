@@ -1,0 +1,384 @@
+{
+  "date": "2026-10-02",
+  "day": 8,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1467A",
+      "name": "Wizard of Orz",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1467/A",
+      "file": "wizardOfOrz",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1555A",
+      "name": "PizzaForces",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1555/A",
+      "file": "pizzaForces",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1005B",
+      "name": "Delete from the Left",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1005/B",
+      "file": "deleteFromTheLeft",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1419A",
+      "name": "Digit Game",
+      "rating": 900,
+      "tags": [
+        "games",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1419/A",
+      "file": "digitGame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "205A",
+      "name": "Little Elephant and Rozdil",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/205/A",
+      "file": "littleElephantAndRozdil",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1878C",
+      "name": "Vasilije in Cacak",
+      "rating": 900,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1878/C",
+      "file": "vasilijeInCacak",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1433C",
+      "name": "Dominant Piranha",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1433/C",
+      "file": "dominantPiranha",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1353C",
+      "name": "Board Moves",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1353/C",
+      "file": "boardMoves",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1829D",
+      "name": "Gold Rush",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "dfs and similar",
+        "dp",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1829/D",
+      "file": "goldRush",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1765M",
+      "name": "Minimum LCM",
+      "rating": 1000,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1765/M",
+      "file": "minimumLCM",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1365",
+      "name": "How Many Numbers Are Smaller Than the Current Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/",
+      "file": "howManyNumbersAreSmallerThanTheCurrentNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-303",
+      "name": "Range Sum Query - Immutable",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+      "file": "rangeSumQueryImmutable",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-383",
+      "name": "Ransom Note",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/ransom-note/",
+      "file": "ransomNote",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-566",
+      "name": "Reshape the Matrix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reshape-the-matrix/",
+      "file": "reshapeTheMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1979",
+      "name": "Find Greatest Common Divisor of Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-greatest-common-divisor-of-array/",
+      "file": "findGreatestCommonDivisorOfArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1528",
+      "name": "Shuffle String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/shuffle-string/",
+      "file": "shuffleString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1539",
+      "name": "Kth Missing Positive Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/kth-missing-positive-number/",
+      "file": "kthMissingPositiveNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-680",
+      "name": "Valid Palindrome II",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/valid-palindrome-ii/",
+      "file": "validPalindromeII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-232",
+      "name": "Implement Queue using Stacks",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+      "file": "implementQueueUsingStacks",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1822",
+      "name": "Sign of the Product of an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sign-of-the-product-of-an-array/",
+      "file": "signOfTheProductOfAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BESTSEATS",
+      "name": "Best Seats",
+      "rating": 848,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BESTSEATS",
+      "file": "bestSeats",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-HARDBET",
+      "name": "Hardest Problem Bet",
+      "rating": 803,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/HARDBET",
+      "file": "hardestProblemBet",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BOX2",
+      "name": "2 Boxes",
+      "rating": 832,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BOX2",
+      "file": "p2Boxes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-P2235",
+      "name": "Recover Palindrome",
+      "rating": 825,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/P2235",
+      "file": "recoverPalindrome",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-VOWELTB",
+      "name": "Is it a VOWEL or CONSONANT",
+      "rating": 840,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/VOWELTB",
+      "file": "isItAVOWELOrCONSONANT",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GOODWEAT",
+      "name": "Good Weather",
+      "rating": 835,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GOODWEAT",
+      "file": "goodWeather",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQLZING",
+      "name": "Equalizing Numbers",
+      "rating": 823,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQLZING",
+      "file": "equalizingNumbers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-POSTPERI",
+      "name": "Poster Perimeter",
+      "rating": 812,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/POSTPERI",
+      "file": "posterPerimeter",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PERMUT2",
+      "name": "Ambiguous Permutations",
+      "rating": 853,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PERMUT2",
+      "file": "ambiguousPermutations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-QBGI",
+      "name": "Bar Queue",
+      "rating": 821,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/QBGI",
+      "file": "barQueue",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
