@@ -1,23 +1,27 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    const t = parseInt(lines[0], 10);
-    const out = [];
-    
-    for (let i = 1; i <= t; i++) {
-        const [s_a, s_b, s_c] = lines[i].split(' ').map(Number);
-        
-        if (s_c < s_b && s_c < s_a) {
-            out.push("Notice");
-        } else if (s_b < s_a && s_b < s_c) {
-            out.push("Chef");
-        } else {
-            out.push("Draw");
-        }
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const a = parseInt(tokens[ptr++], 10);
+    const b = parseInt(tokens[ptr++], 10);
+    const c = parseInt(tokens[ptr++], 10);
+
+    if (c < a && c < b) {
+      out.push('Alice');
+    } else if (b < a && b < c) {
+      out.push('Bob');
+    } else {
+      out.push('Draw');
     }
-    
-    console.log(out.join('\n'));
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

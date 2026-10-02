@@ -1,31 +1,26 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  
-  let t = parseInt(input[0], 10);
-  let lineIdx = 1;
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
   const out = [];
-  
-  while (t--) {
-    if (lineIdx >= input.length) break;
-    const n = parseInt(input[lineIdx++], 10);
-    const arr = input[lineIdx++].trim().split(/\s+/).map(Number);
-    
-    let bestVal = -1;
-    let bestIdx = 1;
-    
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(tokens[ptr++], 10);
+    const a = [];
     for (let i = 0; i < n; i++) {
-      if (arr[i] > bestVal) {
-        bestVal = arr[i];
-        bestIdx = i + 1;
-      }
+      a.push(parseInt(tokens[ptr++], 10));
     }
-    
-    out.push(bestIdx);
+    let minCost = Infinity;
+    for (let i = 0; i < n - 1; i++) {
+      const cost = a[i] + a[i + 1];
+      if (cost < minCost) minCost = cost;
+    }
+    out.push(minCost);
   }
-  
+
   console.log(out.join('\n'));
 }
 

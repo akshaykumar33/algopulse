@@ -1,4 +1,4 @@
-var solve = function(mat, r, c) {
+var matrixReshape = function(mat, r, c) {
   let m = mat.length;
   let n = mat[0].length;
   if (m * n !== r * c) return mat;
@@ -15,6 +15,8 @@ var solve = function(mat, r, c) {
   return ans;
 };
 
+var solve = matrixReshape;
+
 if (require.main === module) {
   const fs = require('fs');
   try {
@@ -24,10 +26,10 @@ if (require.main === module) {
       for (let i = 0; i < lines.length; i += 3) {
         if (i + 2 < lines.length) {
           const mat = JSON.parse(lines[i]);
-          const r = JSON.parse(lines[i+1]);
-          const c = JSON.parse(lines[i+2]);
-          const result = solve(mat, r, c);
-          console.log(JSON.stringify(result));
+          const r = JSON.parse(lines[i + 1]);
+          const c = JSON.parse(lines[i + 2]);
+          const res = solve(mat, r, c);
+          console.log(JSON.stringify(res));
         }
       }
     }

@@ -1,21 +1,23 @@
 var gcd = function(a, b) {
-    while (b !== 0) {
-        let t = b;
-        b = a % b;
-        a = t;
-    }
-    return a;
+  while (b !== 0) {
+    let t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
 };
 
-var solve = function(nums) {
-    let min = nums[0];
-    let max = nums[0];
-    for (let i = 1; i < nums.length; i++) {
-        if (nums[i] < min) min = nums[i];
-        if (nums[i] > max) max = nums[i];
-    }
-    return gcd(min, max);
+var findGCD = function(nums) {
+  let min = nums[0];
+  let max = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] < min) min = nums[i];
+    if (nums[i] > max) max = nums[i];
+  }
+  return gcd(min, max);
 };
+
+var solve = findGCD;
 
 if (require.main === module) {
   const fs = require('fs');

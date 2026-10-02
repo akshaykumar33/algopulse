@@ -1,22 +1,24 @@
-var solve = function(s) {
-    let isPalindrome = function(str, l, r) {
-        while (l < r) {
-            if (str[l] !== str[r]) return false;
-            l++;
-            r--;
-        }
-        return true;
-    };
-    let l = 0, r = s.length - 1;
+var validPalindrome = function(s) {
+  let isPalindrome = function(str, l, r) {
     while (l < r) {
-        if (s[l] !== s[r]) {
-            return isPalindrome(s, l + 1, r) || isPalindrome(s, l, r - 1);
-        }
-        l++;
-        r--;
+      if (str[l] !== str[r]) return false;
+      l++;
+      r--;
     }
     return true;
+  };
+  let l = 0, r = s.length - 1;
+  while (l < r) {
+    if (s[l] !== s[r]) {
+      return isPalindrome(s, l + 1, r) || isPalindrome(s, l, r - 1);
+    }
+    l++;
+    r--;
+  }
+  return true;
 };
+
+var solve = validPalindrome;
 
 if (require.main === module) {
   const fs = require('fs');

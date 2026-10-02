@@ -1,24 +1,28 @@
 const fs = require('fs');
+
 function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (!lines.length || lines[0] === '') return;
-  const t = parseInt(lines[0]);
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
   const out = [];
-  for (let i = 1; i <= t; i++) {
-    if (i >= lines.length) break;
-    const s = lines[i];
-    let l = 0, r = s.length - 1;
-    let ok = true;
-    while (l < r) {
-      if (s[l] !== '?' && s[r] !== '?' && s[l] !== s[r]) {
-        ok = false;
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(tokens[ptr++], 10);
+    const s = tokens[ptr++];
+
+    let unique = true;
+    for (let i = 0; i <= Math.floor((n - 1) / 2); i++) {
+      const j = n - 1 - i;
+      if (s[i] === '?' && s[j] === '?') {
+        unique = false;
         break;
       }
-      l++;
-      r--;
     }
-    out.push(ok ? "YES" : "NO");
+    out.push(unique ? 'YES' : 'NO');
   }
+
   console.log(out.join('\n'));
 }
+
 solve();

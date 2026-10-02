@@ -1,4 +1,4 @@
-var solve = function(ransomNote, magazine) {
+var canConstruct = function(ransomNote, magazine) {
   const cnt = new Array(26).fill(0);
   for (let i = 0; i < magazine.length; i++) {
     cnt[magazine.charCodeAt(i) - 97]++;
@@ -10,6 +10,8 @@ var solve = function(ransomNote, magazine) {
   }
   return true;
 };
+
+var solve = canConstruct;
 
 if (require.main === module) {
   const fs = require('fs');
