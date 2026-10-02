@@ -188,6 +188,7 @@ const copilot = (() => {
   }
 
   function statusText(kind) {
+    if (kind === 'listening' && A().voice.mode === 'ai') return `Listening · any language${lastHeard ? ` · last heard ${langName(lastHeard)}` : ''}`;
     if (kind === 'listening') {
       const fixed = A().load().lang && A().load().lang !== 'auto';
       return `Listening · ${langName(A().voice.lang())}${fixed ? '' : ' (auto)'}`;
@@ -236,8 +237,8 @@ const copilot = (() => {
   function reply(text, mood = 'happy', lang) {
     if (!text) return;
     say('pip', text);
-    pet()?.react(mood, 900);
-    A().speak(text, lang);
+    if (mood) pet()?.react(mood, 900);
+    A().speak(text, lang, mood);
   }
 
   /* ---- microphone level meter (Web Audio, local only) ---- */
@@ -437,6 +438,7 @@ const copilot = (() => {
     'stop-voice': async () => A().voice.stop(),
     'set-language': async (arg) => A().voice.setLanguage(arg),
     say: async () => {},
+    feel: async (arg) => pet()?.feel(arg),
     buddy: async (arg) => {
       pet()?.move(arg.trim().toLowerCase());
       await sleep(900);
@@ -479,7 +481,16 @@ const copilot = (() => {
     'Why did the stack break up with the queue? It wanted someone who puts it first! 💔',
   ];
   const pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const NONSTOP = /\b(keep (on )?|non ?stop|continuous(ly)?|forever|(do not|dont) stop|all the time|again and again|without stopping)/;
+  const FEEL_WORDS = [[/laugh|haha|lol/, 'laugh'], [/giggl|hehe/, 'giggle'], [/cry|crying|weep/, 'cry'], [/danc/, 'dance'], [/sad/, 'sad'], [/angry|mad|grumpy/, 'angry'], [/love|heart/, 'love'], [/sleep|nap|yawn/, 'sleepy'], [/happy|smil/, 'happy'], [/shy|blush/, 'shy'], [/wav/, 'wave']];
+  const feelWord = (t) => FEEL_WORDS.find(([re]) => re.test(t))?.[1] || null;
+  const NONSTOP_LINES = { laugh: 'Hahaha! I can’t stop! 😂', giggle: 'Hehehe, hehehe! 🤭', cry: 'Waaah! 😭 Say “stop” to cheer me up!', dance: 'Party time, non-stop! 💃', sad: 'Sooo sad… 🥺', angry: 'Grrr, grrr! 😤', love: 'Love love love! 💕', sleepy: 'Zzz… 💤', happy: 'So happy! 😄', shy: 'Hehe… 🙈', wave: 'Hi hi hi! 👋' };
   const TALK = [
+    [/^(stop|stop it|stop that|enough|be normal|calm down|relax|chill)( please)?$|^stop (laughing|crying|dancing|giggling|being sad|being angry|being mad)\b/, () => ['Okay okay… I’m calm now 😌', 'calm', null, 'stop']],
+    [NONSTOP, (m, t) => {
+      const mood = feelWord(t);
+      return mood ? [NONSTOP_LINES[mood] || 'Here I go, non-stop!', mood, null, mood + ' nonstop'] : null;
+    }],
     [/\b(tell|say|crack)\b.*\bjoke\b|\bjoke\b|make me laugh|funny/, () => [pick(JOKES), 'laugh']],
     [/^(laugh|lol|haha+|hehe+|giggle)\b/, () => ['Hehehe! 🤭', 'giggle']],
     [/\b(dance|party|groove)\b/, () => ['Watch my moves! 💃', 'dance', 'dance']],
@@ -497,49 +508,104 @@ const copilot = (() => {
     [/\b(take a nap|nap time|good night)\b/, () => ['Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
     [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Grrr! …just kidding, I could never be mad at you. 😤💛', 'angry']],
   ];
-  function smallTalk(raw) {
+  function talkFor(raw) {
     const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
     for (const [re, make] of TALK) {
       const m = t.match(re);
-      if (!m) continue;
-      const [text, mood, move] = make(m);
-      reply(text, mood);
-      if (move) setTimeout(() => pet()?.move(move), 150);
-      return true;
+      const out = m && make(m, t);
+      if (out) return out;
     }
-    return false;
+    return null;
+  }
+  const talkMatch = (raw) => Boolean(talkFor(raw));
+  function smallTalk(raw) {
+    const out = talkFor(raw);
+    if (!out) return false;
+    const [text, mood, move, feel] = out;
+    if (feel) pet()?.feel(feel);
+    reply(text, feel ? null : mood);
+    if (move) setTimeout(() => pet()?.move(move), 150);
+    return true;
   }
   function offline(raw) {
     reply(`I heard “${raw}”, but my AI brain is not set up yet, so I only know simple things: “next problem”, “run tests”, “tell me a joke”, “dance”… Add a key in Guide → Choose your AI and I can do anything!`, 'shy');
   }
 
-  async function handle(utterance) {
+  // AI ear: a "you are speaking" bubble while a sentence is being recorded. No guessed
+  // words — the real transcript replaces it once the AI has heard the clip.
+  let lastHeard = null;
+  function hearing(on, kept) {
+    if (!hud) return;
+    if (on) {
+      openChat();
+      if (!liveItem || !liveItem.isConnected) {
+        liveItem = document.createElement('li');
+        liveItem.className = 'bc-msg me is-live bc-hearing';
+        liveItem.setAttribute('aria-label', 'you are speaking');
+        liveItem.innerHTML = '<i class="ph-fill ph-microphone"></i><span class="bc-wave"><i></i><i></i><i></i><i></i></span>';
+        log.append(liveItem);
+        scrollLog();
+      }
+    } else if (liveItem && !kept) {
+      dropLive();
+    } else if (liveItem) {
+      const item = liveItem;
+      item.classList.add('is-sent');
+      // If the clip is dropped on the way (a quick local command won), never leave it hanging.
+      setTimeout(() => item === liveItem && !busy && dropLive(), 6000);
+    }
+  }
+  function dropLive() {
+    liveItem?.remove();
+    liveItem = null;
+  }
+
+  const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime } });
+
+  async function handle(input) {
     if (busy) {
-      reply('One moment, still on the last thing…', 'shy');
+      if (typeof input === 'string') reply('One moment, still on the last thing…', 'shy');
+      else dropLive();
       return;
     }
+    const spoken = typeof input !== 'string';
     busy = true;
-    setState('thinking');
+    setState('thinking', spoken ? 'Listening to you…' : undefined);
     typing(true);
     pet()?.react('think');
     let plan;
+    const t0 = performance.now();
     try {
-      const past = history.slice(0, -1).slice(-8);
-      plan = await api('/api/agent/plan', { utterance, ctx: { ...context(), buddy: pet()?.el.getAttribute('aria-label')?.split('.')[0], history: past } });
+      const past = (spoken ? history : history.slice(0, -1)).slice(-8);
+      const ctx = { ...context(), buddy: pet()?.el.getAttribute('aria-label')?.split('.')[0], history: past };
+      plan = await api('/api/agent/plan', spoken ? { audio: input.audio, ctx } : { utterance: input, ctx });
     } catch (err) {
       busy = false;
       typing(false);
+      if (spoken) dropLive();
       setState('error', 'Could not reach the AI');
       say('pip', `Sorry, my brain hiccuped: ${err.message}`, { error: true });
       pet()?.react('sad');
       return;
     }
     typing(false);
+    if (spoken) {
+      // Silence, a cough or background chatter: drop it quietly.
+      if (!plan.heard?.trim()) {
+        dropLive();
+        busy = false;
+        setState(A().voice.on ? 'listening' : 'idle');
+        return;
+      }
+      say('me', plan.heard);
+      lastHeard = plan.heardLang || plan.lang;
+    }
     lastLang = plan.lang || lastLang;
     A().voice.detected(plan.lang);
     const sayStep = plan.steps.find((s) => s.action === 'say');
-    reply(plan.reply || sayStep?.arg || '👍', plan.mood || 'happy', lastLang);
-    A().log(`Voice “${utterance}” → ${plan.steps.map((s) => s.action).join(', ') || 'chat'}`);
+    const feels = plan.steps.some((s) => s.action === 'feel');
+    reply(plan.reply || sayStep?.arg || '👍', feels ? null : plan.mood || 'happy', lastLang);
+    A().log(`Voice “${spoken ? plan.heard : input}” → ${plan.steps.map((s) => s.action).join(', ') || 'chat'} (${Math.round(performance.now() - t0)} ms)`);
 
     const steps = plan.steps.filter((s) => s.action !== 'say' || !plan.reply);
     stepsItem = null;
@@ -702,6 +768,9 @@ const copilot = (() => {
   return {
     ready: () => Boolean(state.aiReady),
     handle,
+    handleAudio,
+    hearing,
+    talkMatch,
     heard,
     reply,
     say,

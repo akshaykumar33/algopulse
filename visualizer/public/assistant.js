@@ -31,37 +31,112 @@ const assistant = (() => {
 
   const pet = () => window.mascot;
   const buddy = () => (pet() ? pet().name() : 'Pip');
-  // Talk-back in the reply's own language, with the closest installed voice.
+  // Talk-back in the reply's own language. With a Gemini key the buddy has its own AI
+  // voice (cute, sweet or bright, colored by its mood); otherwise the sweetest installed
+  // browser voice, pitched up.
   let speakingUntil = 0;
+  let sayToken = 0;
+  let audioCtx = null;
+  let playing = null;
+  const VOICES = {
+    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.8, rate: 1.1 },
+    sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.3, rate: 1 },
+    bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.4, rate: 1.08 },
+  };
+  const MOOD_STYLE = {
+    laugh: 'laughing and giggling happily between the words',
+    giggle: 'with cute little giggles',
+    love: 'adoringly, full of love',
+    sad: 'softly and a little sadly, but still sweet',
+    cry: 'sniffling, teary and wobbly, then brave',
+    angry: 'in a pretend-grumpy, pouty way that is still cute',
+    surprised: 'amazed and excited',
+    proud: 'proud and cheering',
+    sleepy: 'sleepy and yawning',
+    shy: 'shyly and bashfully',
+  };
+  const voiceStyle = () => VOICES[load().voiceStyle] || VOICES.cute;
+  const FEMALE = /female|zira|aria|jenny|michelle|sonia|libby|natasha|swara|neerja|heera|kalpana|sapna|samantha|victoria|karen|moira|tessa|google (uk english female|हिन्दी|हिंदी)|kannada|ಕನ್ನಡ/i;
   function voiceFor(lang) {
     const voices = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
-    const base = String(lang || '').toLowerCase().split('-')[0];
-    return voices.find((v) => v.lang.toLowerCase() === String(lang).toLowerCase()) || voices.find((v) => v.lang.toLowerCase().startsWith(base)) || null;
+    const want = String(lang || '').toLowerCase();
+    const base = want.split('-')[0];
+    const pool = voices.filter((v) => v.lang.toLowerCase() === want);
+    const near = pool.length ? pool : voices.filter((v) => v.lang.toLowerCase().startsWith(base));
+    return near.find((v) => FEMALE.test(v.name)) || near[0] || null;
   }
-  function speak(text, lang) {
-    if (!load().talkBack || !('speechSynthesis' in window) || !text) return;
-    speechSynthesis.cancel();
+  function talking(on, untilMs) {
+    if (on) speakingUntil = Date.now() + untilMs;
+    else speakingUntil = Date.now() + 400;
+    pet()?.talking?.(on);
+  }
+  function stopSpeaking() {
+    sayToken++;
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    try {
+      playing?.stop();
+    } catch { /* already ended */ }
+    playing = null;
+    speakingUntil = 0;
+    pet()?.talking?.(false);
+  }
+  function browserSpeak(text, lang, mood) {
+    if (!('speechSynthesis' in window)) return;
+    const s = voiceStyle();
     const u = new SpeechSynthesisUtterance(text);
-    const v = voiceFor(lang || load().lang || navigator.language);
+    const v = voiceFor(lang || voice.lang());
     if (v) u.voice = v;
     u.lang = v?.lang || lang || 'en-US';
-    u.rate = 1.05;
-    u.pitch = 1.25;
-    // Echo guard: while the buddy talks (plus a short tail) the mic ignores what it hears.
-    speakingUntil = Date.now() + 600 + text.length * 70;
-    u.onstart = () => pet()?.talking?.(true);
-    u.onend = u.onerror = () => {
-      speakingUntil = Date.now() + 400;
-      pet()?.talking?.(false);
-    };
+    u.rate = s.rate;
+    u.pitch = Math.min(2, s.pitch + (mood === 'laugh' || mood === 'giggle' ? 0.15 : mood === 'sad' || mood === 'cry' ? -0.2 : 0));
+    talking(true, 600 + text.length * 75);
+    u.onend = u.onerror = () => talking(false);
     speechSynthesis.speak(u);
   }
-  const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Date.now() < speakingUntil;
+  async function aiSpeak(text, mood, token) {
+    const s = voiceStyle();
+    const style = [s.style, MOOD_STYLE[mood]].filter(Boolean).join(', ');
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style });
+    if (token !== sayToken) return;
+    audioCtx ||= new AudioContext();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    const bin = atob(res.pcm);
+    const n = bin.length >> 1;
+    const buf = audioCtx.createBuffer(1, n, 24000);
+    const ch = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) {
+      const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
+      ch[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
+    }
+    const src = audioCtx.createBufferSource();
+    src.buffer = buf;
+    src.connect(audioCtx.destination);
+    talking(true, buf.duration * 1000 + 300);
+    src.onended = () => {
+      if (playing === src) playing = null;
+      talking(false);
+    };
+    playing = src;
+    src.start();
+  }
+  function speak(text, lang, mood) {
+    if (load().talkBack === false || !text) return;
+    stopSpeaking();
+    const token = sayToken;
+    const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
+    if (!clean) return;
+    // Hold the mic while the AI voice is being made, so it never hears its own reply.
+    speakingUntil = Date.now() + 8000;
+    if (load().voiceEngine !== 'browser' && state.ai?.canHear) {
+      aiSpeak(clean, mood, token).catch(() => token === sayToken && browserSpeak(clean, lang, mood));
+    } else browserSpeak(clean, lang, mood);
+  }
+  const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
     if (window.copilot && document.getElementById('buddyChat') && !document.getElementById('buddyChat').hidden) return window.copilot.reply(text, reaction);
     pet()?.say(text);
     pet()?.react(reaction, 700);
-    speak(text);
+    speak(text, undefined, reaction);
   }
 
   /* ======================================================================
@@ -199,73 +274,125 @@ const assistant = (() => {
   const FAST_MAX_WORDS = 5;
   const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
 
-  function interpret(raw) {
+  const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/;
+
+  // A command that can run right here, with no AI: returns a function to run it, or null.
+  function localCommand(raw) {
     const text = normalize(raw);
-    if (!text) return;
-    if (window.copilot?.smallTalk(raw)) return;
-    if (window.copilot?.ready() && !looksFast(text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, ''))) {
-      return window.copilot.handle(raw);
-    }
+    if (!text) return null;
+    if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
     // The buddy's name as a wake word is optional: "pip, next problem" == "next problem".
-    const said = text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
+    const said = text.replace(WAKE, '');
+    if (window.copilot?.ready() && !looksFast(said)) return null;
 
     // 1. The user's own phrases.
-    for (const c of load().phrases || []) {
-      if (said.includes(normalize(c.phrase))) return run(c.action, `Voice “${raw}”`);
-    }
+    const own = (load().phrases || []).find((c) => said.includes(normalize(c.phrase)));
+    if (own) return () => run(own.action, `Voice “${raw}”`);
     // 2. "ask coach …" sends the rest as a question.
     const askM = said.match(/^(ask|tell)( the)? coach (.+)/) || said.match(/^(question|ask)[: ]+(.+)/);
     if (askM) {
       const q = askM[askM.length - 1];
-      openCoach();
-      ask(q);
-      feedback('Asking the coach');
-      return log(`Voice: ask coach “${q}”`);
+      return () => {
+        openCoach();
+        ask(q);
+        feedback('Asking the coach');
+        log(`Voice: ask coach “${q}”`);
+      };
     }
     // 3. "go to / open <problem name>".
     const goM = said.match(/^(go to|open|show|switch to)( problem)? (.+)/);
-    if (goM) {
-      const p = problemByName(goM[3]);
-      if (p) {
-        selectProblem(p.file);
-        feedback(`Opening ${displayName(p.name)}`);
-        return log(`Voice: open ${p.name}`);
-      }
+    const named = goM && problemByName(goM[3]);
+    if (named) {
+      return () => {
+        selectProblem(named.file);
+        feedback(`Opening ${displayName(named.name)}`);
+        log(`Voice: open ${named.name}`);
+      };
     }
     // 4. "search <words>".
     const searchM = said.match(/^(search|find|look for) (.+)/);
     if (searchM) {
-      const box = document.getElementById('search');
-      box.value = searchM[2];
-      box.dispatchEvent(new Event('input', { bubbles: true }));
-      feedback(`Searching ${searchM[2]}`);
-      return log(`Voice: search “${searchM[2]}”`);
+      return () => {
+        const box = document.getElementById('search');
+        box.value = searchM[2];
+        box.dispatchEvent(new Event('input', { bubbles: true }));
+        feedback(`Searching ${searchM[2]}`);
+        log(`Voice: search “${searchM[2]}”`);
+      };
     }
     // 5. Built-in phrases.
-    for (const [re, action] of PHRASES) {
-      if (re.test(said)) return run(action, `Voice “${raw}”`);
-    }
+    const hit = PHRASES.find(([re]) => re.test(said));
+    if (hit) return () => run(hit[1], `Voice “${raw}”`);
     // 6. A bare problem name.
     const p = problemByName(said);
     if (p) {
-      selectProblem(p.file);
-      return feedback(`Opening ${displayName(p.name)}`);
+      return () => {
+        selectProblem(p.file);
+        feedback(`Opening ${displayName(p.name)}`);
+      };
     }
+    return null;
+  }
+
+  function interpret(raw) {
+    if (!normalize(raw)) return;
+    const local = localCommand(raw);
+    if (local) return local();
     if (window.copilot?.ready()) return window.copilot.handle(raw);
     if (window.copilot) return window.copilot.offline(raw);
     feedback(`I heard “${raw}” — try “next problem” or “open tests”`, 'surprised');
   }
 
+  /*
+   * Two ears:
+   *  - AI ear (default with a Gemini key): ear.js records each sentence and the AI hears
+   *    it directly, so any language, accent or mid-sentence switch works. The browser
+   *    recogniser still runs alongside, only to fire short, confident English commands
+   *    ("next", "run tests") instantly without waiting for the AI.
+   *  - Browser ear: Chrome's recogniser in one language (auto-picked, switchable).
+   */
   const voice = {
     rec: null,
     on: false,
-    supported: Boolean(Recognition),
-    start() {
-      if (!Recognition) {
-        toast('Voice needs Chrome or Edge (this browser has no speech recognition).', 'error');
+    mode: null,
+    localAt: 0,
+    pending: null,
+    get supported() {
+      return Boolean(Recognition) || Boolean(window.ear?.supported);
+    },
+    useAi() {
+      return load().ear !== 'browser' && Boolean(state.ai?.canHear) && Boolean(window.ear?.supported);
+    },
+    async start() {
+      if (this.on) return true;
+      const ai = this.useAi();
+      if (!ai && !Recognition) {
+        toast('Voice needs Chrome or Edge, or a Gemini key for the AI ear.', 'error');
         return false;
       }
-      if (this.on) return true;
+      if (ai) {
+        try {
+          await window.ear.start({
+            blocked: () => isSpeaking() || window.copilot?.busy,
+            onStart: () => window.copilot?.hearing(true),
+            onEnd: (kept) => window.copilot?.hearing(false, kept),
+            onClip: (clip) => this.clip(clip),
+          });
+        } catch (err) {
+          const denied = /denied|not allowed|permission/i.test(err.message);
+          toast(denied ? 'Microphone access was blocked. Allow it in the address bar, then try again.' : `Could not start the microphone: ${err.message}`, 'error');
+          return false;
+        }
+      }
+      this.mode = ai ? 'ai' : 'browser';
+      this.on = true;
+      if (Recognition) this.startRec();
+      pet()?.listening(true);
+      feedback(ai ? 'I’m all ears! Talk to me in any language — or mix them 💛' : 'I’m listening! Say “next problem” or “open tests”.', 'wink');
+      syncControls();
+      return true;
+    },
+    startRec() {
       const rec = new Recognition();
       rec.lang = this.lang();
       rec.continuous = true;
@@ -275,7 +402,11 @@ const assistant = (() => {
           const r = e.results[i];
           const t = r[0].transcript.trim();
           // Ignore what the mic picks up while the buddy itself is talking.
-          if (isSpeaking()) continue;
+          if (!t || isSpeaking()) continue;
+          if (this.mode === 'ai') {
+            if (r.isFinal) this.quick(t, r[0].confidence);
+            continue;
+          }
           if (r.isFinal) {
             window.copilot?.heard(t, true);
             interpret(t);
@@ -286,6 +417,7 @@ const assistant = (() => {
         }
       };
       rec.onerror = (e) => {
+        if (this.mode === 'ai') return; // captions are a bonus there; the AI ear carries on
         if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
           toast('Microphone access was blocked. Allow it in the address bar, then try again.', 'error');
           this.stop();
@@ -296,7 +428,7 @@ const assistant = (() => {
       };
       // Chrome ends sessions after silence; keep listening until the user stops it.
       rec.onend = () => {
-        if (this.on) {
+        if (this.on && this.rec === rec) {
           try {
             rec.start();
           } catch { /* already restarting */ }
@@ -304,28 +436,47 @@ const assistant = (() => {
       };
       try {
         rec.start();
+        this.rec = rec;
       } catch (err) {
-        toast(`Could not start voice: ${err.message}`, 'error');
-        return false;
+        if (this.mode !== 'ai') toast(`Could not start voice: ${err.message}`, 'error');
       }
-      this.rec = rec;
-      this.on = true;
-      pet()?.listening(true);
-      feedback(`I'm listening! Say “next problem” or “open tests”.`, 'wink');
-      syncControls();
-      return true;
+    },
+    // AI ear: a short, confident English command runs at once and its clip is dropped.
+    quick(text, confidence) {
+      const local = (confidence === 0 || confidence > 0.7) && looksFast(normalize(text).replace(WAKE, '')) ? localCommand(text) : null;
+      if (local) {
+        this.localAt = performance.now();
+        this.pending = null;
+        window.copilot?.heard(text, true);
+        local();
+      } else this.flush();
+    },
+    // Wait a beat for the browser's quick result before paying for an AI round trip.
+    clip(c) {
+      if (this.localAt > c.start - 300) return;
+      this.pending = c;
+      setTimeout(() => this.pending === c && this.flush(), 800);
+    },
+    flush() {
+      const c = this.pending;
+      this.pending = null;
+      if (c && this.localAt <= c.start - 300) window.copilot?.handleAudio(c);
     },
     stop() {
       this.on = false;
-      try {
-        this.rec?.stop();
-      } catch { /* not running */ }
+      const rec = this.rec;
       this.rec = null;
+      try {
+        rec?.stop();
+      } catch { /* not running */ }
+      window.ear?.stop();
+      this.pending = null;
+      this.mode = null;
       pet()?.listening(false);
       syncControls();
     },
-    toggle() {
-      const on = this.on ? (this.stop(), false) : this.start();
+    async toggle() {
+      const on = this.on ? (this.stop(), false) : await this.start();
       save({ voiceOn: Boolean(on) });
       return on;
     },
@@ -338,7 +489,8 @@ const assistant = (() => {
       const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
       return indic ? 'en-IN' : all[0] || 'en-US';
     },
-    // Auto mode: follow the language the AI heard, so the next sentence is transcribed in it.
+    // Browser ear, auto mode: follow the language the AI heard, so the next sentence is
+    // transcribed in it. The AI ear needs no switching; it hears every language.
     detected(lang) {
       if (!lang || (load().lang && load().lang !== 'auto')) return;
       const cur = this.lang();
@@ -346,23 +498,23 @@ const assistant = (() => {
       if (base(lang) === base(cur)) return;
       if (base(lang) === 'en' && cur === 'en-IN') return;
       this.autoLang = lang;
+      if (this.mode === 'ai' || !this.on) return;
       let name = lang;
       try {
         name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
       } catch { /* unknown code */ }
       toast(`Auto-detected ${name} — listening in it now.`);
-      if (this.on) {
-        this.stop();
-        setTimeout(() => this.start(), 250);
-      }
+      this.restart();
+    },
+    restart() {
+      if (!this.on) return;
+      this.stop();
+      setTimeout(() => this.start(), 250);
     },
     // Switch the recognition language; restarts the session when listening.
     setLanguage(lang) {
       save({ lang });
-      if (this.on) {
-        this.stop();
-        setTimeout(() => this.start(), 250);
-      }
+      this.restart();
       syncControls();
     },
   };
@@ -461,17 +613,7 @@ const assistant = (() => {
       }
       pet()?.say('Waking up my eyes… (first time downloads a small model)', 4000);
       try {
-        if (!this.recognizer) {
-          const vision = await import(`${MP_BASE}/vision_bundle.mjs`);
-          const files = await vision.FilesetResolver.forVisionTasks(`${MP_BASE}/wasm`);
-          const opts = { baseOptions: { modelAssetPath: MODEL, delegate: 'GPU' }, runningMode: 'VIDEO', numHands: 1 };
-          try {
-            this.recognizer = await vision.GestureRecognizer.createFromOptions(files, opts);
-          } catch {
-            opts.baseOptions.delegate = 'CPU';
-            this.recognizer = await vision.GestureRecognizer.createFromOptions(files, opts);
-          }
-        }
+        if (!this.recognizer) await this.build(load().gestureCpu ? 'CPU' : 'GPU');
         this.stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, facingMode: 'user' }, audio: false });
       } catch (err) {
         const denied = /denied|not allowed|permission/i.test(err.message);
@@ -493,6 +635,40 @@ const assistant = (() => {
       syncControls();
       return true;
     },
+
+    // GPU is fastest, but some laptop graphics drivers fail inside WebGL; CPU always works.
+    async build(delegate) {
+      const vision = await import(`${MP_BASE}/vision_bundle.mjs`);
+      const files = await vision.FilesetResolver.forVisionTasks(`${MP_BASE}/wasm`);
+      const opts = (d) => ({ baseOptions: { modelAssetPath: MODEL, delegate: d }, runningMode: 'VIDEO', numHands: 1, minHandDetectionConfidence: 0.4, minHandPresenceConfidence: 0.4, minTrackingConfidence: 0.4 });
+      try {
+        this.recognizer = await vision.GestureRecognizer.createFromOptions(files, opts(delegate));
+        this.delegate = delegate;
+      } catch {
+        this.recognizer = await vision.GestureRecognizer.createFromOptions(files, opts('CPU'));
+        this.delegate = 'CPU';
+      }
+      this.errors = 0;
+    },
+    async fallBack(err) {
+      if (this.rebuilding) return;
+      this.rebuilding = true;
+      try {
+        if (this.delegate !== 'CPU') {
+          save({ gestureCpu: true });
+          this.recognizer?.close?.();
+          this.recognizer = null;
+          await this.build('CPU');
+          toast('Your graphics chip struggled, so hand tracking switched to the CPU. Gestures work again.');
+        } else {
+          toast(`Hand tracking stopped: ${err?.message || 'the recogniser keeps failing'}`, 'error');
+          this.stop();
+        }
+      } finally {
+        this.rebuilding = false;
+      }
+    },
+    votes: [],
 
     stop() {
       this.on = false;
@@ -521,16 +697,20 @@ const assistant = (() => {
       const now = performance.now();
       if (now - this.lastTs < 66) return; // ~15 fps is plenty for gestures
       this.lastTs = now;
+      if (this.rebuilding) return;
       let res;
       try {
         res = this.recognizer.recognizeForVideo(v, now);
-      } catch {
+        this.errors = 0;
+      } catch (err) {
+        if (++this.errors >= 8) this.fallBack(err);
         return;
       }
       const lm = res.landmarks?.[0];
       this.listeners.forEach((fn) => fn(res, v));
       if (!lm) {
-        if (this.live) showLive(null);
+        this.votes = [];
+        showLive(null);
         this.live = null;
         this.held = { name: null, since: 0 };
         this.wrist = [];
@@ -557,21 +737,30 @@ const assistant = (() => {
 
       // Custom gestures win over built-ins when they match confidently.
       const custom = classifyCustom(f);
-      let name = null;
+      let raw = null;
       let score = 0;
       if (custom) {
-        name = `custom:${custom.g.id}`;
+        raw = `custom:${custom.g.id}`;
         score = Math.max(0, 1 - custom.d / (custom.g.radius * 1.4));
       } else {
         const top = res.gestures?.[0]?.[0];
-        if (top && top.categoryName !== 'None' && top.score > 0.55) {
-          name = top.categoryName;
+        if (top && top.categoryName !== 'None' && top.score > 0.5) {
+          raw = top.categoryName;
           score = top.score;
         }
       }
+      // The recogniser flickers between neighbouring signs; a sign counts when it wins
+      // 3 of the last 5 frames, so a held pose is not reset by one odd frame.
+      this.votes.push(raw);
+      if (this.votes.length > 5) this.votes.shift();
+      const tally = {};
+      for (const v of this.votes) if (v) tally[v] = (tally[v] || 0) + 1;
+      const [best, count] = Object.entries(tally).sort((a, b) => b[1] - a[1])[0] || [null, 0];
+      const name = count >= 3 ? best : null;
       this.live = name ? { name, score } : null;
       const holdMs = 450;
-      showLive(name, name && name === this.held.name && now > this.cooldownUntil ? Math.min(1, (now - this.held.since) / holdMs) : 0);
+      if (name) showLive(name, name === this.held.name && now > this.cooldownUntil ? Math.min(1, (now - this.held.since) / holdMs) : 0);
+      else showLive('hand', 0);
       // A pose must be held ~0.6 s, then a 1.5 s cooldown, so it never fires twice by accident.
       if (name !== this.held.name) this.held = { name, since: now };
       else if (name && now - this.held.since > holdMs && now > this.cooldownUntil) {
@@ -665,5 +854,5 @@ const assistant = (() => {
   }
   document.addEventListener('DOMContentLoaded', bind);
 
-  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, normalize, problemByName, closeTop };
+  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };
 })();

@@ -151,6 +151,7 @@ function guideAssistant() {
     ['“stop listening”', 'Turn the mic off'],
   ];
   const lang = cfg.lang || 'auto';
+  const aiEar = v.useAi();
   const cur = copilot.cursor.settings();
   return `
     <h2 class="guide-h">Voice & gestures</h2>
@@ -165,17 +166,39 @@ function guideAssistant() {
     <div class="assist-grid">
       <section class="card assist-card">
         <h3 class="guide-sub"><i class="ph-duotone ph-microphone" aria-hidden="true"></i>Voice</h3>
-        <p>${v.supported ? 'Say a command any time while it is on. Press <kbd>V</kbd> or the mic in the header.' : '<strong>This browser has no speech recognition.</strong> Use Chrome or Edge for voice.'}</p>
+        <p>${v.supported ? 'Talk any time while it is on. Press <kbd>V</kbd> or the mic in the header.' : '<strong>This browser cannot listen.</strong> Use Chrome or Edge, or add a Gemini key.'}</p>
+        <p class="assist-ear ${aiEar ? 'is-ai' : ''}"><i class="ph-duotone ${aiEar ? 'ph-sparkle' : 'ph-browser'}" aria-hidden="true"></i>${
+          aiEar
+            ? '<strong>AI ear is on:</strong> Gemini hears your voice directly, so any language works — and switching or mixing mid-sentence (English → ಕನ್ನಡ, Hinglish…) too. Short English commands still run instantly.'
+            : state.ai?.canHear
+              ? '<strong>Browser ear:</strong> Chrome hears one language at a time. Switch to the AI ear below to follow any language and mixes.'
+              : '<strong>Browser ear:</strong> Chrome hears one language at a time. Add a Gemini key (Choose your AI) to unlock the AI ear, which follows any language and mid-sentence switches.'
+        }</p>
         <div class="assist-row">
           <button class="btn ${v.on ? 'btn-secondary' : 'btn-primary'}" type="button" data-assist="voice" ${v.supported ? '' : 'disabled'}>${v.on ? 'Stop listening' : 'Start listening'}</button>
           <span class="pill ${v.on ? 'ok' : 'soft'}">${v.on ? '● Listening' : 'Off'}</span>
         </div>
-        <label class="switch"><input type="checkbox" data-assist-set="talkBack" ${cfg.talkBack ? 'checked' : ''}><span>Buddy talks back (in your language)</span></label>
+        ${state.ai?.canHear ? `<div class="field">
+          <label for="assistEar">Ear</label>
+          <select id="assistEar" data-assist-pick="ear">
+            <option value="ai" ${cfg.ear !== 'browser' ? 'selected' : ''}>AI ear · any language & mixes</option>
+            <option value="browser" ${cfg.ear === 'browser' ? 'selected' : ''}>Browser ear · one language, no AI cost</option>
+          </select>
+        </div>` : ''}
+        <label class="switch"><input type="checkbox" data-assist-set="talkBack" ${cfg.talkBack !== false ? 'checked' : ''}><span>Buddy talks back (in your language)</span></label>
         <div class="field">
-          <label for="assistLang">Listening language</label>
-          <select id="assistLang" data-assist-lang>${copilot.LANGUAGES.map(([c, n]) => `<option value="${c}" ${c === lang ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('')}</select>
-          <span class="field-hint">The mic hears one language at a time; the AI understands any. Auto-detect starts from your browser languages and switches when you speak another one.</span>
+          <label for="assistVoice">Buddy's voice</label>
+          <select id="assistVoice" data-assist-pick="voiceStyle">
+            ${[['cute', 'Cute & giggly · tiny cartoon buddy'], ['sweet', 'Sweet lady · soft and warm'], ['bright', 'Bright & bubbly']].map(([k, n]) => `<option value="${k}" ${(cfg.voiceStyle || 'cute') === k ? 'selected' : ''}>${n}</option>`).join('')}
+          </select>
+          <span class="field-hint">${state.ai?.canHear && cfg.voiceEngine !== 'browser' ? 'Spoken by Gemini’s voice, laughing or sniffling with the buddy’s mood. Lines are cached, so repeats are instant.' : 'Uses the sweetest voice installed in your browser for each language.'}</span>
         </div>
+        <label class="switch"><input type="checkbox" data-assist-set="sounds" ${cfg.sounds !== false ? 'checked' : ''}><span>Giggles & little sounds</span></label>
+        ${aiEar ? '' : `<div class="field">
+          <label for="assistLang">Browser ear language</label>
+          <select id="assistLang" data-assist-lang>${copilot.LANGUAGES.map(([c, n]) => `<option value="${c}" ${c === lang ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('')}</select>
+          <span class="field-hint">Now hearing: ${escapeHtml(v.lang())}${!cfg.lang || cfg.lang === 'auto' ? ' (auto)' : ''}. You can also just ask your buddy: “talk in Kannada”.</span>
+        </div>`}
       </section>
 
       <section class="card assist-card">
@@ -359,6 +382,12 @@ function bindAssistantPanel() {
     if (t.dataset.assistSet) {
       assistant.save({ [t.dataset.assistSet]: t.checked });
       if (t.dataset.assistSet === 'airCursor') copilot.cursor.syncSuppress();
+    }
+    if (t.dataset.assistPick) {
+      assistant.save({ [t.dataset.assistPick]: t.value });
+      if (t.dataset.assistPick === 'ear') assistant.voice.restart();
+      if (t.dataset.assistPick === 'voiceStyle') assistant.speak('Hehe, hi! Do you like my voice?', 'en-US', 'giggle');
+      renderGuideSection('assistant');
     }
     if (t.matches('[data-assist-lang]')) {
       assistant.voice.setLanguage(t.value);

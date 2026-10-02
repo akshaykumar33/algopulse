@@ -39,6 +39,7 @@ function status() {
       const p = PROVIDERS[id];
       return { id, label: p.label, model: p.getModel(), fallbacks: p.fallbacks(), keyName: p.keyName, configured: p.isConfigured() };
     }),
+    canHear: PROVIDERS.gemini.isConfigured(),
     cache: cacheStats(),
     repoRoot: REPO_ROOT,
   };
@@ -81,7 +82,7 @@ function isRetryable(err) {
 }
 
 
-async function complete({ system = '', prompt, schema = null, maxTokens, cache = true }) {
+async function complete({ system = '', prompt, schema = null, maxTokens, cache = true, thinking }) {
   const provider = activeProvider();
   if (!provider || !provider.isConfigured()) {
     throw new Error('No AI provider is set up. Open the Guide → "Choose your AI" to add a key (or start Ollama).');
@@ -98,7 +99,7 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
   const tried = [];
   for (const candidate of ladder) {
     try {
-      const text = await provider.complete({ system, prompt, schema, maxTokens, model: candidate });
+      const text = await provider.complete({ system, prompt, schema, maxTokens, model: candidate, thinking });
       fs.mkdirSync(CACHE_DIR, { recursive: true });
       fs.writeFileSync(file, JSON.stringify({ provider: provider.id, model: candidate, at: new Date().toISOString(), text }), 'utf-8');
       if (tried.length) console.warn(`[ai] ${model} failed; answered by fallback ${candidate}`);
@@ -112,4 +113,56 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
   throw new Error(`every ${provider.label} model failed — ${tried.join(' | ')}`);
 }
 
-module.exports = { isRetryable, PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache };
+/* ---------- voice: listening and speaking (Gemini only; any language, mixed too) ---------- */
+
+const TTS_DIR = path.join(REPO_ROOT, '.cache', 'tts');
+const canHear = () => PROVIDERS.gemini.isConfigured();
+
+// Walks a model ladder, stepping down on retryable errors, like complete() does.
+async function ladder(models, run) {
+  const tried = [];
+  for (const model of [...new Set(models)]) {
+    try {
+      return { ...(await run(model)), model };
+    } catch (err) {
+      tried.push(`${model}: ${err.message}`);
+      if (!isRetryable(err)) throw err;
+    }
+  }
+  throw new Error(`every voice model failed — ${tried.join(' | ')}`);
+}
+
+// Audio in, structured JSON out: the model hears the voice itself, so it follows any
+// language and mid-sentence switches the browser's one-language recogniser cannot.
+async function listen({ prompt, schema, audio }) {
+  if (!canHear()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
+  const g = PROVIDERS.gemini;
+  // Measured: full flash models keep each language in its own script; lite ones romanise it.
+  const models = [env('GEMINI_LISTEN_MODEL') || 'gemini-3.5-flash', 'gemini-3.6-flash', ...g.fallbacks()];
+  return ladder(models, async (model) => ({
+    text: await g.generate({
+      model,
+      parts: [{ inlineData: { mimeType: audio.mime, data: audio.data } }, { text: prompt }],
+      schema,
+      maxTokens: 2000,
+      thinking: 'low',
+      timeoutMs: 30000,
+    }),
+  }));
+}
+
+// Text in, 24 kHz PCM out, cached on disk so repeated lines play instantly.
+async function speech({ text, voice, style }) {
+  if (!canHear()) throw new Error('The AI voice needs a Gemini key.');
+  const g = PROVIDERS.gemini;
+  const key = cacheKey(['tts', voice, style, text]);
+  const file = path.join(TTS_DIR, `${key}.json`);
+  if (fs.existsSync(file)) return { ...JSON.parse(fs.readFileSync(file, 'utf-8')), cached: true };
+  const models = (env('GEMINI_TTS_MODELS') || 'gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts').split(',').map((m) => m.trim()).filter(Boolean);
+  const out = await ladder(models, (model) => g.speak({ text, voice, style, model }));
+  fs.mkdirSync(TTS_DIR, { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
+  return { ...out, cached: false };
+}
+
+module.exports = { isRetryable, PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache, listen, speech, canHear };

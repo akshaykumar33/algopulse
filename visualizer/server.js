@@ -197,6 +197,14 @@ const routes = {
 
   'GET /api/ai/status': () => ai.status(),
 
+  // The buddy's AI voice: text -> 24 kHz mono PCM (base64), cached on disk.
+  'POST /api/voice/speak': async (req) => {
+    const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
+    if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
+    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 200) throw new HttpError(400, 'Bad voice');
+    return ai.speech({ text: text.trim(), voice, style }).catch(aiError('Voice'));
+  },
+
   'POST /api/ai/provider': async (req) => {
     const { provider } = await readJsonBody(req);
     try {
@@ -222,14 +230,24 @@ const routes = {
 
   // Free speech -> a plan of studio actions (any language, mixed languages, misheard words).
   'POST /api/agent/plan': async (req) => {
-    const { utterance, ctx = {} } = await readJsonBody(req);
-    requireAi();
-    if (typeof utterance !== 'string' || !utterance.trim()) throw new HttpError(400, 'Nothing was said');
+    const { utterance, audio, ctx = {} } = await readJsonBody(req);
+    let input;
+    if (audio) {
+      if (!ai.canHear()) throw new HttpError(503, 'Listening in any language needs a Gemini key');
+      if (typeof audio.data !== 'string' || !/^[A-Za-z0-9+/=]+$/.test(audio.data) || !/^audio\/(wav|webm|ogg|mpeg|mp4|flac)/.test(audio.mime || '')) {
+        throw new HttpError(400, 'Bad audio clip');
+      }
+      input = { audio: { data: audio.data, mime: audio.mime } };
+    } else {
+      requireAi();
+      if (typeof utterance !== 'string' || !utterance.trim()) throw new HttpError(400, 'Nothing was said');
+      input = { text: utterance.trim() };
+    }
     const date = store.DATE_RE.test(ctx.date || '') ? ctx.date : store.listDays()[0];
     const set = store.loadSet(date);
     const done = store.completedFiles(path.join(DAYS_DIR, date));
     return agent
-      .plan(utterance.trim(), {
+      .plan(input, {
         ...ctx,
         date,
         today: store.localToday(),

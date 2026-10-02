@@ -1227,3 +1227,17 @@ dialog.coach .coach-log { min-height: 0; }
 .buddy-card:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
 .buddy-face { width: 64px; height: 64px; background-size: 300% 300%; background-position: 50% 50%; }
 .field-label { font-weight: 700; font-size: var(--fs-14); }
+
+/* ===== AI ear: "you are speaking" bubble ===== */
+.bc-hearing { display: flex; align-items: center; gap: var(--s-2); font-style: normal; opacity: 0.9; }
+.bc-wave { display: inline-flex; align-items: center; gap: 3px; height: 1rem; }
+.bc-wave i { width: 3px; height: 100%; border-radius: 2px; background: currentColor; animation: bc-wave 0.9s ease-in-out infinite; transform-origin: center; }
+.bc-wave i:nth-child(2) { animation-delay: 0.12s; } .bc-wave i:nth-child(3) { animation-delay: 0.24s; } .bc-wave i:nth-child(4) { animation-delay: 0.36s; }
+@keyframes bc-wave { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+.bc-hearing.is-sent .bc-wave i { animation-duration: 1.8s; opacity: 0.6; }
+.assist-ear { display: flex; gap: var(--s-2); align-items: flex-start; padding: var(--s-3); border-radius: var(--r-md); background: var(--surface-sunk); font-size: var(--fs-14); line-height: 1.5; }
+.assist-ear i { font-size: 1.2rem; color: var(--text-muted); margin-top: 1px; }
+.assist-ear.is-ai { background: var(--moss-soft); }
+.assist-ear.is-ai i { color: var(--moss); }
+.mascot.is-feeling .mascot-shadow { animation: none; }
+@media (prefers-reduced-motion: reduce) { .bc-wave i { animation: none; transform: scaleY(0.6); } }
