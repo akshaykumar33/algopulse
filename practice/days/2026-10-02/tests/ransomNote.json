@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"a\"\n\"b\"",
+    "output": "false"
+  },
+  {
+    "input": "\"aa\"\n\"ab\"",
+    "output": "false"
+  },
+  {
+    "input": "\"aa\"\n\"aab\"",
+    "output": "true"
+  }
+]

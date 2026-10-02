@@ -212,6 +212,30 @@ function solve() {
 | [Butterfly](https://www.codechef.com/problems/BFLY) | `CodeChef` | `824` | `butterfly.js` | Key algorithmic application from Day 2026-10-01. |
 | [Grade The Steel](https://www.codechef.com/problems/FLOW014) | `CodeChef` | `838` | `gradeTheSteel.js` | Key algorithmic application from Day 2026-10-01. |
 | [Pep Bidding](https://www.codechef.com/problems/BID) | `CodeChef` | `833` | `pepBidding.js` | Key algorithmic application from Day 2026-10-01. |
+| [Delete from the Left](https://codeforces.com/problemset/problem/1005/B) | `Codeforces` | `900` | `deleteFromTheLeft.js` | Key algorithmic application from Day 2026-10-02. |
+| [Digit Game](https://codeforces.com/problemset/problem/1419/A) | `Codeforces` | `900` | `digitGame.js` | Key algorithmic application from Day 2026-10-02. |
+| [Little Elephant and Rozdil](https://codeforces.com/problemset/problem/205/A) | `Codeforces` | `900` | `littleElephantAndRozdil.js` | Key algorithmic application from Day 2026-10-02. |
+| [Gold Rush](https://codeforces.com/problemset/problem/1829/D) | `Codeforces` | `1000` | `goldRush.js` | Key algorithmic application from Day 2026-10-02. |
+| [How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/) | `LeetCode` | `Easy` | `howManyNumbersAreSmallerThanTheCurrentNumber.js` | Key algorithmic application from Day 2026-10-02. |
+| [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) | `LeetCode` | `Easy` | `rangeSumQueryImmutable.js` | Key algorithmic application from Day 2026-10-02. |
+| [Ransom Note](https://leetcode.com/problems/ransom-note/) | `LeetCode` | `Easy` | `ransomNote.js` | Key algorithmic application from Day 2026-10-02. |
+| [Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix/) | `LeetCode` | `Easy` | `reshapeTheMatrix.js` | Key algorithmic application from Day 2026-10-02. |
+| [Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array/) | `LeetCode` | `Easy` | `findGreatestCommonDivisorOfArray.js` | Key algorithmic application from Day 2026-10-02. |
+| [Shuffle String](https://leetcode.com/problems/shuffle-string/) | `LeetCode` | `Easy` | `shuffleString.js` | Key algorithmic application from Day 2026-10-02. |
+| [Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/) | `LeetCode` | `Easy` | `kthMissingPositiveNumber.js` | Key algorithmic application from Day 2026-10-02. |
+| [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | `LeetCode` | `Easy` | `validPalindromeII.js` | Key algorithmic application from Day 2026-10-02. |
+| [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) | `LeetCode` | `Easy` | `implementQueueUsingStacks.js` | Key algorithmic application from Day 2026-10-02. |
+| [Sign of the Product of an Array](https://leetcode.com/problems/sign-of-the-product-of-an-array/) | `LeetCode` | `Easy` | `signOfTheProductOfAnArray.js` | Key algorithmic application from Day 2026-10-02. |
+| [Best Seats](https://www.codechef.com/problems/BESTSEATS) | `CodeChef` | `848` | `bestSeats.js` | Key algorithmic application from Day 2026-10-02. |
+| [Hardest Problem Bet](https://www.codechef.com/problems/HARDBET) | `CodeChef` | `803` | `hardestProblemBet.js` | Key algorithmic application from Day 2026-10-02. |
+| [2 Boxes](https://www.codechef.com/problems/BOX2) | `CodeChef` | `832` | `p2Boxes.js` | Key algorithmic application from Day 2026-10-02. |
+| [Recover Palindrome](https://www.codechef.com/problems/P2235) | `CodeChef` | `825` | `recoverPalindrome.js` | Key algorithmic application from Day 2026-10-02. |
+| [Is it a VOWEL or CONSONANT](https://www.codechef.com/problems/VOWELTB) | `CodeChef` | `840` | `isItAVOWELOrCONSONANT.js` | Key algorithmic application from Day 2026-10-02. |
+| [Good Weather](https://www.codechef.com/problems/GOODWEAT) | `CodeChef` | `835` | `goodWeather.js` | Key algorithmic application from Day 2026-10-02. |
+| [Equalizing Numbers](https://www.codechef.com/problems/EQLZING) | `CodeChef` | `823` | `equalizingNumbers.js` | Key algorithmic application from Day 2026-10-02. |
+| [Poster Perimeter](https://www.codechef.com/problems/POSTPERI) | `CodeChef` | `812` | `posterPerimeter.js` | Key algorithmic application from Day 2026-10-02. |
+| [Ambiguous Permutations](https://www.codechef.com/problems/PERMUT2) | `CodeChef` | `853` | `ambiguousPermutations.js` | Key algorithmic application from Day 2026-10-02. |
+| [Bar Queue](https://www.codechef.com/problems/QBGI) | `CodeChef` | `821` | `barQueue.js` | Key algorithmic application from Day 2026-10-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

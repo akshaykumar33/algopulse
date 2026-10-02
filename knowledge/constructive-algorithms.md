@@ -75,6 +75,8 @@ function constructMatrix(n, m) {
 | [Mark the Dust Sweeper](https://codeforces.com/problemset/problem/1705/B) | `Codeforces` | `900` | `markTheDustSweeper.js` | Key algorithmic application from Day 2026-09-30. |
 | [Shuffle (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `shuffleEasy.js` | Window sort preimage combinatorics: reversing consecutive length-K sorts yields K! * K^(N-K) valid starting permutations. |
 | [Shuffle (Hard)](https://www.codechef.com) | `CodeChef` | `1700` | `shuffleHard.js` | General window-sort preimage counting: valid iff suffix Q[L..N] is identity; count is K! * K^(prefix_max_count(0..pos(L)) - 1). |
+| [Wizard of Orz](https://codeforces.com/problemset/problem/1467/A) | `Codeforces` | `900` | `wizardOfOrz.js` | Key algorithmic application from Day 2026-10-02. |
+| [Dominant Piranha](https://codeforces.com/problemset/problem/1433/C) | `Codeforces` | `900` | `dominantPiranha.js` | Key algorithmic application from Day 2026-10-02. |
 
 ---
 

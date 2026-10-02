@@ -1,0 +1,18 @@
+[
+  {
+    "input": "test\nwest\n",
+    "output": "2\n"
+  },
+  {
+    "input": "codeforces\nyes\n",
+    "output": "9\n"
+  },
+  {
+    "input": "test\nyes\n",
+    "output": "7\n"
+  },
+  {
+    "input": "b\nab\n",
+    "output": "1\n"
+  }
+]

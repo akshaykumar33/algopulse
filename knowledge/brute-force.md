@@ -97,6 +97,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Ordinary Numbers](https://codeforces.com/problemset/problem/1520/B) | `Codeforces` | `800` | `ordinaryNumbers.js` | Key algorithmic application from Day 2026-09-30. |
 | [Chess For Three](https://codeforces.com/problemset/problem/1973/A) | `Codeforces` | `900` | `chessForThree.js` | Key algorithmic application from Day 2026-09-30. |
 | [Do Not Be Distracted!](https://codeforces.com/problemset/problem/1520/A) | `Codeforces` | `800` | `doNotBeDistracted.js` | Key algorithmic application from Day 2026-10-01. |
+| [PizzaForces](https://codeforces.com/problemset/problem/1555/A) | `Codeforces` | `900` | `pizzaForces.js` | Key algorithmic application from Day 2026-10-02. |
+| [Delete from the Left](https://codeforces.com/problemset/problem/1005/B) | `Codeforces` | `900` | `deleteFromTheLeft.js` | Key algorithmic application from Day 2026-10-02. |
+| [Little Elephant and Rozdil](https://codeforces.com/problemset/problem/205/A) | `Codeforces` | `900` | `littleElephantAndRozdil.js` | Key algorithmic application from Day 2026-10-02. |
+| [Gold Rush](https://codeforces.com/problemset/problem/1829/D) | `Codeforces` | `1000` | `goldRush.js` | Key algorithmic application from Day 2026-10-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
