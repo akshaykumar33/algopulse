@@ -150,7 +150,7 @@ function guideAssistant() {
     ['“read the story” · “dark mode” · “switch to Hindi”', 'Everything else'],
     ['“stop listening”', 'Turn the mic off'],
   ];
-  const lang = cfg.lang || 'en-US';
+  const lang = cfg.lang || 'auto';
   const cur = copilot.cursor.settings();
   return `
     <h2 class="guide-h">Voice & gestures</h2>
@@ -174,7 +174,7 @@ function guideAssistant() {
         <div class="field">
           <label for="assistLang">Listening language</label>
           <select id="assistLang" data-assist-lang>${copilot.LANGUAGES.map(([c, n]) => `<option value="${c}" ${c === lang ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('')}</select>
-          <span class="field-hint">The mic hears one language at a time; the AI understands any. For Hinglish pick English (India).</span>
+          <span class="field-hint">The mic hears one language at a time; the AI understands any. Auto-detect starts from your browser languages and switches when you speak another one.</span>
         </div>
       </section>
 

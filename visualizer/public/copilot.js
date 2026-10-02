@@ -19,6 +19,7 @@ const copilot = (() => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   const LANGUAGES = [
+    ['auto', 'Auto-detect'],
     ['en-US', 'English (US)'], ['en-IN', 'English (India) · good for Hinglish'], ['en-GB', 'English (UK)'],
     ['hi-IN', 'हिन्दी Hindi'], ['bn-IN', 'বাংলা Bengali'], ['ta-IN', 'தமிழ் Tamil'], ['te-IN', 'తెలుగు Telugu'],
     ['mr-IN', 'मराठी Marathi'], ['kn-IN', 'ಕನ್ನಡ Kannada'], ['ml-IN', 'മലയാളം Malayalam'], ['gu-IN', 'ગુજરાતી Gujarati'],
@@ -69,7 +70,8 @@ const copilot = (() => {
     if (!hud) return;
     const on = A().voice.on;
     hud.hidden = !on;
-    hud.querySelector('#vbLang').value = A().load().lang || (navigator.language.startsWith('en-IN') ? 'en-IN' : 'en-US');
+    hud.querySelector('#vbLang').value = A().load().lang || 'auto';
+    hud.querySelector('#vbLang option[value=auto]').textContent = `Auto · ${A().voice.lang()}`;
     if (on) {
       startMeter();
       if (!busy) setState('listening', 'Listening… say anything, in any language.');
@@ -317,6 +319,7 @@ const copilot = (() => {
       return;
     }
     lastLang = plan.lang || lastLang;
+    A().voice.detected(plan.lang);
     const sayStep = plan.steps.find((s) => s.action === 'say');
     const reply = plan.reply || sayStep?.arg || '';
     pet()?.say(reply || '👍', 3500);

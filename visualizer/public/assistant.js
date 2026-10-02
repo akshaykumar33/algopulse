@@ -260,7 +260,7 @@ const assistant = (() => {
       }
       if (this.on) return true;
       const rec = new Recognition();
-      rec.lang = load().lang || navigator.language || 'en-US';
+      rec.lang = this.lang();
       rec.continuous = true;
       rec.interimResults = true;
       rec.onresult = (e) => {
@@ -318,7 +318,36 @@ const assistant = (() => {
       syncControls();
     },
     toggle() {
-      return this.on ? (this.stop(), false) : this.start();
+      const on = this.on ? (this.stop(), false) : this.start();
+      save({ voiceOn: Boolean(on) });
+      return on;
+    },
+    autoLang: null,
+    lang() {
+      const l = load().lang;
+      if (l && l !== 'auto') return l;
+      if (this.autoLang) return this.autoLang;
+      const all = navigator.languages?.length ? navigator.languages : [navigator.language || 'en-US'];
+      const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
+      return indic ? 'en-IN' : all[0] || 'en-US';
+    },
+    // Auto mode: follow the language the AI heard, so the next sentence is transcribed in it.
+    detected(lang) {
+      if (!lang || (load().lang && load().lang !== 'auto')) return;
+      const cur = this.lang();
+      const base = (x) => x.toLowerCase().split('-')[0];
+      if (base(lang) === base(cur)) return;
+      if (base(lang) === 'en' && cur === 'en-IN') return;
+      this.autoLang = lang;
+      let name = lang;
+      try {
+        name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
+      } catch { /* unknown code */ }
+      toast(`Auto-detected ${name} — listening in it now.`);
+      if (this.on) {
+        this.stop();
+        setTimeout(() => this.start(), 250);
+      }
     },
     // Switch the recognition language; restarts the session when listening.
     setLanguage(lang) {
@@ -443,8 +472,10 @@ const assistant = (() => {
       syncControls();
     },
 
-    toggle() {
-      return this.on ? (this.stop(), false) : this.start();
+    async toggle() {
+      const on = this.on ? (this.stop(), false) : await this.start();
+      save({ gesturesOn: Boolean(on) });
+      return on;
     },
 
     loop() {
@@ -578,6 +609,20 @@ const assistant = (() => {
       gestures.stop();
     });
     syncControls();
+    resume();
+  }
+  // Bring voice and camera back after a reload when they were on and permission is already granted.
+  async function resume() {
+    const granted = async (name) => {
+      try {
+        return (await navigator.permissions.query({ name })).state === 'granted';
+      } catch {
+        return false;
+      }
+    };
+    const cfg = load();
+    if (cfg.voiceOn && voice.supported && (await granted('microphone'))) voice.start();
+    if (cfg.gesturesOn && (await granted('camera'))) gestures.start();
   }
   document.addEventListener('DOMContentLoaded', bind);
 
