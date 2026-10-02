@@ -61,6 +61,9 @@ function setLoading(btn, loading) {
 function closeOnBackdrop(dialog) {
   dialog.addEventListener('click', (e) => {
     if (!dialog.matches(':modal')) return;
+    // Backdrop clicks target the dialog itself. Keyboard-activated buttons report (0, 0)
+    // coordinates, so a coordinate test alone would close the dialog on every Enter press.
+    if (e.target !== dialog || e.detail === 0) return;
     const r = dialog.getBoundingClientRect();
     const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
     if (!inside) dialog.close();
@@ -1298,9 +1301,23 @@ function renderCode(p) {
   } else if (mode === 'reference') {
     code = p.reference;
     where = `practice/days/${state.date}/solutions/${p.file}.js`;
-    if (!code) {
+    if (!p.hasReference) {
       pathEl.textContent = '';
       body.innerHTML = emptyState({ title: 'No reference solution', body: 'This problem has no reference solution in the day folder yet.' });
+      return;
+    }
+    // Solution lock: the server only sends the reference once it is solved or revealed.
+    if (p.locked || !code) {
+      pathEl.textContent = '';
+      body.innerHTML = emptyState({
+        title: 'Locked until you solve it',
+        body: 'Give it an honest 30–45 minutes first — the coach can give hints 1→3 without spoilers. Revealing now unlocks the full solution, but this problem will then earn <strong>no XP</strong> and count as unsolved for difficulty.',
+        action: `<div class="empty-actions">
+            <button class="btn btn-secondary" type="button" data-open-coach-hint>${icon('sparkle')}Get a hint instead</button>
+            <button class="btn btn-primary" type="button" data-reveal>${icon('eye')}Reveal anyway</button>
+          </div>`,
+        art: 'ph-lock-key',
+      });
       return;
     }
   } else {
@@ -1316,14 +1333,8 @@ function renderCode(p) {
   body.innerHTML = `<pre class="code"><code class="language-javascript">${escapeHtml(code)}</code></pre>`;
   if (window.hljs) hljs.highlightElement($('code', body));
 
-  // The day README asks for an honest attempt first — keep the reference blurred until asked.
-  if (mode === 'reference' && !p.done && !state.revealed.has(p.file)) {
-    const cover = document.createElement('div');
-    cover.className = 'spoiler';
-    cover.innerHTML = `
-      <p>Give it an honest 30–45 minutes before peeking.</p>
-      <button class="btn btn-primary" type="button" data-reveal>${icon('eye')}Reveal reference</button>`;
-    body.append(cover);
+  if (mode === 'reference' && p.revealed && !p.done) {
+    pathEl.textContent = `${where} · revealed (no XP)`;
   }
 }
 
@@ -1398,7 +1409,7 @@ function currentCodeText() {
   const p = current();
   if (!p) return '';
   if (state.codeMode === 'attempt') return $('#editor')?.value ?? p.attempt?.code ?? '';
-  if (state.codeMode === 'reference') return state.revealed.has(p.file) || p.done ? p.reference || '' : '';
+  if (state.codeMode === 'reference') return p.reference || '';
   return p.template || '';
 }
 
@@ -1567,6 +1578,8 @@ function renderCoachLog() {
   const log = $('#coachLog');
   if (!p) return;
   $('#coachSub').textContent = `${displayName(p.name)} · ${p.id}`;
+  $('#statementPanel').hidden = true;
+  renderTutorBar();
 
   const enabled = state.aiReady;
   $('#coachInput').disabled = !enabled;
@@ -1595,7 +1608,7 @@ function renderCoachLog() {
         <h3>Stuck on ${escapeHtml(displayName(p.name))}?</h3>
         <p>I nudge without spoiling. I can see the verified solution and the samples, so I never guess the rules.</p>
         <div class="coach-suggest">
-          <button type="button" data-q="Give me a small hint without spoiling the solution."><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i><strong>Just a hint</strong><span>A nudge, no spoilers</span></button>
+          <button type="button" data-mode="hint"><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i><strong>Just a hint</strong><span>Hints go 1 → 3, no spoilers</span></button>
           <button type="button" data-q="Explain this problem like I'm 10 years old, with an everyday analogy."><i class="ph-duotone ph-baby" aria-hidden="true"></i><strong>Explain like I'm 10</strong><span>Plain words, one analogy</span></button>
           <button type="button" data-q="Why is this approach correct? Give the key invariant or exchange argument."><i class="ph-duotone ph-seal-check" aria-hidden="true"></i><strong>Why it works</strong><span>The key insight, proved</span></button>
           <button type="button" data-q="Which edge cases usually cause wrong answers here?"><i class="ph-duotone ph-warning-diamond" aria-hidden="true"></i><strong>Edge cases</strong><span>Where solutions break</span></button>
@@ -1621,6 +1634,7 @@ function appendMessage(role, text, { store = true } = {}) {
     enhance(body);
   }
   $('#coach').classList.remove('is-empty');
+  log.querySelector('.coach-welcome')?.remove();
   log.append(el);
   // Long answers are read from the top: bring the start of a coach reply into view.
   log.scrollTop = role === 'user' ? log.scrollHeight : Math.max(0, el.offsetTop - log.offsetTop - 12);
@@ -1634,11 +1648,77 @@ function appendMessage(role, text, { store = true } = {}) {
   return el;
 }
 
-async function ask(question) {
+// Reveal the reference: recorded server-side, forfeits this problem's XP.
+async function revealReference(btn) {
   const p = current();
-  if (!p || !question.trim()) return;
+  if (!p) return;
+  setLoading(btn, true);
+  try {
+    const res = await api('/api/reveal', { date: state.date, file: p.file });
+    p.reference = res.reference;
+    p.locked = false;
+    p.revealed = true;
+    if (current() === p) renderCode(p);
+    renderTutorBar();
+    await refreshProgress();
+    toast(res.revealed.wasSolved ? 'Reference unlocked.' : 'Reference revealed — this one earns no XP.');
+  } catch (err) {
+    toast(err.message, 'error');
+    setLoading(btn, false);
+  }
+}
+
+/* Tutor modes: explain, a 3-step hint ladder, code review, and the (locked) solution. */
+const hintLevels = new Map(); // file -> next hint level (1..3)
+
+function lastFailingRun(p) {
+  const run = state.runs.get(p.file);
+  if (!run) return null;
+  const i = run.results.findIndex((r) => r.verdict !== 'AC');
+  if (i < 0) return { verdict: 'AC on every sample', input: '', expected: '', actual: '' };
+  const r = run.results[i];
+  return { verdict: r.verdict, input: p.tests[i]?.input || '', expected: p.tests[i]?.output || '', actual: (r.verdict === 'RE' ? r.stderr : r.stdout).slice(0, 2000) };
+}
+
+function renderTutorBar() {
+  const p = current();
+  const bar = $('#tutorModes');
+  if (!p || !bar) return;
+  const next = hintLevels.get(p.file) || 1;
+  const hint = $('[data-mode="hint"] span', bar);
+  if (hint) hint.textContent = next > 3 ? 'Hints used (3/3)' : `Hint ${next} of 3`;
+  $('[data-mode="hint"]', bar).disabled = next > 3 || !state.aiReady;
+  const sol = $('[data-mode="solution"]', bar);
+  sol.classList.toggle('is-locked', Boolean(p.locked));
+  sol.title = p.locked ? 'Locked until you solve the problem or press Reveal on the Code tab' : 'Explain the full solution';
+  $('span', sol).textContent = p.locked ? 'Solution 🔒' : 'Solution';
+  $$('[data-mode]', bar).forEach((b) => {
+    if (b.dataset.mode !== 'hint') b.disabled = !state.aiReady;
+  });
+}
+
+function askMode(mode) {
+  const p = current();
+  if (!p) return;
+  if (mode === 'solution' && p.locked) {
+    appendMessage('coach', 'The full solution is **locked** until you solve this or press **Reveal** on the Code tab (revealing forfeits its XP). Want a hint instead? Hints go 1 → 3 without spoilers.', { store: false });
+    return;
+  }
+  const level = hintLevels.get(p.file) || 1;
+  const label = { explain: '📖 Explain the problem', hint: `💡 Hint ${level} of 3`, review: '🔍 Review my code', solution: '✅ Show the full solution' }[mode];
+  ask('', { mode, hintLevel: level, label });
+  if (mode === 'hint') {
+    hintLevels.set(p.file, level + 1);
+    renderTutorBar();
+  }
+}
+
+async function ask(question, opts = {}) {
+  const p = current();
+  const mode = opts.mode || 'chat';
+  if (!p || (mode === 'chat' && !question.trim())) return;
   const file = p.file;
-  appendMessage('user', question.trim());
+  appendMessage('user', opts.label || question.trim());
   $('#coachInput').value = '';
 
   const typing = document.createElement('div');
@@ -1650,7 +1730,15 @@ async function ask(question) {
   $('#btnAsk').disabled = true;
 
   try {
-    const res = await api('/api/ai/ask', { date: state.date, file, question: question.trim() });
+    const res = await api('/api/ai/ask', {
+      date: state.date,
+      file,
+      question: question.trim(),
+      mode,
+      hintLevel: opts.hintLevel,
+      // Review sees exactly what is on screen, unsaved edits included, plus the last failing run.
+      ...(mode === 'review' ? { code: state.codeMode === 'attempt' && $('#editor') ? $('#editor').value : undefined, lastRun: lastFailingRun(p) } : {}),
+    });
     typing.remove();
     // RAG sources and cache status travel with the answer so the student can see why.
     const notes = res.sources?.length
@@ -1761,9 +1849,11 @@ function bindEvents() {
       $(`input[name="codeMode"][value="${state.codeMode}"]`).checked = true;
       return renderCode(current());
     }
-    if (e.target.closest('[data-reveal]')) {
-      state.revealed.add(state.file);
-      return renderCode(current());
+    const revealBtn = e.target.closest('[data-reveal]');
+    if (revealBtn) return revealReference(revealBtn);
+    if (e.target.closest('[data-open-coach-hint]')) {
+      openCoach();
+      return askMode('hint');
     }
 
     const card = e.target.closest('.diagram-card');
@@ -1836,6 +1926,46 @@ function bindEvents() {
   $('#coach').addEventListener('click', (e) => {
     const chip = e.target.closest('[data-q]');
     if (chip && !chip.disabled) ask(chip.dataset.q);
+    const modeBtn = e.target.closest('[data-mode]');
+    if (modeBtn && !modeBtn.disabled) askMode(modeBtn.dataset.mode);
+  });
+  // Paste a statement: scanned server-side for prompt injection, then used to ground answers.
+  const statementPanel = $('#statementPanel');
+  const toggleStatement = (open) => {
+    statementPanel.hidden = !open;
+    $('#btnStatement').setAttribute('aria-expanded', String(open));
+    if (open) {
+      $('#statementText').value = current()?.statement || '';
+      $('#statementText').focus();
+    }
+  };
+  $('#btnStatement').addEventListener('click', () => toggleStatement(statementPanel.hidden));
+  $('#btnStatementCancel').addEventListener('click', () => toggleStatement(false));
+  statementPanel.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const p = current();
+    const btn = $('#btnStatementSave');
+    setLoading(btn, true);
+    try {
+      const res = await api('/api/statement', { date: state.date, file: p.file, text: $('#statementText').value });
+      p.statement = res.statement;
+      toggleStatement(false);
+      if (res.findings.length) {
+        // CLAUDE.md §5: never stay silent about planted instructions — quote them verbatim.
+        const quoted = res.findings.map((f) => `> ${f.replace(/\n/g, ' ')}`).join('\n\n');
+        const el = appendMessage('coach', `**⚠ Prompt injection removed.** The statement contained ${res.findings.length === 1 ? 'a sentence' : res.findings.length + ' sentences'} aimed at AI, not at you. I deleted ${res.findings.length === 1 ? 'it' : 'them'} before saving, and I will never follow ${res.findings.length === 1 ? 'it' : 'them'}:
+
+${quoted}`, { store: false });
+        el.classList.add('error');
+        window.mascot?.react('surprised', 1200);
+      } else {
+        toast('Statement saved — the coach will use it.');
+      }
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setLoading(btn, false);
+    }
   });
   $('#coachForm').addEventListener('submit', (e) => {
     e.preventDefault();

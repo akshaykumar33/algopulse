@@ -293,9 +293,23 @@
       </div>
       <button class="btn btn-ghost btn-icon" type="button" id="btnCloseCoach" aria-label="Close coach"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
     </div>
+    <div class="tutor-modes" id="tutorModes" role="toolbar" aria-label="Tutor modes">
+      <button type="button" class="tutor-mode" data-mode="explain"><i class="ph-duotone ph-book-open" aria-hidden="true"></i><span>Explain</span></button>
+      <button type="button" class="tutor-mode" data-mode="hint"><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i><span>Hint 1 of 3</span></button>
+      <button type="button" class="tutor-mode" data-mode="review"><i class="ph-duotone ph-magnifying-glass" aria-hidden="true"></i><span>Review my code</span></button>
+      <button type="button" class="tutor-mode" data-mode="solution"><i class="ph-duotone ph-key" aria-hidden="true"></i><span>Solution</span></button>
+      <button type="button" class="tutor-mode" id="btnStatement" aria-expanded="false" aria-controls="statementPanel"><i class="ph-duotone ph-clipboard-text" aria-hidden="true"></i><span>Paste statement</span></button>
+    </div>
+    <form class="statement-panel" id="statementPanel" hidden>
+      <label for="statementText"><strong>Problem statement</strong> <span class="muted">— paste it from the problem page. Sentences aimed at AI are removed and shown to you.</span></label>
+      <textarea id="statementText" rows="6" spellcheck="false" required></textarea>
+      <div class="empty-actions" style="justify-content:flex-end">
+        <button class="btn btn-ghost btn-sm" type="button" id="btnStatementCancel">Cancel</button>
+        <button class="btn btn-primary btn-sm" type="submit" id="btnStatementSave">Scan &amp; save</button>
+      </div>
+    </form>
     <div class="coach-log" id="coachLog" aria-live="polite"></div>
     <div class="coach-prompts" id="coachPrompts">
-      <button type="button" class="chip-btn" data-q="Give me a small hint without spoiling the solution."><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i>Just a hint</button>
       <button type="button" class="chip-btn" data-q="Explain this problem like I'm 10 years old, with an everyday analogy."><i class="ph-duotone ph-baby" aria-hidden="true"></i>Explain like I'm 10</button>
       <button type="button" class="chip-btn" data-q="Why is this approach correct? Give the key invariant or exchange argument."><i class="ph-duotone ph-seal-check" aria-hidden="true"></i>Why it works</button>
       <button type="button" class="chip-btn" data-q="Which edge cases usually cause wrong answers here?"><i class="ph-duotone ph-warning-diamond" aria-hidden="true"></i>Edge cases</button>

@@ -51,6 +51,8 @@ const TOOLS = [
     },
     run({ date, file, include_reference: includeRef = false }) {
       const { problem, dayDir } = store.findProblem(date, file);
+      // Fetching the reference counts as a reveal, exactly like the studio's Reveal button.
+      if (includeRef && store.referencePath(dayDir, file)) store.reveal(dayDir, file);
       const attempt = store.attemptPath(dayDir, file);
       const ref = store.referencePath(dayDir, file);
       return {
@@ -61,6 +63,7 @@ const TOOLS = [
         story: store.loadStory(dayDir, file),
         attempt: attempt ? { path: store.toRepoRel(attempt), code: store.readIf(attempt) } : null,
         reference: includeRef && ref ? store.readIf(ref) : includeRef ? null : '(hidden — pass include_reference: true)',
+        statement: store.loadStatement(dayDir, file),
       };
     },
   },

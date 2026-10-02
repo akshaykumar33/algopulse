@@ -855,9 +855,13 @@
 .guide-body .snippet pre { padding-top: 0; }
 @media (pointer: coarse), (max-width: 40rem) { .guide-body .snippet .btn { min-height: 2.75rem; } }
 /* A little air between the navbar and the tab bar once the tabs stick under it. */
-.tabs { top: calc(var(--topbar-h) + var(--s-3)); }
-/* Fill that gap with page colour so content scrolling behind it does not peek through. */
-.tabs { box-shadow: 0 calc(-1 * var(--s-3) - 1px) 0 var(--s-1) var(--bg); }
+/* Only where the tab bar is sticky (wider than phones): on phones it scrolls with the
+   page, and a top offset there just shifted it over the content below. */
+@media (min-width: 40.01rem) {
+  .tabs { top: calc(var(--topbar-h) + var(--s-3)); }
+  /* Fill that gap with page colour so content scrolling behind it does not peek through. */
+  .tabs { box-shadow: 0 calc(-1 * var(--s-3) - 1px) 0 var(--s-1) var(--bg); }
+}
 /* Providers: one roomy card per row instead of two cramped columns. */
 .guide-body .provider-grid { grid-template-columns: 1fr; }
 .provider-setup, .provider-setup ol, .provider-setup li { min-width: 0; }
@@ -885,6 +889,63 @@
   .data-table td:first-child { font-weight: 800; }
   .data-table td:last-child { color: var(--text-muted); font-size: var(--fs-12); }
   .keys div { grid-template-columns: 7rem 1fr; }
+}
+
+/* The message log must be allowed to shrink inside the coach column, or long content
+   (the welcome cards on a phone) overflows on top of the input. */
+dialog.coach .coach-log { min-height: 0; }
+
+/* ---------- Tutor modes + pasted statement ---------- */
+.tutor-modes {
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-6);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+}
+.tutor-mode {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-height: 2.5rem;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: var(--fs-14);
+  font-weight: 700;
+  color: var(--text);
+  transition: border-color var(--t-fast), background-color var(--t-fast);
+}
+.tutor-mode i { font-size: 1.1rem; color: var(--caramel-text); }
+.tutor-mode:hover:not(:disabled) { border-color: var(--caramel); background: var(--surface-2); }
+.tutor-mode:disabled { opacity: 0.5; cursor: not-allowed; }
+.tutor-mode.is-locked { color: var(--text-muted); border-style: dashed; }
+.tutor-mode.is-locked i { color: var(--text-faint); }
+.tutor-mode[aria-expanded="true"] { border-color: var(--caramel); background: var(--caramel-soft); }
+.statement-panel { display: grid; gap: var(--s-2); padding: var(--s-4) var(--s-6); border-bottom: 1px solid var(--border); background: var(--surface-2); }
+.statement-panel label { font-size: var(--fs-14); }
+.statement-panel textarea {
+  width: 100%;
+  min-height: 8rem;
+  max-height: 40dvh;
+  padding: var(--s-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  line-height: 1.55;
+  resize: vertical;
+}
+.statement-panel textarea:focus-visible { outline-offset: 0; border-color: var(--focus); }
+.msg.error blockquote { margin-top: var(--s-2); border-left-color: var(--berry); background: color-mix(in oklch, var(--berry-soft) 70%, var(--surface)); font-family: var(--font-mono); font-size: var(--fs-14); }
+@media (max-width: 40rem) {
+  .tutor-modes, .statement-panel { padding-inline: var(--s-4); }
+  /* One swipeable row on phones; the fade says there is more to the right. */
+  .tutor-modes { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: var(--s-8); }
 }
 
 /* ---------- Voice & gestures ---------- */
