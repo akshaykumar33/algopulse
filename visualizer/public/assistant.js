@@ -36,6 +36,7 @@ const assistant = (() => {
   // browser voice, pitched up.
   let speakingUntil = 0;
   let sayToken = 0;
+  let aiVoiceOffUntil = 0;
   let audioCtx = null;
   let playing = null;
   const VOICES = {
@@ -127,8 +128,16 @@ const assistant = (() => {
     if (!clean) return;
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
-    if (load().voiceEngine !== 'browser' && state.ai?.canHear) {
-      aiSpeak(clean, mood, token).catch(() => token === sayToken && browserSpeak(clean, lang, mood));
+    if (load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
+      aiSpeak(clean, mood, token).catch((err) => {
+        // Out of voice quota (the free tier allows only a few lines a day): stop asking
+        // for a while and use the browser voice, instead of failing on every line.
+        if (/quota|429|rate/i.test(err.message)) {
+          if (!aiVoiceOffUntil) toast('The AI voice is out of free quota for today, so I am using the browser voice.');
+          aiVoiceOffUntil = Date.now() + 60 * 60 * 1000;
+        }
+        if (token === sayToken) browserSpeak(clean, lang, mood);
+      });
     } else browserSpeak(clean, lang, mood);
   }
   const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
@@ -443,7 +452,10 @@ const assistant = (() => {
     },
     // AI ear: a short, confident English command runs at once and its clip is dropped.
     quick(text, confidence) {
-      const local = (confidence === 0 || confidence > 0.7) && looksFast(normalize(text).replace(WAKE, '')) ? localCommand(text) : null;
+      // The browser ear only knows one language, so Kannada or Hindi can come out as
+      // random English words. Only very confident, very short commands skip the AI.
+      const said = normalize(text).replace(WAKE, '');
+      const local = confidence > 0.85 && said.split(' ').length <= 3 && looksFast(said) ? localCommand(text) : null;
       if (local) {
         this.localAt = performance.now();
         this.pending = null;
@@ -849,9 +861,15 @@ const assistant = (() => {
       }
     };
     const cfg = load();
+    // Wait for the AI status, so a returning voice session picks the AI ear when it can.
+    for (let i = 0; i < 50 && !state.ai; i++) await new Promise((r) => setTimeout(r, 100));
     if (cfg.voiceOn && voice.supported && (await granted('microphone'))) voice.start();
     if (cfg.gesturesOn && (await granted('camera'))) gestures.start();
   }
+  // A key added (or the status arriving late) upgrades a running browser ear to the AI ear.
+  document.addEventListener('ai:status', () => {
+    if (voice.on && voice.mode === 'browser' && voice.useAi()) voice.restart();
+  });
   document.addEventListener('DOMContentLoaded', bind);
 
   return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };

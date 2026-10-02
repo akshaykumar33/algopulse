@@ -254,6 +254,10 @@ const routes = {
         days: store.listDays().slice(0, 14),
         problems: (set.problems || []).map((p) => ({ file: p.file, id: p.id, name: p.name, rating: p.rating, done: done.has(p.file) })),
       })
+      .then((p) => {
+        if (input.audio) console.log(`[voice] heard (${p.heardLang || '?'}, ${p.model}): ${p.heard || '(nothing)'}`);
+        return p;
+      })
       .catch(aiError('Assistant'));
   },
 
