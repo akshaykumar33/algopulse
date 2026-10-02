@@ -15,6 +15,7 @@ function applyAiStatus(status) {
   $('#btnCoach').title = state.aiReady
     ? `AI coach · ${status.active.label} · ${status.active.model} (C)`
     : 'AI coach — choose an AI in the Guide to enable (C)';
+  document.dispatchEvent(new CustomEvent('ai:status'));
 }
 
 function renderStreak() {
