@@ -44,7 +44,7 @@
     el.className = 'mascot';
     el.id = 'mascot';
     el.setAttribute('aria-label', 'Pip the hamster. Click to boop, drag or use arrow keys to move, M to hide.');
-    el.title = 'Boop me · drag me · M to hide';
+    el.title = 'Boop me · drag me · right-click to switch buddy · M to hide';
     el.innerHTML = `
       <span class="mascot-bubble" aria-live="polite" hidden></span>
       <span class="mascot-status" aria-hidden="true"><i class="ph-fill ph-microphone mascot-mic"></i><i class="ph-fill ph-eye mascot-eye"></i></span>
@@ -225,6 +225,12 @@
         return;
       }
       boop();
+    });
+    el.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      setCharacter(el.dataset.character === 'bunny' ? 'hamster' : 'bunny');
+      say(`Hi, I'm ${CHARACTERS[el.dataset.character]}!`, 2000);
+      document.dispatchEvent(new CustomEvent('assistant:change'));
     });
 
     /* ---- keyboard: arrows move it, Enter/Space boops (native button) ---- */

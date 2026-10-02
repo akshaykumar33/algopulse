@@ -895,6 +895,72 @@
    (the welcome cards on a phone) overflows on top of the input. */
 dialog.coach .coach-log { min-height: 0; }
 
+/* Guide: air-cursor settings and practice targets */
+.assist-steps { margin-bottom: var(--s-2); }
+.assist-sliders { display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
+.assist-sliders input[type="range"] { accent-color: var(--caramel); min-height: 2.75rem; }
+.practice { display: grid; gap: var(--s-2); }
+.practice-row { display: flex; flex-wrap: wrap; gap: var(--s-4); }
+.practice-target { width: 4.5rem; height: 4.5rem; border-radius: 50%; border: 2px dashed var(--border-strong); background: var(--bg); font-size: 2rem; transition: transform var(--t-fast) var(--ease-pop), background-color var(--t-fast), border-color var(--t-fast); }
+.practice-target:hover { transform: scale(1.06); }
+.practice-target.is-hit { border-style: solid; border-color: var(--moss); background: var(--moss-soft); }
+.field-hint { font-size: var(--fs-12); color: var(--text-faint); }
+
+/* ---------- Copilot voice bar ---------- */
+.voicebar {
+  position: fixed;
+  left: 50%;
+  bottom: max(var(--s-4), env(safe-area-inset-bottom));
+  z-index: 55;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--s-3);
+  width: min(44rem, calc(100vw - 2rem));
+  padding: var(--s-2) var(--s-2) var(--s-2) var(--s-3);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  background: color-mix(in oklch, var(--surface) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-50%);
+  animation: toast-in var(--t-ui) var(--ease-out) both;
+}
+.vb-state { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; color: #fff; background: oklch(58% 0.19 25); font-size: 1.1rem; }
+.voicebar[data-state="thinking"] .vb-state { background: oklch(55% 0.15 300); animation: pulse-ring 1.2s ease-out infinite; }
+.voicebar[data-state="doing"] .vb-state { background: var(--moss); }
+.voicebar[data-state="error"] .vb-state { background: var(--berry); }
+.vb-meter { display: flex; align-items: center; gap: 3px; height: 1.6rem; }
+.vb-meter i { width: 4px; height: 100%; border-radius: 2px; background: var(--caramel); transform: scaleY(0.15); transition: transform 70ms linear; }
+.voicebar:not([data-state="listening"]):not(:not([data-state])) .vb-meter i { opacity: 0.4; }
+.vb-body { min-width: 0; display: grid; gap: 2px; }
+.vb-text { font-weight: 700; font-size: var(--fs-14); line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.vb-steps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.vb-steps:empty { display: none; }
+.vb-steps li { padding: 1px var(--s-2); border-radius: var(--r-pill); font-size: var(--fs-12); font-weight: 700; background: var(--surface-sunk); color: var(--text-muted); }
+.vb-steps li.now { background: var(--caramel-soft); color: var(--text); }
+.vb-steps li.done { background: var(--moss-soft); color: var(--moss); }
+.vb-steps li.done::before { content: "✓ "; }
+.vb-steps li.failed { background: var(--berry-soft); color: var(--berry); }
+.vb-lang { min-height: 2.25rem; max-width: 9rem; padding: 0 var(--s-2); border: 1px solid var(--border); border-radius: var(--r-pill); background: var(--bg); font-size: var(--fs-12); font-weight: 700; }
+@media (max-width: 40rem) {
+  .voicebar { grid-template-columns: auto minmax(0, 1fr) auto; bottom: max(var(--s-2), env(safe-area-inset-bottom)); }
+  .vb-meter, .vb-lang { display: none; }
+}
+
+/* ---------- Air cursor ---------- */
+.air-cursor { position: fixed; left: 0; top: 0; z-index: 300; pointer-events: none; will-change: transform; }
+.ac-ring, .ac-dot { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); }
+.ac-ring { width: 38px; height: 38px; border: 3px solid oklch(52% 0.12 250); background: oklch(52% 0.12 250 / 0.12); transition: width 120ms var(--ease-out), height 120ms var(--ease-out), background-color 120ms; }
+.ac-dot { width: 7px; height: 7px; background: oklch(52% 0.12 250); }
+.air-cursor[data-mode="pinch"] .ac-ring { width: 24px; height: 24px; background: oklch(52% 0.12 250 / 0.45); }
+.air-cursor[data-mode="scroll"] .ac-ring { border-style: dashed; width: 46px; height: 46px; }
+.air-hover { outline: 3px solid oklch(52% 0.12 250 / 0.75) !important; outline-offset: 2px; }
+.air-ripple { position: fixed; z-index: 299; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 3px solid oklch(52% 0.12 250); pointer-events: none; animation: air-ripple 480ms var(--ease-out) forwards; }
+@keyframes air-ripple { to { transform: scale(5); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .air-ripple { animation: none; opacity: 0; } }
+
 /* ---------- Tutor modes + pasted statement ---------- */
 .tutor-modes {
   display: flex;

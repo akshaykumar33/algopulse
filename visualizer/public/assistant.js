@@ -31,14 +31,28 @@ const assistant = (() => {
 
   const pet = () => window.mascot;
   const buddy = () => (pet() ? pet().name() : 'Pip');
-  function speak(text) {
-    if (!load().talkBack || !('speechSynthesis' in window)) return;
+  // Talk-back in the reply's own language, with the closest installed voice.
+  let speakingUntil = 0;
+  function voiceFor(lang) {
+    const voices = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
+    const base = String(lang || '').toLowerCase().split('-')[0];
+    return voices.find((v) => v.lang.toLowerCase() === String(lang).toLowerCase()) || voices.find((v) => v.lang.toLowerCase().startsWith(base)) || null;
+  }
+  function speak(text, lang) {
+    if (!load().talkBack || !('speechSynthesis' in window) || !text) return;
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
+    const v = voiceFor(lang || load().lang || navigator.language);
+    if (v) u.voice = v;
+    u.lang = v?.lang || lang || 'en-US';
     u.rate = 1.05;
     u.pitch = 1.25;
+    // Echo guard: while the buddy talks (plus a short tail) the mic ignores what it hears.
+    speakingUntil = Date.now() + 600 + text.length * 70;
+    u.onend = () => (speakingUntil = Date.now() + 400);
     speechSynthesis.speak(u);
   }
+  const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
     pet()?.say(text);
     pet()?.react(reaction, 700);
@@ -174,9 +188,18 @@ const assistant = (() => {
   // are compared with both stripped.
   const normalize = (t) => String(t).toLowerCase().replace(/['’.,!?]/g, '').replace(/\s+/g, ' ').trim();
 
+  // Short, plain English commands run instantly from the phrase table. Anything longer,
+  // multi-step, or in another language goes to the AI planner (copilot.js), which
+  // understands any language, mixes, and misheard words.
+  const FAST_MAX_WORDS = 5;
+  const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
+
   function interpret(raw) {
     const text = normalize(raw);
     if (!text) return;
+    if (window.copilot?.ready() && !looksFast(text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, ''))) {
+      return window.copilot.handle(raw);
+    }
     // The buddy's name as a wake word is optional: "pip, next problem" == "next problem".
     const said = text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
 
@@ -222,6 +245,7 @@ const assistant = (() => {
       selectProblem(p.file);
       return feedback(`Opening ${displayName(p.name)}`);
     }
+    if (window.copilot?.ready()) return window.copilot.handle(raw);
     feedback(`I heard “${raw}” — try “next problem” or “open tests”`, 'surprised');
   }
 
@@ -236,15 +260,22 @@ const assistant = (() => {
       }
       if (this.on) return true;
       const rec = new Recognition();
-      rec.lang = load().lang || navigator.language || 'en-US';
+      rec.lang = this.lang();
       rec.continuous = true;
       rec.interimResults = true;
       rec.onresult = (e) => {
         for (let i = e.resultIndex; i < e.results.length; i++) {
           const r = e.results[i];
           const t = r[0].transcript.trim();
-          if (r.isFinal) interpret(t);
-          else pet()?.say(`🎙 ${t}…`, 1500);
+          // Ignore what the mic picks up while the buddy itself is talking.
+          if (isSpeaking()) continue;
+          if (r.isFinal) {
+            window.copilot?.heard(t, true);
+            interpret(t);
+          } else {
+            window.copilot?.heard(t, false);
+            if (!window.copilot) pet()?.say(`🎙 ${t}…`, 1500);
+          }
         }
       };
       rec.onerror = (e) => {
@@ -287,7 +318,45 @@ const assistant = (() => {
       syncControls();
     },
     toggle() {
-      return this.on ? (this.stop(), false) : this.start();
+      const on = this.on ? (this.stop(), false) : this.start();
+      save({ voiceOn: Boolean(on) });
+      return on;
+    },
+    autoLang: null,
+    lang() {
+      const l = load().lang;
+      if (l && l !== 'auto') return l;
+      if (this.autoLang) return this.autoLang;
+      const all = navigator.languages?.length ? navigator.languages : [navigator.language || 'en-US'];
+      const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
+      return indic ? 'en-IN' : all[0] || 'en-US';
+    },
+    // Auto mode: follow the language the AI heard, so the next sentence is transcribed in it.
+    detected(lang) {
+      if (!lang || (load().lang && load().lang !== 'auto')) return;
+      const cur = this.lang();
+      const base = (x) => x.toLowerCase().split('-')[0];
+      if (base(lang) === base(cur)) return;
+      if (base(lang) === 'en' && cur === 'en-IN') return;
+      this.autoLang = lang;
+      let name = lang;
+      try {
+        name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
+      } catch { /* unknown code */ }
+      toast(`Auto-detected ${name} — listening in it now.`);
+      if (this.on) {
+        this.stop();
+        setTimeout(() => this.start(), 250);
+      }
+    },
+    // Switch the recognition language; restarts the session when listening.
+    setLanguage(lang) {
+      save({ lang });
+      if (this.on) {
+        this.stop();
+        setTimeout(() => this.start(), 250);
+      }
+      syncControls();
     },
   };
 
@@ -403,8 +472,10 @@ const assistant = (() => {
       syncControls();
     },
 
-    toggle() {
-      return this.on ? (this.stop(), false) : this.start();
+    async toggle() {
+      const on = this.on ? (this.stop(), false) : await this.start();
+      save({ gesturesOn: Boolean(on) });
+      return on;
     },
 
     loop() {
@@ -478,9 +549,12 @@ const assistant = (() => {
         if (g) run(g.action, `Gesture “${g.name}”`);
         return;
       }
+      // The air cursor owns pointing, open palm (scroll) and fist; those signs stay quiet then.
+      if (this.suppress.has(name)) return;
       const action = bindings()[name];
       if (action && action !== 'none') run(action, `Gesture ${BUILTIN[name]?.emoji || ''} ${BUILTIN[name]?.label || name}`);
     },
+    suppress: new Set(),
 
     // Training: collect ~45 frames of one held pose, then learn its acceptance radius.
     record({ name, action, onProgress, onDone }) {
@@ -535,8 +609,22 @@ const assistant = (() => {
       gestures.stop();
     });
     syncControls();
+    resume();
+  }
+  // Bring voice and camera back after a reload when they were on and permission is already granted.
+  async function resume() {
+    const granted = async (name) => {
+      try {
+        return (await navigator.permissions.query({ name })).state === 'granted';
+      } catch {
+        return false;
+      }
+    };
+    const cfg = load();
+    if (cfg.voiceOn && voice.supported && (await granted('microphone'))) voice.start();
+    if (cfg.gesturesOn && (await granted('camera'))) gestures.start();
   }
   document.addEventListener('DOMContentLoaded', bind);
 
-  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events };
+  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, normalize, problemByName, closeTop };
 })();
