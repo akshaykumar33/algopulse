@@ -184,6 +184,7 @@
         play([['blink', 120], [PAYOFFS[(boops.count - 1) % PAYOFFS.length], 440]]);
       }
       bounce();
+      chirp('boop');
     }
 
     /* ---- drag (a click that barely moved is a boop) ---- */
@@ -326,6 +327,7 @@
       play(m.seq);
       animate(m.anim);
       burst(m.fx, m.fall);
+      chirp(mood);
       if (m.look) {
         setDirection(m.look);
         timers.push(setTimeout(aim, m.hold || 1200));
@@ -402,6 +404,92 @@
       }
     }, 9000);
 
+    /* ---- little voice: synthesized giggles, sobs and boops (no audio files) ---- */
+    let actx = null;
+    const soundsOn = () => {
+      try {
+        return JSON.parse(localStorage.getItem('algopulse-assistant') || '{}').sounds !== false;
+      } catch {
+        return true;
+      }
+    };
+    // Each note: [start s, length s, from Hz, to Hz, volume, wobble Hz].
+    const SOUNDS = {
+      laugh: [[0, 0.11, 720, 560, 0.16, 0], [0.16, 0.11, 700, 540, 0.15, 0], [0.32, 0.11, 680, 520, 0.14, 0], [0.48, 0.14, 660, 480, 0.12, 0]],
+      giggle: [[0, 0.07, 1050, 900, 0.12, 0], [0.1, 0.07, 1100, 940, 0.12, 0], [0.2, 0.07, 1150, 980, 0.11, 0], [0.3, 0.09, 1200, 1000, 0.1, 0]],
+      cry: [[0, 0.5, 520, 380, 0.12, 7], [0.6, 0.6, 500, 340, 0.1, 7]],
+      sad: [[0, 0.6, 440, 330, 0.1, 4]],
+      love: [[0, 0.14, 660, 660, 0.11, 0], [0.16, 0.24, 880, 880, 0.11, 0]],
+      surprised: [[0, 0.18, 500, 1100, 0.12, 0]],
+      happy: [[0, 0.1, 700, 900, 0.1, 0], [0.12, 0.12, 900, 1200, 0.1, 0]],
+      proud: [[0, 0.1, 660, 660, 0.1, 0], [0.12, 0.1, 830, 830, 0.1, 0], [0.24, 0.22, 990, 990, 0.1, 0]],
+      angry: [[0, 0.16, 300, 260, 0.12, 18], [0.2, 0.16, 290, 250, 0.12, 18]],
+      boop: [[0, 0.08, 900, 1300, 0.09, 0]],
+      dance: [[0, 0.1, 660, 660, 0.08, 0], [0.25, 0.1, 880, 880, 0.08, 0], [0.5, 0.1, 740, 740, 0.08, 0], [0.75, 0.1, 990, 990, 0.08, 0]],
+    };
+    function chirp(name) {
+      const notes = SOUNDS[name];
+      if (!notes || !soundsOn() || document.hidden) return;
+      try {
+        actx ||= new AudioContext();
+        if (actx.state === 'suspended') actx.resume();
+        const t0 = actx.currentTime + 0.02;
+        for (const [at, len, f0, f1, vol, wob] of notes) {
+          const o = actx.createOscillator();
+          const g = actx.createGain();
+          o.type = 'triangle';
+          o.frequency.setValueAtTime(f0, t0 + at);
+          o.frequency.exponentialRampToValueAtTime(f1, t0 + at + len);
+          if (wob) {
+            const lfo = actx.createOscillator();
+            const depth = actx.createGain();
+            lfo.frequency.value = wob;
+            depth.gain.value = f0 * 0.04;
+            lfo.connect(depth).connect(o.frequency);
+            lfo.start(t0 + at);
+            lfo.stop(t0 + at + len);
+          }
+          g.gain.setValueAtTime(0.0001, t0 + at);
+          g.gain.exponentialRampToValueAtTime(vol, t0 + at + 0.015);
+          g.gain.exponentialRampToValueAtTime(0.0001, t0 + at + len);
+          o.connect(g).connect(actx.destination);
+          o.start(t0 + at);
+          o.stop(t0 + at + len + 0.02);
+        }
+      } catch { /* audio blocked until the first click; silent is fine */ }
+    }
+
+    /* ---- feelings that last: "keep laughing" loops until "stop" ---- */
+    let feelTimer = 0;
+    let feeling = null;
+    const lengthOf = (m) => Math.max(m.seq.reduce((n, [, ms]) => n + ms, 0), ANIMS[m.anim]?.[1] || 0, 900);
+    function feel(arg) {
+      const [name, mode] = String(arg || '').trim().toLowerCase().split(/\s+/);
+      clearInterval(feelTimer);
+      feelTimer = 0;
+      feeling = null;
+      el.classList.remove('is-feeling');
+      if (!name || name === 'stop' || name === 'normal' || !MOODS[name]) {
+        timers.forEach(clearTimeout);
+        timers = [];
+        el.dataset.mood = '';
+        setReaction(null);
+        aim();
+        return null;
+      }
+      emote(name);
+      if (mode === 'nonstop' || mode === 'loop' || mode === 'forever') {
+        feeling = name;
+        el.classList.add('is-feeling');
+        feelTimer = setInterval(() => {
+          if (!el.hidden && !document.hidden) emote(name);
+        }, lengthOf(MOODS[name]) + 250);
+        // Endless is a lot; it settles down by itself after two minutes.
+        setTimeout(() => feeling === name && feel('stop'), 120000);
+      }
+      return name;
+    }
+
     function talking(on) {
       el.classList.toggle('is-talking', on);
     }
@@ -410,6 +498,9 @@
       el,
       say,
       emote,
+      feel,
+      feeling: () => feeling,
+      chirp,
       move,
       talking,
       wake,

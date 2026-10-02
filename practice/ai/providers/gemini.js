@@ -2,6 +2,9 @@
  * Google Gemini provider — native HTTPS, no dependencies.
  * Key: GEMINI_API_KEY (or GOOGLE_API_KEY). Model: GEMINI_MODEL (default gemini-3.8-flash).
  * Effort: GEMINI_THINKING = low | medium | high (default high) on Gemini 3 models.
+ *
+ * Besides text, it can listen (audio in, JSON out) and speak (text in, audio out),
+ * which the voice companion uses to hear any language and answer in a cute voice.
  */
 
 const https = require('https');
@@ -18,6 +21,14 @@ function toGeminiSchema(schema) {
     else out[k] = toGeminiSchema(v);
   }
   return out;
+}
+
+// Gemini 3 takes a thinking level; 2.x takes a token budget. Low effort sends neither,
+// since the -latest aliases reject a budget they do not support.
+function thinkingFor(model, thinking, schema) {
+  if (/^gemini-[3-9]/.test(model)) return { thinkingConfig: { thinkingLevel: thinking || env('GEMINI_THINKING') || 'high' } };
+  if (thinking === 'low') return {};
+  return { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } };
 }
 
 module.exports = {
@@ -38,25 +49,48 @@ module.exports = {
 
   fallbackEnv: 'GEMINI_FALLBACK_MODELS',
 
-  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000, model: pick }) {
-    const apiKey = this.getKey();
-    const model = pick || this.getModel();
-    if (!apiKey) return Promise.reject(new Error('GEMINI_API_KEY is not set'));
+  complete({ system, prompt, schema, maxTokens = 8192, timeoutMs = 90000, model: pick, thinking }) {
+    return this.generate({ system, parts: [{ text: prompt }], schema, maxTokens, timeoutMs, model: pick, thinking });
+  },
 
-    const payload = JSON.stringify({
+  // Text (and optionally audio) in, text out. `parts` may hold inlineData audio.
+  async generate({ system, parts, schema, maxTokens = 8192, timeoutMs = 90000, model: pick, thinking }) {
+    const model = pick || this.getModel();
+    const json = await this.call(model, {
       ...(system ? { systemInstruction: { parts: [{ text: system }] } } : {}),
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      contents: [{ role: 'user', parts }],
       generationConfig: {
-        // Gemini 3 takes a thinking level and is tuned for its default temperature;
-        // 2.x models take a token budget and do better cooler for factual docs.
-        ...(/^gemini-[3-9]/.test(model)
-          ? { thinkingConfig: { thinkingLevel: env('GEMINI_THINKING') || 'high' } }
-          : { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } }),
+        ...thinkingFor(model, thinking, schema),
         maxOutputTokens: maxTokens,
         ...(schema ? { responseMimeType: 'application/json', responseSchema: toGeminiSchema(schema) } : {}),
       },
-    });
+    }, timeoutMs);
+    const candidate = json.candidates?.[0];
+    // Thinking models may split the answer across parts; skip thought parts.
+    const text = (candidate?.content?.parts || []).filter((p) => p.text && !p.thought).map((p) => p.text).join('');
+    if (!text) throw new Error(`${model}: empty response (${candidate?.finishReason || json.promptFeedback?.blockReason || 'unknown'})`);
+    if (candidate.finishReason === 'MAX_TOKENS') throw new Error(`${model}: response truncated at ${maxTokens} tokens`);
+    return text;
+  },
 
+  // Text to speech: returns 24 kHz mono 16-bit PCM as base64.
+  async speak({ text, voice, style, model, timeoutMs = 30000 }) {
+    const json = await this.call(model, {
+      contents: [{ role: 'user', parts: [{ text: style ? `${style}: ${text}` : text }] }],
+      generationConfig: {
+        responseModalities: ['AUDIO'],
+        speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } },
+      },
+    }, timeoutMs);
+    const part = (json.candidates?.[0]?.content?.parts || []).find((p) => p.inlineData?.data);
+    if (!part) throw new Error(`${model}: no audio returned`);
+    return { pcm: part.inlineData.data, mime: part.inlineData.mimeType || 'audio/L16;rate=24000' };
+  },
+
+  call(model, body, timeoutMs) {
+    const apiKey = this.getKey();
+    if (!apiKey) return Promise.reject(new Error('GEMINI_API_KEY is not set'));
+    const payload = JSON.stringify(body);
     return new Promise((resolve, reject) => {
       const req = https.request(
         {
@@ -72,22 +106,17 @@ module.exports = {
           timeout: timeoutMs,
         },
         (res) => {
-          let body = '';
-          res.on('data', (c) => (body += c));
+          let raw = '';
+          res.on('data', (c) => (raw += c));
           res.on('end', () => {
             let json;
             try {
-              json = JSON.parse(body);
+              json = JSON.parse(raw);
             } catch {
               return reject(new Error(`Gemini returned non-JSON (HTTP ${res.statusCode})`));
             }
             if (res.statusCode !== 200) return reject(new Error(`${model}: ${json.error?.message || `HTTP ${res.statusCode}`}`));
-            const candidate = json.candidates?.[0];
-            // Thinking models may split the answer across parts; skip thought parts.
-            const text = (candidate?.content?.parts || []).filter((p) => p.text && !p.thought).map((p) => p.text).join('');
-            if (!text) return reject(new Error(`${model}: empty response (${candidate?.finishReason || json.promptFeedback?.blockReason || 'unknown'})`));
-            if (candidate.finishReason === 'MAX_TOKENS') return reject(new Error(`${model}: response truncated at ${maxTokens} tokens`));
-            resolve(text);
+            resolve(json);
           });
         }
       );
