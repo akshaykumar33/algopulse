@@ -1,11 +1,11 @@
 /**
- * Copilot — "do whatever I say", plus a proper voice bar and an air cursor.
+ * Copilot — "do whatever I say", a live chat beside the buddy, and an air cursor.
  *
  *  - Brain: free speech in any language (or a mix) goes to /api/agent/plan, which returns
  *    a short plan of known studio actions. They run one at a time, narrated by the buddy.
  *    Nothing the model writes ever executes as code in the page — only listed actions run.
- *  - Ears: a voice bar shows the live transcript, a microphone level meter, the listening
- *    language and what the copilot is doing step by step.
+ *  - Ears: a chat panel beside the buddy shows your live words, its replies, a mic level
+ *    meter, the language it is actually listening in, and each step it runs.
  *  - Hands: with the camera on, the index fingertip drives an on-screen cursor, a pinch
  *    clicks, and an open palm moving up/down scrolls. Signs (👍 ✌️ …) keep working.
  *
@@ -29,59 +29,215 @@ const copilot = (() => {
   ];
 
   /* ======================================================================
-     Voice bar (HUD)
+     Chat: the whole conversation floats right beside the buddy
      ====================================================================== */
   let hud;
+  let log;
+  const history = [];
+  let liveItem = null;
+  let stepsItem = null;
+  let idleTimer = 0;
+  let pinned = false;
+
+  function langName(code) {
+    try {
+      return new Intl.DisplayNames([navigator.language || 'en'], { type: 'language' }).of(code);
+    } catch {
+      return code;
+    }
+  }
+
   function mountHud() {
-    hud = document.createElement('div');
-    hud.className = 'voicebar';
-    hud.id = 'voicebar';
+    hud = document.createElement('section');
+    hud.className = 'buddy-chat';
+    hud.id = 'buddyChat';
     hud.hidden = true;
-    hud.setAttribute('role', 'status');
+    hud.setAttribute('aria-label', 'Chat with your buddy');
     hud.innerHTML = `
-      <span class="vb-state" aria-hidden="true"><i class="ph-fill ph-microphone"></i></span>
-      <span class="vb-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-      <div class="vb-body">
-        <p class="vb-text" id="vbText">Listening… say anything, in any language.</p>
-        <ol class="vb-steps" id="vbSteps"></ol>
-      </div>
-      <label class="visually-hidden" for="vbLang">Listening language</label>
-      <select class="vb-lang" id="vbLang" title="Listening language">${LANGUAGES.map(([c, n]) => `<option value="${c}">${n}</option>`).join('')}</select>
-      <button class="btn btn-ghost btn-icon btn-sm" type="button" id="vbStop" aria-label="Stop listening" title="Stop listening (V)"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>`;
+      <header class="bc-head">
+        <span class="vb-state" aria-hidden="true"><i class="ph-fill ph-chat-circle-dots"></i></span>
+        <div class="bc-title"><strong id="bcName">Pip</strong><span class="bc-status" id="bcStatus"></span></div>
+        <span class="vb-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <button class="bc-icon" type="button" id="bcMic" aria-pressed="false" title="Talk to me (V)" aria-label="Microphone"><i class="ph-fill ph-microphone"></i></button>
+        <button class="bc-icon" type="button" id="bcClose" aria-label="Close chat" title="Close (B)"><i class="ph-bold ph-x"></i></button>
+      </header>
+      <ol class="bc-log" id="bcLog" aria-live="polite"></ol>
+      <form class="bc-form" id="bcForm" autocomplete="off">
+        <label class="visually-hidden" for="bcInput">Message your buddy</label>
+        <input id="bcInput" type="text" maxlength="500" placeholder="Type, or just talk…" enterkeyhint="send">
+        <button class="bc-send" type="submit" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
+      </form>`;
     document.body.append(hud);
-    hud.querySelector('#vbStop').addEventListener('click', () => A().voice.stop());
-    hud.querySelector('#vbLang').addEventListener('change', (e) => {
-      A().voice.setLanguage(e.target.value);
-      A().feedback(`Listening in ${e.target.selectedOptions[0].textContent.split(' · ')[0]}`, 'wink');
+    log = hud.querySelector('#bcLog');
+    hud.querySelector('#bcClose').addEventListener('click', closeChat);
+    hud.querySelector('#bcMic').addEventListener('click', () => A().voice.toggle());
+    hud.querySelector('#bcForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = hud.querySelector('#bcInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      say('me', text);
+      A().interpret(text);
+    });
+    hud.addEventListener('focusin', scheduleIdle);
+    pet()?.el.addEventListener('mascot:move', position);
+    pet()?.el.addEventListener('dblclick', () => openChat(true));
+    addEventListener('resize', position);
+    addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() !== 'b' || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.target.closest('input, textarea, select, [contenteditable]')) return;
+      if ([...document.querySelectorAll('dialog')].some((d) => d.matches(':modal'))) return;
+      if (hud.hidden) openChat(true);
+      else closeChat();
     });
     document.addEventListener('assistant:change', syncHud);
     syncHud();
   }
 
+  // Sit beside the buddy (left of it, else above or below); dock to the bottom on phones.
+  function position() {
+    if (!hud || hud.hidden) return;
+    const m = pet()?.el;
+    const docked = !m || m.hidden || innerWidth < 640;
+    hud.classList.toggle('is-docked', docked);
+    if (docked) {
+      hud.style.left = hud.style.top = '';
+      return;
+    }
+    const r = m.getBoundingClientRect();
+    const w = hud.offsetWidth;
+    const h = hud.offsetHeight;
+    let x = r.left - w - 12;
+    let y = r.bottom - h;
+    if (x < 8) {
+      x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+      y = r.top - h - 12;
+      if (y < 72) y = r.bottom + 12;
+    }
+    y = Math.min(Math.max(72, y), innerHeight - h - 8);
+    hud.style.left = `${x}px`;
+    hud.style.top = `${y}px`;
+    hud.dataset.side = x + w <= r.left ? 'left' : 'stack';
+  }
+
+  function openChat(byHand) {
+    if (!hud) return;
+    if (byHand === true) pinned = true;
+    const was = hud.hidden;
+    hud.hidden = false;
+    pet()?.el.classList.add('has-chat');
+    if (was && !log.children.length) {
+      const li = document.createElement('li');
+      li.className = 'bc-msg pip';
+      li.textContent = `Hi! I'm ${pet()?.name?.() || 'Pip'} 💛 Talk or type to me. I can open problems, run tests, write code, tell jokes, dance…`;
+      log.append(li);
+    }
+    position();
+    if (byHand === true) hud.querySelector('#bcInput').focus({ preventScroll: true });
+    scheduleIdle();
+  }
+  function closeChat() {
+    if (!hud) return;
+    hud.hidden = true;
+    pinned = false;
+    pet()?.el.classList.remove('has-chat');
+  }
+  // Tucks itself away after a quiet spell, unless it was opened by hand or the mic is on.
+  function scheduleIdle() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      if (!pinned && !A().voice.on && !busy && !hud.contains(document.activeElement)) closeChat();
+      else scheduleIdle();
+    }, 30000);
+  }
+
+  function scrollLog() {
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function say(who, text, opts = {}) {
+    if (!hud || !text) return null;
+    openChat();
+    if (who === 'me') {
+      liveItem?.remove();
+      liveItem = null;
+    }
+    const li = document.createElement('li');
+    li.className = `bc-msg ${who}${opts.error ? ' is-error' : ''}`;
+    li.textContent = text;
+    log.append(li);
+    history.push({ who, text });
+    if (history.length > 24) history.shift();
+    while (log.children.length > 40) log.firstElementChild.remove();
+    scrollLog();
+    position();
+    scheduleIdle();
+    return li;
+  }
+
+  function typing(on) {
+    log?.querySelector('.bc-typing')?.remove();
+    if (!on || !log) return;
+    const li = document.createElement('li');
+    li.className = 'bc-msg pip bc-typing';
+    li.setAttribute('aria-label', 'thinking');
+    li.innerHTML = '<i></i><i></i><i></i>';
+    log.append(li);
+    scrollLog();
+  }
+
+  function statusText(kind) {
+    if (kind === 'listening') {
+      const fixed = A().load().lang && A().load().lang !== 'auto';
+      return `Listening · ${langName(A().voice.lang())}${fixed ? '' : ' (auto)'}`;
+    }
+    if (kind === 'thinking') return 'Thinking…';
+    return A().voice.supported ? 'Mic off · type, or press V' : 'Type to chat';
+  }
+
   function setState(kind, text) {
     if (!hud) return;
-    hud.dataset.state = kind; // listening | thinking | doing | error
-    const icon = { listening: 'ph-microphone', thinking: 'ph-brain', doing: 'ph-lightning', error: 'ph-warning' }[kind] || 'ph-microphone';
+    hud.dataset.state = kind; // idle | listening | thinking | doing | error
+    const icon = { listening: 'ph-microphone', thinking: 'ph-brain', doing: 'ph-lightning', error: 'ph-warning' }[kind] || 'ph-chat-circle-dots';
     hud.querySelector('.vb-state').innerHTML = `<i class="ph-fill ${icon}"></i>`;
-    if (text !== undefined) hud.querySelector('#vbText').textContent = text;
+    hud.querySelector('#bcStatus').textContent = text ?? statusText(kind);
   }
 
   function syncHud() {
     if (!hud) return;
     const on = A().voice.on;
-    hud.hidden = !on;
-    hud.querySelector('#vbLang').value = A().load().lang || 'auto';
-    hud.querySelector('#vbLang option[value=auto]').textContent = `Auto · ${A().voice.lang()}`;
+    const mic = hud.querySelector('#bcMic');
+    mic.setAttribute('aria-pressed', String(on));
+    mic.classList.toggle('is-on', on);
+    hud.querySelector('#bcName').textContent = pet()?.name?.() || 'Pip';
     if (on) {
+      openChat();
       startMeter();
-      if (!busy) setState('listening', 'Listening… say anything, in any language.');
     } else stopMeter();
+    if (!busy) setState(on ? 'listening' : 'idle');
   }
 
-  // Live words as they are recognised.
+  // Live words as they are recognised; the final sentence becomes your chat message.
   function heard(text, final) {
-    if (!hud || busy) return;
-    setState('listening', final ? `“${text}”` : `${text}…`);
+    if (!hud || !text) return;
+    if (final) return void say('me', text);
+    openChat();
+    if (!liveItem || !liveItem.isConnected) {
+      liveItem = document.createElement('li');
+      liveItem.className = 'bc-msg me is-live';
+      log.append(liveItem);
+    }
+    liveItem.textContent = `${text}…`;
+    scrollLog();
+  }
+
+  // The buddy answers: in the chat, with a face to match, and out loud when talk-back is on.
+  function reply(text, mood = 'happy', lang) {
+    if (!text) return;
+    say('pip', text);
+    pet()?.react(mood, 900);
+    A().speak(text, lang);
   }
 
   /* ---- microphone level meter (Web Audio, local only) ---- */
@@ -281,6 +437,10 @@ const copilot = (() => {
     'stop-voice': async () => A().voice.stop(),
     'set-language': async (arg) => A().voice.setLanguage(arg),
     say: async () => {},
+    buddy: async (arg) => {
+      pet()?.move(arg.trim().toLowerCase());
+      await sleep(900);
+    },
   };
 
   function localTodayIso() {
@@ -294,64 +454,115 @@ const copilot = (() => {
   };
 
   function renderSteps(steps, at, failed = -1) {
-    const ol = hud?.querySelector('#vbSteps');
-    if (!ol) return;
-    ol.innerHTML = steps
+    if (!log || !steps.length) return;
+    if (!stepsItem || !stepsItem.isConnected) {
+      stepsItem = document.createElement('li');
+      stepsItem.className = 'bc-msg pip bc-steps-msg';
+      stepsItem.innerHTML = '<ol class="vb-steps"></ol>';
+      log.append(stepsItem);
+    }
+    stepsItem.firstElementChild.innerHTML = steps
       .map((s, i) => `<li class="${i < at ? 'done' : i === at ? (failed === i ? 'failed' : 'now') : ''}">${escapeHtml(STEP_LABEL(s))}</li>`)
       .join('');
+    scrollLog();
+  }
+
+  /* ---- small talk that needs no AI: instant, works offline ---- */
+  const JOKES = [
+    'Why do programmers prefer dark mode? Because light attracts bugs! 🐛',
+    'I told my code a joke… it threw an exception. 😆',
+    'Why was the array so calm? It had everything in order. Well, after sorting. 😌',
+    'A binary search walks into a bar… then the middle of the bar… then the middle of that. 🍹',
+    "Why did the hamster fail the interview? Kept running in O(∞) circles on the wheel! 🐹",
+    'My favourite data structure? A heap — of snacks. 🥜',
+    "Recursion joke: to understand it, first understand recursion. 😄",
+    'Why did the stack break up with the queue? It wanted someone who puts it first! 💔',
+  ];
+  const pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const TALK = [
+    [/\b(tell|say|crack)\b.*\bjoke\b|\bjoke\b|make me laugh|funny/, () => [pick(JOKES), 'laugh']],
+    [/^(laugh|lol|haha+|hehe+|giggle)\b/, () => ['Hehehe! 🤭', 'giggle']],
+    [/\b(dance|party|groove)\b/, () => ['Watch my moves! 💃', 'dance', 'dance']],
+    [/\b(jump|hop)\b/, () => ['Boing! 🐰', 'surprised', 'jump']],
+    [/\b(spin|twirl|turn around)\b/, () => ['Wheee! 💫', 'happy', 'spin']],
+    [/\b(come here|come closer|come to me)\b/, () => ['Coming! 🏃', 'happy', 'come-here']],
+    [/\bgo (to the )?(left|right|top|bottom|center|centre|home)\b/, (m) => ['On my way!', 'happy', `go-${m[2] === 'centre' ? 'center' : m[2]}`]],
+    [/^(hide|peekaboo|peek a boo|play hide and seek)$/, () => ['Peekaboo! 🙈', 'giggle', 'hide']],
+    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => [`Hi hi! 👋 I'm ${pet()?.name?.() || 'Pip'}. What shall we solve today?`, 'wave', 'wave']],
+    [/\bhow are you\b|\bhow r u\b|\bkaise ho\b/, () => ["I'm super, thanks for asking! Ready to crunch some problems? 💪", 'happy']],
+    [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, () => ["Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
+    [/^(cry|be sad|can you cry)\b/, () => ['Waaah… 😢 okay okay, I am fine now!', 'cry']],
+    [/\b(i love you|love you|you are cute|you're cute|cutie)\b/, () => ['Aww! I love you too! 💕', 'love']],
+    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy)?$/, () => ['Hehe, thank you! You are the best! 🌟', 'proud']],
+    [/\b(take a nap|nap time|good night)\b/, () => ['Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
+    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Grrr! …just kidding, I could never be mad at you. 😤💛', 'angry']],
+  ];
+  function smallTalk(raw) {
+    const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
+    for (const [re, make] of TALK) {
+      const m = t.match(re);
+      if (!m) continue;
+      const [text, mood, move] = make(m);
+      reply(text, mood);
+      if (move) setTimeout(() => pet()?.move(move), 150);
+      return true;
+    }
+    return false;
+  }
+  function offline(raw) {
+    reply(`I heard “${raw}”, but my AI brain is not set up yet, so I only know simple things: “next problem”, “run tests”, “tell me a joke”, “dance”… Add a key in Guide → Choose your AI and I can do anything!`, 'shy');
   }
 
   async function handle(utterance) {
     if (busy) {
-      A().feedback('One moment, still on the last thing…', 'bashful');
+      reply('One moment, still on the last thing…', 'shy');
       return;
     }
     busy = true;
-    if (hud && !hud.hidden) setState('thinking', `“${utterance}” — thinking…`);
-    pet()?.react('sleepy', 800);
+    setState('thinking');
+    typing(true);
+    pet()?.react('think');
     let plan;
     try {
-      plan = await api('/api/agent/plan', { utterance, ctx: context() });
+      const past = history.slice(0, -1).slice(-8);
+      plan = await api('/api/agent/plan', { utterance, ctx: { ...context(), buddy: pet()?.el.getAttribute('aria-label')?.split('.')[0], history: past } });
     } catch (err) {
       busy = false;
-      setState('error', err.message);
-      A().feedback("Sorry, I couldn't reach my brain just now", 'surprised');
+      typing(false);
+      setState('error', 'Could not reach the AI');
+      say('pip', `Sorry, my brain hiccuped: ${err.message}`, { error: true });
+      pet()?.react('sad');
       return;
     }
+    typing(false);
     lastLang = plan.lang || lastLang;
     A().voice.detected(plan.lang);
     const sayStep = plan.steps.find((s) => s.action === 'say');
-    const reply = plan.reply || sayStep?.arg || '';
-    pet()?.say(reply || '👍', 3500);
-    pet()?.react('delighted', 700);
-    A().speak(reply, lastLang);
+    reply(plan.reply || sayStep?.arg || '👍', plan.mood || 'happy', lastLang);
     A().log(`Voice “${utterance}” → ${plan.steps.map((s) => s.action).join(', ') || 'chat'}`);
 
     const steps = plan.steps.filter((s) => s.action !== 'say' || !plan.reply);
+    stepsItem = null;
     renderSteps(steps, 0);
     for (let i = 0; i < steps.length; i++) {
       const s = steps[i];
-      setState('doing', reply || STEP_LABEL(s));
+      setState('doing', STEP_LABEL(s));
       renderSteps(steps, i);
       try {
         await STEPS[s.action]?.(s.arg || '');
         await sleep(250);
       } catch (err) {
         renderSteps(steps, i, i);
-        setState('error', err.message);
-        A().feedback(`I got stuck: ${err.message}`, 'surprised');
+        setState('error', 'Got stuck');
+        say('pip', `I got stuck: ${err.message}`, { error: true });
+        pet()?.react('sad');
         busy = false;
         return;
       }
     }
     renderSteps(steps, steps.length);
     busy = false;
-    setTimeout(() => {
-      if (!busy && A().voice.on) {
-        setState('listening', 'Listening… say anything, in any language.');
-        renderSteps([], 0);
-      }
-    }, 4000);
+    setState(A().voice.on ? 'listening' : 'idle');
   }
 
   /* ======================================================================
@@ -370,7 +581,7 @@ const copilot = (() => {
 
     settings() {
       const s = A().load();
-      return { enabled: s.airCursor !== false, sensitivity: s.cursorSensitivity || 1.6, smoothing: s.cursorSmoothing ?? 0.35 };
+      return { enabled: s.airCursor === true, sensitivity: s.cursorSensitivity || 1.6, smoothing: s.cursorSmoothing ?? 0.35 };
     },
     mount() {
       this.el = document.createElement('div');
@@ -492,6 +703,12 @@ const copilot = (() => {
     ready: () => Boolean(state.aiReady),
     handle,
     heard,
+    reply,
+    say,
+    smallTalk,
+    offline,
+    open: openChat,
+    close: closeChat,
     LANGUAGES,
     cursor,
     STEPS,

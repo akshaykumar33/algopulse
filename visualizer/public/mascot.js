@@ -110,6 +110,7 @@
       el.style.left = `${nx}px`;
       el.style.top = `${ny}px`;
       if (persist) save({ x: nx / innerWidth, y: ny / innerHeight });
+      el.dispatchEvent(new Event('mascot:move'));
     }
     const saved = load();
     const home = () => place(innerWidth - size().width - 24, innerHeight - size().height - 96);
@@ -266,9 +267,153 @@
       if (typeof toast === 'function') toast(shown ? 'Pip is back!' : 'Pip is napping. Press M to wake them.');
     });
 
+    /* ---- emotions: sprite face + body animation + floating effects ---- */
+    const MOODS = {
+      happy: { seq: [['delighted', 900]], anim: 'hop', fx: ['✨', '✨', '💛'] },
+      laugh: { seq: [['delighted', 450], ['wink', 220], ['delighted', 450], ['wink', 220], ['delighted', 400]], anim: 'laugh', fx: ['😂', 'ha', 'ha', '🤣'] },
+      giggle: { seq: [['wink', 300], ['bashful', 300], ['wink', 300]], anim: 'wiggle', fx: ['hehe', '🤭', 'hee'] },
+      love: { seq: [['heart', 1400]], anim: 'pulse', fx: ['❤️', '💕', '💖', '💗'] },
+      surprised: { seq: [['surprised', 900]], anim: 'jump', fx: ['❗', '⁉️'] },
+      shy: { seq: [['bashful', 1300]], anim: 'sway', fx: ['🌸', '☺️'] },
+      think: { seq: [['blink', 160]], anim: 'tilt', fx: ['💭', '🤔'], look: 'up-right', hold: 1400 },
+      sad: { seq: [['sleepy', 1800]], anim: 'droop', fx: ['🌧️', '💧'], fall: true, tint: 'sad' },
+      cry: { seq: [['bashful', 500], ['sleepy', 1600]], anim: 'sob', fx: ['💧', '💧', '💧', '😢', '💧'], fall: true, tint: 'sad' },
+      angry: { seq: [['dizzy', 1100]], anim: 'shake', fx: ['💢', '😤'], tint: 'angry' },
+      sleepy: { seq: [['sleepy', 2000]], anim: 'droop', fx: ['💤', 'z', 'Z'] },
+      wink: { seq: [['wink', 700]], anim: 'hop', fx: ['😉'] },
+      proud: { seq: [['sparkle', 1300]], anim: 'jump', fx: ['⭐', '🏆', '✨', '🌟'] },
+      calm: { seq: [['blink', 160]], anim: 'sway', fx: ['🍃'] },
+      dance: { seq: [['delighted', 500], ['wink', 500], ['sparkle', 500], ['delighted', 500]], anim: 'dance', fx: ['🎵', '🎶', '💃', '🎵'] },
+      wave: { seq: [['wink', 900]], anim: 'wave', fx: ['👋'] },
+    };
+    const ANIMS = {
+      hop: [[{ transform: 'translateY(0) scale(1)' }, { transform: 'translateY(-14px) scale(0.96,1.05)', offset: 0.35 }, { transform: 'translateY(0) scale(1.06,0.94)', offset: 0.7 }, { transform: 'translateY(0) scale(1)' }], 600],
+      jump: [[{ transform: 'translateY(0)' }, { transform: 'translateY(-30px) scale(0.94,1.08)', offset: 0.4 }, { transform: 'translateY(0) scale(1.1,0.9)', offset: 0.75 }, { transform: 'none' }], 700],
+      laugh: [[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ transform: `translateY(${i % 2 ? -6 : 0}px) rotate(${i % 2 ? 4 : -4}deg)` })).concat({ transform: 'none' }), 1500],
+      wiggle: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-8deg)' }, { transform: 'rotate(8deg)' }, { transform: 'rotate(-6deg)' }, { transform: 'rotate(6deg)' }, { transform: 'rotate(0)' }], 900],
+      pulse: [[{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }, { transform: 'scale(1.1)' }, { transform: 'scale(1)' }], 1200],
+      sway: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-5deg) translateX(-3px)' }, { transform: 'rotate(5deg) translateX(3px)' }, { transform: 'rotate(0)' }], 1300],
+      tilt: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-10deg)', offset: 0.3 }, { transform: 'rotate(-10deg)', offset: 0.8 }, { transform: 'rotate(0)' }], 1600],
+      droop: [[{ transform: 'translateY(0) scale(1)' }, { transform: 'translateY(6px) scale(1.04,0.92)', offset: 0.3 }, { transform: 'translateY(6px) scale(1.04,0.92)', offset: 0.85 }, { transform: 'none' }], 2000],
+      sob: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => ({ transform: `translateY(${4 + (i % 2) * 3}px) scale(1.03,${i % 2 ? 0.93 : 0.97})` })).concat({ transform: 'none' }), 2000],
+      shake: [[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ transform: `translateX(${i % 2 ? 6 : -6}px)` })).concat({ transform: 'none' }), 700],
+      dance: [[{ transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(-14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(-14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(14deg) translateY(-10px)' }, { transform: 'none' }], 2000],
+      spin: [[{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], 800],
+      wave: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(0)' }], 1000],
+    };
+    function animate(name) {
+      if (reduced.matches || !ANIMS[name]) return;
+      const [frames, duration] = ANIMS[name];
+      squash.animate(frames, { duration, easing: 'ease-in-out' });
+    }
+    function burst(fx, fall) {
+      if (reduced.matches || !fx?.length) return;
+      fx.forEach((ch, i) => {
+        const s = document.createElement('span');
+        s.className = `mascot-fx${fall ? ' is-fall' : ''}`;
+        s.textContent = ch;
+        s.style.setProperty('--x', `${(i - (fx.length - 1) / 2) * 22 + (Math.random() * 10 - 5)}px`);
+        s.style.animationDelay = `${i * 140}ms`;
+        el.append(s);
+        setTimeout(() => s.remove(), 2200 + i * 140);
+      });
+    }
+    let tintTimer = 0;
+    function emote(mood) {
+      const m = MOODS[mood];
+      if (!m || el.hidden) return;
+      wake();
+      play(m.seq);
+      animate(m.anim);
+      burst(m.fx, m.fall);
+      if (m.look) {
+        setDirection(m.look);
+        timers.push(setTimeout(aim, m.hold || 1200));
+      }
+      clearTimeout(tintTimer);
+      el.dataset.mood = m.tint || '';
+      if (m.tint) tintTimer = setTimeout(() => (el.dataset.mood = ''), 2600);
+    }
+
+    /* ---- moving around on request ---- */
+    function glide(x, y) {
+      el.classList.add('is-gliding');
+      place(x, y, true);
+      setTimeout(() => el.classList.remove('is-gliding'), 750);
+    }
+    function move(where) {
+      if (el.hidden) toggle(true);
+      wake();
+      const r = size();
+      const w = (where || '').toLowerCase();
+      if (w === 'spin') return animate('spin'), burst(['💫', '✨']);
+      if (w === 'jump') return emote('surprised'), animate('jump');
+      if (MOODS[w]) return emote(w);
+      if (w === 'hide' || w === 'peek') {
+        if (reduced.matches) return;
+        squash.animate([{ transform: 'none' }, { transform: 'translateY(120%) scale(0.6)', offset: 0.25 }, { transform: 'translateY(120%) scale(0.6)', offset: 0.75 }, { transform: 'none' }], { duration: w === 'peek' ? 1600 : 3000, easing: 'ease-in-out' });
+        return timers.push(setTimeout(() => emote('giggle'), w === 'peek' ? 1200 : 2600));
+      }
+      const spots = {
+        'go-left': [16, r.top],
+        'go-right': [innerWidth - r.width - 16, r.top],
+        'go-top': [r.left, 80],
+        'go-bottom': [r.left, innerHeight - r.height - 16],
+        'go-center': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'go-home': [innerWidth - r.width - 24, innerHeight - r.height - 96],
+        'come-here': pointer ? [pointer.x - r.width / 2 + 60, pointer.y - r.height / 2] : [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+      };
+      const spot = spots[w] || spots[`go-${w}`];
+      if (!spot) return;
+      glide(spot[0], spot[1]);
+      timers.push(setTimeout(() => emote('happy'), 700));
+    }
+
+    /* ---- idle life: looks around, yawns, naps; wakes when you come back ---- */
+    let lastActive = Date.now();
+    let asleep = false;
+    function wake() {
+      lastActive = Date.now();
+      if (asleep) {
+        asleep = false;
+        el.classList.remove('is-asleep');
+        play([['surprised', 500], ['delighted', 600]]);
+        say('Oh! Hi again! 👋', 1800);
+      }
+    }
+    ['pointermove', 'keydown', 'pointerdown'].forEach((t) => addEventListener(t, () => (asleep ? wake() : (lastActive = Date.now())), { passive: true }));
+    setInterval(() => {
+      if (el.hidden || document.hidden || reaction) return;
+      const idle = Date.now() - lastActive;
+      if (idle > 150000 && !asleep) {
+        asleep = true;
+        el.classList.add('is-asleep');
+        setReaction('sleepy');
+        burst(['💤', 'z', 'Z']);
+        return;
+      }
+      if (asleep) return burst(['z']);
+      if (idle > 20000 && Math.random() < 0.35) {
+        const pick = ['look', 'look', 'wink', 'calm', 'think', 'sleepy'][Math.floor(Math.random() * 6)];
+        if (pick === 'look') {
+          setDirection(['left', 'right', 'up-left', 'up-right'][Math.floor(Math.random() * 4)]);
+          timers.push(setTimeout(aim, 1100));
+        } else emote(pick);
+      }
+    }, 9000);
+
+    function talking(on) {
+      el.classList.toggle('is-talking', on);
+    }
+
     window.mascot = {
       el,
       say,
+      emote,
+      move,
+      talking,
+      wake,
+      moods: Object.keys(MOODS),
       setCharacter,
       character: () => el.dataset.character,
       name: () => CHARACTERS[el.dataset.character].split(' ')[0],
@@ -279,6 +424,7 @@
         el.classList.toggle('is-watching', on);
       },
       react(name, ms = 900) {
+        if (MOODS[name]) return emote(name);
         if (el.hidden || !REACTIONS.includes(name)) return;
         play([[name, ms]]);
         bounce();
