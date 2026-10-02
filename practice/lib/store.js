@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 const { computeProgress, problemLevel } = require('./progression');
+const { scanStatement } = require('./injection');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
@@ -101,10 +102,48 @@ function loadStory(dayDir, file) {
   }
 }
 
+/* ---------- pasted statements (scanned for prompt injection) ---------- */
+
+const statementPath = (dayDir, file) => path.join(dayDir, 'statements', `${file}.md`);
+const loadStatement = (dayDir, file) => readIf(statementPath(dayDir, file));
+
+// Strip sentences aimed at AI before anything stores or sends the statement; return
+// what was removed so the UI can show it word for word (CLAUDE.md §5).
+function saveStatement(dayDir, file, text) {
+  const { clean, findings } = scanStatement(text);
+  fs.mkdirSync(path.join(dayDir, 'statements'), { recursive: true });
+  fs.writeFileSync(statementPath(dayDir, file), clean, 'utf-8');
+  return { statement: clean, findings };
+}
+
+/* ---------- solution lock ---------- */
+
+// reveals.json: { "<file>": { at, wasSolved } }. A reveal before solving forfeits the
+// problem's XP and counts as not solved for difficulty promotion.
+const revealsPath = (dayDir) => path.join(dayDir, 'reveals.json');
+function loadReveals(dayDir) {
+  try {
+    return JSON.parse(readIf(revealsPath(dayDir)) || '{}');
+  } catch {
+    return {};
+  }
+}
+function reveal(dayDir, file) {
+  const reveals = loadReveals(dayDir);
+  if (!reveals[file]) {
+    reveals[file] = { at: new Date().toISOString(), wasSolved: completedFiles(dayDir).has(file) };
+    fs.writeFileSync(revealsPath(dayDir), JSON.stringify(reveals, null, 2), 'utf-8');
+  }
+  return reveals[file];
+}
+const isUnlocked = (dayDir, file) => completedFiles(dayDir).has(file) || Boolean(loadReveals(dayDir)[file]);
+// Solved without peeking first.
+const unaided = (reveals, file) => !reveals[file] || reveals[file].wasSolved;
+
 // What an AI provider is allowed to see: the verified reference and the samples.
 function groundingFor(dayDir, problem) {
   const ref = referencePath(dayDir, problem.file);
-  return { solution: ref ? readIf(ref) : null, tests: loadTests(dayDir, problem.file) };
+  return { solution: ref ? readIf(ref) : null, tests: loadTests(dayDir, problem.file), statement: loadStatement(dayDir, problem.file) };
 }
 
 // The learner's local calendar date, YYYY-MM-DD.
@@ -124,9 +163,10 @@ function progress() {
   for (const date of listDays()) {
     const set = loadSet(date);
     const done = completedFiles(path.join(DAYS_DIR, date));
+    const reveals = loadReveals(path.join(DAYS_DIR, date));
     setSizes[date] = (set.problems || []).length;
     for (const p of set.problems || []) {
-      if (done.has(p.file)) solved.push({ date, platform: (p.platform || 'codeforces').toLowerCase(), level: problemLevel(p) });
+      if (done.has(p.file) && unaided(reveals, p.file)) solved.push({ date, platform: (p.platform || 'codeforces').toLowerCase(), level: problemLevel(p) });
     }
   }
   return computeProgress({ solved, setSizes, languages: solved.length ? ['javascript'] : [], today: localToday() });
@@ -145,9 +185,10 @@ function rampStatus() {
   for (const date of listDays()) {
     if (date >= today) continue;
     const done = completedFiles(path.join(DAYS_DIR, date));
+    const reveals = loadReveals(path.join(DAYS_DIR, date));
     for (const p of loadSet(date).problems || []) {
       const plat = (p.platform || 'codeforces').toLowerCase();
-      if (records[plat]) records[plat].push({ date, outcome: done.has(p.file) ? 'solved' : 'unsolved' });
+      if (records[plat]) records[plat].push({ date, outcome: done.has(p.file) && unaided(reveals, p.file) ? 'solved' : 'unsolved' });
     }
   }
   const out = {};
@@ -262,6 +303,11 @@ module.exports = {
   loadStory,
   groundingFor,
   progress,
+  loadStatement,
+  saveStatement,
+  loadReveals,
+  reveal,
+  isUnlocked,
   streaks,
   localToday,
   rampStatus,
