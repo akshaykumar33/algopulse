@@ -157,7 +157,7 @@ function guideAssistant() {
     <p class="guide-lead">Just say what you want — in any language, or several mixed — and your buddy plans it and does it, step by step. With the camera on, your finger becomes a mouse.</p>
 
     <ol class="flow assist-steps">
-      <li class="flow-step" style="--i:0"><i class="ph-duotone ph-microphone" aria-hidden="true"></i><strong>Press V</strong><span>or the mic. A voice bar shows what it hears.</span></li>
+      <li class="flow-step" style="--i:0"><i class="ph-duotone ph-microphone" aria-hidden="true"></i><strong>Press V</strong><span>or the mic. A chat pops up beside your buddy with everything it hears and says. Press B to type instead.</span></li>
       <li class="flow-step" style="--i:1"><i class="ph-duotone ph-chat-circle-dots" aria-hidden="true"></i><strong>Say anything</strong><span>“open Buttons and run my tests”.</span></li>
       <li class="flow-step" style="--i:2"><i class="ph-duotone ph-hand-pointing" aria-hidden="true"></i><strong>Press W</strong><span>point to move, pinch to click.</span></li>
     </ol>
@@ -186,11 +186,16 @@ function guideAssistant() {
           <span class="pill ${g.on ? 'ok' : 'soft'}">${g.on ? '● Watching' : 'Off'}</span>
         </div>
         <div class="field">
-          <label for="assistChar">Buddy</label>
-          <select id="assistChar" data-assist-char>
-            <option value="hamster" ${window.mascot?.character() === 'hamster' ? 'selected' : ''}>🐹 Pip the hamster</option>
-            <option value="bunny" ${window.mascot?.character() === 'bunny' ? 'selected' : ''}>🐰 Bun the bunny</option>
-          </select>
+          <span class="field-label" id="assistCharLabel">Your buddy</span>
+          <div class="buddy-cards" role="radiogroup" aria-labelledby="assistCharLabel">
+            ${[['hamster', 'Pip', 'the hamster'], ['bunny', 'Bun', 'the bunny']].map(([c, n, k]) => `
+            <label class="buddy-card">
+              <input type="radio" name="assistChar" value="${c}" data-assist-char ${window.mascot?.character() === c ? 'checked' : ''}>
+              <span class="buddy-face" style="background-image:url('mascots/${c}-directions.webp')" aria-hidden="true"></span>
+              <span><strong>${n}</strong> ${k}</span>
+            </label>`).join('')}
+          </div>
+          <span class="field-hint">Tip: right-click the buddy to swap, double-click it to chat.</span>
         </div>
       </section>
     </div>
@@ -209,7 +214,8 @@ function guideAssistant() {
         <li><strong>Point</strong> with your index finger to move the blue cursor. Whatever is under it gets a blue outline.</li>
         <li><strong>Pinch</strong> thumb and index together to click. Pinch on a text box to type into it.</li>
         <li><strong>Open hand</strong> (all fingers up) moving up or down scrolls the page or the panel under the cursor.</li>
-        <li>Signs still work as shortcuts: 👍 run tests · ✌️ next problem · 🤟 read the story · swipe to change tabs.</li>
+        <li>It is <strong>off by default</strong> so every sign works. While it is on, ☝️ ✋ ✊ belong to the cursor; the other signs still work: 👍 run tests · ✌️ next problem · 🤟 read the story · swipe to change tabs.</li>
+        <li>A chip on your buddy shows the sign it sees; hold still until its green ring fills (about half a second) and the action fires.</li>
         <li>Tip: sit about an arm's length away, with your hand inside the middle of the camera view.</li>
       </ul>
       <label class="switch"><input type="checkbox" data-assist-set="airCursor" ${cur.enabled ? 'checked' : ''}><span>Air cursor on</span></label>
@@ -225,7 +231,7 @@ function guideAssistant() {
 
     <h3 class="guide-sub"><i class="ph-duotone ph-chat-circle-text" aria-hidden="true"></i>Things you can say</h3>
     <div class="table-wrap"><table class="data-table"><tbody>${examples.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</tbody></table></div>
-    <p class="muted">Short English commands (“next”, “open tests”) run instantly. Anything longer, in another language, or with several steps goes to the AI, which plans it first — the voice bar shows each step as it happens. Problem names are matched by how they sound, so “baton” still finds Buttons.</p>
+    <p class="muted">Short English commands (“next”, “open tests”) run instantly. Anything longer, in another language, or with several steps goes to the AI, which plans it first — the chat beside your buddy shows each step as it happens. Jokes, dancing, “come here” and other small talk work even without an AI key. Problem names are matched by how they sound, so “baton” still finds Buttons.</p>
 
     <h3 class="guide-sub"><i class="ph-duotone ph-plus-circle" aria-hidden="true"></i>Add your own voice command</h3>
     <form class="assist-form" id="phraseForm">

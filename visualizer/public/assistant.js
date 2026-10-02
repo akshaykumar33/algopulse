@@ -49,11 +49,16 @@ const assistant = (() => {
     u.pitch = 1.25;
     // Echo guard: while the buddy talks (plus a short tail) the mic ignores what it hears.
     speakingUntil = Date.now() + 600 + text.length * 70;
-    u.onend = () => (speakingUntil = Date.now() + 400);
+    u.onstart = () => pet()?.talking?.(true);
+    u.onend = u.onerror = () => {
+      speakingUntil = Date.now() + 400;
+      pet()?.talking?.(false);
+    };
     speechSynthesis.speak(u);
   }
   const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
+    if (window.copilot && document.getElementById('buddyChat') && !document.getElementById('buddyChat').hidden) return window.copilot.reply(text, reaction);
     pet()?.say(text);
     pet()?.react(reaction, 700);
     speak(text);
@@ -197,6 +202,7 @@ const assistant = (() => {
   function interpret(raw) {
     const text = normalize(raw);
     if (!text) return;
+    if (window.copilot?.smallTalk(raw)) return;
     if (window.copilot?.ready() && !looksFast(text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, ''))) {
       return window.copilot.handle(raw);
     }
@@ -246,6 +252,7 @@ const assistant = (() => {
       return feedback(`Opening ${displayName(p.name)}`);
     }
     if (window.copilot?.ready()) return window.copilot.handle(raw);
+    if (window.copilot) return window.copilot.offline(raw);
     feedback(`I heard “${raw}” — try “next problem” or “open tests”`, 'surprised');
   }
 
@@ -408,6 +415,30 @@ const assistant = (() => {
     return best;
   }
 
+  // A chip on the buddy: the sign it sees, with a ring that fills while you hold it.
+  function showLive(name, progress = 0, fired = false) {
+    const host = pet()?.el;
+    if (!host) return;
+    let chip = host.querySelector('.gesture-chip');
+    if (!name) return void chip?.remove();
+    if (!chip) {
+      chip = document.createElement('span');
+      chip.className = 'gesture-chip';
+      chip.setAttribute('aria-hidden', 'true');
+      host.append(chip);
+    }
+    const custom = name.startsWith('custom:') ? customs().find((g) => `custom:${g.id}` === name) : null;
+    chip.textContent = custom ? custom.name : BUILTIN[name]?.emoji || '✋';
+    chip.classList.toggle('is-word', Boolean(custom));
+    const idle = !custom && (gestures.suppress.has(name) || !bindings()[name] || bindings()[name] === 'none');
+    chip.classList.toggle('is-idle', idle);
+    chip.style.setProperty('--p', String(idle ? 0 : progress));
+    if (fired) {
+      chip.classList.add('is-fired');
+      setTimeout(() => chip.classList.remove('is-fired'), 600);
+    }
+  }
+
   const gestures = {
     on: false,
     recognizer: null,
@@ -453,6 +484,8 @@ const assistant = (() => {
       this.video.playsInline = true;
       this.video.srcObject = this.stream;
       await this.video.play();
+      this.video.className = 'mascot-cam';
+      pet()?.el.append(this.video);
       this.on = true;
       pet()?.watching(true);
       feedback('I can see your hands now! 👍 runs tests, ✌️ next problem.', 'wink');
@@ -466,6 +499,8 @@ const assistant = (() => {
       cancelAnimationFrame(this.raf);
       this.stream?.getTracks().forEach((t) => t.stop());
       this.stream = null;
+      this.video?.remove();
+      showLive(null);
       this.video = null;
       this.live = null;
       pet()?.watching(false);
@@ -495,6 +530,7 @@ const assistant = (() => {
       const lm = res.landmarks?.[0];
       this.listeners.forEach((fn) => fn(res, v));
       if (!lm) {
+        if (this.live) showLive(null);
         this.live = null;
         this.held = { name: null, since: 0 };
         this.wrist = [];
@@ -528,22 +564,25 @@ const assistant = (() => {
         score = Math.max(0, 1 - custom.d / (custom.g.radius * 1.4));
       } else {
         const top = res.gestures?.[0]?.[0];
-        if (top && top.categoryName !== 'None' && top.score > 0.7) {
+        if (top && top.categoryName !== 'None' && top.score > 0.55) {
           name = top.categoryName;
           score = top.score;
         }
       }
       this.live = name ? { name, score } : null;
+      const holdMs = 450;
+      showLive(name, name && name === this.held.name && now > this.cooldownUntil ? Math.min(1, (now - this.held.since) / holdMs) : 0);
       // A pose must be held ~0.6 s, then a 1.5 s cooldown, so it never fires twice by accident.
       if (name !== this.held.name) this.held = { name, since: now };
-      else if (name && now - this.held.since > 600 && now > this.cooldownUntil) {
+      else if (name && now - this.held.since > holdMs && now > this.cooldownUntil) {
         this.fire(name);
         this.held.since = now + 1e9;
       }
     },
 
     fire(name) {
-      this.cooldownUntil = performance.now() + 1500;
+      this.cooldownUntil = performance.now() + 1200;
+      showLive(name, 1, true);
       if (name.startsWith('custom:')) {
         const g = customs().find((x) => `custom:${x.id}` === name);
         if (g) run(g.action, `Gesture “${g.name}”`);
