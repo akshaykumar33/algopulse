@@ -170,15 +170,19 @@ const assistant = (() => {
     return best?.p || null;
   }
 
+  // Speech engines differ on punctuation and contractions ("let's" vs "lets"), so phrases
+  // are compared with both stripped.
+  const normalize = (t) => String(t).toLowerCase().replace(/['’.,!?]/g, '').replace(/\s+/g, ' ').trim();
+
   function interpret(raw) {
-    const text = raw.toLowerCase().replace(/[.,!?]/g, '').trim();
+    const text = normalize(raw);
     if (!text) return;
     // The buddy's name as a wake word is optional: "pip, next problem" == "next problem".
     const said = text.replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
 
     // 1. The user's own phrases.
     for (const c of load().phrases || []) {
-      if (said.includes(c.phrase.toLowerCase())) return run(c.action, `Voice “${raw}”`);
+      if (said.includes(normalize(c.phrase))) return run(c.action, `Voice “${raw}”`);
     }
     // 2. "ask coach …" sends the rest as a question.
     const askM = said.match(/^(ask|tell)( the)? coach (.+)/) || said.match(/^(question|ask)[: ]+(.+)/);
