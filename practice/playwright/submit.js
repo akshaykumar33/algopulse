@@ -82,7 +82,6 @@ function isRecordForProblem(prob, sub) {
  */
 function isVerdictAccepted(sub) {
   if (!sub) return false;
-  if (sub.success === true) return true;
   const verdict = String(sub.verdict || '').toLowerCase();
   return (
     verdict.includes('accepted') ||
@@ -491,13 +490,14 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
     }
 
     console.log(`    ✓ Submission completed! Verdict: ${subRes?.verdict || 'Submitted'}`);
+    const isAcc = /accepted|correct answer|passed/i.test(subRes?.verdict || '');
     return {
       ...subRes,
       id: prob.id,
       name: prob.name,
       file: prob.file,
       timestamp: new Date().toISOString(),
-      success: !/wrong answer|runtime error|compile error|time limit/i.test(subRes?.verdict || ''),
+      success: isAcc,
     };
   } catch (err) {
     console.error(`    ✗ Submission failed: ${err.message}`);

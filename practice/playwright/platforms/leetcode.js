@@ -16,7 +16,19 @@ function prepareLeetCodeCode(rawCode) {
  * Checks if the current page has an active logged-in LeetCode session
  */
 async function checkAuth(page) {
-  // 1. Check cookies across the browser context (definitive source of truth)
+  const loginButton = await page.$('a[href*="/accounts/login"], button:has-text("Sign in"), a:has-text("Sign in")');
+  if (loginButton) {
+    const isVisible = await loginButton.isVisible().catch(() => false);
+    if (isVisible) return { authenticated: false };
+  }
+
+  const avatar = await page.$(
+    '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], button[id*="headlessui-menu-button"], a[href*="/profile/"]'
+  );
+  if (avatar) {
+    return { authenticated: true };
+  }
+
   try {
     const cookies = await page.context().cookies();
     const sessionCookie = cookies.find((c) => /leetcode_session/i.test(c.name) && c.value);
@@ -24,26 +36,6 @@ async function checkAuth(page) {
       return { authenticated: true };
     }
   } catch {}
-
-  // 2. Check if page has redirected away from login and shows user avatar or profile elements
-  const currentUrl = page.url();
-  const isLoginPage = currentUrl.includes('/accounts/login') || currentUrl.includes('/accounts.google');
-
-  if (!isLoginPage && currentUrl.includes('leetcode.com')) {
-    const avatar = await page.$(
-      '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], button[id*="headlessui-menu-button"], a[href*="/profile/"]'
-    );
-    if (avatar) {
-      return { authenticated: true };
-    }
-  }
-
-  // 3. Fallback check for visible login link
-  const loginButton = await page.$('a[href*="/accounts/login"]');
-  if (loginButton) {
-    const isVisible = await loginButton.isVisible().catch(() => false);
-    if (isVisible) return { authenticated: false };
-  }
 
   return { authenticated: false };
 }
@@ -177,10 +169,14 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
 
   // 4. Click Submit button
   console.log(`    [LeetCode] Submitting solution ...`);
-  const submitBtn = await page.waitForSelector(
-    'button[data-e2e-locator="console-submit-button"], button:has-text("Submit")',
-    { timeout: 15000 }
-  );
+  let submitBtn = await page.$('button[data-e2e-locator="console-submit-button"]');
+  if (!submitBtn) {
+    submitBtn = await page.waitForSelector(
+      'button:text-is("Submit"), button[data-cy="submit-code-btn"]',
+      { timeout: 15000 }
+    );
+  }
+  await submitBtn.scrollIntoViewIfNeeded().catch(() => {});
   await submitBtn.click();
 
   // 5. Monitor Submission Result

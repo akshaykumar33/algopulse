@@ -104,6 +104,7 @@ function sieve(maxN) {
 | [Ordinary Numbers](https://codeforces.com/problemset/problem/1520/B) | `Codeforces` | `800` | `ordinaryNumbers.js` | Key algorithmic application from Day 2026-09-30. |
 | [Permutation Swap](https://codeforces.com/problemset/problem/1828/B) | `Codeforces` | `900` | `permutationSwap.js` | Key algorithmic application from Day 2026-10-01. |
 | [Minimum LCM](https://codeforces.com/problemset/problem/1765/M) | `Codeforces` | `1000` | `minimumLCM.js` | Key algorithmic application from Day 2026-10-02. |
+| [Ilya and Bank Account](https://codeforces.com/problemset/problem/313/A) | `Codeforces` | `900` | `ilyaAndBankAccount.js` | Key algorithmic application from Day 2026-10-03. |
 
 ---
 

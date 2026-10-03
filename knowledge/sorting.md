@@ -85,6 +85,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Only Pluses](https://codeforces.com/problemset/problem/1992/A) | `undefined` | `800` | `onlyPluses.js` | Key algorithmic application from Day 2026-09-27. |
 | [Medium Number](https://codeforces.com/problemset/problem/1760/A) | `Codeforces` | `800` | `mediumNumber.js` | Key algorithmic application from Day 2026-09-30. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
+| [Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) | `Codeforces` | `900` | `arrayCloningTechnique.js` | Key algorithmic application from Day 2026-10-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
