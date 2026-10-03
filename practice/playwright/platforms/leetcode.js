@@ -189,39 +189,41 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   let memoryBeats = null;
 
   while (Date.now() - startTime < timeout) {
-    // Look for success/failure banner or modal
-    const resultElement = await page.$(
-      '[data-e2e-locator="submission-result"], span:has-text("Accepted"), span:has-text("Wrong Answer"), span:has-text("Compile Error"), span:has-text("Time Limit Exceeded"), span:has-text("Runtime Error")'
-    );
-
-    if (resultElement) {
-      const text = (await resultElement.textContent()).trim();
-      if (/accepted|wrong answer|compile error|time limit|runtime error/i.test(text)) {
-        verdict = text;
-
-        // Try extracting runtime and memory stats
-        try {
-          const stats = await page.$$eval('span, div', (els) => {
-            const r = {};
-            for (const el of els) {
-              const t = el.textContent || '';
-              if (t.includes('Beats') && t.includes('%')) {
-                if (t.toLowerCase().includes('runtime')) r.runtimeBeats = t.trim();
-                else if (t.toLowerCase().includes('memory')) r.memoryBeats = t.trim();
-              }
-              if (/^\d+\s*ms$/i.test(t.trim())) r.runtime = t.trim();
-              if (/^\d+(\.\d+)?\s*MB$/i.test(t.trim())) r.memory = t.trim();
-            }
-            return r;
-          });
-          runtime = stats.runtime || null;
-          memory = stats.memory || null;
-          runtimeBeats = stats.runtimeBeats || null;
-          memoryBeats = stats.memoryBeats || null;
-        } catch {}
-
-        break;
+    const verdictInfo = await page.evaluate(() => {
+      const els = Array.from(document.querySelectorAll('span, div, h3, a, [data-e2e-locator="submission-result"]'));
+      for (const el of els) {
+        const text = (el.innerText || el.textContent || '').trim();
+        if (/^(Accepted|Wrong Answer|Compile Error|Time Limit Exceeded|Runtime Error)$/i.test(text)) {
+          return { verdict: text };
+        }
       }
+      return null;
+    }).catch(() => null);
+
+    if (verdictInfo && verdictInfo.verdict) {
+      verdict = verdictInfo.verdict;
+
+      try {
+        const stats = await page.$$eval('span, div', (els) => {
+          const r = {};
+          for (const el of els) {
+            const t = el.textContent || '';
+            if (t.includes('Beats') && t.includes('%')) {
+              if (t.toLowerCase().includes('runtime')) r.runtimeBeats = t.trim();
+              else if (t.toLowerCase().includes('memory')) r.memoryBeats = t.trim();
+            }
+            if (/^\d+\s*ms$/i.test(t.trim())) r.runtime = t.trim();
+            if (/^\d+(\.\d+)?\s*MB$/i.test(t.trim())) r.memory = t.trim();
+          }
+          return r;
+        });
+        runtime = stats.runtime || null;
+        memory = stats.memory || null;
+        runtimeBeats = stats.runtimeBeats || null;
+        memoryBeats = stats.memoryBeats || null;
+      } catch {}
+
+      break;
     }
 
     await page.waitForTimeout(2000);

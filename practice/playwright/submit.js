@@ -414,10 +414,14 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
 
     const targetFile = path.join(targetDir, `${p.file}.js`);
     fs.copyFileSync(solPath, targetFile);
+
+    const contestDir = path.join(REPO_ROOT, 'contests', platKey, date);
+    fs.mkdirSync(contestDir, { recursive: true });
+    fs.copyFileSync(solPath, path.join(contestDir, `${p.file}.js`));
     mirrored++;
   }
 
-  console.log(`  ✓ Mirrored ${mirrored} solutions into practice/platforms/<platform>/${date}/\n`);
+  console.log(`  ✓ Mirrored ${mirrored} solutions into platform directories\n`);
 }
 
 /**
