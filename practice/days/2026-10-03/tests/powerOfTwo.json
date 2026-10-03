@@ -1,0 +1,14 @@
+[
+  {
+    "input": "1",
+    "output": "true"
+  },
+  {
+    "input": "16",
+    "output": "true"
+  },
+  {
+    "input": "3",
+    "output": "false"
+  }
+]

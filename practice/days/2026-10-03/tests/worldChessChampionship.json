@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n100\nCCCCCCCCCCCCCC\n400\nCDCDCDCDCDCDCD\n30\nDDDDDDDDDDDDDD\n1\nNNDNNDDDNNDNDN\n",
+    "output": "6000\n24000\n1650\n40\n"
+  }
+]

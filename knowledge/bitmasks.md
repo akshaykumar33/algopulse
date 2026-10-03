@@ -101,6 +101,8 @@ function missingNumber(nums) {
 ---
 | [Almost Ternary Matrix](https://codeforces.com/problemset/problem/1699/B) | `Codeforces` | `900` | `almostTernaryMatrix.js` | Key algorithmic application from Day 2026-09-29. |
 | [Sum in Binary Tree](https://codeforces.com/problemset/problem/1843/C) | `Codeforces` | `800` | `sumInBinaryTree.js` | Key algorithmic application from Day 2026-10-01. |
+| [ABC String](https://codeforces.com/problemset/problem/1494/A) | `Codeforces` | `900` | `aBCString.js` | Key algorithmic application from Day 2026-10-03. |
+| [Mocha and Math](https://codeforces.com/problemset/problem/1559/A) | `Codeforces` | `900` | `mochaAndMath.js` | Key algorithmic application from Day 2026-10-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

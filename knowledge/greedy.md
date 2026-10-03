@@ -91,6 +91,11 @@ for (const x of arr) {
 | [Wizard of Orz](https://codeforces.com/problemset/problem/1467/A) | `Codeforces` | `900` | `wizardOfOrz.js` | Key algorithmic application from Day 2026-10-02. |
 | [Digit Game](https://codeforces.com/problemset/problem/1419/A) | `Codeforces` | `900` | `digitGame.js` | Key algorithmic application from Day 2026-10-02. |
 | [Dominant Piranha](https://codeforces.com/problemset/problem/1433/C) | `Codeforces` | `900` | `dominantPiranha.js` | Key algorithmic application from Day 2026-10-02. |
+| [Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) | `Codeforces` | `900` | `arrayCloningTechnique.js` | Key algorithmic application from Day 2026-10-03. |
+| [NIT Destroys the Universe](https://codeforces.com/problemset/problem/1696/B) | `Codeforces` | `900` | `nITDestroysTheUniverse.js` | Key algorithmic application from Day 2026-10-03. |
+| [Alice and Bob](https://codeforces.com/problemset/problem/2169/A) | `Codeforces` | `900` | `aliceAndBob.js` | Key algorithmic application from Day 2026-10-03. |
+| [Cormen --- The Best Friend Of a Man](https://codeforces.com/problemset/problem/732/B) | `Codeforces` | `1000` | `cormenTheBestFriendOfAMan.js` | Key algorithmic application from Day 2026-10-03. |
+| [Berland Poker](https://codeforces.com/problemset/problem/1359/A) | `Codeforces` | `1000` | `berlandPoker.js` | Key algorithmic application from Day 2026-10-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

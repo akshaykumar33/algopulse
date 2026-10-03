@@ -17,38 +17,32 @@ if (-not $Force -and (Test-Path $marker)) {
 
 $log = Join-Path $PSScriptRoot 'remind.log'
 
+function Invoke-NodeTask([string]$name, [string]$script, [string[]]$cmdArgs) {
+    Write-Output "[$date] $name..." | Out-File -FilePath $log -Append -Encoding utf8
+    $prev = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        & node $script @cmdArgs 2>&1 | Out-File -FilePath $log -Append -Encoding utf8
+        return $LASTEXITCODE
+    } catch {
+        Add-Content $log "[$date] $name exception: $_"
+        return 1
+    } finally {
+        $ErrorActionPreference = $prev
+    }
+}
 
 # 1. Fetch today's multi-platform problem set (Codeforces, LeetCode, CodeChef)
-try {
-    Write-Output "[$date] Fetching multi-platform daily practice set..." | Out-File -FilePath $log -Append
-    node "$PSScriptRoot\pick.js" --date $date --platform all *>> $log
-} catch {
-    Add-Content $log "[$date] pick failed: $_"
-}
+Invoke-NodeTask "Fetching multi-platform daily practice set" "$PSScriptRoot\pick.js" @('--date', $date, '--platform', 'all') | Out-Null
 
 # 2. Automatically generate reference solutions and sample tests
-try {
-    Write-Output "[$date] Solving daily practice set..." | Out-File -FilePath $log -Append
-    node "$PSScriptRoot\solve.js" --date $date *>> $log
-} catch {
-    Add-Content $log "[$date] solve failed: $_"
-}
+Invoke-NodeTask "Solving daily practice set" "$PSScriptRoot\solve.js" @('--date', $date) | Out-Null
 
 # 3. Ensure all explanation docs, intuitions, and Mermaid diagrams are generated
-try {
-    Write-Output "[$date] Generating explanations..." | Out-File -FilePath $log -Append
-    node "$PSScriptRoot\explain.js" --date $date *>> $log
-} catch {
-    Add-Content $log "[$date] explain generation failed: $_"
-}
+Invoke-NodeTask "Generating explanations" "$PSScriptRoot\explain.js" @('--date', $date) | Out-Null
 
 # 4. Verify solutions, create branch, push, open PR, and auto-merge if green
-try {
-    Write-Output "[$date] Running automated ship and PR pipeline..." | Out-File -FilePath $log -Append
-    node "$PSScriptRoot\ship.js" --date $date *>> $log
-} catch {
-    Add-Content $log "[$date] ship failed: $_"
-}
+Invoke-NodeTask "Running automated ship and PR pipeline" "$PSScriptRoot\ship.js" @('--date', $date) | Out-Null
 
 $dayDir = Join-Path $PSScriptRoot "days\$date"
 $readme = Join-Path $dayDir 'README.md'
@@ -90,8 +84,11 @@ $xml.LoadXml("<toast scenario='reminder' activationType='protocol' launch='$(& $
 $appId = '{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsPowerShell\v1.0\powershell.exe'
 [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($appId).Show([Windows.UI.Notifications.ToastNotification]::new($xml))
 
-# Mark today's practice set as completed so subsequent unlock/wake triggers don't re-run
-if (Test-Path $dayDir) {
-    Set-Content -Path $marker -Value (Get-Date -Format 'o')
+# Mark today's practice set as completed only if all problems have solutions
+if ((Test-Path "$dayDir\set.json") -and $count -gt 0) {
+    $solvedCount = (Get-ChildItem "$dayDir\solutions" -Filter *.js -ErrorAction SilentlyContinue).Count
+    if ($solvedCount -ge $count) {
+        Set-Content -Path $marker -Value (Get-Date -Format 'o')
+    }
 }
 
