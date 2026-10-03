@@ -72,6 +72,7 @@ const assistant = (() => {
     pet()?.talking?.(on);
   }
   function stopSpeaking() {
+    window.buddyVoice?.stop();
     sayToken++;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     try {
@@ -124,6 +125,8 @@ const assistant = (() => {
   // for it on real conversation replies; quick confirmations use the browser voice.
   function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
+    // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: lang || voice.lang(), mood, ai: Boolean(opts.ai) });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
@@ -142,7 +145,7 @@ const assistant = (() => {
       });
     } else browserSpeak(clean, lang, mood);
   }
-  const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
+  const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
     if (window.copilot && document.getElementById('buddyChat') && !document.getElementById('buddyChat').hidden) return window.copilot.reply(text, reaction);
     pet()?.say(text);
