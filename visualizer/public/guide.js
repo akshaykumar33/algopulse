@@ -190,9 +190,9 @@ function guideAssistant() {
         <div class="field">
           <label for="assistVoice">Buddy's voice</label>
           <select id="assistVoice" data-assist-pick="voiceStyle">
-            ${[['cute', 'Cute & giggly · tiny cartoon buddy'], ['sweet', 'Sweet lady · soft and warm'], ['bright', 'Bright & bubbly']].map(([k, n]) => `<option value="${k}" ${(cfg.voiceStyle || 'cute') === k ? 'selected' : ''}>${n}</option>`).join('')}
+            ${[['cute', 'Cute baby animal · tiny cartoon buddy (Pip/Bun)'], ['sweet', 'Sweet & gentle · soft mascot'], ['bright', 'Bright & bubbly']].map(([k, n]) => `<option value="${k}" ${(cfg.voiceStyle || 'cute') === k ? 'selected' : ''}>${n}</option>`).join('')}
           </select>
-          <span class="field-hint">${state.ai?.canHear && cfg.voiceEngine !== 'browser' ? 'Spoken by Gemini’s voice, laughing or sniffling with the buddy’s mood. Lines are cached, so repeats are instant.' : 'Uses the sweetest voice installed in your browser for each language.'}</span>
+          <span class="field-hint">${state.ai?.canHear && cfg.voiceEngine !== 'browser' ? 'Spoken by Gemini’s voice, laughing or sniffling with the buddy’s mood. Lines are cached, so repeats are instant.' : 'Uses an adorable baby animal companion voice in any language you speak.'}</span>
         </div>
         <label class="switch"><input type="checkbox" data-assist-set="neuralVoice" ${cfg.neuralVoice === true ? 'checked' : ''} ${navigator.gpu ? '' : 'disabled'}><span>Natural voice on this PC (English)</span></label>
         <span class="field-hint">${!navigator.gpu

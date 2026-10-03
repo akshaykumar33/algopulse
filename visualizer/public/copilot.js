@@ -29,14 +29,14 @@ const copilot = (() => {
   ];
 
   /* ======================================================================
-     Chat: the whole conversation floats right beside the buddy
+     Top Live Island & Dynamic Feeds ("Just Ham" + Top Live Bar)
      ====================================================================== */
-  let hud;
-  let log;
+  let hud = null;
   const history = [];
-  let liveItem = null;
-  let stepsItem = null;
-  let idleTimer = 0;
+  let feedTimer = 0;
+  let lastClip = null;
+  let lastHeardText = '';
+  let lastHeard = null;
 
   function langName(code) {
     try {
@@ -46,165 +46,6 @@ const copilot = (() => {
     }
   }
 
-  function mountHud() {
-    hud = document.createElement('section');
-    hud.className = 'buddy-chat';
-    hud.id = 'buddyChat';
-    hud.hidden = true;
-    hud.setAttribute('aria-label', 'Chat with your buddy');
-    hud.innerHTML = `
-      <header class="bc-head">
-        <span class="vb-state" aria-hidden="true"><i class="ph-fill ph-chat-circle-dots"></i></span>
-        <button class="bc-title" type="button" aria-expanded="false" aria-controls="bcLog" title="Open or fold the chat (B)"><strong id="bcName">Pip</strong><span class="bc-status" id="bcStatus"></span></button>
-        <span class="bc-unread" id="bcUnread" hidden></span>
-        <span class="vb-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <button class="bc-icon" type="button" id="bcMic" aria-pressed="false" title="Talk to me (V)" aria-label="Microphone"><i class="ph-fill ph-microphone"></i></button>
-        <button class="bc-icon" type="button" id="bcClose" aria-label="Close chat" title="Close (B)"><i class="ph-bold ph-x"></i></button>
-      </header>
-      <ol class="bc-log" id="bcLog" aria-live="polite"></ol>
-      <form class="bc-form" id="bcForm" autocomplete="off">
-        <label class="visually-hidden" for="bcInput">Message your buddy</label>
-        <input id="bcInput" type="text" maxlength="500" placeholder="Type, or just talk…" enterkeyhint="send">
-        <button class="bc-send" type="submit" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
-      </form>`;
-    document.body.append(hud);
-    log = hud.querySelector('#bcLog');
-    hud.querySelector('#bcClose').addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeChat();
-    });
-    const toggleDock = () => {
-      setCollapsed(expanded());
-      pet()?.el.classList.toggle('has-chat', expanded());
-      if (expanded()) hud.querySelector('#bcInput').focus({ preventScroll: true });
-      scheduleIdle();
-    };
-    hud.querySelector('.bc-title').addEventListener('click', toggleDock);
-    hud.querySelector('#bcMic').addEventListener('click', (e) => {
-      e.stopPropagation();
-      A().voice.toggle();
-    });
-    hud.querySelector('#bcForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = hud.querySelector('#bcInput');
-      const text = input.value.trim();
-      if (!text) return;
-      input.value = '';
-      say('me', text);
-      A().interpret(text);
-    });
-    hud.addEventListener('focusin', scheduleIdle);
-    pet()?.el.addEventListener('mascot:move', position);
-    pet()?.el.addEventListener('dblclick', () => openChat(true));
-    addEventListener('resize', position);
-    addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() !== 'b' || e.ctrlKey || e.metaKey || e.altKey) return;
-      if (e.target.closest('input, textarea, select, [contenteditable]')) return;
-      if ([...document.querySelectorAll('dialog')].some((d) => d.matches(':modal'))) return;
-      if (expanded()) closeChat();
-      else openChat(true);
-    });
-    document.addEventListener('assistant:change', syncHud);
-    mountCaption();
-    syncHud();
-  }
-
-  // Sit beside the buddy (left of it, else above or below); dock to the bottom on phones.
-  function position() {
-    if (!hud || hud.hidden) return;
-    const m = pet()?.el;
-    const docked = !m || m.hidden || innerWidth < 640;
-    hud.classList.toggle('is-docked', docked);
-    if (docked) {
-      hud.style.left = hud.style.top = '';
-      return;
-    }
-    const r = m.getBoundingClientRect();
-    const w = hud.offsetWidth;
-    const h = hud.offsetHeight;
-    let x = r.left - w - 12;
-    let y = r.bottom - h;
-    if (x < 8) {
-      x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
-      y = r.top - h - 12;
-      if (y < 72) y = r.bottom + 12;
-    }
-    y = Math.min(Math.max(72, y), innerHeight - h - 8);
-    hud.style.left = `${x}px`;
-    hud.style.top = `${y}px`;
-    hud.dataset.side = x + w <= r.left ? 'left' : 'stack';
-  }
-
-  // The chat is a dock: a small pill (status, mic level, unread count) that opens into the
-  // full conversation on click, B or a double-click on the buddy, and folds itself away
-  // again after a quiet spell. Live speech shows in the caption at the top instead.
-  let unread = 0;
-  function setCollapsed(on) {
-    if (!hud) return;
-    hud.classList.toggle('is-collapsed', on);
-    hud.querySelector('.bc-title').setAttribute('aria-expanded', String(!on));
-    if (!on) {
-      unread = 0;
-      paintUnread();
-      scrollLog();
-    }
-    position();
-  }
-  function paintUnread() {
-    const b = hud?.querySelector('#bcUnread');
-    if (!b) return;
-    b.textContent = unread > 9 ? '9+' : String(unread);
-    b.hidden = !unread;
-  }
-  const expanded = () => hud && !hud.hidden && !hud.classList.contains('is-collapsed');
-
-  function openChat(byHand) {
-    if (!hud) return;
-    const was = hud.hidden;
-    if (byHand === true) {
-      hud.hidden = false;
-      setCollapsed(false);
-    } else if (was) {
-      hud.hidden = false;
-      setCollapsed(true);
-    }
-    pet()?.el.classList.toggle('has-chat', expanded());
-    if (was && !log.children.length) {
-      const li = document.createElement('li');
-      li.className = 'bc-msg pip';
-      li.textContent = `Hi! I'm ${pet()?.name?.() || 'Pip'} 💛 Talk or type to me. I can open problems, run tests, write code, tell jokes, dance…`;
-      log.append(li);
-    }
-    position();
-    if (byHand === true) hud.querySelector('#bcInput').focus({ preventScroll: true });
-    scheduleIdle();
-  }
-  function closeChat() {
-    if (!hud) return;
-    if (A().voice.on) setCollapsed(true);
-    else hud.hidden = true;
-    pet()?.el.classList.remove('has-chat');
-  }
-  // Folds into the pill after 12 s without activity (never while you type); with the mic
-  // off, the pill itself goes away after another 30 s.
-  function scheduleIdle() {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => {
-      if (busy || hud.contains(document.activeElement) || hud.matches(':hover')) return scheduleIdle();
-      if (expanded()) {
-        setCollapsed(true);
-        pet()?.el.classList.remove('has-chat');
-        return scheduleIdle();
-      }
-      if (!A().voice.on && !unread) hud.hidden = true;
-    }, expanded() ? 12000 : 30000);
-  }
-
-  /* ---- live caption: what you are saying and what the buddy answers, on top ---- */
-  let cap = null;
-  let capTimer = 0;
-  let lastClip = null;
-  let lastHeardText = '';
   function nativeName(code) {
     try {
       return new Intl.DisplayNames([code], { type: 'language' }).of(code);
@@ -212,193 +53,290 @@ const copilot = (() => {
       return code;
     }
   }
-  function mountCaption() {
-    cap = document.createElement('section');
-    cap.className = 'live-cap';
-    cap.id = 'liveCap';
-    cap.hidden = true;
-    cap.setAttribute('aria-label', 'Live conversation');
-    cap.innerHTML = `
-      <div class="lc-row lc-me">
-        <span class="lc-ic" aria-hidden="true"><i class="ph-fill ph-microphone"></i></span>
-        <div class="lc-text" aria-live="polite"><p class="lc-said"></p><p class="lc-meaning" hidden></p></div>
-        <span class="lc-lang" hidden></span>
-        <button class="lc-btn" type="button" data-cap="edit" title="Fix what I heard" aria-label="Fix what I heard" hidden><i class="ph-bold ph-pencil-simple"></i></button>
-        <button class="lc-btn" type="button" data-cap="retry" title="Hear it again" aria-label="Hear it again" hidden><i class="ph-bold ph-arrow-clockwise"></i></button>
+
+  function mountHud() {
+    hud = document.createElement('aside');
+    hud.className = 'top-live-island buddy-chat';
+    hud.id = 'buddyChat';
+    hud.setAttribute('aria-label', 'Live Assistant Feed');
+    hud.innerHTML = `
+      <div class="ti-capsule" id="tiCapsule">
+        <!-- Live Hamster Mascot Badge (Click to boop) -->
+        <button class="ti-buddy-btn" type="button" id="tiBuddyBtn" title="${pet()?.name?.() || 'Pip'} (Click to boop)">
+          <span class="ti-avatar-ring">
+            <span class="ti-face" aria-hidden="true"></span>
+            <span class="ti-status-dot is-idle" id="tiStatusDot" aria-hidden="true"></span>
+          </span>
+          <span class="ti-buddy-name" id="tiBuddyName">${pet()?.name?.() || 'Pip'}</span>
+          <span class="ti-status-tag" id="tiStatusTag"><i class="ph-fill ph-circle"></i> <span>Ready</span></span>
+        </button>
+
+        <!-- Dynamic Live Feed Slot -->
+        <div class="ti-feed-slot" id="tiFeedSlot">
+          <div class="ti-feed-item ti-feed-idle" id="tiFeedIdle">
+            <span class="ti-feed-hint">Press <kbd>V</kbd> to talk · <kbd>B</kbd> to type</span>
+          </div>
+          <div class="ti-feed-item ti-feed-speech" id="tiFeedSpeech" hidden>
+            <span class="bc-wave ti-wave"><i></i><i></i><i></i><i></i></span>
+            <span class="ti-speech-text" id="tiSpeechText"></span>
+            <span class="ti-lang-badge" id="tiLangBadge" hidden><i class="ph-bold ph-translate"></i> <span id="tiLangCode"></span></span>
+          </div>
+          <div class="ti-feed-item ti-feed-steps" id="tiFeedSteps" hidden>
+            <ol class="ti-steps-list" id="tiStepsList"></ol>
+          </div>
+          <div class="ti-feed-item ti-feed-reply" id="tiFeedReply" hidden>
+            <span class="ti-reply-text" id="tiReplyText"></span>
+            <div class="ti-reply-actions" id="tiReplyActions"></div>
+          </div>
+        </div>
+
+        <!-- Live Controls: Wave Meter + Mic + Command/Prompt + Dismiss -->
+        <div class="ti-controls">
+          <span class="vb-meter ti-meter" aria-hidden="true" title="Mic volume">
+            <i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <button class="ti-ctrl-btn ti-mic-btn" type="button" id="tiMic" aria-pressed="false" title="Talk to me (V)" aria-label="Microphone">
+            <i class="ph-fill ph-microphone"></i>
+          </button>
+          <button class="ti-ctrl-btn ti-cmd-btn" type="button" id="tiCmd" title="Type command (B)" aria-label="Type command">
+            <i class="ph-bold ph-terminal-window"></i>
+          </button>
+          <button class="ti-ctrl-btn ti-dismiss-btn" type="button" id="tiDismiss" title="Dismiss" aria-label="Dismiss feed" hidden>
+            <i class="ph-bold ph-x"></i>
+          </button>
+        </div>
       </div>
-      <div class="lc-row lc-pip" hidden>
-        <span class="lc-face" aria-hidden="true"></span>
-        <div class="lc-text" aria-live="polite"><p class="lc-reply"></p><ol class="vb-steps lc-steps"></ol></div>
-      </div>
-      <button class="lc-btn lc-close" type="button" data-cap="close" title="Hide" aria-label="Hide caption"><i class="ph-bold ph-x"></i></button>`;
-    document.body.append(cap);
-    cap.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-cap]');
-      if (!b) return;
-      if (b.dataset.cap === 'close') return capHide();
-      if (b.dataset.cap === 'retry' && lastClip && !busy) return handle({ audio: lastClip, retry: true });
-      if (b.dataset.cap === 'edit') {
-        openChat(true);
-        const input = hud.querySelector('#bcInput');
-        input.value = lastHeardText;
-        input.focus();
-        input.select();
-        capHide();
-      }
+
+      <!-- Spotlight Inline Command Bar -->
+      <form class="ti-spotlight" id="tiSpotlight" autocomplete="off" hidden>
+        <i class="ph-bold ph-magnifying-glass ti-spotlight-icon" aria-hidden="true"></i>
+        <input id="bcInput" type="text" maxlength="500" placeholder="Ask Pip or run command (e.g. 'run tests', 'next problem', 'hint')…" enterkeyhint="send">
+        <kbd class="ti-kbd-esc">ESC</kbd>
+        <button class="ti-spotlight-send" type="submit" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
+      </form>`;
+
+    document.body.append(hud);
+
+    // Boop mascot when avatar clicked
+    hud.querySelector('#tiBuddyBtn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      pet()?.boop?.();
+      pet()?.react?.('delighted', 900);
+      pet()?.say?.('Hi there! 💛', 1800);
     });
-    cap.addEventListener('pointerenter', () => clearTimeout(capTimer));
-    cap.addEventListener('pointerleave', () => capLater());
-  }
-  const capEl = (sel) => cap.querySelector(sel);
-  function capShow() {
-    clearTimeout(capTimer);
-    // Sit just under the header, which wraps onto two rows on phones.
-    const bar = document.querySelector('.topbar')?.getBoundingClientRect();
-    cap.style.top = `${Math.max(8, (bar && bar.bottom > 0 ? bar.bottom : 0) + 8)}px`;
-    cap.hidden = false;
-    cap.classList.remove('is-leaving');
-  }
-  function capHide() {
-    clearTimeout(capTimer);
-    if (!cap || cap.hidden) return;
-    cap.classList.add('is-leaving');
-    capTimer = setTimeout(() => (cap.hidden = true), 220);
-  }
-  function capLater(ms = 7000) {
-    clearTimeout(capTimer);
-    capTimer = setTimeout(() => !busy && !cap.matches(':hover') && capHide(), ms);
-  }
-  function capMe(state, text = '', lang = '', meaning = '') {
-    if (!cap) return;
-    capShow();
-    const row = capEl('.lc-me');
-    row.dataset.state = state; // speaking | sent | heard
-    const said = capEl('.lc-said');
-    if (state === 'speaking') {
-      said.innerHTML = '<span class="bc-wave"><i></i><i></i><i></i><i></i></span><span class="lc-hint">Listening…</span>';
-      capEl('.lc-pip').hidden = true;
-    } else if (state === 'sent') {
-      said.innerHTML = '<span class="bc-wave"><i></i><i></i><i></i><i></i></span><span class="lc-hint">Understanding…</span>';
-    } else {
-      said.textContent = text;
-    }
-    const m = capEl('.lc-meaning');
-    m.textContent = meaning ? `“${meaning}”` : '';
-    m.hidden = !meaning;
-    const chip = capEl('.lc-lang');
-    chip.textContent = lang ? nativeName(lang) : '';
-    chip.hidden = !lang;
-    const done = state === 'heard';
-    capEl('[data-cap="edit"]').hidden = !done;
-    capEl('[data-cap="retry"]').hidden = !done || !lastClip;
-  }
-  function capPip(text, thinking) {
-    if (!cap) return;
-    capShow();
-    const row = capEl('.lc-pip');
-    row.hidden = false;
-    capEl('.lc-face').style.backgroundImage = `url("mascots/${pet()?.character?.() || 'hamster'}-directions.webp")`;
-    const p = capEl('.lc-reply');
-    if (thinking) p.innerHTML = '<span class="bc-typing lc-dots"><i></i><i></i><i></i></span>';
-    else p.textContent = text;
-    capEl('.lc-steps').innerHTML = '';
+
+    // Mic toggle
+    hud.querySelector('#tiMic').addEventListener('click', (e) => {
+      e.stopPropagation();
+      A().voice.toggle();
+    });
+
+    // Command launcher
+    hud.querySelector('#tiCmd').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSpotlight();
+    });
+
+    // Dismiss button
+    hud.querySelector('#tiDismiss').addEventListener('click', (e) => {
+      e.stopPropagation();
+      showFeed('idle');
+      hud.querySelector('#tiDismiss').hidden = true;
+    });
+
+    // Spotlight form submission
+    hud.querySelector('#tiSpotlight').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = hud.querySelector('#bcInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      closeSpotlight();
+      say('me', text);
+      A().interpret(text);
+    });
+
+    // Keyboard shortcuts: B toggles spotlight, Escape closes spotlight
+    addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const sp = hud?.querySelector('#tiSpotlight');
+        if (sp && !sp.hidden) {
+          e.preventDefault();
+          closeSpotlight();
+        }
+        return;
+      }
+      if (e.key.toLowerCase() !== 'b' || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.target.closest('input, textarea, select, [contenteditable]')) return;
+      if ([...document.querySelectorAll('dialog')].some((d) => d.matches(':modal'))) return;
+      e.preventDefault();
+      toggleSpotlight();
+    });
+
+    document.addEventListener('assistant:change', syncHud);
+    syncHud();
   }
 
-  function scrollLog() {
-    log.scrollTop = log.scrollHeight;
+  function showFeed(name) {
+    if (!hud) return;
+    clearTimeout(feedTimer);
+    const items = {
+      idle: hud.querySelector('#tiFeedIdle'),
+      speech: hud.querySelector('#tiFeedSpeech'),
+      steps: hud.querySelector('#tiFeedSteps'),
+      reply: hud.querySelector('#tiFeedReply'),
+    };
+    for (const [key, el] of Object.entries(items)) {
+      if (el) el.hidden = key !== name;
+    }
   }
 
-  function say(who, text, opts = {}) {
-    if (!hud || !text) return null;
-    openChat();
-    if (who === 'me') {
-      liveItem?.remove();
-      liveItem = null;
-    }
-    const li = document.createElement('li');
-    li.className = `bc-msg ${who}${opts.error ? ' is-error' : ''}`;
-    li.textContent = text;
-    log.append(li);
-    if (!expanded() && who === 'pip') {
-      unread++;
-      paintUnread();
-    }
-    history.push({ who, text });
-    if (history.length > 24) history.shift();
-    while (log.children.length > 40) log.firstElementChild.remove();
-    scrollLog();
-    position();
-    scheduleIdle();
-    return li;
+  function feedLater(ms = 8000) {
+    clearTimeout(feedTimer);
+    feedTimer = setTimeout(() => {
+      if (busy || hud?.dataset.state === 'listening' || hud?.dataset.state === 'thinking' || hud?.dataset.state === 'doing') return;
+      showFeed('idle');
+      const dismiss = hud?.querySelector('#tiDismiss');
+      if (dismiss) dismiss.hidden = true;
+    }, ms);
   }
 
-  function typing(on) {
-    log?.querySelector('.bc-typing')?.remove();
-    if (!on || !log) return;
-    const li = document.createElement('li');
-    li.className = 'bc-msg pip bc-typing';
-    li.setAttribute('aria-label', 'thinking');
-    li.innerHTML = '<i></i><i></i><i></i>';
-    log.append(li);
-    scrollLog();
+  function openSpotlight(focus = true) {
+    if (!hud) return;
+    const sp = hud.querySelector('#tiSpotlight');
+    if (!sp) return;
+    sp.hidden = false;
+    hud.classList.add('has-spotlight');
+    if (focus) {
+      const input = hud.querySelector('#bcInput');
+      input?.focus();
+      input?.select();
+    }
   }
 
-  function statusText(kind) {
-    if (kind === 'listening' && A().voice.mode === 'ai') return `Listening · any language${lastHeard ? ` · last heard ${langName(lastHeard)}` : ''}`;
-    if (kind === 'listening') {
-      const fixed = A().load().lang && A().load().lang !== 'auto';
-      return `Listening · ${langName(A().voice.lang())}${fixed ? '' : ' (auto)'}`;
-    }
-    if (kind === 'thinking') return 'Thinking…';
-    return A().voice.supported ? 'Mic off · type, or press V' : 'Type to chat';
+  function closeSpotlight() {
+    if (!hud) return;
+    const sp = hud.querySelector('#tiSpotlight');
+    if (!sp) return;
+    sp.hidden = true;
+    hud.classList.remove('has-spotlight');
   }
+
+  function toggleSpotlight() {
+    const sp = hud?.querySelector('#tiSpotlight');
+    if (!sp) return;
+    if (sp.hidden) openSpotlight(true);
+    else closeSpotlight();
+  }
+
+  const expanded = () => Boolean(hud && hud.classList.contains('has-spotlight'));
 
   function setState(kind, text) {
     if (!hud) return;
-    hud.dataset.state = kind; // idle | listening | thinking | doing | error
-    const icon = { listening: 'ph-microphone', thinking: 'ph-brain', doing: 'ph-lightning', error: 'ph-warning' }[kind] || 'ph-chat-circle-dots';
-    hud.querySelector('.vb-state').innerHTML = `<i class="ph-fill ${icon}"></i>`;
-    hud.querySelector('#bcStatus').textContent = text ?? statusText(kind);
-    position(); // the pill's width follows its text; keep it clear of the buddy
+    hud.dataset.state = kind; // idle | listening | thinking | doing | error | off
+    const dot = hud.querySelector('#tiStatusDot');
+    if (dot) dot.className = `ti-status-dot is-${kind}`;
+    const tag = hud.querySelector('#tiStatusTag');
+    if (tag) {
+      const labels = {
+        listening: '<span class="ti-glow"></span><i class="ph-fill ph-microphone"></i> <span>Listening</span>',
+        thinking: '<i class="ph-fill ph-sparkle"></i> <span>Thinking…</span>',
+        doing: `<i class="ph-fill ph-lightning"></i> <span>${escapeHtml(text || 'Executing')}</span>`,
+        error: '<i class="ph-fill ph-warning-circle"></i> <span>Oops</span>',
+        idle: `<i class="ph-fill ph-circle"></i> <span>${A().voice.on ? 'Listening' : 'Ready'}</span>`,
+        off: '<i class="ph-fill ph-circle"></i> <span>Ready</span>',
+      };
+      tag.innerHTML = labels[kind] || labels.idle;
+    }
+    const face = hud.querySelector('.ti-face');
+    if (face) {
+      const character = pet()?.character?.() || 'hamster';
+      face.style.backgroundImage = `url("mascots/${character}-directions.webp")`;
+    }
+    const name = hud.querySelector('#tiBuddyName');
+    if (name) name.textContent = pet()?.name?.() || 'Pip';
   }
 
   function syncHud() {
     if (!hud) return;
     const on = A().voice.on;
-    const mic = hud.querySelector('#bcMic');
-    mic.setAttribute('aria-pressed', String(on));
-    mic.classList.toggle('is-on', on);
-    hud.querySelector('#bcName').textContent = pet()?.name?.() || 'Pip';
-    if (on) {
-      openChat();
-      startMeter();
-    } else stopMeter();
+    const mic = hud.querySelector('#tiMic');
+    if (mic) {
+      mic.setAttribute('aria-pressed', String(on));
+      mic.classList.toggle('is-on', on);
+    }
+    if (on) startMeter();
+    else stopMeter();
     if (!busy) setState(on ? 'listening' : 'idle');
   }
 
-  // Live words as they are recognised; the final sentence becomes your chat message.
   function heard(text, final) {
     if (!hud || !text) return;
     lastClip = null;
     if (final) {
       lastHeardText = text;
-      capMe('heard', text);
+      setState('thinking');
+      showFeed('speech');
+      const speech = hud.querySelector('#tiSpeechText');
+      if (speech) speech.textContent = `“${text}”`;
       return void say('me', text);
     }
-    openChat();
-    capMe('live', `${text}…`);
+    setState('listening');
+    showFeed('speech');
+    const speech = hud.querySelector('#tiSpeechText');
+    if (speech) speech.textContent = `“${text}…”`;
   }
 
-  // The buddy answers: in the chat, with a face to match, and out loud when talk-back is on.
-  // opts.ai: a real conversational reply, worth the AI voice (it has a small daily quota);
-  // quick confirmations use the browser voice.
+  function say(who, text, opts = {}) {
+    if (!hud || !text) return null;
+    history.push({ who, text });
+    if (history.length > 24) history.shift();
+    if (who === 'me') {
+      showFeed('speech');
+      const speech = hud.querySelector('#tiSpeechText');
+      if (speech) speech.textContent = `“${text}”`;
+      const langBadge = hud.querySelector('#tiLangBadge');
+      if (langBadge) langBadge.hidden = true;
+    } else {
+      showFeed('reply');
+      const replyEl = hud.querySelector('#tiReplyText');
+      if (replyEl) replyEl.textContent = text;
+      const actions = hud.querySelector('#tiReplyActions');
+      if (actions) {
+        actions.innerHTML = '';
+        if (/test/i.test(text)) {
+          const btn = document.createElement('button');
+          btn.className = 'ti-action-pill';
+          btn.type = 'button';
+          btn.innerHTML = '<i class="ph-bold ph-play"></i> Run';
+          btn.onclick = () => STEPS['run-tests']();
+          actions.append(btn);
+        }
+        if (/problem/i.test(text) || /next/i.test(text)) {
+          const btn = document.createElement('button');
+          btn.className = 'ti-action-pill';
+          btn.type = 'button';
+          btn.innerHTML = '<i class="ph-bold ph-caret-right"></i> Next';
+          btn.onclick = () => STEPS['next-problem']();
+          actions.append(btn);
+        }
+      }
+      const dismiss = hud.querySelector('#tiDismiss');
+      if (dismiss) dismiss.hidden = false;
+      feedLater(8000);
+      pet()?.say?.(text, 3800);
+    }
+    return null;
+  }
+
+  function typing(on) {
+    if (!hud) return;
+    if (on) setState('thinking');
+  }
+
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
     say('pip', text);
-    if (cap && !cap.hidden) {
-      capPip(text);
-      capLater();
-    }
     if (mood) pet()?.react(mood, 900);
     A().speak(text, lang, mood, { ai: Boolean(opts.ai) });
   }
@@ -618,18 +556,16 @@ const copilot = (() => {
   };
 
   function renderSteps(steps, at, failed = -1) {
-    if (!log || !steps.length) return;
-    if (!stepsItem || !stepsItem.isConnected) {
-      stepsItem = document.createElement('li');
-      stepsItem.className = 'bc-msg pip bc-steps-msg';
-      stepsItem.innerHTML = '<ol class="vb-steps"></ol>';
-      log.append(stepsItem);
-    }
-    stepsItem.firstElementChild.innerHTML = steps
-      .map((s, i) => `<li class="${i < at ? 'done' : i === at ? (failed === i ? 'failed' : 'now') : ''}">${escapeHtml(STEP_LABEL(s))}</li>`)
+    if (!hud || !steps.length) return;
+    showFeed('steps');
+    const list = hud.querySelector('#tiStepsList');
+    if (!list) return;
+    list.innerHTML = steps
+      .map((s, i) => `<li class="ti-step-pill ${i < at ? 'done' : i === at ? (failed === i ? 'failed' : 'now') : ''}">${escapeHtml(STEP_LABEL(s))}</li>`)
       .join('');
-    if (cap && !cap.hidden) capEl('.lc-steps').innerHTML = stepsItem.firstElementChild.innerHTML;
-    scrollLog();
+    if (at >= steps.length) {
+      feedLater(4500);
+    }
   }
 
   /* ---- small talk that needs no AI: instant, works offline ---- */
@@ -694,28 +630,35 @@ const copilot = (() => {
     reply(`I heard “${raw}”, but my AI brain is not set up yet, so I only know simple things: “next problem”, “run tests”, “tell me a joke”, “dance”… Add a key in Guide → Choose your AI and I can do anything!`, 'shy');
   }
 
-  // AI ear: a "you are speaking" bubble while a sentence is being recorded. No guessed
-  // words — the real transcript replaces it once the AI has heard the clip.
-  let lastHeard = null;
-  // AI ear: the caption shows that you are speaking, then that it is being understood.
-  // No guessed words: the real transcript replaces it once the AI has heard the clip.
   function hearing(on, kept) {
     if (!hud) return;
     if (on) {
-      openChat();
-      capMe('speaking');
+      setState('listening');
+      showFeed('speech');
+      const speech = hud.querySelector('#tiSpeechText');
+      if (speech) speech.innerHTML = '<span class="ti-hint-speaking">Listening to you…</span>';
+      const langBadge = hud.querySelector('#tiLangBadge');
+      if (langBadge) langBadge.hidden = true;
+      const dismiss = hud.querySelector('#tiDismiss');
+      if (dismiss) dismiss.hidden = true;
     } else if (!kept) {
-      if (capEl('.lc-me').dataset.state === 'speaking') capHide();
+      if (hud.dataset.state === 'listening') {
+        setState(A().voice.on ? 'idle' : 'off');
+        showFeed('idle');
+      }
     } else {
-      capMe('sent');
-      // A quick local command may win and drop the clip; never leave the caption hanging.
-      setTimeout(() => !busy && capEl('.lc-me').dataset.state === 'sent' && capHide(), 6000);
+      setState('thinking');
+      showFeed('speech');
+      const speech = hud.querySelector('#tiSpeechText');
+      if (speech) speech.innerHTML = '<span class="ti-hint-thinking">Understanding…</span>';
     }
   }
+
   function dropLive() {
-    liveItem?.remove();
-    liveItem = null;
-    if (cap && !cap.hidden && capEl('.lc-me').dataset.state !== 'heard') capHide();
+    if (hud && hud.dataset.state !== 'heard') {
+      showFeed('idle');
+      setState(A().voice.on ? 'listening' : 'idle');
+    }
   }
 
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime } });
@@ -732,9 +675,10 @@ const copilot = (() => {
     typing(true);
     if (spoken) {
       lastClip = input.audio;
-      capMe('sent');
+      showFeed('speech');
+      const speech = hud?.querySelector('#tiSpeechText');
+      if (speech) speech.innerHTML = '<span class="ti-hint-thinking">Understanding…</span>';
     }
-    if (spoken || (cap && !cap.hidden)) capPip('', true);
     pet()?.react('think');
     let plan;
     const t0 = performance.now();
@@ -763,8 +707,14 @@ const copilot = (() => {
       say('me', plan.heard);
       lastHeard = plan.heardLang || plan.lang;
       lastHeardText = plan.heard;
-      const english = /^en\b/i.test(lastHeard);
-      capMe('heard', plan.heard, lastHeard, english ? '' : plan.meaning);
+      if (lastHeard && hud) {
+        const langBadge = hud.querySelector('#tiLangBadge');
+        const langCode = hud.querySelector('#tiLangCode');
+        if (langBadge && langCode) {
+          langCode.textContent = nativeName(lastHeard) || lastHeard;
+          langBadge.hidden = false;
+        }
+      }
     }
     lastLang = plan.lang || lastLang;
     A().voice.detected(plan.lang);
@@ -774,7 +724,6 @@ const copilot = (() => {
     A().log(`Voice “${spoken ? plan.heard : input}” → ${plan.steps.map((s) => s.action).join(', ') || 'chat'} (${Math.round(performance.now() - t0)} ms)`);
 
     const steps = plan.steps.filter((s) => s.action !== 'say' || !plan.reply);
-    stepsItem = null;
     renderSteps(steps, 0);
     for (let i = 0; i < steps.length; i++) {
       const s = steps[i];
@@ -795,7 +744,7 @@ const copilot = (() => {
     renderSteps(steps, steps.length);
     busy = false;
     setState(A().voice.on ? 'listening' : 'idle');
-    if (cap && !cap.hidden) capLater();
+    feedLater(6000);
   }
 
   /* ======================================================================
@@ -943,8 +892,8 @@ const copilot = (() => {
     say,
     smallTalk,
     offline,
-    open: openChat,
-    close: closeChat,
+    open: (byHand) => openSpotlight(byHand),
+    close: () => closeSpotlight(),
     LANGUAGES,
     cursor,
     STEPS,

@@ -39,10 +39,17 @@ const assistant = (() => {
   let aiVoiceOffUntil = 0;
   let audioCtx = null;
   let playing = null;
+  if ('speechSynthesis' in window) {
+    speechSynthesis.getVoices();
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+    }
+  }
+
   const VOICES = {
-    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.8, rate: 1.1 },
-    sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.3, rate: 1 },
-    bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.4, rate: 1.08 },
+    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.48, rate: 1.12 },
+    sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.25, rate: 1.02 },
+    bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.35, rate: 1.1 },
   };
   const MOOD_STYLE = {
     laugh: 'laughing and giggling happily between the words',
@@ -57,14 +64,41 @@ const assistant = (() => {
     shy: 'shyly and bashfully',
   };
   const voiceStyle = () => VOICES[load().voiceStyle] || VOICES.cute;
-  const FEMALE = /female|zira|aria|jenny|michelle|sonia|libby|natasha|swara|neerja|heera|kalpana|sapna|samantha|victoria|karen|moira|tessa|google (uk english female|हिन्दी|हिंदी)|kannada|ಕನ್ನಡ/i;
+
+  // Ranked for cute baby-like / cartoon mascot companion delivery across all languages
+  const CUTE_CHILD = /ana|maisie|child|kid|baby|cartoon|kodomo|niñ[oa]|enfant|bambin|bebe|kiddie/i;
+  // Multilingual female voice names covering Indic, Asian, and European languages
+  const MULTILINGUAL_FEMALE = /(female|woman|girl|natural|neural|online|google|swara|kalpana|sapna|pallavi|shruti|aarohi|tanishaa|sobhana|dhwani|dalia|elvira|paloma|jimena|nanami|aoi|mayu|keiko|xiaoxiao|xiaoyi|yating|sunhi|heami|denise|brigitte|celeste|katja|amala|elsa|isabella|francisca|thalita|zira|aria|jenny|michelle|sonia|libby|natasha|neerja|heera|samantha|victoria|karen|moira|tessa|हिन्दी|हिंदी|ಕನ್ನಡ|தமிழ்|తెలుగు|मराठी|বাংলা|മലയാളം|ગુજરાતી|日本語|한국어|中文)/i;
+
   function voiceFor(lang) {
     const voices = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
+    if (!voices.length) return null;
     const want = String(lang || '').toLowerCase();
     const base = want.split('-')[0];
-    const pool = voices.filter((v) => v.lang.toLowerCase() === want);
-    const near = pool.length ? pool : voices.filter((v) => v.lang.toLowerCase().startsWith(base));
-    return near.find((v) => FEMALE.test(v.name)) || near[0] || null;
+
+    // 1. Try exact locale match first (e.g. 'hi-in', 'kn-in', 'ja-jp', 'es-es')
+    let pool = voices.filter((v) => v.lang.toLowerCase() === want);
+    // 2. Try language family (e.g. any 'hi', any 'kn', any 'ja', any 'es')
+    if (!pool.length && base) {
+      pool = voices.filter((v) => v.lang.toLowerCase().startsWith(base));
+    }
+
+    const isNative = pool.length > 0;
+    const list = isNative ? pool : voices;
+
+    // Check for child/baby voice in candidate pool
+    const child = list.find((v) => CUTE_CHILD.test(v.name));
+    if (child) return { voice: child, kind: 'child', isNative };
+
+    // Check for known sweet / female voices across all languages
+    const sweetFemale = list.find((v) => MULTILINGUAL_FEMALE.test(v.name));
+    if (sweetFemale) return { voice: sweetFemale, kind: 'female', isNative };
+
+    // Any female/woman tagged voice
+    const anyF = list.find((v) => /female|woman|girl/i.test(v.name));
+    if (anyF) return { voice: anyF, kind: 'female', isNative };
+
+    return { voice: list[0], kind: 'default', isNative };
   }
   function talking(on, untilMs) {
     if (on) speakingUntil = Date.now() + untilMs;
@@ -84,14 +118,60 @@ const assistant = (() => {
   }
   function browserSpeak(text, lang, mood) {
     if (!('speechSynthesis' in window)) return;
-    const s = voiceStyle();
-    const u = new SpeechSynthesisUtterance(text);
-    const v = voiceFor(lang || voice.lang());
-    if (v) u.voice = v;
-    u.lang = v?.lang || lang || 'en-US';
-    u.rate = s.rate;
-    u.pitch = Math.min(2, s.pitch + (mood === 'laugh' || mood === 'giggle' ? 0.15 : mood === 'sad' || mood === 'cry' ? -0.2 : 0));
-    talking(true, 600 + text.length * 75);
+    const clean = String(text).replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!clean) return;
+
+    // Sweet procedural micro-sound from the mascot (Pip / Bun)
+    const chirpName = mood === 'laugh' || mood === 'giggle' ? 'giggle'
+      : mood === 'sad' || mood === 'cry' ? 'cry'
+      : mood === 'love' ? 'love'
+      : mood === 'proud' ? 'proud'
+      : 'happy';
+    pet()?.chirp?.(chirpName);
+
+    const targetLang = lang || voice.lang() || 'en-US';
+    const match = voiceFor(targetLang);
+    const v = match?.voice || null;
+    const kind = match?.kind || 'default';
+
+    const u = new SpeechSynthesisUtterance(clean);
+    if (v) {
+      u.voice = v;
+      u.lang = v.lang || targetLang;
+    } else {
+      u.lang = targetLang;
+    }
+
+    // Multilingual Baby Voice Acoustic Shaping:
+    // - Child voices: ~1.30 pitch (already a child tone; slight lift makes it a cute baby animal)
+    // - Native female voices (Hindi, Kannada, Spanish, Japanese, English, etc.): ~1.48 pitch
+    // - Default/desktop voices: ~1.54 pitch (shifts adult voice into squeaky cute baby animal)
+    let basePitch = kind === 'child' ? 1.30 : kind === 'female' ? 1.48 : 1.54;
+    let baseRate = 1.12; // Bubbly, energetic, cute baby tempo
+
+    const style = load().voiceStyle || 'cute';
+    if (style === 'sweet') {
+      basePitch = Math.max(1.15, basePitch - 0.18);
+      baseRate = 1.02;
+    } else if (style === 'bright') {
+      basePitch = Math.min(1.6, basePitch + 0.05);
+      baseRate = 1.14;
+    }
+
+    // Dynamic emotion shift for baby voice:
+    const moodShift = (mood === 'laugh' || mood === 'giggle' ? 0.08
+      : mood === 'sad' || mood === 'cry' ? -0.12
+      : mood === 'love' ? 0.04
+      : mood === 'surprised' ? 0.12
+      : 0);
+    const rateShift = (mood === 'laugh' || mood === 'giggle' ? 0.04
+      : mood === 'sad' || mood === 'cry' ? -0.06
+      : 0);
+
+    u.pitch = Math.min(1.85, Math.max(0.85, basePitch + moodShift));
+    u.rate = Math.min(1.4, Math.max(0.85, baseRate + rateShift));
+
+    talking(true, 600 + clean.length * 75);
     u.onend = u.onerror = () => talking(false);
     speechSynthesis.speak(u);
   }
