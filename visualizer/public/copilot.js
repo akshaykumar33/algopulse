@@ -252,6 +252,9 @@ const copilot = (() => {
   const capEl = (sel) => cap.querySelector(sel);
   function capShow() {
     clearTimeout(capTimer);
+    // Sit just under the header, which wraps onto two rows on phones.
+    const bar = document.querySelector('.topbar')?.getBoundingClientRect();
+    cap.style.top = `${Math.max(8, (bar && bar.bottom > 0 ? bar.bottom : 0) + 8)}px`;
     cap.hidden = false;
     cap.classList.remove('is-leaving');
   }
