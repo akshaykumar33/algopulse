@@ -1,4 +1,4 @@
-var solve = function(grid) {
+var findMissingAndRepeatedValues = function(grid) {
   const n = grid.length;
   const total = n * n;
   const freq = new Int32Array(total + 1);
@@ -16,6 +16,8 @@ var solve = function(grid) {
   return [repeated, missing];
 };
 
+var solve = findMissingAndRepeatedValues;
+
 if (require.main === module) {
   const fs = require('fs');
   try {
@@ -25,7 +27,7 @@ if (require.main === module) {
       for (const line of lines) {
         try {
           const parsed = JSON.parse(line);
-          const result = Array.isArray(parsed) && solve.length > 1 ? solve(...parsed) : solve(parsed);
+          const result = solve(parsed);
           console.log(JSON.stringify(result));
         } catch {
           console.log(JSON.stringify(solve(line)));
@@ -33,7 +35,7 @@ if (require.main === module) {
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;

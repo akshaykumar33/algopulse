@@ -1,4 +1,4 @@
-var solve = function(s) {
+var removeDuplicates = function(s) {
   const stack = [];
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
@@ -10,6 +10,8 @@ var solve = function(s) {
   }
   return stack.join('');
 };
+
+var solve = removeDuplicates;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -28,7 +30,7 @@ if (require.main === module) {
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;

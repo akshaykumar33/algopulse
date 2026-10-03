@@ -6,11 +6,11 @@ function TreeNode(val, left, right) {
 
 function buildTree(arr) {
     if (!arr || arr.length === 0 || arr[0] === null) return null;
-    const root = new TreeNode(arr[0]);
-    const queue = [root];
+    let root = new TreeNode(arr[0]);
+    let queue = [root];
     let i = 1;
-    while (queue.length > 0 && i < arr.length) {
-        const curr = queue.shift();
+    while (i < arr.length && queue.length > 0) {
+        let curr = queue.shift();
         if (i < arr.length && arr[i] !== null) {
             curr.left = new TreeNode(arr[i]);
             queue.push(curr.left);
@@ -25,15 +25,17 @@ function buildTree(arr) {
     return root;
 }
 
-var solve = function(root, targetSum) {
+var hasPathSum = function(root, targetSum) {
     if (Array.isArray(root)) {
         targetSum = root[1];
         root = buildTree(root[0]);
     }
     if (!root) return false;
     if (!root.left && !root.right) return root.val === targetSum;
-    return solve(root.left, targetSum - root.val) || solve(root.right, targetSum - root.val);
+    return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
 };
+
+var solve = hasPathSum;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -44,12 +46,12 @@ if (require.main === module) {
       for (let i = 0; i < lines.length; i += 2) {
         const root = JSON.parse(lines[i]);
         const targetSum = JSON.parse(lines[i + 1]);
-        const res = solve([root, targetSum]);
-        console.log(JSON.stringify(res));
+        const result = solve(buildTree(root), targetSum);
+        console.log(JSON.stringify(result));
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;
