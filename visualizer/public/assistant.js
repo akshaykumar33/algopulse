@@ -120,7 +120,9 @@ const assistant = (() => {
     playing = src;
     src.start();
   }
-  function speak(text, lang, mood) {
+  // opts.ai: use the AI voice. Its free tier allows only a few lines a day, so callers ask
+  // for it on real conversation replies; quick confirmations use the browser voice.
+  function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
     stopSpeaking();
     const token = sayToken;
@@ -128,7 +130,7 @@ const assistant = (() => {
     if (!clean) return;
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
-    if (load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
+    if (opts.ai && load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
       aiSpeak(clean, mood, token).catch((err) => {
         // Out of voice quota (the free tier allows only a few lines a day): stop asking
         // for a while and use the browser voice, instead of failing on every line.

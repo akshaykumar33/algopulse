@@ -37,7 +37,6 @@ const copilot = (() => {
   let liveItem = null;
   let stepsItem = null;
   let idleTimer = 0;
-  let pinned = false;
 
   function langName(code) {
     try {
@@ -56,7 +55,8 @@ const copilot = (() => {
     hud.innerHTML = `
       <header class="bc-head">
         <span class="vb-state" aria-hidden="true"><i class="ph-fill ph-chat-circle-dots"></i></span>
-        <div class="bc-title"><strong id="bcName">Pip</strong><span class="bc-status" id="bcStatus"></span></div>
+        <button class="bc-title" type="button" aria-expanded="false" aria-controls="bcLog" title="Open or fold the chat (B)"><strong id="bcName">Pip</strong><span class="bc-status" id="bcStatus"></span></button>
+        <span class="bc-unread" id="bcUnread" hidden></span>
         <span class="vb-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <button class="bc-icon" type="button" id="bcMic" aria-pressed="false" title="Talk to me (V)" aria-label="Microphone"><i class="ph-fill ph-microphone"></i></button>
         <button class="bc-icon" type="button" id="bcClose" aria-label="Close chat" title="Close (B)"><i class="ph-bold ph-x"></i></button>
@@ -69,8 +69,21 @@ const copilot = (() => {
       </form>`;
     document.body.append(hud);
     log = hud.querySelector('#bcLog');
-    hud.querySelector('#bcClose').addEventListener('click', closeChat);
-    hud.querySelector('#bcMic').addEventListener('click', () => A().voice.toggle());
+    hud.querySelector('#bcClose').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeChat();
+    });
+    const toggleDock = () => {
+      setCollapsed(expanded());
+      pet()?.el.classList.toggle('has-chat', expanded());
+      if (expanded()) hud.querySelector('#bcInput').focus({ preventScroll: true });
+      scheduleIdle();
+    };
+    hud.querySelector('.bc-title').addEventListener('click', toggleDock);
+    hud.querySelector('#bcMic').addEventListener('click', (e) => {
+      e.stopPropagation();
+      A().voice.toggle();
+    });
     hud.querySelector('#bcForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const input = hud.querySelector('#bcInput');
@@ -88,10 +101,11 @@ const copilot = (() => {
       if (e.key.toLowerCase() !== 'b' || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.target.closest('input, textarea, select, [contenteditable]')) return;
       if ([...document.querySelectorAll('dialog')].some((d) => d.matches(':modal'))) return;
-      if (hud.hidden) openChat(true);
-      else closeChat();
+      if (expanded()) closeChat();
+      else openChat(true);
     });
     document.addEventListener('assistant:change', syncHud);
+    mountCaption();
     syncHud();
   }
 
@@ -121,12 +135,40 @@ const copilot = (() => {
     hud.dataset.side = x + w <= r.left ? 'left' : 'stack';
   }
 
+  // The chat is a dock: a small pill (status, mic level, unread count) that opens into the
+  // full conversation on click, B or a double-click on the buddy, and folds itself away
+  // again after a quiet spell. Live speech shows in the caption at the top instead.
+  let unread = 0;
+  function setCollapsed(on) {
+    if (!hud) return;
+    hud.classList.toggle('is-collapsed', on);
+    hud.querySelector('.bc-title').setAttribute('aria-expanded', String(!on));
+    if (!on) {
+      unread = 0;
+      paintUnread();
+      scrollLog();
+    }
+    position();
+  }
+  function paintUnread() {
+    const b = hud?.querySelector('#bcUnread');
+    if (!b) return;
+    b.textContent = unread > 9 ? '9+' : String(unread);
+    b.hidden = !unread;
+  }
+  const expanded = () => hud && !hud.hidden && !hud.classList.contains('is-collapsed');
+
   function openChat(byHand) {
     if (!hud) return;
-    if (byHand === true) pinned = true;
     const was = hud.hidden;
-    hud.hidden = false;
-    pet()?.el.classList.add('has-chat');
+    if (byHand === true) {
+      hud.hidden = false;
+      setCollapsed(false);
+    } else if (was) {
+      hud.hidden = false;
+      setCollapsed(true);
+    }
+    pet()?.el.classList.toggle('has-chat', expanded());
     if (was && !log.children.length) {
       const li = document.createElement('li');
       li.className = 'bc-msg pip';
@@ -139,17 +181,124 @@ const copilot = (() => {
   }
   function closeChat() {
     if (!hud) return;
-    hud.hidden = true;
-    pinned = false;
+    if (A().voice.on) setCollapsed(true);
+    else hud.hidden = true;
     pet()?.el.classList.remove('has-chat');
   }
-  // Tucks itself away after a quiet spell, unless it was opened by hand or the mic is on.
+  // Folds into the pill after 12 s without activity (never while you type); with the mic
+  // off, the pill itself goes away after another 30 s.
   function scheduleIdle() {
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
-      if (!pinned && !A().voice.on && !busy && !hud.contains(document.activeElement)) closeChat();
-      else scheduleIdle();
-    }, 30000);
+      if (busy || hud.contains(document.activeElement) || hud.matches(':hover')) return scheduleIdle();
+      if (expanded()) {
+        setCollapsed(true);
+        pet()?.el.classList.remove('has-chat');
+        return scheduleIdle();
+      }
+      if (!A().voice.on && !unread) hud.hidden = true;
+    }, expanded() ? 12000 : 30000);
+  }
+
+  /* ---- live caption: what you are saying and what the buddy answers, on top ---- */
+  let cap = null;
+  let capTimer = 0;
+  let lastClip = null;
+  let lastHeardText = '';
+  function nativeName(code) {
+    try {
+      return new Intl.DisplayNames([code], { type: 'language' }).of(code);
+    } catch {
+      return code;
+    }
+  }
+  function mountCaption() {
+    cap = document.createElement('section');
+    cap.className = 'live-cap';
+    cap.id = 'liveCap';
+    cap.hidden = true;
+    cap.setAttribute('aria-label', 'Live conversation');
+    cap.innerHTML = `
+      <div class="lc-row lc-me">
+        <span class="lc-ic" aria-hidden="true"><i class="ph-fill ph-microphone"></i></span>
+        <div class="lc-text" aria-live="polite"><p class="lc-said"></p><p class="lc-meaning" hidden></p></div>
+        <span class="lc-lang" hidden></span>
+        <button class="lc-btn" type="button" data-cap="edit" title="Fix what I heard" aria-label="Fix what I heard" hidden><i class="ph-bold ph-pencil-simple"></i></button>
+        <button class="lc-btn" type="button" data-cap="retry" title="Hear it again" aria-label="Hear it again" hidden><i class="ph-bold ph-arrow-clockwise"></i></button>
+      </div>
+      <div class="lc-row lc-pip" hidden>
+        <span class="lc-face" aria-hidden="true"></span>
+        <div class="lc-text" aria-live="polite"><p class="lc-reply"></p><ol class="vb-steps lc-steps"></ol></div>
+      </div>
+      <button class="lc-btn lc-close" type="button" data-cap="close" title="Hide" aria-label="Hide caption"><i class="ph-bold ph-x"></i></button>`;
+    document.body.append(cap);
+    cap.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-cap]');
+      if (!b) return;
+      if (b.dataset.cap === 'close') return capHide();
+      if (b.dataset.cap === 'retry' && lastClip && !busy) return handle({ audio: lastClip, retry: true });
+      if (b.dataset.cap === 'edit') {
+        openChat(true);
+        const input = hud.querySelector('#bcInput');
+        input.value = lastHeardText;
+        input.focus();
+        input.select();
+        capHide();
+      }
+    });
+    cap.addEventListener('pointerenter', () => clearTimeout(capTimer));
+    cap.addEventListener('pointerleave', () => capLater());
+  }
+  const capEl = (sel) => cap.querySelector(sel);
+  function capShow() {
+    clearTimeout(capTimer);
+    cap.hidden = false;
+    cap.classList.remove('is-leaving');
+  }
+  function capHide() {
+    clearTimeout(capTimer);
+    if (!cap || cap.hidden) return;
+    cap.classList.add('is-leaving');
+    capTimer = setTimeout(() => (cap.hidden = true), 220);
+  }
+  function capLater(ms = 7000) {
+    clearTimeout(capTimer);
+    capTimer = setTimeout(() => !busy && !cap.matches(':hover') && capHide(), ms);
+  }
+  function capMe(state, text = '', lang = '', meaning = '') {
+    if (!cap) return;
+    capShow();
+    const row = capEl('.lc-me');
+    row.dataset.state = state; // speaking | sent | heard
+    const said = capEl('.lc-said');
+    if (state === 'speaking') {
+      said.innerHTML = '<span class="bc-wave"><i></i><i></i><i></i><i></i></span><span class="lc-hint">Listening…</span>';
+      capEl('.lc-pip').hidden = true;
+    } else if (state === 'sent') {
+      said.innerHTML = '<span class="bc-wave"><i></i><i></i><i></i><i></i></span><span class="lc-hint">Understanding…</span>';
+    } else {
+      said.textContent = text;
+    }
+    const m = capEl('.lc-meaning');
+    m.textContent = meaning ? `“${meaning}”` : '';
+    m.hidden = !meaning;
+    const chip = capEl('.lc-lang');
+    chip.textContent = lang ? nativeName(lang) : '';
+    chip.hidden = !lang;
+    const done = state === 'heard';
+    capEl('[data-cap="edit"]').hidden = !done;
+    capEl('[data-cap="retry"]').hidden = !done || !lastClip;
+  }
+  function capPip(text, thinking) {
+    if (!cap) return;
+    capShow();
+    const row = capEl('.lc-pip');
+    row.hidden = false;
+    capEl('.lc-face').style.backgroundImage = `url("mascots/${pet()?.character?.() || 'hamster'}-directions.webp")`;
+    const p = capEl('.lc-reply');
+    if (thinking) p.innerHTML = '<span class="bc-typing lc-dots"><i></i><i></i><i></i></span>';
+    else p.textContent = text;
+    capEl('.lc-steps').innerHTML = '';
   }
 
   function scrollLog() {
@@ -167,6 +316,10 @@ const copilot = (() => {
     li.className = `bc-msg ${who}${opts.error ? ' is-error' : ''}`;
     li.textContent = text;
     log.append(li);
+    if (!expanded() && who === 'pip') {
+      unread++;
+      paintUnread();
+    }
     history.push({ who, text });
     if (history.length > 24) history.shift();
     while (log.children.length > 40) log.firstElementChild.remove();
@@ -203,6 +356,7 @@ const copilot = (() => {
     const icon = { listening: 'ph-microphone', thinking: 'ph-brain', doing: 'ph-lightning', error: 'ph-warning' }[kind] || 'ph-chat-circle-dots';
     hud.querySelector('.vb-state').innerHTML = `<i class="ph-fill ${icon}"></i>`;
     hud.querySelector('#bcStatus').textContent = text ?? statusText(kind);
+    position(); // the pill's width follows its text; keep it clear of the buddy
   }
 
   function syncHud() {
@@ -222,23 +376,28 @@ const copilot = (() => {
   // Live words as they are recognised; the final sentence becomes your chat message.
   function heard(text, final) {
     if (!hud || !text) return;
-    if (final) return void say('me', text);
-    openChat();
-    if (!liveItem || !liveItem.isConnected) {
-      liveItem = document.createElement('li');
-      liveItem.className = 'bc-msg me is-live';
-      log.append(liveItem);
+    lastClip = null;
+    if (final) {
+      lastHeardText = text;
+      capMe('heard', text);
+      return void say('me', text);
     }
-    liveItem.textContent = `${text}…`;
-    scrollLog();
+    openChat();
+    capMe('live', `${text}…`);
   }
 
   // The buddy answers: in the chat, with a face to match, and out loud when talk-back is on.
-  function reply(text, mood = 'happy', lang) {
+  // opts.ai: a real conversational reply, worth the AI voice (it has a small daily quota);
+  // quick confirmations use the browser voice.
+  function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
     say('pip', text);
+    if (cap && !cap.hidden) {
+      capPip(text);
+      capLater();
+    }
     if (mood) pet()?.react(mood, 900);
-    A().speak(text, lang, mood);
+    A().speak(text, lang, mood, { ai: Boolean(opts.ai) });
   }
 
   /* ---- microphone level meter (Web Audio, local only) ---- */
@@ -466,6 +625,7 @@ const copilot = (() => {
     stepsItem.firstElementChild.innerHTML = steps
       .map((s, i) => `<li class="${i < at ? 'done' : i === at ? (failed === i ? 'failed' : 'now') : ''}">${escapeHtml(STEP_LABEL(s))}</li>`)
       .join('');
+    if (cap && !cap.hidden) capEl('.lc-steps').innerHTML = stepsItem.firstElementChild.innerHTML;
     scrollLog();
   }
 
@@ -534,30 +694,25 @@ const copilot = (() => {
   // AI ear: a "you are speaking" bubble while a sentence is being recorded. No guessed
   // words — the real transcript replaces it once the AI has heard the clip.
   let lastHeard = null;
+  // AI ear: the caption shows that you are speaking, then that it is being understood.
+  // No guessed words: the real transcript replaces it once the AI has heard the clip.
   function hearing(on, kept) {
     if (!hud) return;
     if (on) {
       openChat();
-      if (!liveItem || !liveItem.isConnected) {
-        liveItem = document.createElement('li');
-        liveItem.className = 'bc-msg me is-live bc-hearing';
-        liveItem.setAttribute('aria-label', 'you are speaking');
-        liveItem.innerHTML = '<i class="ph-fill ph-microphone"></i><span class="bc-wave"><i></i><i></i><i></i><i></i></span>';
-        log.append(liveItem);
-        scrollLog();
-      }
-    } else if (liveItem && !kept) {
-      dropLive();
-    } else if (liveItem) {
-      const item = liveItem;
-      item.classList.add('is-sent');
-      // If the clip is dropped on the way (a quick local command won), never leave it hanging.
-      setTimeout(() => item === liveItem && !busy && dropLive(), 6000);
+      capMe('speaking');
+    } else if (!kept) {
+      if (capEl('.lc-me').dataset.state === 'speaking') capHide();
+    } else {
+      capMe('sent');
+      // A quick local command may win and drop the clip; never leave the caption hanging.
+      setTimeout(() => !busy && capEl('.lc-me').dataset.state === 'sent' && capHide(), 6000);
     }
   }
   function dropLive() {
     liveItem?.remove();
     liveItem = null;
+    if (cap && !cap.hidden && capEl('.lc-me').dataset.state !== 'heard') capHide();
   }
 
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime } });
@@ -572,6 +727,11 @@ const copilot = (() => {
     busy = true;
     setState('thinking', spoken ? 'Listening to you…' : undefined);
     typing(true);
+    if (spoken) {
+      lastClip = input.audio;
+      capMe('sent');
+    }
+    if (spoken || (cap && !cap.hidden)) capPip('', true);
     pet()?.react('think');
     let plan;
     const t0 = performance.now();
@@ -599,12 +759,15 @@ const copilot = (() => {
       }
       say('me', plan.heard);
       lastHeard = plan.heardLang || plan.lang;
+      lastHeardText = plan.heard;
+      const english = /^en\b/i.test(lastHeard);
+      capMe('heard', plan.heard, lastHeard, english ? '' : plan.meaning);
     }
     lastLang = plan.lang || lastLang;
     A().voice.detected(plan.lang);
     const sayStep = plan.steps.find((s) => s.action === 'say');
     const feels = plan.steps.some((s) => s.action === 'feel');
-    reply(plan.reply || sayStep?.arg || '👍', feels ? null : plan.mood || 'happy', lastLang);
+    reply(plan.reply || sayStep?.arg || '👍', feels ? null : plan.mood || 'happy', lastLang, { ai: true });
     A().log(`Voice “${spoken ? plan.heard : input}” → ${plan.steps.map((s) => s.action).join(', ') || 'chat'} (${Math.round(performance.now() - t0)} ms)`);
 
     const steps = plan.steps.filter((s) => s.action !== 'say' || !plan.reply);
@@ -629,6 +792,7 @@ const copilot = (() => {
     renderSteps(steps, steps.length);
     busy = false;
     setState(A().voice.on ? 'listening' : 'idle');
+    if (cap && !cap.hidden) capLater();
   }
 
   /* ======================================================================

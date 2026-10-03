@@ -23,11 +23,11 @@ function toGeminiSchema(schema) {
   return out;
 }
 
-// Gemini 3 takes a thinking level; 2.x takes a token budget. Low effort sends neither,
-// since the -latest aliases reject a budget they do not support.
+// Gemini 3 takes a thinking level; 2.x takes a token budget. Low effort turns thinking
+// off on 2.5 Flash, and sends nothing to the -latest aliases, which reject a budget.
 function thinkingFor(model, thinking, schema) {
   if (/^gemini-[3-9]/.test(model)) return { thinkingConfig: { thinkingLevel: thinking || env('GEMINI_THINKING') || 'high' } };
-  if (thinking === 'low') return {};
+  if (thinking === 'low') return /^gemini-2\.5-(flash|flash-lite)$/.test(model) ? { thinkingConfig: { thinkingBudget: 0 } } : {};
   return { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } };
 }
 
