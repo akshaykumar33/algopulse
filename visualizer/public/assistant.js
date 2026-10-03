@@ -72,6 +72,7 @@ const assistant = (() => {
     pet()?.talking?.(on);
   }
   function stopSpeaking() {
+    window.buddyVoice?.stop();
     sayToken++;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     try {
@@ -120,15 +121,19 @@ const assistant = (() => {
     playing = src;
     src.start();
   }
-  function speak(text, lang, mood) {
+  // opts.ai: use the AI voice. Its free tier allows only a few lines a day, so callers ask
+  // for it on real conversation replies; quick confirmations use the browser voice.
+  function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
+    // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: lang || voice.lang(), mood, ai: Boolean(opts.ai) });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
     if (!clean) return;
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
-    if (load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
+    if (opts.ai && load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
       aiSpeak(clean, mood, token).catch((err) => {
         // Out of voice quota (the free tier allows only a few lines a day): stop asking
         // for a while and use the browser voice, instead of failing on every line.
@@ -140,7 +145,7 @@ const assistant = (() => {
       });
     } else browserSpeak(clean, lang, mood);
   }
-  const isSpeaking = () => ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
+  const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
     if (window.copilot && document.getElementById('buddyChat') && !document.getElementById('buddyChat').hidden) return window.copilot.reply(text, reaction);
     pet()?.say(text);

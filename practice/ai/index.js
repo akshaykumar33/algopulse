@@ -118,15 +118,29 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
 const TTS_DIR = path.join(REPO_ROOT, '.cache', 'tts');
 const canHear = () => PROVIDERS.gemini.isConfigured();
 
+// Models that just said "quota" or "busy" sit out for a while, so the next sentence goes
+// straight to one that answers instead of paying a failed round trip per busy model.
+const restingUntil = new Map();
+function rest(model, err) {
+  const m = String(err.message);
+  const hinted = m.match(/retry in ([\d.]+)s/i);
+  const quota = /quota|resource_exhausted|429/i.test(m);
+  const ms = hinted ? Math.min(Number(hinted[1]) * 1000, 30 * 60 * 1000) : quota ? 10 * 60 * 1000 : 60 * 1000;
+  restingUntil.set(model, Date.now() + ms);
+}
+
 // Walks a model ladder, stepping down on retryable errors, like complete() does.
 async function ladder(models, run) {
   const tried = [];
-  for (const model of [...new Set(models)]) {
+  const unique = [...new Set(models)];
+  const awake = unique.filter((m) => (restingUntil.get(m) || 0) < Date.now());
+  for (const model of awake.length ? awake : unique) {
     try {
-      return { ...(await run(model)), model };
+      return { ...(await run(model)), model, ...(tried.length ? { tried } : {}) };
     } catch (err) {
       tried.push(`${model}: ${err.message}`);
       if (!isRetryable(err)) throw err;
+      rest(model, err);
     }
   }
   throw new Error(`every voice model failed — ${tried.join(' | ')}`);
@@ -137,8 +151,9 @@ async function ladder(models, run) {
 async function listen({ prompt, schema, audio }) {
   if (!canHear()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
   const g = PROVIDERS.gemini;
-  // Measured: full flash models keep each language in its own script; lite ones romanise it.
-  const models = [env('GEMINI_LISTEN_MODEL') || 'gemini-3.5-flash', 'gemini-3.6-flash', ...g.fallbacks()];
+  // Lite models are a last resort: they romanise Kannada and Hindi and miss mixed speech.
+  const full = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-2.5-flash'];
+  const models = [env('GEMINI_LISTEN_MODEL'), ...full, ...g.fallbacks()].filter(Boolean);
   return ladder(models, async (model) => ({
     text: await g.generate({
       model,

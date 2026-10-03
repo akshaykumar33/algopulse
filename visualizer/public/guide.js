@@ -194,6 +194,14 @@ function guideAssistant() {
           </select>
           <span class="field-hint">${state.ai?.canHear && cfg.voiceEngine !== 'browser' ? 'Spoken by Gemini’s voice, laughing or sniffling with the buddy’s mood. Lines are cached, so repeats are instant.' : 'Uses the sweetest voice installed in your browser for each language.'}</span>
         </div>
+        <label class="switch"><input type="checkbox" data-assist-set="neuralVoice" ${cfg.neuralVoice === true ? 'checked' : ''} ${navigator.gpu ? '' : 'disabled'}><span>Natural voice on this PC (English)</span></label>
+        <span class="field-hint">${!navigator.gpu
+          ? 'Needs a graphics chip (WebGPU), which this browser does not offer, so the best browser voice is used.'
+          : window.buddyVoice?.kokoro.state === 'ready'
+            ? 'Ready: replies in English use a natural neural voice that runs on this PC. Other languages use the best browser voice.'
+            : window.buddyVoice?.kokoro.state === 'slow'
+              ? 'This PC made speech slower than it plays, so the browser voice is used instead.'
+              : 'Off by default: it downloads a ~300 MB voice once and uses a lot of memory while speaking. Turn it on if your PC has room; it then works offline.'}</span>
         <label class="switch"><input type="checkbox" data-assist-set="sounds" ${cfg.sounds !== false ? 'checked' : ''}><span>Giggles & little sounds</span></label>
         ${aiEar ? '' : `<div class="field">
           <label for="assistLang">Browser ear language</label>

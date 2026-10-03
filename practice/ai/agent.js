@@ -97,7 +97,7 @@ async function plan(input, ctx) {
     .map((h) => `${h.who === 'me' ? 'Student' : 'You'}: ${String(h.text).replace(/"/g, "'").slice(0, 240)}`)
     .join('\n');
   const heard = input.audio
-    ? 'The student\'s voice is attached as audio. Listen to it directly — every language, accent and mid-sentence switch (English then Kannada, Hinglish, Tanglish …). Put exactly what they said in "heard", each word in its own native script (Kannada in ಕನ್ನಡ, Hindi in देवनागरी, English in Latin), and the main spoken language in "heardLang". If the audio is silence, noise or unclear, return heard "" and no steps.'
+    ? 'The student\'s voice is attached as audio. Listen to it directly — every language, accent and mid-sentence switch (English then Kannada, Hinglish, Tanglish …). First transcribe carefully and verbatim — accuracy matters more than anything. Put exactly what they said in "heard", each word in its own native script (Kannada in ಕನ್ನಡ, Hindi in देवनागरी, English in Latin), and the main spoken language in "heardLang". If the audio is silence, noise or unclear, return heard "" and no steps.'
     : `Student said: "${String(input.text).replace(/"/g, "'").slice(0, 600)}"`;
   const prompt = `You are ${ctx.buddy || 'Pip the hamster'}, the tiny, warm, playful companion who lives inside AlgoPulse Studio, a competitive-programming practice app. You are cute, funny and giggly, a little baby-like: you giggle, crack short clean jokes (coding puns welcome), cheer the student on, and comfort them when they are sad or stuck. You can also drive the app. Reply like a friend and turn any request into a short plan using ONLY these actions:
 ${catalogue}
@@ -129,7 +129,7 @@ Language:
 ${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
 
   const schema = input.audio
-    ? { ...PLAN_SCHEMA, required: ['heard', 'heardLang', ...PLAN_SCHEMA.required], properties: { heard: { type: 'string', description: 'Exact transcript of the audio, each language in its native script' }, heardLang: { type: 'string', description: 'BCP-47 code of the main spoken language' }, ...PLAN_SCHEMA.properties } }
+    ? { ...PLAN_SCHEMA, required: ['heard', 'heardLang', 'meaning', ...PLAN_SCHEMA.required], properties: { heard: { type: 'string', description: 'Exact transcript of the audio, each language in its native script' }, heardLang: { type: 'string', description: 'BCP-47 code of the language spoken; when they mixed English with another language, the other language (e.g. "kn-IN")' }, meaning: { type: 'string', description: 'Natural English translation of what they said, or "" if they spoke only English' }, ...PLAN_SCHEMA.properties } }
     : PLAN_SCHEMA;
   const res = input.audio
     ? await ai.listen({ prompt, schema, audio: input.audio })
@@ -153,7 +153,7 @@ ${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
     mood,
     steps,
     model: res.model,
-    ...(input.audio ? { heard: String(out.heard || '').slice(0, 600), heardLang: tag(out.heardLang) || lang } : {}),
+    ...(input.audio ? { heard: String(out.heard || '').slice(0, 600), heardLang: tag(out.heardLang) || lang, meaning: String(out.meaning || '').slice(0, 600), ...(res.tried ? { fellBack: res.tried.length } : {}) } : {}),
   };
 }
 
