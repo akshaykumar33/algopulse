@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\naeiou\naei\nabcde\nabcdefg\n",
+    "output": "Happy\nHappy\nSad\nSad\n"
+  }
+]

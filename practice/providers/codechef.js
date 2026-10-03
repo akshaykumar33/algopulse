@@ -19,28 +19,42 @@ const fetchJson = (url) =>
   });
 
 async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRating = 800, endRating = 1200, poolSize = 100 }) {
-  const url = `https://www.codechef.com/api/list/problems?page=0&limit=50&sort_by=difficulty_rating&sort_order=asc&start_rating=${startRating}&end_rating=${endRating}`;
-  const json = await fetchJson(url);
-  const items = json.data || [];
   const exclude = new Set(usedIds);
+  const pool = [];
+  const maxPages = 10;
 
-  const pool = items
-    .filter((p) => parseInt(p.difficulty_rating, 10) > 0)
-    .map((p) => {
-      const id = `CC-${p.code}`;
-      return {
-        platform: 'CodeChef',
-        id,
-        name: p.name,
-        rating: parseInt(p.difficulty_rating, 10),
-        tags: ['codechef'],
-        url: `https://www.codechef.com/problems/${p.code}`,
-        file: toFileName(p.name),
-        template: 'templates/codechef.js',
-        submissions: parseInt(p.successful_submissions, 10) || 0,
-      };
-    })
-    .filter((p) => !exclude.has(p.id) && !rootFiles.has(p.file));
+  for (let page = 0; page < maxPages; page++) {
+    const url = `https://www.codechef.com/api/list/problems?page=${page}&limit=50&sort_by=difficulty_rating&sort_order=asc&start_rating=${startRating}&end_rating=${endRating}`;
+    try {
+      const json = await fetchJson(url);
+      const items = json.data || [];
+      if (!items.length) break;
+
+      for (const p of items) {
+        const rating = parseInt(p.difficulty_rating, 10);
+        if (rating <= 0) continue;
+        const id = `CC-${p.code}`;
+        const file = toFileName(p.name);
+        if (exclude.has(id) || rootFiles.has(file)) continue;
+
+        pool.push({
+          platform: 'CodeChef',
+          id,
+          name: p.name,
+          rating,
+          tags: ['codechef'],
+          url: `https://www.codechef.com/problems/${p.code}`,
+          file,
+          template: 'templates/codechef.js',
+          submissions: parseInt(p.successful_submissions, 10) || 0,
+        });
+      }
+
+      if (pool.length >= poolSize) break;
+    } catch {
+      break;
+    }
+  }
 
   const candidates = pool.sort((a, b) => b.submissions - a.submissions).slice(0, poolSize);
   for (let i = candidates.length - 1; i > 0; i--) {

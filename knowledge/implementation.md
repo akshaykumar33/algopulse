@@ -236,6 +236,30 @@ function solve() {
 | [Poster Perimeter](https://www.codechef.com/problems/POSTPERI) | `CodeChef` | `812` | `posterPerimeter.js` | Key algorithmic application from Day 2026-10-02. |
 | [Ambiguous Permutations](https://www.codechef.com/problems/PERMUT2) | `CodeChef` | `853` | `ambiguousPermutations.js` | Key algorithmic application from Day 2026-10-02. |
 | [Bar Queue](https://www.codechef.com/problems/QBGI) | `CodeChef` | `821` | `barQueue.js` | Key algorithmic application from Day 2026-10-02. |
+| [ABC String](https://codeforces.com/problemset/problem/1494/A) | `Codeforces` | `900` | `aBCString.js` | Key algorithmic application from Day 2026-10-03. |
+| [Alice and Bob](https://codeforces.com/problemset/problem/2169/A) | `Codeforces` | `900` | `aliceAndBob.js` | Key algorithmic application from Day 2026-10-03. |
+| [Ilya and Bank Account](https://codeforces.com/problemset/problem/313/A) | `Codeforces` | `900` | `ilyaAndBankAccount.js` | Key algorithmic application from Day 2026-10-03. |
+| [Preparing for the Exam](https://codeforces.com/problemset/problem/2051/C) | `Codeforces` | `1000` | `preparingForTheExam.js` | Key algorithmic application from Day 2026-10-03. |
+| [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) | `LeetCode` | `Easy` | `greatestCommonDivisorOfStrings.js` | Key algorithmic application from Day 2026-10-03. |
+| [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values/) | `LeetCode` | `Easy` | `findMissingAndRepeatedValues.js` | Key algorithmic application from Day 2026-10-03. |
+| [Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/) | `LeetCode` | `Easy` | `sortArrayByParity.js` | Key algorithmic application from Day 2026-10-03. |
+| [Monotonic Array](https://leetcode.com/problems/monotonic-array/) | `LeetCode` | `Easy` | `monotonicArray.js` | Key algorithmic application from Day 2026-10-03. |
+| [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | `LeetCode` | `Easy` | `intersectionOfTwoArrays.js` | Key algorithmic application from Day 2026-10-03. |
+| [Power of Two](https://leetcode.com/problems/power-of-two/) | `LeetCode` | `Easy` | `powerOfTwo.js` | Key algorithmic application from Day 2026-10-03. |
+| [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/) | `LeetCode` | `Easy` | `removeAllAdjacentDuplicatesInString.js` | Key algorithmic application from Day 2026-10-03. |
+| [Path Sum](https://leetcode.com/problems/path-sum/) | `LeetCode` | `Easy` | `pathSum.js` | Key algorithmic application from Day 2026-10-03. |
+| [Make The String Great](https://leetcode.com/problems/make-the-string-great/) | `LeetCode` | `Easy` | `makeTheStringGreat.js` | Key algorithmic application from Day 2026-10-03. |
+| [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/) | `LeetCode` | `Easy` | `jewelsAndStones.js` | Key algorithmic application from Day 2026-10-03. |
+| [Cricket Ranking](https://www.codechef.com/problems/CRICRANK) | `CodeChef` | `966` | `cricketRanking.js` | Key algorithmic application from Day 2026-10-03. |
+| [World Chess Championship](https://www.codechef.com/problems/WCC) | `CodeChef` | `935` | `worldChessChampionship.js` | Key algorithmic application from Day 2026-10-03. |
+| [Gotta Catch Em All](https://www.codechef.com/problems/GCEA) | `CodeChef` | `898` | `gottaCatchEmAll.js` | Key algorithmic application from Day 2026-10-03. |
+| [Chef and Happy String](https://www.codechef.com/problems/HAPPYSTR) | `CodeChef` | `956` | `chefAndHappyString.js` | Key algorithmic application from Day 2026-10-03. |
+| [Layered Cake](https://www.codechef.com/problems/LAYERCAKE) | `CodeChef` | `875` | `layeredCake.js` | Key algorithmic application from Day 2026-10-03. |
+| [Construct N](https://www.codechef.com/problems/CONN) | `CodeChef` | `860` | `constructN.js` | Key algorithmic application from Day 2026-10-03. |
+| [Chef and Remissness](https://www.codechef.com/problems/REMISS) | `CodeChef` | `928` | `chefAndRemissness.js` | Key algorithmic application from Day 2026-10-03. |
+| [Drunk Alcoholic](https://www.codechef.com/problems/DRUNKALK) | `CodeChef` | `874` | `drunkAlcoholic.js` | Key algorithmic application from Day 2026-10-03. |
+| [Hattrick](https://www.codechef.com/problems/HATTRICK) | `CodeChef` | `853` | `hattrick.js` | Key algorithmic application from Day 2026-10-03. |
+| [Farmer And His Plot](https://www.codechef.com/problems/RECTSQ) | `CodeChef` | `936` | `farmerAndHisPlot.js` | Key algorithmic application from Day 2026-10-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

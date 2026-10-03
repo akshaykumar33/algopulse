@@ -101,6 +101,8 @@ function backtrack(index, currentSum, target, arr) {
 | [Delete from the Left](https://codeforces.com/problemset/problem/1005/B) | `Codeforces` | `900` | `deleteFromTheLeft.js` | Key algorithmic application from Day 2026-10-02. |
 | [Little Elephant and Rozdil](https://codeforces.com/problemset/problem/205/A) | `Codeforces` | `900` | `littleElephantAndRozdil.js` | Key algorithmic application from Day 2026-10-02. |
 | [Gold Rush](https://codeforces.com/problemset/problem/1829/D) | `Codeforces` | `1000` | `goldRush.js` | Key algorithmic application from Day 2026-10-02. |
+| [ABC String](https://codeforces.com/problemset/problem/1494/A) | `Codeforces` | `900` | `aBCString.js` | Key algorithmic application from Day 2026-10-03. |
+| [Berland Poker](https://codeforces.com/problemset/problem/1359/A) | `Codeforces` | `1000` | `berlandPoker.js` | Key algorithmic application from Day 2026-10-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

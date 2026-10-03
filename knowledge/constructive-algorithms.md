@@ -77,6 +77,9 @@ function constructMatrix(n, m) {
 | [Shuffle (Hard)](https://www.codechef.com) | `CodeChef` | `1700` | `shuffleHard.js` | General window-sort preimage counting: valid iff suffix Q[L..N] is identity; count is K! * K^(prefix_max_count(0..pos(L)) - 1). |
 | [Wizard of Orz](https://codeforces.com/problemset/problem/1467/A) | `Codeforces` | `900` | `wizardOfOrz.js` | Key algorithmic application from Day 2026-10-02. |
 | [Dominant Piranha](https://codeforces.com/problemset/problem/1433/C) | `Codeforces` | `900` | `dominantPiranha.js` | Key algorithmic application from Day 2026-10-02. |
+| [Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) | `Codeforces` | `900` | `arrayCloningTechnique.js` | Key algorithmic application from Day 2026-10-03. |
+| [Mocha and Math](https://codeforces.com/problemset/problem/1559/A) | `Codeforces` | `900` | `mochaAndMath.js` | Key algorithmic application from Day 2026-10-03. |
+| [Preparing for the Exam](https://codeforces.com/problemset/problem/2051/C) | `Codeforces` | `1000` | `preparingForTheExam.js` | Key algorithmic application from Day 2026-10-03. |
 
 ---
 
