@@ -39,22 +39,42 @@
   }
 
   function mount() {
-    const el = document.createElement('button');
-    el.type = 'button';
+    const el = document.createElement('div');
     el.className = 'mascot';
     el.id = 'mascot';
+    el.tabIndex = 0;
+    el.setAttribute('role', 'region');
     el.setAttribute('aria-label', 'Pip the hamster. Click to boop, drag or use arrow keys to move, M to hide.');
     el.title = 'Boop me · drag me · right-click to switch buddy · M to hide';
     el.innerHTML = `
-      <span class="mascot-bubble" aria-live="polite" hidden></span>
-      <span class="mascot-status" aria-hidden="true"><i class="ph-fill ph-microphone mascot-mic"></i><i class="ph-fill ph-eye mascot-eye"></i></span>
-      <span class="mascot-float">
-        <span class="mascot-squash">
-          <span class="mascot-layer mascot-dir"></span>
-          <span class="mascot-layer mascot-react"></span>
+      <div class="mascot-bubble" id="mascotBubble" aria-live="polite" hidden></div>
+      <div class="pip-badges" id="pipBadges">
+        <button class="pip-status-badge" type="button" id="pipStatusBadge" title="Pip · Click to boop">
+          <span class="pip-status-dot is-idle" id="pipStatusDot"></span>
+          <span class="pip-status-text" id="pipStatusText">Pip</span>
+        </button>
+        <button class="pip-badge-btn pip-mic-badge" type="button" id="pipMicBadge" title="Voice control (V)" aria-label="Microphone">
+          <i class="ph-fill ph-microphone"></i>
+        </button>
+        <button class="pip-badge-btn pip-cmd-badge" type="button" id="pipCmdBadge" title="Ask Pip or run command (B)" aria-label="Command">
+          <i class="ph-bold ph-terminal-window"></i>
+        </button>
+      </div>
+      <form class="pip-command-badge" id="pipCommandBadge" autocomplete="off" hidden>
+        <i class="ph-bold ph-magnifying-glass pip-cmd-icon" aria-hidden="true"></i>
+        <input id="pipCmdInput" type="text" maxlength="300" placeholder="Ask Pip or run command…" enterkeyhint="send">
+        <kbd class="pip-kbd-esc">ESC</kbd>
+        <button class="pip-cmd-send" type="submit" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
+      </form>
+      <div class="mascot-avatar" id="pipAvatar" role="button" tabindex="0" title="Boop Pip!">
+        <span class="mascot-float">
+          <span class="mascot-squash">
+            <span class="mascot-layer mascot-dir"></span>
+            <span class="mascot-layer mascot-react"></span>
+          </span>
         </span>
-      </span>
-      <span class="mascot-shadow" aria-hidden="true"></span>`;
+        <span class="mascot-shadow" aria-hidden="true"></span>
+      </div>`;
     document.body.append(el);
 
     // Character: hamster (default) or bunny, remembered per browser.
@@ -73,15 +93,40 @@
     // Speech-bubble captions (what Pip heard, or what it is doing).
     const bubble = el.querySelector('.mascot-bubble');
     let bubbleTimer = null;
-    function say(text, ms = 2600) {
+    function say(text, ms = 3500, actions = []) {
       clearTimeout(bubbleTimer);
       if (!text) {
         bubble.hidden = true;
+        bubble.innerHTML = '';
         return;
       }
-      bubble.textContent = text;
+      bubble.innerHTML = '';
+      const textSpan = document.createElement('span');
+      textSpan.className = 'pip-bubble-text';
+      textSpan.textContent = text;
+      bubble.append(textSpan);
+
+      if (Array.isArray(actions) && actions.length > 0) {
+        const actionRow = document.createElement('div');
+        actionRow.className = 'pip-bubble-actions';
+        actions.forEach((act) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'pip-action-chip';
+          btn.innerHTML = act.html || act.label || 'Action';
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            act.run?.();
+          });
+          actionRow.append(btn);
+        });
+        bubble.append(actionRow);
+      }
       bubble.hidden = false;
-      if (ms) bubbleTimer = setTimeout(() => (bubble.hidden = true), ms);
+      if (ms) bubbleTimer = setTimeout(() => {
+        bubble.hidden = true;
+        bubble.innerHTML = '';
+      }, ms);
     }
 
     const dirLayer = el.querySelector('.mascot-dir');
@@ -191,6 +236,7 @@
     let drag = null;
     el.addEventListener('pointerdown', (e) => {
       if (e.button !== 0) return;
+      if (e.target.closest('button, input, form, a, .pip-badges, .pip-command-badge, .pip-action-chip')) return;
       const r = size();
       drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, ox: e.clientX - r.left, oy: e.clientY - r.top, moved: false };
       el.setPointerCapture(e.pointerId);
@@ -221,11 +267,16 @@
     el.addEventListener('pointerup', endDrag);
     el.addEventListener('pointercancel', endDrag);
     el.addEventListener('click', (e) => {
+      if (e.target.closest('button, input, form, a, .pip-badges, .pip-command-badge, .pip-action-chip')) return;
       if (el.dataset.dragged) {
         el.dataset.dragged = '';
         e.preventDefault();
         return;
       }
+      boop();
+    });
+    el.querySelector('#pipStatusBadge')?.addEventListener('click', (e) => {
+      e.stopPropagation();
       boop();
     });
     el.addEventListener('contextmenu', (e) => {
@@ -497,6 +548,7 @@
     window.mascot = {
       el,
       say,
+      boop: () => boop(),
       emote,
       feel,
       feeling: () => feeling,

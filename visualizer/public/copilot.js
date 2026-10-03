@@ -29,11 +29,9 @@ const copilot = (() => {
   ];
 
   /* ======================================================================
-     Top Live Island & Dynamic Feeds ("Just Ham" + Top Live Bar)
+     Pip Interactive Badges & Live Feeds ("Just Ham", zero bars)
      ====================================================================== */
-  let hud = null;
   const history = [];
-  let feedTimer = 0;
   let lastClip = null;
   let lastHeardText = '';
   let lastHeard = null;
@@ -54,112 +52,42 @@ const copilot = (() => {
     }
   }
 
-  function mountHud() {
-    hud = document.createElement('aside');
-    hud.className = 'top-live-island buddy-chat';
-    hud.id = 'buddyChat';
-    hud.setAttribute('aria-label', 'Live Assistant Feed');
-    hud.innerHTML = `
-      <div class="ti-capsule" id="tiCapsule">
-        <!-- Live Hamster Mascot Badge (Click to boop) -->
-        <button class="ti-buddy-btn" type="button" id="tiBuddyBtn" title="${pet()?.name?.() || 'Pip'} (Click to boop)">
-          <span class="ti-avatar-ring">
-            <span class="ti-face" aria-hidden="true"></span>
-            <span class="ti-status-dot is-idle" id="tiStatusDot" aria-hidden="true"></span>
-          </span>
-          <span class="ti-buddy-name" id="tiBuddyName">${pet()?.name?.() || 'Pip'}</span>
-          <span class="ti-status-tag" id="tiStatusTag"><i class="ph-fill ph-circle"></i> <span>Ready</span></span>
-        </button>
-
-        <!-- Dynamic Live Feed Slot -->
-        <div class="ti-feed-slot" id="tiFeedSlot">
-          <div class="ti-feed-item ti-feed-idle" id="tiFeedIdle">
-            <span class="ti-feed-hint">Press <kbd>V</kbd> to talk · <kbd>B</kbd> to type</span>
-          </div>
-          <div class="ti-feed-item ti-feed-speech" id="tiFeedSpeech" hidden>
-            <span class="bc-wave ti-wave"><i></i><i></i><i></i><i></i></span>
-            <span class="ti-speech-text" id="tiSpeechText"></span>
-            <span class="ti-lang-badge" id="tiLangBadge" hidden><i class="ph-bold ph-translate"></i> <span id="tiLangCode"></span></span>
-          </div>
-          <div class="ti-feed-item ti-feed-steps" id="tiFeedSteps" hidden>
-            <ol class="ti-steps-list" id="tiStepsList"></ol>
-          </div>
-          <div class="ti-feed-item ti-feed-reply" id="tiFeedReply" hidden>
-            <span class="ti-reply-text" id="tiReplyText"></span>
-            <div class="ti-reply-actions" id="tiReplyActions"></div>
-          </div>
-        </div>
-
-        <!-- Live Controls: Wave Meter + Mic + Command/Prompt + Dismiss -->
-        <div class="ti-controls">
-          <span class="vb-meter ti-meter" aria-hidden="true" title="Mic volume">
-            <i></i><i></i><i></i><i></i><i></i>
-          </span>
-          <button class="ti-ctrl-btn ti-mic-btn" type="button" id="tiMic" aria-pressed="false" title="Talk to me (V)" aria-label="Microphone">
-            <i class="ph-fill ph-microphone"></i>
-          </button>
-          <button class="ti-ctrl-btn ti-cmd-btn" type="button" id="tiCmd" title="Type command (B)" aria-label="Type command">
-            <i class="ph-bold ph-terminal-window"></i>
-          </button>
-          <button class="ti-ctrl-btn ti-dismiss-btn" type="button" id="tiDismiss" title="Dismiss" aria-label="Dismiss feed" hidden>
-            <i class="ph-bold ph-x"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Spotlight Inline Command Bar -->
-      <form class="ti-spotlight" id="tiSpotlight" autocomplete="off" hidden>
-        <i class="ph-bold ph-magnifying-glass ti-spotlight-icon" aria-hidden="true"></i>
-        <input id="bcInput" type="text" maxlength="500" placeholder="Ask Pip or run command (e.g. 'run tests', 'next problem', 'hint')…" enterkeyhint="send">
-        <kbd class="ti-kbd-esc">ESC</kbd>
-        <button class="ti-spotlight-send" type="submit" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
-      </form>`;
-
-    document.body.append(hud);
-
-    // Boop mascot when avatar clicked
-    hud.querySelector('#tiBuddyBtn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      pet()?.boop?.();
-      pet()?.react?.('delighted', 900);
-      pet()?.say?.('Hi there! 💛', 1800);
-    });
-
-    // Mic toggle
-    hud.querySelector('#tiMic').addEventListener('click', (e) => {
+  function initBadges() {
+    const mic = document.getElementById('pipMicBadge');
+    if (!mic) {
+      setTimeout(initBadges, 50);
+      return;
+    }
+    mic.addEventListener('click', (e) => {
       e.stopPropagation();
       A().voice.toggle();
     });
 
-    // Command launcher
-    hud.querySelector('#tiCmd').addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleSpotlight();
-    });
+    const cmd = document.getElementById('pipCmdBadge');
+    if (cmd) {
+      cmd.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSpotlight();
+      });
+    }
 
-    // Dismiss button
-    hud.querySelector('#tiDismiss').addEventListener('click', (e) => {
-      e.stopPropagation();
-      showFeed('idle');
-      hud.querySelector('#tiDismiss').hidden = true;
-    });
+    const form = document.getElementById('pipCommandBadge');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('pipCmdInput');
+        const text = input?.value.trim();
+        if (!text) return;
+        input.value = '';
+        closeSpotlight();
+        pet()?.say?.(`“${text}”`, 2500);
+        A().interpret(text);
+      });
+    }
 
-    // Spotlight form submission
-    hud.querySelector('#tiSpotlight').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = hud.querySelector('#bcInput');
-      const text = input.value.trim();
-      if (!text) return;
-      input.value = '';
-      closeSpotlight();
-      say('me', text);
-      A().interpret(text);
-    });
-
-    // Keyboard shortcuts: B toggles spotlight, Escape closes spotlight
     addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        const sp = hud?.querySelector('#tiSpotlight');
+        const sp = document.getElementById('pipCommandBadge');
         if (sp && !sp.hidden) {
           e.preventDefault();
           closeSpotlight();
@@ -173,164 +101,114 @@ const copilot = (() => {
       toggleSpotlight();
     });
 
-    document.addEventListener('assistant:change', syncHud);
-    syncHud();
-  }
-
-  function showFeed(name) {
-    if (!hud) return;
-    clearTimeout(feedTimer);
-    const items = {
-      idle: hud.querySelector('#tiFeedIdle'),
-      speech: hud.querySelector('#tiFeedSpeech'),
-      steps: hud.querySelector('#tiFeedSteps'),
-      reply: hud.querySelector('#tiFeedReply'),
-    };
-    for (const [key, el] of Object.entries(items)) {
-      if (el) el.hidden = key !== name;
-    }
-  }
-
-  function feedLater(ms = 8000) {
-    clearTimeout(feedTimer);
-    feedTimer = setTimeout(() => {
-      if (busy || hud?.dataset.state === 'listening' || hud?.dataset.state === 'thinking' || hud?.dataset.state === 'doing') return;
-      showFeed('idle');
-      const dismiss = hud?.querySelector('#tiDismiss');
-      if (dismiss) dismiss.hidden = true;
-    }, ms);
+    document.addEventListener('assistant:change', syncBadges);
+    syncBadges();
   }
 
   function openSpotlight(focus = true) {
-    if (!hud) return;
-    const sp = hud.querySelector('#tiSpotlight');
+    const sp = document.getElementById('pipCommandBadge');
     if (!sp) return;
     sp.hidden = false;
-    hud.classList.add('has-spotlight');
     if (focus) {
-      const input = hud.querySelector('#bcInput');
+      const input = document.getElementById('pipCmdInput');
       input?.focus();
       input?.select();
     }
   }
 
   function closeSpotlight() {
-    if (!hud) return;
-    const sp = hud.querySelector('#tiSpotlight');
+    const sp = document.getElementById('pipCommandBadge');
     if (!sp) return;
     sp.hidden = true;
-    hud.classList.remove('has-spotlight');
   }
 
   function toggleSpotlight() {
-    const sp = hud?.querySelector('#tiSpotlight');
+    const sp = document.getElementById('pipCommandBadge');
     if (!sp) return;
     if (sp.hidden) openSpotlight(true);
     else closeSpotlight();
   }
 
-  const expanded = () => Boolean(hud && hud.classList.contains('has-spotlight'));
+  const expanded = () => Boolean(document.getElementById('pipCommandBadge') && !document.getElementById('pipCommandBadge').hidden);
 
   function setState(kind, text) {
-    if (!hud) return;
-    hud.dataset.state = kind; // idle | listening | thinking | doing | error | off
-    const dot = hud.querySelector('#tiStatusDot');
-    if (dot) dot.className = `ti-status-dot is-${kind}`;
-    const tag = hud.querySelector('#tiStatusTag');
-    if (tag) {
+    const mascot = pet()?.el;
+    if (mascot) mascot.dataset.state = kind;
+    const dot = document.getElementById('pipStatusDot');
+    if (dot) dot.className = `pip-status-dot is-${kind}`;
+    const txt = document.getElementById('pipStatusText');
+    if (txt) {
       const labels = {
-        listening: '<span class="ti-glow"></span><i class="ph-fill ph-microphone"></i> <span>Listening</span>',
-        thinking: '<i class="ph-fill ph-sparkle"></i> <span>Thinking…</span>',
-        doing: `<i class="ph-fill ph-lightning"></i> <span>${escapeHtml(text || 'Executing')}</span>`,
-        error: '<i class="ph-fill ph-warning-circle"></i> <span>Oops</span>',
-        idle: `<i class="ph-fill ph-circle"></i> <span>${A().voice.on ? 'Listening' : 'Ready'}</span>`,
-        off: '<i class="ph-fill ph-circle"></i> <span>Ready</span>',
+        listening: 'Listening',
+        thinking: 'Thinking…',
+        doing: text || 'Running…',
+        error: 'Oops',
+        idle: A().voice.on ? 'Listening' : (pet()?.name?.() || 'Pip'),
+        off: pet()?.name?.() || 'Pip',
       };
-      tag.innerHTML = labels[kind] || labels.idle;
+      txt.textContent = labels[kind] || labels.idle;
     }
-    const face = hud.querySelector('.ti-face');
-    if (face) {
-      const character = pet()?.character?.() || 'hamster';
-      face.style.backgroundImage = `url("mascots/${character}-directions.webp")`;
+    const mic = document.getElementById('pipMicBadge');
+    if (mic) {
+      mic.classList.toggle('is-listening', kind === 'listening' || A().voice.on);
     }
-    const name = hud.querySelector('#tiBuddyName');
-    if (name) name.textContent = pet()?.name?.() || 'Pip';
   }
 
-  function syncHud() {
-    if (!hud) return;
+  function syncBadges() {
     const on = A().voice.on;
-    const mic = hud.querySelector('#tiMic');
+    const mic = document.getElementById('pipMicBadge');
     if (mic) {
       mic.setAttribute('aria-pressed', String(on));
-      mic.classList.toggle('is-on', on);
+      mic.classList.toggle('is-listening', on);
     }
-    if (on) startMeter();
-    else stopMeter();
     if (!busy) setState(on ? 'listening' : 'idle');
   }
 
   function heard(text, final) {
-    if (!hud || !text) return;
+    if (!text) return;
     lastClip = null;
     if (final) {
       lastHeardText = text;
       setState('thinking');
-      showFeed('speech');
-      const speech = hud.querySelector('#tiSpeechText');
-      if (speech) speech.textContent = `“${text}”`;
+      pet()?.say?.(`“${text}”`, 3000);
       return void say('me', text);
     }
     setState('listening');
-    showFeed('speech');
-    const speech = hud.querySelector('#tiSpeechText');
-    if (speech) speech.textContent = `“${text}…”`;
+    pet()?.say?.(`“${text}…”`, 2000);
   }
 
   function say(who, text, opts = {}) {
-    if (!hud || !text) return null;
+    if (!text) return null;
     history.push({ who, text });
     if (history.length > 24) history.shift();
     if (who === 'me') {
-      showFeed('speech');
-      const speech = hud.querySelector('#tiSpeechText');
-      if (speech) speech.textContent = `“${text}”`;
-      const langBadge = hud.querySelector('#tiLangBadge');
-      if (langBadge) langBadge.hidden = true;
+      pet()?.say?.(`“${text}”`, 3200);
     } else {
-      showFeed('reply');
-      const replyEl = hud.querySelector('#tiReplyText');
-      if (replyEl) replyEl.textContent = text;
-      const actions = hud.querySelector('#tiReplyActions');
-      if (actions) {
-        actions.innerHTML = '';
-        if (/test/i.test(text)) {
-          const btn = document.createElement('button');
-          btn.className = 'ti-action-pill';
-          btn.type = 'button';
-          btn.innerHTML = '<i class="ph-bold ph-play"></i> Run';
-          btn.onclick = () => STEPS['run-tests']();
-          actions.append(btn);
-        }
-        if (/problem/i.test(text) || /next/i.test(text)) {
-          const btn = document.createElement('button');
-          btn.className = 'ti-action-pill';
-          btn.type = 'button';
-          btn.innerHTML = '<i class="ph-bold ph-caret-right"></i> Next';
-          btn.onclick = () => STEPS['next-problem']();
-          actions.append(btn);
-        }
+      const actions = [];
+      if (/test/i.test(text)) {
+        actions.push({
+          label: '<i class="ph-bold ph-play"></i> Run tests',
+          run: () => STEPS['run-tests'](),
+        });
       }
-      const dismiss = hud.querySelector('#tiDismiss');
-      if (dismiss) dismiss.hidden = false;
-      feedLater(8000);
-      pet()?.say?.(text, 3800);
+      if (/problem/i.test(text) || /next/i.test(text)) {
+        actions.push({
+          label: '<i class="ph-bold ph-caret-right"></i> Next problem',
+          run: () => STEPS['next-problem'](),
+        });
+      }
+      if (/hint/i.test(text)) {
+        actions.push({
+          label: '<i class="ph-bold ph-lightbulb"></i> Hint',
+          run: () => STEPS['hint'](),
+        });
+      }
+      pet()?.say?.(text, 5000, actions);
     }
     return null;
   }
 
   function typing(on) {
-    if (!hud) return;
     if (on) setState('thinking');
   }
 
@@ -338,44 +216,7 @@ const copilot = (() => {
     if (!text) return;
     say('pip', text);
     if (mood) pet()?.react(mood, 900);
-    A().speak(text, lang, mood, { ai: Boolean(opts.ai) });
-  }
-
-  /* ---- microphone level meter (Web Audio, local only) ---- */
-  let meter = null;
-  async function startMeter() {
-    if (meter || !navigator.mediaDevices?.getUserMedia) return;
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-      const ctx = new AudioContext();
-      const analyser = ctx.createAnalyser();
-      analyser.fftSize = 256;
-      ctx.createMediaStreamSource(stream).connect(analyser);
-      const data = new Uint8Array(analyser.frequencyBinCount);
-      const bars = [...hud.querySelectorAll('.vb-meter i')];
-      meter = { stream, ctx, raf: 0 };
-      const tick = () => {
-        analyser.getByteTimeDomainData(data);
-        let peak = 0;
-        for (const v of data) peak = Math.max(peak, Math.abs(v - 128));
-        const level = Math.min(1, peak / 50);
-        bars.forEach((b, i) => {
-          const h = Math.max(0.15, Math.min(1, level * (1.2 - Math.abs(i - 2) * 0.22)));
-          b.style.transform = `scaleY(${h})`;
-        });
-        meter.raf = requestAnimationFrame(tick);
-      };
-      tick();
-    } catch {
-      /* the meter is a nicety; recognition still works without it */
-    }
-  }
-  function stopMeter() {
-    if (!meter) return;
-    cancelAnimationFrame(meter.raf);
-    meter.stream.getTracks().forEach((t) => t.stop());
-    meter.ctx.close();
-    meter = null;
+    A().speak(text, lang, mood, { ai: Boolean(opts?.ai) });
   }
 
   /* ======================================================================
@@ -556,15 +397,10 @@ const copilot = (() => {
   };
 
   function renderSteps(steps, at, failed = -1) {
-    if (!hud || !steps.length) return;
-    showFeed('steps');
-    const list = hud.querySelector('#tiStepsList');
-    if (!list) return;
-    list.innerHTML = steps
-      .map((s, i) => `<li class="ti-step-pill ${i < at ? 'done' : i === at ? (failed === i ? 'failed' : 'now') : ''}">${escapeHtml(STEP_LABEL(s))}</li>`)
-      .join('');
-    if (at >= steps.length) {
-      feedLater(4500);
+    if (!steps.length) return;
+    if (at < steps.length) {
+      const s = steps[at];
+      pet()?.say?.(`Step ${at + 1}/${steps.length}: ${STEP_LABEL(s)}`, 2500);
     }
   }
 
@@ -631,34 +467,19 @@ const copilot = (() => {
   }
 
   function hearing(on, kept) {
-    if (!hud) return;
     if (on) {
       setState('listening');
-      showFeed('speech');
-      const speech = hud.querySelector('#tiSpeechText');
-      if (speech) speech.innerHTML = '<span class="ti-hint-speaking">Listening to you…</span>';
-      const langBadge = hud.querySelector('#tiLangBadge');
-      if (langBadge) langBadge.hidden = true;
-      const dismiss = hud.querySelector('#tiDismiss');
-      if (dismiss) dismiss.hidden = true;
+      pet()?.say?.('Listening to you… 🎙️', 2000);
     } else if (!kept) {
-      if (hud.dataset.state === 'listening') {
-        setState(A().voice.on ? 'idle' : 'off');
-        showFeed('idle');
-      }
+      setState(A().voice.on ? 'listening' : 'idle');
     } else {
       setState('thinking');
-      showFeed('speech');
-      const speech = hud.querySelector('#tiSpeechText');
-      if (speech) speech.innerHTML = '<span class="ti-hint-thinking">Understanding…</span>';
+      pet()?.say?.('Thinking… ✨', 2000);
     }
   }
 
   function dropLive() {
-    if (hud && hud.dataset.state !== 'heard') {
-      showFeed('idle');
-      setState(A().voice.on ? 'listening' : 'idle');
-    }
+    setState(A().voice.on ? 'listening' : 'idle');
   }
 
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime } });
@@ -675,9 +496,7 @@ const copilot = (() => {
     typing(true);
     if (spoken) {
       lastClip = input.audio;
-      showFeed('speech');
-      const speech = hud?.querySelector('#tiSpeechText');
-      if (speech) speech.innerHTML = '<span class="ti-hint-thinking">Understanding…</span>';
+      pet()?.say?.('Thinking… ✨', 2000);
     }
     pet()?.react('think');
     let plan;
@@ -707,14 +526,6 @@ const copilot = (() => {
       say('me', plan.heard);
       lastHeard = plan.heardLang || plan.lang;
       lastHeardText = plan.heard;
-      if (lastHeard && hud) {
-        const langBadge = hud.querySelector('#tiLangBadge');
-        const langCode = hud.querySelector('#tiLangCode');
-        if (langBadge && langCode) {
-          langCode.textContent = nativeName(lastHeard) || lastHeard;
-          langBadge.hidden = false;
-        }
-      }
     }
     lastLang = plan.lang || lastLang;
     A().voice.detected(plan.lang);
@@ -744,7 +555,6 @@ const copilot = (() => {
     renderSteps(steps, steps.length);
     busy = false;
     setState(A().voice.on ? 'listening' : 'idle');
-    feedLater(6000);
   }
 
   /* ======================================================================
@@ -876,10 +686,15 @@ const copilot = (() => {
   /* ======================================================================
      Boot
      ====================================================================== */
-  document.addEventListener('DOMContentLoaded', () => {
-    mountHud();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initBadges();
+      cursor.mount();
+    });
+  } else {
+    initBadges();
     cursor.mount();
-  });
+  }
 
   return {
     ready: () => Boolean(state.aiReady),

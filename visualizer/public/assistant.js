@@ -227,7 +227,7 @@ const assistant = (() => {
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
-    if (window.copilot && document.getElementById('buddyChat') && !document.getElementById('buddyChat').hidden) return window.copilot.reply(text, reaction);
+    if (window.copilot?.reply) return window.copilot.reply(text, reaction);
     pet()?.say(text);
     pet()?.react(reaction, 700);
     speak(text, undefined, reaction);
