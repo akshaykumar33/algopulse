@@ -25,9 +25,9 @@ window.buddyVoice = (() => {
   };
   const pet = () => window.mascot;
   const STYLE = {
-    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 1.05, pitch: { natural: 1.2, google: 1.3, desktop: 1.1 }, rate: 1.05, words: 'Speak as a bright, cheerful young lady with a cute, bubbly, smiling voice, playful and warm' },
-    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 1, pitch: { natural: 1.08, google: 1.15, desktop: 1.02 }, rate: 1, words: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice' },
-    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1.1, pitch: { natural: 1.15, google: 1.25, desktop: 1.08 }, rate: 1.08, words: 'Speak in a bright, cheerful, energetic voice' },
+    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.08, google: 1.1, desktop: 1.04 }, rate: 0.95, words: 'Speak as a bright, cheerful young lady with a cute, smiling voice' },
+    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.02, google: 1.05, desktop: 1 }, rate: 0.92, words: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice' },
+    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.1, google: 1.12, desktop: 1.05 }, rate: 1, words: 'Speak in a bright, cheerful, friendly voice' },
   };
   const MOOD = {
     laugh: 'laughing and giggling happily between the words',
@@ -42,6 +42,9 @@ window.buddyVoice = (() => {
     shy: 'shyly and bashfully',
   };
   const style = () => STYLE[store().voiceStyle] || STYLE.cute;
+  // Shared delivery for every style and language: smooth, mid-pitched, unhurried, and
+  // pronounced the way a native speaker of that language would say it.
+  const DELIVERY = 'in a smooth, warm, charming mid-pitched tone, at a calm, unhurried pace, with fluent native pronunciation of whatever language the text is in';
 
   let token = 0;
   let ctx = null;
@@ -114,7 +117,7 @@ window.buddyVoice = (() => {
   /* ---------- 1. Gemini voice ---------- */
   async function gemini(text, mood, my) {
     const s = style();
-    const res = await api('/api/voice/speak', { text, voice: s.ai, style: [s.words, MOOD[mood]].filter(Boolean).join(', ') });
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style: [s.words, DELIVERY, MOOD[mood]].filter(Boolean).join(', ') });
     const bin = atob(res.pcm);
     const n = bin.length >> 1;
     const out = new Float32Array(n);
