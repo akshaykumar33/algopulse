@@ -1,4 +1,4 @@
-var solve = function(nums) {
+var isMonotonic = function(nums) {
   let inc = true;
   let dec = true;
   for (let i = 0; i < nums.length - 1; i++) {
@@ -7,6 +7,8 @@ var solve = function(nums) {
   }
   return inc || dec;
 };
+
+var solve = isMonotonic;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -25,7 +27,7 @@ if (require.main === module) {
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;

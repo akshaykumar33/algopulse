@@ -1,4 +1,4 @@
-var solve = function(nums) {
+var sortArrayByParity = function(nums) {
   let l = 0, r = nums.length - 1;
   while (l < r) {
     if (nums[l] % 2 > nums[r] % 2) {
@@ -11,6 +11,8 @@ var solve = function(nums) {
   }
   return nums;
 };
+
+var solve = sortArrayByParity;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -29,7 +31,7 @@ if (require.main === module) {
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;

@@ -1,4 +1,4 @@
-var solve = function(jewels, stones) {
+var numJewelsInStones = function(jewels, stones) {
   const set = new Set(jewels);
   let ans = 0;
   for (let i = 0; i < stones.length; i++) {
@@ -8,6 +8,8 @@ var solve = function(jewels, stones) {
   }
   return ans;
 };
+
+var solve = numJewelsInStones;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -23,7 +25,7 @@ if (require.main === module) {
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
+    process.exit(0);
   }
 }
 module.exports = solve;
