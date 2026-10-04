@@ -185,7 +185,7 @@ window.buddyVoice = (() => {
 
   /* ---------- 3. The best browser voice ---------- */
   const NATURAL = /natural|neural|online|premium|enhanced/i;
-  const CHILD = /\bana\b|maisie|child|kid/i;
+  const CHILD = /\bana\b|maisie|child|kid/i; // Edge's "Ana" is a child's voice: the cutest there is
   const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|google (us|uk english female)/i;
   const MALE = /\b(male|man|david|mark|guy|ryan|george|james|daniel|brian|eric|liam|andrew|christopher|prabhat|madhur|ravi|hemant)\b/i;
   function pickVoice(lang) {
@@ -237,7 +237,11 @@ window.buddyVoice = (() => {
     begin(1500 + words.length * 90);
     try {
       // Gemini voices the whole reply in one go, so it sounds like one breath.
-      if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
+      // A natural (neural) browser voice — Edge's Ana, Aria, Swara, Sapna… — starts
+      // speaking at once with no quota, so it wins over the AI voice's 3-4 s wait.
+      // The AI voice is for browsers that only have robotic voices for this language.
+      const instant = pickVoice(lang)?.kind === 'natural';
+      if (ai && !instant && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
         try {
           await gemini(words, mood, my);
           return;
