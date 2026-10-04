@@ -482,7 +482,7 @@ const copilot = (() => {
     setState(A().voice.on ? 'listening' : 'idle');
   }
 
-  const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime } });
+  const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime }, start: clip.start });
 
   async function handle(input) {
     if (busy) {
@@ -516,8 +516,9 @@ const copilot = (() => {
     }
     typing(false);
     if (spoken) {
-      // Silence, a cough or background chatter: drop it quietly.
-      if (!plan.heard?.trim()) {
+      // Silence, a cough or background chatter — or the same sentence already ran as a
+      // quick local command while the AI was listening: drop it quietly.
+      if (!plan.heard?.trim() || (input.start && A().voice.localAt > input.start - 300)) {
         dropLive();
         busy = false;
         setState(A().voice.on ? 'listening' : 'idle');
