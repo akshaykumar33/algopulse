@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"hello\",\"leetcode\"]\n\"hlabcdefgijkmnopqrstuvwxyz\"",
+    "output": "true"
+  },
+  {
+    "input": "[\"word\",\"world\",\"row\"]\n\"worldabcefghijkmnpqstuvxyz\"",
+    "output": "false"
+  },
+  {
+    "input": "[\"apple\",\"app\"]\n\"abcdefghijklmnopqrstuvwxyz\"",
+    "output": "false"
+  }
+]

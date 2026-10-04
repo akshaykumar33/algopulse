@@ -1,0 +1,14 @@
+[
+  {
+    "input": "5 5 11\n",
+    "output": "No\n"
+  },
+  {
+    "input": "10 increment 15\n",
+    "output": "No\n"
+  },
+  {
+    "input": "0 0 0\n",
+    "output": "Yes\n"
+  }
+]

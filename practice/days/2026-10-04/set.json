@@ -1,0 +1,376 @@
+{
+  "date": "2026-10-04",
+  "day": 10,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1971C",
+      "name": "Clock and Strings",
+      "rating": 900,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1971/C",
+      "file": "clockAndStrings",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "320A",
+      "name": "Magic Numbers",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/320/A",
+      "file": "magicNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "129A",
+      "name": "Cookies",
+      "rating": 900,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/129/A",
+      "file": "cookies",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1238A",
+      "name": "Prime Subtraction",
+      "rating": 900,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1238/A",
+      "file": "primeSubtraction",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1471A",
+      "name": "Strange Partition",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1471/A",
+      "file": "strangePartition",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1208A",
+      "name": "XORinacci",
+      "rating": 900,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1208/A",
+      "file": "xORinacci",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1972B",
+      "name": "Coin Games",
+      "rating": 900,
+      "tags": [
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1972/B",
+      "file": "coinGames",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "339B",
+      "name": "Xenia and Ringroad",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/339/B",
+      "file": "xeniaAndRingroad",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "515A",
+      "name": "Drazil and Date",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/515/A",
+      "file": "drazilAndDate",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1374C",
+      "name": "Move Brackets",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1374/C",
+      "file": "moveBrackets",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-258",
+      "name": "Add Digits",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/add-digits/",
+      "file": "addDigits",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2942",
+      "name": "Find Words Containing Character",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-words-containing-character/",
+      "file": "findWordsContainingCharacter",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-953",
+      "name": "Verifying an Alien Dictionary",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/verifying-an-alien-dictionary/",
+      "file": "verifyingAnAlienDictionary",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1009",
+      "name": "Complement of Base 10 Integer",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/complement-of-base-10-integer/",
+      "file": "complementOfBase10Integer",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1636",
+      "name": "Sort Array by Increasing Frequency",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sort-array-by-increasing-frequency/",
+      "file": "sortArrayByIncreasingFrequency",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-160",
+      "name": "Intersection of Two Linked Lists",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+      "file": "intersectionOfTwoLinkedLists",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1266",
+      "name": "Minimum Time Visiting All Points",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-time-visiting-all-points/",
+      "file": "minimumTimeVisitingAllPoints",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-338",
+      "name": "Counting Bits",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/counting-bits/",
+      "file": "countingBits",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-977",
+      "name": "Squares of a Sorted Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+      "file": "squaresOfASortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-67",
+      "name": "Add Binary",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/add-binary/",
+      "file": "addBinary",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CO92JUDG",
+      "name": "Chef Judges a Competition",
+      "rating": 984,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CO92JUDG",
+      "file": "chefJudgesACompetition",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHFPROFIT",
+      "name": "Chef and Profits",
+      "rating": 889,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHFPROFIT",
+      "file": "chefAndProfits",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHFINTRO",
+      "name": "Chef and Interactive Contests",
+      "rating": 951,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHFINTRO",
+      "file": "chefAndInteractiveContests",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TWOROOKS",
+      "name": "Two Rooks",
+      "rating": 957,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TWOROOKS",
+      "file": "twoRooks",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COINS",
+      "name": "Bytelandian gold coins",
+      "rating": 944,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COINS",
+      "file": "bytelandianGoldCoins",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FACEDIR",
+      "name": "Find the Direction",
+      "rating": 880,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FACEDIR",
+      "file": "findTheDirection",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLOWERBUY",
+      "name": "Buying Flowers",
+      "rating": 931,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLOWERBUY",
+      "file": "buyingFlowers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EZSPEAK",
+      "name": "Easy Pronunciation",
+      "rating": 1000,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EZSPEAK",
+      "file": "easyPronunciation",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHN09",
+      "name": "Malvika is peculiar about color of balloons",
+      "rating": 988,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHN09",
+      "file": "malvikaIsPeculiarAboutColorOfBalloons",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GRIDBL",
+      "name": "Fill The Grid",
+      "rating": 968,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GRIDBL",
+      "file": "fillTheGrid",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

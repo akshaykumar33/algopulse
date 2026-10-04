@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n5\napple\n4\nschm\n6\nabcdex\n7\nroughs\n3\nspl\n",
+    "output": "YES\nNO\nYES\nNO\nYES\n"
+  }
+]
