@@ -849,22 +849,21 @@ const assistant = (() => {
       const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
       return indic ? 'en-IN' : all[0] || 'en-US';
     },
-    // Browser ear, auto mode: follow the language the AI heard, so the next sentence is
-    // transcribed in it. The AI ear needs no switching; it hears every language.
+    // Follow the language the AI heard or the user spoke, so subsequent sentences
+    // are transcribed and spoken in it dynamically.
     detected(lang) {
-      if (!lang || (load().lang && load().lang !== 'auto')) return;
+      if (!lang) return;
       const cur = this.lang();
       const base = (x) => x.toLowerCase().split('-')[0];
       if (base(lang) === base(cur)) return;
       if (base(lang) === 'en' && cur === 'en-IN') return;
       this.autoLang = lang;
-      if (this.mode === 'ai' || !this.on) return;
       let name = lang;
       try {
         name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
       } catch { /* unknown code */ }
-      toast(`Auto-detected ${name} — listening in it now.`);
-      this.restart();
+      toast(`Switched tongue to ${name} 🎙️`);
+      if (this.on) this.restart();
     },
     restart() {
       if (!this.on) return;

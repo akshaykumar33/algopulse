@@ -151,8 +151,7 @@ async function ladder(models, run) {
 async function listen({ prompt, schema, audio }) {
   if (!canHear()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
   const g = PROVIDERS.gemini;
-  // Lite models are a last resort: they romanise Kannada and Hindi and miss mixed speech.
-  const full = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-2.5-flash'];
+  const full = ['gemini-2.5-flash', 'gemini-flash-lite-latest', 'gemini-3.6-flash'];
   const models = [env('GEMINI_LISTEN_MODEL'), ...full, ...g.fallbacks()].filter(Boolean);
   return ladder(models, async (model) => ({
     text: await g.generate({
@@ -173,7 +172,7 @@ async function speech({ text, voice, style }) {
   const key = cacheKey(['tts', voice, style, text]);
   const file = path.join(TTS_DIR, `${key}.json`);
   if (fs.existsSync(file)) return { ...JSON.parse(fs.readFileSync(file, 'utf-8')), cached: true };
-  const models = (env('GEMINI_TTS_MODELS') || 'gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts').split(',').map((m) => m.trim()).filter(Boolean);
+  const models = (env('GEMINI_TTS_MODELS') || 'gemini-3.8-flash-tts,gemini-3.8-flash-lite-tts,gemini-3.1-flash-tts-preview').split(',').map((m) => m.trim()).filter(Boolean);
   const out = await ladder(models, (model) => g.speak({ text, voice, style, model }));
   fs.mkdirSync(TTS_DIR, { recursive: true });
   fs.writeFileSync(file, JSON.stringify(out), 'utf-8');

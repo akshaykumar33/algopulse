@@ -123,6 +123,27 @@ async function plan(input, ctx) {
   return out;
 }
 
+function detectScriptLang(text) {
+  if (!text) return null;
+  const s = String(text);
+  if (/[\u0900-\u097F]/.test(s)) return 'hi-IN'; // Devanagari (Hindi / Marathi)
+  if (/[\u0C80-\u0CFF]/.test(s)) return 'kn-IN'; // Kannada
+  if (/[\u0B80-\u0BFF]/.test(s)) return 'ta-IN'; // Tamil
+  if (/[\u0C00-\u0C7F]/.test(s)) return 'te-IN'; // Telugu
+  if (/[\u0980-\u09FF]/.test(s)) return 'bn-IN'; // Bengali
+  if (/[\u0A80-\u0AFF]/.test(s)) return 'gu-IN'; // Gujarati
+  if (/[\u0D00-\u0D7F]/.test(s)) return 'ml-IN'; // Malayalam
+  if (/[\u0A00-\u0A7F]/.test(s)) return 'pa-IN'; // Punjabi
+  if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(s)) return 'ja-JP'; // Japanese
+  if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR'; // Korean
+  if (/[\u0600-\u06FF]/.test(s)) return 'ar-SA'; // Arabic / Urdu
+  if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU'; // Russian
+  if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
+    return 'hi-IN';
+  }
+  return null;
+}
+
 async function planFresh(input, ctx) {
   const catalogue = Object.entries(PLAN_ACTIONS).map(([k, v]) => `- ${k}: ${v}`).join('\n');
   const problems = (ctx.problems || []).map((p) => `${p.file} | ${p.id} | ${p.name} | ${p.rating} | ${p.done ? 'solved' : 'unsolved'}`).join('\n');
@@ -131,7 +152,7 @@ async function planFresh(input, ctx) {
     .map((h) => `${h.who === 'me' ? 'Student' : 'You'}: ${String(h.text).replace(/"/g, "'").slice(0, 240)}`)
     .join('\n');
   const heard = input.audio
-    ? 'The student\'s voice is attached as audio. Listen to it directly — every language, accent and mid-sentence switch (English then Kannada, Hinglish, Tanglish …). First transcribe carefully and verbatim — accuracy matters more than anything. Put exactly what they said in "heard", each word in its own native script (Kannada in ಕನ್ನಡ, Hindi in देवनागरी, English in Latin), and the main spoken language in "heardLang". If the audio is silence, noise or unclear, return heard "" and no steps.'
+    ? 'The student\'s voice is attached as audio. Listen with utmost sensitivity to the student\'s true spoken tongue! The student is very likely speaking an Indian language (Hindi, Hinglish, Kannada, Tamil, Telugu, Marathi, Bengali) or English. If you hear Hindi words or phrases, transcribe carefully in Devanagari script, set "heardLang": "hi-IN", set "lang": "hi-IN", and write your "reply" in natural, friendly Hindi! Never default to English if Hindi or another native language was spoken. Put what they said in "heard", native language code in "heardLang".'
     : `Student said: "${String(input.text).replace(/"/g, "'").slice(0, 600)}"`;
   const userQuery = input.text || (ctx.history && ctx.history.length ? ctx.history[ctx.history.length - 1]?.text : '') || '';
   const ragHits = userQuery ? rag.search(userQuery, { k: 4, excludeFile: ctx.file }) : [];
@@ -200,9 +221,10 @@ ${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
     .slice(0, 8)
     .map((s) => ({ action: s.action, arg: String(s.arg || '').slice(0, 2000) }));
   const tag = (x) => (/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$/.test(String(x || '')) ? x : null);
-  let lang = tag(out.lang);
-  if (!lang && ctx.preferredLang && ctx.preferredLang !== 'auto') lang = tag(ctx.preferredLang);
-  lang = lang || tag(ctx.userLang) || 'en-US';
+  const detectedInput = detectScriptLang(out.heard || input.text);
+  const detectedReply = detectScriptLang(out.reply);
+  let heardLang = detectedInput || tag(out.heardLang) || tag(out.lang) || 'en-US';
+  let lang = detectedReply || detectedInput || tag(out.lang) || heardLang || 'en-US';
   const mood = MOODS.includes(out.mood) ? out.mood : 'happy';
   return {
     reply: String(out.reply || '').slice(0, 280),
@@ -210,7 +232,7 @@ ${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
     mood,
     steps,
     model: res.model,
-    ...(input.audio ? { heard: String(out.heard || '').slice(0, 600), heardLang: tag(out.heardLang) || lang, meaning: String(out.meaning || '').slice(0, 600), ...(res.tried ? { fellBack: res.tried.length } : {}) } : {}),
+    ...(input.audio ? { heard: String(out.heard || '').slice(0, 600), heardLang, meaning: String(out.meaning || '').slice(0, 600), ...(res.tried ? { fellBack: res.tried.length } : {}) } : {}),
   };
 }
 

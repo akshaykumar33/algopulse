@@ -381,12 +381,33 @@ window.buddyVoice = (() => {
   }
 
   /* ---------- the queue ---------- */
+  function detectScriptLang(text) {
+    if (!text) return null;
+    const s = String(text);
+    if (/[\u0900-\u097F]/.test(s)) return 'hi-IN';
+    if (/[\u0C80-\u0CFF]/.test(s)) return 'kn-IN';
+    if (/[\u0B80-\u0BFF]/.test(s)) return 'ta-IN';
+    if (/[\u0C00-\u0C7F]/.test(s)) return 'te-IN';
+    if (/[\u0980-\u09FF]/.test(s)) return 'bn-IN';
+    if (/[\u0A80-\u0AFF]/.test(s)) return 'gu-IN';
+    if (/[\u0D00-\u0D7F]/.test(s)) return 'ml-IN';
+    if (/[\u0A00-\u0A7F]/.test(s)) return 'pa-IN';
+    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(s)) return 'ja-JP';
+    if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR';
+    if (/[\u0600-\u06FF]/.test(s)) return 'ar-SA';
+    if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU';
+    if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
+      return 'hi-IN';
+    }
+    return null;
+  }
+
   async function say(text, { lang, mood, ai = false } = {}) {
     const words = clean(text);
     if (!words || store().talkBack === false) return;
     const resolvedMood = mood || extractMood(text) || 'happy';
-    const userPref = store().lang && store().lang !== 'auto' ? store().lang : null;
-    const targetLang = resolveLangCode(lang || userPref || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
+    const detected = detectScriptLang(words);
+    const targetLang = resolveLangCode(detected || lang || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
     stop();
     const my = token;
     begin(1500 + words.length * 90);
