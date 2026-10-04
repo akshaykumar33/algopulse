@@ -805,6 +805,10 @@ const assistant = (() => {
     },
     // AI ear: a short, confident English command runs at once and its clip is dropped.
     quick(text, confidence) {
+      const FAST_MAX_WORDS = 5;
+      const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
+      const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
+      const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham)[, ]*/i;
       // The browser ear only knows one language, so Kannada or Hindi can come out as
       // random English words. Only very confident, very short commands skip the AI.
       const said = normalize(text).replace(WAKE, '');
