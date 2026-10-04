@@ -1,11 +1,12 @@
-var solve = function(n) {
-    if (n === 0) return 1;
-    let mask = 1;
-    while (mask < n) {
-        mask = (mask << 1) | 1;
-    }
-    return mask ^ n;
+var bitwiseComplement = function(n) {
+  if (n === 0) return 1;
+  let mask = 1;
+  while (mask < n) {
+    mask = (mask << 1) | 1;
+  }
+  return mask ^ n;
 };
+var solve = bitwiseComplement;
 
 if (require.main === module) {
   const fs = require('fs');

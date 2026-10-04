@@ -1,7 +1,8 @@
-var solve = function(num) {
+var addDigits = function(num) {
   if (num === 0) return 0;
   return 1 + (num - 1) % 9;
 };
+var solve = addDigits;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -23,5 +24,4 @@ if (require.main === module) {
     console.error('Local runner error:', err.message);
   }
 }
-
 module.exports = solve;

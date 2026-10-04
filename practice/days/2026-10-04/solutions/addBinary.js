@@ -1,4 +1,4 @@
-var solve = function(a, b) {
+var addBinary = function(a, b) {
   let i = a.length - 1;
   let j = b.length - 1;
   let carry = 0;
@@ -18,6 +18,7 @@ var solve = function(a, b) {
   }
   return res.reverse().join('');
 };
+var solve = addBinary;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -37,5 +38,4 @@ if (require.main === module) {
     console.error('Local runner error:', err.message);
   }
 }
-
 module.exports = solve;

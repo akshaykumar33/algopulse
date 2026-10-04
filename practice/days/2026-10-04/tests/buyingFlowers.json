@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\n3\n5\n",
-    "output": "6\n10\n"
+    "input": "3\n2\n3\n4\n",
+    "output": "4\n5\n8\n"
   }
 ]
