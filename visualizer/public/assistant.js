@@ -605,7 +605,65 @@ const assistant = (() => {
       };
     }
 
-    // 9. Language and accent switching ("speak in Hindi", "talk in English", "switch accent to Indian English", "hindi me bolo")
+    // 9. Instant Live Web Search ("search web for X", "web search X", "इंटरनेट पर खोजो X")
+    const webSearchM = said.match(/\b(search (the )?(web|internet|online|google)|web\s*search|look up|browse|google)\s+(for\s+)?(.+)/i)
+      || raw.match(/(?:^|\s)(वेब\s*सर्च|इंटरनेट पर खोजो|गूगल करो|सर्च करो)(?:\s+(.+))?/u);
+    if (webSearchM) {
+      const q = (webSearchM[5] || webSearchM[2] || webSearchM[webSearchM.length - 1] || '').trim();
+      if (q) {
+        return async () => {
+          feedback(`Searching web for ${q}…`, 'curious');
+          if (window.copilot?.act) {
+            await window.copilot.act('web-search', q);
+          } else {
+            const res = await api('/api/web/search', { query: q });
+            if (res.summary) {
+              openCoach();
+              window.appendCoachMessage?.('coach', `### 🌐 Web Search: "${q}"\n\n${res.summary}`);
+            }
+          }
+        };
+      }
+    }
+
+    // 10. Remote Browser Launch ("open codeforces", "open leetcode", "open browser to X", "open url X")
+    const browserM = said.match(/\b(open\s+(the\s+)?(browser|site|website|url|tab|page)\s+(to\s+)?|open\s+)(codeforces|leetcode|atcoder|codechef|github|google|youtube|https?:\/\/[^\s]+|[a-z0-9-]+\.[a-z]{2,})\b/i)
+      || raw.match(/(?:खोलो|ओपन करो)\s*(कोडफोर्सेस|लीतकोड|ब्राउज़र|गिटहब)|(कोडफोर्सेस|लीतकोड|गिटहब)\s*(खोलो|ओपन करो)/u);
+    if (browserM) {
+      let target = (browserM[5] || browserM[2] || browserM[1] || browserM[browserM.length - 1] || '').trim();
+      if (target === 'कोडफोर्सेस') target = 'codeforces';
+      else if (target === 'लीतकोड') target = 'leetcode';
+      else if (target === 'गिटहब') target = 'github';
+      else if (target === 'ब्राउज़र') target = 'google';
+      return async () => {
+        if (window.copilot?.act) {
+          await window.copilot.act('open-url', target);
+        } else {
+          window.open(target.startsWith('http') ? target : `https://${target}`, '_blank');
+        }
+        feedback(`Opening ${target} in browser 🚀`, 'happy');
+      };
+    }
+
+    // 11. Instant Multilingual Technical Report Generation ("make report on X", "generate report for X", "create report on X", "रिपोर्ट बनाओ X")
+    const reportM = said.match(/\b(make|generate|create|build|write)\s+(a\s+)?(technical\s+)?report\s*(on|for|about)?\s*(.+)?/i)
+      || raw.match(/(?:^|\s)(रिपोर्ट\s*(बनाओ|तैयार करो)|तकनीकी रिपोर्ट)(?:\s+(.+))?/u);
+    if (reportM) {
+      const topic = (reportM[5] || reportM[3] || reportM[reportM.length - 1] || '').trim() || (current() ? displayName(current().name) : 'Competitive Programming Progress');
+      return async () => {
+        feedback(`Generating report for ${topic}…`, 'proud');
+        if (window.copilot?.act) {
+          await window.copilot.act('create-report', topic);
+        } else {
+          const res = await api('/api/report/generate', { topic });
+          if (window.showReportModal) {
+            window.showReportModal(res.title, res.markdown, res.lang);
+          }
+        }
+      };
+    }
+
+    // 12. Language and accent switching ("speak in Hindi", "talk in English", "switch accent to Indian English", "hindi me bolo")
     const langM = said.match(/\b(speak|talk|switch( to)?|change( language to)?|set language to)\s+([a-z\s]+)\b/i)
       || raw.match(/\b(हिंदी|अंग्रेजी|इंग्लिश|कन्नड़|तमिल|तेलुगू|বাংলা|मराठी)\s*(में\s*बोलो|भाषा)\b/i);
     if (langM) {
@@ -620,7 +678,7 @@ const assistant = (() => {
       }
     }
 
-    // 10. Built-in remote control phrase patterns.
+    // 13. Built-in remote control phrase patterns.
     const hit = PHRASES.find(([re]) => re.test(said));
     if (hit) return () => run(hit[1], `Voice “${raw}”`);
 

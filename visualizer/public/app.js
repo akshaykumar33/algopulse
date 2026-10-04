@@ -1952,10 +1952,12 @@ function bindEvents() {
   closeOnBackdrop($('#verifyModal'));
 
   let currentReportMd = '';
+  let currentReportLang = 'en-US';
   function showReportModal(title, markdown, lang = 'en-US') {
     const modal = $('#reportModal');
     if (!modal) return;
     currentReportMd = markdown || '';
+    currentReportLang = lang || 'en-US';
     $('#reportTitle').textContent = title || 'Generated Report';
     $('#reportLangBadge').textContent = lang || 'en-US';
     const body = $('#reportBody');
@@ -1967,7 +1969,10 @@ function bindEvents() {
 
   const repModal = $('#reportModal');
   if (repModal) {
-    $('#reportModal [data-close]')?.addEventListener('click', () => repModal.close());
+    $('#reportModal [data-close]')?.addEventListener('click', () => {
+      repModal.close();
+      window.assistant?.voice?.stop?.();
+    });
     closeOnBackdrop(repModal);
     $('#btnCopyReport')?.addEventListener('click', async () => {
       if (currentReportMd) {
@@ -1983,6 +1988,25 @@ function bindEvents() {
         a.download = `report-${Date.now()}.md`;
         a.click();
         toast('Report downloaded! 💾');
+      }
+    });
+    $('#btnSpeakReport')?.addEventListener('click', () => {
+      if (!currentReportMd) return;
+      const plain = currentReportMd
+        .replace(/#+\s*/g, '')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .trim();
+      const lines = plain.split(/\n+/).map(l => l.trim()).filter(l => l.length > 0 && !l.startsWith('-') && !l.startsWith('|'));
+      const summary = lines.slice(0, 4).join('. ');
+      const textToSpeak = summary.slice(0, 360);
+      if (window.assistant?.speak) {
+        window.assistant.speak(textToSpeak, currentReportLang, 'proud');
+        toast('Ham is reading the summary aloud! 🔊');
+      } else if (window.voice?.speak) {
+        window.voice.speak(textToSpeak, { lang: currentReportLang, mood: 'proud' });
+        toast('Reading report summary! 🔊');
       }
     });
   }
