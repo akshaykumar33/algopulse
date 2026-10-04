@@ -56,6 +56,11 @@ const TAG_SLUG_MAP = {
   'matrices': 'constructive-algorithms',
   'expression parsing': 'strings',
   'algorithms': 'implementation',
+  'combinatorics': 'math',
+  'dfs and similar': 'trees-and-graphs',
+  'dfs-and-similar': 'trees-and-graphs',
+  'ternary search': 'binary-search',
+  'ternary-search': 'binary-search',
   '*special': 'implementation',
   'codechef': 'implementation'
 };
