@@ -652,13 +652,11 @@ const assistant = (() => {
       const topic = (reportM[5] || reportM[3] || reportM[reportM.length - 1] || '').trim() || (current() ? displayName(current().name) : 'Competitive Programming Progress');
       return async () => {
         feedback(`Generating report for ${topic}…`, 'proud');
-        if (window.copilot?.act) {
+        const lang = voice.lang() || 'en-US';
+        if (window.generateAndShowReport) {
+          await window.generateAndShowReport(topic, lang);
+        } else if (window.copilot?.act) {
           await window.copilot.act('create-report', topic);
-        } else {
-          const res = await api('/api/report/generate', { topic });
-          if (window.showReportModal) {
-            window.showReportModal(res.title, res.markdown, res.lang);
-          }
         }
       };
     }

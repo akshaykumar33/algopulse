@@ -501,9 +501,14 @@ const copilot = (() => {
     },
     'create-report': async (arg) => {
       setState('doing', `Generating report…`);
-      const res = await api('/api/report/generate', { topic: arg, lang: lastLang, date: state.date });
-      if (window.showReportModal) {
-        window.showReportModal(res.title, res.markdown, res.lang);
+      const lang = lastLang || A().voice.lang() || 'en-US';
+      if (window.generateAndShowReport) {
+        await window.generateAndShowReport(arg, lang);
+      } else {
+        const res = await api('/api/report/generate', { topic: arg, lang, date: state.date });
+        if (window.showReportModal) {
+          window.showReportModal(res.title, res.markdown, res.lang);
+        }
       }
     },
   };
@@ -864,6 +869,7 @@ const copilot = (() => {
     offline,
     open: (byHand) => openSpotlight(byHand),
     close: () => closeSpotlight(),
+    act: (action, arg) => STEPS[action]?.(arg),
     LANGUAGES,
     cursor,
     STEPS,

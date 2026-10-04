@@ -1953,6 +1953,51 @@ function bindEvents() {
 
   let currentReportMd = '';
   let currentReportLang = 'en-US';
+
+  async function generateAndShowReport(topic, lang) {
+    const modal = $('#reportModal');
+    if (!modal) return;
+    const cleanTopic = String(topic || (current() ? displayName(current().name) : 'Competitive Programming Progress')).trim();
+    const resolvedLang = lang || currentReportLang || window.assistant?.voice?.lang() || 'en-US';
+    currentReportLang = resolvedLang;
+    
+    $('#reportTitle').textContent = `Report: ${cleanTopic}`;
+    $('#reportLangBadge').textContent = resolvedLang;
+    const body = $('#reportBody');
+    body.innerHTML = `
+      <div style="padding: 3rem 1.5rem; text-align: center; color: var(--muted, #888);">
+        <div style="font-size: 2.4rem; margin-bottom: 0.75rem; animation: pop-in 0.4s ease-out;">✨</div>
+        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 700; color: var(--fg, #333);">Generating Report in ${resolvedLang}…</h3>
+        <p style="margin: 0; font-size: 0.92rem; max-width: 32rem; margin: 0 auto; line-height: 1.5;">Analyzing invariants, asymptotic complexity, implementation patterns, and edge cases for <strong>${escapeHtml(cleanTopic)}</strong></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.5rem;">
+          <span class="skeleton-text" style="width: 50%; height: 14px; border-radius: 6px; display: inline-block;"></span>
+        </div>
+      </div>
+    `;
+    modal.showModal();
+
+    try {
+      const res = await api('/api/report/generate', { topic: cleanTopic, lang: resolvedLang, date: state.date });
+      if (res.error) throw new Error(res.error);
+      currentReportMd = res.markdown || '';
+      currentReportLang = res.lang || resolvedLang;
+      $('#reportTitle').textContent = res.title || `Report: ${cleanTopic}`;
+      $('#reportLangBadge').textContent = currentReportLang;
+      body.innerHTML = renderMarkdown(currentReportMd || '*No content generated.*');
+      enhance(body);
+    } catch (err) {
+      body.innerHTML = `
+        <div style="padding: 2.5rem 1.5rem; text-align: center; color: var(--error, #e53935);">
+          <div style="font-size: 2.4rem; margin-bottom: 0.75rem;">⚠️</div>
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; color: var(--fg, #333);">Could not generate report</h3>
+          <p style="margin: 0 0 1.25rem 0; font-size: 0.92rem; color: var(--muted, #666);">${escapeHtml(err.message || 'Server did not return content')}</p>
+          <button class="btn btn-secondary btn-sm" type="button" onclick="window.generateAndShowReport('${escapeHtml(cleanTopic)}', '${resolvedLang}')">Try again</button>
+        </div>
+      `;
+    }
+  }
+  window.generateAndShowReport = generateAndShowReport;
+
   function showReportModal(title, markdown, lang = 'en-US') {
     const modal = $('#reportModal');
     if (!modal) return;
@@ -1961,7 +2006,7 @@ function bindEvents() {
     $('#reportTitle').textContent = title || 'Generated Report';
     $('#reportLangBadge').textContent = lang || 'en-US';
     const body = $('#reportBody');
-    body.innerHTML = renderMarkdown(markdown || '');
+    body.innerHTML = renderMarkdown(markdown || '*No content available.*');
     enhance(body);
     modal.showModal();
   }
