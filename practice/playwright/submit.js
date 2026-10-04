@@ -526,7 +526,13 @@ async function ensurePlatformAuth(platKey, options = {}) {
   if (!platConfig) return false;
 
   if (fs.existsSync(platConfig.authFile)) {
-    return true;
+    try {
+      const data = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
+      const hasCookie = (data.cookies || []).some((c) =>
+        (c.domain || '').toLowerCase().includes(platKey)
+      );
+      if (hasCookie) return true;
+    } catch {}
   }
 
   console.log(`\n============================================================`);

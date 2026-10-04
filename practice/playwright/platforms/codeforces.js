@@ -24,23 +24,23 @@ function parseCodeforcesId(problem) {
  * Checks if the current page has an active logged-in Codeforces session
  */
 async function checkAuth(page) {
-  // Wait up to 10s if Cloudflare security verification is active
-  for (let i = 0; i < 10; i++) {
+  // Wait up to 15s if Cloudflare security verification is active
+  for (let i = 0; i < 15; i++) {
     const title = await page.title().catch(() => '');
     if (!title.includes('Just a moment') && !title.includes('Attention')) break;
     await page.waitForTimeout(1000);
   }
 
-  const profileLink = await page.$('a[href*="/profile/"]');
-  if (profileLink) {
-    const handle = await profileLink.textContent();
-    return { authenticated: true, handle: handle ? handle.trim() : null };
+  const title = await page.title().catch(() => '');
+  if (title.includes('Just a moment') || title.includes('Attention')) {
+    return { authenticated: false, error: 'Cloudflare verification challenge active' };
   }
 
-  const cookies = await page.context().cookies('https://codeforces.com');
-  const sessionCookie = cookies.find((c) => c.name === 'JSESSIONID' && c.value);
-  if (sessionCookie) {
-    return { authenticated: true, handle: 'akshaykumarpatil33' };
+  const headerProfile = await page.$('#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"]');
+  const logoutLink = await page.$('a[href*="/logout"]');
+  if (headerProfile || logoutLink) {
+    const handle = headerProfile ? await headerProfile.textContent() : null;
+    return { authenticated: true, handle: handle ? handle.trim() : 'authenticated' };
   }
 
   return { authenticated: false };
