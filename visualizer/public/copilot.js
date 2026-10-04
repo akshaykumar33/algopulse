@@ -155,6 +155,7 @@ const copilot = (() => {
   }
 
   function syncBadges() {
+    lastLang = A().voice.lang() || lastLang;
     const on = A().voice.on;
     const mic = document.getElementById('pipMicBadge');
     if (mic) {
@@ -214,9 +215,10 @@ const copilot = (() => {
 
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
+    const targetLang = lang || lastLang || A().voice.lang() || 'en-US';
     say('pip', text);
     if (mood) pet()?.react(mood, 900);
-    A().speak(text, lang, mood, { ai: Boolean(opts?.ai) });
+    A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
   }
 
   /* ======================================================================

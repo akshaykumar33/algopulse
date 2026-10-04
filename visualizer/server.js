@@ -201,7 +201,7 @@ const routes = {
   'POST /api/voice/speak': async (req) => {
     const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
-    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 200) throw new HttpError(400, 'Bad voice');
+    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 600) throw new HttpError(400, 'Bad voice');
     return ai.speech({ text: text.trim(), voice, style }).catch(aiError('Voice'));
   },
 

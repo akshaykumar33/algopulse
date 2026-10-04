@@ -175,9 +175,10 @@ const assistant = (() => {
     u.onend = u.onerror = () => talking(false);
     speechSynthesis.speak(u);
   }
-  async function aiSpeak(text, mood, token) {
+  async function aiSpeak(text, mood, token, lang) {
     const s = voiceStyle();
-    const style = [s.style, MOOD_STYLE[mood]].filter(Boolean).join(', ');
+    const accent = window.buddyVoice?.accentStyle?.(lang) || '';
+    const style = [s.style, accent, MOOD_STYLE[mood]].filter(Boolean).join(', ');
     const res = await api('/api/voice/speak', { text, voice: s.ai, style });
     if (token !== sayToken) return;
     audioCtx ||= new AudioContext();
@@ -205,8 +206,9 @@ const assistant = (() => {
   // for it on real conversation replies; quick confirmations use the browser voice.
   function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
+    const targetLang = lang || voice.lang() || 'en-US';
     // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
-    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: lang || voice.lang(), mood, ai: Boolean(opts.ai) });
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: targetLang, mood, ai: Boolean(opts.ai) });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
@@ -214,23 +216,22 @@ const assistant = (() => {
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
     if (opts.ai && load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
-      aiSpeak(clean, mood, token).catch((err) => {
-        // Out of voice quota (the free tier allows only a few lines a day): stop asking
-        // for a while and use the browser voice, instead of failing on every line.
+      aiSpeak(clean, mood, token, targetLang).catch((err) => {
+        // Out of voice quota: stop asking for a while and use the browser voice
         if (/quota|429|rate/i.test(err.message)) {
-          if (!aiVoiceOffUntil) toast('The AI voice is out of free quota for today, so I am using the browser voice.');
-          aiVoiceOffUntil = Date.now() + 60 * 60 * 1000;
+          if (!aiVoiceOffUntil) toast('The AI voice is busy, so I am using the browser voice.');
+          aiVoiceOffUntil = Date.now() + 60 * 1000;
         }
-        if (token === sayToken) browserSpeak(clean, lang, mood);
+        if (token === sayToken) browserSpeak(clean, targetLang, mood);
       });
-    } else browserSpeak(clean, lang, mood);
+    } else browserSpeak(clean, targetLang, mood);
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
-    if (window.copilot?.reply) return window.copilot.reply(text, reaction);
+    if (window.copilot?.reply) return window.copilot.reply(text, reaction, voice.lang());
     pet()?.say(text);
     pet()?.react(reaction, 700);
-    speak(text, undefined, reaction);
+    speak(text, voice.lang(), reaction);
   }
 
   /* ======================================================================
@@ -964,5 +965,7 @@ const assistant = (() => {
   });
   document.addEventListener('DOMContentLoaded', bind);
 
-  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };
+  const api = { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };
+  if (typeof window !== 'undefined') window.assistant = api;
+  return api;
 })();

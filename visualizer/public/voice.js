@@ -25,9 +25,9 @@ window.buddyVoice = (() => {
   };
   const pet = () => window.mascot;
   const STYLE = {
-    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.08, google: 1.1, desktop: 1.04 }, rate: 0.95, words: 'Speak as a bright, cheerful young lady with a cute, smiling voice' },
-    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.02, google: 1.05, desktop: 1 }, rate: 0.92, words: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice' },
-    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.1, google: 1.12, desktop: 1.05 }, rate: 1, words: 'Speak in a bright, cheerful, friendly voice' },
+    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.15, google: 1.18, desktop: 1.12 }, rate: 0.95, words: 'Speak as a cute, adorable hamster companion with a sweet, cheerful, bubbly voice' },
+    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.08, google: 1.1, desktop: 1.05 }, rate: 0.92, words: 'Speak as a warm, sweet, gentle hamster companion with a soft, smiling voice' },
+    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.2, google: 1.22, desktop: 1.15 }, rate: 1, words: 'Speak as a bright, lively, energetic hamster companion in a friendly, enthusiastic voice' },
   };
   const MOOD = {
     laugh: 'laughing and giggling happily between the words',
@@ -42,9 +42,67 @@ window.buddyVoice = (() => {
     shy: 'shyly and bashfully',
   };
   const style = () => STYLE[store().voiceStyle] || STYLE.cute;
-  // Shared delivery for every style and language: smooth, mid-pitched, unhurried, and
-  // pronounced the way a native speaker of that language would say it.
-  const DELIVERY = 'in a smooth, warm, charming mid-pitched tone, at a calm, unhurried pace, with fluent native pronunciation of whatever language the text is in';
+
+  // Language-specific native accents for Ham's voice:
+  const ACCENTS = {
+    // English regional accents
+    'en-IN': 'with an authentic, charming Indian English accent (natural Indian rhythm, clear cadence and warm Hinglish inflection)',
+    'en-GB': 'with a charming, natural British English accent (crisp, polite British cadence)',
+    'en-US': 'with a natural, friendly American English accent',
+    'en-AU': 'with a friendly, casual Australian English accent',
+    'en-CA': 'with a natural Canadian English accent',
+
+    // South Asian languages & Hinglish
+    'hi-IN': 'with an authentic, fluent native Hindi accent and natural, expressive pronunciation (or natural Hinglish phrasing)',
+    'bn-IN': 'with an authentic, fluent native Bengali accent and sweet melodious intonation',
+    'ta-IN': 'with an authentic, fluent native Tamil accent and clear, crisp pronunciation',
+    'te-IN': 'with an authentic, fluent native Telugu accent and natural cadence',
+    'mr-IN': 'with an authentic, fluent native Marathi accent and natural rhythm',
+    'kn-IN': 'with an authentic, fluent native Kannada accent and clear pronunciation',
+    'ml-IN': 'with an authentic, fluent native Malayalam accent and natural cadence',
+    'gu-IN': 'with an authentic, fluent native Gujarati accent and warm inflection',
+    'pa-IN': 'with an authentic, fluent native Punjabi accent and lively, energetic rhythm',
+    'ur-PK': 'with an authentic, fluent native Urdu accent and polite, refined pronunciation',
+
+    // East & Southeast Asian languages
+    'ja-JP': 'with an authentic, fluent native Japanese accent and natural Tokyo pronunciation',
+    'ko-KR': 'with an authentic, fluent native Korean accent and natural Seoul pronunciation',
+    'zh-CN': 'with an authentic, fluent native Mandarin Chinese accent (Standard Putonghua pronunciation)',
+    'zh-TW': 'with an authentic, fluent native Taiwanese Mandarin accent',
+    'id-ID': 'with an authentic, fluent native Indonesian accent (Bahasa Indonesia)',
+
+    // European & Middle Eastern languages
+    'es-ES': 'with an authentic, fluent native Spanish accent and natural Iberian pronunciation',
+    'es-MX': 'with an authentic, fluent native Mexican Spanish accent',
+    'fr-FR': 'with an authentic, fluent native French accent and natural French cadence',
+    'de-DE': 'with an authentic, fluent native German accent and clear German pronunciation',
+    'it-IT': 'with an authentic, fluent native Italian accent and expressive musical cadence',
+    'pt-BR': 'with an authentic, fluent native Brazilian Portuguese accent and warm melodic rhythm',
+    'pt-PT': 'with an authentic, fluent native European Portuguese accent',
+    'ru-RU': 'with an authentic, fluent native Russian accent and natural Russian cadence',
+    'ar-SA': 'with an authentic, fluent native Arabic accent and clear Modern Standard Arabic pronunciation',
+    'tr-TR': 'with an authentic, fluent native Turkish accent and natural Turkish cadence',
+  };
+
+  function accentStyle(lang) {
+    if (!lang) return '';
+    const key = String(lang).replace('_', '-');
+    if (ACCENTS[key]) return ACCENTS[key];
+    const lower = key.toLowerCase();
+    for (const [k, v] of Object.entries(ACCENTS)) {
+      if (k.toLowerCase() === lower) return v;
+    }
+    const base = lower.split('-')[0];
+    for (const [k, v] of Object.entries(ACCENTS)) {
+      if (k.toLowerCase().startsWith(base)) return v;
+    }
+    try {
+      const name = new Intl.DisplayNames(['en'], { type: 'language' }).of(base) || base;
+      return `with an authentic, fluent native ${name} accent and natural pronunciation`;
+    } catch {
+      return 'with fluent native pronunciation';
+    }
+  }
 
   let token = 0;
   let ctx = null;
@@ -115,9 +173,11 @@ window.buddyVoice = (() => {
   }
 
   /* ---------- 1. Gemini voice ---------- */
-  async function gemini(text, mood, my) {
+  async function gemini(text, mood, my, lang) {
     const s = style();
-    const res = await api('/api/voice/speak', { text, voice: s.ai, style: [s.words, DELIVERY, MOOD[mood]].filter(Boolean).join(', ') });
+    const accent = accentStyle(lang);
+    const stylePrompt = [s.words, accent, MOOD[mood]].filter(Boolean).join(', ');
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style: stylePrompt });
     const bin = atob(res.pcm);
     const n = bin.length >> 1;
     const out = new Float32Array(n);
@@ -186,15 +246,18 @@ window.buddyVoice = (() => {
   /* ---------- 3. The best browser voice ---------- */
   const NATURAL = /natural|neural|online|premium|enhanced/i;
   const CHILD = /\bana\b|maisie|child|kid/i;
-  const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|google (us|uk english female)/i;
+  const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|gurpreet|gul|elsa|francisca|svetlana|zariyah|emel|gadis|ayumi|haruka|huihui|google (us|uk english female)|हिन्दी|हिंदी|ಕನ್ನಡ|தமிழ்|తెలుగు|मराठी|বাংলা|മലയാളം|ગુજરાતી|日本語|한국어|中文/i;
   const MALE = /\b(male|man|david|mark|guy|ryan|george|james|daniel|brian|eric|liam|andrew|christopher|prabhat|madhur|ravi|hemant)\b/i;
   function pickVoice(lang) {
     const all = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
     if (!all.length) return null;
-    const want = String(lang || 'en-US').toLowerCase();
+    const want = String(lang || 'en-US').toLowerCase().replace('_', '-');
     const base = want.split('-')[0];
     let pool = all.filter((v) => v.lang.toLowerCase().replace('_', '-') === want);
-    if (!pool.length) pool = all.filter((v) => v.lang.toLowerCase().startsWith(base));
+    if (!pool.length) pool = all.filter((v) => v.lang.toLowerCase().replace('_', '-').startsWith(base));
+    if (!pool.length && want === 'en-in') {
+      pool = all.filter((v) => /en-gb|hi-in/i.test(v.lang.replace('_', '-')));
+    }
     if (!pool.length) return null; // better the default than a voice of another language
     const score = (v) =>
       (NATURAL.test(v.name) ? 40 : 0) +
@@ -229,31 +292,32 @@ window.buddyVoice = (() => {
   }
 
   /* ---------- the queue ---------- */
-  async function say(text, { lang = 'en-US', mood, ai = false } = {}) {
+  async function say(text, { lang, mood, ai = false } = {}) {
     const words = clean(text);
     if (!words || store().talkBack === false) return;
+    const targetLang = lang || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || window.assistant?.voice?.lang?.() || (store().lang && store().lang !== 'auto' ? store().lang : 'en-US');
     stop();
     const my = token;
     begin(1500 + words.length * 90);
     try {
-      // Gemini voices the whole reply in one go, so it sounds like one breath.
+      // Gemini voices the whole reply in one go with the target language accent.
       if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
         try {
-          await gemini(words, mood, my);
+          await gemini(words, mood, my, targetLang);
           return;
         } catch (err) {
           if (/quota|429|rate/i.test(err.message)) {
-            aiOffUntil = Date.now() + 60 * 60 * 1000;
-            if (!notified) toast('The AI voice is out of free quota for today, so I am using my local voice.');
+            aiOffUntil = Date.now() + 60 * 1000;
+            if (!notified) toast('The AI voice is busy, so I am using my local voice.');
             notified = true;
           }
           if (my !== token) return;
         }
       }
       const parts = sentences(words);
-      const english = /^en\b/i.test(lang);
-      if (english) kokoro.start();
-      if (english && kokoro.state === 'ready') {
+      const isUsEnglish = /^(en-US|en)$/i.test(targetLang);
+      if (isUsEnglish) kokoro.start();
+      if (isUsEnglish && kokoro.state === 'ready') {
         try {
           // Make the next sentence while the current one plays.
           let next = kokoro.speak(parts[0]);
@@ -262,7 +326,7 @@ window.buddyVoice = (() => {
             next = i + 1 < parts.length && kokoro.state === 'ready' ? kokoro.speak(parts[i + 1]) : null;
             await play(samples, my);
             if (!next && i + 1 < parts.length) {
-              for (const rest of parts.slice(i + 1)) await browser(rest, lang, mood, my);
+              for (const rest of parts.slice(i + 1)) await browser(rest, targetLang, mood, my);
               break;
             }
           }
@@ -273,7 +337,7 @@ window.buddyVoice = (() => {
       }
       for (const p of parts) {
         if (my !== token) return;
-        await browser(p, lang, mood, my);
+        await browser(p, targetLang, mood, my);
       }
     } finally {
       if (my === token) end();
@@ -296,6 +360,7 @@ window.buddyVoice = (() => {
       return kokoro.state === 'ready' ? 'neural' : 'browser';
     },
     pickVoice,
+    accentStyle,
     kokoro,
     STYLE,
   };
