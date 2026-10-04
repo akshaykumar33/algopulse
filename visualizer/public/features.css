@@ -1144,8 +1144,23 @@ dialog.coach .coach-log { min-height: 0; }
 .mascot.is-gliding { transition: left 700ms var(--ease-out), top 700ms var(--ease-out); }
 .mascot[data-mood="sad"] .mascot-squash { filter: saturate(0.55) brightness(0.95) drop-shadow(0 6px 10px hsl(220 40% 30% / 0.25)); transition: filter 400ms; }
 .mascot[data-mood="angry"] .mascot-squash { filter: saturate(1.3) drop-shadow(0 0 10px oklch(60% 0.2 25 / 0.55)); transition: filter 300ms; }
-.mascot.is-talking .mascot-layer { animation: mascot-talk 260ms ease-in-out infinite alternate; transform-origin: 50% 80%; }
-@keyframes mascot-talk { to { transform: scale(1.025, 0.975); } }
+.mascot.is-talking .mascot-squash {
+  animation: mascot-speech-bob 260ms ease-in-out infinite alternate;
+  transform-origin: 50% 85%;
+}
+@keyframes mascot-speech-bob {
+  0% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-2px) scale(1.025, 0.975); }
+  100% { transform: translateY(-4px) scale(1.04, 0.96); }
+}
+.mascot.is-talking .mascot-layer {
+  animation: mascot-talk 220ms ease-in-out infinite alternate;
+  transform-origin: 50% 80%;
+}
+@keyframes mascot-talk {
+  0% { transform: scale(1, 1); }
+  100% { transform: scale(1.03, 0.97); }
+}
 .mascot.is-asleep .mascot-float { animation-duration: 6s; }
 /* ===== Pip Interactive Badges & Live Feeds ("Just Ham", zero bars) ===== */
 .pip-badges {
@@ -1409,3 +1424,85 @@ dialog.coach .coach-log { min-height: 0; }
 .rm-tip { margin: 0; padding: var(--s-2) var(--s-3); border-top: 1px solid var(--border); font-size: var(--fs-12); color: var(--text-muted); }
 @media (max-width: 40rem) { .gesture-remote { width: 13rem; max-height: 40vh; } }
 @media (prefers-reduced-motion: reduce) { .gesture-remote, .rm-row.is-fired { animation: none; } }
+
+/* ===== Report Modal ===== */
+.report-modal {
+  width: min(56rem, 94vw);
+  max-height: min(44rem, 88vh);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+.report-modal[open] {
+  display: flex;
+  animation: pop-in var(--t-sheet) var(--ease-out);
+}
+.report-head-title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.report-icon {
+  font-size: 1.5rem;
+  color: var(--caramel-text);
+  flex: none;
+}
+.report-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-12);
+  font-weight: 700;
+  background: var(--caramel-soft);
+  color: var(--caramel-text);
+  border: 1px solid var(--border);
+  letter-spacing: 0.03em;
+}
+.report-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.report-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--s-6) clamp(var(--s-4), 3vw, var(--s-8)) var(--s-8);
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+.report-body h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-24);
+  font-weight: 750;
+  margin-bottom: var(--s-4);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--s-3);
+}
+.report-body h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-20);
+  font-weight: 700;
+  margin-top: var(--s-6);
+  margin-bottom: var(--s-3);
+  color: var(--caramel-text);
+}
+.report-body h3 {
+  font-size: var(--fs-16);
+  font-weight: 700;
+  margin-top: var(--s-4);
+  margin-bottom: var(--s-2);
+}
+.report-body pre {
+  margin: var(--s-4) 0;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}

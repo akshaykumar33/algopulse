@@ -211,6 +211,7 @@ window.buddyVoice = (() => {
     speaking = false;
     busyUntil = Date.now() + 400; // a short tail so the mic does not catch the last word
     pet()?.talking?.(false);
+    pet()?.stopReact?.();
   }
   function stop() {
     token++;
@@ -219,6 +220,8 @@ window.buddyVoice = (() => {
     } catch { /* already ended */ }
     source = null;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
+    pet()?.talking?.(false);
+    pet()?.stopReact?.();
     if (speaking) end();
     busyUntil = 0;
   }
@@ -237,13 +240,15 @@ window.buddyVoice = (() => {
         if (source === src) {
           source = null;
           pet()?.talking?.(false);
+          pet()?.stopReact?.();
         }
         resolve();
       };
       source = src;
-      busyUntil = Math.max(busyUntil, Date.now() + buf.duration * 1000 + 300);
+      const durationMs = buf.duration * 1000;
+      busyUntil = Math.max(busyUntil, Date.now() + durationMs + 300);
       pet()?.talking?.(true);
-      if (mood) pet()?.react?.(mood, buf.duration * 1000);
+      if (mood) pet()?.react?.(mood, durationMs);
       src.start();
     });
   }
@@ -356,16 +361,18 @@ window.buddyVoice = (() => {
       const lift = mood === 'laugh' || mood === 'giggle' || mood === 'surprised' ? 0.06 : mood === 'sad' || mood === 'cry' ? -0.1 : 0;
       u.pitch = Math.max(0.8, Math.min(1.5, s.pitch[pick?.kind || 'desktop'] + lift));
       u.rate = s.rate;
-      busyUntil = Math.max(busyUntil, Date.now() + 800 + text.length * 80);
+      const durationEstimate = Math.max(1600, 800 + text.length * 85);
+      busyUntil = Math.max(busyUntil, Date.now() + durationEstimate);
       // Synchronize expression & talking with the exact millisecond speech begins
       u.onstart = () => {
         pet()?.talking?.(true);
-        if (mood) pet()?.react?.(mood, 1500 + text.length * 80);
+        if (mood) pet()?.react?.(mood, durationEstimate);
       };
       // Chrome sometimes never fires onend; a timeout keeps the queue moving.
-      const guard = setTimeout(resolve, 2500 + text.length * 110);
+      const guard = setTimeout(resolve, durationEstimate + 1200);
       u.onend = u.onerror = () => {
         pet()?.talking?.(false);
+        pet()?.stopReact?.();
         clearTimeout(guard);
         resolve();
       };

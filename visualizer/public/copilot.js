@@ -215,8 +215,7 @@ const copilot = (() => {
 
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
-    const pref = A().load().lang;
-    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || (pref && pref !== 'auto' ? pref : lastLang) || A().voice.lang() || 'en-US');
+    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || lastLang || A().voice.lang() || 'en-US');
     say('pip', text);
     // If speech is turned off, react immediately. When speech is active, buddyVoice synchronizes expression with sound.
     if (A().load().talkBack === false) {
@@ -234,14 +233,13 @@ const copilot = (() => {
 
   function context() {
     const cur = A().voice.lang();
-    const pref = A().load().lang;
     return {
       date: state.date,
       file: state.file,
       tab: state.tab,
       codeMode: state.codeMode,
       userLang: cur,
-      preferredLang: pref && pref !== 'auto' ? pref : cur,
+      lastLang,
     };
   }
 
@@ -451,6 +449,41 @@ const copilot = (() => {
       pet()?.move(arg.trim().toLowerCase());
       await sleep(900);
     },
+    'web-search': async (arg) => {
+      setState('doing', `Searching web for “${arg}”…`);
+      const res = await api('/api/web/search', { query: arg, lang: lastLang });
+      openCoach();
+      if (res.summary) {
+        window.appendCoachMessage?.('coach', `### 🌐 Web Search: "${arg}"\n\n${res.summary}\n\n**Sources:**\n${(res.results || []).map((r) => `- [${r.title}](${r.url})`).join('\n')}`);
+      }
+      if (res.results?.length) {
+        toast(`Found ${res.results.length} live web results`);
+      }
+    },
+    'open-url': async (arg) => {
+      let url = String(arg || '').trim();
+      if (!/^https?:\/\//i.test(url)) {
+        const lower = url.toLowerCase();
+        if (lower.includes('codeforces')) url = 'https://codeforces.com';
+        else if (lower.includes('leetcode')) url = 'https://leetcode.com';
+        else if (lower.includes('atcoder')) url = 'https://atcoder.jp';
+        else if (lower.includes('codechef')) url = 'https://codechef.com';
+        else if (lower.includes('github')) url = 'https://github.com';
+        else if (lower.includes('google')) url = 'https://google.com';
+        else if (lower.includes('youtube')) url = 'https://youtube.com';
+        else if (/^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(url)) url = `https://${url}`;
+        else url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
+      }
+      window.open(url, '_blank');
+      toast(`Opened browser: ${url}`);
+    },
+    'create-report': async (arg) => {
+      setState('doing', `Generating report…`);
+      const res = await api('/api/report/generate', { topic: arg, lang: lastLang, date: state.date });
+      if (window.showReportModal) {
+        window.showReportModal(res.title, res.markdown, res.lang);
+      }
+    },
   };
 
   function localTodayIso() {
@@ -476,6 +509,9 @@ const copilot = (() => {
       'open-problem-index': 'Problem #',
       'rag-answer': 'Knowledge search',
       'search-rag': 'Knowledge search',
+      'web-search': 'Web search',
+      'open-url': 'Open URL',
+      'create-report': 'Generate report',
     };
     return `${names[s.action] || s.action.replace(/-/g, ' ')}${s.arg && s.action !== 'say' && s.action !== 'write-code' ? ` · ${s.arg.slice(0, 40)}` : ''}`;
   };

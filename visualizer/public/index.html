@@ -337,6 +337,23 @@
     <pre class="terminal" id="verifyOutput"></pre>
   </dialog>
 
+  <!-- Multilingual Report modal -->
+  <dialog class="modal report-modal" id="reportModal" aria-labelledby="reportTitle">
+    <div class="modal-head">
+      <div class="report-head-title">
+        <i class="ph-duotone ph-file-text report-icon" aria-hidden="true"></i>
+        <h2 id="reportTitle" class="card-title">Generated Report</h2>
+        <span class="report-badge" id="reportLangBadge">en-US</span>
+      </div>
+      <div class="report-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="btnCopyReport"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button>
+        <button class="btn btn-ghost btn-sm" type="button" id="btnDownloadReport"><i class="ph-bold ph-download-simple" aria-hidden="true"></i><span>Download</span></button>
+        <button class="btn btn-ghost btn-icon" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+    </div>
+    <div class="report-body chat-prose" id="reportBody"></div>
+  </dialog>
+
   <!-- Guide: setup, how it works, MCP, reminders, data -->
   <dialog class="guide" id="guide" aria-labelledby="guideTitle">
     <div class="guide-top">

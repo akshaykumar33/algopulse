@@ -191,18 +191,28 @@
     }, { passive: true });
 
     /* ---- reactions ---- */
-    function play(sequence) {
+    function play(sequence, totalMs = 0) {
       timers.forEach(clearTimeout);
       timers = [];
+      let seq = sequence;
+      if (totalMs > 0 && Array.isArray(sequence) && sequence.length > 0) {
+        const seqLen = sequence.reduce((sum, [, ms]) => sum + ms, 0) || 500;
+        const loops = Math.ceil(totalMs / seqLen);
+        seq = [];
+        for (let i = 0; i < loops; i++) {
+          seq.push(...sequence);
+        }
+      }
       let t = 0;
-      for (const [r, ms] of sequence) {
+      for (const [r, ms] of seq) {
+        if (totalMs > 0 && t >= totalMs) break;
         timers.push(setTimeout(() => setReaction(r), t));
         t += ms;
       }
       timers.push(setTimeout(() => {
         setReaction(null);
         aim();
-      }, t));
+      }, totalMs > 0 ? totalMs : t));
     }
     function bounce() {
       if (reduced.matches) return;
@@ -382,10 +392,13 @@
       spin: [[{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], 800],
       wave: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(0)' }], 1000],
     };
-    function animate(name) {
+    let activeAnim = null;
+    function animate(name, totalMs = 0) {
       if (reduced.matches || !ANIMS[name]) return;
       const [frames, duration] = ANIMS[name];
-      squash.animate(frames, { duration, easing: 'ease-in-out' });
+      const iterations = totalMs > duration ? Math.ceil(totalMs / duration) : 1;
+      try { activeAnim?.cancel?.(); } catch {}
+      activeAnim = squash.animate(frames, { duration, iterations, easing: 'ease-in-out' });
     }
     function burst(fx, fall) {
       if (reduced.matches || !fx?.length) return;
@@ -400,21 +413,32 @@
       });
     }
     let tintTimer = 0;
-    function emote(mood) {
+    function emote(mood, durationMs = 0) {
       const m = MOODS[mood];
       if (!m || el.hidden) return;
       wake();
-      play(m.seq);
-      animate(m.anim);
+      play(m.seq, durationMs);
+      animate(m.anim, durationMs);
       burst(m.fx, m.fall);
       chirp(mood);
       if (m.look) {
         setDirection(m.look);
-        timers.push(setTimeout(aim, m.hold || 1200));
+        timers.push(setTimeout(aim, durationMs > 0 ? durationMs : (m.hold || 1200)));
       }
       clearTimeout(tintTimer);
       el.dataset.mood = m.tint || '';
-      if (m.tint) tintTimer = setTimeout(() => (el.dataset.mood = ''), 2600);
+      if (m.tint) tintTimer = setTimeout(() => (el.dataset.mood = ''), durationMs > 0 ? durationMs + 400 : 2600);
+    }
+
+    function stopReact() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      try { activeAnim?.cancel?.(); } catch {}
+      activeAnim = null;
+      clearTimeout(tintTimer);
+      el.dataset.mood = '';
+      setReaction(null);
+      aim();
     }
 
     /* ---- moving around on request ---- */
@@ -574,8 +598,22 @@
     // Others can send the buddy somewhere (the chat parks it in its corner, then returns it).
     el.addEventListener('mascot:goto', (e) => glide(e.detail.x, e.detail.y));
 
+    let talkTimer = 0;
     function talking(on) {
       el.classList.toggle('is-talking', on);
+      clearInterval(talkTimer);
+      if (on) {
+        if (!reaction) {
+          let open = true;
+          setReaction('delighted');
+          talkTimer = setInterval(() => {
+            open = !open;
+            setReaction(open ? 'delighted' : null);
+          }, 240);
+        }
+      } else {
+        stopReact();
+      }
     }
 
     window.mascot = {
@@ -583,6 +621,7 @@
       say,
       boop: () => boop(),
       emote,
+      stopReact,
       feel,
       feeling: () => feeling,
       chirp,
@@ -602,9 +641,9 @@
       react(rawName, ms = 900) {
         const key = String(rawName || '').trim().toLowerCase();
         const name = MOOD_ALIASES[key] || key;
-        if (MOODS[name]) return emote(name);
+        if (MOODS[name]) return emote(name, ms);
         if (el.hidden || !REACTIONS.includes(name)) return;
-        play([[name, ms]]);
+        play([[name, ms]], ms);
         bounce();
       },
       toggle,

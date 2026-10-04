@@ -13,6 +13,8 @@ const ai = require('../practice/ai');
 const prompts = require('../practice/ai/prompts');
 const rag = require('../practice/ai/rag');
 const agent = require('../practice/ai/agent');
+const web = require('../practice/ai/web');
+const report = require('../practice/ai/report');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
@@ -370,6 +372,19 @@ const routes = {
   'POST /api/rag/search': async (req) => {
     const { query = '', k = 6 } = await readJsonBody(req);
     return { query, results: rag.search(query, { k }) };
+  },
+
+  // Live web search with intelligent summarization and source citations
+  'POST /api/web/search': async (req) => {
+    const { query = '', lang = 'en-US' } = await readJsonBody(req);
+    if (typeof query !== 'string' || !query.trim()) throw new HttpError(400, 'Search query is required');
+    return web.searchAndSummarize({ query: query.trim(), lang }).catch(aiError('Web search'));
+  },
+
+  // Comprehensive report generation in any Indian or foreign language
+  'POST /api/report/generate': async (req) => {
+    const { topic = '', lang = 'en-US', date } = await readJsonBody(req);
+    return report.generateReport({ topic: String(topic || '').trim(), lang, date }).catch(aiError('Report generation'));
   },
 };
 

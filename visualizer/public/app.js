@@ -1652,6 +1652,7 @@ function appendMessage(role, text, { store = true } = {}) {
   }
   return el;
 }
+window.appendCoachMessage = appendMessage;
 
 // Reveal the reference: recorded server-side, forfeits this problem's XP.
 async function revealReference(btn) {
@@ -1949,6 +1950,42 @@ function bindEvents() {
   $('#btnVerifyDay').addEventListener('click', verifyDay);
   $('#verifyModal [data-close]').addEventListener('click', () => $('#verifyModal').close());
   closeOnBackdrop($('#verifyModal'));
+
+  let currentReportMd = '';
+  function showReportModal(title, markdown, lang = 'en-US') {
+    const modal = $('#reportModal');
+    if (!modal) return;
+    currentReportMd = markdown || '';
+    $('#reportTitle').textContent = title || 'Generated Report';
+    $('#reportLangBadge').textContent = lang || 'en-US';
+    const body = $('#reportBody');
+    body.innerHTML = renderMarkdown(markdown || '');
+    enhance(body);
+    modal.showModal();
+  }
+  window.showReportModal = showReportModal;
+
+  const repModal = $('#reportModal');
+  if (repModal) {
+    $('#reportModal [data-close]')?.addEventListener('click', () => repModal.close());
+    closeOnBackdrop(repModal);
+    $('#btnCopyReport')?.addEventListener('click', async () => {
+      if (currentReportMd) {
+        await navigator.clipboard.writeText(currentReportMd);
+        toast('Report copied to clipboard! 📋');
+      }
+    });
+    $('#btnDownloadReport')?.addEventListener('click', () => {
+      if (currentReportMd) {
+        const blob = new Blob([currentReportMd], { type: 'text/markdown;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `report-${Date.now()}.md`;
+        a.click();
+        toast('Report downloaded! 💾');
+      }
+    });
+  }
 
   $('#btnCoach').addEventListener('click', openCoach);
   $('#btnCloseCoach').addEventListener('click', () => $('#coach').close());
