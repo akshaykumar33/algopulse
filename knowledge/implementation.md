@@ -260,6 +260,29 @@ function solve() {
 | [Drunk Alcoholic](https://www.codechef.com/problems/DRUNKALK) | `CodeChef` | `874` | `drunkAlcoholic.js` | Key algorithmic application from Day 2026-10-03. |
 | [Hattrick](https://www.codechef.com/problems/HATTRICK) | `CodeChef` | `853` | `hattrick.js` | Key algorithmic application from Day 2026-10-03. |
 | [Farmer And His Plot](https://www.codechef.com/problems/RECTSQ) | `CodeChef` | `936` | `farmerAndHisPlot.js` | Key algorithmic application from Day 2026-10-03. |
+| [Clock and Strings](https://codeforces.com/problemset/problem/1971/C) | `Codeforces` | `900` | `clockAndStrings.js` | Key algorithmic application from Day 2026-10-04. |
+| [Cookies](https://codeforces.com/problemset/problem/129/A) | `Codeforces` | `900` | `cookies.js` | Key algorithmic application from Day 2026-10-04. |
+| [Xenia and Ringroad](https://codeforces.com/problemset/problem/339/B) | `Codeforces` | `1000` | `xeniaAndRingroad.js` | Key algorithmic application from Day 2026-10-04. |
+| [Add Digits](https://leetcode.com/problems/add-digits/) | `LeetCode` | `Easy` | `addDigits.js` | Key algorithmic application from Day 2026-10-04. |
+| [Find Words Containing Character](https://leetcode.com/problems/find-words-containing-character/) | `LeetCode` | `Easy` | `findWordsContainingCharacter.js` | Key algorithmic application from Day 2026-10-04. |
+| [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/) | `LeetCode` | `Easy` | `verifyingAnAlienDictionary.js` | Key algorithmic application from Day 2026-10-04. |
+| [Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/) | `LeetCode` | `Easy` | `complementOfBase10Integer.js` | Key algorithmic application from Day 2026-10-04. |
+| [Sort Array by Increasing Frequency](https://leetcode.com/problems/sort-array-by-increasing-frequency/) | `LeetCode` | `Easy` | `sortArrayByIncreasingFrequency.js` | Key algorithmic application from Day 2026-10-04. |
+| [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | `LeetCode` | `Easy` | `intersectionOfTwoLinkedLists.js` | Key algorithmic application from Day 2026-10-04. |
+| [Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/) | `LeetCode` | `Easy` | `minimumTimeVisitingAllPoints.js` | Key algorithmic application from Day 2026-10-04. |
+| [Counting Bits](https://leetcode.com/problems/counting-bits/) | `LeetCode` | `Easy` | `countingBits.js` | Key algorithmic application from Day 2026-10-04. |
+| [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) | `LeetCode` | `Easy` | `squaresOfASortedArray.js` | Key algorithmic application from Day 2026-10-04. |
+| [Add Binary](https://leetcode.com/problems/add-binary/) | `LeetCode` | `Easy` | `addBinary.js` | Key algorithmic application from Day 2026-10-04. |
+| [Chef Judges a Competition](https://www.codechef.com/problems/CO92JUDG) | `CodeChef` | `984` | `chefJudgesACompetition.js` | Key algorithmic application from Day 2026-10-04. |
+| [Chef and Profits](https://www.codechef.com/problems/CHFPROFIT) | `CodeChef` | `889` | `chefAndProfits.js` | Key algorithmic application from Day 2026-10-04. |
+| [Chef and Interactive Contests](https://www.codechef.com/problems/CHFINTRO) | `CodeChef` | `951` | `chefAndInteractiveContests.js` | Key algorithmic application from Day 2026-10-04. |
+| [Two Rooks](https://www.codechef.com/problems/TWOROOKS) | `CodeChef` | `957` | `twoRooks.js` | Key algorithmic application from Day 2026-10-04. |
+| [Bytelandian gold coins](https://www.codechef.com/problems/COINS) | `CodeChef` | `944` | `bytelandianGoldCoins.js` | Key algorithmic application from Day 2026-10-04. |
+| [Find the Direction](https://www.codechef.com/problems/FACEDIR) | `CodeChef` | `880` | `findTheDirection.js` | Key algorithmic application from Day 2026-10-04. |
+| [Buying Flowers](https://www.codechef.com/problems/FLOWERBUY) | `CodeChef` | `931` | `buyingFlowers.js` | Key algorithmic application from Day 2026-10-04. |
+| [Easy Pronunciation](https://www.codechef.com/problems/EZSPEAK) | `CodeChef` | `1000` | `easyPronunciation.js` | Key algorithmic application from Day 2026-10-04. |
+| [Malvika is peculiar about color of balloons](https://www.codechef.com/problems/CHN09) | `CodeChef` | `988` | `malvikaIsPeculiarAboutColorOfBalloons.js` | Key algorithmic application from Day 2026-10-04. |
+| [Fill The Grid](https://www.codechef.com/problems/GRIDBL) | `CodeChef` | `968` | `fillTheGrid.js` | Key algorithmic application from Day 2026-10-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

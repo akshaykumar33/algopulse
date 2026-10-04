@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4 1500\n1400\n1500\n1600\n1200\n",
+    "output": "Bad\nGoodBad\nGoodBad\nBad\n"
+  }
+]

@@ -67,6 +67,7 @@ function determineWinner(a, b, c) {
 | [Game with Integers](https://codeforces.com/problemset/problem/1899/A) | `Codeforces` | `800` | `gameWithIntegers.js` | If $n \pmod 3 \ne 0$, Vanya can immediately add or subtract 1 to win on turn 1. |
 | [MEX Game (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `mexGameEasy.js` | Constant MEX preservation invariant: all paths have identical length; winner determined by parity of total valid decrements. |
 | [Digit Game](https://codeforces.com/problemset/problem/1419/A) | `Codeforces` | `900` | `digitGame.js` | Key algorithmic application from Day 2026-10-02. |
+| [Coin Games](https://codeforces.com/problemset/problem/1972/B) | `Codeforces` | `900` | `coinGames.js` | Key algorithmic application from Day 2026-10-04. |
 
 ---
 

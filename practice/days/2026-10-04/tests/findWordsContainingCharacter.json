@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"leet\",\"code\"]\n\"e\"",
+    "output": "[0,1]"
+  },
+  {
+    "input": "[\"abc\",\"bcd\",\"aaaa\",\"cbc\"]\n\"a\"",
+    "output": "[0,2]"
+  }
+]

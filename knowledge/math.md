@@ -114,6 +114,10 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Food Buying](https://codeforces.com/problemset/problem/1296/B) | `Codeforces` | `900` | `foodBuying.js` | Key algorithmic application from Day 2026-10-03. |
 | [Mocha and Math](https://codeforces.com/problemset/problem/1559/A) | `Codeforces` | `900` | `mochaAndMath.js` | Key algorithmic application from Day 2026-10-03. |
 | [Berland Poker](https://codeforces.com/problemset/problem/1359/A) | `Codeforces` | `1000` | `berlandPoker.js` | Key algorithmic application from Day 2026-10-03. |
+| [Prime Subtraction](https://codeforces.com/problemset/problem/1238/A) | `Codeforces` | `900` | `primeSubtraction.js` | Key algorithmic application from Day 2026-10-04. |
+| [Strange Partition](https://codeforces.com/problemset/problem/1471/A) | `Codeforces` | `900` | `strangePartition.js` | Key algorithmic application from Day 2026-10-04. |
+| [XORinacci](https://codeforces.com/problemset/problem/1208/A) | `Codeforces` | `900` | `xORinacci.js` | Key algorithmic application from Day 2026-10-04. |
+| [Drazil and Date](https://codeforces.com/problemset/problem/515/A) | `Codeforces` | `1000` | `drazilAndDate.js` | Key algorithmic application from Day 2026-10-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
