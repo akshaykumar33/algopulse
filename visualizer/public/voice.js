@@ -306,8 +306,8 @@ window.buddyVoice = (() => {
           await gemini(words, mood, my, targetLang);
           return;
         } catch (err) {
-          if (/quota|429|rate/i.test(err.message)) {
-            aiOffUntil = Date.now() + 60 * 1000;
+          if (/quota|429|rate|exceeded/i.test(err.message)) {
+            aiOffUntil = Date.now() + 30 * 60 * 1000;
             if (!notified) toast('The AI voice is busy, so I am using my local voice.');
             notified = true;
           }

@@ -364,8 +364,13 @@ const routes = {
     return { story };
   },
 
-  // RAG search over your own notes (also exposed to Claude via the MCP server).
+  // RAG search over your knowledge base and practice history (also exposed to Claude via the MCP server).
   'GET /api/search': (_req, url) => ({ results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'GET /api/rag/query': (_req, url) => ({ query: url.searchParams.get('q') || '', results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'POST /api/rag/search': async (req) => {
+    const { query = '', k = 6 } = await readJsonBody(req);
+    return { query, results: rag.search(query, { k }) };
+  },
 };
 
 const server = http.createServer(async (req, res) => {

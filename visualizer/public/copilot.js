@@ -372,9 +372,39 @@ const copilot = (() => {
       const want = /dark|night/i.test(arg) ? 'dark' : 'light';
       if (activeTheme() !== want) toggleTheme();
     },
-    'scroll-down': async () => A().ACTIONS['scroll-down'].run(),
-    'scroll-up': async () => A().ACTIONS['scroll-up'].run(),
-    'scroll-top': async () => A().ACTIONS['scroll-top'].run(),
+    'scroll-down': async () => A().ACTIONS['scroll-down']?.run?.(),
+    'scroll-up': async () => A().ACTIONS['scroll-up']?.run?.(),
+    'scroll-top': async () => A().ACTIONS['scroll-top']?.run?.(),
+    'scroll-bottom': async () => A().ACTIONS['scroll-bottom']?.run?.(),
+    'toggle-fullscreen': async () => A().ACTIONS['toggle-fullscreen']?.run?.(),
+    zoom: async (arg) => {
+      const a = (arg || '').toLowerCase();
+      if (a.includes('in')) A().ACTIONS['zoom-in']?.run?.();
+      else if (a.includes('out')) A().ACTIONS['zoom-out']?.run?.();
+      else A().ACTIONS['zoom-reset']?.run?.();
+    },
+    'zoom-in': async () => A().ACTIONS['zoom-in']?.run?.(),
+    'zoom-out': async () => A().ACTIONS['zoom-out']?.run?.(),
+    'zoom-reset': async () => A().ACTIONS['zoom-reset']?.run?.(),
+    'copy-code': async () => A().ACTIONS['copy-code']?.run?.(),
+    'code-mode': async (arg) => {
+      const a = (arg || '').toLowerCase();
+      if (a.includes('diff')) A().ACTIONS['code-diff']?.run?.();
+      else if (a.includes('ref')) A().ACTIONS['code-reference']?.run?.();
+      else A().ACTIONS['code-attempt']?.run?.();
+    },
+    'code-attempt': async () => A().ACTIONS['code-attempt']?.run?.(),
+    'code-reference': async () => A().ACTIONS['code-reference']?.run?.(),
+    'code-diff': async () => A().ACTIONS['code-diff']?.run?.(),
+    'open-problem-index': async (arg) => A().openProblemIndex?.(arg),
+    'rag-answer': async (arg) => {
+      openCoach();
+      await ask(arg);
+    },
+    'search-rag': async (arg) => {
+      openCoach();
+      await ask(arg);
+    },
     close: async () => A().ACTIONS.close.run(),
     'toggle-pip': async () => pet()?.toggle(),
     'set-character': async (arg) => pet()?.setCharacter(/bun|rabbit/i.test(arg) ? 'bunny' : 'hamster'),
@@ -411,7 +441,24 @@ const copilot = (() => {
   }
 
   const STEP_LABEL = (s) => {
-    const names = { 'open-problem': 'Open', 'open-day': 'Go to day', 'write-code': 'Write code', 'ask-coach': 'Ask coach', search: 'Search', 'run-custom': 'Run input', 'set-language': 'Language', say: 'Say' };
+    const names = {
+      'open-problem': 'Open',
+      'open-day': 'Go to day',
+      'write-code': 'Write code',
+      'ask-coach': 'Ask coach',
+      search: 'Search',
+      'run-custom': 'Run input',
+      'set-language': 'Language',
+      say: 'Say',
+      'scroll-bottom': 'Scroll to bottom',
+      'toggle-fullscreen': 'Fullscreen',
+      zoom: 'Zoom',
+      'copy-code': 'Copy code',
+      'code-mode': 'Code view',
+      'open-problem-index': 'Problem #',
+      'rag-answer': 'Knowledge search',
+      'search-rag': 'Knowledge search',
+    };
     return `${names[s.action] || s.action.replace(/-/g, ' ')}${s.arg && s.action !== 'say' && s.action !== 'write-code' ? ` · ${s.arg.slice(0, 40)}` : ''}`;
   };
 
@@ -504,6 +551,18 @@ const copilot = (() => {
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime }, start: clip.start });
 
   async function handle(input) {
+    if (typeof input === 'string') {
+      const fast = A().localCommand(input);
+      if (fast) {
+        say('me', input);
+        fast();
+        return;
+      }
+      if (smallTalk(input)) {
+        say('me', input);
+        return;
+      }
+    }
     if (busy) {
       if (typeof input === 'string') reply('One moment, still on the last thing…', 'shy');
       else dropLive();
