@@ -380,6 +380,23 @@ const copilot = (() => {
     'set-language': async (arg) => A().voice.setLanguage(arg),
     say: async () => {},
     feel: async (arg) => pet()?.feel(arg),
+    gestures: async (arg) => {
+      const want = !/^(off|stop|no|false)/i.test(arg.trim());
+      if (want !== A().gestures.on) await A().gestures.toggle();
+    },
+    'air-cursor': async (arg) => {
+      A().save({ airCursor: !/^(off|stop|no|false)/i.test(arg.trim()) });
+      cursor.syncSuppress();
+      document.dispatchEvent(new CustomEvent('assistant:change'));
+    },
+    'voice-style': async (arg) => {
+      const style = ['cute', 'sweet', 'bright'].find((s) => arg.toLowerCase().includes(s)) || 'cute';
+      A().save({ voiceStyle: style });
+      document.dispatchEvent(new CustomEvent('assistant:change'));
+    },
+    'talk-back': async (arg) => {
+      A().save({ talkBack: !/^(off|stop|no|false|quiet|mute)/i.test(arg.trim()) });
+    },
     buddy: async (arg) => {
       pet()?.move(arg.trim().toLowerCase());
       await sleep(900);
