@@ -25,14 +25,19 @@ window.buddyVoice = (() => {
   };
   const pet = () => window.mascot;
   const STYLE = {
-    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.08, google: 1.1, desktop: 1.04 }, rate: 0.95, words: 'Speak as a bright, cheerful young lady with a cute, smiling voice' },
-    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.02, google: 1.05, desktop: 1 }, rate: 0.92, words: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice' },
-    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.1, google: 1.12, desktop: 1.05 }, rate: 1, words: 'Speak in a bright, cheerful, friendly voice' },
+    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.15, google: 1.18, desktop: 1.12 }, rate: 0.95, words: 'Speak as a charming, flirty, adorable hamster companion with a sweet, lively, affectionate cutie baby voice, full of expression and warmth' },
+    sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.08, google: 1.1, desktop: 1.05 }, rate: 0.92, words: 'Speak as a warm, sweet, gentle hamster companion with a soft, smiling voice' },
+    bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.2, google: 1.22, desktop: 1.15 }, rate: 1, words: 'Speak as a bright, lively, energetic hamster companion in a friendly, enthusiastic voice' },
   };
   const MOOD = {
     laugh: 'laughing and giggling happily between the words',
-    giggle: 'with cute little giggles',
-    love: 'adoringly, full of love',
+    giggle: 'with cute little giggles and bubbly chuckles',
+    love: 'adoringly and warmly, full of sweet love',
+    flirt: 'in a playful, charming, teasing and flirty tone with a sweet giggle',
+    possessive: 'in a cute, clingy, playfully possessive tone with affectionate emphasis',
+    pout: 'in a cute, mock-grumpy, adorable pouting tone',
+    kiss: 'blowing an affectionate kiss with a sweet, warm voice',
+    baby: 'in a wide-eyed, innocent, super adorable baby-cutie voice',
     sad: 'softly and a little sadly, but still sweet',
     cry: 'sniffling, teary and wobbly, then brave',
     angry: 'in a pretend-grumpy, pouty way that is still cute',
@@ -42,9 +47,108 @@ window.buddyVoice = (() => {
     shy: 'shyly and bashfully',
   };
   const style = () => STYLE[store().voiceStyle] || STYLE.cute;
-  // Shared delivery for every style and language: smooth, mid-pitched, unhurried, and
-  // pronounced the way a native speaker of that language would say it.
-  const DELIVERY = 'in a smooth, warm, charming mid-pitched tone, at a calm, unhurried pace, with fluent native pronunciation of whatever language the text is in';
+
+  // Language-specific native accents for Ham's voice:
+  const ACCENTS = {
+    // English regional accents
+    'en-IN': 'with an authentic, charming Indian English accent (natural Indian rhythm, clear cadence and warm Hinglish inflection)',
+    'en-GB': 'with a charming, natural British English accent (crisp, polite British cadence)',
+    'en-US': 'with a natural, friendly American English accent',
+    'en-AU': 'with a friendly, casual Australian English accent',
+    'en-CA': 'with a natural Canadian English accent',
+
+    // South Asian languages & Hinglish
+    'hi-IN': 'with an authentic, fluent native Hindi accent and natural, expressive pronunciation (or natural Hinglish phrasing)',
+    'bn-IN': 'with an authentic, fluent native Bengali accent and sweet melodious intonation',
+    'ta-IN': 'with an authentic, fluent native Tamil accent and clear, crisp pronunciation',
+    'te-IN': 'with an authentic, fluent native Telugu accent and natural cadence',
+    'mr-IN': 'with an authentic, fluent native Marathi accent and natural rhythm',
+    'kn-IN': 'with an authentic, fluent native Kannada accent and clear pronunciation',
+    'ml-IN': 'with an authentic, fluent native Malayalam accent and natural cadence',
+    'gu-IN': 'with an authentic, fluent native Gujarati accent and warm inflection',
+    'pa-IN': 'with an authentic, fluent native Punjabi accent and lively, energetic rhythm',
+    'ur-PK': 'with an authentic, fluent native Urdu accent and polite, refined pronunciation',
+
+    // East & Southeast Asian languages
+    'ja-JP': 'with an authentic, fluent native Japanese accent and natural Tokyo pronunciation',
+    'ko-KR': 'with an authentic, fluent native Korean accent and natural Seoul pronunciation',
+    'zh-CN': 'with an authentic, fluent native Mandarin Chinese accent (Standard Putonghua pronunciation)',
+    'zh-TW': 'with an authentic, fluent native Taiwanese Mandarin accent',
+    'id-ID': 'with an authentic, fluent native Indonesian accent (Bahasa Indonesia)',
+
+    // European & Middle Eastern languages
+    'es-ES': 'with an authentic, fluent native Spanish accent and natural Iberian pronunciation',
+    'es-MX': 'with an authentic, fluent native Mexican Spanish accent',
+    'fr-FR': 'with an authentic, fluent native French accent and natural French cadence',
+    'de-DE': 'with an authentic, fluent native German accent and clear German pronunciation',
+    'it-IT': 'with an authentic, fluent native Italian accent and expressive musical cadence',
+    'pt-BR': 'with an authentic, fluent native Brazilian Portuguese accent and warm melodic rhythm',
+    'pt-PT': 'with an authentic, fluent native European Portuguese accent',
+    'ru-RU': 'with an authentic, fluent native Russian accent and natural Russian cadence',
+    'ar-SA': 'with an authentic, fluent native Arabic accent and clear Modern Standard Arabic pronunciation',
+    'tr-TR': 'with an authentic, fluent native Turkish accent and natural Turkish cadence',
+  };
+
+  const LANG_MAP = {
+    auto: 'auto',
+    hindi: 'hi-IN', hi: 'hi-IN', 'hi-in': 'hi-IN', devanagari: 'hi-IN',
+    hinglish: 'en-IN', 'indian english': 'en-IN', 'en-in': 'en-IN',
+    english: 'en-US', 'en-us': 'en-US', en: 'en-US', us: 'en-US', american: 'en-US',
+    british: 'en-GB', 'en-gb': 'en-GB', uk: 'en-GB',
+    bengali: 'bn-IN', bn: 'bn-IN', 'bn-in': 'bn-IN', bangla: 'bn-IN',
+    tamil: 'ta-IN', ta: 'ta-IN', 'ta-in': 'ta-IN',
+    telugu: 'te-IN', te: 'te-IN', 'te-in': 'te-IN',
+    marathi: 'mr-IN', mr: 'mr-IN', 'mr-in': 'mr-IN',
+    kannada: 'kn-IN', kn: 'kn-IN', 'kn-in': 'kn-IN',
+    malayalam: 'ml-IN', ml: 'ml-IN', 'ml-in': 'ml-IN',
+    gujarati: 'gu-IN', gu: 'gu-IN', 'gu-in': 'gu-IN',
+    punjabi: 'pa-IN', pa: 'pa-IN', 'pa-in': 'pa-IN',
+    urdu: 'ur-PK', ur: 'ur-PK', 'ur-pk': 'ur-PK',
+    japanese: 'ja-JP', ja: 'ja-JP', 'ja-jp': 'ja-JP', nihongo: 'ja-JP',
+    korean: 'ko-KR', ko: 'ko-KR', 'ko-kr': 'ko-KR',
+    chinese: 'zh-CN', zh: 'zh-CN', 'zh-cn': 'zh-CN', mandarin: 'zh-CN',
+    spanish: 'es-ES', es: 'es-ES', 'es-es': 'es-ES', espanol: 'es-ES',
+    french: 'fr-FR', fr: 'fr-FR', 'fr-fr': 'fr-FR', francais: 'fr-FR',
+    german: 'de-DE', de: 'de-DE', 'de-de': 'de-DE', deutsch: 'de-DE',
+    italian: 'it-IT', it: 'it-IT', 'it-it': 'it-IT', italiano: 'it-IT',
+    russian: 'ru-RU', ru: 'ru-RU', 'ru-ru': 'ru-RU',
+    portuguese: 'pt-BR', pt: 'pt-BR', 'pt-br': 'pt-BR',
+    arabic: 'ar-SA', ar: 'ar-SA', 'ar-sa': 'ar-SA',
+    turkish: 'tr-TR', tr: 'tr-TR', 'tr-tr': 'tr-TR',
+    indonesian: 'id-ID', id: 'id-ID', 'id-id': 'id-ID',
+  };
+
+  function resolveLangCode(raw) {
+    if (!raw) return 'en-US';
+    const key = String(raw).trim().toLowerCase().replace(/_/g, '-');
+    if (LANG_MAP[key]) return LANG_MAP[key];
+    for (const [k, v] of Object.entries(LANG_MAP)) {
+      if (key.includes(k)) return v;
+    }
+    return key;
+  }
+
+  function accentStyle(lang) {
+    if (!lang) return '';
+    const code = resolveLangCode(lang);
+    if (ACCENTS[code]) return ACCENTS[code];
+    const key = String(code).replace('_', '-');
+    if (ACCENTS[key]) return ACCENTS[key];
+    const lower = key.toLowerCase();
+    for (const [k, v] of Object.entries(ACCENTS)) {
+      if (k.toLowerCase() === lower) return v;
+    }
+    const base = lower.split('-')[0];
+    for (const [k, v] of Object.entries(ACCENTS)) {
+      if (k.toLowerCase().startsWith(base)) return v;
+    }
+    try {
+      const name = new Intl.DisplayNames(['en'], { type: 'language' }).of(base) || base;
+      return `with an authentic, fluent native ${name} accent and natural pronunciation`;
+    } catch {
+      return 'with fluent native pronunciation';
+    }
+  }
 
   let token = 0;
   let ctx = null;
@@ -71,17 +175,48 @@ window.buddyVoice = (() => {
     }
     return out;
   }
-  const clean = (t) => String(t).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').replace(/[*_`#>|]/g, ' ').replace(/\s+/g, ' ').trim();
+
+  // Strip stage directions like *giggles*, (smiling), [excited] so they are never spoken aloud
+  const clean = (t) =>
+    String(t)
+      .replace(/\*[^*]+\*/g, '')
+      .replace(/\([^)]+\)/g, '')
+      .replace(/\[[^\]]+\]/g, '')
+      .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '')
+      .replace(/[*_`#>|]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  function extractMood(text) {
+    const m = String(text).match(/\*([^*]+)\*/);
+    if (!m) return null;
+    const w = m[1].toLowerCase().trim();
+    if (/giggle|chuckle|snicker/i.test(w)) return 'giggle';
+    if (/laugh|haha|lol/i.test(w)) return 'laugh';
+    if (/cry|sob|tear/i.test(w)) return 'cry';
+    if (/sad|frown|sigh/i.test(w)) return 'sad';
+    if (/happy|smile|cheer/i.test(w)) return 'happy';
+    if (/dance|party/i.test(w)) return 'dance';
+    if (/love|heart/i.test(w)) return 'love';
+    if (/wink/i.test(w)) return 'wink';
+    if (/blush|shy/i.test(w)) return 'shy';
+    if (/angry|mad|grump/i.test(w)) return 'angry';
+    if (/think|wonder/i.test(w)) return 'think';
+    if (/yawn|sleep/i.test(w)) return 'sleepy';
+    if (/wave|hi|hello/i.test(w)) return 'wave';
+    if (/proud|sparkle/i.test(w)) return 'proud';
+    return null;
+  }
 
   function begin(estimateMs) {
     speaking = true;
     busyUntil = Date.now() + estimateMs;
-    pet()?.talking?.(true);
   }
   function end() {
     speaking = false;
     busyUntil = Date.now() + 400; // a short tail so the mic does not catch the last word
     pet()?.talking?.(false);
+    pet()?.stopReact?.();
   }
   function stop() {
     token++;
@@ -90,12 +225,14 @@ window.buddyVoice = (() => {
     } catch { /* already ended */ }
     source = null;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
+    pet()?.talking?.(false);
+    pet()?.stopReact?.();
     if (speaking) end();
     busyUntil = 0;
   }
 
   // Plays 24 kHz mono samples; resolves when done (or when cut off by a newer line).
-  function play(samples, my) {
+  function play(samples, my, mood) {
     return new Promise((resolve) => {
       if (my !== token) return resolve();
       const c = audio();
@@ -105,19 +242,28 @@ window.buddyVoice = (() => {
       src.buffer = buf;
       src.connect(c.destination);
       src.onended = () => {
-        if (source === src) source = null;
+        if (source === src) {
+          source = null;
+          pet()?.talking?.(false);
+          pet()?.stopReact?.();
+        }
         resolve();
       };
       source = src;
-      busyUntil = Math.max(busyUntil, Date.now() + buf.duration * 1000 + 300);
+      const durationMs = buf.duration * 1000;
+      busyUntil = Math.max(busyUntil, Date.now() + durationMs + 300);
+      pet()?.talking?.(true);
+      if (mood) pet()?.react?.(mood, durationMs);
       src.start();
     });
   }
 
   /* ---------- 1. Gemini voice ---------- */
-  async function gemini(text, mood, my) {
+  async function gemini(text, mood, my, lang) {
     const s = style();
-    const res = await api('/api/voice/speak', { text, voice: s.ai, style: [s.words, DELIVERY, MOOD[mood]].filter(Boolean).join(', ') });
+    const accent = accentStyle(lang);
+    const stylePrompt = [s.words, accent, MOOD[mood]].filter(Boolean).join(', ');
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style: stylePrompt });
     const bin = atob(res.pcm);
     const n = bin.length >> 1;
     const out = new Float32Array(n);
@@ -125,7 +271,7 @@ window.buddyVoice = (() => {
       const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
       out[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
     }
-    await play(out, my);
+    await play(out, my, mood);
   }
 
   /* ---------- 2. Kokoro, in a worker so the page never stutters ---------- */
@@ -186,15 +332,18 @@ window.buddyVoice = (() => {
   /* ---------- 3. The best browser voice ---------- */
   const NATURAL = /natural|neural|online|premium|enhanced/i;
   const CHILD = /\bana\b|maisie|child|kid/i;
-  const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|google (us|uk english female)/i;
+  const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|gurpreet|gul|elsa|francisca|svetlana|zariyah|emel|gadis|ayumi|haruka|huihui|google (us|uk english female)|हिन्दी|हिंदी|ಕನ್ನಡ|தமிழ்|తెలుగు|मराठी|বাংলা|മലയാളം|ગુજરાતી|日本語|한국어|中文/i;
   const MALE = /\b(male|man|david|mark|guy|ryan|george|james|daniel|brian|eric|liam|andrew|christopher|prabhat|madhur|ravi|hemant)\b/i;
   function pickVoice(lang) {
     const all = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
     if (!all.length) return null;
-    const want = String(lang || 'en-US').toLowerCase();
+    const want = String(lang || 'en-US').toLowerCase().replace('_', '-');
     const base = want.split('-')[0];
     let pool = all.filter((v) => v.lang.toLowerCase().replace('_', '-') === want);
-    if (!pool.length) pool = all.filter((v) => v.lang.toLowerCase().startsWith(base));
+    if (!pool.length) pool = all.filter((v) => v.lang.toLowerCase().replace('_', '-').startsWith(base));
+    if (!pool.length && want === 'en-in') {
+      pool = all.filter((v) => /en-gb|hi-in/i.test(v.lang.replace('_', '-')));
+    }
     if (!pool.length) return null; // better the default than a voice of another language
     const score = (v) =>
       (NATURAL.test(v.name) ? 40 : 0) +
@@ -217,10 +366,18 @@ window.buddyVoice = (() => {
       const lift = mood === 'laugh' || mood === 'giggle' || mood === 'surprised' ? 0.06 : mood === 'sad' || mood === 'cry' ? -0.1 : 0;
       u.pitch = Math.max(0.8, Math.min(1.5, s.pitch[pick?.kind || 'desktop'] + lift));
       u.rate = s.rate;
-      busyUntil = Math.max(busyUntil, Date.now() + 800 + text.length * 80);
+      const durationEstimate = Math.max(1600, 800 + text.length * 85);
+      busyUntil = Math.max(busyUntil, Date.now() + durationEstimate);
+      // Synchronize expression & talking with the exact millisecond speech begins
+      u.onstart = () => {
+        pet()?.talking?.(true);
+        if (mood) pet()?.react?.(mood, durationEstimate);
+      };
       // Chrome sometimes never fires onend; a timeout keeps the queue moving.
-      const guard = setTimeout(resolve, 2500 + text.length * 110);
+      const guard = setTimeout(resolve, durationEstimate + 1200);
       u.onend = u.onerror = () => {
+        pet()?.talking?.(false);
+        pet()?.stopReact?.();
         clearTimeout(guard);
         resolve();
       };
@@ -229,40 +386,64 @@ window.buddyVoice = (() => {
   }
 
   /* ---------- the queue ---------- */
-  async function say(text, { lang = 'en-US', mood, ai = false } = {}) {
+  function detectScriptLang(text) {
+    if (!text) return null;
+    const s = String(text);
+    if (/[\u0900-\u097F]/.test(s)) return 'hi-IN';
+    if (/[\u0C80-\u0CFF]/.test(s)) return 'kn-IN';
+    if (/[\u0B80-\u0BFF]/.test(s)) return 'ta-IN';
+    if (/[\u0C00-\u0C7F]/.test(s)) return 'te-IN';
+    if (/[\u0980-\u09FF]/.test(s)) return 'bn-IN';
+    if (/[\u0A80-\u0AFF]/.test(s)) return 'gu-IN';
+    if (/[\u0D00-\u0D7F]/.test(s)) return 'ml-IN';
+    if (/[\u0A00-\u0A7F]/.test(s)) return 'pa-IN';
+    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(s)) return 'ja-JP';
+    if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR';
+    if (/[\u0600-\u06FF]/.test(s)) return 'ar-SA';
+    if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU';
+    if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
+      return 'hi-IN';
+    }
+    return null;
+  }
+
+  async function say(text, { lang, mood, ai = false } = {}) {
     const words = clean(text);
     if (!words || store().talkBack === false) return;
+    const resolvedMood = mood || extractMood(text) || 'happy';
+    const detected = detectScriptLang(words);
+    const targetLang = resolveLangCode(detected || lang || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
     stop();
     const my = token;
     begin(1500 + words.length * 90);
     try {
-      // Gemini voices the whole reply in one go, so it sounds like one breath.
+      // Gemini voices the whole reply in one go with the target language accent.
       if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
         try {
-          await gemini(words, mood, my);
+          await gemini(words, resolvedMood, my, targetLang);
           return;
         } catch (err) {
-          if (/quota|429|rate/i.test(err.message)) {
-            aiOffUntil = Date.now() + 60 * 60 * 1000;
-            if (!notified) toast('The AI voice is out of free quota for today, so I am using my local voice.');
+          if (/quota|429|rate|exceeded/i.test(err.message)) {
+            aiOffUntil = Date.now() + 30 * 60 * 1000;
+            if (!notified) toast('The AI voice is busy, so I am using my local voice.');
             notified = true;
           }
           if (my !== token) return;
         }
       }
       const parts = sentences(words);
-      const english = /^en\b/i.test(lang);
-      if (english) kokoro.start();
-      if (english && kokoro.state === 'ready') {
+      const isUsEnglish = /^(en-US|en)$/i.test(targetLang);
+      if (isUsEnglish) kokoro.start();
+      if (isUsEnglish && kokoro.state === 'ready') {
         try {
           // Make the next sentence while the current one plays.
           let next = kokoro.speak(parts[0]);
           for (let i = 0; i < parts.length && my === token; i++) {
             const samples = await next;
             next = i + 1 < parts.length && kokoro.state === 'ready' ? kokoro.speak(parts[i + 1]) : null;
-            await play(samples, my);
+            await play(samples, my, resolvedMood);
             if (!next && i + 1 < parts.length) {
-              for (const rest of parts.slice(i + 1)) await browser(rest, lang, mood, my);
+              for (const rest of parts.slice(i + 1)) await browser(rest, targetLang, resolvedMood, my);
               break;
             }
           }
@@ -273,7 +454,7 @@ window.buddyVoice = (() => {
       }
       for (const p of parts) {
         if (my !== token) return;
-        await browser(p, lang, mood, my);
+        await browser(p, targetLang, resolvedMood, my);
       }
     } finally {
       if (my === token) end();
@@ -296,7 +477,10 @@ window.buddyVoice = (() => {
       return kokoro.state === 'ready' ? 'neural' : 'browser';
     },
     pickVoice,
+    accentStyle,
     kokoro,
     STYLE,
+    resolveLangCode,
+    LANG_MAP,
   };
 })();

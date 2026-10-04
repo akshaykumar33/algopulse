@@ -1,0 +1,85 @@
+{
+  "title": "The Secret Spells of the Castle Doors",
+  "keyIdea": "Since there are only three character types and each can be either an opening or closing parenthesis, we can test all 8 possible combinations.",
+  "story": "Imagine a grand, enchanted Ghibli castle filled with magical doors. The doors are guarded by mystical runes shaped like the letters A, B, and C. Every time you encounter a rune, it whispers either an opening wind or a closing breeze. A safe path through the castle requires that every opening breeze is eventually matched by a closing breeze without ever leaving a door hanging open in despair. Because there are only three runes and two choices for each (open or close), there are only eight possible ways to assign spells to the runes. We simply try all eight combinations one by one, like trying different keys on a keychain, until we find the magic arrangement that keeps the castle's winds in perfect balance!",
+  "traceInput": "AABABC",
+  "steps": [
+    {
+      "title": "Start checking masks",
+      "narration": "We begin our quest by testing the very first combination of spells, where every rune is set to a closing breeze.",
+      "vars": [
+        {
+          "name": "mask",
+          "value": "0"
+        },
+        {
+          "name": "ok",
+          "value": "false"
+        }
+      ],
+      "focus": [
+        "mask",
+        "ok"
+      ]
+    },
+    {
+      "title": "Test mask zero",
+      "narration": "With mask 0, A, B, and C all become closing parentheses. The string AABABC instantly fails because we cannot close a door that was never opened.",
+      "vars": [
+        {
+          "name": "mask",
+          "value": "0"
+        },
+        {
+          "name": "valid",
+          "value": "false"
+        }
+      ],
+      "focus": [
+        "mask",
+        "valid"
+      ]
+    },
+    {
+      "title": "Explore further masks",
+      "narration": "We continue trying other combinations of opening and closing spells for A, B, and C, checking if the running balance of open doors ever drops below zero.",
+      "vars": [
+        {
+          "name": "mask",
+          "value": "5"
+        },
+        {
+          "name": "ok",
+          "value": "false"
+        }
+      ],
+      "focus": [
+        "mask",
+        "ok"
+      ]
+    },
+    {
+      "title": "Find the winning combination",
+      "narration": "At last, we discover a magical mask where A, B, and C align into a harmonious sequence of opening and closing breaths that finishes with a balance of zero!",
+      "vars": [
+        {
+          "name": "mask",
+          "value": "3"
+        },
+        {
+          "name": "ok",
+          "value": "true"
+        }
+      ],
+      "focus": [
+        "mask",
+        "ok"
+      ]
+    }
+  ],
+  "finalOutput": "YES",
+  "verified": true,
+  "provider": "gemini",
+  "model": "gemini-flash-lite-latest",
+  "generatedAt": "2026-10-03T15:34:21.828Z"
+}

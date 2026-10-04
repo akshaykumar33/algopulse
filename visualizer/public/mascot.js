@@ -150,17 +150,20 @@
     const size = () => el.getBoundingClientRect();
     function place(x, y, persist = false) {
       const r = size();
-      const nx = Math.min(Math.max(8, x), innerWidth - r.width - 8);
-      const ny = Math.min(Math.max(72, y), innerHeight - r.height - 8);
+      const nx = Math.min(Math.max(12, x), innerWidth - r.width - 12);
+      const ny = Math.min(Math.max(80, y), innerHeight - r.height - 16);
       el.style.left = `${nx}px`;
       el.style.top = `${ny}px`;
       if (persist) save({ x: nx / innerWidth, y: ny / innerHeight });
       el.dispatchEvent(new Event('mascot:move'));
     }
     const saved = load();
-    const home = () => place(innerWidth - size().width - 24, innerHeight - size().height - 96);
-    if (typeof saved.x === 'number') place(saved.x * innerWidth, saved.y * innerHeight);
-    else home();
+    const home = () => place(innerWidth - size().width - 32, innerHeight - size().height - 110);
+    if (typeof saved.x === 'number' && !(saved.x < 0.28 && saved.y < 0.32)) {
+      place(saved.x * innerWidth, saved.y * innerHeight);
+    } else {
+      home();
+    }
     addEventListener('resize', () => {
       const r = size();
       place(r.left, r.top);
@@ -191,18 +194,28 @@
     }, { passive: true });
 
     /* ---- reactions ---- */
-    function play(sequence) {
+    function play(sequence, totalMs = 0) {
       timers.forEach(clearTimeout);
       timers = [];
+      let seq = sequence;
+      if (totalMs > 0 && Array.isArray(sequence) && sequence.length > 0) {
+        const seqLen = sequence.reduce((sum, [, ms]) => sum + ms, 0) || 500;
+        const loops = Math.ceil(totalMs / seqLen);
+        seq = [];
+        for (let i = 0; i < loops; i++) {
+          seq.push(...sequence);
+        }
+      }
       let t = 0;
-      for (const [r, ms] of sequence) {
+      for (const [r, ms] of seq) {
+        if (totalMs > 0 && t >= totalMs) break;
         timers.push(setTimeout(() => setReaction(r), t));
         t += ms;
       }
       timers.push(setTimeout(() => {
         setReaction(null);
         aim();
-      }, t));
+      }, totalMs > 0 ? totalMs : t));
     }
     function bounce() {
       if (reduced.matches) return;
@@ -247,7 +260,7 @@
       if (!drag.moved) {
         drag.moved = true;
         el.classList.add('is-dragging');
-        setReaction('surprised');
+        setReaction('wink');
       }
       place(e.clientX - drag.ox, e.clientY - drag.oy);
     });
@@ -259,8 +272,7 @@
       if (wasDrag) {
         const r = size();
         place(r.left, r.top, true);
-        play([['delighted', 500]]);
-        bounce();
+        play([['delighted', 400]]);
       }
       el.dataset.dragged = wasDrag ? '1' : '';
     };
@@ -278,6 +290,12 @@
     el.querySelector('#pipStatusBadge')?.addEventListener('click', (e) => {
       e.stopPropagation();
       boop();
+    });
+    el.querySelector('#pipStatusBadge')?.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      home();
+      emote('flirt', 1200);
+      say('Back in my cozy corner! 🐹💖', 1800);
     });
     el.addEventListener('contextmenu', (e) => {
       e.preventDefault();
@@ -319,9 +337,35 @@
       if (typeof toast === 'function') toast(shown ? 'Pip is back!' : 'Pip is napping. Press M to wake them.');
     });
 
-    /* ---- emotions: sprite face + body animation + floating effects ---- */
+    const MOOD_ALIASES = {
+      laughing: 'laugh', haha: 'laugh', giggle: 'giggle', giggling: 'giggle', chuckle: 'giggle',
+      smile: 'happy', smiling: 'happy', joy: 'happy', joyful: 'happy', cheerful: 'happy',
+      excited: 'surprised', shock: 'surprised', shocked: 'surprised', wow: 'surprised',
+      crying: 'cry', weep: 'cry', weeping: 'cry', sob: 'cry', sobbing: 'cry',
+      droop: 'sad', depressed: 'sad', gloomy: 'sad', sorrow: 'sad', upset: 'sad',
+      mad: 'angry', grumpy: 'angry', furious: 'angry',
+      flirt: 'flirt', flirty: 'flirt', flirting: 'flirt', tease: 'flirt', teasing: 'flirt',
+      possessive: 'possessive', jealous: 'possessive', clingy: 'possessive', mine: 'possessive',
+      pout: 'pout', pouting: 'pout', hmph: 'pout',
+      kiss: 'kiss', kisses: 'kiss', kissing: 'kiss', muah: 'kiss', pappi: 'kiss', chumma: 'kiss',
+      baby: 'baby', cutie: 'baby', cute: 'baby', adorable: 'baby',
+      curious: 'think', thinking: 'think', ponder: 'think', pondering: 'think', puzzle: 'think', confused: 'think',
+      sleeping: 'sleepy', tired: 'sleepy', yawn: 'sleepy', yawning: 'sleepy', nap: 'sleepy',
+      blush: 'shy', blushing: 'shy', bashful: 'shy', embarrassed: 'shy',
+      celebrate: 'proud', celebrating: 'proud', cheer: 'proud', cheering: 'proud', victory: 'proud',
+      dancing: 'dance', party: 'dance', groove: 'dance',
+      waving: 'wave', hello: 'wave', hi: 'wave',
+      loving: 'love', affectionate: 'love', heart: 'love', adore: 'love', adorably: 'love',
+      delighted: 'happy', sparkle: 'proud', wink: 'wink', blinking: 'calm',
+    };
+
     const MOODS = {
       happy: { seq: [['delighted', 900]], anim: 'hop', fx: ['✨', '✨', '💛'] },
+      flirt: { seq: [['wink', 350], ['heart', 650], ['bashful', 450], ['wink', 350]], anim: 'sway', fx: ['💖', '😘', '✨', '💋', '💕'], tint: 'flirt' },
+      possessive: { seq: [['dizzy', 280], ['sleepy', 320], ['heart', 700], ['wink', 350]], anim: 'wiggle', fx: ['🔒', '💖', '😤', '💕', '🥰'], tint: 'possessive' },
+      pout: { seq: [['sleepy', 380], ['dizzy', 480], ['bashful', 420]], anim: 'droop', fx: ['😤', '💢', '🥺', '💨'], tint: 'pout' },
+      kiss: { seq: [['heart', 850], ['wink', 550]], anim: 'pulse', fx: ['💋', '😘', '❤️', '✨', '🥰'], tint: 'kiss' },
+      baby: { seq: [['delighted', 400], ['sparkle', 400], ['bashful', 400], ['delighted', 400]], anim: 'hop', fx: ['🥺', '🧸', '✨', '🍼', '💖'], tint: 'baby' },
       laugh: { seq: [['delighted', 450], ['wink', 220], ['delighted', 450], ['wink', 220], ['delighted', 400]], anim: 'laugh', fx: ['😂', 'ha', 'ha', '🤣'] },
       giggle: { seq: [['wink', 300], ['bashful', 300], ['wink', 300]], anim: 'wiggle', fx: ['hehe', '🤭', 'hee'] },
       love: { seq: [['heart', 1400]], anim: 'pulse', fx: ['❤️', '💕', '💖', '💗'] },
@@ -367,10 +411,13 @@
       spin: [[{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], 800],
       wave: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(0)' }], 1000],
     };
-    function animate(name) {
+    let activeAnim = null;
+    function animate(name, totalMs = 0) {
       if (reduced.matches || !ANIMS[name]) return;
       const [frames, duration] = ANIMS[name];
-      squash.animate(frames, { duration, easing: 'ease-in-out' });
+      const iterations = totalMs > duration ? Math.ceil(totalMs / duration) : 1;
+      try { activeAnim?.cancel?.(); } catch {}
+      activeAnim = squash.animate(frames, { duration, iterations, easing: 'ease-in-out' });
     }
     function burst(fx, fall) {
       if (reduced.matches || !fx?.length) return;
@@ -385,21 +432,32 @@
       });
     }
     let tintTimer = 0;
-    function emote(mood) {
+    function emote(mood, durationMs = 0) {
       const m = MOODS[mood];
       if (!m || el.hidden) return;
       wake();
-      play(m.seq);
-      animate(m.anim);
+      play(m.seq, durationMs);
+      animate(m.anim, durationMs);
       burst(m.fx, m.fall);
       chirp(mood);
       if (m.look) {
         setDirection(m.look);
-        timers.push(setTimeout(aim, m.hold || 1200));
+        timers.push(setTimeout(aim, durationMs > 0 ? durationMs : (m.hold || 1200)));
       }
       clearTimeout(tintTimer);
       el.dataset.mood = m.tint || '';
-      if (m.tint) tintTimer = setTimeout(() => (el.dataset.mood = ''), 2600);
+      if (m.tint) tintTimer = setTimeout(() => (el.dataset.mood = ''), durationMs > 0 ? durationMs + 400 : 2600);
+    }
+
+    function stopReact() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      try { activeAnim?.cancel?.(); } catch {}
+      activeAnim = null;
+      clearTimeout(tintTimer);
+      el.dataset.mood = '';
+      setReaction(null);
+      aim();
     }
 
     /* ---- moving around on request ---- */
@@ -529,7 +587,8 @@
     let feeling = null;
     const lengthOf = (m) => Math.max(m.seq.reduce((n, [, ms]) => n + ms, 0), ANIMS[m.anim]?.[1] || 0, 900);
     function feel(arg) {
-      const [name, mode] = String(arg || '').trim().toLowerCase().split(/\s+/);
+      const [raw, mode] = String(arg || '').trim().toLowerCase().split(/\s+/);
+      const name = MOOD_ALIASES[raw] || raw;
       clearInterval(feelTimer);
       feelTimer = 0;
       feeling = null;
@@ -558,8 +617,22 @@
     // Others can send the buddy somewhere (the chat parks it in its corner, then returns it).
     el.addEventListener('mascot:goto', (e) => glide(e.detail.x, e.detail.y));
 
+    let talkTimer = 0;
     function talking(on) {
       el.classList.toggle('is-talking', on);
+      clearInterval(talkTimer);
+      if (on) {
+        if (!reaction) {
+          let open = true;
+          setReaction('delighted');
+          talkTimer = setInterval(() => {
+            open = !open;
+            setReaction(open ? 'delighted' : null);
+          }, 240);
+        }
+      } else {
+        stopReact();
+      }
     }
 
     window.mascot = {
@@ -567,6 +640,7 @@
       say,
       boop: () => boop(),
       emote,
+      stopReact,
       feel,
       feeling: () => feeling,
       chirp,
@@ -583,10 +657,12 @@
       watching(on) {
         el.classList.toggle('is-watching', on);
       },
-      react(name, ms = 900) {
-        if (MOODS[name]) return emote(name);
+      react(rawName, ms = 900) {
+        const key = String(rawName || '').trim().toLowerCase();
+        const name = MOOD_ALIASES[key] || key;
+        if (MOODS[name]) return emote(name, ms);
         if (el.hidden || !REACTIONS.includes(name)) return;
-        play([[name, ms]]);
+        play([[name, ms]], ms);
         bounce();
       },
       toggle,

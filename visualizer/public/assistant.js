@@ -47,14 +47,19 @@ const assistant = (() => {
   }
 
   const VOICES = {
-    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.48, rate: 1.12 },
+    cute: { ai: 'Leda', style: 'Speak as a charming, flirty, adorable cutie baby companion with a sweet, lively, affectionate voice, full of warmth, teasing and smiles', pitch: 1.48, rate: 1.12 },
     sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.25, rate: 1.02 },
     bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.35, rate: 1.1 },
   };
   const MOOD_STYLE = {
     laugh: 'laughing and giggling happily between the words',
-    giggle: 'with cute little giggles',
-    love: 'adoringly, full of love',
+    giggle: 'with cute little giggles and bubbly chuckles',
+    love: 'adoringly and warmly, full of sweet love',
+    flirt: 'in a playful, charming, teasing and flirty tone with a sweet giggle',
+    possessive: 'in a cute, clingy, playfully possessive tone with affectionate emphasis',
+    pout: 'in a cute, mock-grumpy, adorable pouting tone',
+    kiss: 'blowing an affectionate kiss with a sweet, warm voice',
+    baby: 'in a wide-eyed, innocent, super adorable baby-cutie voice',
     sad: 'softly and a little sadly, but still sweet',
     cry: 'sniffling, teary and wobbly, then brave',
     angry: 'in a pretend-grumpy, pouty way that is still cute',
@@ -175,9 +180,10 @@ const assistant = (() => {
     u.onend = u.onerror = () => talking(false);
     speechSynthesis.speak(u);
   }
-  async function aiSpeak(text, mood, token) {
+  async function aiSpeak(text, mood, token, lang) {
     const s = voiceStyle();
-    const style = [s.style, MOOD_STYLE[mood]].filter(Boolean).join(', ');
+    const accent = window.buddyVoice?.accentStyle?.(lang) || '';
+    const style = [s.style, accent, MOOD_STYLE[mood]].filter(Boolean).join(', ');
     const res = await api('/api/voice/speak', { text, voice: s.ai, style });
     if (token !== sayToken) return;
     audioCtx ||= new AudioContext();
@@ -205,8 +211,9 @@ const assistant = (() => {
   // for it on real conversation replies; quick confirmations use the browser voice.
   function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
+    const targetLang = lang || voice.lang() || 'en-US';
     // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
-    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: lang || voice.lang(), mood, ai: Boolean(opts.ai) });
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: targetLang, mood, ai: Boolean(opts.ai) });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
@@ -214,23 +221,22 @@ const assistant = (() => {
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
     if (opts.ai && load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
-      aiSpeak(clean, mood, token).catch((err) => {
-        // Out of voice quota (the free tier allows only a few lines a day): stop asking
-        // for a while and use the browser voice, instead of failing on every line.
-        if (/quota|429|rate/i.test(err.message)) {
-          if (!aiVoiceOffUntil) toast('The AI voice is out of free quota for today, so I am using the browser voice.');
-          aiVoiceOffUntil = Date.now() + 60 * 60 * 1000;
+      aiSpeak(clean, mood, token, targetLang).catch((err) => {
+        // Out of voice quota: stop asking for a while and use the browser voice
+        if (/quota|429|rate|exceeded/i.test(err.message)) {
+          if (!aiVoiceOffUntil) toast('The AI voice is busy, so I am using the browser voice.');
+          aiVoiceOffUntil = Date.now() + 30 * 60 * 1000;
         }
-        if (token === sayToken) browserSpeak(clean, lang, mood);
+        if (token === sayToken) browserSpeak(clean, targetLang, mood);
       });
-    } else browserSpeak(clean, lang, mood);
+    } else browserSpeak(clean, targetLang, mood);
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   function feedback(text, reaction = 'delighted') {
-    if (window.copilot?.reply) return window.copilot.reply(text, reaction);
+    if (window.copilot?.reply) return window.copilot.reply(text, reaction, voice.lang());
     pet()?.say(text);
     pet()?.react(reaction, 700);
-    speak(text, undefined, reaction);
+    speak(text, voice.lang(), reaction);
   }
 
   /* ======================================================================
@@ -261,11 +267,111 @@ const assistant = (() => {
     'open-coach': { label: 'Open the coach', run: () => openCoach(), say: 'Coach is here' },
     'open-guide': { label: 'Open the guide', run: () => openGuide('welcome'), say: 'Here is the guide' },
     'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around' },
-    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the lights' },
+    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the theme' },
     'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed' },
     'scroll-down': { label: 'Scroll down', run: () => scrollBy({ top: innerHeight * 0.7, behavior: 'smooth' }), say: '' },
     'scroll-up': { label: 'Scroll up', run: () => scrollBy({ top: -innerHeight * 0.7, behavior: 'smooth' }), say: '' },
     'scroll-top': { label: 'Back to top', run: () => scrollTo({ top: 0, behavior: 'smooth' }), say: 'Back to top' },
+    'scroll-bottom': { label: 'Scroll to bottom', run: () => scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), say: 'Bottom of the page' },
+    'toggle-fullscreen': {
+      label: 'Toggle fullscreen',
+      run: () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen().catch(() => {});
+      },
+      say: 'Toggled fullscreen'
+    },
+    'zoom-in': {
+      label: 'Zoom in',
+      run: () => {
+        const cur = parseFloat(document.documentElement.style.zoom || '1');
+        document.documentElement.style.zoom = Math.min(1.5, cur + 0.12);
+      },
+      say: 'Zoomed in'
+    },
+    'zoom-out': {
+      label: 'Zoom out',
+      run: () => {
+        const cur = parseFloat(document.documentElement.style.zoom || '1');
+        document.documentElement.style.zoom = Math.max(0.75, cur - 0.12);
+      },
+      say: 'Zoomed out'
+    },
+    'zoom-reset': {
+      label: 'Reset zoom',
+      run: () => { document.documentElement.style.zoom = '1'; },
+      say: 'Reset zoom'
+    },
+    'copy-code': {
+      label: 'Copy code',
+      run: () => {
+        const p = current();
+        const code = state.codeMode === 'reference' ? (p?.reference || '') : ($('#editor')?.value ?? p?.attempt?.code ?? '');
+        if (code) {
+          navigator.clipboard.writeText(code).catch(() => {});
+          toast('Code copied to clipboard!');
+        }
+      },
+      say: 'Copied code to clipboard'
+    },
+    'code-attempt': {
+      label: 'Switch to attempt code',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="attempt"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Your attempt'
+    },
+    'code-reference': {
+      label: 'Switch to reference solution',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="reference"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Reference solution'
+    },
+    'code-diff': {
+      label: 'Toggle code diff',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="diff"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Comparing code'
+    },
+    'filter-todo': {
+      label: 'Filter unsolved',
+      run: () => {
+        const el = document.querySelector('input[name="status"][value="todo"]');
+        if (el) el.click();
+      },
+      say: 'Showing unsolved'
+    },
+    'filter-all': {
+      label: 'Show all problems',
+      run: () => {
+        const el = document.querySelector('input[name="status"][value="all"]');
+        if (el) el.click();
+      },
+      say: 'Showing all'
+    },
+    'hint': {
+      label: 'Ask for a hint',
+      run: () => { openCoach(); askMode('hint'); },
+      say: 'Here is a hint'
+    },
+    'explain': {
+      label: 'Explain problem',
+      run: () => { openCoach(); askMode('explain'); },
+      say: 'Explaining problem'
+    },
+    'review': {
+      label: 'Review my code',
+      run: () => { openCoach(); askMode('review'); },
+      say: 'Reviewing code'
+    },
     'read-story': { label: 'Read the story aloud', run: () => readStory(), say: '' },
     'toggle-pip': { label: 'Hide / show the buddy', run: () => pet()?.toggle(), say: '' },
     'stop-voice': { label: 'Stop listening', run: () => voice.stop(), say: 'Okay, I stopped listening' },
@@ -316,36 +422,83 @@ const assistant = (() => {
   }
 
   /* ======================================================================
-     Voice
+     Voice Remote Control Engine
      ====================================================================== */
   const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   // Built-in phrases → actions, tried after the user's own phrases. Order matters.
   const PHRASES = [
-    [/\b(stop|quit) listening\b|\bgo to sleep\b/, 'stop-voice'],
+    [/\b(stop|quit) (listening|talking|speaking)\b|\bgo to sleep\b|\bshut up\b|\bbe quiet\b|\bmute\b/, 'stop-voice'],
     [/\bnext (tab|page)\b/, 'next-tab'],
     [/\b(previous|last|back a) (tab|page)\b/, 'prev-tab'],
-    [/\bnext( problem| question| one)?\b/, 'next-problem'],
-    [/\b(previous|last|go back)( problem| question| one)?\b/, 'prev-problem'],
-    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b/, 'run-tests'],
-    [/\bverify\b/, 'verify-day'],
+    [/\b(next|forward|advance|agla|aage)( problem| question| one| sawal)?\b|\bagla sawal\b/, 'next-problem'],
+    [/\b(previous|prior|back|pichhla|peeche)( problem| question| one| sawal)?\b|\bpichhla sawal\b/, 'prev-problem'],
+    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b|\btests? chalao\b/, 'run-tests'],
+    [/\bverify( the)? (day|today|all)\b/, 'verify-day'],
     [/\b(read|tell)( me)?( the)? story( aloud| out loud)?\b/, 'read-story'],
-    [/\bstory\b/, 'tab-story'],
-    [/\bwalk ?through\b|\bexplanation\b/, 'tab-walkthrough'],
-    [/\bdiagrams?\b/, 'tab-diagrams'],
-    [/\bvisuali[sz]e\b|\bsimulat/, 'tab-visualize'],
-    [/\bcode\b|\beditor\b/, 'tab-code'],
-    [/\btests?\b|\bplayground\b/, 'tab-tests'],
-    [/\bcoach\b|\bhelp me\b/, 'open-coach'],
-    [/\bguide\b|\bhelp\b|\bsettings\b/, 'open-guide'],
-    [/\btour\b/, 'start-tour'],
-    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b/, 'toggle-theme'],
-    [/\bscroll down\b|\bdown\b/, 'scroll-down'],
-    [/\bscroll up\b|\bup\b/, 'scroll-up'],
-    [/\b(go to |back to )?(the )?top\b/, 'scroll-top'],
+    [/\b(open |show |go to )?(the )?story\b|\bkahani\b/, 'tab-story'],
+    [/\b(open |show |go to )?(the )?walkthrough\b|\bexplanation\b|\bsamjhao\b/, 'tab-walkthrough'],
+    [/\b(open |show |go to )?(the )?diagrams?\b/, 'tab-diagrams'],
+    [/\b(open |show |go to )?(the )?visuali[sz]e\b|\banimation\b/, 'tab-visualize'],
+    [/\b(open |show |go to )?(the )?code\b|\beditor\b/, 'tab-code'],
+    [/\b(open |show |go to )?(the )?tests?\b|\bplayground\b/, 'tab-tests'],
+    [/\b(open |show |go to )?(the )?coach\b/, 'open-coach'],
+    [/\b(open |show |go to )?(the )?guide\b|\bsettings\b/, 'open-guide'],
+    [/\b(start |open )?(the )?tour\b/, 'start-tour'],
+    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b|\btoggle theme\b/, 'toggle-theme'],
+    [/\bscroll (down|niche)\b|\bpage down\b/, 'scroll-down'],
+    [/\bscroll (up|upar)\b|\bpage up\b/, 'scroll-up'],
+    [/\b(go to |scroll to )?(the )?top\b/, 'scroll-top'],
+    [/\b(go to |scroll to )?(the )?bottom\b/, 'scroll-bottom'],
+    [/\b(fullscreen|full screen|toggle fullscreen)\b/, 'toggle-fullscreen'],
+    [/\bzoom in\b/, 'zoom-in'],
+    [/\bzoom out\b/, 'zoom-out'],
+    [/\breset zoom\b/, 'zoom-reset'],
     [/\b(close|cancel|dismiss|go back|exit)\b/, 'close'],
     [/\b(hide|show) (pip|bun|bunny|hamster|buddy)\b/, 'toggle-pip'],
+    [/\b(dance|naacho)\b/, 'buddy-dance'],
+    [/\bfilter (todo|unsolved)\b/, 'filter-todo'],
+    [/\bshow all( problems)?\b/, 'filter-all'],
+    [/\b(give me a |show me a |need a )?hint\b/, 'hint'],
+    [/\bexplain( this)?( problem)?\b/, 'explain'],
+    [/\breview( my)?( code)?\b/, 'review'],
   ];
+
+  function openProblemIndex(idx) {
+    const i = idx - 1;
+    if (state.problems && state.problems[i]) {
+      selectProblem(state.problems[i].file);
+      feedback(`Opening problem ${idx}: ${displayName(state.problems[i].name)}`);
+      log(`Voice: open problem ${idx}`);
+      return true;
+    }
+    return false;
+  }
+
+  function openDayTarget(arg) {
+    const days = (state.days || []).map((d) => d.date);
+    if (!days.length) return false;
+    let target = null;
+    const a = String(arg).toLowerCase().trim();
+    if (a === 'today' || a === 'latest' || a === 'current') target = days[0];
+    else if (a === 'yesterday') target = days[1] || days[0];
+    else if (/^\d{4}-\d{2}-\d{2}$/.test(a)) target = days.find((d) => d === a);
+    else {
+      const m = a.match(/\bday\s*(\d+)\b/i);
+      if (m) {
+        const num = parseInt(m[1], 10);
+        const set = (state.days || []).find((d) => d.day === num);
+        if (set) target = set.date;
+      }
+    }
+    if (target) {
+      loadDay(target);
+      feedback(`Opening ${target}`);
+      log(`Voice: open day ${target}`);
+      return true;
+    }
+    return false;
+  }
 
   function problemByName(text) {
     const t = text.toLowerCase();
@@ -364,28 +517,40 @@ const assistant = (() => {
   // are compared with both stripped.
   const normalize = (t) => String(t).toLowerCase().replace(/['’.,!?]/g, '').replace(/\s+/g, ' ').trim();
 
-  // Short, plain English commands run instantly from the phrase table. Anything longer,
-  // multi-step, or in another language goes to the AI planner (copilot.js), which
-  // understands any language, mixes, and misheard words.
-  const FAST_MAX_WORDS = 5;
-  const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
-  const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
+  const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham|hamster)[, ]*/;
 
-  const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/;
-
-  // A command that can run right here, with no AI: returns a function to run it, or null.
+  // Ultra-Fast Remote Control Dispatcher: runs directly in 0ms with zero network delay!
   function localCommand(raw) {
     const text = normalize(raw);
     if (!text) return null;
     if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
-    // The buddy's name as a wake word is optional: "pip, next problem" == "next problem".
     const said = text.replace(WAKE, '');
-    if (window.copilot?.ready() && !looksFast(said)) return null;
 
-    // 1. The user's own phrases.
+    // 1. The user's own custom phrases.
     const own = (load().phrases || []).find((c) => said.includes(normalize(c.phrase)));
     if (own) return () => run(own.action, `Voice “${raw}”`);
-    // 2. "ask coach …" sends the rest as a question.
+
+    // 2. Problem by 1-based index (e.g. "problem 1", "first problem", "sawal 3")
+    const numM = said.match(/\b(problem|question|sawal|number|no)\s*([1-9]|10)\b/i) || said.match(/\b(first|1st|second|2nd|third|3rd|fourth|4th|fifth|5th|sixth|6th|seventh|7th|eighth|8th|ninth|9th|tenth|10th|last)\s*(problem|sawal)?\b/i);
+    if (numM) {
+      const ordinals = { first: 1, '1st': 1, second: 2, '2nd': 2, third: 3, '3rd': 3, fourth: 4, '4th': 4, fifth: 5, '5th': 5, sixth: 6, '6th': 6, seventh: 7, '7th': 7, eighth: 8, '8th': 8, ninth: 9, '9th': 9, tenth: 10, '10th': 10, last: 10 };
+      const num = numM[2] ? parseInt(numM[2], 10) : ordinals[numM[1].toLowerCase()];
+      if (num) return () => openProblemIndex(num);
+    }
+
+    // 3. Day switcher ("go to day 9", "open today", "switch to yesterday")
+    const dayM = said.match(/\b(go to |switch to |open )?(day\s*\d+|today|yesterday|latest)\b/i);
+    if (dayM) return () => openDayTarget(dayM[2]);
+
+    // 4. Code mode views ("show attempt", "show reference", "compare code", "copy code")
+    if (/\b(show |view |switch to )?(my )?attempt( code)?\b/i.test(said)) return () => run('code-attempt', `Voice “${raw}”`);
+    if (/\b(show |view |switch to )?(reference|solution|official|cheat)( code)?\b/i.test(said)) return () => run('code-reference', `Voice “${raw}”`);
+    if (/\b(show |view |toggle )?diff(erence)?\b|\bcompare( code)?\b/i.test(said)) return () => run('code-diff', `Voice “${raw}”`);
+    if (/\bcopy( the)? code\b/i.test(said)) return () => run('copy-code', `Voice “${raw}”`);
+    if (/\b(show |filter |view )?(only )?todo( problems)?\b/i.test(said)) return () => run('filter-todo', `Voice “${raw}”`);
+    if (/\b(show |filter |view )?all( problems)?\b/i.test(said)) return () => run('filter-all', `Voice “${raw}”`);
+
+    // 5. Ask coach / hints
     const askM = said.match(/^(ask|tell)( the)? coach (.+)/) || said.match(/^(question|ask)[: ]+(.+)/);
     if (askM) {
       const q = askM[askM.length - 1];
@@ -396,7 +561,8 @@ const assistant = (() => {
         log(`Voice: ask coach “${q}”`);
       };
     }
-    // 3. "go to / open <problem name>".
+
+    // 6. Problem by name
     const goM = said.match(/^(go to|open|show|switch to)( problem)? (.+)/);
     const named = goM && problemByName(goM[3]);
     if (named) {
@@ -406,21 +572,120 @@ const assistant = (() => {
         log(`Voice: open ${named.name}`);
       };
     }
-    // 4. "search <words>".
-    const searchM = said.match(/^(search|find|look for) (.+)/);
-    if (searchM) {
+
+    // 7. Search in problem list
+    const searchM = said.match(/^(search|find|filter) (.+)/);
+    if (searchM && !/notes|knowledge|rag/i.test(searchM[2])) {
       return () => {
         const box = document.getElementById('search');
-        box.value = searchM[2];
-        box.dispatchEvent(new Event('input', { bubbles: true }));
+        if (box) {
+          box.value = searchM[2];
+          box.dispatchEvent(new Event('input', { bubbles: true }));
+        }
         feedback(`Searching ${searchM[2]}`);
         log(`Voice: search “${searchM[2]}”`);
       };
     }
-    // 5. Built-in phrases.
+
+    // 8. RAG Knowledge Base Voice Query
+    const ragM = said.match(/\b(search (notes|knowledge|rag|guide) (for )?|what do (our )?notes say about )(.+)/i);
+    if (ragM) {
+      const q = ragM[ragM.length - 1];
+      return async () => {
+        feedback(`Searching knowledge base for ${q}…`);
+        try {
+          const res = await api('/api/rag/search', { query: q, k: 3 });
+          if (res.results && res.results.length) {
+            const top = res.results[0];
+            feedback(`${top.title}: ${top.snippet}`);
+            if (window.copilot?.say) {
+              window.copilot.say('pip', `💡 **${top.title}** (score ${top.score}):\n\n${top.text.slice(0, 500)}…`);
+            }
+          } else {
+            feedback(`No notes found for “${q}”`);
+          }
+        } catch (err) {
+          feedback('Search error: ' + err.message);
+        }
+      };
+    }
+
+    // 9. Instant Live Web Search ("search web for X", "web search X", "इंटरनेट पर खोजो X")
+    const webSearchM = said.match(/\b(search (the )?(web|internet|online|google)|web\s*search|look up|browse|google)\s+(for\s+)?(.+)/i)
+      || raw.match(/(?:^|\s)(वेब\s*सर्च|इंटरनेट पर खोजो|गूगल करो|सर्च करो)(?:\s+(.+))?/u);
+    if (webSearchM) {
+      const q = (webSearchM[5] || webSearchM[2] || webSearchM[webSearchM.length - 1] || '').trim();
+      if (q) {
+        return async () => {
+          feedback(`Searching web for ${q}…`, 'curious');
+          if (window.copilot?.act) {
+            await window.copilot.act('web-search', q);
+          } else {
+            const res = await api('/api/web/search', { query: q });
+            if (res.summary) {
+              openCoach();
+              window.appendCoachMessage?.('coach', `### 🌐 Web Search: "${q}"\n\n${res.summary}`);
+            }
+          }
+        };
+      }
+    }
+
+    // 10. Remote Browser Launch ("open codeforces", "open leetcode", "open browser to X", "open url X")
+    const browserM = said.match(/\b(open\s+(the\s+)?(browser|site|website|url|tab|page)\s+(to\s+)?|open\s+)(codeforces|leetcode|atcoder|codechef|github|google|youtube|https?:\/\/[^\s]+|[a-z0-9-]+\.[a-z]{2,})\b/i)
+      || raw.match(/(?:खोलो|ओपन करो)\s*(कोडफोर्सेस|लीतकोड|ब्राउज़र|गिटहब)|(कोडफोर्सेस|लीतकोड|गिटहब)\s*(खोलो|ओपन करो)/u);
+    if (browserM) {
+      let target = (browserM[5] || browserM[2] || browserM[1] || browserM[browserM.length - 1] || '').trim();
+      if (target === 'कोडफोर्सेस') target = 'codeforces';
+      else if (target === 'लीतकोड') target = 'leetcode';
+      else if (target === 'गिटहब') target = 'github';
+      else if (target === 'ब्राउज़र') target = 'google';
+      return async () => {
+        if (window.copilot?.act) {
+          await window.copilot.act('open-url', target);
+        } else {
+          window.open(target.startsWith('http') ? target : `https://${target}`, '_blank');
+        }
+        feedback(`Opening ${target} in browser 🚀`, 'happy');
+      };
+    }
+
+    // 11. Instant Multilingual Technical Report Generation ("make report on X", "generate report for X", "create report on X", "रिपोर्ट बनाओ X")
+    const reportM = said.match(/\b(make|generate|create|build|write)\s+(a\s+)?(technical\s+)?report\s*(on|for|about)?\s*(.+)?/i)
+      || raw.match(/(?:^|\s)(रिपोर्ट\s*(बनाओ|तैयार करो)|तकनीकी रिपोर्ट)(?:\s+(.+))?/u);
+    if (reportM) {
+      const topic = (reportM[5] || reportM[3] || reportM[reportM.length - 1] || '').trim() || (current() ? displayName(current().name) : 'Competitive Programming Progress');
+      return async () => {
+        feedback(`Generating report for ${topic}…`, 'proud');
+        const lang = voice.lang() || 'en-US';
+        if (window.generateAndShowReport) {
+          await window.generateAndShowReport(topic, lang);
+        } else if (window.copilot?.act) {
+          await window.copilot.act('create-report', topic);
+        }
+      };
+    }
+
+    // 12. Language and accent switching ("speak in Hindi", "talk in English", "switch accent to Indian English", "hindi me bolo")
+    const langM = said.match(/\b(speak|talk|switch( to)?|change( language to)?|set language to)\s+([a-z\s]+)\b/i)
+      || raw.match(/\b(हिंदी|अंग्रेजी|इंग्लिश|कन्नड़|तमिल|तेलुगू|বাংলা|मराठी)\s*(में\s*बोलो|भाषा)\b/i);
+    if (langM) {
+      const resolver = window.buddyVoice?.resolveLangCode;
+      const target = (langM[langM.length - 1] || langM[1] || '').trim();
+      const code = resolver ? resolver(target) : target;
+      if (code && (code !== target || /^[a-z]{2,3}-[a-z]{2,4}$/i.test(code))) {
+        return () => {
+          voice.setLanguage(code);
+          feedback(`Switched language to ${code}`);
+        };
+      }
+    }
+
+    // 13. Built-in remote control phrase patterns.
     const hit = PHRASES.find(([re]) => re.test(said));
     if (hit) return () => run(hit[1], `Voice “${raw}”`);
-    // 6. A bare problem name.
+
+    // 11. Bare problem name.
     const p = problemByName(said);
     if (p) {
       return () => {
@@ -587,22 +852,21 @@ const assistant = (() => {
       const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
       return indic ? 'en-IN' : all[0] || 'en-US';
     },
-    // Browser ear, auto mode: follow the language the AI heard, so the next sentence is
-    // transcribed in it. The AI ear needs no switching; it hears every language.
+    // Follow the language the AI heard or the user spoke, so subsequent sentences
+    // are transcribed and spoken in it dynamically.
     detected(lang) {
-      if (!lang || (load().lang && load().lang !== 'auto')) return;
+      if (!lang) return;
       const cur = this.lang();
       const base = (x) => x.toLowerCase().split('-')[0];
       if (base(lang) === base(cur)) return;
       if (base(lang) === 'en' && cur === 'en-IN') return;
       this.autoLang = lang;
-      if (this.mode === 'ai' || !this.on) return;
       let name = lang;
       try {
         name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
       } catch { /* unknown code */ }
-      toast(`Auto-detected ${name} — listening in it now.`);
-      this.restart();
+      toast(`Switched tongue to ${name} 🎙️`);
+      if (this.on) this.restart();
     },
     restart() {
       if (!this.on) return;
@@ -611,9 +875,12 @@ const assistant = (() => {
     },
     // Switch the recognition language; restarts the session when listening.
     setLanguage(lang) {
-      save({ lang });
+      const resolver = window.buddyVoice?.resolveLangCode || ((x) => x);
+      const code = resolver(lang);
+      save({ lang: code });
       this.restart();
       syncControls();
+      document.dispatchEvent(new CustomEvent('assistant:change'));
     },
   };
 
@@ -964,5 +1231,7 @@ const assistant = (() => {
   });
   document.addEventListener('DOMContentLoaded', bind);
 
-  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };
+  const api = { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop, openProblemIndex, openDayTarget };
+  if (typeof window !== 'undefined') window.assistant = api;
+  return api;
 })();

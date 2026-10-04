@@ -1652,6 +1652,7 @@ function appendMessage(role, text, { store = true } = {}) {
   }
   return el;
 }
+window.appendCoachMessage = appendMessage;
 
 // Reveal the reference: recorded server-side, forfeits this problem's XP.
 async function revealReference(btn) {
@@ -1908,6 +1909,32 @@ function bindEvents() {
     $('#pgInput').value = t.input.trimEnd();
     $('#pgExpected').value = t.output.trimEnd();
   });
+
+  // Synchronize height between Playground Input and Expected output during drag resize
+  const pgIn = document.getElementById('pgInput');
+  const pgExp = document.getElementById('pgExpected');
+  if (pgIn && pgExp && typeof ResizeObserver !== 'undefined') {
+    let syncing = false;
+    const syncHeights = (src, dest) => {
+      if (syncing) return;
+      syncing = true;
+      requestAnimationFrame(() => {
+        const h = src.style.height || (src.offsetHeight ? `${src.offsetHeight}px` : '');
+        if (h && dest.style.height !== h) {
+          dest.style.height = h;
+        }
+        syncing = false;
+      });
+    };
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === pgIn) syncHeights(pgIn, pgExp);
+        else if (entry.target === pgExp) syncHeights(pgExp, pgIn);
+      }
+    });
+    ro.observe(pgIn);
+    ro.observe(pgExp);
+  }
   $('#btnCopy').addEventListener('click', async () => {
     const text = currentCodeText();
     if (!text) return toast('Nothing to copy here.', 'error');
@@ -1923,6 +1950,118 @@ function bindEvents() {
   $('#btnVerifyDay').addEventListener('click', verifyDay);
   $('#verifyModal [data-close]').addEventListener('click', () => $('#verifyModal').close());
   closeOnBackdrop($('#verifyModal'));
+
+  let currentReportMd = '';
+  let currentReportLang = 'en-US';
+
+  async function generateAndShowReport(topic, lang) {
+    const modal = $('#reportModal');
+    if (!modal) return;
+    const cleanTopic = String(topic || (current() ? displayName(current().name) : 'Competitive Programming Progress')).trim();
+    const resolvedLang = lang || currentReportLang || window.assistant?.voice?.lang() || 'en-US';
+    currentReportLang = resolvedLang;
+    
+    $('#reportTitle').textContent = `Report: ${cleanTopic}`;
+    $('#reportLangBadge').textContent = resolvedLang;
+    const body = $('#reportBody');
+    body.innerHTML = `
+      <div class="report-loading-skeleton">
+        <div class="report-loading-spinner">✨</div>
+        <h3>Crafting In-Depth Analysis</h3>
+        <p>Analyzing problem invariants, time/space bounds, and edge cases in <strong>${resolvedLang}</strong> for <em>${escapeHtml(cleanTopic)}</em>…</p>
+        <div class="report-skeleton-card">
+          <div class="skeleton-shimmer" style="width: 35%; height: 18px; border-radius: 6px; margin-bottom: 12px;"></div>
+          <div class="skeleton-shimmer" style="width: 100%; height: 12px; border-radius: 4px; margin-bottom: 8px;"></div>
+          <div class="skeleton-shimmer" style="width: 90%; height: 12px; border-radius: 4px; margin-bottom: 8px;"></div>
+          <div class="skeleton-shimmer" style="width: 75%; height: 12px; border-radius: 4px;"></div>
+        </div>
+        <div class="report-skeleton-card" style="margin-top: 14px;">
+          <div class="skeleton-shimmer" style="width: 45%; height: 18px; border-radius: 6px; margin-bottom: 12px;"></div>
+          <div class="skeleton-shimmer" style="width: 100%; height: 50px; border-radius: 6px;"></div>
+        </div>
+      </div>
+    `;
+    modal.showModal();
+
+    try {
+      const res = await api('/api/report/generate', { topic: cleanTopic, lang: resolvedLang, date: state.date });
+      if (res.error) throw new Error(res.error);
+      currentReportMd = res.markdown || '';
+      currentReportLang = res.lang || resolvedLang;
+      $('#reportTitle').textContent = res.title || `Report: ${cleanTopic}`;
+      $('#reportLangBadge').textContent = currentReportLang;
+      body.innerHTML = renderMarkdown(currentReportMd || '*No content generated.*');
+      enhance(body);
+    } catch (err) {
+      body.innerHTML = `
+        <div style="padding: 2.5rem 1.5rem; text-align: center; color: var(--error, #e53935);">
+          <div style="font-size: 2.4rem; margin-bottom: 0.75rem;">⚠️</div>
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; color: var(--fg, #333);">Could not generate report</h3>
+          <p style="margin: 0 0 1.25rem 0; font-size: 0.92rem; color: var(--muted, #666);">${escapeHtml(err.message || 'Server did not return content')}</p>
+          <button class="btn btn-secondary btn-sm" type="button" onclick="window.generateAndShowReport('${escapeHtml(cleanTopic)}', '${resolvedLang}')">Try again</button>
+        </div>
+      `;
+    }
+  }
+  window.generateAndShowReport = generateAndShowReport;
+
+  function showReportModal(title, markdown, lang = 'en-US') {
+    const modal = $('#reportModal');
+    if (!modal) return;
+    currentReportMd = markdown || '';
+    currentReportLang = lang || 'en-US';
+    $('#reportTitle').textContent = title || 'Generated Report';
+    $('#reportLangBadge').textContent = lang || 'en-US';
+    const body = $('#reportBody');
+    body.innerHTML = renderMarkdown(markdown || '*No content available.*');
+    enhance(body);
+    modal.showModal();
+  }
+  window.showReportModal = showReportModal;
+
+  const repModal = $('#reportModal');
+  if (repModal) {
+    $('#reportModal [data-close]')?.addEventListener('click', () => {
+      repModal.close();
+      window.assistant?.voice?.stop?.();
+    });
+    closeOnBackdrop(repModal);
+    $('#btnCopyReport')?.addEventListener('click', async () => {
+      if (currentReportMd) {
+        await navigator.clipboard.writeText(currentReportMd);
+        toast('Report copied to clipboard! 📋');
+      }
+    });
+    $('#btnDownloadReport')?.addEventListener('click', () => {
+      if (currentReportMd) {
+        const blob = new Blob([currentReportMd], { type: 'text/markdown;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `report-${Date.now()}.md`;
+        a.click();
+        toast('Report downloaded! 💾');
+      }
+    });
+    $('#btnSpeakReport')?.addEventListener('click', () => {
+      if (!currentReportMd) return;
+      const plain = currentReportMd
+        .replace(/#+\s*/g, '')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .trim();
+      const lines = plain.split(/\n+/).map(l => l.trim()).filter(l => l.length > 0 && !l.startsWith('-') && !l.startsWith('|'));
+      const summary = lines.slice(0, 4).join('. ');
+      const textToSpeak = summary.slice(0, 360);
+      if (window.assistant?.speak) {
+        window.assistant.speak(textToSpeak, currentReportLang, 'proud');
+        toast('Ham is reading the summary aloud! 🔊');
+      } else if (window.voice?.speak) {
+        window.voice.speak(textToSpeak, { lang: currentReportLang, mood: 'proud' });
+        toast('Reading report summary! 🔊');
+      }
+    });
+  }
 
   $('#btnCoach').addEventListener('click', openCoach);
   $('#btnCloseCoach').addEventListener('click', () => $('#coach').close());

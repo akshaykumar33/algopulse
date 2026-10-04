@@ -39,7 +39,8 @@
     "submit:status": "node practice/playwright/submit.js --status",
     "auth:status": "node practice/playwright/auth.js --status",
     "test:playwright": "node --test practice/playwright/submit.test.js",
-    "test:unit": "node --test \"practice/**/*.test.js\""
+    "test:unit": "node --test \"practice/**/*.test.js\"",
+    "test:ui": "node visualizer/test/ui.e2e.mjs"
   },
   "keywords": [
     "competitive-programming",

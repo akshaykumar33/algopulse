@@ -13,6 +13,8 @@ const ai = require('../practice/ai');
 const prompts = require('../practice/ai/prompts');
 const rag = require('../practice/ai/rag');
 const agent = require('../practice/ai/agent');
+const web = require('../practice/ai/web');
+const report = require('../practice/ai/report');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
@@ -201,7 +203,7 @@ const routes = {
   'POST /api/voice/speak': async (req) => {
     const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
-    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 200) throw new HttpError(400, 'Bad voice');
+    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 600) throw new HttpError(400, 'Bad voice');
     return ai.speech({ text: text.trim(), voice, style }).catch(aiError('Voice'));
   },
 
@@ -364,8 +366,26 @@ const routes = {
     return { story };
   },
 
-  // RAG search over your own notes (also exposed to Claude via the MCP server).
+  // RAG search over your knowledge base and practice history (also exposed to Claude via the MCP server).
   'GET /api/search': (_req, url) => ({ results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'GET /api/rag/query': (_req, url) => ({ query: url.searchParams.get('q') || '', results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'POST /api/rag/search': async (req) => {
+    const { query = '', k = 6 } = await readJsonBody(req);
+    return { query, results: rag.search(query, { k }) };
+  },
+
+  // Live web search with intelligent summarization and source citations
+  'POST /api/web/search': async (req) => {
+    const { query = '', lang = 'en-US' } = await readJsonBody(req);
+    if (typeof query !== 'string' || !query.trim()) throw new HttpError(400, 'Search query is required');
+    return web.searchAndSummarize({ query: query.trim(), lang }).catch(aiError('Web search'));
+  },
+
+  // Comprehensive report generation in any Indian or foreign language
+  'POST /api/report/generate': async (req) => {
+    const { topic = '', lang = 'en-US', date } = await readJsonBody(req);
+    return report.generateReport({ topic: String(topic || '').trim(), lang, date }).catch(aiError('Report generation'));
+  },
 };
 
 const server = http.createServer(async (req, res) => {

@@ -51,12 +51,70 @@ function chunksFor(date, problem) {
   return out.map((c) => ({ ...c, file: problem.file, date, tokens: tokenize(`${c.title} ${tags} ${c.text}`) }));
 }
 
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
+
+function knowledgeChunks() {
+  const kDir = path.join(REPO_ROOT, 'knowledge');
+  if (!fs.existsSync(kDir)) return [];
+  const out = [];
+  for (const f of fs.readdirSync(kDir)) {
+    if (!f.endsWith('.md')) continue;
+    const tag = f.replace('.md', '');
+    try {
+      const text = fs.readFileSync(path.join(kDir, f), 'utf-8');
+      const sections = text.split(/\n(?=## )/);
+      for (const sec of sections) {
+        const titleMatch = sec.match(/^##?\s+(.*)/);
+        const header = titleMatch ? titleMatch[1].trim() : tag;
+        const cleanText = sec.replace(/^##?.*\n?/, '').trim();
+        if (cleanText.length < 20) continue;
+        out.push({
+          kind: 'knowledge',
+          tag,
+          title: `Knowledge: ${tag} · ${header}`,
+          file: f,
+          date: 'guide',
+          text: sec.slice(0, 3000),
+          tokens: tokenize(`${tag} ${header} ${cleanText}`),
+        });
+      }
+    } catch { /* skip read error */ }
+  }
+  return out;
+}
+
+function solutionChunks() {
+  const out = [];
+  const solDir = path.join(REPO_ROOT, 'solutions');
+  if (fs.existsSync(solDir)) {
+    for (const f of fs.readdirSync(solDir)) {
+      if (!f.endsWith('.js')) continue;
+      try {
+        const text = fs.readFileSync(path.join(solDir, f), 'utf-8');
+        const name = f.replace('.js', '');
+        out.push({
+          kind: 'solution',
+          tag: 'standalone',
+          title: `Solution: ${name}`,
+          file: f,
+          date: 'standalone',
+          text: text.slice(0, 2400),
+          tokens: tokenize(`${name} solution code ${text}`),
+        });
+      } catch { /* ignore */ }
+    }
+  }
+  return out;
+}
+
 function buildIndex() {
   if (cached && Date.now() - builtAt < 30000) return cached;
   const docs = [];
   for (const date of listDays()) {
     for (const p of loadSet(date).problems || []) docs.push(...chunksFor(date, p));
   }
+  docs.push(...knowledgeChunks());
+  docs.push(...solutionChunks());
   const df = new Map();
   for (const d of docs) for (const t of new Set(d.tokens)) df.set(t, (df.get(t) || 0) + 1);
   const avgLen = docs.reduce((n, d) => n + d.tokens.length, 0) / Math.max(1, docs.length);
@@ -90,7 +148,16 @@ function search(query, { k = 3, excludeFile = null, minScore = 0 } = {}) {
     .filter((r) => r.score > Math.max(0, minScore))
     .sort((a, b) => b.score - a.score)
     .slice(0, k)
-    .map(({ score, doc }) => ({ score: Math.round(score * 100) / 100, kind: doc.kind, title: doc.title, date: doc.date, file: doc.file, text: doc.text }));
+    .map(({ score, doc }) => ({
+      score: Math.round(score * 100) / 100,
+      kind: doc.kind,
+      tag: doc.tag,
+      title: doc.title,
+      date: doc.date,
+      file: doc.file,
+      snippet: doc.text.replace(/[#*_`$>|[\]()]/g, ' ').replace(/\s+/g, ' ').slice(0, 180).trim() + '…',
+      text: doc.text,
+    }));
 }
 
 module.exports = { search, tokenize };
