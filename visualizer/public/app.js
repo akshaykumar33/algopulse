@@ -1908,6 +1908,32 @@ function bindEvents() {
     $('#pgInput').value = t.input.trimEnd();
     $('#pgExpected').value = t.output.trimEnd();
   });
+
+  // Synchronize height between Playground Input and Expected output during drag resize
+  const pgIn = document.getElementById('pgInput');
+  const pgExp = document.getElementById('pgExpected');
+  if (pgIn && pgExp && typeof ResizeObserver !== 'undefined') {
+    let syncing = false;
+    const syncHeights = (src, dest) => {
+      if (syncing) return;
+      syncing = true;
+      requestAnimationFrame(() => {
+        const h = src.style.height || (src.offsetHeight ? `${src.offsetHeight}px` : '');
+        if (h && dest.style.height !== h) {
+          dest.style.height = h;
+        }
+        syncing = false;
+      });
+    };
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === pgIn) syncHeights(pgIn, pgExp);
+        else if (entry.target === pgExp) syncHeights(pgExp, pgIn);
+      }
+    });
+    ro.observe(pgIn);
+    ro.observe(pgExp);
+  }
   $('#btnCopy').addEventListener('click', async () => {
     const text = currentCodeText();
     if (!text) return toast('Nothing to copy here.', 'error');

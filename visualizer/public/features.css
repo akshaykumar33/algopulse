@@ -307,11 +307,14 @@
   /* ---------- Playground ---------- */
   .playground { margin-top: var(--s-6); padding: var(--s-5); display: grid; gap: var(--s-4); container-type: inline-size; }
   .playground-head { display: grid; gap: var(--s-1); }
-  .playground-grid { display: grid; gap: var(--s-4); grid-template-columns: 1fr; }
+  .playground-grid { display: grid; gap: var(--s-4); grid-template-columns: 1fr; align-items: stretch; }
   @container (min-width: 36rem) { .playground-grid { grid-template-columns: 1fr 1fr; } }
+  .playground .field { display: flex; flex-direction: column; }
   .playground textarea {
     width: 100%;
     min-height: 8rem;
+    max-height: 38rem;
+    box-sizing: border-box;
     padding: var(--s-3);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
@@ -320,6 +323,7 @@
     font-size: var(--fs-14);
     line-height: 1.55;
     resize: vertical;
+    flex: 1;
   }
   .playground textarea:focus-visible { outline-offset: 0; border-color: var(--focus); }
   .optional { font-weight: 600; color: var(--text-faint); }
@@ -783,11 +787,11 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-  .mascot:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 50%; }
   .mascot.is-dragging { cursor: grabbing; }
   .mascot-float { position: absolute; inset: 0 0 14px 0; animation: mascot-float 3.6s ease-in-out infinite; }
-  .mascot.is-dragging .mascot-float { animation-play-state: paused; transform: scale(1.08) rotate(-4deg); transition: transform 160ms var(--ease-out); }
+  .mascot.is-dragging .mascot-float { animation-play-state: paused; transform: none !important; }
   .mascot-squash { position: absolute; inset: 0; transform-origin: 50% 78%; filter: drop-shadow(0 6px 10px hsl(var(--shadow-tint) / 0.18)); }
+  .mascot.is-dragging .mascot-squash { transform: none !important; filter: drop-shadow(0 12px 18px hsl(var(--shadow-tint) / 0.26)); }
   .mascot-layer {
     position: absolute;
     inset: 0;

@@ -247,7 +247,7 @@
       if (!drag.moved) {
         drag.moved = true;
         el.classList.add('is-dragging');
-        setReaction('surprised');
+        setReaction('wink');
       }
       place(e.clientX - drag.ox, e.clientY - drag.oy);
     });
@@ -259,8 +259,7 @@
       if (wasDrag) {
         const r = size();
         place(r.left, r.top, true);
-        play([['delighted', 500]]);
-        bounce();
+        play([['delighted', 400]]);
       }
       el.dataset.dragged = wasDrag ? '1' : '';
     };
