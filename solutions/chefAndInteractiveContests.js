@@ -1,18 +1,23 @@
 const fs = require('fs');
 
 function solve() {
-    const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    const [n, r] = input[0].split(' ').map(Number);
-    const out = [];
-    for (let i = 1; i <= n; i++) {
-        const R = Number(input[i]);
-        if (R >= r) {
-            out.push("GoodBad");
-        } else {
-            out.push("Bad");
-        }
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
+  const n = Number(input[0]);
+  const r = Number(input[1]);
+  let ptr = 2;
+  const out = [];
+
+  for (let i = 0; i < n; i++) {
+    const val = Number(input[ptr++]);
+    if (val >= r) {
+      out.push('Good boi');
+    } else {
+      out.push('Bad boi');
     }
-    console.log(out.join('\n'));
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

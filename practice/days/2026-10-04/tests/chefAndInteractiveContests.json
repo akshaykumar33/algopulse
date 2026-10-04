@@ -1,6 +1,6 @@
 [
   {
-    "input": "4 1500\n1400\n1500\n1600\n1200\n",
-    "output": "Bad\nGoodBad\nGoodBad\nBad\n"
+    "input": "2 1500\n1499\n1501\n",
+    "output": "Bad boi\nGood boi\n"
   }
 ]
