@@ -269,6 +269,8 @@ const assistant = (() => {
     'read-story': { label: 'Read the story aloud', run: () => readStory(), say: '' },
     'toggle-pip': { label: 'Hide / show the buddy', run: () => pet()?.toggle(), say: '' },
     'stop-voice': { label: 'Stop listening', run: () => voice.stop(), say: 'Okay, I stopped listening' },
+    'toggle-voice': { label: 'Mic on / off', run: () => voice.toggle(), say: '' },
+    'buddy-dance': { label: 'Make the buddy dance', run: () => pet()?.feel('dance'), say: '' },
     'none': { label: '— nothing —', run: () => {}, say: '' },
   };
 
@@ -366,6 +368,7 @@ const assistant = (() => {
   // multi-step, or in another language goes to the AI planner (copilot.js), which
   // understands any language, mixes, and misheard words.
   const FAST_MAX_WORDS = 5;
+  const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
   const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
 
   const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/;
@@ -540,7 +543,9 @@ const assistant = (() => {
       // The browser ear only knows one language, so Kannada or Hindi can come out as
       // random English words. Only very confident, very short commands skip the AI.
       const said = normalize(text).replace(WAKE, '');
-      const local = confidence > 0.85 && said.split(' ').length <= 3 && looksFast(said) ? localCommand(text) : null;
+      // Cute stuff ("dance for me", "keep laughing") runs instantly even in a longer sentence.
+      const fun = confidence > 0.7 && looksFastish(said) && window.copilot?.talkMatch(text);
+      const local = fun || (confidence > 0.85 && said.split(' ').length <= 3 && looksFast(said)) ? localCommand(text) : null;
       if (local) {
         this.localAt = performance.now();
         this.pending = null;
@@ -548,17 +553,13 @@ const assistant = (() => {
         local();
       } else this.flush();
     },
-    // Wait a beat for the browser's quick result before paying for an AI round trip.
+    // Send the sentence to the AI at once; if the browser's quick result runs a local
+    // command for the same sentence meanwhile, the AI's answer is dropped (copilot.js).
     clip(c) {
       if (this.localAt > c.start - 300) return;
-      this.pending = c;
-      setTimeout(() => this.pending === c && this.flush(), 800);
+      window.copilot?.handleAudio(c);
     },
-    flush() {
-      const c = this.pending;
-      this.pending = null;
-      if (c && this.localAt <= c.start - 300) window.copilot?.handleAudio(c);
-    },
+    flush() {},
     stop() {
       this.on = false;
       const rec = this.rec;
@@ -630,9 +631,11 @@ const assistant = (() => {
     Pointing_Up: { emoji: '☝️', label: 'Point up', action: 'open-coach' },
     Open_Palm: { emoji: '✋', label: 'Open palm', action: 'close' },
     ILoveYou: { emoji: '🤟', label: 'I love you', action: 'read-story' },
-    Closed_Fist: { emoji: '✊', label: 'Fist', action: 'none' },
+    Closed_Fist: { emoji: '✊', label: 'Fist', action: 'toggle-voice' },
     Swipe_Left: { emoji: '👈', label: 'Swipe left', action: 'prev-tab' },
     Swipe_Right: { emoji: '👉', label: 'Swipe right', action: 'next-tab' },
+    Swipe_Up: { emoji: '👆', label: 'Swipe up', action: 'scroll-up' },
+    Swipe_Down: { emoji: '👇', label: 'Swipe down', action: 'scroll-down' },
   };
   const bindings = () => ({ ...Object.fromEntries(Object.entries(BUILTIN).map(([k, v]) => [k, v.action])), ...(load().gestureMap || {}) });
 
@@ -822,12 +825,16 @@ const assistant = (() => {
         return;
       }
 
-      // Swipe: the wrist travels far sideways quickly (the camera image is mirrored).
-      this.wrist.push({ x: lm[0].x, t: now });
+      // Swipe: the wrist travels far quickly — sideways for tabs (the camera image is
+      // mirrored), up or down to scroll. The bigger movement decides the direction.
+      this.wrist.push({ x: lm[0].x, y: lm[0].y, t: now });
       this.wrist = this.wrist.filter((p) => now - p.t < 450);
-      const dx = this.wrist.length > 3 ? this.wrist[this.wrist.length - 1].x - this.wrist[0].x : 0;
-      if (Math.abs(dx) > 0.28 && now > this.cooldownUntil) {
-        this.fire(dx < 0 ? 'Swipe_Right' : 'Swipe_Left');
+      const first = this.wrist[0];
+      const last = this.wrist[this.wrist.length - 1];
+      const dx = this.wrist.length > 3 ? last.x - first.x : 0;
+      const dy = this.wrist.length > 3 ? last.y - first.y : 0;
+      if (now > this.cooldownUntil && Math.max(Math.abs(dx), Math.abs(dy)) > 0.28) {
+        this.fire(Math.abs(dx) >= Math.abs(dy) ? (dx < 0 ? 'Swipe_Right' : 'Swipe_Left') : dy < 0 ? 'Swipe_Up' : 'Swipe_Down');
         this.wrist = [];
         return;
       }

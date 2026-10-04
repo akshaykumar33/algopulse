@@ -335,7 +335,7 @@
       wink: { seq: [['wink', 700]], anim: 'hop', fx: ['😉'] },
       proud: { seq: [['sparkle', 1300]], anim: 'jump', fx: ['⭐', '🏆', '✨', '🌟'] },
       calm: { seq: [['blink', 160]], anim: 'sway', fx: ['🍃'] },
-      dance: { seq: [['delighted', 500], ['wink', 500], ['sparkle', 500], ['delighted', 500]], anim: 'dance', fx: ['🎵', '🎶', '💃', '🎵'] },
+      dance: { seq: [['delighted', 450], ['wink', 450], ['sparkle', 450], ['delighted', 450], ['heart', 450], ['wink', 450], ['delighted', 500]], anim: 'dance', fx: ['🎵', '🎶', '✨', '🎵', '💃', '🎶'] },
       wave: { seq: [['wink', 900]], anim: 'wave', fx: ['👋'] },
     };
     const ANIMS = {
@@ -349,7 +349,21 @@
       droop: [[{ transform: 'translateY(0) scale(1)' }, { transform: 'translateY(6px) scale(1.04,0.92)', offset: 0.3 }, { transform: 'translateY(6px) scale(1.04,0.92)', offset: 0.85 }, { transform: 'none' }], 2000],
       sob: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => ({ transform: `translateY(${4 + (i % 2) * 3}px) scale(1.03,${i % 2 ? 0.93 : 0.97})` })).concat({ transform: 'none' }), 2000],
       shake: [[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ transform: `translateX(${i % 2 ? 6 : -6}px)` })).concat({ transform: 'none' }), 700],
-      dance: [[{ transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(-14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(-14deg) translateY(-10px)' }, { transform: 'rotate(0) translateY(0)' }, { transform: 'rotate(14deg) translateY(-10px)' }, { transform: 'none' }], 2000],
+      // A little routine: sway, sway, hop, hop, a twirl and a squishy landing.
+      dance: [[
+        { transform: 'rotate(0) translateY(0)' },
+        { transform: 'rotate(-14deg) translateY(-10px)', offset: 0.1 },
+        { transform: 'rotate(0) translateY(0) scale(1.06,0.94)', offset: 0.18 },
+        { transform: 'rotate(14deg) translateY(-10px)', offset: 0.28 },
+        { transform: 'rotate(0) translateY(0) scale(1.06,0.94)', offset: 0.36 },
+        { transform: 'translateY(-22px) scale(0.95,1.07)', offset: 0.46 },
+        { transform: 'translateY(0) scale(1.08,0.92)', offset: 0.54 },
+        { transform: 'translateY(-22px) scale(0.95,1.07)', offset: 0.64 },
+        { transform: 'translateY(0) scale(1.08,0.92)', offset: 0.72 },
+        { transform: 'translateY(-12px) rotate(360deg)', offset: 0.88 },
+        { transform: 'translateY(0) rotate(360deg) scale(1.1,0.9)', offset: 0.95 },
+        { transform: 'rotate(360deg)' },
+      ], 3200],
       spin: [[{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], 800],
       wave: [[{ transform: 'rotate(0)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-12deg)' }, { transform: 'rotate(0)' }], 1000],
     };
@@ -540,6 +554,9 @@
       }
       return name;
     }
+
+    // Others can send the buddy somewhere (the chat parks it in its corner, then returns it).
+    el.addEventListener('mascot:goto', (e) => glide(e.detail.x, e.detail.y));
 
     function talking(on) {
       el.classList.toggle('is-talking', on);

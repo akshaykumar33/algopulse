@@ -55,6 +55,10 @@ const PLAN_ACTIONS = {
   'toggle-pip': 'hide or show the buddy',
   'set-character': 'change the buddy (arg: "hamster" or "bunny")',
   'stop-voice': 'stop listening',
+  gestures: 'turn hand-gesture control on or off (arg: "on" or "off")',
+  'air-cursor': 'turn the air cursor (point to move, pinch to click) on or off (arg: "on" or "off")',
+  'voice-style': 'change how the buddy sounds (arg: "cute", "sweet" or "bright")',
+  'talk-back': 'turn the buddy speaking out loud on or off (arg: "on" or "off")',
   'set-language': 'change the speech-recognition language (arg: a BCP-47 code such as "hi-IN", "en-IN", "es-ES", "ja-JP")',
   say: 'just say something back, no action (arg: what to say)',
   feel: `set the buddy's emotion (arg: one of ${MOODS.join(', ')}; add ' nonstop' to keep it going until told to stop; or 'stop')`,
@@ -89,7 +93,25 @@ const PLAN_SCHEMA = {
  * @param {object} input { text } of what the user said, or { audio: { data, mime } } of how they said it
  * @param {object} ctx   where they are: day, problem, tab, list of problems, etc.
  */
+// Typed or recognised text that only navigates ("next problem", "open tests") plans the
+// same way every time, so the plan is reused for a few minutes and answers instantly.
+const PLAN_CACHE = new Map();
+const PLAN_TTL = 10 * 60 * 1000;
+const NAVIGATION = new Set(['next-problem', 'prev-problem', 'open-problem', 'open-day', 'tab-story', 'tab-walkthrough', 'tab-diagrams', 'tab-visualize', 'tab-code', 'tab-tests', 'next-tab', 'prev-tab', 'search', 'filter-todo', 'filter-all', 'run-tests', 'verify-day', 'open-coach', 'open-guide', 'start-tour', 'set-theme', 'scroll-down', 'scroll-up', 'scroll-top', 'close', 'toggle-pip', 'set-character', 'stop-voice', 'set-language', 'gestures', 'air-cursor', 'voice-style', 'talk-back', 'feel', 'buddy']);
+
 async function plan(input, ctx) {
+  const cacheKey = input.text ? JSON.stringify([String(input.text).toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').trim(), ctx.date, ctx.file, ctx.tab]) : null;
+  const hit = cacheKey && PLAN_CACHE.get(cacheKey);
+  if (hit && Date.now() - hit.at < PLAN_TTL) return { ...hit.plan, cached: true };
+  const out = await planFresh(input, ctx);
+  if (cacheKey && out.steps.length && out.steps.every((s) => NAVIGATION.has(s.action))) {
+    PLAN_CACHE.set(cacheKey, { at: Date.now(), plan: out });
+    if (PLAN_CACHE.size > 300) PLAN_CACHE.delete(PLAN_CACHE.keys().next().value);
+  }
+  return out;
+}
+
+async function planFresh(input, ctx) {
   const catalogue = Object.entries(PLAN_ACTIONS).map(([k, v]) => `- ${k}: ${v}`).join('\n');
   const problems = (ctx.problems || []).map((p) => `${p.file} | ${p.id} | ${p.name} | ${p.rating} | ${p.done ? 'solved' : 'unsolved'}`).join('\n');
   const history = (Array.isArray(ctx.history) ? ctx.history : [])

@@ -1478,7 +1478,11 @@ async function runTests() {
     state.runs.set(p.file, { source, ...res });
     if (current() === p) renderTests(p);
     const allPass = res.results.every((r) => r.verdict === 'AC');
-    if (!allPass) window.mascot?.react('surprised', 1000);
+    if (!allPass) {
+      const failed = res.results.filter((r) => r.verdict !== 'AC').length;
+      window.mascot?.react('sad', 1000);
+      window.mascot?.say(`${failed} test${failed > 1 ? 's' : ''} failed. We'll fix it together!`, 3500);
+    }
     if (allPass && source === 'attempt') celebrate();
   } catch (err) {
     toast(err.message, 'error');
@@ -1528,7 +1532,8 @@ async function runPlayground(e) {
 }
 
 function celebrate() {
-  window.mascot?.react('delighted', 1200);
+  window.mascot?.feel?.('dance');
+  window.mascot?.say('All green! Happy dance!', 3000);
   if (reducedMotion.matches || !window.confetti) return;
   confetti({
     particleCount: 90,
