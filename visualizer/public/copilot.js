@@ -215,10 +215,15 @@ const copilot = (() => {
 
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
-    const targetLang = lang || lastLang || A().voice.lang() || 'en-US';
+    const pref = A().load().lang;
+    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || (pref && pref !== 'auto' ? pref : lastLang) || A().voice.lang() || 'en-US');
     say('pip', text);
-    if (mood) pet()?.react(mood, 900);
-    A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
+    // If speech is turned off, react immediately. When speech is active, buddyVoice synchronizes expression with sound.
+    if (A().load().talkBack === false) {
+      if (mood) pet()?.react(mood, 1200);
+    } else {
+      A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
+    }
   }
 
   /* ======================================================================
@@ -228,7 +233,16 @@ const copilot = (() => {
   let lastLang = 'en-US';
 
   function context() {
-    return { date: state.date, file: state.file, tab: state.tab, codeMode: state.codeMode };
+    const cur = A().voice.lang();
+    const pref = A().load().lang;
+    return {
+      date: state.date,
+      file: state.file,
+      tab: state.tab,
+      codeMode: state.codeMode,
+      userLang: cur,
+      preferredLang: pref && pref !== 'auto' ? pref : cur,
+    };
   }
 
   const setTab = (t) => {
@@ -409,7 +423,11 @@ const copilot = (() => {
     'toggle-pip': async () => pet()?.toggle(),
     'set-character': async (arg) => pet()?.setCharacter(/bun|rabbit/i.test(arg) ? 'bunny' : 'hamster'),
     'stop-voice': async () => A().voice.stop(),
-    'set-language': async (arg) => A().voice.setLanguage(arg),
+    'set-language': async (arg) => {
+      const code = (window.buddyVoice?.resolveLangCode || ((x) => x))(arg);
+      A().voice.setLanguage(code);
+      lastLang = code;
+    },
     say: async () => {},
     feel: async (arg) => pet()?.feel(arg),
     gestures: async (arg) => {

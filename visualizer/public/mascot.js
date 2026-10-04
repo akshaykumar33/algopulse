@@ -319,7 +319,23 @@
       if (typeof toast === 'function') toast(shown ? 'Pip is back!' : 'Pip is napping. Press M to wake them.');
     });
 
-    /* ---- emotions: sprite face + body animation + floating effects ---- */
+    const MOOD_ALIASES = {
+      laughing: 'laugh', haha: 'laugh', giggle: 'giggle', giggling: 'giggle', chuckle: 'giggle',
+      smile: 'happy', smiling: 'happy', joy: 'happy', joyful: 'happy', cheerful: 'happy',
+      excited: 'surprised', shock: 'surprised', shocked: 'surprised', wow: 'surprised',
+      crying: 'cry', weep: 'cry', weeping: 'cry', sob: 'cry', sobbing: 'cry',
+      droop: 'sad', depressed: 'sad', gloomy: 'sad', sorrow: 'sad', upset: 'sad',
+      mad: 'angry', grumpy: 'angry', furious: 'angry', pout: 'angry', pouting: 'angry',
+      curious: 'think', thinking: 'think', ponder: 'think', pondering: 'think', puzzle: 'think', confused: 'think',
+      sleeping: 'sleepy', tired: 'sleepy', yawn: 'sleepy', yawning: 'sleepy', nap: 'sleepy',
+      blush: 'shy', blushing: 'shy', bashful: 'shy', embarrassed: 'shy',
+      celebrate: 'proud', celebrating: 'proud', cheer: 'proud', cheering: 'proud', victory: 'proud',
+      dancing: 'dance', party: 'dance', groove: 'dance',
+      waving: 'wave', hello: 'wave', hi: 'wave',
+      loving: 'love', affectionate: 'love', heart: 'love', adore: 'love', adorably: 'love',
+      delighted: 'happy', sparkle: 'proud', wink: 'wink', blinking: 'calm',
+    };
+
     const MOODS = {
       happy: { seq: [['delighted', 900]], anim: 'hop', fx: ['✨', '✨', '💛'] },
       laugh: { seq: [['delighted', 450], ['wink', 220], ['delighted', 450], ['wink', 220], ['delighted', 400]], anim: 'laugh', fx: ['😂', 'ha', 'ha', '🤣'] },
@@ -529,7 +545,8 @@
     let feeling = null;
     const lengthOf = (m) => Math.max(m.seq.reduce((n, [, ms]) => n + ms, 0), ANIMS[m.anim]?.[1] || 0, 900);
     function feel(arg) {
-      const [name, mode] = String(arg || '').trim().toLowerCase().split(/\s+/);
+      const [raw, mode] = String(arg || '').trim().toLowerCase().split(/\s+/);
+      const name = MOOD_ALIASES[raw] || raw;
       clearInterval(feelTimer);
       feelTimer = 0;
       feeling = null;
@@ -583,7 +600,9 @@
       watching(on) {
         el.classList.toggle('is-watching', on);
       },
-      react(name, ms = 900) {
+      react(rawName, ms = 900) {
+        const key = String(rawName || '').trim().toLowerCase();
+        const name = MOOD_ALIASES[key] || key;
         if (MOODS[name]) return emote(name);
         if (el.hidden || !REACTIONS.includes(name)) return;
         play([[name, ms]]);

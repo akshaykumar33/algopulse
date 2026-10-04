@@ -605,11 +605,26 @@ const assistant = (() => {
       };
     }
 
-    // 9. Built-in remote control phrase patterns.
+    // 9. Language and accent switching ("speak in Hindi", "talk in English", "switch accent to Indian English", "hindi me bolo")
+    const langM = said.match(/\b(speak|talk|switch( to)?|change( language to)?|set language to)\s+([a-z\s]+)\b/i)
+      || raw.match(/\b(हिंदी|अंग्रेजी|इंग्लिश|कन्नड़|तमिल|तेलुगू|বাংলা|मराठी)\s*(में\s*बोलो|भाषा)\b/i);
+    if (langM) {
+      const resolver = window.buddyVoice?.resolveLangCode;
+      const target = (langM[langM.length - 1] || langM[1] || '').trim();
+      const code = resolver ? resolver(target) : target;
+      if (code && (code !== target || /^[a-z]{2,3}-[a-z]{2,4}$/i.test(code))) {
+        return () => {
+          voice.setLanguage(code);
+          feedback(`Switched language to ${code}`);
+        };
+      }
+    }
+
+    // 10. Built-in remote control phrase patterns.
     const hit = PHRASES.find(([re]) => re.test(said));
     if (hit) return () => run(hit[1], `Voice “${raw}”`);
 
-    // 10. Bare problem name.
+    // 11. Bare problem name.
     const p = problemByName(said);
     if (p) {
       return () => {
@@ -800,9 +815,12 @@ const assistant = (() => {
     },
     // Switch the recognition language; restarts the session when listening.
     setLanguage(lang) {
-      save({ lang });
+      const resolver = window.buddyVoice?.resolveLangCode || ((x) => x);
+      const code = resolver(lang);
+      save({ lang: code });
       this.restart();
       syncControls();
+      document.dispatchEvent(new CustomEvent('assistant:change'));
     },
   };
 

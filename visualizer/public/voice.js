@@ -84,9 +84,50 @@ window.buddyVoice = (() => {
     'tr-TR': 'with an authentic, fluent native Turkish accent and natural Turkish cadence',
   };
 
+  const LANG_MAP = {
+    auto: 'auto',
+    hindi: 'hi-IN', hi: 'hi-IN', 'hi-in': 'hi-IN', devanagari: 'hi-IN',
+    hinglish: 'en-IN', 'indian english': 'en-IN', 'en-in': 'en-IN',
+    english: 'en-US', 'en-us': 'en-US', en: 'en-US', us: 'en-US', american: 'en-US',
+    british: 'en-GB', 'en-gb': 'en-GB', uk: 'en-GB',
+    bengali: 'bn-IN', bn: 'bn-IN', 'bn-in': 'bn-IN', bangla: 'bn-IN',
+    tamil: 'ta-IN', ta: 'ta-IN', 'ta-in': 'ta-IN',
+    telugu: 'te-IN', te: 'te-IN', 'te-in': 'te-IN',
+    marathi: 'mr-IN', mr: 'mr-IN', 'mr-in': 'mr-IN',
+    kannada: 'kn-IN', kn: 'kn-IN', 'kn-in': 'kn-IN',
+    malayalam: 'ml-IN', ml: 'ml-IN', 'ml-in': 'ml-IN',
+    gujarati: 'gu-IN', gu: 'gu-IN', 'gu-in': 'gu-IN',
+    punjabi: 'pa-IN', pa: 'pa-IN', 'pa-in': 'pa-IN',
+    urdu: 'ur-PK', ur: 'ur-PK', 'ur-pk': 'ur-PK',
+    japanese: 'ja-JP', ja: 'ja-JP', 'ja-jp': 'ja-JP', nihongo: 'ja-JP',
+    korean: 'ko-KR', ko: 'ko-KR', 'ko-kr': 'ko-KR',
+    chinese: 'zh-CN', zh: 'zh-CN', 'zh-cn': 'zh-CN', mandarin: 'zh-CN',
+    spanish: 'es-ES', es: 'es-ES', 'es-es': 'es-ES', espanol: 'es-ES',
+    french: 'fr-FR', fr: 'fr-FR', 'fr-fr': 'fr-FR', francais: 'fr-FR',
+    german: 'de-DE', de: 'de-DE', 'de-de': 'de-DE', deutsch: 'de-DE',
+    italian: 'it-IT', it: 'it-IT', 'it-it': 'it-IT', italiano: 'it-IT',
+    russian: 'ru-RU', ru: 'ru-RU', 'ru-ru': 'ru-RU',
+    portuguese: 'pt-BR', pt: 'pt-BR', 'pt-br': 'pt-BR',
+    arabic: 'ar-SA', ar: 'ar-SA', 'ar-sa': 'ar-SA',
+    turkish: 'tr-TR', tr: 'tr-TR', 'tr-tr': 'tr-TR',
+    indonesian: 'id-ID', id: 'id-ID', 'id-id': 'id-ID',
+  };
+
+  function resolveLangCode(raw) {
+    if (!raw) return 'en-US';
+    const key = String(raw).trim().toLowerCase().replace(/_/g, '-');
+    if (LANG_MAP[key]) return LANG_MAP[key];
+    for (const [k, v] of Object.entries(LANG_MAP)) {
+      if (key.includes(k)) return v;
+    }
+    return key;
+  }
+
   function accentStyle(lang) {
     if (!lang) return '';
-    const key = String(lang).replace('_', '-');
+    const code = resolveLangCode(lang);
+    if (ACCENTS[code]) return ACCENTS[code];
+    const key = String(code).replace('_', '-');
     if (ACCENTS[key]) return ACCENTS[key];
     const lower = key.toLowerCase();
     for (const [k, v] of Object.entries(ACCENTS)) {
@@ -129,12 +170,42 @@ window.buddyVoice = (() => {
     }
     return out;
   }
-  const clean = (t) => String(t).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').replace(/[*_`#>|]/g, ' ').replace(/\s+/g, ' ').trim();
+
+  // Strip stage directions like *giggles*, (smiling), [excited] so they are never spoken aloud
+  const clean = (t) =>
+    String(t)
+      .replace(/\*[^*]+\*/g, '')
+      .replace(/\([^)]+\)/g, '')
+      .replace(/\[[^\]]+\]/g, '')
+      .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '')
+      .replace(/[*_`#>|]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  function extractMood(text) {
+    const m = String(text).match(/\*([^*]+)\*/);
+    if (!m) return null;
+    const w = m[1].toLowerCase().trim();
+    if (/giggle|chuckle|snicker/i.test(w)) return 'giggle';
+    if (/laugh|haha|lol/i.test(w)) return 'laugh';
+    if (/cry|sob|tear/i.test(w)) return 'cry';
+    if (/sad|frown|sigh/i.test(w)) return 'sad';
+    if (/happy|smile|cheer/i.test(w)) return 'happy';
+    if (/dance|party/i.test(w)) return 'dance';
+    if (/love|heart/i.test(w)) return 'love';
+    if (/wink/i.test(w)) return 'wink';
+    if (/blush|shy/i.test(w)) return 'shy';
+    if (/angry|mad|grump/i.test(w)) return 'angry';
+    if (/think|wonder/i.test(w)) return 'think';
+    if (/yawn|sleep/i.test(w)) return 'sleepy';
+    if (/wave|hi|hello/i.test(w)) return 'wave';
+    if (/proud|sparkle/i.test(w)) return 'proud';
+    return null;
+  }
 
   function begin(estimateMs) {
     speaking = true;
     busyUntil = Date.now() + estimateMs;
-    pet()?.talking?.(true);
   }
   function end() {
     speaking = false;
@@ -153,7 +224,7 @@ window.buddyVoice = (() => {
   }
 
   // Plays 24 kHz mono samples; resolves when done (or when cut off by a newer line).
-  function play(samples, my) {
+  function play(samples, my, mood) {
     return new Promise((resolve) => {
       if (my !== token) return resolve();
       const c = audio();
@@ -163,11 +234,16 @@ window.buddyVoice = (() => {
       src.buffer = buf;
       src.connect(c.destination);
       src.onended = () => {
-        if (source === src) source = null;
+        if (source === src) {
+          source = null;
+          pet()?.talking?.(false);
+        }
         resolve();
       };
       source = src;
       busyUntil = Math.max(busyUntil, Date.now() + buf.duration * 1000 + 300);
+      pet()?.talking?.(true);
+      if (mood) pet()?.react?.(mood, buf.duration * 1000);
       src.start();
     });
   }
@@ -185,7 +261,7 @@ window.buddyVoice = (() => {
       const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
       out[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
     }
-    await play(out, my);
+    await play(out, my, mood);
   }
 
   /* ---------- 2. Kokoro, in a worker so the page never stutters ---------- */
@@ -281,9 +357,15 @@ window.buddyVoice = (() => {
       u.pitch = Math.max(0.8, Math.min(1.5, s.pitch[pick?.kind || 'desktop'] + lift));
       u.rate = s.rate;
       busyUntil = Math.max(busyUntil, Date.now() + 800 + text.length * 80);
+      // Synchronize expression & talking with the exact millisecond speech begins
+      u.onstart = () => {
+        pet()?.talking?.(true);
+        if (mood) pet()?.react?.(mood, 1500 + text.length * 80);
+      };
       // Chrome sometimes never fires onend; a timeout keeps the queue moving.
       const guard = setTimeout(resolve, 2500 + text.length * 110);
       u.onend = u.onerror = () => {
+        pet()?.talking?.(false);
         clearTimeout(guard);
         resolve();
       };
@@ -295,7 +377,9 @@ window.buddyVoice = (() => {
   async function say(text, { lang, mood, ai = false } = {}) {
     const words = clean(text);
     if (!words || store().talkBack === false) return;
-    const targetLang = lang || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || window.assistant?.voice?.lang?.() || (store().lang && store().lang !== 'auto' ? store().lang : 'en-US');
+    const resolvedMood = mood || extractMood(text) || 'happy';
+    const userPref = store().lang && store().lang !== 'auto' ? store().lang : null;
+    const targetLang = resolveLangCode(lang || userPref || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
     stop();
     const my = token;
     begin(1500 + words.length * 90);
@@ -303,7 +387,7 @@ window.buddyVoice = (() => {
       // Gemini voices the whole reply in one go with the target language accent.
       if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
         try {
-          await gemini(words, mood, my, targetLang);
+          await gemini(words, resolvedMood, my, targetLang);
           return;
         } catch (err) {
           if (/quota|429|rate|exceeded/i.test(err.message)) {
@@ -324,9 +408,9 @@ window.buddyVoice = (() => {
           for (let i = 0; i < parts.length && my === token; i++) {
             const samples = await next;
             next = i + 1 < parts.length && kokoro.state === 'ready' ? kokoro.speak(parts[i + 1]) : null;
-            await play(samples, my);
+            await play(samples, my, resolvedMood);
             if (!next && i + 1 < parts.length) {
-              for (const rest of parts.slice(i + 1)) await browser(rest, targetLang, mood, my);
+              for (const rest of parts.slice(i + 1)) await browser(rest, targetLang, resolvedMood, my);
               break;
             }
           }
@@ -337,7 +421,7 @@ window.buddyVoice = (() => {
       }
       for (const p of parts) {
         if (my !== token) return;
-        await browser(p, targetLang, mood, my);
+        await browser(p, targetLang, resolvedMood, my);
       }
     } finally {
       if (my === token) end();
@@ -363,5 +447,7 @@ window.buddyVoice = (() => {
     accentStyle,
     kokoro,
     STYLE,
+    resolveLangCode,
+    LANG_MAP,
   };
 })();
