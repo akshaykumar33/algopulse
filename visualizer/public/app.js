@@ -1965,12 +1965,19 @@ function bindEvents() {
     $('#reportLangBadge').textContent = resolvedLang;
     const body = $('#reportBody');
     body.innerHTML = `
-      <div style="padding: 3rem 1.5rem; text-align: center; color: var(--muted, #888);">
-        <div style="font-size: 2.4rem; margin-bottom: 0.75rem; animation: pop-in 0.4s ease-out;">✨</div>
-        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 700; color: var(--fg, #333);">Generating Report in ${resolvedLang}…</h3>
-        <p style="margin: 0; font-size: 0.92rem; max-width: 32rem; margin: 0 auto; line-height: 1.5;">Analyzing invariants, asymptotic complexity, implementation patterns, and edge cases for <strong>${escapeHtml(cleanTopic)}</strong></p>
-        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.5rem;">
-          <span class="skeleton-text" style="width: 50%; height: 14px; border-radius: 6px; display: inline-block;"></span>
+      <div class="report-loading-skeleton">
+        <div class="report-loading-spinner">✨</div>
+        <h3>Crafting In-Depth Analysis</h3>
+        <p>Analyzing problem invariants, time/space bounds, and edge cases in <strong>${resolvedLang}</strong> for <em>${escapeHtml(cleanTopic)}</em>…</p>
+        <div class="report-skeleton-card">
+          <div class="skeleton-shimmer" style="width: 35%; height: 18px; border-radius: 6px; margin-bottom: 12px;"></div>
+          <div class="skeleton-shimmer" style="width: 100%; height: 12px; border-radius: 4px; margin-bottom: 8px;"></div>
+          <div class="skeleton-shimmer" style="width: 90%; height: 12px; border-radius: 4px; margin-bottom: 8px;"></div>
+          <div class="skeleton-shimmer" style="width: 75%; height: 12px; border-radius: 4px;"></div>
+        </div>
+        <div class="report-skeleton-card" style="margin-top: 14px;">
+          <div class="skeleton-shimmer" style="width: 45%; height: 18px; border-radius: 6px; margin-bottom: 12px;"></div>
+          <div class="skeleton-shimmer" style="width: 100%; height: 50px; border-radius: 6px;"></div>
         </div>
       </div>
     `;

@@ -150,17 +150,20 @@
     const size = () => el.getBoundingClientRect();
     function place(x, y, persist = false) {
       const r = size();
-      const nx = Math.min(Math.max(8, x), innerWidth - r.width - 8);
-      const ny = Math.min(Math.max(72, y), innerHeight - r.height - 8);
+      const nx = Math.min(Math.max(12, x), innerWidth - r.width - 12);
+      const ny = Math.min(Math.max(80, y), innerHeight - r.height - 16);
       el.style.left = `${nx}px`;
       el.style.top = `${ny}px`;
       if (persist) save({ x: nx / innerWidth, y: ny / innerHeight });
       el.dispatchEvent(new Event('mascot:move'));
     }
     const saved = load();
-    const home = () => place(innerWidth - size().width - 24, innerHeight - size().height - 96);
-    if (typeof saved.x === 'number') place(saved.x * innerWidth, saved.y * innerHeight);
-    else home();
+    const home = () => place(innerWidth - size().width - 32, innerHeight - size().height - 110);
+    if (typeof saved.x === 'number' && !(saved.x < 0.28 && saved.y < 0.32)) {
+      place(saved.x * innerWidth, saved.y * innerHeight);
+    } else {
+      home();
+    }
     addEventListener('resize', () => {
       const r = size();
       place(r.left, r.top);
@@ -288,6 +291,12 @@
       e.stopPropagation();
       boop();
     });
+    el.querySelector('#pipStatusBadge')?.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      home();
+      emote('flirt', 1200);
+      say('Back in my cozy corner! 🐹💖', 1800);
+    });
     el.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       setCharacter(el.dataset.character === 'bunny' ? 'hamster' : 'bunny');
@@ -334,7 +343,12 @@
       excited: 'surprised', shock: 'surprised', shocked: 'surprised', wow: 'surprised',
       crying: 'cry', weep: 'cry', weeping: 'cry', sob: 'cry', sobbing: 'cry',
       droop: 'sad', depressed: 'sad', gloomy: 'sad', sorrow: 'sad', upset: 'sad',
-      mad: 'angry', grumpy: 'angry', furious: 'angry', pout: 'angry', pouting: 'angry',
+      mad: 'angry', grumpy: 'angry', furious: 'angry',
+      flirt: 'flirt', flirty: 'flirt', flirting: 'flirt', tease: 'flirt', teasing: 'flirt',
+      possessive: 'possessive', jealous: 'possessive', clingy: 'possessive', mine: 'possessive',
+      pout: 'pout', pouting: 'pout', hmph: 'pout',
+      kiss: 'kiss', kisses: 'kiss', kissing: 'kiss', muah: 'kiss', pappi: 'kiss', chumma: 'kiss',
+      baby: 'baby', cutie: 'baby', cute: 'baby', adorable: 'baby',
       curious: 'think', thinking: 'think', ponder: 'think', pondering: 'think', puzzle: 'think', confused: 'think',
       sleeping: 'sleepy', tired: 'sleepy', yawn: 'sleepy', yawning: 'sleepy', nap: 'sleepy',
       blush: 'shy', blushing: 'shy', bashful: 'shy', embarrassed: 'shy',
@@ -347,6 +361,11 @@
 
     const MOODS = {
       happy: { seq: [['delighted', 900]], anim: 'hop', fx: ['✨', '✨', '💛'] },
+      flirt: { seq: [['wink', 350], ['heart', 650], ['bashful', 450], ['wink', 350]], anim: 'sway', fx: ['💖', '😘', '✨', '💋', '💕'], tint: 'flirt' },
+      possessive: { seq: [['dizzy', 280], ['sleepy', 320], ['heart', 700], ['wink', 350]], anim: 'wiggle', fx: ['🔒', '💖', '😤', '💕', '🥰'], tint: 'possessive' },
+      pout: { seq: [['sleepy', 380], ['dizzy', 480], ['bashful', 420]], anim: 'droop', fx: ['😤', '💢', '🥺', '💨'], tint: 'pout' },
+      kiss: { seq: [['heart', 850], ['wink', 550]], anim: 'pulse', fx: ['💋', '😘', '❤️', '✨', '🥰'], tint: 'kiss' },
+      baby: { seq: [['delighted', 400], ['sparkle', 400], ['bashful', 400], ['delighted', 400]], anim: 'hop', fx: ['🥺', '🧸', '✨', '🍼', '💖'], tint: 'baby' },
       laugh: { seq: [['delighted', 450], ['wink', 220], ['delighted', 450], ['wink', 220], ['delighted', 400]], anim: 'laugh', fx: ['😂', 'ha', 'ha', '🤣'] },
       giggle: { seq: [['wink', 300], ['bashful', 300], ['wink', 300]], anim: 'wiggle', fx: ['hehe', '🤭', 'hee'] },
       love: { seq: [['heart', 1400]], anim: 'pulse', fx: ['❤️', '💕', '💖', '💗'] },

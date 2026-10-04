@@ -47,14 +47,19 @@ const assistant = (() => {
   }
 
   const VOICES = {
-    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.48, rate: 1.12 },
+    cute: { ai: 'Leda', style: 'Speak as a charming, flirty, adorable cutie baby companion with a sweet, lively, affectionate voice, full of warmth, teasing and smiles', pitch: 1.48, rate: 1.12 },
     sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.25, rate: 1.02 },
     bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.35, rate: 1.1 },
   };
   const MOOD_STYLE = {
     laugh: 'laughing and giggling happily between the words',
-    giggle: 'with cute little giggles',
-    love: 'adoringly, full of love',
+    giggle: 'with cute little giggles and bubbly chuckles',
+    love: 'adoringly and warmly, full of sweet love',
+    flirt: 'in a playful, charming, teasing and flirty tone with a sweet giggle',
+    possessive: 'in a cute, clingy, playfully possessive tone with affectionate emphasis',
+    pout: 'in a cute, mock-grumpy, adorable pouting tone',
+    kiss: 'blowing an affectionate kiss with a sweet, warm voice',
+    baby: 'in a wide-eyed, innocent, super adorable baby-cutie voice',
     sad: 'softly and a little sadly, but still sweet',
     cry: 'sniffling, teary and wobbly, then brave',
     angry: 'in a pretend-grumpy, pouty way that is still cute',

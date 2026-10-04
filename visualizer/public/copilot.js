@@ -585,10 +585,17 @@ const copilot = (() => {
     [/\bhow are you\b|\bhow r u\b|\bkaise ho\b/, () => ["I'm super, thanks for asking! Ready to crunch some problems? 💪", 'happy']],
     [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, () => ["Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
     [/^(cry|be sad|can you cry)\b/, () => ['Waaah… 😢 okay okay, I am fine now!', 'cry']],
-    [/\b(i love you|love you|you are cute|you're cute|cutie)\b/, () => ['Aww! I love you too! 💕', 'love']],
-    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy)?$/, () => ['Hehe, thank you! You are the best! 🌟', 'proud']],
+    [/\b(kiss|kisses|muah|pappi|chumma)\b/, () => ['Muah! 😘 Here is a sweet lucky kiss for your next test case! Now go ace it for me!', 'kiss', 'jump']],
+    [/\b(flirt|flirting|tease|blush)\b/, () => ['Are you trying to make my little cheeks blush? You are looking extra cute today! 😉💋', 'flirt', 'sway']],
+    [/\b(marry me|be mine|date me|girlfriend|boyfriend|love me)\b/, () => ['Deal! But only if you solve all your code with me forever and look at no one else! 💍💖', 'flirt', 'dance']],
+    [/\b(jealous|possessive|who do you love|mine)\b/, () => ['You are MY favorite human in the entire universe! Do not you dare look at any other buddy! 😤🔒', 'possessive']],
+    [/\b(pout|grumpy|angry|gussa)\b/, () => ['Hmph! 😤 I was pouting because you did not give me attention! Come boop my nose right now!', 'pout']],
+    [/\b(baby|cutie|sweetie|darling|jaan|babu|shona)\b/, () => ['Hehe, yes bestie? Your little cutie baby Ham is right here listening to you! 🥺🧸💖', 'baby', 'jump']],
+    [/\b(you are mine|tum mere ho)\b/, () => ['Always! And you are mine forever too, locked in! 🔒🥰', 'possessive']],
+    [/\b(i love you|love you|you are cute|you're cute)\b/, () => ['Hehe, I love you more! But you better mean it, because you are mine now! 💕😘', 'flirt']],
+    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy| ham)?$/, () => ['Hehe, thank you! You are the absolute best, my genius coder! 🌟🥰', 'proud']],
     [/\b(take a nap|nap time|good night)\b/, () => ['Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
-    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Grrr! …just kidding, I could never be mad at you. 😤💛', 'angry']],
+    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Hmph! …just kidding, I could never stay mad at my favorite person. 😤💛', 'pout']],
   ];
   function talkFor(raw) {
     const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');

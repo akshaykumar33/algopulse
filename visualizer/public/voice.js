@@ -25,14 +25,19 @@ window.buddyVoice = (() => {
   };
   const pet = () => window.mascot;
   const STYLE = {
-    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.15, google: 1.18, desktop: 1.12 }, rate: 0.95, words: 'Speak as a cute, adorable hamster companion with a sweet, cheerful, bubbly voice' },
+    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.15, google: 1.18, desktop: 1.12 }, rate: 0.95, words: 'Speak as a charming, flirty, adorable hamster companion with a sweet, lively, affectionate cutie baby voice, full of expression and warmth' },
     sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.08, google: 1.1, desktop: 1.05 }, rate: 0.92, words: 'Speak as a warm, sweet, gentle hamster companion with a soft, smiling voice' },
     bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.2, google: 1.22, desktop: 1.15 }, rate: 1, words: 'Speak as a bright, lively, energetic hamster companion in a friendly, enthusiastic voice' },
   };
   const MOOD = {
     laugh: 'laughing and giggling happily between the words',
-    giggle: 'with cute little giggles',
-    love: 'adoringly, full of love',
+    giggle: 'with cute little giggles and bubbly chuckles',
+    love: 'adoringly and warmly, full of sweet love',
+    flirt: 'in a playful, charming, teasing and flirty tone with a sweet giggle',
+    possessive: 'in a cute, clingy, playfully possessive tone with affectionate emphasis',
+    pout: 'in a cute, mock-grumpy, adorable pouting tone',
+    kiss: 'blowing an affectionate kiss with a sweet, warm voice',
+    baby: 'in a wide-eyed, innocent, super adorable baby-cutie voice',
     sad: 'softly and a little sadly, but still sweet',
     cry: 'sniffling, teary and wobbly, then brave',
     angry: 'in a pretend-grumpy, pouty way that is still cute',
