@@ -123,6 +123,7 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Maximums](https://codeforces.com/problemset/problem/1326/B) | `Codeforces` | `900` | `maximums.js` | Key algorithmic application from Day 2026-10-05. |
 | [Left and Down](https://codeforces.com/problemset/problem/2125/B) | `Codeforces` | `900` | `leftAndDown.js` | Key algorithmic application from Day 2026-10-05. |
 | [K-divisible Sum](https://codeforces.com/problemset/problem/1476/A) | `Codeforces` | `1000` | `kDivisibleSum.js` | Key algorithmic application from Day 2026-10-05. |
+| [Pyramid of Bricks](https://www.codechef.com/problems/PYRAMID) | `CodeChef` | `Easy` | `pyramidOfBricks.js` | Closed-form quadratic solver for triangular sum k*(k+1)/2 <= N. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

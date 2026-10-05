@@ -307,6 +307,7 @@ function solve() {
 | [The Attack of Queen](https://www.codechef.com/problems/QUEENATTACK) | `CodeChef` | `1076` | `theAttackOfQueen.js` | Key algorithmic application from Day 2026-10-05. |
 | [Even Sum Subarray](https://www.codechef.com/problems/EVENSUMSUB) | `CodeChef` | `1079` | `evenSumSubarray.js` | Key algorithmic application from Day 2026-10-05. |
 | [Work Smarter, Not Harder](https://www.codechef.com/problems/SMARTER) | `CodeChef` | `924` | `workSmarterNotHarder.js` | Key algorithmic application from Day 2026-10-05. |
+| [Next Level](https://www.codechef.com/problems/NEXTLEVEL) | `CodeChef` | `Beginner` | `nextLevel.js` | Basic threshold comparison condition (`X >= 60`). |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
