@@ -2,7 +2,11 @@ import React from 'react';
 import { Sun, Moon, Mic, Calendar, Flame, MessageSquare } from 'lucide-react';
 import { useStudioStore } from '../../store/useStudioStore';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  onOpenCoach?: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onOpenCoach }) => {
   const { theme, toggleTheme, voice, setVoiceListening, days, activeDate } = useStudioStore();
 
   const currentDay = days.find((d) => d.date === activeDate);
@@ -124,6 +128,7 @@ export const Header: React.FC = () => {
         {/* AI Coach */}
         <button
           type="button"
+          onClick={onOpenCoach}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
