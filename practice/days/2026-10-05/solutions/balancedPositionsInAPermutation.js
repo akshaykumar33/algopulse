@@ -1,28 +1,25 @@
 const fs = require('fs');
 
 function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (lines.length === 0 || lines[0] === '') return;
-  
-  let lineIdx = 0;
-  const t = parseInt(lines[lineIdx++], 10);
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (tokens.length === 0 || tokens[0] === '') return;
+
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
   const out = [];
-  
+
   for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(lines[lineIdx++], 10);
-    const arr = lines[lineIdx++].split(/\s+/).map(Number);
-    
+    const n = parseInt(tokens[ptr++], 10);
     let cnt = 0;
-    for (let i = 0; i < n; i++) {
-      const val = arr[i];
-      const pos = i + 1;
-      if ((val % 2) === (pos % 2)) {
+    for (let i = 1; i <= n; i++) {
+      const val = parseInt(tokens[ptr++], 10);
+      if (val === i) {
         cnt++;
       }
     }
     out.push(cnt);
   }
-  
+
   console.log(out.join('\n'));
 }
 
