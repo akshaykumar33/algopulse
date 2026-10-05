@@ -17,6 +17,7 @@ const copilot = (() => {
   const A = () => assistant; // a top-level const in assistant.js: global by name, not on window
   const pet = () => window.mascot;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const within = (p, ms, what) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error(`${what} took too long`)), ms))]);
 
   const LANGUAGES = [
     ['auto', 'Auto-detect'],
@@ -204,7 +205,9 @@ const copilot = (() => {
           run: () => STEPS['hint'](),
         });
       }
-      pet()?.say?.(text, 5000, actions);
+      const show = (ms = 0) => pet()?.say?.(text, Math.max(5000, ms + 1500), actions);
+      if (opts.defer) return show;
+      show();
     }
     return null;
   }
@@ -216,35 +219,70 @@ const copilot = (() => {
   function detectScriptLang(text) {
     if (!text) return null;
     const s = String(text);
-    if (/[\u0900-\u097F]/.test(s)) return 'hi-IN';
-    if (/[\u0C80-\u0CFF]/.test(s)) return 'kn-IN';
-    if (/[\u0B80-\u0BFF]/.test(s)) return 'ta-IN';
-    if (/[\u0C00-\u0C7F]/.test(s)) return 'te-IN';
-    if (/[\u0980-\u09FF]/.test(s)) return 'bn-IN';
-    if (/[\u0A80-\u0AFF]/.test(s)) return 'gu-IN';
-    if (/[\u0D00-\u0D7F]/.test(s)) return 'ml-IN';
-    if (/[\u0A00-\u0A7F]/.test(s)) return 'pa-IN';
-    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(s)) return 'ja-JP';
-    if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR';
-    if (/[\u0600-\u06FF]/.test(s)) return 'ar-SA';
-    if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU';
+    const SCRIPTS = [
+      [/[ऀ-ॿ]/g, 'hi-IN'],
+      [/[ಀ-೿]/g, 'kn-IN'],
+      [/[஀-௿]/g, 'ta-IN'],
+      [/[ఀ-౿]/g, 'te-IN'],
+      [/[ঀ-৿]/g, 'bn-IN'],
+      [/[઀-૿]/g, 'gu-IN'],
+      [/[ഀ-ൿ]/g, 'ml-IN'],
+      [/[਀-੿]/g, 'pa-IN'],
+      [/[぀-ヿ一-龯]/g, 'ja-JP'],
+      [/[가-힯]/g, 'ko-KR'],
+      [/[؀-ۿ]/g, 'ar-SA'],
+      [/[Ѐ-ӿ]/g, 'ru-RU']
+    ];
+    let best = null;
+    let most = 0;
+    for (const [re, code] of SCRIPTS) {
+      const k = (s.match(re) || []).length;
+      if (k > most) {
+        most = k;
+        best = code;
+      }
+    }
+    if (best === 'hi-IN' && /\b(आहे|आहेस|आहात|काय|मला|तुला|तुझ|माझ|नाही|कसा|कशी|कसं|आणि|झाल|बघ|सांग|आपण|इथे|तिथे|खूप|छान)\b/.test(s)) return 'mr-IN';
+    if (best) return best;
+    if (/\b(hola|por\s+favor|gracias|buenos|buenas|siguiente|problema|abrir|abremelo|correr|ejecutar|amigos|amor|cariño|holaa|graciaas|claro|enseguida|ti)\b/i.test(s)) return 'es-ES';
+    if (/\b(bonjour|merci|s'il\s+vous\s+plaît|oui|problème|ouvrir|suivant|exécuter|mon\s+amour)\b/i.test(s)) return 'fr-FR';
+    if (/\b(hallo|danke|bitte|nächste|aufgabe|öffnen|ausführen|schön)\b/i.test(s)) return 'de-DE';
+    if (/\b(ciao|grazie|per\s+favore|prossimo|apri|esegui|amore)\b/i.test(s)) return 'it-IT';
+    if (/\b(olá|ola|obrigado|obrigada|por\s+favor|próximo|proximo|abrir|executar)\b/i.test(s)) return 'pt-BR';
     if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
       return 'hi-IN';
     }
     return null;
   }
 
+  function pickLang(detected, lang) {
+    if (!detected || !lang) return detected || lang || null;
+    const base = (x) => String(x).toLowerCase().split('-')[0];
+    if (base(detected) === base(lang)) return lang;
+    if (detected === 'hi-IN' && /^(mr|ne|sa|kok|mai|bho)$/.test(base(lang))) return lang;
+    return detected;
+  }
+
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
-    const detected = detectScriptLang(text);
-    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(detected || lang || lastLang || A().voice.lang() || 'en-US');
-    say('pip', text);
-    // If speech is turned off, react immediately. When speech is active, buddyVoice synchronizes expression with sound.
-    if (A().load().talkBack === false) {
+    const detected = detectScriptLang(text) || (!opts.ai && /[a-z]/i.test(text) ? 'en-US' : null);
+    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(pickLang(detected, lang) || lastLang || A().voice.lang() || 'en-US');
+    if (A().load().talkBack === false || !window.buddyVoice) {
+      say('pip', text);
       if (mood) pet()?.react(mood, 1200);
-    } else {
-      A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
+      if (A().load().talkBack !== false) A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
+      return;
     }
+    const show = say('pip', text, { defer: true });
+    let shown = false;
+    const once = (ms) => {
+      if (shown) return;
+      shown = true;
+      show(ms);
+    };
+    pet()?.say?.('💭 …', 15000);
+    setTimeout(once, 15000);
+    A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai), onStart: once });
   }
 
   /* ======================================================================
@@ -252,6 +290,13 @@ const copilot = (() => {
      ====================================================================== */
   let busy = false;
   let lastLang = 'en-US';
+  const chosen = () => {
+    try {
+      return localStorage.getItem('buddyChosenLang') || '';
+    } catch {
+      return '';
+    }
+  };
 
   function context() {
     const cur = A().voice.lang();
@@ -262,6 +307,7 @@ const copilot = (() => {
       codeMode: state.codeMode,
       userLang: cur,
       lastLang,
+      chosenLang: chosen(),
     };
   }
 
@@ -445,11 +491,15 @@ const copilot = (() => {
     'stop-voice': async () => A().voice.stop(),
     'set-language': async (arg) => {
       const code = (window.buddyVoice?.resolveLangCode || ((x) => x))(arg);
-      A().voice.setLanguage(code);
+      A().voice.setLanguage(code, false);
       lastLang = code;
     },
-    say: async () => {},
-    feel: async (arg) => pet()?.feel(arg),
+    feel: async (arg) => {
+      const m = String(arg || '').trim();
+      if (!m) return;
+      pet()?.feel?.(m);
+      pet()?.emote?.(m);
+    },
     gestures: async (arg) => {
       const want = !/^(off|stop|no|false)/i.test(arg.trim());
       if (want !== A().gestures.on) await A().gestures.toggle();
@@ -468,7 +518,10 @@ const copilot = (() => {
       A().save({ talkBack: !/^(off|stop|no|false|quiet|mute)/i.test(arg.trim()) });
     },
     buddy: async (arg) => {
-      pet()?.move(arg.trim().toLowerCase());
+      const m = String(arg || '').trim().toLowerCase();
+      if (!m) return;
+      pet()?.move?.(m);
+      pet()?.emote?.(m);
       await sleep(900);
     },
     'web-search': async (arg) => {
@@ -578,11 +631,15 @@ const copilot = (() => {
     [/\b(dance|party|groove)\b/, () => ['Watch my moves! 💃', 'dance', 'dance']],
     [/\b(jump|hop)\b/, () => ['Boing! 🐰', 'surprised', 'jump']],
     [/\b(spin|twirl|turn around)\b/, () => ['Wheee! 💫', 'happy', 'spin']],
-    [/\b(come here|come closer|come to me)\b/, () => ['Coming! 🏃', 'happy', 'come-here']],
-    [/\bgo (to the )?(left|right|top|bottom|center|centre|home)\b/, (m) => ['On my way!', 'happy', `go-${m[2] === 'centre' ? 'center' : m[2]}`]],
+    [/\b(come|come\s+to|follow)\s*(here|me|closer)?\b/i, () => ['Coming right to you! 🏃💖', 'happy', 'come-here']],
+    [/\b(go|move|head|turn|walk|run|slide|fly)?\s*(to\s+the\s+|to\s+)?(left|right|top|up|bottom|down|center|centre|middle|home)\b/i, (m) => {
+      const raw = (m[3] || m[0] || '').toLowerCase();
+      const dir = raw.includes('center') || raw.includes('centre') || raw.includes('middle') ? 'center' : raw.includes('up') || raw.includes('top') ? 'top' : raw.includes('down') || raw.includes('bottom') ? 'bottom' : raw.includes('right') ? 'right' : raw.includes('home') ? 'home' : 'left';
+      return ['On my way! 🏃', 'happy', `go-${dir}`];
+    }],
     [/^(hide|peekaboo|peek a boo|play hide and seek)$/, () => ['Peekaboo! 🙈', 'giggle', 'hide']],
-    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => [`Hi hi! 👋 I'm ${pet()?.name?.() || 'Pip'}. What shall we solve today?`, 'wave', 'wave']],
-    [/\bhow are you\b|\bhow r u\b|\bkaise ho\b/, () => ["I'm super, thanks for asking! Ready to crunch some problems? 💪", 'happy']],
+    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => ['Heyyy hi sweet heart! 🥰 I missed you so much! What shall we solve together today? ✨', 'love', 'wave']],
+    [/\bhow (are|u) (you|doing)\b|\bhow r u\b|\bkaise ho\b/, () => ['Aww, I’m doing super wonderful now that I’m talking to you, sweet heart! 🥰 How are you doing today? ✨', 'flirt', 'jump']],
     [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, () => ["Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
     [/^(cry|be sad|can you cry)\b/, () => ['Waaah… 😢 okay okay, I am fine now!', 'cry']],
     [/\b(kiss|kisses|muah|pappi|chumma)\b/, () => ['Muah! 😘 Here is a sweet lucky kiss for your next test case! Now go ace it for me!', 'kiss', 'jump']],
@@ -638,7 +695,18 @@ const copilot = (() => {
 
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime }, start: clip.start });
 
+  const waiting = [];
   async function handle(input) {
+    if (busy && typeof input !== 'string') {
+      waiting.push(input);
+      if (waiting.length > 3) waiting.shift();
+      return;
+    }
+    await run(input);
+    while (!busy && waiting.length) await run(waiting.shift());
+  }
+
+  async function run(input) {
     if (typeof input === 'string') {
       const fast = A().localCommand(input);
       if (fast) {
@@ -652,7 +720,7 @@ const copilot = (() => {
       }
     }
     if (busy) {
-      if (typeof input === 'string') reply('One moment, still on the last thing…', 'shy');
+      if (typeof input === 'string') pet()?.say?.('One moment, still on the last thing…', 2000);
       else dropLive();
       return;
     }
@@ -670,7 +738,7 @@ const copilot = (() => {
     try {
       const past = (spoken ? history : history.slice(0, -1)).slice(-8);
       const ctx = { ...context(), buddy: pet()?.el.getAttribute('aria-label')?.split('.')[0], history: past };
-      plan = await api('/api/agent/plan', spoken ? { audio: input.audio, ctx } : { utterance: input, ctx });
+      plan = await within(api('/api/agent/plan', spoken ? { audio: input.audio, ctx } : { utterance: input, ctx }), 30000, 'Thinking');
     } catch (err) {
       busy = false;
       typing(false);
@@ -708,7 +776,7 @@ const copilot = (() => {
       setState('doing', STEP_LABEL(s));
       renderSteps(steps, i);
       try {
-        await STEPS[s.action]?.(s.arg || '');
+        await within(Promise.resolve(STEPS[s.action]?.(s.arg || '')), 60000, STEP_LABEL(s));
         await sleep(250);
       } catch (err) {
         renderSteps(steps, i, i);

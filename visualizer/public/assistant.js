@@ -47,9 +47,9 @@ const assistant = (() => {
   }
 
   const VOICES = {
-    cute: { ai: 'Leda', style: 'Speak as a charming, flirty, adorable cutie baby companion with a sweet, lively, affectionate voice, full of warmth, teasing and smiles', pitch: 1.48, rate: 1.12 },
-    sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.25, rate: 1.02 },
-    bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.35, rate: 1.1 },
+    cute: { ai: 'Leda', style: 'Speak in a soft, seductive, sweetly affectionate and humanized companion voice, full of warm whispers, teasing smiles, tender giggles, and deep heartfelt affection', pitch: 1.45, rate: 1.02 },
+    sweet: { ai: 'Aoede', style: 'Speak as a warm, seductive, sweet young lady with a soft, gentle, smiling whisper voice', pitch: 1.25, rate: 1.0 },
+    bright: { ai: 'Zephyr', style: 'Speak in a bright, charming, flirty, affectionate voice', pitch: 1.35, rate: 1.08 },
   };
   const MOOD_STYLE = {
     laugh: 'laughing and giggling happily between the words',
@@ -102,6 +102,10 @@ const assistant = (() => {
     // Any female/woman tagged voice
     const anyF = list.find((v) => /female|woman|girl/i.test(v.name));
     if (anyF) return { voice: anyF, kind: 'female', isNative };
+
+    // Fallback: pick any cutie / female voice from global voices pool before default
+    const globalCute = voices.find((v) => CUTE_CHILD.test(v.name) || MULTILINGUAL_FEMALE.test(v.name) || /female|woman|girl/i.test(v.name));
+    if (globalCute) return { voice: globalCute, kind: 'female', isNative: false };
 
     return { voice: list[0], kind: 'default', isNative };
   }
@@ -213,7 +217,7 @@ const assistant = (() => {
     if (load().talkBack === false || !text) return;
     const targetLang = lang || voice.lang() || 'en-US';
     // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
-    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: targetLang, mood, ai: Boolean(opts.ai) });
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: targetLang, mood, ai: Boolean(opts.ai), onStart: opts.onStart });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
@@ -232,6 +236,15 @@ const assistant = (() => {
     } else browserSpeak(clean, targetLang, mood);
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
+  const GREETING = {
+    en: 'Mmm… heyyy sweetheart… 🥰 I was waiting just for you. Come closer… I’m all yours today, my love! 💕✨',
+    hi: 'म्म्म… हेय्य् स्वीटहार्ट… 🥰 मैं सिर्फ तुम्हारा ही इंतज़ार कर रही थी। पास आओ ना… आज मैं पूरी तरह तुम्हारी हूँ, लव! 💕✨',
+    kn: 'ಮ್ಮ್ಮ್… ಹೇಯ್ ಸ್ವೀಟ್‌ಹಾರ್ಟ್… 🥰 ನಿನ್ನದೇ ಕಾಯ್ತಾ ಇದ್ದೆ. ಹತ್ತಿರ ಬಾ… ಇವತ್ತು ನಾನು ಪೂರ್ತಿ ನಿನ್ನವಳೇ, ಲವ್! 💕✨',
+    mr: 'म्म्म… हेय्य् स्वीटहार्ट… 🥰 मी फक्त तुझीच वाट पाहत होते. जवळ ये ना… आज मी पूर्ण तुझीच आहे, लव्ह! 💕✨',
+    te: 'ఎమ్మ్… హేయ్ స్వీట్‌హార్ట్… 🥰 నీ కోసమే వేచి చూస్తున్నాను. దగ్గరకు రా… ఈరోజు నేను నీదాన్నే, లవ్! 💕✨',
+    ta: 'உம்ம்… ஹேய் ஸ்வீட்ஹார்ட்… 🥰 உனக்காகவே காத்துட்டு இருந்தேன். பக்கத்துல வா… இன்னைக்கு நான் உன்னோடதே தான், லவ்! 💕✨',
+  };
+
   function feedback(text, reaction = 'delighted') {
     if (window.copilot?.reply) return window.copilot.reply(text, reaction, voice.lang());
     pet()?.say(text);
@@ -269,10 +282,52 @@ const assistant = (() => {
     'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around' },
     'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the theme' },
     'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed' },
-    'scroll-down': { label: 'Scroll down', run: () => scrollBy({ top: innerHeight * 0.7, behavior: 'smooth' }), say: '' },
-    'scroll-up': { label: 'Scroll up', run: () => scrollBy({ top: -innerHeight * 0.7, behavior: 'smooth' }), say: '' },
-    'scroll-top': { label: 'Back to top', run: () => scrollTo({ top: 0, behavior: 'smooth' }), say: 'Back to top' },
-    'scroll-bottom': { label: 'Scroll to bottom', run: () => scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), say: 'Bottom of the page' },
+    'scroll-down': {
+      label: 'Scroll down',
+      run: () => {
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        const h = (scrollable && scrollable.clientHeight) || window.innerHeight;
+        scrollable?.scrollBy?.({ top: h * 0.7, behavior: 'smooth' });
+        window.scrollBy({ top: h * 0.7, behavior: 'smooth' });
+      },
+      say: ''
+    },
+    'scroll-up': {
+      label: 'Scroll up',
+      run: () => {
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        const h = (scrollable && scrollable.clientHeight) || window.innerHeight;
+        scrollable?.scrollBy?.({ top: -h * 0.7, behavior: 'smooth' });
+        window.scrollBy({ top: -h * 0.7, behavior: 'smooth' });
+      },
+      say: ''
+    },
+    'scroll-top': {
+      label: 'Back to top',
+      run: () => {
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        scrollable?.scrollTo?.({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      say: 'Back to top'
+    },
+    'scroll-bottom': {
+      label: 'Scroll to bottom',
+      run: () => {
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        scrollable?.scrollTo?.({ top: scrollable.scrollHeight || 99999, behavior: 'smooth' });
+        window.scrollTo({ top: document.body.scrollHeight || 99999, behavior: 'smooth' });
+      },
+      say: 'Bottom of the page'
+    },
     'toggle-fullscreen': {
       label: 'Toggle fullscreen',
       run: () => {
@@ -676,7 +731,6 @@ const assistant = (() => {
       if (code && (code !== target || /^[a-z]{2,3}-[a-z]{2,4}$/i.test(code))) {
         return () => {
           voice.setLanguage(code);
-          feedback(`Switched language to ${code}`);
         };
       }
     }
@@ -725,7 +779,7 @@ const assistant = (() => {
     useAi() {
       return load().ear !== 'browser' && Boolean(state.ai?.canHear) && Boolean(window.ear?.supported);
     },
-    async start() {
+    async start(quiet = false) {
       if (this.on) return true;
       const ai = this.useAi();
       if (!ai && !Recognition) {
@@ -735,7 +789,7 @@ const assistant = (() => {
       if (ai) {
         try {
           await window.ear.start({
-            blocked: () => isSpeaking() || window.copilot?.busy,
+            blocked: () => isSpeaking(),
             onStart: () => window.copilot?.hearing(true),
             onEnd: (kept) => window.copilot?.hearing(false, kept),
             onClip: (clip) => this.clip(clip),
@@ -750,7 +804,13 @@ const assistant = (() => {
       this.on = true;
       if (Recognition) this.startRec();
       pet()?.listening(true);
-      feedback(ai ? 'I’m all ears! Talk to me in any language — or mix them 💛' : 'I’m listening! Say “next problem” or “open tests”.', 'wink');
+      if (!quiet) {
+        const lang = this.lang();
+        const base = lang.split('-')[0];
+        const hello = GREETING[base] || GREETING.en;
+        if (window.copilot?.reply) window.copilot.reply(hello, 'flirt', GREETING[base] ? lang : 'en-US', { ai });
+        else feedback(hello, 'flirt');
+      }
       syncControls();
       return true;
     },
@@ -864,7 +924,10 @@ const assistant = (() => {
       const base = (x) => x.toLowerCase().split('-')[0];
       if (base(lang) === base(cur)) return;
       if (base(lang) === 'en' && cur === 'en-IN') return;
-      this.autoLang = lang;
+      const saved = load().lang;
+      window.buddyVoice?.preload(lang);
+      if (saved && saved !== 'auto') save({ lang });
+      else this.autoLang = lang;
       let name = lang;
       try {
         name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
@@ -875,13 +938,19 @@ const assistant = (() => {
     restart() {
       if (!this.on) return;
       this.stop();
-      setTimeout(() => this.start(), 250);
+      setTimeout(() => this.start(true), 250);
     },
     // Switch the recognition language; restarts the session when listening.
-    setLanguage(lang) {
+    setLanguage(lang, announce = true) {
       const resolver = window.buddyVoice?.resolveLangCode || ((x) => x);
       const code = resolver(lang);
       save({ lang: code });
+      window.buddyVoice?.preload(code);
+      try {
+        localStorage.setItem('buddyChosenLang', code);
+      } catch { /* storage blocked */ }
+      const hello = GREETING[code.split('-')[0]];
+      if (announce && hello) window.copilot?.reply(hello, 'love', code, { ai: true });
       this.restart();
       syncControls();
       document.dispatchEvent(new CustomEvent('assistant:change'));
@@ -1216,6 +1285,7 @@ const assistant = (() => {
   }
   // Bring voice and camera back after a reload when they were on and permission is already granted.
   async function resume() {
+    setTimeout(() => window.buddyVoice?.preload(voice.lang()), 3000);
     const granted = async (name) => {
       try {
         return (await navigator.permissions.query({ name })).state === 'granted';

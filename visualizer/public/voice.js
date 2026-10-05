@@ -25,7 +25,7 @@ window.buddyVoice = (() => {
   };
   const pet = () => window.mascot;
   const STYLE = {
-    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.95, pitch: { natural: 1.15, google: 1.18, desktop: 1.12 }, rate: 0.95, words: 'Speak as a charming, flirty, adorable hamster companion with a sweet, lively, affectionate cutie baby voice, full of expression and warmth' },
+    cute: { ai: 'Leda', kokoro: 'af_bella', speed: 0.92, pitch: { natural: 1.12, google: 1.15, desktop: 1.08 }, rate: 0.92, words: 'Speak in a soft, seductive, sweetly affectionate and humanized companion voice, full of warm whispers, teasing smiles, tender giggles, and deep expression' },
     sweet: { ai: 'Aoede', kokoro: 'af_heart', speed: 0.92, pitch: { natural: 1.08, google: 1.1, desktop: 1.05 }, rate: 0.92, words: 'Speak as a warm, sweet, gentle hamster companion with a soft, smiling voice' },
     bright: { ai: 'Zephyr', kokoro: 'af_nova', speed: 1, pitch: { natural: 1.2, google: 1.22, desktop: 1.15 }, rate: 1, words: 'Speak as a bright, lively, energetic hamster companion in a friendly, enthusiastic voice' },
   };
@@ -156,6 +156,9 @@ window.buddyVoice = (() => {
   let busyUntil = 0;
   let speaking = false;
   let aiOffUntil = 0;
+  try {
+    aiOffUntil = Number(localStorage.getItem('buddyVoiceOffUntil')) || 0;
+  } catch { /* storage blocked */ }
   let notified = false;
 
   const audio = () => {
@@ -232,14 +235,15 @@ window.buddyVoice = (() => {
   }
 
   // Plays 24 kHz mono samples; resolves when done (or when cut off by a newer line).
-  function play(samples, my, mood) {
+  function play(samples, my, mood, rate = 24000, speed = 1) {
     return new Promise((resolve) => {
       if (my !== token) return resolve();
       const c = audio();
-      const buf = c.createBuffer(1, samples.length, 24000);
+      const buf = c.createBuffer(1, samples.length, rate);
       buf.getChannelData(0).set(samples);
       const src = c.createBufferSource();
       src.buffer = buf;
+      src.playbackRate.value = speed;
       src.connect(c.destination);
       src.onended = () => {
         if (source === src) {
@@ -250,10 +254,11 @@ window.buddyVoice = (() => {
         resolve();
       };
       source = src;
-      const durationMs = buf.duration * 1000;
+      const durationMs = (buf.duration * 1000) / speed;
       busyUntil = Math.max(busyUntil, Date.now() + durationMs + 300);
       pet()?.talking?.(true);
       if (mood) pet()?.react?.(mood, durationMs);
+      started(durationMs);
       src.start();
     });
   }
@@ -370,6 +375,7 @@ window.buddyVoice = (() => {
       busyUntil = Math.max(busyUntil, Date.now() + durationEstimate);
       // Synchronize expression & talking with the exact millisecond speech begins
       u.onstart = () => {
+        started(durationEstimate);
         pet()?.talking?.(true);
         if (mood) pet()?.react?.(mood, durationEstimate);
       };
@@ -389,42 +395,82 @@ window.buddyVoice = (() => {
   function detectScriptLang(text) {
     if (!text) return null;
     const s = String(text);
-    if (/[\u0900-\u097F]/.test(s)) return 'hi-IN';
-    if (/[\u0C80-\u0CFF]/.test(s)) return 'kn-IN';
-    if (/[\u0B80-\u0BFF]/.test(s)) return 'ta-IN';
-    if (/[\u0C00-\u0C7F]/.test(s)) return 'te-IN';
-    if (/[\u0980-\u09FF]/.test(s)) return 'bn-IN';
-    if (/[\u0A80-\u0AFF]/.test(s)) return 'gu-IN';
-    if (/[\u0D00-\u0D7F]/.test(s)) return 'ml-IN';
-    if (/[\u0A00-\u0A7F]/.test(s)) return 'pa-IN';
-    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(s)) return 'ja-JP';
-    if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR';
-    if (/[\u0600-\u06FF]/.test(s)) return 'ar-SA';
-    if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU';
+    const SCRIPTS = [
+      [/[ऀ-ॿ]/g, 'hi-IN'],
+      [/[ಀ-೿]/g, 'kn-IN'],
+      [/[஀-௿]/g, 'ta-IN'],
+      [/[ఀ-౿]/g, 'te-IN'],
+      [/[ঀ-৿]/g, 'bn-IN'],
+      [/[઀-૿]/g, 'gu-IN'],
+      [/[ഀ-ൿ]/g, 'ml-IN'],
+      [/[਀-੿]/g, 'pa-IN'],
+      [/[぀-ヿ一-龯]/g, 'ja-JP'],
+      [/[가-힯]/g, 'ko-KR'],
+      [/[؀-ۿ]/g, 'ar-SA'],
+      [/[Ѐ-ӿ]/g, 'ru-RU']
+    ];
+    let best = null;
+    let most = 0;
+    for (const [re, code] of SCRIPTS) {
+      const k = (s.match(re) || []).length;
+      if (k > most) {
+        most = k;
+        best = code;
+      }
+    }
+    if (best === 'hi-IN' && /\b(आहे|आहेस|आहात|काय|मला|तुला|तुझ|माझ|नाही|कसा|कशी|कसं|आणि|झाल|बघ|सांग|आपण|इथे|तिथे|खूप|छान)\b/.test(s)) return 'mr-IN';
+    if (best) return best;
+    if (/\b(hola|por\s+favor|gracias|buenos|buenas|siguiente|problema|abrir|abremelo|correr|ejecutar|amigos|amor|cariño|holaa|graciaas|claro|enseguida|ti)\b/i.test(s)) return 'es-ES';
+    if (/\b(bonjour|merci|s'il\s+vous\s+plaît|oui|problème|ouvrir|suivant|exécuter|mon\s+amour)\b/i.test(s)) return 'fr-FR';
+    if (/\b(hallo|danke|bitte|nächste|aufgabe|öffnen|ausführen|schön)\b/i.test(s)) return 'de-DE';
+    if (/\b(ciao|grazie|per\s+favore|prossimo|apri|esegui|amore)\b/i.test(s)) return 'it-IT';
+    if (/\b(olá|ola|obrigado|obrigada|por\s+favor|próximo|proximo|abrir|executar)\b/i.test(s)) return 'pt-BR';
     if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
       return 'hi-IN';
     }
     return null;
   }
 
-  async function say(text, { lang, mood, ai = false } = {}) {
+  function pickLang(detected, lang) {
+    if (!detected || !lang) return detected || lang || null;
+    const base = (x) => String(x).toLowerCase().split('-')[0];
+    if (base(detected) === base(lang)) return lang;
+    if (detected === 'hi-IN' && /^(mr|ne|sa|kok|mai|bho)$/.test(base(lang))) return lang;
+    return detected;
+  }
+
+  const missing = new Set();
+
+  let onStart = null;
+  function started(ms = 0) {
+    if (ms) begin(ms + 300);
+    const fn = onStart;
+    onStart = null;
+    fn?.(ms);
+  }
+
+  async function say(text, { lang, mood, ai = false, onStart: cb } = {}) {
+    started();
+    onStart = cb || null;
     const words = clean(text);
-    if (!words || store().talkBack === false) return;
+    if (!words || store().talkBack === false) return started();
     const resolvedMood = mood || extractMood(text) || 'happy';
     const detected = detectScriptLang(words);
-    const targetLang = resolveLangCode(detected || lang || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
+    const targetLang = resolveLangCode(pickLang(detected, lang) || (typeof assistant !== 'undefined' ? assistant.voice.lang() : null) || 'en-US');
     stop();
     const my = token;
-    begin(1500 + words.length * 90);
     try {
       // Gemini voices the whole reply in one go with the target language accent.
-      if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
+      if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser' && pickVoice(targetLang)?.kind !== 'natural') {
         try {
           await gemini(words, resolvedMood, my, targetLang);
           return;
         } catch (err) {
           if (/quota|429|rate|exceeded/i.test(err.message)) {
             aiOffUntil = Date.now() + 30 * 60 * 1000;
+            try {
+              localStorage.setItem('buddyVoiceOffUntil', String(aiOffUntil));
+            } catch { /* storage blocked */ }
             if (!notified) toast('The AI voice is busy, so I am using my local voice.');
             notified = true;
           }
@@ -452,12 +498,42 @@ window.buddyVoice = (() => {
           kokoro.state = 'failed';
         }
       }
+      const native = pickVoice(targetLang);
+      if (!native || native.kind === 'desktop') {
+        try {
+          const fetchPart = (p) => api('/api/voice/local', { text: p, lang: targetLang, mood: resolvedMood });
+          // Ask for the next sentence while the current one plays.
+          let next = fetchPart(parts[0]);
+          for (let i = 0; i < parts.length && my === token; i++) {
+            const res = await next;
+            next = i + 1 < parts.length ? fetchPart(parts[i + 1]) : null;
+            const bin = atob(res.pcm);
+            const out = new Float32Array(bin.length >> 1);
+            for (let j = 0; j < out.length; j++) {
+              const v = bin.charCodeAt(2 * j) | (bin.charCodeAt(2 * j + 1) << 8);
+              out[j] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
+            }
+            await play(out, my, resolvedMood, res.rate, res.rate > 30000 ? 1 : 1.1);
+          }
+          return;
+        } catch { /* local voice not running: fall back to the browser */ }
+      }
+      if (!/^en\b/i.test(targetLang) && speechSynthesis.getVoices().length && !native) {
+        if (!missing.has(targetLang)) toast(`No ${targetLang} voice is installed in this browser, so I'm showing my reply as text.`);
+        missing.add(targetLang);
+        pet()?.react?.(resolvedMood, 1500);
+        started();
+        return;
+      }
       for (const p of parts) {
         if (my !== token) return;
         await browser(p, targetLang, resolvedMood, my);
       }
     } finally {
-      if (my === token) end();
+      if (my === token) {
+        started();
+        end();
+      }
     }
   }
 
@@ -478,6 +554,9 @@ window.buddyVoice = (() => {
     },
     pickVoice,
     accentStyle,
+    preload(lang) {
+      if (lang && !pickVoice(lang)) api('/api/voice/warm', { lang }).catch(() => {});
+    },
     kokoro,
     STYLE,
     resolveLangCode,

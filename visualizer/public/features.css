@@ -36,6 +36,9 @@
     background: var(--bg);
   }
   .boot.is-done { pointer-events: none; }
+  .boot:not(.is-done) ~ .mascot,
+  body:has(.boot:not(.is-done)) .mascot,
+  .mascot.is-booting { display: none !important; }
   .boot-art { position: relative; width: 5rem; height: 5.5rem; }
   .boot-cup { position: absolute; bottom: 0; width: 5rem; }
   .boot-cup .cup { fill: var(--surface); stroke: var(--choc); stroke-width: 3; }
@@ -776,7 +779,7 @@
   .mascot {
     --size: 96px;
     position: fixed;
-    z-index: 1000; /* Stays proudly on top of sidebar dialog, cards, and page layout */
+    z-index: 2147483647; /* Highest possible layer so Pip stays above all dialogs, select dropdowns, and cards */
     width: var(--size);
     height: calc(var(--size) + 14px);
     padding: 0;
@@ -787,7 +790,7 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-  .mascot.is-dragging { cursor: grabbing; z-index: 1001; }
+  .mascot.is-dragging { cursor: grabbing; z-index: 2147483647; }
   .mascot-float { position: absolute; inset: 0 0 14px 0; animation: mascot-float 3.6s ease-in-out infinite; }
   .mascot.is-dragging .mascot-float { animation-play-state: paused; transform: none !important; }
   .mascot-squash { position: absolute; inset: 0; transform-origin: 50% 78%; filter: drop-shadow(0 6px 12px hsl(var(--shadow-tint) / 0.22)); }
@@ -1177,13 +1180,14 @@ dialog.coach .coach-log { min-height: 0; }
 /* ===== Pip Interactive Badges & Live Feeds ("Just Ham", zero bars) ===== */
 .pip-badges {
   position: absolute;
-  top: -10px;
-  right: -6px;
+  top: -30px;
+  right: 0;
   display: flex;
   align-items: center;
   gap: 5px;
   z-index: 10;
   pointer-events: auto;
+  white-space: nowrap;
 }
 
 .pip-status-badge {

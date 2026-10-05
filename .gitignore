@@ -45,3 +45,10 @@ submissions.json
 practice/days/*/.done
 .done
 
+
+# Local TTS service environment and model cache
+tools/tts/.venv/
+tools/tts/.cache/
+tools/tts/.venv-parler/
+__pycache__/
+*.pyc
