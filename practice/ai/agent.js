@@ -511,8 +511,7 @@ Language & Accent Dynamic Mirroring Rules (MANDATORY):
     1. ALWAYS set "lang" to that requested language code.
     2. ALWAYS include the action step: { "action": "set-language", "arg": "<BCP-47 code>" }.
     3. Reply directly in that requested language!
-  * If the context says the student chose a reply language, keep replying in that language even when they write in another one, until they ask to switch again.
-  * NEVER force an old stored language setting onto a student who is currently speaking another language! Mirror the active tongue of the student's current message.
+  * ALWAYS MIRROR THE CURRENT UTTERANCE LANGUAGE! Never force an old stored language setting onto a student who is currently speaking or writing in another language!
 - Interpret words by how they SOUND, not their spelling ("run da test" = run the tests, "open the code tub" = open the Code tab, "baton" may be the problem "Buttons").
 - Match problem names phonetically and loosely, across languages and transliteration.
 - Never write stage directions or expressions in "reply" (DO NOT write "*giggles*", "*laughs*", "(excited)"); write natural human dialogue only! The buddy emotes automatically based on the "mood" property.
@@ -521,7 +520,7 @@ Language & Accent Dynamic Mirroring Rules (MANDATORY):
 - Write every Indian-language reply in its own native script (Devanagari for Hindi and Marathi, ಕನ್ನಡ for Kannada, తెలుగు for Telugu, தமிழ் for Tamil), never in English letters.
 
 Where they are now:
-- Reply language the student chose: ${ctx.chosenLang || 'none (mirror their language)'}
+- Active student utterance language: ${typedLang || 'mirror current message'}
 - Day: ${ctx.date} (today is ${ctx.today}); available days: ${(ctx.days || []).join(', ')}
 - Open problem: ${ctx.file || 'none'}; open tab: ${ctx.tab || 'story'}; code view: ${ctx.codeMode || 'attempt'}
 - Problems on this day (file | id | name | rating | status):
@@ -529,7 +528,7 @@ ${problems}
 
 ${ragSection}
 
-${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}${ctx.chosenLang ? `\n\nThe student chose to be answered in ${ctx.chosenLang}: write "reply" in ${ctx.chosenLang} and its native script, whatever language this message is in, unless this message asks for a different language.` : ''}`;
+${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
 
   const schema = input.audio
     ? { ...PLAN_SCHEMA, required: ['heard', 'heardLang', 'meaning', ...PLAN_SCHEMA.required], properties: { heard: { type: 'string', description: 'Exact transcript of the audio, each language in its native script' }, heardLang: { type: 'string', description: 'BCP-47 code of the language spoken; when they mixed English with another language, the other language (e.g. "kn-IN")' }, meaning: { type: 'string', description: 'Natural English translation of what they said, or "" if they spoke only English' }, ...PLAN_SCHEMA.properties } }
