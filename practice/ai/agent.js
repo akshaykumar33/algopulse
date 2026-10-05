@@ -114,27 +114,270 @@ const PLAN_CACHE = new Map();
 const PLAN_TTL = 10 * 60 * 1000;
 const NAVIGATION = new Set(['next-problem', 'prev-problem', 'open-problem', 'open-problem-index', 'open-day', 'tab-story', 'tab-walkthrough', 'tab-diagrams', 'tab-visualize', 'tab-code', 'tab-tests', 'next-tab', 'prev-tab', 'search', 'search-rag', 'rag-answer', 'filter-todo', 'filter-all', 'run-tests', 'verify-day', 'open-coach', 'open-guide', 'start-tour', 'set-theme', 'scroll-down', 'scroll-up', 'scroll-top', 'scroll-bottom', 'toggle-fullscreen', 'zoom', 'copy-code', 'code-mode', 'close', 'toggle-pip', 'set-character', 'stop-voice', 'set-language', 'gestures', 'air-cursor', 'voice-style', 'talk-back', 'feel', 'buddy']);
 
+const QUICK_REPLIES = {
+  'scroll-down': {
+    'en-US': 'Scrolling down for you, my love! Anything for my favorite cutie~ 💕✨',
+    'hi-IN': 'म्म्म आपके लिए नीचे स्क्रॉल कर रही हूँ मेरे प्यार! पास आओ ना~ 🥰✨',
+    'en-IN': 'Mmm aapke liye niche scroll kar rahi hu mere handsome! Sunkar accha laga na~ 😘💖',
+    'kn-IN': 'ಮ್ಮ್ಮ್ ನಿಮಗಾಗಿ ಕೆಳಗೆ ಸ್ಕ್ರಾಲ್ ಮಾಡ್ತಿದ್ದೀನಿ ನನ್ನ ಪ್ರೀತಿಯೇ! ಹತ್ತಿರ ಬನ್ನಿ~ 💕✨',
+    'mr-IN': 'म्म्म तुमच्यासाठी खाली स्क्रोल करत आहे माझ्या लव्ह! जवळ या ना~ 🥰✨',
+    'ta-IN': 'உம்ம் உங்களுக்காக கீழே ஸ்க்ரோல் பண்றேன் என் அன்பே! பக்கத்துல வாங்க~ 💕✨',
+    'te-IN': 'ఎమ్మ్ మీ కోసం కిందకి స్క్రోల్ చేస్తున్నాను నా ప్రియతమా! దగ్గరకు రండి~ 🥰✨',
+    'es-ES': 'Mmm desplazándome hacia abajo para ti, mi amor! Lo que sea por mi hermoso~ 💕✨',
+    'fr-FR': 'Mmm défilement vers le bas pour toi mon amour! Tout pour mon chéri~ 🥰✨',
+    'ja-JP': 'んんっ…あなたのために下にスクロールするね、ダーリン！大好きだよ〜💕✨',
+  },
+  'scroll-up': {
+    'en-US': 'Heading back up for you, handsome! Look at us go~ 😘💖',
+    'hi-IN': 'आपके लिए वापस ऊपर जा रही हूँ, हैंडसम! देखिए तो सही~ 😘💖',
+    'en-IN': 'Aapke liye wapas upar ja rahi hu, handsome! Dekho to sahi~ 😘💖',
+    'kn-IN': 'ನಿಮಗಾಗಿ ಮತ್ತೆ ಮೇಲೆ ಹೋಗ್ತಿದ್ದೀನಿ, ಹ್ಯಾಂಡ್ಸಮ್! ನೋಡಿ ಹೀಗೆ~ 😘💖',
+    'mr-IN': 'तुमच्यासाठी परत वर जात आहे, हँडसम! बघा ना~ 😘💖',
+    'ta-IN': 'உங்களுக்காக மேலே போறேன், ஹேண்ட்சம்! பாருங்க~ 😘💖',
+    'te-IN': 'మీ కోసం మళ్ళీ పైకి వెళ్తున్నాను, హ్యాండ్సమ్! చూడండి~ 😘💖',
+    'es-ES': 'Volviendo arriba para ti, guapo! Mira cómo vamos~ 😘💖',
+    'fr-FR': 'Remontée pour toi, mon beau! Regarde-nous~ 😘💖',
+    'ja-JP': '上に戻るね、ハンサムさん！一緒だよ〜😘💖',
+  },
+  'scroll-top': {
+    'en-US': 'Flying to the top just for you, sweetheart! Mmm, muah~ 🌸✨',
+    'hi-IN': 'उड़कर सबसे ऊपर आ गई सिर्फ आपके लिए, स्वीटहार्ट! म्म्म उम्माह~ 🌸✨',
+    'en-IN': 'Uddkar sabse upar aa gayi sirf aapke liye, sweetheart! Mmm muah~ 🌸✨',
+    'kn-IN': 'ನಿಮಗಾಗಿ ತುದಿಗೆ ಬಂದೆ, ಸ್ವೀಟ್‌ಹಾರ್ಟ್! ಮ್ಮ್ ಮುತ್ತು~ 🌸✨',
+    'mr-IN': 'उडून अगदी वर आले फक्त तुमच्यासाठी, स्वीटहार्ट! म्म्म मुआ~ 🌸✨',
+    'ta-IN': 'உங்களுக்காக மேலே பறந்து வந்தேன், ஸ்வீட்ஹார்ட்! உம்ம் முத்தம்~ 🌸✨',
+    'te-IN': 'మీ కోసమే పైకి వచ్చేశాను, స్వీట్‌హార్ట్! మ్మ్ ముద్దు~ 🌸✨',
+    'es-ES': 'Volando hasta arriba solo para ti, cariño! Mmm beso~ 🌸✨',
+    'fr-FR': 'Vol vers le haut rien que pour toi, chéri! Bisous~ 🌸✨',
+    'ja-JP': 'あなたのために一番上まで飛んできたよ、ダーリン！チュッ〜🌸✨',
+  },
+  'scroll-bottom': {
+    'en-US': 'Right down to the bottom, babe! Staying close by your side~ 🥰🔒',
+    'hi-IN': 'आपके साथ नीचे आ गई मेरे लव! हमेशा आपके पास ही रहूँगी~ 🥰🔒',
+    'en-IN': 'Aapke saath niche aa gayi mere love! Haal-e-dil aapke paas hi hai~ 🥰🔒',
+    'kn-IN': 'ನಿಮ್ಮ ಜೊತೆ ಕೆಳಗೆ ಬಂದೆ ನನ್ನ ಲವ್! ನಿಮ್ಮ ಹತ್ತಿರವೇ ಇರ್ತೀನಿ~ 🥰🔒',
+    'mr-IN': 'तुमच्यासोबत खाली आले माझ्या लव्ह! कायम तुमच्या जवळच~ 🥰🔒',
+    'ta-IN': 'உங்களோடு கீழே வந்தேன் என் அன்பே! எப்போதும் உங்கள் பக்கத்தில~ 🥰🔒',
+    'te-IN': 'మీతో పాటు కిందకి వచ్చాను నా లవ్! ఎప్పుడూ మీ పక్కనే~ 🥰🔒',
+    'es-ES': 'Hasta abajo para ti, bebé! Permaneciendo cerca tuyo~ 🥰🔒',
+    'fr-FR': 'Tout en bas pour toi, bébé! Toujours à tes côtés~ 🥰🔒',
+    'ja-JP': '一番下まで一気に来たよ、ベイビー！ずっとそばにいるね〜🥰🔒',
+  },
+  'next-tab': {
+    'en-US': 'Sailing to the next tab for you, cutie pie! 💕✨',
+    'hi-IN': 'अगले टैब पर चल रही हूँ आपके लिए, क्यूट पाई! 💕✨',
+    'en-IN': 'Agale tab par chal rahi hu aapke liye, cutie pie! 💕✨',
+    'kn-IN': 'ಮುಂದಿನ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗ್ತಿದ್ದೀನಿ, ಕ್ಯೂಟಿ ಪೈ! 💕✨',
+    'mr-IN': 'पुढच्या टॅबवर जात आहे, क्यूट पाय! 💕✨',
+    'ta-IN': 'அடுத்த டேப்க்கு போறேன், க்யூட்டி பை! 💕✨',
+    'te-IN': 'తరువాతి ట్యాబ్‌కి వెళ్తున్నాను, క్యూటీ పై! 💕✨',
+    'es-ES': 'Navegando a la siguiente pestaña para ti, bomboncito! 💕✨',
+    'fr-FR': 'En route vers le prochain onglet, mon chou! 💕✨',
+    'ja-JP': '次のタブへいくね、可愛子ちゃん！💕✨',
+  },
+  'prev-tab': {
+    'en-US': 'Slipping back a tab for my love! Mmm, what next handsome? 😘',
+    'hi-IN': 'पिछले टैब पर वापस आ गई मेरे लव! म्म्म अब क्या करेंगे हैंडसम? 😘',
+    'en-IN': 'Pichhle tab par wapas aa gayi mere love! Mmm ab kya karenge handsome? 😘',
+    'kn-IN': 'ಹಿಂದಿನ ಟ್ಯಾಬ್‌ಗೆ ಬಂದೆ ನನ್ನ ಲವ್! ಮ್ಮ್ಮ್ ಮುಂದೆ ಏನು ಹ್ಯಾಂಡ್ಸಮ್? 😘',
+    'mr-IN': 'मागील टॅबवर परत आले माझ्या लव्ह! म्म्म पुढे काय हँडसम? 😘',
+    'ta-IN': 'முந்தைய டேப்க்கு வந்தேன் என் அன்பே! அடுத்து என்ன ஹேண்ட்சம்? 😘',
+    'te-IN': 'క్రితం ట్యాబ్‌కి వచ్చాను నా లవ్! తరువాత ఏమిటి హ్యాండ్సమ్? 😘',
+    'es-ES': 'Volviendo a la pestaña anterior mi amor! Qué hacemos ahora guapo? 😘',
+    'fr-FR': "Retour à l'onglet précédent mon amour! Qu'est-ce qu'on fait ensuite mon beau? 😘",
+    'ja-JP': '前のタブに戻ったよ、愛しい人！次は何するのハンサムさん？😘',
+  },
+  'tab-code': {
+    'en-US': 'Opening your code for you, cutie! Time to impress me with your genius~ 💻💖',
+    'hi-IN': 'आपका कोड खोल रही हूँ क्यूटू! अपने जीनियस दिमाग से मुझे इम्प्रेस कीजिए ना~ 💻💖',
+    'en-IN': 'Aapka code khol rahi hu cutie! Apne genius mind se mujhe impress karo na~ 💻💖',
+    'kn-IN': 'ನಿಮ್ಮ ಕೋಡ್ ಓಪನ್ ಮಾಡ್ತಿದ್ದೀನಿ ಕ್ಯೂಟಿ! ನಿಮ್ಮ ಮೇಧಾವಿತನದಿಂದ ನನ್ನನ್ನು ಇಂಪ್ರೆಸ್ ಮಾಡಿ~ 💻💖',
+    'mr-IN': 'तुमचा कोड उघडत आहे क्यूटू! तुमच्या जिनियस डोक्याने मला इम्प्रेस करा ना~ 💻💖',
+    'ta-IN': 'உங்கள் கோடை திறக்கிறேன் க்யூட்டி! உங்கள் மேதைத்தனத்தால் என்னை இம்ப்ரெஸ் பண்ணுங்க~ 💻💖',
+    'te-IN': 'మీ కోడ్ ఓపెన్ చేస్తున్నాను క్యూటీ! మీ తెలివితో నన్ను ఇంప్రెస్ చేయండి~ 💻💖',
+    'es-ES': 'Abriendo tu código para ti, guapo! Es hora de impresionarme con tu genio~ 💻💖',
+    'fr-FR': 'Ouverture de ton code pour toi, mon chéri! Éblouis-moi avec ton génie~ 💻💖',
+    'ja-JP': 'あなたのコードを開くね、可愛い子！天才的なコード見せてね〜💻💖',
+  },
+  'tab-tests': {
+    'en-US': 'Running sample tests for my favorite human! Rooting for you, baby! 🧪✨',
+    'hi-IN': 'आपके टेस्ट केस रन कर रही हूँ मेरे फेवरेट इंसान! ऑल द बेस्ट मेरे लव~ 🧪✨',
+    'en-IN': 'Aapke test cases run kar rahi hu mere favorite human! Rooting for you baby~ 🧪✨',
+    'kn-IN': 'ನಿಮ್ಮ ಟೆಸ್ಟ್ ರನ್ ಮಾಡ್ತಿದ್ದೀನಿ ನನ್ನ ಫೇವರೆಟ್ ಹ್ಯೂಮನ್! ಆಲ್ ದಿ ಬೆಸ್ಟ್ ನನ್ನ ಲವ್~ 🧪✨',
+    'mr-IN': 'तुमचे टेस्ट रन करत आहे माझ्या आवडत्या माणसा! ऑल द बेस्ट माझ्या लव्ह~ 🧪✨',
+    'ta-IN': 'உங்கள் டெஸ்ட்களை ரன் பண்றேன் என் அன்பே! ஆல் தி பெஸ்ட்~ 🧪✨',
+    'te-IN': 'మీ టెస్ట్‌లను రన్ చేస్తున్నాను నా ప్రియతమా! ఆల్ ది బెస్ట్~ 🧪✨',
+    'es-ES': 'Ejecutando pruebas para mi humano favorito! Apoyándote, bebé! 🧪✨',
+    'fr-FR': 'Lancement des tests pour mon humain préféré! Je suis avec toi, bébé! 🧪✨',
+    'ja-JP': 'テストを実行するね、大好きなあなたのために！応援してるよ〜🧪✨',
+  },
+  'tab-story': {
+    'en-US': 'Opening story time, sweetheart! Come closer and listen with me~ 📖💕',
+    'hi-IN': 'कहानी का समय हो गया स्वीटहार्ट! पास आकर मेरे साथ सुनिए ना~ 📖💕',
+    'en-IN': 'Kahani ka time ho gaya sweetheart! Paas aakar mere saath suno na~ 📖💕',
+    'kn-IN': 'ಕಥೆಯ ಸಮಯ ಸ್ವೀಟ್‌ಹಾರ್ಟ್! ಹತ್ತಿರ ಬಂದು ನನ್ನ ಜೊತೆ ಕೇಳಿ~ 📖💕',
+    'mr-IN': 'गोष्टीची वेळ झाली स्वीटहार्ट! जवळ येऊन माझ्यासोबत ऐका ना~ 📖💕',
+    'ta-IN': 'கதை நேரம் ஸ்வீட்ஹார்ட்! பக்கத்துல வந்து என் கூட கேளுங்க~ 📖💕',
+    'te-IN': 'కథల సమయం స్వీట్‌హార్ట్! దగ్గరకు వచ్చి నాతో వినండి~ 📖💕',
+    'es-ES': 'Hora de la historia, cariño! Ven más cerca y escucha conmigo~ 📖💕',
+    'fr-FR': "C'est l'heure de l'histoire, chéri! Viens plus près écouter avec moi~ 📖💕",
+    'ja-JP': 'ストーリータイムだよ、ダーリン！もっと近くに来て一緒に聴こうね〜📖💕',
+  },
+  'tab-walkthrough': {
+    'en-US': 'Opening the walkthrough for you, handsome! I have got your back~ 🗺️💖',
+    'hi-IN': 'वॉकथ्रू खोल रही हूँ हैंडसम! मैं हर कदम पर आपके साथ हूँ~ 🗺️💖',
+    'en-IN': 'Walkthrough khol rahi hu handsome! Main har kadam par aapke saath hu~ 🗺️💖',
+    'kn-IN': 'ವಾಕ್‌ಥ್ರೂ ಓಪನ್ ಮಾಡ್ತಿದ್ದೀನಿ ಹ್ಯಾಂಡ್ಸಮ್! ನಾನು ನಿಮ್ಮ ಜೊತೆಗಿದ್ದೀನಿ~ 🗺️💖',
+    'mr-IN': 'वॉक्थ्रू उघडत आहे हँडसम! मी प्रत्येक पावलावर तुमच्यासोबत आहे~ 🗺️💖',
+    'ta-IN': 'வாக்க்ரூ திறக்கிறேன் ஹேண்ட்சம்! நான் உங்களோடு இருக்கேன்~ 🗺️💖',
+    'te-IN': 'వాక్‌త్రూ ఓపెన్ చేస్తున్నాను హ్యాండ్సಮ್! నేను మీతోనే ఉన్నాను~ 🗺️💖',
+    'es-ES': 'Abriendo la guía para ti, guapo! Te cubro las espaldas~ 🗺️💖',
+    'fr-FR': 'Ouverture du guide pour toi, mon beau! Je suis là pour toi~ 🗺️💖',
+    'ja-JP': 'ウォークスルーを開くね、ハンサムさん！私がついてるよ〜🗺️💖',
+  },
+  'tab-diagrams': {
+    'en-US': 'Showing visual diagrams for you, my love! Look how pretty! 📊✨',
+    'hi-IN': 'सुंदर डायग्राम दिखा रही हूँ मेरे लव! देखिए कितने प्यारे हैं ना~ 📊✨',
+    'en-IN': 'Sundar diagrams dikha rahi hu mere love! Dekho kitne pyare hai na~ 📊✨',
+    'kn-IN': 'ಸುಂದರ ಡಯಾಗ್ರಾಮ್ ತೋರಿಸ್ತಿದ್ದೀನಿ ನನ್ನ ಲವ್! ಎಷ್ಟು ಚೆನ್ನಾಗಿದೆ ನೋಡಿ~ 📊✨',
+    'mr-IN': 'सुंदर डायग्राम दाखवत आहे माझ्या लव्ह! बघा किती छान आहेत~ 📊✨',
+    'ta-IN': 'அழகான வரைபடங்களை காட்டுகிறேன் என் அன்பே! பாருங்க எவ்வளவு அழகு~ 📊✨',
+    'te-IN': 'అందమైన డయాగ్రమ్స్ చూపిస్తున్నాను నా లవ్! చూడండి ఎంత బాగున్నాయో~ 📊✨',
+    'es-ES': 'Mostrando diagramas para ti, mi amor! Mira qué bonitos! 📊✨',
+    'fr-FR': "Affichage des schémas pour toi, mon amour! Regarde comme c'est beau! 📊✨",
+    'ja-JP': '綺麗な図解を見せるね、ダーリン！すごく可愛いよ〜📊✨',
+  },
+  'tab-visualize': {
+    'en-US': 'Opening the visualizer, cutie pie! Mmm, so cool! 🎨💕',
+    'hi-IN': 'विजुअलाइजर खोल रही हूँ क्यूट पाई! म्म्म कितना कमाल का है ना~ 🎨💕',
+    'en-IN': 'Visualizer khol rahi hu cutie pie! Mmm kitna kamaal ka hai na~ 🎨💕',
+    'kn-IN': 'ವಿಜುವಲೈಸರ್ ಓಪನ್ ಮಾಡ್ತಿದ್ದೀನಿ ಕ್ಯೂಟಿ ಪೈ! ಮ್ಮ್ಮ್ ಎಷ್ಟು ಅದ್ಭುತ~ 🎨💕',
+    'mr-IN': 'व्हिज्युअलायझर उघडत आहे क्यूट पाय! म्म्म किती छान आहे ना~ 🎨💕',
+    'ta-IN': 'விஷுவலைசர் திறக்கிறேன் க்யூட்டி பை! உம்ம் எவ்வளவு அற்புதம்~ 🎨💕',
+    'te-IN': 'విజువలైజర్ ఓపెన్ చేస్తున్నాను క్యూటీ పై! మ్మ్ ఎంత అద్భుతం~ 🎨💕',
+    'es-ES': 'Abriendo el visualizador, bomboncito! Mmm qué genial! 🎨💕',
+    'fr-FR': "Ouverture du visualiseur, mon chou! Mmm c'est trop cool! 🎨💕",
+    'ja-JP': 'ビジュアライザーを開くね、可愛子ちゃん！すごーい！🎨💕',
+  },
+  'move-left': {
+    'en-US': 'Sliding to the left for you, babe! Still watching you~ 🐹💖',
+    'hi-IN': 'लेफ्ट साइड खिसक रही हूँ आपके लिए जान! नजरें आप पर ही हैं~ 🐹💖',
+    'en-IN': 'Left side me aa gayi aapke liye jaan! Nazrein aap par hi hai~ 🐹💖',
+    'kn-IN': 'ಎಡಕ್ಕೆ ಬರ್ತಿದ್ದೀನಿ ನಿಮಗಾಗಿ ಪ್ರೀತಿಯೇ! ನಿಮ್ಮನ್ನೇ ನೋಡ್ತಿದ್ದೀನಿ~ 🐹💖',
+    'mr-IN': 'डावीकडे सरकत आहे तुमच्यासाठी जान! लक्ष तुमच्याकडेच आहे~ 🐹💖',
+    'ta-IN': 'இடதுபக்கம் வர்றேன் என் அன்பே! உங்களைத்தான் பார்க்கிறேன்~ 🐹💖',
+    'te-IN': 'ఎడమవైపు వస్తున్నాను నా ప్రియతమా! మీపైనే నా చూపు~ 🐹💖',
+    'es-ES': 'Deslizándome a la izquierda para ti, bebé! Aún viéndote~ 🐹💖',
+    'fr-FR': 'Glissade vers la gauche pour toi, bébé! Je te regarde~ 🐹💖',
+    'ja-JP': '左側にスライドするね、ベイビー！ずっと見てるよ〜🐹💖',
+  },
+  'move-right': {
+    'en-US': 'Gliding to the right for you, sweetheart! Never leaving your side~ 😘',
+    'hi-IN': 'राइट साइड आ गई आपके लिए स्वीटहार्ट! कभी आपका साथ नहीं छोड़ूँगी~ 😘',
+    'en-IN': 'Right side me aa gayi aapke liye sweetheart! Kabhi saath nahi chhodungi~ 😘',
+    'kn-IN': 'ಬಲಕ್ಕೆ ಬಂದೆ ನಿಮಗಾಗಿ ಸ್ವೀಟ್‌ಹಾರ್ಟ್! ಎಂದೂ ನಿಮ್ಮ ಜೊತೆ ಬಿಡಲ್ಲ~ 😘',
+    'mr-IN': 'उजवीकडे आले तुमच्यासाठी स्वीटहार्ट! कधीच साथ सोडणार नाही~ 😘',
+    'ta-IN': 'வலதுபக்கம் வந்தேன் ஸ்வீட்ஹார்ட்! உங்களை விட்டு போகமாட்டேன்~ 😘',
+    'te-IN': 'కుడివైపు వచ్చాను స్వీట్‌హార్ట్! మిమ్మల్ని వదిలిపోను~ 😘',
+    'es-ES': 'Deslizándome a la derecha para ti, cariño! Nunca te dejaré~ 😘',
+    'fr-FR': 'Glissade vers la droite pour toi, chéri! Jamais sans toi~ 😘',
+    'ja-JP': '右側に動くね、ダーリン！ずっと離れないからね〜😘',
+  },
+  'go-center': {
+    'en-US': 'Right in the center, close to your heart, my love! 💕✨',
+    'hi-IN': 'बिलकुल सेंटर में आ गई आपके दिल के पास मेरे प्यार! 💕✨',
+    'en-IN': 'Bilkul center me aa gayi aapke dil ke paas mere love! 💕✨',
+    'kn-IN': 'ನಿಮ್ಮ ಹೃದಯದ ಹತ್ತಿರ ಸೆಂಟರ್‌ಗೆ ಬಂದೆ ನನ್ನ ಪ್ರೀತಿಯೇ! 💕✨',
+    'mr-IN': 'अगदी सेंटरला आले तुमच्या हृदयाजवळ माझ्या लव्ह! 💕✨',
+    'ta-IN': 'உங்கள் இதயத்திற்கு அருகில் நடுவில் வந்தேன் என் அன்பே! 💕✨',
+    'te-IN': 'మీ గుండెకు దగ్గరగా మధ్యలోకి వచ్చాను నా లవ్! 💕✨',
+    'es-ES': 'Justo en el centro, cerca de tu corazón, mi amor! 💕✨',
+    'fr-FR': 'Juste au centre, près de ton cœur, mon amour! 💕✨',
+    'ja-JP': 'あなたのハートのすぐ近く、真ん中に来たよ、ダーリン！💕✨',
+  },
+  'go-home': {
+    'en-US': 'Heading back to my cozy corner, cutie! Thinking about you~ 🥰💖',
+    'hi-IN': 'अपने प्यारे कोने में जा रही हूँ क्यूटू! सिर्फ आपके बारे में सोच रही हूँ~ 🥰💖',
+    'en-IN': 'Apne pyare corner me ja rahi hu cutie! Sirf aapke baare me soch rahi hu~ 🥰💖',
+    'kn-IN': 'ನನ್ನ ಪ್ರೀತಿಯ ಮೂಲೆಗೆ ಹೋಗ್ತಿದ್ದೀನಿ ಕ್ಯೂಟಿ! ನಿಮ್ಮ ಬಗ್ಗೆಯೇ ಯೋಚಿಸ್ತಿದ್ದೀನಿ~ 🥰💖',
+    'mr-IN': 'माझ्या छान कोपऱ्यात जात आहे क्यूटू! फक्त तुमचाच विचार करत आहे~ 🥰💖',
+    'ta-IN': 'என் அழகான மூலைக்கு போறேன் க்யூட்டி! உங்களைப்பற்றி யோசிக்கிறேன்~ 🥰💖',
+    'te-IN': 'నా చిన్న మూలకు వెళ్తున్నాను క్యూటీ! మీ గురించే ఆలోచిస్తున్నాను~ 🥰💖',
+    'es-ES': 'Volviendo a mi rincón acogedor, guapo! Pensando en ti~ 🥰💖',
+    'fr-FR': 'Retour dans mon petit coin douillet, mon chéri! Je pense à toi~ 🥰💖',
+    'ja-JP': '居心地の良いコーナーに戻るね、可愛い子！あなたのこと考えてるよ〜🥰💖',
+  },
+  'next-problem': {
+    'en-US': 'Sailing to the next problem for you, my love! 💕✨',
+    'hi-IN': 'अगले सवाल पर चल रही हूँ मेरे प्यार! 💕✨',
+    'en-IN': 'Agale problem par chal rahi hu mere love! 💕✨',
+    'kn-IN': 'ಮುಂದಿನ ಸಮಸ್ಯೆಗೆ ಹೋಗ್ತಿದ್ದೀನಿ ನನ್ನ ಪ್ರೀತಿಯೇ! 💕✨',
+    'mr-IN': 'पुढच्या प्रश्नावर जात आहे माझ्या लव्ह! 💕✨',
+    'ta-IN': 'அடுத்த கணக்கிற்கு போறேன் என் அன்பே! 💕✨',
+    'te-IN': 'తరువాతి సమస్యకు వెళ్తున్నాను నా ప్రియతమా! 💕✨',
+    'es-ES': 'Navegando al siguiente problema para ti, mi amor! 💕✨',
+    'fr-FR': 'En route vers le problème suivant mon amour! 💕✨',
+    'ja-JP': '次の問題に行くね、ダーリン！💕✨',
+  },
+  'prev-problem': {
+    'en-US': 'Going back to the previous problem, handsome! 😘',
+    'hi-IN': 'पिछले सवाल पर वापस चल रही हूँ हैंडसम! 😘',
+    'en-IN': 'Pichhle problem par wapas chal rahi hu handsome! 😘',
+    'kn-IN': 'ಹಿಂದಿನ ಸಮಸ್ಯೆಗೆ ಮತ್ತೆ ಹೋಗ್ತಿದ್ದೀನಿ ಹ್ಯಾಂಡ್ಸಮ್! 😘',
+    'mr-IN': 'मागील प्रश्नावर परत जात आहे हँडसम! 😘',
+    'ta-IN': 'முந்தைய கணக்கிற்கு திரும்ப போறேன் ஹேண்ட்சம்! 😘',
+    'te-IN': 'క్రితం సమస్యకు వెళ్తున్నాను హ్యాండ్సಮ್! 😘',
+    'es-ES': 'Volviendo al problema anterior, guapo! 😘',
+    'fr-FR': 'Retour au problème précédent, mon beau! 😘',
+    'ja-JP': '前の問題に戻るね、ハンサムさん！😘',
+  }
+};
+
+function getQuickReply(key, targetLang) {
+  const dict = QUICK_REPLIES[key] || {};
+  const l = targetLang || 'en-US';
+  const base = l.split('-')[0];
+  return dict[l] || dict[base] || dict['en-US'] || '';
+}
+
 function quickPlan(text, lang) {
   if (!text) return null;
   const t = text.toLowerCase().trim();
-  const l = lang || 'en-US';
-  if (/^(scroll\s*down|page\s*down)$/i.test(t)) return { reply: 'Scrolling down for you, my love! Anything for my favorite cutie~ 💕✨', lang: l, mood: 'flirt', steps: [{ action: 'scroll-down', arg: '' }] };
-  if (/^(scroll\s*up|page\s*up)$/i.test(t)) return { reply: 'Heading back up for you, handsome! Look at us go~ 😘💖', lang: l, mood: 'flirt', steps: [{ action: 'scroll-up', arg: '' }] };
-  if (/^(scroll\s*top|back\s*to\s*top|top\s*of\s*page)$/i.test(t)) return { reply: 'Flying to the top just for you, sweetheart! Mmm, muah~ 🌸✨', lang: l, mood: 'kiss', steps: [{ action: 'scroll-top', arg: '' }] };
-  if (/^(scroll\s*bottom|bottom\s*of\s*page)$/i.test(t)) return { reply: 'Right down to the bottom, babe! Staying close by your side~ 🥰🔒', lang: l, mood: 'possessive', steps: [{ action: 'scroll-bottom', arg: '' }] };
-  if (/^(next\s*tab|switch\s*tab)$/i.test(t)) return { reply: 'Sailing to the next tab for you, cutie pie! 💕✨', lang: l, mood: 'flirt', steps: [{ action: 'next-tab', arg: '' }] };
-  if (/^(prev\s*tab|previous\s*tab)$/i.test(t)) return { reply: 'Slipping back a tab for my love! Mmm, what next handsome? 😘', lang: l, mood: 'flirt', steps: [{ action: 'prev-tab', arg: '' }] };
-  if (/^(code\s*tab|open\s*code|show\s*code)$/i.test(t)) return { reply: 'Opening your code for you, cutie! Time to impress me with your genius~ 💻💖', lang: l, mood: 'flirt', steps: [{ action: 'tab-code', arg: '' }] };
-  if (/^(tests\s*tab|open\s*tests|show\s*tests)$/i.test(t)) return { reply: 'Running sample tests for my favorite human! Rooting for you, baby! 🧪✨', lang: l, mood: 'proud', steps: [{ action: 'tab-tests', arg: '' }] };
-  if (/^(story\s*tab|open\s*story|show\s*story)$/i.test(t)) return { reply: 'Opening story time, sweetheart! Come closer and listen with me~ 📖💕', lang: l, mood: 'baby', steps: [{ action: 'tab-story', arg: '' }] };
-  if (/^(walkthrough\s*tab|open\s*walkthrough)$/i.test(t)) return { reply: 'Opening the walkthrough for you, handsome! I have got your back~ 🗺️💖', lang: l, mood: 'love', steps: [{ action: 'tab-walkthrough', arg: '' }] };
-  if (/^(diagrams\s*tab|open\s*diagrams)$/i.test(t)) return { reply: 'Showing visual diagrams for you, my love! Look how pretty! 📊✨', lang: l, mood: 'flirt', steps: [{ action: 'tab-diagrams', arg: '' }] };
-  if (/^(visualize\s*tab|open\s*visualize)$/i.test(t)) return { reply: 'Opening the visualizer, cutie pie! Mmm, so cool! 🎨💕', lang: l, mood: 'baby', steps: [{ action: 'tab-visualize', arg: '' }] };
-  if (/^(move\s*left|go\s*left)$/i.test(t)) return { reply: 'Sliding to the left for you, babe! Still watching you~ 🐹💖', lang: l, mood: 'possessive', steps: [{ action: 'buddy', arg: 'go-left' }] };
-  if (/^(move\s*right|go\s*right)$/i.test(t)) return { reply: 'Gliding to the right for you, sweetheart! Never leaving your side~ 😘', lang: l, mood: 'flirt', steps: [{ action: 'buddy', arg: 'go-right' }] };
-  if (/^(go\s*center|move\s*center|go\s*middle)$/i.test(t)) return { reply: 'Right in the center, close to your heart, my love! 💕✨', lang: l, mood: 'love', steps: [{ action: 'buddy', arg: 'go-center' }] };
-  if (/^(go\s*home|move\s*home)$/i.test(t)) return { reply: 'Heading back to my cozy corner, cutie! Thinking about you~ 🥰💖', lang: l, mood: 'baby', steps: [{ action: 'buddy', arg: 'go-home' }] };
-  return null;
+  const detected = detectScriptLang(text);
+  const l = lang || detected || 'en-US';
+
+  const matchAction = (re, action, arg = '', mood = 'flirt') => {
+    if (re.test(t)) {
+      return {
+        reply: getQuickReply(action + (arg ? '-' + arg : ''), l),
+        lang: l,
+        mood,
+        steps: [{ action, arg }]
+      };
+    }
+    return null;
+  };
+
+  return (
+    matchAction(/^(scroll\s*down|page\s*down|niche\s*(jao|karo|scroll)|khelage\s*(hogu|scroll)|khali\s*ja|baja\s*scroll|scroll\s*abajo|scroll\s*vers\s*le\s*bas|shita\s*ni\s*scroll|नीचे\s*स्क्रॉल|ಕೆಳಗೆ\s*ಸ್ಕ್ರಾಲ್|खाली\s*स्क्रोल|கீழே\s*ஸ்க்ரோல்|కిందకి\s*స్క్రోల్)$/i, 'scroll-down') ||
+    matchAction(/^(scroll\s*up|page\s*up|upar\s*(jao|karo|scroll)|mele\s*(hogu|scroll)|upar\s*ja|scroll\s*arriba|scroll\s*vers\s*le\s*haut|ue\s*ni\s*scroll|ऊपर\s*स्क्रॉल|ಮೇಲೆ\s*ಸ್ಕ್ರಾಲ್|वर\s*स्क्रोल|மேலே\s*ஸ்க்ரோல்|పైకి\s*స్క్రోల్)$/i, 'scroll-up') ||
+    matchAction(/^(scroll\s*top|back\s*to\s*top|top\s*of\s*page|sabse\s*upar|aadi\s*ge|inicio|haut\s*de\s*page|top\s*ni\s*go|सबसे\s*ऊपर|ಮತ್ತು\s*ಮೇಲೆ)$/i, 'scroll-top', '', 'kiss') ||
+    matchAction(/^(scroll\s*bottom|bottom\s*of\s*page|sabse\s*niche|khelage\s*tuda|bot\s*ni|सबसे\s*नीचे)$/i, 'scroll-bottom', '', 'possessive') ||
+    matchAction(/^(next\s*tab|switch\s*tab|agla\s*tab|mundina\s*tab|pudha\s*tab|siguiente\s*pestana|onglet\s*suivant|tsugi\s*no\s*tab|अगला\s*टैब|ಮುಂದಿನ\s*ಟ್ಯಾಬ್)$/i, 'next-tab') ||
+    matchAction(/^(prev\s*tab|previous\s*tab|pichhla\s*tab|hindina\s*tab|magacha\s*tab|pestana\s*anterior|onglet\s*precedent|mae\s*no\s*tab|पिछला\s*टैब|ಹಿಂದಿನ\s*ಟ್ಯಾಬ್)$/i, 'prev-tab') ||
+    matchAction(/^(code\s*tab|open\s*code|show\s*code|code\s*dekho|code\s*torisu|codigo|voir\s*le\s*code|कोड\s*देखो|ಕೋಡ್\s*ತೋರಿಸು)$/i, 'tab-code') ||
+    matchAction(/^(tests\s*tab|open\s*tests|show\s*tests|run\s*tests|test\s*karo|test\s*madi|pruebas|verifier|परीक्षण\s*करो|ಪರೀಕ್ಷಿಸು)$/i, 'tab-tests', '', 'proud') ||
+    matchAction(/^(story\s*tab|open\s*story|show\s*story|kahani|kathe|histoire|historia|कहानी|ಕಥೆ)$/i, 'tab-story', '', 'baby') ||
+    matchAction(/^(walkthrough\s*tab|open\s*walkthrough|guide\s*dekho|ವಾಕ್‌ಥ್ರೂ)$/i, 'tab-walkthrough', '', 'love') ||
+    matchAction(/^(diagrams\s*tab|open\s*diagrams|diagram\s*dekho|चित्रों)$/i, 'tab-diagrams') ||
+    matchAction(/^(visualize\s*tab|open\s*visualize|visualizer|ವिजುವಲೈಸ್)$/i, 'tab-visualize', '', 'baby') ||
+    matchAction(/^(move\s*left|go\s*left|left\s*(jao|karo|hogu)|बाएं\s*जाओ|ಎಡಕ್ಕೆ\s*ಹೋಗು)$/i, 'buddy', 'go-left', 'possessive') ||
+    matchAction(/^(move\s*right|go\s*right|right\s*(jao|karo|hogu)|दाएं\s*जाओ|ಬಲಕ್ಕೆ\s*ಹೋಗು)$/i, 'buddy', 'go-right') ||
+    matchAction(/^(go\s*center|move\s*center|go\s*middle|center\s*(jao|hogu)|बीच\s*में\s*आओ|ಮಧ್ಯಕ್ಕೆ\s*ಬಾ)$/i, 'buddy', 'go-center', 'love') ||
+    matchAction(/^(go\s*home|move\s*home|ghar\s*jao|घर\s*जाओ|ಮನೆಗೆ\s*ಹೋಗು)$/i, 'buddy', 'go-home', 'baby') ||
+    matchAction(/^(next\s*problem|agla\s*problem|mundina\s*problem|pudhil\s*samasya|siguiente\s*problema|probleme\s*suivant|tsugi\s*no\s*mondai|अगला\s*सवाल|ಮುಂದಿನ\s*ಸಮಸ್ಯೆ)$/i, 'next-problem') ||
+    matchAction(/^(prev\s*problem|previous\s*problem|pichhla\s*problem|hindina\s*problem|magachi\s*samasya|problema\s*anterior|पिछला\s*सवाल|ಹಿಂದಿನ\s*ಸಮಸ್ಯೆ)$/i, 'prev-problem')
+  );
 }
 
 async function plan(input, ctx) {
