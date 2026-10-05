@@ -99,6 +99,7 @@ function isPalindrome(s) {
 | [Skibidus and Ohio](https://codeforces.com/problemset/problem/2065/B) | `Codeforces` | `800` | `skibidusAndOhio.js` | Key algorithmic application from Day 2026-09-30. |
 | [Delete from the Left](https://codeforces.com/problemset/problem/1005/B) | `Codeforces` | `900` | `deleteFromTheLeft.js` | Key algorithmic application from Day 2026-10-02. |
 | [Move Brackets](https://codeforces.com/problemset/problem/1374/C) | `Codeforces` | `1000` | `moveBrackets.js` | Key algorithmic application from Day 2026-10-04. |
+| [Lecture](https://codeforces.com/problemset/problem/499/B) | `Codeforces` | `1000` | `lecture.js` | Key algorithmic application from Day 2026-10-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
