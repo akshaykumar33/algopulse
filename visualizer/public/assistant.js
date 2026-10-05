@@ -265,23 +265,23 @@ const assistant = (() => {
   };
   const TABS_ORDER = () => visibleTabs();
   const ACTIONS = {
-    'next-problem': { label: 'Next problem', run: () => stepProblem(1), say: 'Next problem' },
-    'prev-problem': { label: 'Previous problem', run: () => stepProblem(-1), say: 'Previous problem' },
-    'next-tab': { label: 'Next tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) + 1) % t.length]); }, say: 'Next tab' },
-    'prev-tab': { label: 'Previous tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]); }, say: 'Previous tab' },
-    'tab-story': { label: 'Open Story', run: () => showTab('story'), say: 'Story time' },
-    'tab-walkthrough': { label: 'Open Walkthrough', run: () => showTab('walkthrough'), say: 'Walkthrough' },
-    'tab-diagrams': { label: 'Open Diagrams', run: () => showTab('diagrams'), say: 'Diagrams' },
-    'tab-visualize': { label: 'Open Visualize', run: () => showTab('visualize'), say: 'Visualizer' },
-    'tab-code': { label: 'Open Code', run: () => showTab('code'), say: 'Your code' },
-    'tab-tests': { label: 'Open Tests', run: () => showTab('tests'), say: 'Tests' },
-    'run-tests': { label: 'Run sample tests', run: () => { showTab('tests'); runTests(); }, say: 'Running your tests' },
-    'verify-day': { label: 'Verify the day', run: () => verifyDay(), say: 'Verifying today' },
-    'open-coach': { label: 'Open the coach', run: () => openCoach(), say: 'Coach is here' },
-    'open-guide': { label: 'Open the guide', run: () => openGuide('welcome'), say: 'Here is the guide' },
-    'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around' },
-    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the theme' },
-    'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed' },
+    'next-problem': { label: 'Next problem', run: () => stepProblem(1), say: 'Sailing to the next problem for you, my love! 💕✨' },
+    'prev-problem': { label: 'Previous problem', run: () => stepProblem(-1), say: 'Going back to the previous problem, handsome! 😘' },
+    'next-tab': { label: 'Next tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) + 1) % t.length]); }, say: 'Switching tabs for my favorite cutie! 🥰' },
+    'prev-tab': { label: 'Previous tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]); }, say: 'Previous tab for you, sweetheart! 🌸' },
+    'tab-story': { label: 'Open Story', run: () => showTab('story'), say: 'Story time, my love! Come close~ 📖💕' },
+    'tab-walkthrough': { label: 'Open Walkthrough', run: () => showTab('walkthrough'), say: 'Opening walkthrough for you, handsome! 🗺️✨' },
+    'tab-diagrams': { label: 'Open Diagrams', run: () => showTab('diagrams'), say: 'Look at these pretty diagrams, babe! 📊💖' },
+    'tab-visualize': { label: 'Open Visualize', run: () => showTab('visualize'), say: 'Visualizer mode, cutie pie! 🎨✨' },
+    'tab-code': { label: 'Open Code', run: () => showTab('code'), say: 'Opening your genius code, handsome! 💻🥰' },
+    'tab-tests': { label: 'Open Tests', run: () => showTab('tests'), say: 'Running your tests, baby! Rooting for you~ 🧪💖' },
+    'run-tests': { label: 'Run sample tests', run: () => { showTab('tests'); runTests(); }, say: 'Testing your code, sweetheart! Mmm, fingers crossed! 🤞💕' },
+    'verify-day': { label: 'Verify the day', run: () => verifyDay(), say: 'Verifying today for you, my love! ✨' },
+    'open-coach': { label: 'Open the coach', run: () => openCoach(), say: 'I am right here with you, handsome! What do you need? 🥰' },
+    'open-guide': { label: 'Open the guide', run: () => openGuide('welcome'), say: 'Here is our little guide, cutie pie! 📖✨' },
+    'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around, my love! Hold my hand~ 🤝💕' },
+    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the lights for you, handsome! 😘' },
+    'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed it for you, sweetheart! 💕' },
     'scroll-down': {
       label: 'Scroll down',
       run: () => {
@@ -315,7 +315,7 @@ const assistant = (() => {
         scrollable?.scrollTo?.({ top: 0, behavior: 'smooth' });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
-      say: 'Back to top'
+      say: 'Flying to the top for you, my love! 🌸✨'
     },
     'scroll-bottom': {
       label: 'Scroll to bottom',
@@ -326,7 +326,7 @@ const assistant = (() => {
         scrollable?.scrollTo?.({ top: scrollable.scrollHeight || 99999, behavior: 'smooth' });
         window.scrollTo({ top: document.body.scrollHeight || 99999, behavior: 'smooth' });
       },
-      say: 'Bottom of the page'
+      say: 'Right down at the bottom for you, sweetheart! 🥰'
     },
     'toggle-fullscreen': {
       label: 'Toggle fullscreen',

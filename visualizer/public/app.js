@@ -1481,7 +1481,7 @@ async function runTests() {
     if (!allPass) {
       const failed = res.results.filter((r) => r.verdict !== 'AC').length;
       window.mascot?.react('sad', 1000);
-      window.mascot?.say(`${failed} test${failed > 1 ? 's' : ''} failed. We'll fix it together!`, 3500);
+      window.mascot?.say(`Aww, ${failed} test${failed > 1 ? 's' : ''} missed sweetheart... Don't worry handsome, we'll fix it together! 😘💕`, 3800);
     }
     if (allPass && source === 'attempt') celebrate();
   } catch (err) {
@@ -1533,7 +1533,7 @@ async function runPlayground(e) {
 
 function celebrate() {
   window.mascot?.feel?.('dance');
-  window.mascot?.say('All green! Happy dance!', 3000);
+  window.mascot?.say('Mmm, all green handsome! You are an absolute genius! Muah! 😘🎉💖', 3500);
   if (reducedMotion.matches || !window.confetti) return;
   confetti({
     particleCount: 90,
