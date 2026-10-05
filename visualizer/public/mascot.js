@@ -72,9 +72,16 @@
             <span class="mascot-layer mascot-dir"></span>
             <span class="mascot-layer mascot-react"></span>
           </span>
-        </span>
-        <span class="mascot-shadow" aria-hidden="true"></span>
       </div>`;
+    if (document.querySelector('.boot:not(.is-done)')) {
+      el.classList.add('is-booting');
+      const bootPoll = setInterval(() => {
+        if (!document.querySelector('.boot:not(.is-done)')) {
+          clearInterval(bootPoll);
+          el.classList.remove('is-booting');
+        }
+      }, 100);
+    }
     document.body.append(el);
 
     // Character: hamster (default) or bunny, remembered per browser.
@@ -151,7 +158,7 @@
     function place(x, y, persist = false) {
       const r = size();
       const nx = Math.min(Math.max(12, x), innerWidth - r.width - 12);
-      const ny = Math.min(Math.max(80, y), innerHeight - r.height - 16);
+      const ny = Math.min(Math.max(95, y), innerHeight - r.height - 16);
       el.style.left = `${nx}px`;
       el.style.top = `${ny}px`;
       if (persist) save({ x: nx / innerWidth, y: ny / innerHeight });
@@ -344,11 +351,11 @@
       crying: 'cry', weep: 'cry', weeping: 'cry', sob: 'cry', sobbing: 'cry',
       droop: 'sad', depressed: 'sad', gloomy: 'sad', sorrow: 'sad', upset: 'sad',
       mad: 'angry', grumpy: 'angry', furious: 'angry',
-      flirt: 'flirt', flirty: 'flirt', flirting: 'flirt', tease: 'flirt', teasing: 'flirt',
+      flirt: 'flirt', flirty: 'flirt', flirting: 'flirt', tease: 'flirt', teasing: 'flirt', seductive: 'flirt', sexy: 'flirt', romantic: 'flirt', charming: 'flirt',
       possessive: 'possessive', jealous: 'possessive', clingy: 'possessive', mine: 'possessive',
       pout: 'pout', pouting: 'pout', hmph: 'pout',
-      kiss: 'kiss', kisses: 'kiss', kissing: 'kiss', muah: 'kiss', pappi: 'kiss', chumma: 'kiss',
-      baby: 'baby', cutie: 'baby', cute: 'baby', adorable: 'baby',
+      kiss: 'kiss', kisses: 'kiss', kissing: 'kiss', muah: 'kiss', pappi: 'kiss', chumma: 'kiss', hugs: 'kiss', cuddle: 'kiss',
+      baby: 'baby', cutie: 'baby', cute: 'baby', adorable: 'baby', bubbly: 'baby', bublie: 'baby', bubly: 'baby', sweet: 'baby',
       curious: 'think', thinking: 'think', ponder: 'think', pondering: 'think', puzzle: 'think', confused: 'think',
       sleeping: 'sleepy', tired: 'sleepy', yawn: 'sleepy', yawning: 'sleepy', nap: 'sleepy',
       blush: 'shy', blushing: 'shy', bashful: 'shy', embarrassed: 'shy',
@@ -479,19 +486,39 @@
         squash.animate([{ transform: 'none' }, { transform: 'translateY(120%) scale(0.6)', offset: 0.25 }, { transform: 'translateY(120%) scale(0.6)', offset: 0.75 }, { transform: 'none' }], { duration: w === 'peek' ? 1600 : 3000, easing: 'ease-in-out' });
         return timers.push(setTimeout(() => emote('giggle'), w === 'peek' ? 1200 : 2600));
       }
+      const currentLeft = r.left || (innerWidth - r.width - 24);
+      const currentTop = r.top || (innerHeight - r.height - 96);
+      const targetLeft = Math.max(16, Math.min(innerWidth - r.width - 16, currentLeft));
+      const targetTop = Math.max(70, Math.min(innerHeight - r.height - 16, currentTop));
+
       const spots = {
-        'go-left': [16, r.top],
-        'go-right': [innerWidth - r.width - 16, r.top],
-        'go-top': [r.left, 80],
-        'go-bottom': [r.left, innerHeight - r.height - 16],
+        'left': [16, targetTop],
+        'go-left': [16, targetTop],
+        'right': [innerWidth - r.width - 16, targetTop],
+        'go-right': [innerWidth - r.width - 16, targetTop],
+        'top': [targetLeft, 80],
+        'up': [targetLeft, 80],
+        'go-top': [targetLeft, 80],
+        'go-up': [targetLeft, 80],
+        'bottom': [targetLeft, innerHeight - r.height - 16],
+        'down': [targetLeft, innerHeight - r.height - 16],
+        'go-bottom': [targetLeft, innerHeight - r.height - 16],
+        'go-down': [targetLeft, innerHeight - r.height - 16],
+        'center': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'centre': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'middle': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
         'go-center': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'go-centre': [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'home': [innerWidth - r.width - 24, innerHeight - r.height - 96],
         'go-home': [innerWidth - r.width - 24, innerHeight - r.height - 96],
         'come-here': pointer ? [pointer.x - r.width / 2 + 60, pointer.y - r.height / 2] : [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
+        'come-closer': pointer ? [pointer.x - r.width / 2 + 60, pointer.y - r.height / 2] : [(innerWidth - r.width) / 2, (innerHeight - r.height) / 2],
       };
-      const spot = spots[w] || spots[`go-${w}`];
+      const cleanKey = w.toLowerCase().trim().replace(/^(go|move|fly|walk|slide|head|to|the|\s)+/g, '').replace(/\s+/g, '-');
+      const spot = spots[w] || spots[`go-${w}`] || spots[cleanKey] || spots[`go-${cleanKey}`];
       if (!spot) return;
       glide(spot[0], spot[1]);
-      timers.push(setTimeout(() => emote('happy'), 700));
+      timers.push(setTimeout(() => emote('happy'), 500));
     }
 
     /* ---- idle life: looks around, yawns, naps; wakes when you come back ---- */

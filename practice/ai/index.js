@@ -81,7 +81,49 @@ function isRetryable(err) {
   return true;
 }
 
-async function complete({ system = '', prompt, schema = null, maxTokens, cache = true, thinking }) {
+// Latency-bound calls: start the best model, and if it has not answered within STAGGER_MS
+// also start the next one; the first answer wins, so a slow or overloaded top model
+// costs at most a short head start instead of its whole timeout.
+const STAGGER_MS = 1500;
+function staggered(models, ask, fail) {
+  return new Promise((resolve, reject) => {
+    let next = 0;
+    let running = 0;
+    let done = false;
+    const launch = () => {
+      if (done || next >= models.length) {
+        if (!done && running === 0) reject(new Error('no model answered'));
+        return;
+      }
+      const candidate = models[next++];
+      running++;
+      let movedOn = false;
+      const timer = setTimeout(() => {
+        movedOn = true;
+        launch();
+      }, STAGGER_MS);
+      ask(candidate).then(
+        (text) => {
+          clearTimeout(timer);
+          if (done) return;
+          done = true;
+          resolve({ text, candidate });
+        },
+        (err) => {
+          clearTimeout(timer);
+          running--;
+          if (done) return;
+          fail(candidate, err);
+          if (!movedOn) launch();
+          else if (running === 0 && next >= models.length) reject(err);
+        }
+      );
+    };
+    launch();
+  });
+}
+
+async function complete({ system = '', prompt, schema = null, maxTokens, cache = true, thinking, timeoutMs }) {
   const provider = activeProvider();
   if (!provider || !provider.isConfigured()) {
     throw new Error('No AI provider is set up. Open the Guide → "Choose your AI" to add a key (or start Ollama).');
@@ -100,10 +142,26 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
 
   for (const curProvider of providerLadder) {
     const curModel = curProvider.getModel();
-    const modelLadder = [curModel, ...curProvider.fallbacks().filter((m) => m !== curModel)];
+    const full = [...new Set([curModel, ...curProvider.fallbacks()])];
+    const awake = full.filter((m) => (restingUntil.get(`${curProvider.id}:${m}`) || 0) < Date.now());
+    const modelLadder = awake.length ? awake : full;
+    const ask = (candidate) => curProvider.complete({ system, prompt, schema, maxTokens, model: candidate, thinking, ...(timeoutMs ? { timeoutMs } : {}) });
+    const fail = (candidate, err) => {
+      allTried.push(`${curProvider.id}:${candidate}: ${err.message}`);
+      rest(`${curProvider.id}:${candidate}`, err);
+    };
+    if (timeoutMs) {
+      try {
+        const { text, candidate } = await staggered(modelLadder, ask, fail);
+        if (allTried.length) console.warn(`[ai] ${model} unavailable; answered by ${curProvider.id}:${candidate}`);
+        return { text, provider: curProvider.id, model: candidate, cached: false, ...(allTried.length ? { fallbackFrom: `${provider.id}:${model}`, tried: allTried } : {}) };
+      } catch {
+        continue;
+      }
+    }
     for (const candidate of modelLadder) {
       try {
-        const text = await curProvider.complete({ system, prompt, schema, maxTokens, model: candidate, thinking });
+        const text = await ask(candidate);
         fs.mkdirSync(CACHE_DIR, { recursive: true });
         fs.writeFileSync(file, JSON.stringify({ provider: curProvider.id, model: candidate, at: new Date().toISOString(), text }), 'utf-8');
         if (allTried.length) console.warn(`[ai] ${model} failed; answered by fallback ${curProvider.id}:${candidate}`);
@@ -115,7 +173,7 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
           ...(allTried.length ? { fallbackFrom: `${provider.id}:${model}`, tried: allTried } : {}),
         };
       } catch (err) {
-        allTried.push(`${curProvider.id}:${candidate}: ${err.message}`);
+        fail(candidate, err);
         // If this provider has exhausted credits or has an invalid key, don't try its other models — move to the next provider
         if (/credit_balance_exhausted|no credits remaining|credit balance|401|invalid.*key/i.test(err.message)) {
           break;
@@ -140,7 +198,7 @@ function rest(model, err) {
   const m = String(err.message);
   const hinted = m.match(/retry in ([\d.]+)s/i);
   const quota = /quota|resource_exhausted|429/i.test(m);
-  const ms = hinted ? Math.min(Number(hinted[1]) * 1000, 30 * 60 * 1000) : quota ? 10 * 60 * 1000 : 60 * 1000;
+  const ms = hinted ? Math.min(Number(hinted[1]) * 1000, 30 * 60 * 1000) : quota ? 10 * 60 * 1000 : 15 * 60 * 1000;
   restingUntil.set(model, Date.now() + ms);
 }
 
@@ -166,24 +224,34 @@ async function ladder(models, run) {
 async function listen({ prompt, schema, audio }) {
   if (!PROVIDERS.gemini.isConfigured()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
   const g = PROVIDERS.gemini;
-  const full = ['gemini-2.5-flash', 'gemini-flash-lite-latest', 'gemini-3.6-flash'];
-  const models = [env('GEMINI_LISTEN_MODEL'), ...full, ...g.fallbacks()].filter(Boolean);
-  return ladder(models, async (model) => ({
-    text: await g.generate({
-      model,
-      parts: [{ inlineData: { mimeType: audio.mime, data: audio.data } }, { text: prompt }],
-      schema,
-      maxTokens: 2000,
-      thinking: 'low',
-      timeoutMs: 30000,
-    }),
-  }));
+  const models = [env('GEMINI_LISTEN_MODEL'), g.getModel(), ...g.fallbacks()].filter(Boolean);
+  const unique = [...new Set(models)];
+  const awake = unique.filter((m) => (restingUntil.get(m) || 0) < Date.now());
+  const tried = [];
+  const ask = (model) => g.generate({
+    model,
+    parts: [{ inlineData: { mimeType: audio.mime, data: audio.data } }, { text: prompt }],
+    schema,
+    maxTokens: 2000,
+    thinking: 'low',
+    timeoutMs: 10000,
+  });
+  const fail = (model, err) => {
+    tried.push(`${model}: ${err.message}`);
+    rest(model, err);
+  };
+  try {
+    const { text, candidate } = await staggered(awake.length ? awake : unique, ask, fail);
+    return { text, model: candidate, ...(tried.length ? { tried } : {}) };
+  } catch {
+    throw new Error(`every listening model failed — ${tried.join(' | ')}`);
+  }
 }
 
 // Text in, 24 kHz PCM out, cached on disk so repeated lines play instantly.
 async function speech({ text, voice, style }) {
   if (!canHear()) throw new Error('The AI voice needs an API key (Gemini or OpenAI).');
-  const key = cacheKey(['tts', voice, style, text]);
+  const key = cacheKey(['tts-v2', voice, style, text]);
   const file = path.join(TTS_DIR, `${key}.json`);
   if (fs.existsSync(file)) return { ...JSON.parse(fs.readFileSync(file, 'utf-8')), cached: true };
 

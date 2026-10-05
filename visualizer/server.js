@@ -15,6 +15,7 @@ const rag = require('../practice/ai/rag');
 const agent = require('../practice/ai/agent');
 const web = require('../practice/ai/web');
 const report = require('../practice/ai/report');
+const localVoice = require('../practice/ai/localVoice');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
@@ -200,6 +201,21 @@ const routes = {
   'GET /api/ai/status': () => ai.status(),
 
   // The buddy's AI voice: text -> 24 kHz mono PCM (base64), cached on disk.
+  'POST /api/voice/local': async (req) => {
+    const { text, lang = 'en-US', mood = '' } = await readJsonBody(req);
+    if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
+    if (!/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(lang) || !/^[a-z]{0,12}$/.test(mood)) throw new HttpError(400, 'Bad language');
+    return localVoice.speak(text.trim(), lang, mood).catch((err) => {
+      throw new HttpError(503, err.message);
+    });
+  },
+
+  'POST /api/voice/warm': async (req) => {
+    const { lang = 'en-US' } = await readJsonBody(req);
+    localVoice.warm(String(lang));
+    return localVoice.status();
+  },
+
   'POST /api/voice/speak': async (req) => {
     const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
@@ -416,6 +432,7 @@ server.on('error', (err) => {
 });
 
 server.listen(PORT, HOST, () => {
+  localVoice.start();
   const s = ai.status();
   console.log(`\n  AlgoPulse Studio → http://localhost:${PORT}`);
   console.log(`  AI: ${s.active ? `${s.active.label} · ${s.active.model}${s.active.ready ? '' : ' (not ready)'}` : 'off — see the Guide in the app'}\n`);
