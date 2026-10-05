@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[3,9,20,null,null,15,7]",
+    "output": "2"
+  },
+  {
+    "input": "[2,null,3,null,4,null,5,null,6]",
+    "output": "5"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"Hello\",\"Alaska\",\"Dad\",\"Peace\"]",
+    "output": "[\"Alaska\",\"Dad\"]"
+  },
+  {
+    "input": "[\"omk\"]",
+    "output": "[]"
+  },
+  {
+    "input": "[\"adsdf\",\"sfd\"]",
+    "output": "[\"adsdf\",\"sfd\"]"
+  }
+]
