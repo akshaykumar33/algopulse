@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"abc\",\"car\",\"ada\",\"racecar\",\"cool\"]",
+    "output": "\"ada\""
+  },
+  {
+    "input": "[\"notapalindrome\",\"racecar\"]",
+    "output": "\"racecar\""
+  },
+  {
+    "input": "[\"def\",\"ghi\"]",
+    "output": "\"\""
+  }
+]

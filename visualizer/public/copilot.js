@@ -265,8 +265,8 @@ const copilot = (() => {
 
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
-    const detected = detectScriptLang(text) || (!opts.ai && /[a-z]/i.test(text) ? 'en-US' : null);
-    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(pickLang(detected, lang) || lastLang || A().voice.lang() || 'en-US');
+    const detected = detectScriptLang(text);
+    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || pickLang(detected, lang) || lastLang || A().voice.lang() || 'en-US');
     if (A().load().talkBack === false || !window.buddyVoice) {
       say('pip', text);
       if (mood) pet()?.react(mood, 1200);

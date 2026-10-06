@@ -20,7 +20,9 @@ const localVoice = require('../practice/ai/localVoice');
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
 const HOST = '127.0.0.1';
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR = fs.existsSync(path.join(REPO_ROOT, 'studio-ui', 'dist'))
+  ? path.join(REPO_ROOT, 'studio-ui', 'dist')
+  : path.join(__dirname, 'public');
 const MAX_BODY = 2 * 1024 * 1024; // custom inputs can be large
 
 const MIME = {

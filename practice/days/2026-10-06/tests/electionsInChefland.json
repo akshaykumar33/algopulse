@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n51 40 9\n30 30 40\n50 50 1\n60 20 20\n",
+    "output": "A\nNOTA\nNOTA\nA\n"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"flower\",\"flow\",\"flight\"]",
+    "output": "\"fl\""
+  },
+  {
+    "input": "[\"dog\",\"racecar\",\"car\"]",
+    "output": "\"\""
+  }
+]
