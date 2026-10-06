@@ -10,6 +10,10 @@ const { PLATFORMS, AUTH_DIR } = require('./config');
 const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
 const ccEngine = require('./platforms/codechef');
+const { syncSessionsFromEnv } = require('./envAuth');
+
+// Auto-sync session keys from .env into .auth session files
+syncSessionsFromEnv();
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -75,6 +79,14 @@ async function authenticatePlatform(platformKey) {
   try {
     await page.goto(plat.loginUrl, { waitUntil: 'domcontentloaded', timeout: 45000 });
 
+    // Bring browser window to foreground on Windows
+    if (process.platform === 'win32') {
+      try {
+        const { exec } = require('child_process');
+        exec('powershell -Command "$w = New-Object -ComObject wscript.shell; $w.AppActivate(\'Chrome\'); $w.AppActivate(\'CodeChef\')"', () => {});
+      } catch {}
+    }
+
     console.log(`[auth] Waiting for user to complete login in the browser window ...`);
     console.log(`[auth] (Press Ctrl+C in terminal if you wish to cancel)\n`);
 
@@ -96,7 +108,7 @@ async function authenticatePlatform(platformKey) {
           const url = page.url();
           if (!/codechef\.com\/login/i.test(url)) {
             const cookies = await context.cookies();
-            const authToken = cookies.find((c) => /authtoken|remember_me/i.test(c.name) && c.value);
+            const authToken = cookies.find((c) => /authtoken|remember_me|^sess/i.test(c.name) && c.value);
             if (authToken) check = { authenticated: true };
           }
         }

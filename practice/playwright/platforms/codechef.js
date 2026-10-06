@@ -13,22 +13,18 @@ async function checkAuth(page) {
     return { authenticated: false };
   }
 
-  // 1. Check for logged-in user cookies
-  const cookies = await page.context().cookies('https://www.codechef.com');
-  const hasAuthToken = cookies.some((c) => /authtoken|remember_me/i.test(c.name) && c.value);
+  const cookies = await page.context().cookies('https://www.codechef.com').catch(() => []);
+  const authTokenCookie = cookies.find((c) => /authtoken|remember_me|user_id|^sess/i.test(c.name) && c.value);
+  if (authTokenCookie) {
+    return { authenticated: true };
+  }
 
-  // 2. Check for user profile or logout element on page
   const profile = await page.$('.user-name, [data-testid="user-profile-button"], a[href*="/users/"], a[href*="/logout"], button:has-text("Logout")');
   if (profile) {
     const handle = await profile.textContent().catch(() => null);
     if (handle && handle.trim() && !/login|sign in/i.test(handle)) {
       return { authenticated: true, handle: handle.trim() };
     }
-    return { authenticated: true };
-  }
-
-  if (hasAuthToken) {
-    return { authenticated: true };
   }
 
   return { authenticated: false };
@@ -141,6 +137,13 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
     { timeout: 15000 }
   );
   await submitBtn.click();
+
+  // Check if login modal dialog popped up
+  await page.waitForTimeout(1000);
+  const loginModal = await page.$('.MuiDialog-root, [class*="loginModal"], div:has-text("Please login to continue")');
+  if (loginModal) {
+    throw new Error('CodeChef session unauthenticated: Login modal appeared upon submitting.');
+  }
 
   // 6. Monitor Verdict
   console.log(`    [CodeChef] Waiting for verdict ...`);
