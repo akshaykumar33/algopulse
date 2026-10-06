@@ -93,8 +93,12 @@ async function authenticatePlatform(platformKey) {
           const session = cookies.find((c) => /leetcode_session/i.test(c.name) && c.value);
           if (session) check = { authenticated: true };
         } else if (platformKey === 'codechef') {
-          const session = cookies.find((c) => /session|user_id/i.test(c.name) && c.value);
-          if (session) check = { authenticated: true };
+          const url = page.url();
+          if (!/codechef\.com\/login/i.test(url)) {
+            const cookies = await context.cookies();
+            const authToken = cookies.find((c) => /authtoken|remember_me/i.test(c.name) && c.value);
+            if (authToken) check = { authenticated: true };
+          }
         }
 
         // Platform-specific engine check
