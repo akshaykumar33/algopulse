@@ -14,7 +14,7 @@
   npm run remind:install -- -Remove
 #>
 param(
-    [string]$Time = '12:00',
+    [string]$Time = '00:00',
     [switch]$Remove
 )
 
