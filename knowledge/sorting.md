@@ -86,6 +86,9 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Medium Number](https://codeforces.com/problemset/problem/1760/A) | `Codeforces` | `800` | `mediumNumber.js` | Key algorithmic application from Day 2026-09-30. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
 | [Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) | `Codeforces` | `900` | `arrayCloningTechnique.js` | Key algorithmic application from Day 2026-10-03. |
+| [Shooting](https://codeforces.com/problemset/problem/1216/B) | `Codeforces` | `900` | `shooting.js` | Key algorithmic application from Day 2026-10-06. |
+| [Avoiding Zero](https://codeforces.com/problemset/problem/1427/A) | `Codeforces` | `900` | `avoidingZero.js` | Key algorithmic application from Day 2026-10-06. |
+| [Currency System in Geraldion](https://codeforces.com/problemset/problem/560/A) | `Codeforces` | `1000` | `currencySystemInGeraldion.js` | Key algorithmic application from Day 2026-10-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -82,6 +82,7 @@ function constructMatrix(n, m) {
 | [Preparing for the Exam](https://codeforces.com/problemset/problem/2051/C) | `Codeforces` | `1000` | `preparingForTheExam.js` | Key algorithmic application from Day 2026-10-03. |
 | [Perpendicular Segments](https://codeforces.com/problemset/problem/2026/A) | `Codeforces` | `900` | `perpendicularSegments.js` | Key algorithmic application from Day 2026-10-05. |
 | [K-divisible Sum](https://codeforces.com/problemset/problem/1476/A) | `Codeforces` | `1000` | `kDivisibleSum.js` | Key algorithmic application from Day 2026-10-05. |
+| [Construct the String](https://codeforces.com/problemset/problem/1335/B) | `Codeforces` | `900` | `constructTheString.js` | Key algorithmic application from Day 2026-10-06. |
 
 ---
 

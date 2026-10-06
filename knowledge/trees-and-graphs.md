@@ -108,6 +108,7 @@ function dfsIterative(start, adj, n) {
 | [Gold Rush](https://codeforces.com/problemset/problem/1829/D) | `Codeforces` | `1000` | `goldRush.js` | Key algorithmic application from Day 2026-10-02. |
 | [Distance between two nodes](https://www.codechef.com/problems/DIST2NODES) | `CodeChef` | `Easy` | `distanceBetweenTwoNodes.js` | Single-query shortest distance on a tree via iterative BFS / shortest path traversal. |
 | [LCA of two nodes](https://www.codechef.com/problems/LCA2NODES) | `CodeChef` | `Easy` | `lcaOfTwoNodes.js` | Root tree at node 1 via BFS, then equalize depths and lift node pointers to find Lowest Common Ancestor. |
+| [Party](https://codeforces.com/problemset/problem/115/A) | `Codeforces` | `900` | `party.js` | Key algorithmic application from Day 2026-10-06. |
 
 ---
 

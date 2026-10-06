@@ -124,6 +124,10 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Left and Down](https://codeforces.com/problemset/problem/2125/B) | `Codeforces` | `900` | `leftAndDown.js` | Key algorithmic application from Day 2026-10-05. |
 | [K-divisible Sum](https://codeforces.com/problemset/problem/1476/A) | `Codeforces` | `1000` | `kDivisibleSum.js` | Key algorithmic application from Day 2026-10-05. |
 | [Pyramid of Bricks](https://www.codechef.com/problems/PYRAMID) | `CodeChef` | `Easy` | `pyramidOfBricks.js` | Closed-form quadratic solver for triangular sum k*(k+1)/2 <= N. |
+| [Sasha and His Trip](https://codeforces.com/problemset/problem/1113/A) | `Codeforces` | `900` | `sashaAndHisTrip.js` | Key algorithmic application from Day 2026-10-06. |
+| [Avoiding Zero](https://codeforces.com/problemset/problem/1427/A) | `Codeforces` | `900` | `avoidingZero.js` | Key algorithmic application from Day 2026-10-06. |
+| [Rudolf and 121](https://codeforces.com/problemset/problem/1941/B) | `Codeforces` | `1000` | `rudolfAnd121.js` | Key algorithmic application from Day 2026-10-06. |
+| [Theatre Square](https://codeforces.com/problemset/problem/1/A) | `Codeforces` | `1000` | `theatreSquare.js` | Key algorithmic application from Day 2026-10-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -308,6 +308,29 @@ function solve() {
 | [Even Sum Subarray](https://www.codechef.com/problems/EVENSUMSUB) | `CodeChef` | `1079` | `evenSumSubarray.js` | Key algorithmic application from Day 2026-10-05. |
 | [Work Smarter, Not Harder](https://www.codechef.com/problems/SMARTER) | `CodeChef` | `924` | `workSmarterNotHarder.js` | Key algorithmic application from Day 2026-10-05. |
 | [Next Level](https://www.codechef.com/problems/NEXTLEVEL) | `CodeChef` | `Beginner` | `nextLevel.js` | Basic threshold comparison condition (`X >= 60`). |
+| [Shooting](https://codeforces.com/problemset/problem/1216/B) | `Codeforces` | `900` | `shooting.js` | Key algorithmic application from Day 2026-10-06. |
+| [Kefa and First Steps](https://codeforces.com/problemset/problem/580/A) | `Codeforces` | `900` | `kefaAndFirstSteps.js` | Key algorithmic application from Day 2026-10-06. |
+| [Lunch Rush](https://codeforces.com/problemset/problem/276/A) | `Codeforces` | `900` | `lunchRush.js` | Key algorithmic application from Day 2026-10-06. |
+| [Currency System in Geraldion](https://codeforces.com/problemset/problem/560/A) | `Codeforces` | `1000` | `currencySystemInGeraldion.js` | Key algorithmic application from Day 2026-10-06. |
+| [Find First Palindromic String in the Array](https://leetcode.com/problems/find-first-palindromic-string-in-the-array/) | `LeetCode` | `Easy` | `findFirstPalindromicStringInTheArray.js` | Key algorithmic application from Day 2026-10-06. |
+| [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/) | `LeetCode` | `Easy` | `rectangleOverlap.js` | Key algorithmic application from Day 2026-10-06. |
+| [Make Two Arrays Equal by Reversing Subarrays](https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays/) | `LeetCode` | `Easy` | `makeTwoArraysEqualByReversingSubarrays.js` | Key algorithmic application from Day 2026-10-06. |
+| [Transpose Matrix](https://leetcode.com/problems/transpose-matrix/) | `LeetCode` | `Easy` | `transposeMatrix.js` | Key algorithmic application from Day 2026-10-06. |
+| [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/) | `LeetCode` | `Easy` | `countBinarySubstrings.js` | Key algorithmic application from Day 2026-10-06. |
+| [Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/) | `LeetCode` | `Easy` | `kidsWithTheGreatestNumberOfCandies.js` | Key algorithmic application from Day 2026-10-06. |
+| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | `LeetCode` | `Easy` | `longestCommonPrefix.js` | Key algorithmic application from Day 2026-10-06. |
+| [Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) | `LeetCode` | `Easy` | `findSmallestLetterGreaterThanTarget.js` | Key algorithmic application from Day 2026-10-06. |
+| [Minimum Common Value](https://leetcode.com/problems/minimum-common-value/) | `LeetCode` | `Easy` | `minimumCommonValue.js` | Key algorithmic application from Day 2026-10-06. |
+| [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/) | `LeetCode` | `Easy` | `longestContinuousIncreasingSubsequence.js` | Key algorithmic application from Day 2026-10-06. |
+| [Shoe Fit](https://www.codechef.com/problems/SHOEFIT) | `CodeChef` | `925` | `shoeFit.js` | Key algorithmic application from Day 2026-10-06. |
+| [Avoid Contact](https://www.codechef.com/problems/AVOIDCONTACT) | `CodeChef` | `907` | `avoidContact.js` | Key algorithmic application from Day 2026-10-06. |
+| [Mask Policy](https://www.codechef.com/problems/MASKPOL) | `CodeChef` | `1064` | `maskPolicy.js` | Key algorithmic application from Day 2026-10-06. |
+| [Two vs Ten](https://www.codechef.com/problems/TWOVSTEN) | `CodeChef` | `936` | `twoVsTen.js` | Key algorithmic application from Day 2026-10-06. |
+| [Elections in Chefland](https://www.codechef.com/problems/ELECTIONS) | `CodeChef` | `1034` | `electionsInChefland.js` | Key algorithmic application from Day 2026-10-06. |
+| [Uncle Johny](https://www.codechef.com/problems/JOHNY) | `CodeChef` | `1093` | `uncleJohny.js` | Key algorithmic application from Day 2026-10-06. |
+| [Difficulty Rating Order](https://www.codechef.com/problems/RATINGINPRAC) | `CodeChef` | `930` | `difficultyRatingOrder.js` | Key algorithmic application from Day 2026-10-06. |
+| [The Great Run](https://www.codechef.com/problems/PROC18A) | `CodeChef` | `1097` | `theGreatRun.js` | Key algorithmic application from Day 2026-10-06. |
+| [Chef and Battery ](https://www.codechef.com/problems/FIFTYPE) | `CodeChef` | `901` | `chefAndBattery.js` | Key algorithmic application from Day 2026-10-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
