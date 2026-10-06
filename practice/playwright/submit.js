@@ -13,6 +13,10 @@ const lcEngine = require('./platforms/leetcode');
 const ccEngine = require('./platforms/codechef');
 const { authenticatePlatform } = require('./auth');
 const { sanitizeCodeForSubmission } = require('./sanitize');
+const { syncSessionsFromEnv } = require('./envAuth');
+
+// Auto-sync session keys from .env into .auth session files
+syncSessionsFromEnv();
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -532,10 +536,18 @@ async function ensurePlatformAuth(platKey, options = {}) {
   if (fs.existsSync(platConfig.authFile)) {
     try {
       const data = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
-      const hasCookie = (data.cookies || []).some((c) =>
-        (c.domain || '').toLowerCase().includes(platKey)
-      );
-      if (hasCookie) return true;
+      const cookies = data.cookies || [];
+      let isAuthed = false;
+      if (platKey === 'leetcode') {
+        isAuthed = cookies.some((c) => /leetcode_session/i.test(c.name) && c.value);
+      } else if (platKey === 'codechef') {
+        isAuthed = cookies.some((c) => /authtoken|remember_me|user_id|^sess/i.test(c.name) && c.value);
+      } else if (platKey === 'codeforces') {
+        isAuthed = cookies.some((c) => /39af5|JSESSIONID/i.test(c.name) && c.value);
+      } else {
+        isAuthed = cookies.some((c) => (c.domain || '').toLowerCase().includes(platKey));
+      }
+      if (isAuthed) return true;
     } catch {}
   }
 
