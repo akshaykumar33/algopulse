@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-05",
+  "day": 11,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1543B",
+      "name": "Customising the Track",
+      "rating": 900,
+      "tags": [
+        "combinatorics",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1543/B",
+      "file": "customisingTheTrack",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1324A",
+      "name": "Yet Another Tetris Problem",
+      "rating": 900,
+      "tags": [
+        "implementation",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1324/A",
+      "file": "yetAnotherTetrisProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2026A",
+      "name": "Perpendicular Segments",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "geometry",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2026/A",
+      "file": "perpendicularSegments",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "519A",
+      "name": "A and B and Chess",
+      "rating": 900,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/519/A",
+      "file": "aAndBAndChess",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1326B",
+      "name": "Maximums",
+      "rating": 900,
+      "tags": [
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1326/B",
+      "file": "maximums",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1709B",
+      "name": "Also Try Minecraft",
+      "rating": 900,
+      "tags": [
+        "data structures",
+        "dp",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1709/B",
+      "file": "alsoTryMinecraft",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2125B",
+      "name": "Left and Down",
+      "rating": 900,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2125/B",
+      "file": "leftAndDown",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "499B",
+      "name": "Lecture",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/499/B",
+      "file": "lecture",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1476A",
+      "name": "K-divisible Sum",
+      "rating": 1000,
+      "tags": [
+        "binary search",
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1476/A",
+      "file": "kDivisibleSum",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "165A",
+      "name": "Supercentral Point",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/165/A",
+      "file": "supercentralPoint",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-225",
+      "name": "Implement Stack using Queues",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+      "file": "implementStackUsingQueues",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-350",
+      "name": "Intersection of Two Arrays II",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/intersection-of-two-arrays-ii/",
+      "file": "intersectionOfTwoArraysII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-111",
+      "name": "Minimum Depth of Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-depth-of-binary-tree/",
+      "file": "minimumDepthOfBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1389",
+      "name": "Create Target Array in the Given Order",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/create-target-array-in-the-given-order/",
+      "file": "createTargetArrayInTheGivenOrder",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-125",
+      "name": "Valid Palindrome",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/valid-palindrome/",
+      "file": "validPalindrome",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-476",
+      "name": "Number Complement",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-complement/",
+      "file": "numberComplement",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1346",
+      "name": "Check If N and Its Double Exist",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-n-and-its-double-exist/",
+      "file": "checkIfNAndItsDoubleExist",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1436",
+      "name": "Destination City",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/destination-city/",
+      "file": "destinationCity",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-118",
+      "name": "Pascal's Triangle",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/pascals-triangle/",
+      "file": "pascalSTriangle",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-500",
+      "name": "Keyboard Row",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/keyboard-row/",
+      "file": "keyboardRow",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LOSTWKND",
+      "name": "Lost Weekends",
+      "rating": 1063,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LOSTWKND",
+      "file": "lostWeekends",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-P3235",
+      "name": "Balanced Positions in a Permutation",
+      "rating": 930,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/P3235",
+      "file": "balancedPositionsInAPermutation",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MARBLES",
+      "name": "Marbles",
+      "rating": 925,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MARBLES",
+      "file": "marbles",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MANCODE",
+      "name": "The Man Code",
+      "rating": 1032,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MANCODE",
+      "file": "theManCode",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ATTENDU",
+      "name": "Minimum Attendance Requirement",
+      "rating": 1053,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ATTENDU",
+      "file": "minimumAttendanceRequirement",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XLSL",
+      "name": "Clothing Store",
+      "rating": 947,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XLSL",
+      "file": "clothingStore",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFSTUD",
+      "name": "Chef and his Students",
+      "rating": 1047,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFSTUD",
+      "file": "chefAndHisStudents",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-QUEENATTACK",
+      "name": "The Attack of Queen",
+      "rating": 1076,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/QUEENATTACK",
+      "file": "theAttackOfQueen",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EVENSUMSUB",
+      "name": "Even Sum Subarray",
+      "rating": 1079,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EVENSUMSUB",
+      "file": "evenSumSubarray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SMARTER",
+      "name": "Work Smarter, Not Harder",
+      "rating": 924,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SMARTER",
+      "file": "workSmarterNotHarder",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

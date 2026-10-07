@@ -17,6 +17,7 @@ const copilot = (() => {
   const A = () => assistant; // a top-level const in assistant.js: global by name, not on window
   const pet = () => window.mascot;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const within = (p, ms, what) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error(`${what} took too long`)), ms))]);
 
   const LANGUAGES = [
     ['auto', 'Auto-detect'],
@@ -155,6 +156,7 @@ const copilot = (() => {
   }
 
   function syncBadges() {
+    lastLang = A().voice.lang() || lastLang;
     const on = A().voice.on;
     const mic = document.getElementById('pipMicBadge');
     if (mic) {
@@ -203,7 +205,9 @@ const copilot = (() => {
           run: () => STEPS['hint'](),
         });
       }
-      pet()?.say?.(text, 5000, actions);
+      const show = (ms = 0) => pet()?.say?.(text, Math.max(5000, ms + 1500), actions);
+      if (opts.defer) return show;
+      show();
     }
     return null;
   }
@@ -212,11 +216,73 @@ const copilot = (() => {
     if (on) setState('thinking');
   }
 
+  function detectScriptLang(text) {
+    if (!text) return null;
+    const s = String(text);
+    const SCRIPTS = [
+      [/[ऀ-ॿ]/g, 'hi-IN'],
+      [/[ಀ-೿]/g, 'kn-IN'],
+      [/[஀-௿]/g, 'ta-IN'],
+      [/[ఀ-౿]/g, 'te-IN'],
+      [/[ঀ-৿]/g, 'bn-IN'],
+      [/[઀-૿]/g, 'gu-IN'],
+      [/[ഀ-ൿ]/g, 'ml-IN'],
+      [/[਀-੿]/g, 'pa-IN'],
+      [/[぀-ヿ一-龯]/g, 'ja-JP'],
+      [/[가-힯]/g, 'ko-KR'],
+      [/[؀-ۿ]/g, 'ar-SA'],
+      [/[Ѐ-ӿ]/g, 'ru-RU']
+    ];
+    let best = null;
+    let most = 0;
+    for (const [re, code] of SCRIPTS) {
+      const k = (s.match(re) || []).length;
+      if (k > most) {
+        most = k;
+        best = code;
+      }
+    }
+    if (best === 'hi-IN' && /\b(आहे|आहेस|आहात|काय|मला|तुला|तुझ|माझ|नाही|कसा|कशी|कसं|आणि|झाल|बघ|सांग|आपण|इथे|तिथे|खूप|छान)\b/.test(s)) return 'mr-IN';
+    if (best) return best;
+    if (/\b(hola|por\s+favor|gracias|buenos|buenas|siguiente|problema|abrir|abremelo|correr|ejecutar|amigos|amor|cariño|holaa|graciaas|claro|enseguida|ti)\b/i.test(s)) return 'es-ES';
+    if (/\b(bonjour|merci|s'il\s+vous\s+plaît|oui|problème|ouvrir|suivant|exécuter|mon\s+amour)\b/i.test(s)) return 'fr-FR';
+    if (/\b(hallo|danke|bitte|nächste|aufgabe|öffnen|ausführen|schön)\b/i.test(s)) return 'de-DE';
+    if (/\b(ciao|grazie|per\s+favore|prossimo|apri|esegui|amore)\b/i.test(s)) return 'it-IT';
+    if (/\b(olá|ola|obrigado|obrigada|por\s+favor|próximo|proximo|abrir|executar)\b/i.test(s)) return 'pt-BR';
+    if (/\b(kya|kaise|karo|karna|chalo|bhai|batao|sawal|samjhao|dekho|chalao|likho|haan|nahi|pehle|baad|suno|bolo|namaste|shukriya|dhanyawad)\b/i.test(s)) {
+      return 'hi-IN';
+    }
+    return null;
+  }
+
+  function pickLang(detected, lang) {
+    if (!detected || !lang) return detected || lang || null;
+    const base = (x) => String(x).toLowerCase().split('-')[0];
+    if (base(detected) === base(lang)) return lang;
+    if (detected === 'hi-IN' && /^(mr|ne|sa|kok|mai|bho)$/.test(base(lang))) return lang;
+    return detected;
+  }
+
   function reply(text, mood = 'happy', lang, opts = {}) {
     if (!text) return;
-    say('pip', text);
-    if (mood) pet()?.react(mood, 900);
-    A().speak(text, lang, mood, { ai: Boolean(opts?.ai) });
+    const detected = detectScriptLang(text);
+    const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || pickLang(detected, lang) || lastLang || A().voice.lang() || 'en-US');
+    if (A().load().talkBack === false || !window.buddyVoice) {
+      say('pip', text);
+      if (mood) pet()?.react(mood, 1200);
+      if (A().load().talkBack !== false) A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
+      return;
+    }
+    const show = say('pip', text, { defer: true });
+    let shown = false;
+    const once = (ms) => {
+      if (shown) return;
+      shown = true;
+      show(ms);
+    };
+    pet()?.say?.('💭 …', 15000);
+    setTimeout(once, 15000);
+    A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai), onStart: once });
   }
 
   /* ======================================================================
@@ -224,9 +290,25 @@ const copilot = (() => {
      ====================================================================== */
   let busy = false;
   let lastLang = 'en-US';
+  const chosen = () => {
+    try {
+      return localStorage.getItem('buddyChosenLang') || '';
+    } catch {
+      return '';
+    }
+  };
 
   function context() {
-    return { date: state.date, file: state.file, tab: state.tab, codeMode: state.codeMode };
+    const cur = A().voice.lang();
+    return {
+      date: state.date,
+      file: state.file,
+      tab: state.tab,
+      codeMode: state.codeMode,
+      userLang: cur,
+      lastLang,
+      chosenLang: chosen(),
+    };
   }
 
   const setTab = (t) => {
@@ -370,16 +452,54 @@ const copilot = (() => {
       const want = /dark|night/i.test(arg) ? 'dark' : 'light';
       if (activeTheme() !== want) toggleTheme();
     },
-    'scroll-down': async () => A().ACTIONS['scroll-down'].run(),
-    'scroll-up': async () => A().ACTIONS['scroll-up'].run(),
-    'scroll-top': async () => A().ACTIONS['scroll-top'].run(),
+    'scroll-down': async () => A().ACTIONS['scroll-down']?.run?.(),
+    'scroll-up': async () => A().ACTIONS['scroll-up']?.run?.(),
+    'scroll-top': async () => A().ACTIONS['scroll-top']?.run?.(),
+    'scroll-bottom': async () => A().ACTIONS['scroll-bottom']?.run?.(),
+    'toggle-fullscreen': async () => A().ACTIONS['toggle-fullscreen']?.run?.(),
+    zoom: async (arg) => {
+      const a = (arg || '').toLowerCase();
+      if (a.includes('in')) A().ACTIONS['zoom-in']?.run?.();
+      else if (a.includes('out')) A().ACTIONS['zoom-out']?.run?.();
+      else A().ACTIONS['zoom-reset']?.run?.();
+    },
+    'zoom-in': async () => A().ACTIONS['zoom-in']?.run?.(),
+    'zoom-out': async () => A().ACTIONS['zoom-out']?.run?.(),
+    'zoom-reset': async () => A().ACTIONS['zoom-reset']?.run?.(),
+    'copy-code': async () => A().ACTIONS['copy-code']?.run?.(),
+    'code-mode': async (arg) => {
+      const a = (arg || '').toLowerCase();
+      if (a.includes('diff')) A().ACTIONS['code-diff']?.run?.();
+      else if (a.includes('ref')) A().ACTIONS['code-reference']?.run?.();
+      else A().ACTIONS['code-attempt']?.run?.();
+    },
+    'code-attempt': async () => A().ACTIONS['code-attempt']?.run?.(),
+    'code-reference': async () => A().ACTIONS['code-reference']?.run?.(),
+    'code-diff': async () => A().ACTIONS['code-diff']?.run?.(),
+    'open-problem-index': async (arg) => A().openProblemIndex?.(arg),
+    'rag-answer': async (arg) => {
+      openCoach();
+      await ask(arg);
+    },
+    'search-rag': async (arg) => {
+      openCoach();
+      await ask(arg);
+    },
     close: async () => A().ACTIONS.close.run(),
     'toggle-pip': async () => pet()?.toggle(),
     'set-character': async (arg) => pet()?.setCharacter(/bun|rabbit/i.test(arg) ? 'bunny' : 'hamster'),
     'stop-voice': async () => A().voice.stop(),
-    'set-language': async (arg) => A().voice.setLanguage(arg),
-    say: async () => {},
-    feel: async (arg) => pet()?.feel(arg),
+    'set-language': async (arg) => {
+      const code = (window.buddyVoice?.resolveLangCode || ((x) => x))(arg);
+      A().voice.setLanguage(code, false);
+      lastLang = code;
+    },
+    feel: async (arg) => {
+      const m = String(arg || '').trim();
+      if (!m) return;
+      pet()?.feel?.(m);
+      pet()?.emote?.(m);
+    },
     gestures: async (arg) => {
       const want = !/^(off|stop|no|false)/i.test(arg.trim());
       if (want !== A().gestures.on) await A().gestures.toggle();
@@ -398,8 +518,51 @@ const copilot = (() => {
       A().save({ talkBack: !/^(off|stop|no|false|quiet|mute)/i.test(arg.trim()) });
     },
     buddy: async (arg) => {
-      pet()?.move(arg.trim().toLowerCase());
+      const m = String(arg || '').trim().toLowerCase();
+      if (!m) return;
+      pet()?.move?.(m);
+      pet()?.emote?.(m);
       await sleep(900);
+    },
+    'web-search': async (arg) => {
+      setState('doing', `Searching web for “${arg}”…`);
+      const res = await api('/api/web/search', { query: arg, lang: lastLang });
+      openCoach();
+      if (res.summary) {
+        window.appendCoachMessage?.('coach', `### 🌐 Web Search: "${arg}"\n\n${res.summary}\n\n**Sources:**\n${(res.results || []).map((r) => `- [${r.title}](${r.url})`).join('\n')}`);
+      }
+      if (res.results?.length) {
+        toast(`Found ${res.results.length} live web results`);
+      }
+    },
+    'open-url': async (arg) => {
+      let url = String(arg || '').trim();
+      if (!/^https?:\/\//i.test(url)) {
+        const lower = url.toLowerCase();
+        if (lower.includes('codeforces')) url = 'https://codeforces.com';
+        else if (lower.includes('leetcode')) url = 'https://leetcode.com';
+        else if (lower.includes('atcoder')) url = 'https://atcoder.jp';
+        else if (lower.includes('codechef')) url = 'https://codechef.com';
+        else if (lower.includes('github')) url = 'https://github.com';
+        else if (lower.includes('google')) url = 'https://google.com';
+        else if (lower.includes('youtube')) url = 'https://youtube.com';
+        else if (/^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(url)) url = `https://${url}`;
+        else url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
+      }
+      window.open(url, '_blank');
+      toast(`Opened browser: ${url}`);
+    },
+    'create-report': async (arg) => {
+      setState('doing', `Generating report…`);
+      const lang = lastLang || A().voice.lang() || 'en-US';
+      if (window.generateAndShowReport) {
+        await window.generateAndShowReport(arg, lang);
+      } else {
+        const res = await api('/api/report/generate', { topic: arg, lang, date: state.date });
+        if (window.showReportModal) {
+          window.showReportModal(res.title, res.markdown, res.lang);
+        }
+      }
     },
   };
 
@@ -409,7 +572,27 @@ const copilot = (() => {
   }
 
   const STEP_LABEL = (s) => {
-    const names = { 'open-problem': 'Open', 'open-day': 'Go to day', 'write-code': 'Write code', 'ask-coach': 'Ask coach', search: 'Search', 'run-custom': 'Run input', 'set-language': 'Language', say: 'Say' };
+    const names = {
+      'open-problem': 'Open',
+      'open-day': 'Go to day',
+      'write-code': 'Write code',
+      'ask-coach': 'Ask coach',
+      search: 'Search',
+      'run-custom': 'Run input',
+      'set-language': 'Language',
+      say: 'Say',
+      'scroll-bottom': 'Scroll to bottom',
+      'toggle-fullscreen': 'Fullscreen',
+      zoom: 'Zoom',
+      'copy-code': 'Copy code',
+      'code-mode': 'Code view',
+      'open-problem-index': 'Problem #',
+      'rag-answer': 'Knowledge search',
+      'search-rag': 'Knowledge search',
+      'web-search': 'Web search',
+      'open-url': 'Open URL',
+      'create-report': 'Generate report',
+    };
     return `${names[s.action] || s.action.replace(/-/g, ' ')}${s.arg && s.action !== 'say' && s.action !== 'write-code' ? ` · ${s.arg.slice(0, 40)}` : ''}`;
   };
 
@@ -448,17 +631,28 @@ const copilot = (() => {
     [/\b(dance|party|groove)\b/, () => ['Watch my moves! 💃', 'dance', 'dance']],
     [/\b(jump|hop)\b/, () => ['Boing! 🐰', 'surprised', 'jump']],
     [/\b(spin|twirl|turn around)\b/, () => ['Wheee! 💫', 'happy', 'spin']],
-    [/\b(come here|come closer|come to me)\b/, () => ['Coming! 🏃', 'happy', 'come-here']],
-    [/\bgo (to the )?(left|right|top|bottom|center|centre|home)\b/, (m) => ['On my way!', 'happy', `go-${m[2] === 'centre' ? 'center' : m[2]}`]],
+    [/\b(come|come\s+to|follow)\s*(here|me|closer)?\b/i, () => ['Coming right to you! 🏃💖', 'happy', 'come-here']],
+    [/\b(go|move|head|turn|walk|run|slide|fly)?\s*(to\s+the\s+|to\s+)?(left|right|top|up|bottom|down|center|centre|middle|home)\b/i, (m) => {
+      const raw = (m[3] || m[0] || '').toLowerCase();
+      const dir = raw.includes('center') || raw.includes('centre') || raw.includes('middle') ? 'center' : raw.includes('up') || raw.includes('top') ? 'top' : raw.includes('down') || raw.includes('bottom') ? 'bottom' : raw.includes('right') ? 'right' : raw.includes('home') ? 'home' : 'left';
+      return ['On my way! 🏃', 'happy', `go-${dir}`];
+    }],
     [/^(hide|peekaboo|peek a boo|play hide and seek)$/, () => ['Peekaboo! 🙈', 'giggle', 'hide']],
-    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => [`Hi hi! 👋 I'm ${pet()?.name?.() || 'Pip'}. What shall we solve today?`, 'wave', 'wave']],
-    [/\bhow are you\b|\bhow r u\b|\bkaise ho\b/, () => ["I'm super, thanks for asking! Ready to crunch some problems? 💪", 'happy']],
+    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => ['Heyyy hi sweet heart! 🥰 I missed you so much! What shall we solve together today? ✨', 'love', 'wave']],
+    [/\bhow (are|u) (you|doing)\b|\bhow r u\b|\bkaise ho\b/, () => ['Aww, I’m doing super wonderful now that I’m talking to you, sweet heart! 🥰 How are you doing today? ✨', 'flirt', 'jump']],
     [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, () => ["Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
     [/^(cry|be sad|can you cry)\b/, () => ['Waaah… 😢 okay okay, I am fine now!', 'cry']],
-    [/\b(i love you|love you|you are cute|you're cute|cutie)\b/, () => ['Aww! I love you too! 💕', 'love']],
-    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy)?$/, () => ['Hehe, thank you! You are the best! 🌟', 'proud']],
+    [/\b(kiss|kisses|muah|pappi|chumma)\b/, () => ['Muah! 😘 Here is a sweet lucky kiss for your next test case! Now go ace it for me!', 'kiss', 'jump']],
+    [/\b(flirt|flirting|tease|blush)\b/, () => ['Are you trying to make my little cheeks blush? You are looking extra cute today! 😉💋', 'flirt', 'sway']],
+    [/\b(marry me|be mine|date me|girlfriend|boyfriend|love me)\b/, () => ['Deal! But only if you solve all your code with me forever and look at no one else! 💍💖', 'flirt', 'dance']],
+    [/\b(jealous|possessive|who do you love|mine)\b/, () => ['You are MY favorite human in the entire universe! Do not you dare look at any other buddy! 😤🔒', 'possessive']],
+    [/\b(pout|grumpy|angry|gussa)\b/, () => ['Hmph! 😤 I was pouting because you did not give me attention! Come boop my nose right now!', 'pout']],
+    [/\b(baby|cutie|sweetie|darling|jaan|babu|shona)\b/, () => ['Hehe, yes bestie? Your little cutie baby Ham is right here listening to you! 🥺🧸💖', 'baby', 'jump']],
+    [/\b(you are mine|tum mere ho)\b/, () => ['Always! And you are mine forever too, locked in! 🔒🥰', 'possessive']],
+    [/\b(i love you|love you|you are cute|you're cute)\b/, () => ['Hehe, I love you more! But you better mean it, because you are mine now! 💕😘', 'flirt']],
+    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy| ham)?$/, () => ['Hehe, thank you! You are the absolute best, my genius coder! 🌟🥰', 'proud']],
     [/\b(take a nap|nap time|good night)\b/, () => ['Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
-    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Grrr! …just kidding, I could never be mad at you. 😤💛', 'angry']],
+    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Hmph! …just kidding, I could never stay mad at my favorite person. 😤💛', 'pout']],
   ];
   function talkFor(raw) {
     const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
@@ -501,9 +695,32 @@ const copilot = (() => {
 
   const handleAudio = (clip) => handle({ audio: { data: clip.data, mime: clip.mime }, start: clip.start });
 
+  const waiting = [];
   async function handle(input) {
+    if (busy && typeof input !== 'string') {
+      waiting.push(input);
+      if (waiting.length > 3) waiting.shift();
+      return;
+    }
+    await run(input);
+    while (!busy && waiting.length) await run(waiting.shift());
+  }
+
+  async function run(input) {
+    if (typeof input === 'string') {
+      const fast = A().localCommand(input);
+      if (fast) {
+        say('me', input);
+        fast();
+        return;
+      }
+      if (smallTalk(input)) {
+        say('me', input);
+        return;
+      }
+    }
     if (busy) {
-      if (typeof input === 'string') reply('One moment, still on the last thing…', 'shy');
+      if (typeof input === 'string') pet()?.say?.('One moment, still on the last thing…', 2000);
       else dropLive();
       return;
     }
@@ -521,7 +738,7 @@ const copilot = (() => {
     try {
       const past = (spoken ? history : history.slice(0, -1)).slice(-8);
       const ctx = { ...context(), buddy: pet()?.el.getAttribute('aria-label')?.split('.')[0], history: past };
-      plan = await api('/api/agent/plan', spoken ? { audio: input.audio, ctx } : { utterance: input, ctx });
+      plan = await within(api('/api/agent/plan', spoken ? { audio: input.audio, ctx } : { utterance: input, ctx }), 30000, 'Thinking');
     } catch (err) {
       busy = false;
       typing(false);
@@ -559,7 +776,7 @@ const copilot = (() => {
       setState('doing', STEP_LABEL(s));
       renderSteps(steps, i);
       try {
-        await STEPS[s.action]?.(s.arg || '');
+        await within(Promise.resolve(STEPS[s.action]?.(s.arg || '')), 60000, STEP_LABEL(s));
         await sleep(250);
       } catch (err) {
         renderSteps(steps, i, i);
@@ -727,6 +944,7 @@ const copilot = (() => {
     offline,
     open: (byHand) => openSpotlight(byHand),
     close: () => closeSpotlight(),
+    act: (action, arg) => STEPS[action]?.(arg),
     LANGUAGES,
     cursor,
     STEPS,

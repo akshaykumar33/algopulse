@@ -1,0 +1,384 @@
+{
+  "date": "2026-10-06",
+  "day": 12,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1335B",
+      "name": "Construct the String",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1335/B",
+      "file": "constructTheString",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1113A",
+      "name": "Sasha and His Trip",
+      "rating": 900,
+      "tags": [
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1113/A",
+      "file": "sashaAndHisTrip",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1216B",
+      "name": "Shooting",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1216/B",
+      "file": "shooting",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "580A",
+      "name": "Kefa and First Steps",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "dp",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/580/A",
+      "file": "kefaAndFirstSteps",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1427A",
+      "name": "Avoiding Zero",
+      "rating": 900,
+      "tags": [
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1427/A",
+      "file": "avoidingZero",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "115A",
+      "name": "Party",
+      "rating": 900,
+      "tags": [
+        "dfs and similar",
+        "graphs",
+        "trees"
+      ],
+      "url": "https://codeforces.com/problemset/problem/115/A",
+      "file": "party",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "276A",
+      "name": "Lunch Rush",
+      "rating": 900,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/276/A",
+      "file": "lunchRush",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1941B",
+      "name": "Rudolf and 121",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1941/B",
+      "file": "rudolfAnd121",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1A",
+      "name": "Theatre Square",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1/A",
+      "file": "theatreSquare",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "560A",
+      "name": "Currency System in Geraldion",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/560/A",
+      "file": "currencySystemInGeraldion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2108",
+      "name": "Find First Palindromic String in the Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-first-palindromic-string-in-the-array/",
+      "file": "findFirstPalindromicStringInTheArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-836",
+      "name": "Rectangle Overlap",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rectangle-overlap/",
+      "file": "rectangleOverlap",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1460",
+      "name": "Make Two Arrays Equal by Reversing Subarrays",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays/",
+      "file": "makeTwoArraysEqualByReversingSubarrays",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-867",
+      "name": "Transpose Matrix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/transpose-matrix/",
+      "file": "transposeMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-696",
+      "name": "Count Binary Substrings",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-binary-substrings/",
+      "file": "countBinarySubstrings",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1431",
+      "name": "Kids With the Greatest Number of Candies",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/",
+      "file": "kidsWithTheGreatestNumberOfCandies",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-14",
+      "name": "Longest Common Prefix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-common-prefix/",
+      "file": "longestCommonPrefix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-744",
+      "name": "Find Smallest Letter Greater Than Target",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-smallest-letter-greater-than-target/",
+      "file": "findSmallestLetterGreaterThanTarget",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2540",
+      "name": "Minimum Common Value",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-common-value/",
+      "file": "minimumCommonValue",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-674",
+      "name": "Longest Continuous Increasing Subsequence",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-continuous-increasing-subsequence/",
+      "file": "longestContinuousIncreasingSubsequence",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SHOEFIT",
+      "name": "Shoe Fit",
+      "rating": 925,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SHOEFIT",
+      "file": "shoeFit",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-AVOIDCONTACT",
+      "name": "Avoid Contact",
+      "rating": 907,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/AVOIDCONTACT",
+      "file": "avoidContact",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MASKPOL",
+      "name": "Mask Policy",
+      "rating": 1064,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MASKPOL",
+      "file": "maskPolicy",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TWOVSTEN",
+      "name": "Two vs Ten",
+      "rating": 936,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TWOVSTEN",
+      "file": "twoVsTen",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ELECTIONS",
+      "name": "Elections in Chefland",
+      "rating": 1034,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ELECTIONS",
+      "file": "electionsInChefland",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-JOHNY",
+      "name": "Uncle Johny",
+      "rating": 1093,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/JOHNY",
+      "file": "uncleJohny",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-RATINGINPRAC",
+      "name": "Difficulty Rating Order",
+      "rating": 930,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RATINGINPRAC",
+      "file": "difficultyRatingOrder",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CNDY",
+      "name": "Candies",
+      "rating": 1018,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CNDY",
+      "file": "candies",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PROC18A",
+      "name": "The Great Run",
+      "rating": 1097,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PROC18A",
+      "file": "theGreatRun",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FIFTYPE",
+      "name": "Chef and Battery ",
+      "rating": 901,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FIFTYPE",
+      "file": "chefAndBattery",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

@@ -395,12 +395,14 @@ function bindAssistantPanel() {
     if (t.dataset.assistPick) {
       assistant.save({ [t.dataset.assistPick]: t.value });
       if (t.dataset.assistPick === 'ear') assistant.voice.restart();
-      if (t.dataset.assistPick === 'voiceStyle') assistant.speak('Hehe, hi! Do you like my voice?', 'en-US', 'giggle');
+      if (t.dataset.assistPick === 'voiceStyle') assistant.speak('Hehe, hi! Do you like my voice?', assistant.voice.lang(), 'giggle');
       renderGuideSection('assistant');
     }
     if (t.matches('[data-assist-lang]')) {
       assistant.voice.setLanguage(t.value);
-      toast(`Listening in ${t.selectedOptions[0].textContent.split(' · ')[0]}.`);
+      const name = t.selectedOptions[0].textContent.split(' · ')[0];
+      toast(`Listening in ${name}.`);
+      assistant.speak(`Hi! I will speak with this accent now!`, t.value, 'happy', { ai: true });
     }
     if (t.dataset.assistNum) {
       assistant.save({ [t.dataset.assistNum]: Number(t.value) });

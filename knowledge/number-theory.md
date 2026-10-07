@@ -107,6 +107,8 @@ function sieve(maxN) {
 | [Ilya and Bank Account](https://codeforces.com/problemset/problem/313/A) | `Codeforces` | `900` | `ilyaAndBankAccount.js` | Key algorithmic application from Day 2026-10-03. |
 | [Prime Subtraction](https://codeforces.com/problemset/problem/1238/A) | `Codeforces` | `900` | `primeSubtraction.js` | Key algorithmic application from Day 2026-10-04. |
 | [Strange Partition](https://codeforces.com/problemset/problem/1471/A) | `Codeforces` | `900` | `strangePartition.js` | Key algorithmic application from Day 2026-10-04. |
+| [Yet Another Tetris Problem](https://codeforces.com/problemset/problem/1324/A) | `Codeforces` | `900` | `yetAnotherTetrisProblem.js` | Key algorithmic application from Day 2026-10-05. |
+| [Left and Down](https://codeforces.com/problemset/problem/2125/B) | `Codeforces` | `900` | `leftAndDown.js` | Key algorithmic application from Day 2026-10-05. |
 
 ---
 

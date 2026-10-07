@@ -8,26 +8,23 @@ const { PLATFORMS } = require('../config');
  * Checks if the current page has an active logged-in CodeChef session
  */
 async function checkAuth(page) {
-  // 1. Check cookies for SESS, session, or user_id
-  const cookies = await page.context().cookies('https://www.codechef.com');
-  const sessionCookie = cookies.find((c) => /SESS|session|user_id/i.test(c.name) && c.value);
-
-  // 2. Check for user profile element
-  const profile = await page.$('.user-name, [data-testid="user-profile-button"], a[href*="/users/"]');
-  if (profile) {
-    const handle = await profile.textContent().catch(() => null);
-    return { authenticated: true, handle: handle ? handle.trim() : null };
+  const url = page.url();
+  if (/codechef\.com\/login/i.test(url)) {
+    return { authenticated: false };
   }
 
-  if (sessionCookie) {
+  const cookies = await page.context().cookies('https://www.codechef.com').catch(() => []);
+  const authTokenCookie = cookies.find((c) => /authtoken|remember_me|user_id|^sess/i.test(c.name) && c.value);
+  if (authTokenCookie) {
     return { authenticated: true };
   }
 
-  // 3. Check for login button
-  const loginButton = await page.$('a[href*="/login"], button:has-text("Sign In")');
-  if (loginButton) {
-    const isVisible = await loginButton.isVisible().catch(() => false);
-    if (isVisible) return { authenticated: false };
+  const profile = await page.$('.user-name, [data-testid="user-profile-button"], a[href*="/users/"], a[href*="/logout"], button:has-text("Logout")');
+  if (profile) {
+    const handle = await profile.textContent().catch(() => null);
+    if (handle && handle.trim() && !/login|sign in/i.test(handle)) {
+      return { authenticated: true, handle: handle.trim() };
+    }
   }
 
   return { authenticated: false };
@@ -140,6 +137,13 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
     { timeout: 15000 }
   );
   await submitBtn.click();
+
+  // Check if login modal dialog popped up
+  await page.waitForTimeout(1000);
+  const loginModal = await page.$('.MuiDialog-root, [class*="loginModal"], div:has-text("Please login to continue")');
+  if (loginModal) {
+    throw new Error('CodeChef session unauthenticated: Login modal appeared upon submitting.');
+  }
 
   // 6. Monitor Verdict
   console.log(`    [CodeChef] Waiting for verdict ...`);

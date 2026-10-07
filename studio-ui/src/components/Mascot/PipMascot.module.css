@@ -1,0 +1,104 @@
+.mascot {
+  --size: 96px;
+  position: fixed;
+  z-index: 2147483647;
+  width: var(--size);
+  height: calc(var(--size) + 14px);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mascotDragging {
+  cursor: grabbing;
+}
+
+.mascotFloat {
+  position: absolute;
+  inset: 0 0 14px 0;
+  animation: mascot-float 3.6s ease-in-out infinite;
+}
+
+.mascotSquash {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 78%;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+.mascotAvatar {
+  position: absolute;
+  inset: -2px -4px 0 -4px;
+  cursor: grab;
+  border-radius: 48% 48% 42% 42%;
+  background: radial-gradient(ellipse at 50% 65%, color-mix(in oklch, var(--surface) 80%, transparent) 0%, color-mix(in oklch, var(--surface) 22%, transparent) 72%, transparent 100%);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.36));
+  transition: filter var(--t-fast) var(--ease-out);
+}
+
+.pipBadges {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 10;
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.pipStatusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+  background: color-mix(in oklch, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  font-size: var(--fs-12);
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pipStatusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--moss);
+  flex: none;
+}
+
+.pipStatusDotListening {
+  background: var(--berry);
+  box-shadow: 0 0 6px var(--berry);
+}
+
+.pipBadgeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: color-mix(in oklch, var(--surface) 92%, transparent);
+  color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-size: 13px;
+  flex: none;
+}
+
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}

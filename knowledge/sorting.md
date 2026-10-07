@@ -86,6 +86,13 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Medium Number](https://codeforces.com/problemset/problem/1760/A) | `Codeforces` | `800` | `mediumNumber.js` | Key algorithmic application from Day 2026-09-30. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
 | [Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) | `Codeforces` | `900` | `arrayCloningTechnique.js` | Key algorithmic application from Day 2026-10-03. |
+| [Shooting](https://codeforces.com/problemset/problem/1216/B) | `Codeforces` | `900` | `shooting.js` | Key algorithmic application from Day 2026-10-06. |
+| [Avoiding Zero](https://codeforces.com/problemset/problem/1427/A) | `Codeforces` | `900` | `avoidingZero.js` | Key algorithmic application from Day 2026-10-06. |
+| [Currency System in Geraldion](https://codeforces.com/problemset/problem/560/A) | `Codeforces` | `1000` | `currencySystemInGeraldion.js` | Key algorithmic application from Day 2026-10-06. |
+| [Balanced Round](https://codeforces.com/problemset/problem/1850/D) | `Codeforces` | `900` | `balancedRound.js` | Key algorithmic application from Day 2026-10-07. |
+| [Cubes Sorting](https://codeforces.com/problemset/problem/1420/A) | `Codeforces` | `900` | `cubesSorting.js` | Key algorithmic application from Day 2026-10-07. |
+| [Absent Remainder](https://codeforces.com/problemset/problem/1613/B) | `Codeforces` | `1000` | `absentRemainder.js` | Key algorithmic application from Day 2026-10-07. |
+| [The Strict Teacher (Easy Version)](https://codeforces.com/problemset/problem/2005/B1) | `Codeforces` | `1000` | `theStrictTeacherEasyVersion.js` | Key algorithmic application from Day 2026-10-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

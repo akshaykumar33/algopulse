@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4 3\ncodeforces codesignal\ncodechef code\nleetcode lc\ncodeforces codechef leetcode code",
+    "output": "codeforces code lc code"
+  }
+]

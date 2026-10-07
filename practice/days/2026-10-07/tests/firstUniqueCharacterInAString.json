@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"leetcode\"",
+    "output": "0"
+  },
+  {
+    "input": "\"loveleetcode\"",
+    "output": "2"
+  },
+  {
+    "input": "\"aabb\"",
+    "output": "-1"
+  }
+]

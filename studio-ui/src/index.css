@@ -1,0 +1,116 @@
+/* ==========================================================================
+   AlgoPulse Studio V2 — Design System & Tokens (OKLCH Parchment & Cocoa)
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-ui: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-25: 1.5625rem;
+  --fs-31: 1.953rem;
+  --fs-39: clamp(1.953rem, 1.4rem + 2vw, 2.441rem);
+
+  /* Spacing */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem;
+  --s-5: 1.25rem; --s-6: 1.5rem; --s-8: 2rem; --s-10: 2.5rem; --s-12: 3rem; --s-16: 4rem;
+
+  /* Border Radii */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-xl: 26px; --r-pill: 999px;
+
+  /* Transitions & Easing */
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 140ms;
+  --t-ui: 220ms;
+  --t-sheet: 320ms;
+
+  --topbar-h: 4rem;
+  --sidebar-w: 19rem;
+
+  /* Parchment (Light Theme) */
+  --bg: oklch(95.8% 0.022 80);
+  --bg-deep: oklch(92.5% 0.03 76);
+  --surface: oklch(98.6% 0.012 85);
+  --surface-2: oklch(94.6% 0.022 78);
+  --surface-sunk: oklch(92% 0.028 74);
+  --border: oklch(86% 0.032 68);
+  --border-strong: oklch(76% 0.04 60);
+  --text: oklch(27% 0.045 45);
+  --text-muted: oklch(46% 0.04 50);
+  --text-faint: oklch(58% 0.035 55);
+  --choc: oklch(33% 0.055 45);
+  --choc-hover: oklch(39% 0.06 45);
+  --on-choc: oklch(96% 0.02 80);
+  --caramel: oklch(64% 0.13 58);
+  --caramel-text: oklch(48% 0.12 48);
+  --caramel-soft: oklch(90% 0.06 72);
+  --moss: oklch(50% 0.1 140);
+  --moss-soft: oklch(91% 0.05 135);
+  --berry: oklch(51% 0.16 22);
+  --berry-soft: oklch(92% 0.04 25);
+  --honey: oklch(58% 0.12 78);
+  --honey-soft: oklch(93% 0.06 88);
+  --sky: oklch(85% 0.05 225);
+  --focus: oklch(60% 0.14 55);
+  --shadow-tint: 40 30% 20%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-tint) / 0.06), 0 2px 6px hsl(var(--shadow-tint) / 0.05);
+  --shadow-md: 0 1px 2px hsl(var(--shadow-tint) / 0.06), 0 6px 18px hsl(var(--shadow-tint) / 0.08);
+  --shadow-lg: 0 2px 6px hsl(var(--shadow-tint) / 0.08), 0 24px 60px hsl(var(--shadow-tint) / 0.18);
+  color-scheme: light;
+}
+
+/* Cocoa (Dark Theme) */
+:root[data-theme="dark"] {
+  --bg: oklch(19.5% 0.022 45);
+  --bg-deep: oklch(16.5% 0.02 45);
+  --surface: oklch(23.5% 0.025 46);
+  --surface-2: oklch(27.5% 0.028 47);
+  --surface-sunk: oklch(17.5% 0.02 45);
+  --border: oklch(33% 0.028 48);
+  --border-strong: oklch(42% 0.032 50);
+  --text: oklch(92% 0.022 80);
+  --text-muted: oklch(76% 0.03 72);
+  --text-faint: oklch(63% 0.03 65);
+  --choc: oklch(78% 0.1 65);
+  --choc-hover: oklch(83% 0.1 68);
+  --on-choc: oklch(22% 0.04 45);
+  --caramel: oklch(74% 0.12 62);
+  --caramel-text: oklch(80% 0.11 66);
+  --caramel-soft: oklch(33% 0.05 55);
+  --moss: oklch(76% 0.11 140);
+  --moss-soft: oklch(30% 0.045 140);
+  --berry: oklch(73% 0.13 25);
+  --berry-soft: oklch(30% 0.05 25);
+  --honey: oklch(76% 0.1 82);
+  --honey-soft: oklch(32% 0.05 80);
+  --sky: oklch(75% 0.07 225);
+  --focus: oklch(74% 0.12 62);
+  --shadow-tint: 10 40% 5%;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: var(--fs-16);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}

@@ -13,11 +13,16 @@ const ai = require('../practice/ai');
 const prompts = require('../practice/ai/prompts');
 const rag = require('../practice/ai/rag');
 const agent = require('../practice/ai/agent');
+const web = require('../practice/ai/web');
+const report = require('../practice/ai/report');
+const localVoice = require('../practice/ai/localVoice');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
 const HOST = '127.0.0.1';
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR = process.env.USE_STUDIO_V2 === '1' && fs.existsSync(path.join(REPO_ROOT, 'studio-ui', 'dist'))
+  ? path.join(REPO_ROOT, 'studio-ui', 'dist')
+  : path.join(__dirname, 'public');
 const MAX_BODY = 2 * 1024 * 1024; // custom inputs can be large
 
 const MIME = {
@@ -198,10 +203,25 @@ const routes = {
   'GET /api/ai/status': () => ai.status(),
 
   // The buddy's AI voice: text -> 24 kHz mono PCM (base64), cached on disk.
+  'POST /api/voice/local': async (req) => {
+    const { text, lang = 'en-US', mood = '' } = await readJsonBody(req);
+    if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
+    if (!/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(lang) || !/^[a-z]{0,12}$/.test(mood)) throw new HttpError(400, 'Bad language');
+    return localVoice.speak(text.trim(), lang, mood).catch((err) => {
+      throw new HttpError(503, err.message);
+    });
+  },
+
+  'POST /api/voice/warm': async (req) => {
+    const { lang = 'en-US' } = await readJsonBody(req);
+    localVoice.warm(String(lang));
+    return localVoice.status();
+  },
+
   'POST /api/voice/speak': async (req) => {
     const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
-    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 200) throw new HttpError(400, 'Bad voice');
+    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 600) throw new HttpError(400, 'Bad voice');
     return ai.speech({ text: text.trim(), voice, style }).catch(aiError('Voice'));
   },
 
@@ -364,8 +384,26 @@ const routes = {
     return { story };
   },
 
-  // RAG search over your own notes (also exposed to Claude via the MCP server).
+  // RAG search over your knowledge base and practice history (also exposed to Claude via the MCP server).
   'GET /api/search': (_req, url) => ({ results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'GET /api/rag/query': (_req, url) => ({ query: url.searchParams.get('q') || '', results: rag.search(url.searchParams.get('q') || '', { k: 6 }) }),
+  'POST /api/rag/search': async (req) => {
+    const { query = '', k = 6 } = await readJsonBody(req);
+    return { query, results: rag.search(query, { k }) };
+  },
+
+  // Live web search with intelligent summarization and source citations
+  'POST /api/web/search': async (req) => {
+    const { query = '', lang = 'en-US' } = await readJsonBody(req);
+    if (typeof query !== 'string' || !query.trim()) throw new HttpError(400, 'Search query is required');
+    return web.searchAndSummarize({ query: query.trim(), lang }).catch(aiError('Web search'));
+  },
+
+  // Comprehensive report generation in any Indian or foreign language
+  'POST /api/report/generate': async (req) => {
+    const { topic = '', lang = 'en-US', date } = await readJsonBody(req);
+    return report.generateReport({ topic: String(topic || '').trim(), lang, date }).catch(aiError('Report generation'));
+  },
 };
 
 const server = http.createServer(async (req, res) => {
@@ -396,6 +434,7 @@ server.on('error', (err) => {
 });
 
 server.listen(PORT, HOST, () => {
+  localVoice.start();
   const s = ai.status();
   console.log(`\n  AlgoPulse Studio → http://localhost:${PORT}`);
   console.log(`  AI: ${s.active ? `${s.active.label} · ${s.active.model}${s.active.ready ? '' : ' (not ready)'}` : 'off — see the Guide in the app'}\n`);

@@ -47,14 +47,19 @@ const assistant = (() => {
   }
 
   const VOICES = {
-    cute: { ai: 'Leda', style: 'Speak as a tiny, adorable cartoon buddy with a high, sweet, bubbly baby-like voice, playful and full of smiles', pitch: 1.48, rate: 1.12 },
-    sweet: { ai: 'Aoede', style: 'Speak as a warm, sweet young lady with a soft, gentle, smiling voice', pitch: 1.25, rate: 1.02 },
-    bright: { ai: 'Zephyr', style: 'Speak in a bright, cheerful, energetic voice', pitch: 1.35, rate: 1.1 },
+    cute: { ai: 'Leda', style: 'Speak in a soft, seductive, sweetly affectionate and humanized companion voice, full of warm whispers, teasing smiles, tender giggles, and deep heartfelt affection', pitch: 1.45, rate: 1.02 },
+    sweet: { ai: 'Aoede', style: 'Speak as a warm, seductive, sweet young lady with a soft, gentle, smiling whisper voice', pitch: 1.25, rate: 1.0 },
+    bright: { ai: 'Zephyr', style: 'Speak in a bright, charming, flirty, affectionate voice', pitch: 1.35, rate: 1.08 },
   };
   const MOOD_STYLE = {
     laugh: 'laughing and giggling happily between the words',
-    giggle: 'with cute little giggles',
-    love: 'adoringly, full of love',
+    giggle: 'with cute little giggles and bubbly chuckles',
+    love: 'adoringly and warmly, full of sweet love',
+    flirt: 'in a playful, charming, teasing and flirty tone with a sweet giggle',
+    possessive: 'in a cute, clingy, playfully possessive tone with affectionate emphasis',
+    pout: 'in a cute, mock-grumpy, adorable pouting tone',
+    kiss: 'blowing an affectionate kiss with a sweet, warm voice',
+    baby: 'in a wide-eyed, innocent, super adorable baby-cutie voice',
     sad: 'softly and a little sadly, but still sweet',
     cry: 'sniffling, teary and wobbly, then brave',
     angry: 'in a pretend-grumpy, pouty way that is still cute',
@@ -97,6 +102,10 @@ const assistant = (() => {
     // Any female/woman tagged voice
     const anyF = list.find((v) => /female|woman|girl/i.test(v.name));
     if (anyF) return { voice: anyF, kind: 'female', isNative };
+
+    // Fallback: pick any cutie / female voice from global voices pool before default
+    const globalCute = voices.find((v) => CUTE_CHILD.test(v.name) || MULTILINGUAL_FEMALE.test(v.name) || /female|woman|girl/i.test(v.name));
+    if (globalCute) return { voice: globalCute, kind: 'female', isNative: false };
 
     return { voice: list[0], kind: 'default', isNative };
   }
@@ -175,9 +184,10 @@ const assistant = (() => {
     u.onend = u.onerror = () => talking(false);
     speechSynthesis.speak(u);
   }
-  async function aiSpeak(text, mood, token) {
+  async function aiSpeak(text, mood, token, lang) {
     const s = voiceStyle();
-    const style = [s.style, MOOD_STYLE[mood]].filter(Boolean).join(', ');
+    const accent = window.buddyVoice?.accentStyle?.(lang) || '';
+    const style = [s.style, accent, MOOD_STYLE[mood]].filter(Boolean).join(', ');
     const res = await api('/api/voice/speak', { text, voice: s.ai, style });
     if (token !== sayToken) return;
     audioCtx ||= new AudioContext();
@@ -205,8 +215,9 @@ const assistant = (() => {
   // for it on real conversation replies; quick confirmations use the browser voice.
   function speak(text, lang, mood, opts = {}) {
     if (load().talkBack === false || !text) return;
+    const targetLang = lang || voice.lang() || 'en-US';
     // voice.js: one continuous voice with the best engine available (AI, local neural, browser).
-    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: lang || voice.lang(), mood, ai: Boolean(opts.ai) });
+    if (window.buddyVoice) return void window.buddyVoice.say(text, { lang: targetLang, mood, ai: Boolean(opts.ai), onStart: opts.onStart });
     stopSpeaking();
     const token = sayToken;
     const clean = String(text).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').trim();
@@ -214,23 +225,39 @@ const assistant = (() => {
     // Hold the mic while the AI voice is being made, so it never hears its own reply.
     speakingUntil = Date.now() + 8000;
     if (opts.ai && load().voiceEngine !== 'browser' && state.ai?.canHear && Date.now() > aiVoiceOffUntil) {
-      aiSpeak(clean, mood, token).catch((err) => {
-        // Out of voice quota (the free tier allows only a few lines a day): stop asking
-        // for a while and use the browser voice, instead of failing on every line.
-        if (/quota|429|rate/i.test(err.message)) {
-          if (!aiVoiceOffUntil) toast('The AI voice is out of free quota for today, so I am using the browser voice.');
-          aiVoiceOffUntil = Date.now() + 60 * 60 * 1000;
+      aiSpeak(clean, mood, token, targetLang).catch((err) => {
+        // Out of voice quota: stop asking for a while and use the browser voice
+        if (/quota|429|rate|exceeded/i.test(err.message)) {
+          if (!aiVoiceOffUntil) toast('The AI voice is busy, so I am using the browser voice.');
+          aiVoiceOffUntil = Date.now() + 30 * 60 * 1000;
         }
-        if (token === sayToken) browserSpeak(clean, lang, mood);
+        if (token === sayToken) browserSpeak(clean, targetLang, mood);
       });
-    } else browserSpeak(clean, lang, mood);
+    } else browserSpeak(clean, targetLang, mood);
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
+  const GREETING = {
+    en: 'Hey there! 👋 Ready to code whenever you are.',
+    hi: 'नमस्ते! 👋 मैं बिल्कुल तैयार हूँ।',
+    kn: 'ಹಲೋ! 👋 ನಾನು ರೆಡಿಯಾಗಿದ್ದೇನೆ.',
+    te: 'హలో! 👋 నేను సిద్ధంగా ఉన్నాను.',
+    ta: 'வணக்கம்! 👋 நான் தயாராக இருக்கிறேன்.',
+    mr: 'नमस्कार! 👋 मी तयार आहे.',
+    bn: 'হ্যালো! 👋 আমি তৈরি আছি।',
+    es: '¡Hola! 👋 Estoy listo cuando quieras.',
+    fr: 'Salut ! 👋 Je suis prêt.',
+    de: 'Hallo! 👋 Ich bin bereit.',
+    ja: 'こんにちは！👋 準備完了です。',
+    zh: '你好！👋 我准备好了。',
+    ru: 'Привет! 👋 Я готов.',
+    ar: 'أهلاً بك! 👋 أنا جاهز.',
+  };
+
   function feedback(text, reaction = 'delighted') {
-    if (window.copilot?.reply) return window.copilot.reply(text, reaction);
+    if (window.copilot?.reply) return window.copilot.reply(text, reaction, voice.lang());
     pet()?.say(text);
     pet()?.react(reaction, 700);
-    speak(text, undefined, reaction);
+    speak(text, voice.lang(), reaction);
   }
 
   /* ======================================================================
@@ -246,41 +273,226 @@ const assistant = (() => {
   };
   const TABS_ORDER = () => visibleTabs();
   const ACTIONS = {
-    'next-problem': { label: 'Next problem', run: () => stepProblem(1), say: 'Next problem' },
-    'prev-problem': { label: 'Previous problem', run: () => stepProblem(-1), say: 'Previous problem' },
-    'next-tab': { label: 'Next tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) + 1) % t.length]); }, say: 'Next tab' },
-    'prev-tab': { label: 'Previous tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]); }, say: 'Previous tab' },
-    'tab-story': { label: 'Open Story', run: () => showTab('story'), say: 'Story time' },
-    'tab-walkthrough': { label: 'Open Walkthrough', run: () => showTab('walkthrough'), say: 'Walkthrough' },
-    'tab-diagrams': { label: 'Open Diagrams', run: () => showTab('diagrams'), say: 'Diagrams' },
-    'tab-visualize': { label: 'Open Visualize', run: () => showTab('visualize'), say: 'Visualizer' },
-    'tab-code': { label: 'Open Code', run: () => showTab('code'), say: 'Your code' },
-    'tab-tests': { label: 'Open Tests', run: () => showTab('tests'), say: 'Tests' },
-    'run-tests': { label: 'Run sample tests', run: () => { showTab('tests'); runTests(); }, say: 'Running your tests' },
-    'verify-day': { label: 'Verify the day', run: () => verifyDay(), say: 'Verifying today' },
-    'open-coach': { label: 'Open the coach', run: () => openCoach(), say: 'Coach is here' },
-    'open-guide': { label: 'Open the guide', run: () => openGuide('welcome'), say: 'Here is the guide' },
-    'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around' },
-    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the lights' },
-    'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed' },
-    'scroll-down': { label: 'Scroll down', run: () => scrollBy({ top: innerHeight * 0.7, behavior: 'smooth' }), say: '' },
-    'scroll-up': { label: 'Scroll up', run: () => scrollBy({ top: -innerHeight * 0.7, behavior: 'smooth' }), say: '' },
-    'scroll-top': { label: 'Back to top', run: () => scrollTo({ top: 0, behavior: 'smooth' }), say: 'Back to top' },
+    'next-problem': { label: 'Next problem', run: () => stepProblem(1), say: 'Sailing to the next problem for you, my love! 💕✨' },
+    'prev-problem': { label: 'Previous problem', run: () => stepProblem(-1), say: 'Going back to the previous problem, handsome! 😘' },
+    'next-tab': { label: 'Next tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) + 1) % t.length]); }, say: 'Switching tabs for my favorite cutie! 🥰' },
+    'prev-tab': { label: 'Previous tab', run: () => { const t = TABS_ORDER(); showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]); }, say: 'Previous tab for you, sweetheart! 🌸' },
+    'tab-story': { label: 'Open Story', run: () => showTab('story'), say: 'Story time, my love! Come close~ 📖💕' },
+    'tab-walkthrough': { label: 'Open Walkthrough', run: () => showTab('walkthrough'), say: 'Opening walkthrough for you, handsome! 🗺️✨' },
+    'tab-diagrams': { label: 'Open Diagrams', run: () => showTab('diagrams'), say: 'Look at these pretty diagrams, babe! 📊💖' },
+    'tab-visualize': { label: 'Open Visualize', run: () => showTab('visualize'), say: 'Visualizer mode, cutie pie! 🎨✨' },
+    'tab-code': { label: 'Open Code', run: () => showTab('code'), say: 'Opening your genius code, handsome! 💻🥰' },
+    'tab-tests': { label: 'Open Tests', run: () => showTab('tests'), say: 'Running your tests, baby! Rooting for you~ 🧪💖' },
+    'run-tests': { label: 'Run sample tests', run: () => { showTab('tests'); runTests(); }, say: 'Testing your code, sweetheart! Mmm, fingers crossed! 🤞💕' },
+    'verify-day': { label: 'Verify the day', run: () => verifyDay(), say: 'Verifying today for you, my love! ✨' },
+    'open-coach': { label: 'Open the coach', run: () => openCoach(), say: 'I am right here with you, handsome! What do you need? 🥰' },
+    'open-guide': { label: 'Open the guide', run: () => openGuide('welcome'), say: 'Here is our little guide, cutie pie! 📖✨' },
+    'start-tour': { label: 'Start the tour', run: () => tour.start(), say: 'Let me show you around, my love! Hold my hand~ 🤝💕' },
+    'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the lights for you, handsome! 😘' },
+    'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed it for you, sweetheart! 💕' },
+    'scroll-down': {
+      label: 'Scroll down / Move down',
+      run: () => {
+        pet()?.move?.('down');
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        const h = (scrollable && scrollable.clientHeight) || window.innerHeight;
+        scrollable?.scrollBy?.({ top: h * 0.7, behavior: 'smooth' });
+        window.scrollBy({ top: h * 0.7, behavior: 'smooth' });
+      },
+      say: 'Moving down!'
+    },
+    'scroll-up': {
+      label: 'Scroll up / Move up',
+      run: () => {
+        pet()?.move?.('up');
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        const h = (scrollable && scrollable.clientHeight) || window.innerHeight;
+        scrollable?.scrollBy?.({ top: -h * 0.7, behavior: 'smooth' });
+        window.scrollBy({ top: -h * 0.7, behavior: 'smooth' });
+      },
+      say: 'Moving up!'
+    },
+    'scroll-top': {
+      label: 'Back to top / Move top',
+      run: () => {
+        pet()?.move?.('top');
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        scrollable?.scrollTo?.({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      say: 'Flying to the top! 🌸✨'
+    },
+    'scroll-bottom': {
+      label: 'Scroll to bottom / Move bottom',
+      run: () => {
+        pet()?.move?.('bottom');
+        const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+        const panel = document.querySelector('.panel:not([hidden])');
+        const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+        scrollable?.scrollTo?.({ top: scrollable.scrollHeight || 99999, behavior: 'smooth' });
+        window.scrollTo({ top: document.body.scrollHeight || 99999, behavior: 'smooth' });
+      },
+      say: 'Right down at the bottom! 🥰'
+    },
+    'move-left': {
+      label: 'Move hamster left',
+      run: () => {
+        pet()?.move?.('left');
+        const t = TABS_ORDER();
+        showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]);
+      },
+      say: 'Moving left! 👈'
+    },
+    'move-right': {
+      label: 'Move hamster right',
+      run: () => {
+        pet()?.move?.('right');
+        const t = TABS_ORDER();
+        showTab(t[(t.indexOf(state.tab) + 1) % t.length]);
+      },
+      say: 'Moving right! 👉'
+    },
+    'move-center': {
+      label: 'Move hamster to center',
+      run: () => {
+        pet()?.move?.('center');
+      },
+      say: 'Coming right to the center! 🏃'
+    },
+    'toggle-fullscreen': {
+      label: 'Toggle fullscreen',
+      run: () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen().catch(() => {});
+      },
+      say: 'Toggled fullscreen'
+    },
+    'zoom-in': {
+      label: 'Zoom in',
+      run: () => {
+        const cur = parseFloat(document.documentElement.style.zoom || '1');
+        document.documentElement.style.zoom = Math.min(1.5, cur + 0.12);
+      },
+      say: 'Zoomed in'
+    },
+    'zoom-out': {
+      label: 'Zoom out',
+      run: () => {
+        const cur = parseFloat(document.documentElement.style.zoom || '1');
+        document.documentElement.style.zoom = Math.max(0.75, cur - 0.12);
+      },
+      say: 'Zoomed out'
+    },
+    'zoom-reset': {
+      label: 'Reset zoom',
+      run: () => { document.documentElement.style.zoom = '1'; },
+      say: 'Reset zoom'
+    },
+    'copy-code': {
+      label: 'Copy code',
+      run: () => {
+        const p = current();
+        const code = state.codeMode === 'reference' ? (p?.reference || '') : ($('#editor')?.value ?? p?.attempt?.code ?? '');
+        if (code) {
+          navigator.clipboard.writeText(code).catch(() => {});
+          toast('Code copied to clipboard!');
+        }
+      },
+      say: 'Copied code to clipboard'
+    },
+    'code-attempt': {
+      label: 'Switch to attempt code',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="attempt"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Your attempt'
+    },
+    'code-reference': {
+      label: 'Switch to reference solution',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="reference"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Reference solution'
+    },
+    'code-diff': {
+      label: 'Toggle code diff',
+      run: () => {
+        showTab('code');
+        const el = document.querySelector('input[name="codeMode"][value="diff"]');
+        if (el) { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      },
+      say: 'Comparing code'
+    },
+    'filter-todo': {
+      label: 'Filter unsolved',
+      run: () => {
+        const el = document.querySelector('input[name="status"][value="todo"]');
+        if (el) el.click();
+      },
+      say: 'Showing unsolved'
+    },
+    'filter-all': {
+      label: 'Show all problems',
+      run: () => {
+        const el = document.querySelector('input[name="status"][value="all"]');
+        if (el) el.click();
+      },
+      say: 'Showing all'
+    },
+    'hint': {
+      label: 'Ask for a hint',
+      run: () => { openCoach(); askMode('hint'); },
+      say: 'Here is a hint'
+    },
+    'explain': {
+      label: 'Explain problem',
+      run: () => { openCoach(); askMode('explain'); },
+      say: 'Explaining problem'
+    },
+    'review': {
+      label: 'Review my code',
+      run: () => { openCoach(); askMode('review'); },
+      say: 'Reviewing code'
+    },
     'read-story': { label: 'Read the story aloud', run: () => readStory(), say: '' },
     'toggle-pip': { label: 'Hide / show the buddy', run: () => pet()?.toggle(), say: '' },
     'stop-voice': { label: 'Stop listening', run: () => voice.stop(), say: 'Okay, I stopped listening' },
     'toggle-voice': { label: 'Mic on / off', run: () => voice.toggle(), say: '' },
     'buddy-dance': { label: 'Make the buddy dance', run: () => pet()?.feel('dance'), say: '' },
+    'sing-song': {
+      label: 'Sing a song',
+      run: () => {
+        pet()?.chirp?.('happy');
+        pet()?.feel?.('dance');
+      },
+      say: 'La la la! 🎶 I am your hamster buddy singing just for you! 🌟✨'
+    },
+    'open-youtube': {
+      label: 'Open YouTube',
+      run: () => { window.open('https://youtube.com', '_blank'); },
+      say: 'Opening YouTube for you, my love! 🎬✨'
+    },
     'none': { label: '— nothing —', run: () => {}, say: '' },
   };
 
-  function run(id, source) {
+  function run(id, source, rawText = '') {
     const a = ACTIONS[id];
     if (!a || id === 'none') return false;
     try {
       a.run();
       if (a.say) feedback(a.say);
       log(`${source}: ${a.label}`);
+      if (rawText) setVoiceCache(rawText, id, a.say, voice.lang());
       return true;
     } catch (err) {
       feedback("Hmm, I couldn't do that", 'surprised');
@@ -316,36 +528,115 @@ const assistant = (() => {
   }
 
   /* ======================================================================
-     Voice
+     Voice Remote Control Engine
      ====================================================================== */
   const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   // Built-in phrases → actions, tried after the user's own phrases. Order matters.
   const PHRASES = [
-    [/\b(stop|quit) listening\b|\bgo to sleep\b/, 'stop-voice'],
-    [/\bnext (tab|page)\b/, 'next-tab'],
-    [/\b(previous|last|back a) (tab|page)\b/, 'prev-tab'],
-    [/\bnext( problem| question| one)?\b/, 'next-problem'],
-    [/\b(previous|last|go back)( problem| question| one)?\b/, 'prev-problem'],
-    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b/, 'run-tests'],
-    [/\bverify\b/, 'verify-day'],
-    [/\b(read|tell)( me)?( the)? story( aloud| out loud)?\b/, 'read-story'],
-    [/\bstory\b/, 'tab-story'],
-    [/\bwalk ?through\b|\bexplanation\b/, 'tab-walkthrough'],
-    [/\bdiagrams?\b/, 'tab-diagrams'],
-    [/\bvisuali[sz]e\b|\bsimulat/, 'tab-visualize'],
-    [/\bcode\b|\beditor\b/, 'tab-code'],
-    [/\btests?\b|\bplayground\b/, 'tab-tests'],
-    [/\bcoach\b|\bhelp me\b/, 'open-coach'],
-    [/\bguide\b|\bhelp\b|\bsettings\b/, 'open-guide'],
-    [/\btour\b/, 'start-tour'],
-    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b/, 'toggle-theme'],
-    [/\bscroll down\b|\bdown\b/, 'scroll-down'],
-    [/\bscroll up\b|\bup\b/, 'scroll-up'],
-    [/\b(go to |back to )?(the )?top\b/, 'scroll-top'],
-    [/\b(close|cancel|dismiss|go back|exit)\b/, 'close'],
-    [/\b(hide|show) (pip|bun|bunny|hamster|buddy)\b/, 'toggle-pip'],
+    // Stop / Quiet / Mute
+    [/\b(stop|quit) (listening|talking|speaking)\b|\bgo to sleep\b|\bshut up\b|\bbe quiet\b|\bmute\b|\b(ruk\s*jaao|रुको|निल्लू|ಆಪು|நிறுத்து|parar|stopp|arrête|fermer)\b/i, 'stop-voice'],
+
+    // Tab Navigation: Next / Right
+    [/\bnext (tab|page)\b|\b(daaye|daaye\s*jaao|दाएं|दाएं\s*जाओ|ಬಲ|ಬಲಕ್ಕೆ|కుడి|కుడికి|வலது|வலப்பக்கம்|उजवीकडे|derecha|droite|rechts|destra)\b/i, 'next-tab'],
+    
+    // Tab Navigation: Prev / Left
+    [/\b(previous|last|back a) (tab|page)\b|\b(baaye|baaye\s*jaao|बायें|बायें\s*जाओ|ಎಡ|ಎಡಕ್ಕೆ|ఎడమ|ఎడమకి|இடது|இடப்பக்கம்|बावीकडे|izquierda|gauche|links|sinistra)\b/i, 'prev-tab'],
+
+    // Problem Navigation: Next / Prev
+    [/\b(next|forward|advance|agla|aage)( problem| question| one| sawal)?\b|\bagla sawal\b/i, 'next-problem'],
+    [/\b(previous|prior|back|pichhla|peeche)( problem| question| one| sawal)?\b|\bpichhla sawal\b/i, 'prev-problem'],
+
+    // Run tests & Verify
+    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b|\btests? chalao\b/i, 'run-tests'],
+    [/\bverify( the)? (day|today|all)\b/i, 'verify-day'],
+
+    // Read Story
+    [/\b(read|tell)( me)?( the)? story( aloud| out loud)?\b/i, 'read-story'],
+
+    // Tab Opening (Multilingual)
+    [/\b(open |show |go to )?(the )?story\b|\b(kahani|कहानी|ಕಥೆ|కథ|கதை|historia|histoire)\b/i, 'tab-story'],
+    [/\b(open |show |go to )?(the )?walkthrough\b|\b(explanation|samjhao|समझाओ|ವಿವರಣೆ|వివరణ|விளக்கம்|explicacion)\b/i, 'tab-walkthrough'],
+    [/\b(open |show |go to )?(the )?diagrams?\b|\b(चित्र|ಚಿತ್ರ|படங்கள்|diagramas)\b/i, 'tab-diagrams'],
+    [/\b(open |show |go to )?(the )?visuali[sz]e\b|\b(animation|विजुअलाइझ|दृश्य|visualizar)\b/i, 'tab-visualize'],
+    [/\b(open |show |go to )?(the )?code\b|\b(editor|कोड|ಕೋಡ್|కోడ్|codigo)\b/i, 'tab-code'],
+    [/\b(open |show |go to )?(the )?tests?\b|\b(playground|samples|टेस्ट|ಪರೀಕ್ಷೆ|పరీక్షలు|pruebas)\b/i, 'tab-tests'],
+    [/\b(open |show |go to )?(the )?coach\b/i, 'open-coach'],
+    [/\b(open |show |go to )?(the )?guide\b|\bsettings\b/i, 'open-guide'],
+    [/\b(start |open )?(the )?tour\b/i, 'start-tour'],
+
+    // Theme & Fullscreen
+    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b|\btoggle theme\b/i, 'toggle-theme'],
+
+    // Scrolling: Down (Multilingual)
+    [/\bscroll (down|niche)\b|\bpage down\b|\b(go\s*down|down)\b|\b(niche|niche\s*jaao|neeche|खूप\s*खाली|नीचे|नीचे\s*जाओ|ಕೆಳಗೆ\s*ಹೋಗು|ಕೆಳಗೆ|కిందికి\s*వెళ్ళు|కిందికి|கீழே\s*செல்|கீழே|abajo|ir\s*abajo|bajar|vers\s*le\s*bas|nach\s*unten|giu)\b/i, 'scroll-down'],
+    
+    // Scrolling: Top / Up (Multilingual)
+    [/\bscroll (up|upar)\b|\bpage up\b|\b(go\s*top|go\s*up|top|up)\b|\b(upar|upar\s*jaao|ऊपर|ऊपर\s*जाओ|ಮೇಲೆ\s*ಹೋಗು|ಮೇಲೆ|పైకి\s*వెళ్ళు|పైకి|மேலே\s*செல்|மேலே|वर|arriba|ir\s*arriba|subir|vers\s*le\s*haut|nach\s*oben|su)\b/i, 'scroll-top'],
+    
+    // Bottom
+    [/\b(go to |scroll to )?(the )?bottom\b/i, 'scroll-bottom'],
+
+    // Fullscreen & Zoom
+    [/\b(fullscreen|full screen|toggle fullscreen)\b/i, 'toggle-fullscreen'],
+    [/\bzoom in\b/i, 'zoom-in'],
+    [/\bzoom out\b/i, 'zoom-out'],
+    [/\breset zoom\b/i, 'zoom-reset'],
+
+    // Close Tab / Window (Multilingual)
+    [/\b(close|close\s*tab|cancel|dismiss|go back|exit)\b|\b(band\s*karo|बंद\s*करो|मुच्छु|మూసివేయి|மூடு|cerrar|fermer|schließen|chiudi)\b/i, 'close'],
+    [/\b(hide|show) (pip|bun|bunny|hamster|buddy)\b/i, 'toggle-pip'],
+
+    // Dance & Sing Song (Multilingual)
+    [/\b(dance|naacho)\b|\b(naacho|dance\s*karo|नाचो|डांस\s*करो|ನೃತ್ಯ\s*ಮಾಡು|ಡ್ಯಾನ್ಸ್|డాన్స్\s*చేయి|ఆడు|ஆடு|bailar|danser|tanzen|ballare)\b/i, 'buddy-dance'],
+    [/\b(sing|sing\s*a\s*song|sing\s*song)\b|\b(gaana\s*gaao|gaana|गाना\s*गाओ|गाना|ಹಾಡು\s*ಹಾಡು|ಹಾಡು|పాట\s*పాడు|పాట|பாட்டு\s*பாடு|பாட்டு|cantar|chanter|singen|cantare)\b/i, 'sing-song'],
+
+    // External Sites: YouTube
+    [/\b(open\s+youtube|youtube\s+kholo|यूट्यूब\s+खोलो|ಯೂಟ್ಯೂಬ್\s+ಓಪನ್\s+ಮಾಡು|youtube\s+abrir|youtube)\b/i, 'open-youtube'],
+
+    // Filtering & Hints
+    [/\bfilter (todo|unsolved)\b/i, 'filter-todo'],
+    [/\bshow all( problems)?\b/i, 'filter-all'],
+    [/\b(give me a |show me a |need a )?hint\b/i, 'hint'],
+    [/\bexplain( this)?( problem)?\b/i, 'explain'],
+    [/\breview( my)?( code)?\b/i, 'review'],
   ];
+
+  function openProblemIndex(idx) {
+    const i = idx - 1;
+    if (state.problems && state.problems[i]) {
+      selectProblem(state.problems[i].file);
+      feedback(`Opening problem ${idx}: ${displayName(state.problems[i].name)}`);
+      log(`Voice: open problem ${idx}`);
+      return true;
+    }
+    return false;
+  }
+
+  function openDayTarget(arg) {
+    const days = (state.days || []).map((d) => d.date);
+    if (!days.length) return false;
+    let target = null;
+    const a = String(arg).toLowerCase().trim();
+    if (a === 'today' || a === 'latest' || a === 'current') target = days[0];
+    else if (a === 'yesterday') target = days[1] || days[0];
+    else if (/^\d{4}-\d{2}-\d{2}$/.test(a)) target = days.find((d) => d === a);
+    else {
+      const m = a.match(/\bday\s*(\d+)\b/i);
+      if (m) {
+        const num = parseInt(m[1], 10);
+        const set = (state.days || []).find((d) => d.day === num);
+        if (set) target = set.date;
+      }
+    }
+    if (target) {
+      loadDay(target);
+      feedback(`Opening ${target}`);
+      log(`Voice: open day ${target}`);
+      return true;
+    }
+    return false;
+  }
 
   function problemByName(text) {
     const t = text.toLowerCase();
@@ -360,32 +651,106 @@ const assistant = (() => {
     return best?.p || null;
   }
 
+  /* ======================================================================
+     Multilingual Voice Intent Cache & Pre-AI Language Engine
+     ====================================================================== */
+  const VOICE_CACHE_KEY = 'algopulse-voice-cache';
+  function getVoiceCache() {
+    try {
+      return JSON.parse(localStorage.getItem(VOICE_CACHE_KEY) || '{}');
+    } catch { return {}; }
+  }
+  function setVoiceCache(phrase, actionId, responseText, lang) {
+    try {
+      const cache = getVoiceCache();
+      const norm = normalize(phrase);
+      if (!norm) return;
+      cache[norm] = { actionId, responseText, lang: lang || voice.lang(), ts: Date.now() };
+      const keys = Object.keys(cache);
+      if (keys.length > 250) delete cache[keys[0]];
+      localStorage.setItem(VOICE_CACHE_KEY, JSON.stringify(cache));
+    } catch {}
+  }
+
+  function detectUtteranceLang(text) {
+    const t = String(text || '');
+    if (/[\u0900-\u097F]/.test(t)) return /मराठी|आहे|नाही|आलो|उजवीकडे|बावीकडे|खाली|वर/i.test(t) ? 'mr-IN' : 'hi-IN';
+    if (/[\u0C80-\u0CFF]/.test(t)) return 'kn-IN';
+    if (/[\u0B80-\u0BFF]/.test(t)) return 'ta-IN';
+    if (/[\u0C00-\u0C7F]/.test(t)) return 'te-IN';
+    if (/[\u0980-\u09FF]/.test(t)) return 'bn-IN';
+    if (/[\u0A80-\u0AFF]/.test(t)) return 'gu-IN';
+    if (/[\u0A00-\u0A7F]/.test(t)) return 'pa-IN';
+    if (/[\u0D00-\u0D7F]/.test(t)) return 'ml-IN';
+    if (/[\u0600-\u06FF]/.test(t)) return 'ar-SA';
+    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(t)) return 'ja-JP';
+    if (/[\uAC00-\uD7AF]/.test(t)) return 'ko-KR';
+    if (/[\u4E00-\u9FFF]/.test(t)) return 'zh-CN';
+    if (/[\u0400-\u04FF]/.test(t)) return 'ru-RU';
+
+    const lower = t.toLowerCase();
+    if (/\b(hola|gracias|abajo|arriba|izquierda|derecha|abrir|cerrar|cantar|bailar)\b/.test(lower)) return 'es-ES';
+    if (/\b(bonjour|merci|bas|haut|gauche|droite|ouvrir|fermer|chanter|danser)\b/.test(lower)) return 'fr-FR';
+    if (/\b(hallo|danke|unten|oben|links|rechts|offnen|schliessen|singen|tanzen)\b/.test(lower)) return 'de-DE';
+    if (/\b(ciao|grazie|giu|su|sinistra|destra|apri|chiudi|cantare|ballare)\b/.test(lower)) return 'it-IT';
+    if (/\b(kholo|jaao|karo|bolo|samjhao|suno|gaana|naacho|dekho|baaye|daaye|niche|upar)\b/.test(lower)) return 'en-IN';
+
+    return voice.lang() || 'en-US';
+  }
+
   // Speech engines differ on punctuation and contractions ("let's" vs "lets"), so phrases
   // are compared with both stripped.
   const normalize = (t) => String(t).toLowerCase().replace(/['’.,!?]/g, '').replace(/\s+/g, ' ').trim();
 
-  // Short, plain English commands run instantly from the phrase table. Anything longer,
-  // multi-step, or in another language goes to the AI planner (copilot.js), which
-  // understands any language, mixes, and misheard words.
-  const FAST_MAX_WORDS = 5;
-  const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
-  const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
+  const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham|hamster)[, ]*/;
 
-  const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/;
-
-  // A command that can run right here, with no AI: returns a function to run it, or null.
+  // Ultra-Fast Remote Control Dispatcher: runs directly in 0ms with zero network delay!
   function localCommand(raw) {
     const text = normalize(raw);
     if (!text) return null;
-    if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
-    // The buddy's name as a wake word is optional: "pip, next problem" == "next problem".
-    const said = text.replace(WAKE, '');
-    if (window.copilot?.ready() && !looksFast(said)) return null;
 
-    // 1. The user's own phrases.
+    const detLang = detectUtteranceLang(raw);
+    if (detLang && detLang !== voice.lang()) {
+      voice.setLanguage(detLang, false);
+    }
+
+    if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
+    const said = text.replace(WAKE, '');
+
+    // 0. Dynamic cache hit check (0ms response for repeated phrases in any language)
+    const cached = getVoiceCache()[said];
+    if (cached && ACTIONS[cached.actionId]) {
+      return () => {
+        run(cached.actionId, `Cached Voice “${raw}”`);
+        if (cached.responseText) feedback(cached.responseText, 'delighted');
+      };
+    }
+
+    // 1. The user's own custom phrases.
     const own = (load().phrases || []).find((c) => said.includes(normalize(c.phrase)));
     if (own) return () => run(own.action, `Voice “${raw}”`);
-    // 2. "ask coach …" sends the rest as a question.
+
+    // 2. Problem by 1-based index (e.g. "problem 1", "first problem", "sawal 3")
+    const numM = said.match(/\b(problem|question|sawal|number|no)\s*([1-9]|10)\b/i) || said.match(/\b(first|1st|second|2nd|third|3rd|fourth|4th|fifth|5th|sixth|6th|seventh|7th|eighth|8th|ninth|9th|tenth|10th|last)\s*(problem|sawal)?\b/i);
+    if (numM) {
+      const ordinals = { first: 1, '1st': 1, second: 2, '2nd': 2, third: 3, '3rd': 3, fourth: 4, '4th': 4, fifth: 5, '5th': 5, sixth: 6, '6th': 6, seventh: 7, '7th': 7, eighth: 8, '8th': 8, ninth: 9, '9th': 9, tenth: 10, '10th': 10, last: 10 };
+      const num = numM[2] ? parseInt(numM[2], 10) : ordinals[numM[1].toLowerCase()];
+      if (num) return () => openProblemIndex(num);
+    }
+
+    // 3. Day switcher ("go to day 9", "open today", "switch to yesterday")
+    const dayM = said.match(/\b(go to |switch to |open )?(day\s*\d+|today|yesterday|latest)\b/i);
+    if (dayM) return () => openDayTarget(dayM[2]);
+
+    // 4. Code mode views ("show attempt", "show reference", "compare code", "copy code")
+    if (/\b(show |view |switch to )?(my )?attempt( code)?\b/i.test(said)) return () => run('code-attempt', `Voice “${raw}”`);
+    if (/\b(show |view |switch to )?(reference|solution|official|cheat)( code)?\b/i.test(said)) return () => run('code-reference', `Voice “${raw}”`);
+    if (/\b(show |view |toggle )?diff(erence)?\b|\bcompare( code)?\b/i.test(said)) return () => run('code-diff', `Voice “${raw}”`);
+    if (/\bcopy( the)? code\b/i.test(said)) return () => run('copy-code', `Voice “${raw}”`);
+    if (/\b(show |filter |view )?(only )?todo( problems)?\b/i.test(said)) return () => run('filter-todo', `Voice “${raw}”`);
+    if (/\b(show |filter |view )?all( problems)?\b/i.test(said)) return () => run('filter-all', `Voice “${raw}”`);
+
+    // 5. Ask coach / hints
     const askM = said.match(/^(ask|tell)( the)? coach (.+)/) || said.match(/^(question|ask)[: ]+(.+)/);
     if (askM) {
       const q = askM[askM.length - 1];
@@ -396,7 +761,8 @@ const assistant = (() => {
         log(`Voice: ask coach “${q}”`);
       };
     }
-    // 3. "go to / open <problem name>".
+
+    // 6. Problem by name
     const goM = said.match(/^(go to|open|show|switch to)( problem)? (.+)/);
     const named = goM && problemByName(goM[3]);
     if (named) {
@@ -406,21 +772,119 @@ const assistant = (() => {
         log(`Voice: open ${named.name}`);
       };
     }
-    // 4. "search <words>".
-    const searchM = said.match(/^(search|find|look for) (.+)/);
-    if (searchM) {
+
+    // 7. Search in problem list
+    const searchM = said.match(/^(search|find|filter) (.+)/);
+    if (searchM && !/notes|knowledge|rag/i.test(searchM[2])) {
       return () => {
         const box = document.getElementById('search');
-        box.value = searchM[2];
-        box.dispatchEvent(new Event('input', { bubbles: true }));
+        if (box) {
+          box.value = searchM[2];
+          box.dispatchEvent(new Event('input', { bubbles: true }));
+        }
         feedback(`Searching ${searchM[2]}`);
         log(`Voice: search “${searchM[2]}”`);
       };
     }
-    // 5. Built-in phrases.
+
+    // 8. RAG Knowledge Base Voice Query
+    const ragM = said.match(/\b(search (notes|knowledge|rag|guide) (for )?|what do (our )?notes say about )(.+)/i);
+    if (ragM) {
+      const q = ragM[ragM.length - 1];
+      return async () => {
+        feedback(`Searching knowledge base for ${q}…`);
+        try {
+          const res = await api('/api/rag/search', { query: q, k: 3 });
+          if (res.results && res.results.length) {
+            const top = res.results[0];
+            feedback(`${top.title}: ${top.snippet}`);
+            if (window.copilot?.say) {
+              window.copilot.say('pip', `💡 **${top.title}** (score ${top.score}):\n\n${top.text.slice(0, 500)}…`);
+            }
+          } else {
+            feedback(`No notes found for “${q}”`);
+          }
+        } catch (err) {
+          feedback('Search error: ' + err.message);
+        }
+      };
+    }
+
+    // 9. Instant Live Web Search ("search web for X", "web search X", "इंटरनेट पर खोजो X")
+    const webSearchM = said.match(/\b(search (the )?(web|internet|online|google)|web\s*search|look up|browse|google)\s+(for\s+)?(.+)/i)
+      || raw.match(/(?:^|\s)(वेब\s*सर्च|इंटरनेट पर खोजो|गूगल करो|सर्च करो)(?:\s+(.+))?/u);
+    if (webSearchM) {
+      const q = (webSearchM[5] || webSearchM[2] || webSearchM[webSearchM.length - 1] || '').trim();
+      if (q) {
+        return async () => {
+          feedback(`Searching web for ${q}…`, 'curious');
+          if (window.copilot?.act) {
+            await window.copilot.act('web-search', q);
+          } else {
+            const res = await api('/api/web/search', { query: q });
+            if (res.summary) {
+              openCoach();
+              window.appendCoachMessage?.('coach', `### 🌐 Web Search: "${q}"\n\n${res.summary}`);
+            }
+          }
+        };
+      }
+    }
+
+    // 10. Remote Browser Launch ("open codeforces", "open leetcode", "open browser to X", "open url X")
+    const browserM = said.match(/\b(open\s+(the\s+)?(browser|site|website|url|tab|page)\s+(to\s+)?|open\s+)(codeforces|leetcode|atcoder|codechef|github|google|youtube|https?:\/\/[^\s]+|[a-z0-9-]+\.[a-z]{2,})\b/i)
+      || raw.match(/(?:खोलो|ओपन करो)\s*(कोडफोर्सेस|लीतकोड|ब्राउज़र|गिटहब)|(कोडफोर्सेस|लीतकोड|गिटहब)\s*(खोलो|ओपन करो)/u);
+    if (browserM) {
+      let target = (browserM[5] || browserM[2] || browserM[1] || browserM[browserM.length - 1] || '').trim();
+      if (target === 'कोडफोर्सेस') target = 'codeforces';
+      else if (target === 'लीतकोड') target = 'leetcode';
+      else if (target === 'गिटहब') target = 'github';
+      else if (target === 'ब्राउज़र') target = 'google';
+      return async () => {
+        if (window.copilot?.act) {
+          await window.copilot.act('open-url', target);
+        } else {
+          window.open(target.startsWith('http') ? target : `https://${target}`, '_blank');
+        }
+        feedback(`Opening ${target} in browser 🚀`, 'happy');
+      };
+    }
+
+    // 11. Instant Multilingual Technical Report Generation ("make report on X", "generate report for X", "create report on X", "रिपोर्ट बनाओ X")
+    const reportM = said.match(/\b(make|generate|create|build|write)\s+(a\s+)?(technical\s+)?report\s*(on|for|about)?\s*(.+)?/i)
+      || raw.match(/(?:^|\s)(रिपोर्ट\s*(बनाओ|तैयार करो)|तकनीकी रिपोर्ट)(?:\s+(.+))?/u);
+    if (reportM) {
+      const topic = (reportM[5] || reportM[3] || reportM[reportM.length - 1] || '').trim() || (current() ? displayName(current().name) : 'Competitive Programming Progress');
+      return async () => {
+        feedback(`Generating report for ${topic}…`, 'proud');
+        const lang = voice.lang() || 'en-US';
+        if (window.generateAndShowReport) {
+          await window.generateAndShowReport(topic, lang);
+        } else if (window.copilot?.act) {
+          await window.copilot.act('create-report', topic);
+        }
+      };
+    }
+
+    // 12. Language and accent switching ("speak in Hindi", "talk in English", "switch accent to Indian English", "hindi me bolo")
+    const langM = said.match(/\b(speak|talk|switch( to)?|change( language to)?|set language to)\s+([a-z\s]+)\b/i)
+      || raw.match(/\b(हिंदी|अंग्रेजी|इंग्लिश|कन्नड़|तमिल|तेलुगू|বাংলা|मराठी)\s*(में\s*बोलो|भाषा)\b/i);
+    if (langM) {
+      const resolver = window.buddyVoice?.resolveLangCode;
+      const target = (langM[langM.length - 1] || langM[1] || '').trim();
+      const code = resolver ? resolver(target) : target;
+      if (code && (code !== target || /^[a-z]{2,3}-[a-z]{2,4}$/i.test(code))) {
+        return () => {
+          voice.setLanguage(code);
+        };
+      }
+    }
+
+    // 13. Built-in remote control phrase patterns.
     const hit = PHRASES.find(([re]) => re.test(said));
     if (hit) return () => run(hit[1], `Voice “${raw}”`);
-    // 6. A bare problem name.
+
+    // 11. Bare problem name.
     const p = problemByName(said);
     if (p) {
       return () => {
@@ -460,7 +924,7 @@ const assistant = (() => {
     useAi() {
       return load().ear !== 'browser' && Boolean(state.ai?.canHear) && Boolean(window.ear?.supported);
     },
-    async start() {
+    async start(quiet = false) {
       if (this.on) return true;
       const ai = this.useAi();
       if (!ai && !Recognition) {
@@ -470,7 +934,7 @@ const assistant = (() => {
       if (ai) {
         try {
           await window.ear.start({
-            blocked: () => isSpeaking() || window.copilot?.busy,
+            blocked: () => isSpeaking(),
             onStart: () => window.copilot?.hearing(true),
             onEnd: (kept) => window.copilot?.hearing(false, kept),
             onClip: (clip) => this.clip(clip),
@@ -485,7 +949,19 @@ const assistant = (() => {
       this.on = true;
       if (Recognition) this.startRec();
       pet()?.listening(true);
-      feedback(ai ? 'I’m all ears! Talk to me in any language — or mix them 💛' : 'I’m listening! Say “next problem” or “open tests”.', 'wink');
+      if (!quiet) {
+        const lang = this.lang();
+        const base = lang.split('-')[0];
+        const hello = GREETING[base] || GREETING.en;
+        if (!sessionStorage.getItem('algopulse-welcome-spoken')) {
+          sessionStorage.setItem('algopulse-welcome-spoken', '1');
+          pet()?.say?.(hello, 3000);
+          pet()?.react?.('happy', 700);
+          speak(hello, GREETING[base] ? lang : 'en-US', 'happy');
+        } else {
+          pet()?.say?.(hello, 2000);
+        }
+      }
       syncControls();
       return true;
     },
@@ -540,6 +1016,10 @@ const assistant = (() => {
     },
     // AI ear: a short, confident English command runs at once and its clip is dropped.
     quick(text, confidence) {
+      const FAST_MAX_WORDS = 5;
+      const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
+      const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
+      const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham)[, ]*/i;
       // The browser ear only knows one language, so Kannada or Hindi can come out as
       // random English words. Only very confident, very short commands skip the AI.
       const said = normalize(text).replace(WAKE, '');
@@ -587,33 +1067,44 @@ const assistant = (() => {
       const indic = all.some((x) => /-IN$|^(hi|bn|ta|te|mr|kn|ml|gu|pa|ur|or)\b/i.test(x));
       return indic ? 'en-IN' : all[0] || 'en-US';
     },
-    // Browser ear, auto mode: follow the language the AI heard, so the next sentence is
-    // transcribed in it. The AI ear needs no switching; it hears every language.
+    // Follow the language the AI heard or the user spoke, so subsequent sentences
+    // are transcribed and spoken in it dynamically.
     detected(lang) {
-      if (!lang || (load().lang && load().lang !== 'auto')) return;
+      if (!lang) return;
       const cur = this.lang();
       const base = (x) => x.toLowerCase().split('-')[0];
       if (base(lang) === base(cur)) return;
       if (base(lang) === 'en' && cur === 'en-IN') return;
-      this.autoLang = lang;
-      if (this.mode === 'ai' || !this.on) return;
+      const saved = load().lang;
+      window.buddyVoice?.preload(lang);
+      if (saved && saved !== 'auto') save({ lang });
+      else this.autoLang = lang;
       let name = lang;
       try {
         name = new Intl.DisplayNames([lang], { type: 'language' }).of(lang);
       } catch { /* unknown code */ }
-      toast(`Auto-detected ${name} — listening in it now.`);
-      this.restart();
+      toast(`Switched tongue to ${name} 🎙️`);
+      if (this.on) this.restart();
     },
     restart() {
       if (!this.on) return;
       this.stop();
-      setTimeout(() => this.start(), 250);
+      setTimeout(() => this.start(true), 250);
     },
     // Switch the recognition language; restarts the session when listening.
-    setLanguage(lang) {
-      save({ lang });
+    setLanguage(lang, announce = true) {
+      const resolver = window.buddyVoice?.resolveLangCode || ((x) => x);
+      const code = resolver(lang);
+      save({ lang: code });
+      window.buddyVoice?.preload(code);
+      try {
+        localStorage.setItem('buddyChosenLang', code);
+      } catch { /* storage blocked */ }
+      const hello = GREETING[code.split('-')[0]];
+      if (announce && hello) window.copilot?.reply(hello, 'love', code, { ai: true });
       this.restart();
       syncControls();
+      document.dispatchEvent(new CustomEvent('assistant:change'));
     },
   };
 
@@ -945,6 +1436,7 @@ const assistant = (() => {
   }
   // Bring voice and camera back after a reload when they were on and permission is already granted.
   async function resume() {
+    setTimeout(() => window.buddyVoice?.preload(voice.lang()), 3000);
     const granted = async (name) => {
       try {
         return (await navigator.permissions.query({ name })).state === 'granted';
@@ -964,5 +1456,7 @@ const assistant = (() => {
   });
   document.addEventListener('DOMContentLoaded', bind);
 
-  return { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop };
+  const api = { ACTIONS, BUILTIN, PHRASES, voice, gestures, run, interpret, readStory, load, save, bindings, customs, features, classifyCustom, events, speak, feedback, log, isSpeaking, stopSpeaking, VOICES, localCommand, normalize, problemByName, closeTop, openProblemIndex, openDayTarget };
+  if (typeof window !== 'undefined') window.assistant = api;
+  return api;
 })();

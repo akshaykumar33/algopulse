@@ -77,12 +77,53 @@ function clearCache() {
 function isRetryable(err) {
   const m = String(err && err.message);
   if (/quota exceeded|rate-limit|resource_exhausted|429|too many requests|retry in/i.test(m)) return true;
-  if (/api key|apikey|unauthori[sz]ed|permission|forbidden|invalid.*key|401|403|credit balance/i.test(m)) return false;
+  if (/api key|apikey|unauthori[sz]ed|permission|forbidden|invalid.*key|401|403|credit balance|no credits remaining/i.test(m)) return false;
   return true;
 }
 
+// Latency-bound calls: start the best model, and if it has not answered within STAGGER_MS
+// also start the next one; the first answer wins, so a slow or overloaded top model
+// costs at most a short head start instead of its whole timeout.
+const STAGGER_MS = 1500;
+function staggered(models, ask, fail) {
+  return new Promise((resolve, reject) => {
+    let next = 0;
+    let running = 0;
+    let done = false;
+    const launch = () => {
+      if (done || next >= models.length) {
+        if (!done && running === 0) reject(new Error('no model answered'));
+        return;
+      }
+      const candidate = models[next++];
+      running++;
+      let movedOn = false;
+      const timer = setTimeout(() => {
+        movedOn = true;
+        launch();
+      }, STAGGER_MS);
+      ask(candidate).then(
+        (text) => {
+          clearTimeout(timer);
+          if (done) return;
+          done = true;
+          resolve({ text, candidate });
+        },
+        (err) => {
+          clearTimeout(timer);
+          running--;
+          if (done) return;
+          fail(candidate, err);
+          if (!movedOn) launch();
+          else if (running === 0 && next >= models.length) reject(err);
+        }
+      );
+    };
+    launch();
+  });
+}
 
-async function complete({ system = '', prompt, schema = null, maxTokens, cache = true, thinking }) {
+async function complete({ system = '', prompt, schema = null, maxTokens, cache = true, thinking, timeoutMs }) {
   const provider = activeProvider();
   if (!provider || !provider.isConfigured()) {
     throw new Error('No AI provider is set up. Open the Guide → "Choose your AI" to add a key (or start Ollama).');
@@ -94,29 +135,61 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
   if (cache && fs.existsSync(file)) {
     return { text: JSON.parse(fs.readFileSync(file, 'utf-8')).text, provider: provider.id, model, cached: true };
   }
-  // Try the chosen model, then step down the provider's ladder one level at a time.
-  const ladder = [model, ...provider.fallbacks().filter((m) => m !== model)];
-  const tried = [];
-  for (const candidate of ladder) {
-    try {
-      const text = await provider.complete({ system, prompt, schema, maxTokens, model: candidate, thinking });
-      fs.mkdirSync(CACHE_DIR, { recursive: true });
-      fs.writeFileSync(file, JSON.stringify({ provider: provider.id, model: candidate, at: new Date().toISOString(), text }), 'utf-8');
-      if (tried.length) console.warn(`[ai] ${model} failed; answered by fallback ${candidate}`);
-      return { text, provider: provider.id, model: candidate, cached: false, ...(tried.length ? { fallbackFrom: model, tried } : {}) };
-    } catch (err) {
-      tried.push(`${candidate}: ${err.message}`);
-      // A bad key or missing permission fails the same way on every model — stop.
-      if (!isRetryable(err)) throw err;
+
+  // Provider ladder: active provider first, followed by other configured providers as fallback
+  const providerLadder = [provider, ...ORDER.map((id) => PROVIDERS[id]).filter((p) => p && p.id !== provider.id && p.isConfigured())];
+  const allTried = [];
+
+  for (const curProvider of providerLadder) {
+    const curModel = curProvider.getModel();
+    const full = [...new Set([curModel, ...curProvider.fallbacks()])];
+    const awake = full.filter((m) => (restingUntil.get(`${curProvider.id}:${m}`) || 0) < Date.now());
+    const modelLadder = awake.length ? awake : full;
+    const ask = (candidate) => curProvider.complete({ system, prompt, schema, maxTokens, model: candidate, thinking, ...(timeoutMs ? { timeoutMs } : {}) });
+    const fail = (candidate, err) => {
+      allTried.push(`${curProvider.id}:${candidate}: ${err.message}`);
+      rest(`${curProvider.id}:${candidate}`, err);
+    };
+    if (timeoutMs) {
+      try {
+        const { text, candidate } = await staggered(modelLadder, ask, fail);
+        if (allTried.length) console.warn(`[ai] ${model} unavailable; answered by ${curProvider.id}:${candidate}`);
+        return { text, provider: curProvider.id, model: candidate, cached: false, ...(allTried.length ? { fallbackFrom: `${provider.id}:${model}`, tried: allTried } : {}) };
+      } catch {
+        continue;
+      }
+    }
+    for (const candidate of modelLadder) {
+      try {
+        const text = await ask(candidate);
+        fs.mkdirSync(CACHE_DIR, { recursive: true });
+        fs.writeFileSync(file, JSON.stringify({ provider: curProvider.id, model: candidate, at: new Date().toISOString(), text }), 'utf-8');
+        if (allTried.length) console.warn(`[ai] ${model} failed; answered by fallback ${curProvider.id}:${candidate}`);
+        return {
+          text,
+          provider: curProvider.id,
+          model: candidate,
+          cached: false,
+          ...(allTried.length ? { fallbackFrom: `${provider.id}:${model}`, tried: allTried } : {}),
+        };
+      } catch (err) {
+        fail(candidate, err);
+        // If this provider has exhausted credits or has an invalid key, don't try its other models — move to the next provider
+        if (/credit_balance_exhausted|no credits remaining|credit balance|401|invalid.*key/i.test(err.message)) {
+          break;
+        }
+        if (!isRetryable(err)) break;
+      }
     }
   }
-  throw new Error(`every ${provider.label} model failed — ${tried.join(' | ')}`);
+
+  throw new Error(`every configured provider failed — ${allTried.join(' | ')}`);
 }
 
-/* ---------- voice: listening and speaking (Gemini only; any language, mixed too) ---------- */
+/* ---------- voice: listening and speaking (Gemini primary, OpenAI TTS fallback) ---------- */
 
 const TTS_DIR = path.join(REPO_ROOT, '.cache', 'tts');
-const canHear = () => PROVIDERS.gemini.isConfigured();
+const canHear = () => Boolean(PROVIDERS.gemini.isConfigured() || PROVIDERS.openai.isConfigured());
 
 // Models that just said "quota" or "busy" sit out for a while, so the next sentence goes
 // straight to one that answers instead of paying a failed round trip per busy model.
@@ -125,7 +198,7 @@ function rest(model, err) {
   const m = String(err.message);
   const hinted = m.match(/retry in ([\d.]+)s/i);
   const quota = /quota|resource_exhausted|429/i.test(m);
-  const ms = hinted ? Math.min(Number(hinted[1]) * 1000, 30 * 60 * 1000) : quota ? 10 * 60 * 1000 : 60 * 1000;
+  const ms = hinted ? Math.min(Number(hinted[1]) * 1000, 30 * 60 * 1000) : quota ? 10 * 60 * 1000 : 15 * 60 * 1000;
   restingUntil.set(model, Date.now() + ms);
 }
 
@@ -149,35 +222,68 @@ async function ladder(models, run) {
 // Audio in, structured JSON out: the model hears the voice itself, so it follows any
 // language and mid-sentence switches the browser's one-language recogniser cannot.
 async function listen({ prompt, schema, audio }) {
-  if (!canHear()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
+  if (!PROVIDERS.gemini.isConfigured()) throw new Error('Listening in any language needs a Gemini key (Guide → Choose your AI).');
   const g = PROVIDERS.gemini;
-  // Lite models are a last resort: they romanise Kannada and Hindi and miss mixed speech.
-  const full = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-2.5-flash'];
-  const models = [env('GEMINI_LISTEN_MODEL'), ...full, ...g.fallbacks()].filter(Boolean);
-  return ladder(models, async (model) => ({
-    text: await g.generate({
-      model,
-      parts: [{ inlineData: { mimeType: audio.mime, data: audio.data } }, { text: prompt }],
-      schema,
-      maxTokens: 2000,
-      thinking: 'low',
-      timeoutMs: 30000,
-    }),
-  }));
+  const models = [env('GEMINI_LISTEN_MODEL'), g.getModel(), ...g.fallbacks()].filter(Boolean);
+  const unique = [...new Set(models)];
+  const awake = unique.filter((m) => (restingUntil.get(m) || 0) < Date.now());
+  const tried = [];
+  const ask = (model) => g.generate({
+    model,
+    parts: [{ inlineData: { mimeType: audio.mime, data: audio.data } }, { text: prompt }],
+    schema,
+    maxTokens: 2000,
+    thinking: 'low',
+    timeoutMs: 10000,
+  });
+  const fail = (model, err) => {
+    tried.push(`${model}: ${err.message}`);
+    rest(model, err);
+  };
+  try {
+    const { text, candidate } = await staggered(awake.length ? awake : unique, ask, fail);
+    return { text, model: candidate, ...(tried.length ? { tried } : {}) };
+  } catch {
+    throw new Error(`every listening model failed — ${tried.join(' | ')}`);
+  }
 }
 
 // Text in, 24 kHz PCM out, cached on disk so repeated lines play instantly.
 async function speech({ text, voice, style }) {
-  if (!canHear()) throw new Error('The AI voice needs a Gemini key.');
-  const g = PROVIDERS.gemini;
-  const key = cacheKey(['tts', voice, style, text]);
+  if (!canHear()) throw new Error('The AI voice needs an API key (Gemini or OpenAI).');
+  const key = cacheKey(['tts-v2', voice, style, text]);
   const file = path.join(TTS_DIR, `${key}.json`);
   if (fs.existsSync(file)) return { ...JSON.parse(fs.readFileSync(file, 'utf-8')), cached: true };
-  const models = (env('GEMINI_TTS_MODELS') || 'gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts').split(',').map((m) => m.trim()).filter(Boolean);
-  const out = await ladder(models, (model) => g.speak({ text, voice, style, model }));
-  fs.mkdirSync(TTS_DIR, { recursive: true });
-  fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
-  return { ...out, cached: false };
+
+  const tried = [];
+  // 1. Try Gemini TTS if configured
+  if (PROVIDERS.gemini.isConfigured()) {
+    const g = PROVIDERS.gemini;
+    const models = (env('GEMINI_TTS_MODELS') || 'gemini-3.8-flash-tts,gemini-3.8-flash-lite-tts,gemini-3.1-flash-tts-preview').split(',').map((m) => m.trim()).filter(Boolean);
+    try {
+      const out = await ladder(models, (model) => g.speak({ text, voice, style, model }));
+      fs.mkdirSync(TTS_DIR, { recursive: true });
+      fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
+      return { ...out, cached: false };
+    } catch (err) {
+      tried.push(`gemini: ${err.message}`);
+    }
+  }
+
+  // 2. Try OpenAI TTS fallback if configured
+  if (PROVIDERS.openai.isConfigured()) {
+    const o = PROVIDERS.openai;
+    try {
+      const out = await o.speak({ text, voice: 'nova' });
+      fs.mkdirSync(TTS_DIR, { recursive: true });
+      fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
+      return { ...out, cached: false, provider: 'openai' };
+    } catch (err) {
+      tried.push(`openai: ${err.message}`);
+    }
+  }
+
+  throw new Error(`The AI voice failed — ${tried.join(' | ')}`);
 }
 
 module.exports = { isRetryable, PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache, listen, speech, canHear };

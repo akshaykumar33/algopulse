@@ -36,7 +36,7 @@ module.exports = {
   label: 'Google Gemini',
   keyName: 'GEMINI_API_KEY',
   getKey: () => env('GEMINI_API_KEY') || env('GOOGLE_API_KEY'),
-  getModel: () => env('GEMINI_MODEL') || 'gemini-3.8-flash',
+  getModel: () => env('GEMINI_MODEL') || 'gemini-2.5-flash',
   isConfigured() {
     return Boolean(this.getKey());
   },
@@ -44,7 +44,7 @@ module.exports = {
   // Fallback ladder, one level down at a time; override with a comma list in the env.
   fallbacks() {
     const own = env(this.fallbackEnv);
-    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ["gemini-flash-lite-latest","gemini-3.5-flash-lite","gemini-3.1-flash-lite","gemini-3.7-flash","gemini-3.6-flash","gemini-3.5-flash","gemini-2.5-flash"];
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ['gemini-2.5-flash', 'gemini-flash-lite-latest', 'gemini-2.0-flash'];
   },
 
   fallbackEnv: 'GEMINI_FALLBACK_MODELS',
@@ -76,7 +76,7 @@ module.exports = {
   // Text to speech: returns 24 kHz mono 16-bit PCM as base64.
   async speak({ text, voice, style, model, timeoutMs = 30000 }) {
     const json = await this.call(model, {
-      contents: [{ role: 'user', parts: [{ text: style ? `${style}: ${text}` : text }] }],
+      contents: [{ role: 'user', parts: [{ text: style ? `Say the following ${style.replace(/^speak\s+/i, '')}: ${text}` : text }] }],
       generationConfig: {
         responseModalities: ['AUDIO'],
         speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } },

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nCODETOWN\nABCDEFGH\nBAEKJOON",
+    "output": "YES\nNO\nNO"
+  }
+]

@@ -11,7 +11,7 @@
 
 window.ear = (() => {
   const OUT_RATE = 16000;
-  const HANG_MS = 750; // silence that ends a sentence
+  const HANG_MS = 900; // silence that ends a sentence
   const MIN_MS = 350; // shorter blips are clicks and coughs
   const MAX_MS = 15000;
   const PRE_MS = 300; // keep the start of the first word

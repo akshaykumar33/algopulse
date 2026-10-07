@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4\n7 5 3\n6 1 1\n6 6 1\n5 2 2\n",
+    "output": "abcabca\naaaaaa\naaaaaa\nababa\n"
+  },
+  {
+    "input": "1\n10 5 2\n",
+    "output": "ababababab\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"abc\", \"pqr\"]",
+    "output": "\"apbqcr\""
+  },
+  {
+    "input": "[\"ab\", \"pqrs\"]",
+    "output": "\"apbqrs\""
+  },
+  {
+    "input": "[\"abcd\", \"pq\"]",
+    "output": "\"apbqcd\""
+  }
+]
