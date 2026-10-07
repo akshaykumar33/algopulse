@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\n7\nmapvpie\n11\nmapiepiefd\n13\nmapiamapiecde\n8\npiepiepi\n9\nmapmapmap\n5\nabacaba",
+    "output": "2\n2\n2\n2\n3\n0"
+  }
+]

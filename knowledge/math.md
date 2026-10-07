@@ -128,6 +128,10 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Avoiding Zero](https://codeforces.com/problemset/problem/1427/A) | `Codeforces` | `900` | `avoidingZero.js` | Key algorithmic application from Day 2026-10-06. |
 | [Rudolf and 121](https://codeforces.com/problemset/problem/1941/B) | `Codeforces` | `1000` | `rudolfAnd121.js` | Key algorithmic application from Day 2026-10-06. |
 | [Theatre Square](https://codeforces.com/problemset/problem/1/A) | `Codeforces` | `1000` | `theatreSquare.js` | Key algorithmic application from Day 2026-10-06. |
+| [Number of Apartments](https://codeforces.com/problemset/problem/1430/A) | `Codeforces` | `900` | `numberOfApartments.js` | Key algorithmic application from Day 2026-10-07. |
+| [Cubes Sorting](https://codeforces.com/problemset/problem/1420/A) | `Codeforces` | `900` | `cubesSorting.js` | Key algorithmic application from Day 2026-10-07. |
+| [Multiply by 2, divide by 6](https://codeforces.com/problemset/problem/1374/B) | `Codeforces` | `900` | `multiplyBy2DivideBy6.js` | Key algorithmic application from Day 2026-10-07. |
+| [The Strict Teacher (Easy Version)](https://codeforces.com/problemset/problem/2005/B1) | `Codeforces` | `1000` | `theStrictTeacherEasyVersion.js` | Key algorithmic application from Day 2026-10-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
