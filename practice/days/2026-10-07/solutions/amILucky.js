@@ -2,16 +2,17 @@ const fs = require('fs');
 
 function solve() {
     const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    let t = parseInt(input[0], 10);
+    if (!input || !input[0]) return;
+    const t = parseInt(input[0], 10);
     let idx = 1;
-    let out = [];
+    const out = [];
     for (let i = 0; i < t; i++) {
-        let parts = input[idx++].trim().split(/\s+/);
-        let n = parseInt(parts[0], 10);
-        let m = parseInt(parts[1], 10);
-        let k = parseInt(parts[2], 10);
-        let ans = Math.abs(n - m) % k;
-        out.push(ans);
+        if (idx >= input.length) break;
+        const parts = input[idx++].trim().split(/\s+/).map(Number);
+        const n = parts[0], x = parts[1], k = parts[2];
+        const remB = x % k;
+        const remG = (n - x) % k;
+        out.push(Math.abs(remB - remG));
     }
     console.log(out.join('\n'));
 }

@@ -13,10 +13,10 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 
 | # | Platform | Done | Problem | Rating / Difficulty | Solution File | Template | Explanations & Diagrams |
 |---|:---:|:---:|---|:---:|---|---|:---:|
-| 1 | `Codeforces` | [ ] | [2033B — Sakurako and Water](https://codeforces.com/problemset/problem/2033/B) | 900 | `sakurakoAndWater.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/sakurakoAndWater.md) |
-| 2 | `Codeforces` | [ ] | [1430A — Number of Apartments](https://codeforces.com/problemset/problem/1430/A) | 900 | `numberOfApartments.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/numberOfApartments.md) |
+| 1 | `Codeforces` | [x] | [2033B — Sakurako and Water](https://codeforces.com/problemset/problem/2033/B) | 900 | `sakurakoAndWater.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/sakurakoAndWater.md) |
+| 2 | `Codeforces` | [x] | [1430A — Number of Apartments](https://codeforces.com/problemset/problem/1430/A) | 900 | `numberOfApartments.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/numberOfApartments.md) |
 | 3 | `Codeforces` | [x] | [746B — Decoding](https://codeforces.com/problemset/problem/746/B) | 900 | `decoding.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/decoding.md) |
-| 4 | `Codeforces` | [ ] | [1850D — Balanced Round](https://codeforces.com/problemset/problem/1850/D) | 900 | `balancedRound.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/balancedRound.md) |
+| 4 | `Codeforces` | [x] | [1850D — Balanced Round](https://codeforces.com/problemset/problem/1850/D) | 900 | `balancedRound.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/balancedRound.md) |
 | 5 | `Codeforces` | [x] | [1420A — Cubes Sorting](https://codeforces.com/problemset/problem/1420/A) | 900 | `cubesSorting.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/cubesSorting.md) |
 | 6 | `Codeforces` | [x] | [1374B — Multiply by 2, divide by 6](https://codeforces.com/problemset/problem/1374/B) | 900 | `multiplyBy2DivideBy6.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/multiplyBy2DivideBy6.md) |
 | 7 | `Codeforces` | [x] | [1941C — Rudolf and the Ugly String](https://codeforces.com/problemset/problem/1941/C) | 900 | `rudolfAndTheUglyString.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/rudolfAndTheUglyString.md) |

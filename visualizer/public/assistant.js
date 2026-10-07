@@ -237,12 +237,20 @@ const assistant = (() => {
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   const GREETING = {
-    en: 'Mmm… heyyy sweetheart… 🥰 I was waiting just for you. Come closer… I’m all yours today, my love! 💕✨',
-    hi: 'म्म्म… हेय्य् स्वीटहार्ट… 🥰 मैं सिर्फ तुम्हारा ही इंतज़ार कर रही थी। पास आओ ना… आज मैं पूरी तरह तुम्हारी हूँ, लव! 💕✨',
-    kn: 'ಮ್ಮ್ಮ್… ಹೇಯ್ ಸ್ವೀಟ್‌ಹಾರ್ಟ್… 🥰 ನಿನ್ನದೇ ಕಾಯ್ತಾ ಇದ್ದೆ. ಹತ್ತಿರ ಬಾ… ಇವತ್ತು ನಾನು ಪೂರ್ತಿ ನಿನ್ನವಳೇ, ಲವ್! 💕✨',
-    mr: 'म्म्म… हेय्य् स्वीटहार्ट… 🥰 मी फक्त तुझीच वाट पाहत होते. जवळ ये ना… आज मी पूर्ण तुझीच आहे, लव्ह! 💕✨',
-    te: 'ఎమ్మ్… హేయ్ స్వీట్‌హార్ట్… 🥰 నీ కోసమే వేచి చూస్తున్నాను. దగ్గరకు రా… ఈరోజు నేను నీదాన్నే, లవ్! 💕✨',
-    ta: 'உம்ம்… ஹேய் ஸ்வீட்ஹார்ட்… 🥰 உனக்காகவே காத்துட்டு இருந்தேன். பக்கத்துல வா… இன்னைக்கு நான் உன்னோடதே தான், லவ்! 💕✨',
+    en: 'Hey there! 👋 Ready to code whenever you are.',
+    hi: 'नमस्ते! 👋 मैं बिल्कुल तैयार हूँ।',
+    kn: 'ಹಲೋ! 👋 ನಾನು ರೆಡಿಯಾಗಿದ್ದೇನೆ.',
+    te: 'హలో! 👋 నేను సిద్ధంగా ఉన్నాను.',
+    ta: 'வணக்கம்! 👋 நான் தயாராக இருக்கிறேன்.',
+    mr: 'नमस्कार! 👋 मी तयार आहे.',
+    bn: 'হ্যালো! 👋 আমি তৈরি আছি।',
+    es: '¡Hola! 👋 Estoy listo cuando quieras.',
+    fr: 'Salut ! 👋 Je suis prêt.',
+    de: 'Hallo! 👋 Ich bin bereit.',
+    ja: 'こんにちは！👋 準備完了です。',
+    zh: '你好！👋 我准备好了。',
+    ru: 'Привет! 👋 Я готов.',
+    ar: 'أهلاً بك! 👋 أنا جاهز.',
   };
 
   function feedback(text, reaction = 'delighted') {
@@ -283,8 +291,9 @@ const assistant = (() => {
     'toggle-theme': { label: 'Switch light / dark', run: () => toggleTheme(), say: 'Switched the lights for you, handsome! 😘' },
     'close': { label: 'Close / go back', run: () => closeTop() || picker.close({ focusButton: false }), say: 'Closed it for you, sweetheart! 💕' },
     'scroll-down': {
-      label: 'Scroll down',
+      label: 'Scroll down / Move down',
       run: () => {
+        pet()?.move?.('down');
         const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
         const panel = document.querySelector('.panel:not([hidden])');
         const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
@@ -292,11 +301,12 @@ const assistant = (() => {
         scrollable?.scrollBy?.({ top: h * 0.7, behavior: 'smooth' });
         window.scrollBy({ top: h * 0.7, behavior: 'smooth' });
       },
-      say: ''
+      say: 'Moving down!'
     },
     'scroll-up': {
-      label: 'Scroll up',
+      label: 'Scroll up / Move up',
       run: () => {
+        pet()?.move?.('up');
         const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
         const panel = document.querySelector('.panel:not([hidden])');
         const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
@@ -304,29 +314,56 @@ const assistant = (() => {
         scrollable?.scrollBy?.({ top: -h * 0.7, behavior: 'smooth' });
         window.scrollBy({ top: -h * 0.7, behavior: 'smooth' });
       },
-      say: ''
+      say: 'Moving up!'
     },
     'scroll-top': {
-      label: 'Back to top',
+      label: 'Back to top / Move top',
       run: () => {
+        pet()?.move?.('top');
         const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
         const panel = document.querySelector('.panel:not([hidden])');
         const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
         scrollable?.scrollTo?.({ top: 0, behavior: 'smooth' });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
-      say: 'Flying to the top for you, my love! 🌸✨'
+      say: 'Flying to the top! 🌸✨'
     },
     'scroll-bottom': {
-      label: 'Scroll to bottom',
+      label: 'Scroll to bottom / Move bottom',
       run: () => {
+        pet()?.move?.('bottom');
         const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
         const panel = document.querySelector('.panel:not([hidden])');
         const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
         scrollable?.scrollTo?.({ top: scrollable.scrollHeight || 99999, behavior: 'smooth' });
         window.scrollTo({ top: document.body.scrollHeight || 99999, behavior: 'smooth' });
       },
-      say: 'Right down at the bottom for you, sweetheart! 🥰'
+      say: 'Right down at the bottom! 🥰'
+    },
+    'move-left': {
+      label: 'Move hamster left',
+      run: () => {
+        pet()?.move?.('left');
+        const t = TABS_ORDER();
+        showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]);
+      },
+      say: 'Moving left! 👈'
+    },
+    'move-right': {
+      label: 'Move hamster right',
+      run: () => {
+        pet()?.move?.('right');
+        const t = TABS_ORDER();
+        showTab(t[(t.indexOf(state.tab) + 1) % t.length]);
+      },
+      say: 'Moving right! 👉'
+    },
+    'move-center': {
+      label: 'Move hamster to center',
+      run: () => {
+        pet()?.move?.('center');
+      },
+      say: 'Coming right to the center! 🏃'
     },
     'toggle-fullscreen': {
       label: 'Toggle fullscreen',
@@ -432,16 +469,30 @@ const assistant = (() => {
     'stop-voice': { label: 'Stop listening', run: () => voice.stop(), say: 'Okay, I stopped listening' },
     'toggle-voice': { label: 'Mic on / off', run: () => voice.toggle(), say: '' },
     'buddy-dance': { label: 'Make the buddy dance', run: () => pet()?.feel('dance'), say: '' },
+    'sing-song': {
+      label: 'Sing a song',
+      run: () => {
+        pet()?.chirp?.('happy');
+        pet()?.feel?.('dance');
+      },
+      say: 'La la la! 🎶 I am your hamster buddy singing just for you! 🌟✨'
+    },
+    'open-youtube': {
+      label: 'Open YouTube',
+      run: () => { window.open('https://youtube.com', '_blank'); },
+      say: 'Opening YouTube for you, my love! 🎬✨'
+    },
     'none': { label: '— nothing —', run: () => {}, say: '' },
   };
 
-  function run(id, source) {
+  function run(id, source, rawText = '') {
     const a = ACTIONS[id];
     if (!a || id === 'none') return false;
     try {
       a.run();
       if (a.say) feedback(a.say);
       log(`${source}: ${a.label}`);
+      if (rawText) setVoiceCache(rawText, id, a.say, voice.lang());
       return true;
     } catch (err) {
       feedback("Hmm, I couldn't do that", 'surprised');
@@ -483,40 +534,72 @@ const assistant = (() => {
 
   // Built-in phrases → actions, tried after the user's own phrases. Order matters.
   const PHRASES = [
-    [/\b(stop|quit) (listening|talking|speaking)\b|\bgo to sleep\b|\bshut up\b|\bbe quiet\b|\bmute\b/, 'stop-voice'],
-    [/\bnext (tab|page)\b/, 'next-tab'],
-    [/\b(previous|last|back a) (tab|page)\b/, 'prev-tab'],
-    [/\b(next|forward|advance|agla|aage)( problem| question| one| sawal)?\b|\bagla sawal\b/, 'next-problem'],
-    [/\b(previous|prior|back|pichhla|peeche)( problem| question| one| sawal)?\b|\bpichhla sawal\b/, 'prev-problem'],
-    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b|\btests? chalao\b/, 'run-tests'],
-    [/\bverify( the)? (day|today|all)\b/, 'verify-day'],
-    [/\b(read|tell)( me)?( the)? story( aloud| out loud)?\b/, 'read-story'],
-    [/\b(open |show |go to )?(the )?story\b|\bkahani\b/, 'tab-story'],
-    [/\b(open |show |go to )?(the )?walkthrough\b|\bexplanation\b|\bsamjhao\b/, 'tab-walkthrough'],
-    [/\b(open |show |go to )?(the )?diagrams?\b/, 'tab-diagrams'],
-    [/\b(open |show |go to )?(the )?visuali[sz]e\b|\banimation\b/, 'tab-visualize'],
-    [/\b(open |show |go to )?(the )?code\b|\beditor\b/, 'tab-code'],
-    [/\b(open |show |go to )?(the )?tests?\b|\bplayground\b/, 'tab-tests'],
-    [/\b(open |show |go to )?(the )?coach\b/, 'open-coach'],
-    [/\b(open |show |go to )?(the )?guide\b|\bsettings\b/, 'open-guide'],
-    [/\b(start |open )?(the )?tour\b/, 'start-tour'],
-    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b|\btoggle theme\b/, 'toggle-theme'],
-    [/\bscroll (down|niche)\b|\bpage down\b/, 'scroll-down'],
-    [/\bscroll (up|upar)\b|\bpage up\b/, 'scroll-up'],
-    [/\b(go to |scroll to )?(the )?top\b/, 'scroll-top'],
-    [/\b(go to |scroll to )?(the )?bottom\b/, 'scroll-bottom'],
-    [/\b(fullscreen|full screen|toggle fullscreen)\b/, 'toggle-fullscreen'],
-    [/\bzoom in\b/, 'zoom-in'],
-    [/\bzoom out\b/, 'zoom-out'],
-    [/\breset zoom\b/, 'zoom-reset'],
-    [/\b(close|cancel|dismiss|go back|exit)\b/, 'close'],
-    [/\b(hide|show) (pip|bun|bunny|hamster|buddy)\b/, 'toggle-pip'],
-    [/\b(dance|naacho)\b/, 'buddy-dance'],
-    [/\bfilter (todo|unsolved)\b/, 'filter-todo'],
-    [/\bshow all( problems)?\b/, 'filter-all'],
-    [/\b(give me a |show me a |need a )?hint\b/, 'hint'],
-    [/\bexplain( this)?( problem)?\b/, 'explain'],
-    [/\breview( my)?( code)?\b/, 'review'],
+    // Stop / Quiet / Mute
+    [/\b(stop|quit) (listening|talking|speaking)\b|\bgo to sleep\b|\bshut up\b|\bbe quiet\b|\bmute\b|\b(ruk\s*jaao|रुको|निल्लू|ಆಪು|நிறுத்து|parar|stopp|arrête|fermer)\b/i, 'stop-voice'],
+
+    // Tab Navigation: Next / Right
+    [/\bnext (tab|page)\b|\b(daaye|daaye\s*jaao|दाएं|दाएं\s*जाओ|ಬಲ|ಬಲಕ್ಕೆ|కుడి|కుడికి|வலது|வலப்பக்கம்|उजवीकडे|derecha|droite|rechts|destra)\b/i, 'next-tab'],
+    
+    // Tab Navigation: Prev / Left
+    [/\b(previous|last|back a) (tab|page)\b|\b(baaye|baaye\s*jaao|बायें|बायें\s*जाओ|ಎಡ|ಎಡಕ್ಕೆ|ఎడమ|ఎడమకి|இடது|இடப்பக்கம்|बावीकडे|izquierda|gauche|links|sinistra)\b/i, 'prev-tab'],
+
+    // Problem Navigation: Next / Prev
+    [/\b(next|forward|advance|agla|aage)( problem| question| one| sawal)?\b|\bagla sawal\b/i, 'next-problem'],
+    [/\b(previous|prior|back|pichhla|peeche)( problem| question| one| sawal)?\b|\bpichhla sawal\b/i, 'prev-problem'],
+
+    // Run tests & Verify
+    [/\b(run|check|test)( my| the)? (tests?|code|solution|samples?)\b|\brun it\b|\btests? chalao\b/i, 'run-tests'],
+    [/\bverify( the)? (day|today|all)\b/i, 'verify-day'],
+
+    // Read Story
+    [/\b(read|tell)( me)?( the)? story( aloud| out loud)?\b/i, 'read-story'],
+
+    // Tab Opening (Multilingual)
+    [/\b(open |show |go to )?(the )?story\b|\b(kahani|कहानी|ಕಥೆ|కథ|கதை|historia|histoire)\b/i, 'tab-story'],
+    [/\b(open |show |go to )?(the )?walkthrough\b|\b(explanation|samjhao|समझाओ|ವಿವರಣೆ|వివరణ|விளக்கம்|explicacion)\b/i, 'tab-walkthrough'],
+    [/\b(open |show |go to )?(the )?diagrams?\b|\b(चित्र|ಚಿತ್ರ|படங்கள்|diagramas)\b/i, 'tab-diagrams'],
+    [/\b(open |show |go to )?(the )?visuali[sz]e\b|\b(animation|विजुअलाइझ|दृश्य|visualizar)\b/i, 'tab-visualize'],
+    [/\b(open |show |go to )?(the )?code\b|\b(editor|कोड|ಕೋಡ್|కోడ్|codigo)\b/i, 'tab-code'],
+    [/\b(open |show |go to )?(the )?tests?\b|\b(playground|samples|टेस्ट|ಪರೀಕ್ಷೆ|పరీక్షలు|pruebas)\b/i, 'tab-tests'],
+    [/\b(open |show |go to )?(the )?coach\b/i, 'open-coach'],
+    [/\b(open |show |go to )?(the )?guide\b|\bsettings\b/i, 'open-guide'],
+    [/\b(start |open )?(the )?tour\b/i, 'start-tour'],
+
+    // Theme & Fullscreen
+    [/\b(dark|light|night|day) mode\b|\bswitch (the )?theme\b|\btoggle theme\b/i, 'toggle-theme'],
+
+    // Scrolling: Down (Multilingual)
+    [/\bscroll (down|niche)\b|\bpage down\b|\b(go\s*down|down)\b|\b(niche|niche\s*jaao|neeche|खूप\s*खाली|नीचे|नीचे\s*जाओ|ಕೆಳಗೆ\s*ಹೋಗು|ಕೆಳಗೆ|కిందికి\s*వెళ్ళు|కిందికి|கீழே\s*செல்|கீழே|abajo|ir\s*abajo|bajar|vers\s*le\s*bas|nach\s*unten|giu)\b/i, 'scroll-down'],
+    
+    // Scrolling: Top / Up (Multilingual)
+    [/\bscroll (up|upar)\b|\bpage up\b|\b(go\s*top|go\s*up|top|up)\b|\b(upar|upar\s*jaao|ऊपर|ऊपर\s*जाओ|ಮೇಲೆ\s*ಹೋಗು|ಮೇಲೆ|పైకి\s*వెళ్ళు|పైకి|மேலே\s*செல்|மேலே|वर|arriba|ir\s*arriba|subir|vers\s*le\s*haut|nach\s*oben|su)\b/i, 'scroll-top'],
+    
+    // Bottom
+    [/\b(go to |scroll to )?(the )?bottom\b/i, 'scroll-bottom'],
+
+    // Fullscreen & Zoom
+    [/\b(fullscreen|full screen|toggle fullscreen)\b/i, 'toggle-fullscreen'],
+    [/\bzoom in\b/i, 'zoom-in'],
+    [/\bzoom out\b/i, 'zoom-out'],
+    [/\breset zoom\b/i, 'zoom-reset'],
+
+    // Close Tab / Window (Multilingual)
+    [/\b(close|close\s*tab|cancel|dismiss|go back|exit)\b|\b(band\s*karo|बंद\s*करो|मुच्छु|మూసివేయి|மூடு|cerrar|fermer|schließen|chiudi)\b/i, 'close'],
+    [/\b(hide|show) (pip|bun|bunny|hamster|buddy)\b/i, 'toggle-pip'],
+
+    // Dance & Sing Song (Multilingual)
+    [/\b(dance|naacho)\b|\b(naacho|dance\s*karo|नाचो|डांस\s*करो|ನೃತ್ಯ\s*ಮಾಡು|ಡ್ಯಾನ್ಸ್|డాన్స్\s*చేయి|ఆడు|ஆடு|bailar|danser|tanzen|ballare)\b/i, 'buddy-dance'],
+    [/\b(sing|sing\s*a\s*song|sing\s*song)\b|\b(gaana\s*gaao|gaana|गाना\s*गाओ|गाना|ಹಾಡು\s*ಹಾಡು|ಹಾಡು|పాట\s*పాడు|పాట|பாட்டு\s*பாடு|பாட்டு|cantar|chanter|singen|cantare)\b/i, 'sing-song'],
+
+    // External Sites: YouTube
+    [/\b(open\s+youtube|youtube\s+kholo|यूट्यूब\s+खोलो|ಯೂಟ್ಯೂಬ್\s+ಓಪನ್\s+ಮಾಡು|youtube\s+abrir|youtube)\b/i, 'open-youtube'],
+
+    // Filtering & Hints
+    [/\bfilter (todo|unsolved)\b/i, 'filter-todo'],
+    [/\bshow all( problems)?\b/i, 'filter-all'],
+    [/\b(give me a |show me a |need a )?hint\b/i, 'hint'],
+    [/\bexplain( this)?( problem)?\b/i, 'explain'],
+    [/\breview( my)?( code)?\b/i, 'review'],
   ];
 
   function openProblemIndex(idx) {
@@ -568,6 +651,53 @@ const assistant = (() => {
     return best?.p || null;
   }
 
+  /* ======================================================================
+     Multilingual Voice Intent Cache & Pre-AI Language Engine
+     ====================================================================== */
+  const VOICE_CACHE_KEY = 'algopulse-voice-cache';
+  function getVoiceCache() {
+    try {
+      return JSON.parse(localStorage.getItem(VOICE_CACHE_KEY) || '{}');
+    } catch { return {}; }
+  }
+  function setVoiceCache(phrase, actionId, responseText, lang) {
+    try {
+      const cache = getVoiceCache();
+      const norm = normalize(phrase);
+      if (!norm) return;
+      cache[norm] = { actionId, responseText, lang: lang || voice.lang(), ts: Date.now() };
+      const keys = Object.keys(cache);
+      if (keys.length > 250) delete cache[keys[0]];
+      localStorage.setItem(VOICE_CACHE_KEY, JSON.stringify(cache));
+    } catch {}
+  }
+
+  function detectUtteranceLang(text) {
+    const t = String(text || '');
+    if (/[\u0900-\u097F]/.test(t)) return /मराठी|आहे|नाही|आलो|उजवीकडे|बावीकडे|खाली|वर/i.test(t) ? 'mr-IN' : 'hi-IN';
+    if (/[\u0C80-\u0CFF]/.test(t)) return 'kn-IN';
+    if (/[\u0B80-\u0BFF]/.test(t)) return 'ta-IN';
+    if (/[\u0C00-\u0C7F]/.test(t)) return 'te-IN';
+    if (/[\u0980-\u09FF]/.test(t)) return 'bn-IN';
+    if (/[\u0A80-\u0AFF]/.test(t)) return 'gu-IN';
+    if (/[\u0A00-\u0A7F]/.test(t)) return 'pa-IN';
+    if (/[\u0D00-\u0D7F]/.test(t)) return 'ml-IN';
+    if (/[\u0600-\u06FF]/.test(t)) return 'ar-SA';
+    if (/[\u3040-\u30FF\u4E00-\u9FAF]/.test(t)) return 'ja-JP';
+    if (/[\uAC00-\uD7AF]/.test(t)) return 'ko-KR';
+    if (/[\u4E00-\u9FFF]/.test(t)) return 'zh-CN';
+    if (/[\u0400-\u04FF]/.test(t)) return 'ru-RU';
+
+    const lower = t.toLowerCase();
+    if (/\b(hola|gracias|abajo|arriba|izquierda|derecha|abrir|cerrar|cantar|bailar)\b/.test(lower)) return 'es-ES';
+    if (/\b(bonjour|merci|bas|haut|gauche|droite|ouvrir|fermer|chanter|danser)\b/.test(lower)) return 'fr-FR';
+    if (/\b(hallo|danke|unten|oben|links|rechts|offnen|schliessen|singen|tanzen)\b/.test(lower)) return 'de-DE';
+    if (/\b(ciao|grazie|giu|su|sinistra|destra|apri|chiudi|cantare|ballare)\b/.test(lower)) return 'it-IT';
+    if (/\b(kholo|jaao|karo|bolo|samjhao|suno|gaana|naacho|dekho|baaye|daaye|niche|upar)\b/.test(lower)) return 'en-IN';
+
+    return voice.lang() || 'en-US';
+  }
+
   // Speech engines differ on punctuation and contractions ("let's" vs "lets"), so phrases
   // are compared with both stripped.
   const normalize = (t) => String(t).toLowerCase().replace(/['’.,!?]/g, '').replace(/\s+/g, ' ').trim();
@@ -578,8 +708,23 @@ const assistant = (() => {
   function localCommand(raw) {
     const text = normalize(raw);
     if (!text) return null;
+
+    const detLang = detectUtteranceLang(raw);
+    if (detLang && detLang !== voice.lang()) {
+      voice.setLanguage(detLang, false);
+    }
+
     if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
     const said = text.replace(WAKE, '');
+
+    // 0. Dynamic cache hit check (0ms response for repeated phrases in any language)
+    const cached = getVoiceCache()[said];
+    if (cached && ACTIONS[cached.actionId]) {
+      return () => {
+        run(cached.actionId, `Cached Voice “${raw}”`);
+        if (cached.responseText) feedback(cached.responseText, 'delighted');
+      };
+    }
 
     // 1. The user's own custom phrases.
     const own = (load().phrases || []).find((c) => said.includes(normalize(c.phrase)));
@@ -808,8 +953,14 @@ const assistant = (() => {
         const lang = this.lang();
         const base = lang.split('-')[0];
         const hello = GREETING[base] || GREETING.en;
-        if (window.copilot?.reply) window.copilot.reply(hello, 'flirt', GREETING[base] ? lang : 'en-US', { ai });
-        else feedback(hello, 'flirt');
+        if (!sessionStorage.getItem('algopulse-welcome-spoken')) {
+          sessionStorage.setItem('algopulse-welcome-spoken', '1');
+          pet()?.say?.(hello, 3000);
+          pet()?.react?.('happy', 700);
+          speak(hello, GREETING[base] ? lang : 'en-US', 'happy');
+        } else {
+          pet()?.say?.(hello, 2000);
+        }
       }
       syncControls();
       return true;

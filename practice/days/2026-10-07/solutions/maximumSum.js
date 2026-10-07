@@ -1,36 +1,31 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (!lines || lines.length === 0 || lines[0] === '') return;
-    
+    const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+    if (!input || input.length === 0 || input[0] === '') return;
     let ptr = 0;
-    const t = parseInt(lines[ptr++], 10);
+    const t = parseInt(input[ptr++], 10);
     const out = [];
-    
-    for (let i = 0; i < t; i++) {
-        const n = parseInt(lines[ptr++], 10);
-        const arr = lines[ptr++].trim().split(/\s+/).map(Number);
+    for (let tc = 0; tc < t; tc++) {
+        const n = parseInt(input[ptr++], 10);
+        const k = parseInt(input[ptr++], 10);
+        const arr = new Float64Array(n);
+        for (let i = 0; i < n; i++) arr[i] = parseFloat(input[ptr++]);
         
-        let sum = 0;
-        let cnt = 0;
-        let minVal = Infinity;
-        
-        for (let j = 0; j < n; j++) {
-            const val = arr[j];
-            const cur = Math.abs(val);
-            sum += cur;
-            if (val < 0) cnt++;
-            if (cur < minVal) minVal = cur;
+        if (k >= n) {
+            out.push(0);
+            continue;
         }
-        
-        if (cnt % 2 !== 0) {
-            sum -= 2 * minVal;
+        const w = n - k;
+        let cur = 0;
+        for (let i = 0; i < w; i++) cur += arr[i];
+        let maxSum = cur;
+        for (let i = w; i < n; i++) {
+            cur += arr[i] - arr[i - w];
+            if (cur > maxSum) maxSum = cur;
         }
-        
-        out.push(sum);
+        out.push(maxSum);
     }
-    
     console.log(out.join('\n'));
 }
 
