@@ -1,0 +1,387 @@
+{
+  "date": "2026-10-07",
+  "day": 13,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "2033B",
+      "name": "Sakurako and Water",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2033/B",
+      "file": "sakurakoAndWater",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1430A",
+      "name": "Number of Apartments",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1430/A",
+      "file": "numberOfApartments",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "746B",
+      "name": "Decoding",
+      "rating": 900,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/746/B",
+      "file": "decoding",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1850D",
+      "name": "Balanced Round",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1850/D",
+      "file": "balancedRound",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1420A",
+      "name": "Cubes Sorting",
+      "rating": 900,
+      "tags": [
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1420/A",
+      "file": "cubesSorting",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1374B",
+      "name": "Multiply by 2, divide by 6",
+      "rating": 900,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1374/B",
+      "file": "multiplyBy2DivideBy6",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1941C",
+      "name": "Rudolf and the Ugly String",
+      "rating": 900,
+      "tags": [
+        "dp",
+        "greedy",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1941/C",
+      "file": "rudolfAndTheUglyString",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1613B",
+      "name": "Absent Remainder",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1613/B",
+      "file": "absentRemainder",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2005B1",
+      "name": "The Strict Teacher (Easy Version)",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2005/B1",
+      "file": "theStrictTeacherEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1979B",
+      "name": "XOR Sequences",
+      "rating": 1000,
+      "tags": [
+        "bitmasks",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1979/B",
+      "file": "xORSequences",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-69",
+      "name": "Sqrt(x)",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sqrtx/",
+      "file": "sqrtX",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2022",
+      "name": "Convert 1D Array Into 2D Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/convert-1d-array-into-2d-array/",
+      "file": "convert1DArrayInto2DArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2894",
+      "name": "Divisible and Non-divisible Sums Difference",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/",
+      "file": "divisibleAndNonDivisibleSumsDifference",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1108",
+      "name": "Defanging an IP Address",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/defanging-an-ip-address/",
+      "file": "defangingAnIPAddress",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1863",
+      "name": "Sum of All Subset XOR Totals",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sum-of-all-subset-xor-totals/",
+      "file": "sumOfAllSubsetXORTotals",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1929",
+      "name": "Concatenation of Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/concatenation-of-array/",
+      "file": "concatenationOfArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-35",
+      "name": "Search Insert Position",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/search-insert-position/",
+      "file": "searchInsertPosition",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1768",
+      "name": "Merge Strings Alternately",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/merge-strings-alternately/",
+      "file": "mergeStringsAlternately",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-387",
+      "name": "First Unique Character in a String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/first-unique-character-in-a-string/",
+      "file": "firstUniqueCharacterInAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-938",
+      "name": "Range Sum of BST",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/range-sum-of-bst/",
+      "file": "rangeSumOfBST",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SPCP4",
+      "name": " Am I Lucky!",
+      "rating": 941,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SPCP4",
+      "file": "amILucky",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DICENUM",
+      "name": "Dice Number",
+      "rating": 994,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DICENUM",
+      "file": "diceNumber",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-P3BAR",
+      "name": "Exit Door",
+      "rating": 1096,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/P3BAR",
+      "file": "exitDoor",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ENDSORTED",
+      "name": "End Sorted",
+      "rating": 1049,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ENDSORTED",
+      "file": "endSorted",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAXSUM77",
+      "name": "Maximum Sum",
+      "rating": 990,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAXSUM77",
+      "file": "maximumSum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CODETOWN",
+      "name": "Reach Codetown",
+      "rating": 1022,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CODETOWN",
+      "file": "reachCodetown",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EXISTENCE",
+      "name": "Existence",
+      "rating": 928,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EXISTENCE",
+      "file": "existence",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAXCOIN",
+      "name": "Maximum Coins",
+      "rating": 951,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAXCOIN",
+      "file": "maximumCoins",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEAPFUEL",
+      "name": "Which Fuel is Cheaper",
+      "rating": 926,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEAPFUEL",
+      "file": "whichFuelIsCheaper",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LOSELESS",
+      "name": "Lose Less",
+      "rating": 900,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LOSELESS",
+      "file": "loseLess",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

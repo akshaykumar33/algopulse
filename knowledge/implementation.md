@@ -331,6 +331,29 @@ function solve() {
 | [Difficulty Rating Order](https://www.codechef.com/problems/RATINGINPRAC) | `CodeChef` | `930` | `difficultyRatingOrder.js` | Key algorithmic application from Day 2026-10-06. |
 | [The Great Run](https://www.codechef.com/problems/PROC18A) | `CodeChef` | `1097` | `theGreatRun.js` | Key algorithmic application from Day 2026-10-06. |
 | [Chef and Battery ](https://www.codechef.com/problems/FIFTYPE) | `CodeChef` | `901` | `chefAndBattery.js` | Key algorithmic application from Day 2026-10-06. |
+| [Decoding](https://codeforces.com/problemset/problem/746/B) | `Codeforces` | `900` | `decoding.js` | Key algorithmic application from Day 2026-10-07. |
+| [Balanced Round](https://codeforces.com/problemset/problem/1850/D) | `Codeforces` | `900` | `balancedRound.js` | Key algorithmic application from Day 2026-10-07. |
+| [Absent Remainder](https://codeforces.com/problemset/problem/1613/B) | `Codeforces` | `1000` | `absentRemainder.js` | Key algorithmic application from Day 2026-10-07. |
+| [Sqrt(x)](https://leetcode.com/problems/sqrtx/) | `LeetCode` | `Easy` | `sqrtX.js` | Key algorithmic application from Day 2026-10-07. |
+| [Convert 1D Array Into 2D Array](https://leetcode.com/problems/convert-1d-array-into-2d-array/) | `LeetCode` | `Easy` | `convert1DArrayInto2DArray.js` | Key algorithmic application from Day 2026-10-07. |
+| [Divisible and Non-divisible Sums Difference](https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/) | `LeetCode` | `Easy` | `divisibleAndNonDivisibleSumsDifference.js` | Key algorithmic application from Day 2026-10-07. |
+| [Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/) | `LeetCode` | `Easy` | `defangingAnIPAddress.js` | Key algorithmic application from Day 2026-10-07. |
+| [Sum of All Subset XOR Totals](https://leetcode.com/problems/sum-of-all-subset-xor-totals/) | `LeetCode` | `Easy` | `sumOfAllSubsetXORTotals.js` | Key algorithmic application from Day 2026-10-07. |
+| [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/) | `LeetCode` | `Easy` | `concatenationOfArray.js` | Key algorithmic application from Day 2026-10-07. |
+| [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | `LeetCode` | `Easy` | `searchInsertPosition.js` | Key algorithmic application from Day 2026-10-07. |
+| [Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/) | `LeetCode` | `Easy` | `mergeStringsAlternately.js` | Key algorithmic application from Day 2026-10-07. |
+| [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) | `LeetCode` | `Easy` | `firstUniqueCharacterInAString.js` | Key algorithmic application from Day 2026-10-07. |
+| [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/) | `LeetCode` | `Easy` | `rangeSumOfBST.js` | Key algorithmic application from Day 2026-10-07. |
+| [ Am I Lucky!](https://www.codechef.com/problems/SPCP4) | `CodeChef` | `941` | `amILucky.js` | Key algorithmic application from Day 2026-10-07. |
+| [Dice Number](https://www.codechef.com/problems/DICENUM) | `CodeChef` | `994` | `diceNumber.js` | Key algorithmic application from Day 2026-10-07. |
+| [Exit Door](https://www.codechef.com/problems/P3BAR) | `CodeChef` | `1096` | `exitDoor.js` | Key algorithmic application from Day 2026-10-07. |
+| [End Sorted](https://www.codechef.com/problems/ENDSORTED) | `CodeChef` | `1049` | `endSorted.js` | Key algorithmic application from Day 2026-10-07. |
+| [Maximum Sum](https://www.codechef.com/problems/MAXSUM77) | `CodeChef` | `990` | `maximumSum.js` | Key algorithmic application from Day 2026-10-07. |
+| [Reach Codetown](https://www.codechef.com/problems/CODETOWN) | `CodeChef` | `1022` | `reachCodetown.js` | Key algorithmic application from Day 2026-10-07. |
+| [Existence](https://www.codechef.com/problems/EXISTENCE) | `CodeChef` | `928` | `existence.js` | Key algorithmic application from Day 2026-10-07. |
+| [Maximum Coins](https://www.codechef.com/problems/MAXCOIN) | `CodeChef` | `951` | `maximumCoins.js` | Key algorithmic application from Day 2026-10-07. |
+| [Which Fuel is Cheaper](https://www.codechef.com/problems/CHEAPFUEL) | `CodeChef` | `926` | `whichFuelIsCheaper.js` | Key algorithmic application from Day 2026-10-07. |
+| [Lose Less](https://www.codechef.com/problems/LOSELESS) | `CodeChef` | `900` | `loseLess.js` | Key algorithmic application from Day 2026-10-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

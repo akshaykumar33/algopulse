@@ -1,0 +1,14 @@
+[
+  {
+    "input": "5\ncbdae",
+    "output": "abcde"
+  },
+  {
+    "input": "4\nbcad",
+    "output": "abcd"
+  },
+  {
+    "input": "1\na",
+    "output": "a"
+  }
+]
