@@ -1,21 +1,27 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
-    const t = parseInt(lines[0], 10);
+    const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+    if (!input || input.length === 0 || input[0] === '') return;
+    let ptr = 0;
+    const t = parseInt(input[ptr++], 10);
     const out = [];
-    for (let i = 1; i <= t; i++) {
-        if (!lines[i]) continue;
-        const [x, y, a, b, k] = lines[i].split(/\s+/).map(Number);
-        const p = x + a * k;
-        const d = y + b * k;
-        if (p < d) {
-            out.push("PETROL");
-        } else if (p > d) {
-            out.push("DIESEL");
+    for (let tc = 0; tc < t; tc++) {
+        const x = parseInt(input[ptr++], 10);
+        const y = parseInt(input[ptr++], 10);
+        const a = parseInt(input[ptr++], 10);
+        const b = parseInt(input[ptr++], 10);
+        const k = parseInt(input[ptr++], 10);
+        
+        const petrol = x + a * k;
+        const diesel = y + b * k;
+        
+        if (petrol < diesel) {
+            out.push('PETROL');
+        } else if (diesel < petrol) {
+            out.push('DIESEL');
         } else {
-            out.push("SAME");
+            out.push('SAME PRICE');
         }
     }
     console.log(out.join('\n'));
