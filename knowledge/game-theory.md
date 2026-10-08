@@ -68,6 +68,7 @@ function determineWinner(a, b, c) {
 | [MEX Game (Easy)](https://www.codechef.com) | `CodeChef` | `1200` | `mexGameEasy.js` | Constant MEX preservation invariant: all paths have identical length; winner determined by parity of total valid decrements. |
 | [Digit Game](https://codeforces.com/problemset/problem/1419/A) | `Codeforces` | `900` | `digitGame.js` | Key algorithmic application from Day 2026-10-02. |
 | [Coin Games](https://codeforces.com/problemset/problem/1972/B) | `Codeforces` | `900` | `coinGames.js` | Key algorithmic application from Day 2026-10-04. |
+| [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
 
 ---
 

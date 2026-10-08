@@ -354,6 +354,31 @@ function solve() {
 | [Maximum Coins](https://www.codechef.com/problems/MAXCOIN) | `CodeChef` | `951` | `maximumCoins.js` | Key algorithmic application from Day 2026-10-07. |
 | [Which Fuel is Cheaper](https://www.codechef.com/problems/CHEAPFUEL) | `CodeChef` | `926` | `whichFuelIsCheaper.js` | Key algorithmic application from Day 2026-10-07. |
 | [Lose Less](https://www.codechef.com/problems/LOSELESS) | `CodeChef` | `900` | `loseLess.js` | Key algorithmic application from Day 2026-10-07. |
+| [Non-Substring Subsequence](https://codeforces.com/problemset/problem/1451/B) | `Codeforces` | `900` | `nonSubstringSubsequence.js` | Key algorithmic application from Day 2026-10-08. |
+| [Lunar New Year and Number Division](https://codeforces.com/problemset/problem/1106/C) | `Codeforces` | `900` | `lunarNewYearAndNumberDivision.js` | Key algorithmic application from Day 2026-10-08. |
+| [Filling Diamonds](https://codeforces.com/problemset/problem/1339/A) | `Codeforces` | `900` | `fillingDiamonds.js` | Key algorithmic application from Day 2026-10-08. |
+| [Progressive Square](https://codeforces.com/problemset/problem/1955/B) | `Codeforces` | `1000` | `progressiveSquare.js` | Key algorithmic application from Day 2026-10-08. |
+| [Palindromic Twist](https://codeforces.com/problemset/problem/1027/A) | `Codeforces` | `1000` | `palindromicTwist.js` | Key algorithmic application from Day 2026-10-08. |
+| [Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/) | `LeetCode` | `Easy` | `cousinsInBinaryTree.js` | Key algorithmic application from Day 2026-10-08. |
+| [Distribute Candies](https://leetcode.com/problems/distribute-candies/) | `LeetCode` | `Easy` | `distributeCandies.js` | Key algorithmic application from Day 2026-10-08. |
+| [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | `LeetCode` | `Easy` | `romanToInteger.js` | Key algorithmic application from Day 2026-10-08. |
+| [Check if One String Swap Can Make Strings Equal](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/) | `LeetCode` | `Easy` | `checkIfOneStringSwapCanMakeStringsEqual.js` | Key algorithmic application from Day 2026-10-08. |
+| [Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) | `LeetCode` | `Easy` | `degreeOfAnArray.js` | Key algorithmic application from Day 2026-10-08. |
+| [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) | `LeetCode` | `Easy` | `maxConsecutiveOnes.js` | Key algorithmic application from Day 2026-10-08. |
+| [Number of Senior Citizens](https://leetcode.com/problems/number-of-senior-citizens/) | `LeetCode` | `Easy` | `numberOfSeniorCitizens.js` | Key algorithmic application from Day 2026-10-08. |
+| [Final Value of Variable After Performing Operations](https://leetcode.com/problems/final-value-of-variable-after-performing-operations/) | `LeetCode` | `Easy` | `finalValueOfVariableAfterPerformingOperations.js` | Key algorithmic application from Day 2026-10-08. |
+| [Keep Multiplying Found Values by Two](https://leetcode.com/problems/keep-multiplying-found-values-by-two/) | `LeetCode` | `Easy` | `keepMultiplyingFoundValuesByTwo.js` | Key algorithmic application from Day 2026-10-08. |
+| [XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/) | `LeetCode` | `Easy` | `xOROperationInAnArray.js` | Key algorithmic application from Day 2026-10-08. |
+| [Easy Permutation](https://www.codechef.com/problems/EASYPERM) | `CodeChef` | `1057` | `easyPermutation.js` | Key algorithmic application from Day 2026-10-08. |
+| [Bi_lindrome!](https://www.codechef.com/problems/QTOO_2523) | `CodeChef` | `1095` | `biLindrome.js` | Key algorithmic application from Day 2026-10-08. |
+| [Red Light, Green Light](https://www.codechef.com/problems/DOLL) | `CodeChef` | `984` | `redLightGreenLight.js` | Key algorithmic application from Day 2026-10-08. |
+| [Sequential Clamp](https://www.codechef.com/problems/SEQCLAMP) | `CodeChef` | `935` | `sequentialClamp.js` | Key algorithmic application from Day 2026-10-08. |
+| [Fake Certificate](https://www.codechef.com/problems/FKMC) | `CodeChef` | `1074` | `fakeCertificate.js` | Key algorithmic application from Day 2026-10-08. |
+| [Chef and Pairing Slippers](https://www.codechef.com/problems/CHEFSLP) | `CodeChef` | `930` | `chefAndPairingSlippers.js` | Key algorithmic application from Day 2026-10-08. |
+| [Beginnings and Endings](https://www.codechef.com/problems/EQBEND) | `CodeChef` | `1058` | `beginningsAndEndings.js` | Key algorithmic application from Day 2026-10-08. |
+| [Counting Problem](https://www.codechef.com/problems/COUNTP) | `CodeChef` | `1065` | `countingProblem.js` | Key algorithmic application from Day 2026-10-08. |
+| [Naive Chef](https://www.codechef.com/problems/NAICHEF) | `CodeChef` | `990` | `naiveChef.js` | Key algorithmic application from Day 2026-10-08. |
+| [Magical World](https://www.codechef.com/problems/P2149) | `CodeChef` | `1005` | `magicalWorld.js` | Key algorithmic application from Day 2026-10-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

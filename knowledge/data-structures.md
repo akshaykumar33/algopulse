@@ -109,6 +109,7 @@ class MinHeap {
 | [Valid Pair](https://www.codechef.com/problems/SOCKS1) | `CodeChef` | `851` | `validPair.js` | Frequency check across three socks: if any two colors match ($A=B \lor B=C \lor A=C$), valid pair exists. |
 | [Minimize Inversions](https://codeforces.com/problemset/problem/1918/B) | `Codeforces` | `900` | `minimizeInversions.js` | Key algorithmic application from Day 2026-09-30. |
 | [Also Try Minecraft](https://codeforces.com/problemset/problem/1709/B) | `Codeforces` | `900` | `alsoTryMinecraft.js` | Key algorithmic application from Day 2026-10-05. |
+| [Progressive Square](https://codeforces.com/problemset/problem/1955/B) | `Codeforces` | `1000` | `progressiveSquare.js` | Key algorithmic application from Day 2026-10-08. |
 
 ---
 

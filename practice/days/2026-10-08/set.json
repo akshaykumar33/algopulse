@@ -1,0 +1,391 @@
+{
+  "date": "2026-10-08",
+  "day": 14,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1525B",
+      "name": "Permutation Sort",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1525/B",
+      "file": "permutationSort",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1451B",
+      "name": "Non-Substring Subsequence",
+      "rating": 900,
+      "tags": [
+        "dp",
+        "greedy",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1451/B",
+      "file": "nonSubstringSubsequence",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2031B",
+      "name": "Penchick and Satay Sticks",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2031/B",
+      "file": "penchickAndSataySticks",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2102A",
+      "name": "Dinner Time",
+      "rating": 900,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2102/A",
+      "file": "dinnerTime",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1106C",
+      "name": "Lunar New Year and Number Division",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "implementation",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1106/C",
+      "file": "lunarNewYearAndNumberDivision",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2060C",
+      "name": "Game of Mathletes",
+      "rating": 900,
+      "tags": [
+        "games",
+        "greedy",
+        "sortings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2060/C",
+      "file": "gameOfMathletes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1339A",
+      "name": "Filling Diamonds",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "dp",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1339/A",
+      "file": "fillingDiamonds",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "124A",
+      "name": "The number of positions",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/124/A",
+      "file": "theNumberOfPositions",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1955B",
+      "name": "Progressive Square",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "data structures",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1955/B",
+      "file": "progressiveSquare",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1027A",
+      "name": "Palindromic Twist",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1027/A",
+      "file": "palindromicTwist",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-993",
+      "name": "Cousins in Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/cousins-in-binary-tree/",
+      "file": "cousinsInBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-575",
+      "name": "Distribute Candies",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/distribute-candies/",
+      "file": "distributeCandies",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-13",
+      "name": "Roman to Integer",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/roman-to-integer/",
+      "file": "romanToInteger",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1790",
+      "name": "Check if One String Swap Can Make Strings Equal",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/",
+      "file": "checkIfOneStringSwapCanMakeStringsEqual",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-697",
+      "name": "Degree of an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/degree-of-an-array/",
+      "file": "degreeOfAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-485",
+      "name": "Max Consecutive Ones",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/max-consecutive-ones/",
+      "file": "maxConsecutiveOnes",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2678",
+      "name": "Number of Senior Citizens",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-senior-citizens/",
+      "file": "numberOfSeniorCitizens",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2011",
+      "name": "Final Value of Variable After Performing Operations",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/final-value-of-variable-after-performing-operations/",
+      "file": "finalValueOfVariableAfterPerformingOperations",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2154",
+      "name": "Keep Multiplying Found Values by Two",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/keep-multiplying-found-values-by-two/",
+      "file": "keepMultiplyingFoundValuesByTwo",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1486",
+      "name": "XOR Operation in an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/xor-operation-in-an-array/",
+      "file": "xOROperationInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EASYPERM",
+      "name": "Easy Permutation",
+      "rating": 1057,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EASYPERM",
+      "file": "easyPermutation",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-QTOO_2523",
+      "name": "Bi_lindrome!",
+      "rating": 1095,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/QTOO_2523",
+      "file": "biLindrome",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DOLL",
+      "name": "Red Light, Green Light",
+      "rating": 984,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DOLL",
+      "file": "redLightGreenLight",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SEQCLAMP",
+      "name": "Sequential Clamp",
+      "rating": 935,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SEQCLAMP",
+      "file": "sequentialClamp",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FKMC",
+      "name": "Fake Certificate",
+      "rating": 1074,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FKMC",
+      "file": "fakeCertificate",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFSLP",
+      "name": "Chef and Pairing Slippers",
+      "rating": 930,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFSLP",
+      "file": "chefAndPairingSlippers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQBEND",
+      "name": "Beginnings and Endings",
+      "rating": 1058,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQBEND",
+      "file": "beginningsAndEndings",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COUNTP",
+      "name": "Counting Problem",
+      "rating": 1065,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COUNTP",
+      "file": "countingProblem",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NAICHEF",
+      "name": "Naive Chef",
+      "rating": 990,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NAICHEF",
+      "file": "naiveChef",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-P2149",
+      "name": "Magical World",
+      "rating": 1005,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/P2149",
+      "file": "magicalWorld",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

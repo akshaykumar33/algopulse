@@ -1,0 +1,18 @@
+[
+  {
+    "input": "[\"bank\",\"kanb\"]",
+    "output": "true"
+  },
+  {
+    "input": "[\"attack\",\"defend\"]",
+    "output": "false"
+  },
+  {
+    "input": "[\"kelb\",\"kelb\"]",
+    "output": "true"
+  },
+  {
+    "input": "[\"abcd\",\"dcba\"]",
+    "output": "false"
+  }
+]

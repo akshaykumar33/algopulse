@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"III\"",
+    "output": "3\n"
+  },
+  {
+    "input": "\"LVIII\"",
+    "output": "58\n"
+  },
+  {
+    "input": "\"MCMXCIV\"",
+    "output": "1994\n"
+  }
+]

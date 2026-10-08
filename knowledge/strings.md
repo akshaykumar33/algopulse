@@ -102,6 +102,8 @@ function isPalindrome(s) {
 | [Lecture](https://codeforces.com/problemset/problem/499/B) | `Codeforces` | `1000` | `lecture.js` | Key algorithmic application from Day 2026-10-05. |
 | [Decoding](https://codeforces.com/problemset/problem/746/B) | `Codeforces` | `900` | `decoding.js` | Key algorithmic application from Day 2026-10-07. |
 | [Rudolf and the Ugly String](https://codeforces.com/problemset/problem/1941/C) | `Codeforces` | `900` | `rudolfAndTheUglyString.js` | Key algorithmic application from Day 2026-10-07. |
+| [Non-Substring Subsequence](https://codeforces.com/problemset/problem/1451/B) | `Codeforces` | `900` | `nonSubstringSubsequence.js` | Key algorithmic application from Day 2026-10-08. |
+| [Palindromic Twist](https://codeforces.com/problemset/problem/1027/A) | `Codeforces` | `1000` | `palindromicTwist.js` | Key algorithmic application from Day 2026-10-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
