@@ -1,4 +1,4 @@
-var solve = function(n, trust) {
+var findJudge = function(n, trust) {
   let inDegree = new Array(n + 1).fill(0);
   let outDegree = new Array(n + 1).fill(0);
   for (let [a, b] of trust) {
@@ -12,6 +12,7 @@ var solve = function(n, trust) {
   }
   return -1;
 };
+var solve = findJudge;
 
 if (require.main === module) {
   const fs = require('fs');

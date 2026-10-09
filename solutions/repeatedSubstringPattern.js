@@ -1,4 +1,4 @@
-var solve = function(s) {
+var repeatedSubstringPattern = function(s) {
   const n = s.length;
   for (let i = 1; i <= Math.floor(n / 2); i++) {
     if (n % i === 0) {
@@ -15,6 +15,7 @@ var solve = function(s) {
   }
   return false;
 };
+var solve = repeatedSubstringPattern;
 
 if (require.main === module) {
   const fs = require('fs');

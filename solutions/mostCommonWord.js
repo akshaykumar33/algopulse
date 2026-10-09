@@ -1,4 +1,4 @@
-var solve = function(paragraph, banned) {
+var mostCommonWord = function(paragraph, banned) {
   let banSet = new Set(banned);
   let words = paragraph.toLowerCase().replace(/[^a-z]/g, ' ').split(/\s+/);
   let cnt = {};
@@ -14,6 +14,7 @@ var solve = function(paragraph, banned) {
   }
   return ans;
 };
+var solve = mostCommonWord;
 
 if (require.main === module) {
   const fs = require('fs');
