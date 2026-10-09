@@ -1,26 +1,24 @@
 const fs = require('fs');
 
 function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (lines.length === 0 || lines[0] === '') return;
-  
-  const t = parseInt(lines[0], 10);
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+  if (!input || !input[0]) return;
+  const t = parseInt(input[0], 10);
   const out = [];
-  
   for (let i = 1; i <= t; i++) {
-    if (i >= lines.length) break;
-    const parts = lines[i].trim().split(/\s+/);
-    if (parts.length < 2) continue;
-    const a = parseInt(parts[0], 10);
-    const b = parseInt(parts[1], 10);
-    
-    if (b >= a && b % a === 0) {
-      out.push('YES');
+    if (!input[i]) break;
+    const n = parseInt(input[i].trim(), 10);
+    if (n % 3 === 0) {
+      out.push(0);
     } else {
-      out.push('NO');
+      const next5 = (Math.floor(n / 5) + 1) * 5;
+      if ((n + 1) % 3 === 0 || next5 % 3 === 0) {
+        out.push(1);
+      } else {
+        out.push(2);
+      }
     }
   }
-  
   console.log(out.join('\n'));
 }
 

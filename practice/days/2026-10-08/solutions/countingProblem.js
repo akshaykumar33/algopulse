@@ -2,36 +2,29 @@ const fs = require('fs');
 
 function solve() {
   const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (lines.length === 0 || lines[0] === '') return;
-  
-  let t = parseInt(lines[0], 10);
-  let lineIdx = 1;
-  let out = [];
-  
-  for (let i = 0; i < t; i++) {
+  if (!lines.length || lines[0] === '') return;
+
+  let lineIdx = 0;
+  let t = parseInt(lines[lineIdx++], 10);
+  const out = [];
+
+  while (t-- > 0) {
     if (lineIdx >= lines.length) break;
-    let n = parseInt(lines[lineIdx++], 10);
-    let arr = lines[lineIdx++].split(/\s+/).map(Number);
-    
-    if (n < 2) {
-      out.push("NO");
-      continue;
+    const n = parseInt(lines[lineIdx++], 10);
+    const arr = lines[lineIdx++].trim().split(/\s+/).map(Number);
+
+    let oddCount = 0;
+    for (let i = 0; i < n; i++) {
+      if (arr[i] % 2 !== 0) oddCount++;
     }
-    
-    let evens = 0;
-    for (let j = 0; j < n; j++) {
-      if (arr[j] % 2 === 0) {
-        evens++;
-      }
-    }
-    
-    if (evens === 1) {
-      out.push("NO");
+
+    if (oddCount > 0 && oddCount % 2 === 0) {
+      out.push('YES');
     } else {
-      out.push("YES");
+      out.push('NO');
     }
   }
-  
+
   console.log(out.join('\n'));
 }
 

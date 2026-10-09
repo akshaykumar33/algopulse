@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { launchBrowser, createStealthContext, launchPersistentBrowserContext } = require('./browser');
+const { launchBrowser, createStealthContext, launchPersistentBrowserContext, connectOverCDP, ensureCDPChrome } = require('./browser');
 const { PLATFORMS, PRACTICE_DAYS_DIR, REPO_ROOT } = require('./config');
 const cfEngine = require('./platforms/codeforces');
 const lcEngine = require('./platforms/leetcode');
@@ -464,6 +464,14 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
   let page = null;
 
   if (isPersistentMode) {
+    if (fs.existsSync(platConfig.authFile)) {
+      try {
+        const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
+        if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
+          await persistentContext.addCookies(authData.cookies);
+        }
+      } catch {}
+    }
     page = await persistentContext.newPage();
   } else {
     if (!fs.existsSync(platConfig.authFile)) {
@@ -543,7 +551,7 @@ async function ensurePlatformAuth(platKey, options = {}) {
       } else if (platKey === 'codechef') {
         isAuthed = cookies.some((c) => /authtoken|remember_me|user_id|^sess/i.test(c.name) && c.value);
       } else if (platKey === 'codeforces') {
-        isAuthed = cookies.some((c) => /39af5|JSESSIONID/i.test(c.name) && c.value);
+        isAuthed = cookies.some((c) => /39af5|39ce7/i.test(c.name) && c.value);
       } else {
         isAuthed = cookies.some((c) => (c.domain || '').toLowerCase().includes(platKey));
       }
@@ -766,14 +774,21 @@ async function main() {
   console.log(`================================================================\n`);
 
 
+  const noCdp = args.includes('--no-cdp');
+  const cdpPort = parseInt(flag('--cdp-port') || '9222', 10);
   const useSystemChrome = args.includes('--use-system-chrome') || args.includes('--chrome-profile');
   const usePersistent = args.includes('--persistent');
-  const isPersistentMode = useSystemChrome || usePersistent;
+  const useCdp = !noCdp && (!useSystemChrome && !usePersistent);
+  const isPersistentMode = useSystemChrome || usePersistent || useCdp;
 
   let browser = null;
   let persistentContext = null;
 
-  if (isPersistentMode) {
+  if (useCdp) {
+    console.log(`[submit] Connecting to Chrome via CDP (port ${cdpPort}) [Standard Daily Flow] ...`);
+    browser = await ensureCDPChrome({ port: cdpPort });
+    persistentContext = browser.contexts()[0] || (await browser.newContext());
+  } else if (isPersistentMode) {
     console.log(
       `[submit] Launching persistent Chrome context (${useSystemChrome ? 'System Chrome Profile' : 'Dedicated Automation Profile'}) ...`
     );
@@ -831,8 +846,8 @@ async function main() {
       }
     }
   } finally {
-    if (browser) await browser.close().catch(() => {});
-    if (persistentContext) await persistentContext.close().catch(() => {});
+    if (browser && !useCdp) await browser.close().catch(() => {});
+    if (persistentContext && !useCdp) await persistentContext.close().catch(() => {});
   }
 
   // Save submissions log (deduplicated by platform and problem)

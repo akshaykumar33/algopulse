@@ -16,26 +16,37 @@ function prepareLeetCodeCode(rawCode) {
  * Checks if the current page has an active logged-in LeetCode session
  */
 async function checkAuth(page) {
-  const loginButton = await page.$('a[href*="/accounts/login"], button:has-text("Sign in"), a:has-text("Sign in")');
-  if (loginButton) {
-    const isVisible = await loginButton.isVisible().catch(() => false);
+  try {
+    const status = await page.evaluate(async () => {
+      try {
+        const resp = await fetch('https://leetcode.com/graphql/', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            query: 'query globalData { userStatus { isSignedIn username userSlug } }'
+          })
+        });
+        const d = await resp.json();
+        return d?.data?.userStatus || null;
+      } catch {
+        return null;
+      }
+    });
+    if (status && status.isSignedIn) {
+      return { authenticated: true, username: status.username };
+    }
+  } catch {}
+
+  const topNavLogin = await page.$('nav a[href*="/accounts/login"], header a[href*="/accounts/login"]');
+  if (topNavLogin) {
+    const isVisible = await topNavLogin.isVisible().catch(() => false);
     if (isVisible) return { authenticated: false };
   }
 
   const avatar = await page.$(
-    '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], button[id*="headlessui-menu-button"], a[href*="/profile/"]'
+    '#navbar_user_avatar, [data-cypress="NavbarUserAvatar"], img[alt*="avatar"], a[href*="/profile/"]'
   );
-  if (avatar) {
-    return { authenticated: true };
-  }
-
-  try {
-    const cookies = await page.context().cookies();
-    const sessionCookie = cookies.find((c) => /leetcode_session/i.test(c.name) && c.value);
-    if (sessionCookie) {
-      return { authenticated: true };
-    }
-  } catch {}
+  if (avatar) return { authenticated: true };
 
   return { authenticated: false };
 }
@@ -52,7 +63,15 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   }
 
   console.log(`    [LeetCode] Navigating to ${problem.name || problem.id} ...`);
-  await page.goto(problemUrl, { waitUntil: 'domcontentloaded', timeout });
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      await page.goto(problemUrl, { waitUntil: 'domcontentloaded', timeout });
+      break;
+    } catch (err) {
+      if (attempt === 2) throw err;
+      await page.waitForTimeout(2000);
+    }
+  }
 
   // 1. Verify Authentication
   const auth = await checkAuth(page);
@@ -167,8 +186,22 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
 
   await page.waitForTimeout(1000);
 
-  // 4. Click Submit button
+  // 4. Click Submit button & intercept network submission
   console.log(`    [LeetCode] Submitting solution ...`);
+  try {
+    const cookies = await page.context().cookies(['https://leetcode.com']);
+    const csrfList = cookies.filter((c) => c.name === 'csrftoken');
+    if (csrfList.length > 1) {
+      const primaryToken = csrfList[csrfList.length - 1];
+      for (const c of csrfList) {
+        if (c !== primaryToken) {
+          await page.context().clearCookies();
+          await page.context().addCookies(cookies.filter((x) => x !== c));
+        }
+      }
+    }
+  } catch {}
+
   let submitBtn = await page.$('button[data-e2e-locator="console-submit-button"]');
   if (!submitBtn) {
     submitBtn = await page.waitForSelector(
@@ -177,67 +210,69 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
     );
   }
   await submitBtn.scrollIntoViewIfNeeded().catch(() => {});
-  await submitBtn.click();
 
-  // 5. Monitor Submission Result
-  console.log(`    [LeetCode] Awaiting judge verdict ...`);
-  const startTime = Date.now();
+  const [submitResponse] = await Promise.all([
+    page.waitForResponse((res) => res.url().includes('/submit/'), { timeout: 25000 }).catch(() => null),
+    submitBtn.click(),
+  ]);
+
+  if (!submitResponse) {
+    throw new Error('LeetCode submit request was not triggered. Ensure your session is logged in.');
+  }
+
+  if (submitResponse.status() !== 200) {
+    const errText = await submitResponse.text().catch(() => '');
+    throw new Error(`LeetCode submit rejected with HTTP ${submitResponse.status()}: ${errText.slice(0, 120)}`);
+  }
+
+  let subData = null;
+  try {
+    subData = await submitResponse.json();
+  } catch {}
+
+  const submissionId = subData?.submission_id;
+  if (!submissionId) {
+    throw new Error(`Failed to retrieve submission_id from LeetCode. Response: ${JSON.stringify(subData)}`);
+  }
+
+  console.log(`    [LeetCode] Submission dispatched! ID: ${submissionId}. Awaiting judge verdict ...`);
+  const checkUrl = `https://leetcode.com/submissions/detail/${submissionId}/check/`;
   let verdict = 'Pending';
   let runtime = null;
   let memory = null;
   let runtimeBeats = null;
   let memoryBeats = null;
+  const pollStart = Date.now();
 
-  while (Date.now() - startTime < timeout) {
-    const verdictInfo = await page.evaluate(() => {
-      const els = Array.from(document.querySelectorAll('span, div, h3, a, [data-e2e-locator="submission-result"]'));
-      for (const el of els) {
-        const text = (el.innerText || el.textContent || '').trim();
-        if (/^(Accepted|Wrong Answer|Compile Error|Time Limit Exceeded|Runtime Error)$/i.test(text)) {
-          return { verdict: text };
-        }
-      }
-      return null;
-    }).catch(() => null);
-
-    if (verdictInfo && verdictInfo.verdict) {
-      verdict = verdictInfo.verdict;
-
+  while (Date.now() - pollStart < timeout) {
+    await page.waitForTimeout(1500);
+    const checkRes = await page.evaluate(async (url) => {
       try {
-        const stats = await page.$$eval('span, div', (els) => {
-          const r = {};
-          for (const el of els) {
-            const t = el.textContent || '';
-            if (t.includes('Beats') && t.includes('%')) {
-              if (t.toLowerCase().includes('runtime')) r.runtimeBeats = t.trim();
-              else if (t.toLowerCase().includes('memory')) r.memoryBeats = t.trim();
-            }
-            if (/^\d+\s*ms$/i.test(t.trim())) r.runtime = t.trim();
-            if (/^\d+(\.\d+)?\s*MB$/i.test(t.trim())) r.memory = t.trim();
-          }
-          return r;
-        });
-        runtime = stats.runtime || null;
-        memory = stats.memory || null;
-        runtimeBeats = stats.runtimeBeats || null;
-        memoryBeats = stats.memoryBeats || null;
-      } catch {}
+        const r = await fetch(url);
+        return await r.json();
+      } catch {
+        return null;
+      }
+    }, checkUrl);
 
+    if (checkRes && checkRes.state === 'SUCCESS') {
+      verdict = checkRes.status_msg || 'Accepted';
+      runtime = checkRes.status_runtime || checkRes.display_runtime || null;
+      memory = checkRes.status_memory || null;
       break;
     }
-
-    await page.waitForTimeout(2000);
   }
 
   return {
     platform: 'LeetCode',
     problemId: problem.id,
+    submissionId: submissionId || null,
     verdict,
     runtime,
     memory,
     runtimeBeats,
     memoryBeats,
-    submissionUrl: page.url(),
+    submissionUrl: submissionId ? `https://leetcode.com/submissions/detail/${submissionId}/` : page.url(),
   };
 }
 

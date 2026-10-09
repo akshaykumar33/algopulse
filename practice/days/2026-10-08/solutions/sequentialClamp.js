@@ -1,31 +1,29 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
-    
-    let lineIdx = 0;
-    const t = parseInt(lines[lineIdx++], 10);
-    const out = [];
-    
-    for (let i = 0; i < t; i++) {
-        if (lineIdx >= lines.length) break;
-        const [n, m] = lines[lineIdx++].trim().split(/\s+/).map(Number);
-        const arr = lines[lineIdx++].trim().split(/\s+/).map(Number);
-        
-        for (let j = 0; j < m; j++) {
-            const [l, r] = lines[lineIdx++].trim().split(/\s+/).map(Number);
-            for (let k = 0; k < n; k++) {
-                if (arr[k] < l) {
-                    arr[k] = l;
-                } else if (arr[k] > r) {
-                    arr[k] = r;
-                }
-            }
-        }
-        out.push(arr.join(' '));
+  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+  if (!lines.length || lines[0] === '') return;
+
+  let lineIdx = 0;
+  let t = parseInt(lines[lineIdx++], 10);
+  const out = [];
+
+  while (t-- > 0) {
+    if (lineIdx >= lines.length) break;
+    const n = parseInt(lines[lineIdx++], 10);
+    const [a1, b1] = lines[lineIdx++].trim().split(/\s+/).map(Number);
+    let y = b1;
+
+    for (let i = 1; i < n; i++) {
+      const [ai, bi] = lines[lineIdx++].trim().split(/\s+/).map(Number);
+      if (y < ai) y = ai;
+      else if (y > bi) y = bi;
     }
-    console.log(out.join('\n'));
+
+    out.push(y);
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

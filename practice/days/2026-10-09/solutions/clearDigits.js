@@ -1,4 +1,4 @@
-var solve = function(s) {
+var clearDigits = function(s) {
   let stack = [];
   for (let char of s) {
     if (char >= '0' && char <= '9') {
@@ -11,6 +11,7 @@ var solve = function(s) {
   }
   return stack.join('');
 };
+var solve = clearDigits;
 
 if (require.main === module) {
   const fs = require('fs');

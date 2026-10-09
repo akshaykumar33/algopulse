@@ -36,9 +36,10 @@ async function checkAuth(page) {
     return { authenticated: false, error: 'Cloudflare verification challenge active' };
   }
 
-  const headerProfile = await page.$('#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"]');
-  const logoutLink = await page.$('a[href*="/logout"]');
-  if (headerProfile || logoutLink) {
+  const selector = '#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"], a[href*="/logout"]';
+  const el = await page.waitForSelector(selector, { timeout: 6000 }).catch(() => null);
+  if (el) {
+    const headerProfile = await page.$('#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"]');
     const handle = headerProfile ? await headerProfile.textContent() : null;
     return { authenticated: true, handle: handle ? handle.trim() : 'authenticated' };
   }
@@ -59,7 +60,12 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 60000
   const problemCode = `${contestId}${index}`;
 
   console.log(`    [Codeforces] Navigating to submit page for ${problemCode} ...`);
-  await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout });
+  page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
+  try {
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  } catch {
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 15000 });
+  }
 
   // 1. Verify Authentication
   const auth = await checkAuth(page);

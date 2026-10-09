@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"ab-cd\"\n",
+    "output": "\"dc-ba\"\n"
+  },
+  {
+    "input": "\"a-bC-dEf-ghIj\"\n",
+    "output": "\"j-Ih-gfE-dCba\"\n"
+  },
+  {
+    "input": "\"Test1ng-Leet=code-Q!\"\n",
+    "output": "\"Qedo1ct-eeLg=ntse-T!\"\n"
+  }
+]

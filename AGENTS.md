@@ -67,18 +67,19 @@ When presented with any problem (even if pasted raw with contest headers and for
   - Check boundary conditions and 0/1 indexing.
   - Fix logic systematically.
 
-### Phase 5: Categorization & Platform Submissions (Playwright Flow)
+### Phase 5: Categorization & Platform Submissions (Playwright Flow via Running Chrome CDP)
 - Every day, once day solutions are verified 100% green:
   - Mirror solutions into platform-specific directories (`contests/<platform>/<date>/`).
-  - Execute automated platform submissions via Playwright:
+  - Execute automated platform submissions via Playwright directly through Google Chrome via Chrome DevTools Protocol (CDP, port 9222):
     ```bash
-    npm run submit:parallel
+    npm run submit
     # Or platform specific:
     npm run submit:lc
     npm run submit:cf
     npm run submit:cc
     ```
-  - **On-the-fly login fallback**: If a platform session is missing, the runner automatically prompts with an interactive browser login window, saves the session, and seamlessly resumes submissions without aborting.
+  - **Universal Running Chrome Flow (Zero Session/Cookie Friction)**: Submissions connect directly to the user's running Google Chrome browser (`http://127.0.0.1:9222`) where all 3 platforms (Codeforces, LeetCode, CodeChef) are already authenticated. This permanently eliminates expired session files, bot challenge friction (Cloudflare Turnstile), and cookie maintenance.
+
 
 ---
 
