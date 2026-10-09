@@ -1,27 +1,23 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  let line = 0;
-  const t = parseInt(input[line++], 10);
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
+  let ptr = 0;
+  const t = Number(input[ptr++]);
   const out = [];
 
-  for (let i = 0; i < t; i++) {
-    const n = parseInt(input[line++], 10);
-    const arr = input[line++].split(' ').map(Number);
+  for (let tc = 0; tc < t; tc++) {
+    const n = Number(input[ptr++]);
+    const m = Number(input[ptr++]);
+    const p = Number(input[ptr++]);
+    const q = Number(input[ptr++]);
 
-    let foundNonNegative = false;
-    for (let j = 0; j < n; j++) {
-      if (arr[j] >= 0) {
-        foundNonNegative = true;
-        break;
-      }
-    }
-
-    if (foundNonNegative) {
-      out.push('YES');
+    if (n % p === 0) {
+      const k = Math.floor(n / p);
+      out.push(m === k * q ? 'YES' : 'NO');
     } else {
-      out.push('NO');
+      out.push('YES');
     }
   }
 

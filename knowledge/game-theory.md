@@ -69,6 +69,7 @@ function determineWinner(a, b, c) {
 | [Digit Game](https://codeforces.com/problemset/problem/1419/A) | `Codeforces` | `900` | `digitGame.js` | Key algorithmic application from Day 2026-10-02. |
 | [Coin Games](https://codeforces.com/problemset/problem/1972/B) | `Codeforces` | `900` | `coinGames.js` | Key algorithmic application from Day 2026-10-04. |
 | [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
+| [Removals Game](https://codeforces.com/problemset/problem/2002/B) | `Codeforces` | `1000` | `removalsGame.js` | Key algorithmic application from Day 2026-10-09. |
 
 ---
 

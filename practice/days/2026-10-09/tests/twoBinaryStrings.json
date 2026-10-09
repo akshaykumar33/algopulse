@@ -1,0 +1,6 @@
+[
+  {
+    "input": "7\n000\n000\n01\n10\n0101\n0101\n0011\n1100\n001001\n111001\n000000\n111111\n01\n01\n",
+    "output": "YES\nNO\nYES\nNO\nYES\nNO\nYES\n"
+  }
+]

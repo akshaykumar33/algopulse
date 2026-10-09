@@ -104,6 +104,7 @@ function missingNumber(nums) {
 | [ABC String](https://codeforces.com/problemset/problem/1494/A) | `Codeforces` | `900` | `aBCString.js` | Key algorithmic application from Day 2026-10-03. |
 | [Mocha and Math](https://codeforces.com/problemset/problem/1559/A) | `Codeforces` | `900` | `mochaAndMath.js` | Key algorithmic application from Day 2026-10-03. |
 | [XOR Sequences](https://codeforces.com/problemset/problem/1979/B) | `Codeforces` | `1000` | `xORSequences.js` | Key algorithmic application from Day 2026-10-07. |
+| [Raising Bacteria](https://codeforces.com/problemset/problem/579/A) | `Codeforces` | `1000` | `raisingBacteria.js` | Key algorithmic application from Day 2026-10-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

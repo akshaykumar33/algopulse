@@ -379,6 +379,26 @@ function solve() {
 | [Counting Problem](https://www.codechef.com/problems/COUNTP) | `CodeChef` | `1065` | `countingProblem.js` | Key algorithmic application from Day 2026-10-08. |
 | [Naive Chef](https://www.codechef.com/problems/NAICHEF) | `CodeChef` | `990` | `naiveChef.js` | Key algorithmic application from Day 2026-10-08. |
 | [Magical World](https://www.codechef.com/problems/P2149) | `CodeChef` | `1005` | `magicalWorld.js` | Key algorithmic application from Day 2026-10-08. |
+| [Most Common Word](https://leetcode.com/problems/most-common-word/) | `LeetCode` | `Easy` | `mostCommonWord.js` | Key algorithmic application from Day 2026-10-09. |
+| [Minimum Changes To Make Alternating Binary String](https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/) | `LeetCode` | `Easy` | `minimumChangesToMakeAlternatingBinaryString.js` | Key algorithmic application from Day 2026-10-09. |
+| [Convert the Temperature](https://leetcode.com/problems/convert-the-temperature/) | `LeetCode` | `Easy` | `convertTheTemperature.js` | Key algorithmic application from Day 2026-10-09. |
+| [Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern/) | `LeetCode` | `Easy` | `repeatedSubstringPattern.js` | Key algorithmic application from Day 2026-10-09. |
+| [Clear Digits](https://leetcode.com/problems/clear-digits/) | `LeetCode` | `Easy` | `clearDigits.js` | Key algorithmic application from Day 2026-10-09. |
+| [Binary Watch](https://leetcode.com/problems/binary-watch/) | `LeetCode` | `Easy` | `binaryWatch.js` | Key algorithmic application from Day 2026-10-09. |
+| [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | `LeetCode` | `Easy` | `linkedListCycle.js` | Key algorithmic application from Day 2026-10-09. |
+| [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | `LeetCode` | `Easy` | `climbingStairs.js` | Key algorithmic application from Day 2026-10-09. |
+| [Reverse Only Letters](https://leetcode.com/problems/reverse-only-letters/) | `LeetCode` | `Easy` | `reverseOnlyLetters.js` | Key algorithmic application from Day 2026-10-09. |
+| [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) | `LeetCode` | `Easy` | `findTheTownJudge.js` | Key algorithmic application from Day 2026-10-09. |
+| [Moody Chef](https://www.codechef.com/problems/MOOCHEF) | `CodeChef` | `991` | `moodyChef.js` | Key algorithmic application from Day 2026-10-09. |
+| [Non-Negative Sum](https://www.codechef.com/problems/NONNEGSUM) | `CodeChef` | `944` | `nonNegativeSum.js` | Key algorithmic application from Day 2026-10-09. |
+| [AabBcCDd](https://www.codechef.com/problems/AABBCCDD) | `CodeChef` | `972` | `aabBcCDd.js` | Key algorithmic application from Day 2026-10-09. |
+| [Skip One Day](https://www.codechef.com/problems/SKOD) | `CodeChef` | `948` | `skipOneDay.js` | Key algorithmic application from Day 2026-10-09. |
+| [Make Multiple](https://www.codechef.com/problems/MUL123) | `CodeChef` | `959` | `makeMultiple.js` | Key algorithmic application from Day 2026-10-09. |
+| [Ada School](https://www.codechef.com/problems/ADASCOOL) | `CodeChef` | `1004` | `adaSchool.js` | Key algorithmic application from Day 2026-10-09. |
+| [Spell Splice](https://www.codechef.com/problems/CMIX) | `CodeChef` | `910` | `spellSplice.js` | Key algorithmic application from Day 2026-10-09. |
+| [Prime Generator](https://www.codechef.com/problems/PRIME1) | `CodeChef` | `1069` | `primeGenerator.js` | Key algorithmic application from Day 2026-10-09. |
+| [No Winner](https://www.codechef.com/problems/NOWINNER) | `CodeChef` | `931` | `noWinner.js` | Key algorithmic application from Day 2026-10-09. |
+| [Bear and Candies 123](https://www.codechef.com/problems/CANDY123) | `CodeChef` | `1028` | `bearAndCandies123.js` | Key algorithmic application from Day 2026-10-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

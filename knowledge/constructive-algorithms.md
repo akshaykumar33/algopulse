@@ -88,6 +88,10 @@ function constructMatrix(n, m) {
 | [Permutation Sort](https://codeforces.com/problemset/problem/1525/B) | `Codeforces` | `900` | `permutationSort.js` | Key algorithmic application from Day 2026-10-08. |
 | [Dinner Time](https://codeforces.com/problemset/problem/2102/A) | `Codeforces` | `900` | `dinnerTime.js` | Key algorithmic application from Day 2026-10-08. |
 | [Progressive Square](https://codeforces.com/problemset/problem/1955/B) | `Codeforces` | `1000` | `progressiveSquare.js` | Key algorithmic application from Day 2026-10-08. |
+| [Removals Game](https://codeforces.com/problemset/problem/2002/B) | `Codeforces` | `1000` | `removalsGame.js` | Key algorithmic application from Day 2026-10-09. |
+| [Ehab Fails to Be Thanos](https://codeforces.com/problemset/problem/1174/A) | `Codeforces` | `1000` | `ehabFailsToBeThanos.js` | Key algorithmic application from Day 2026-10-09. |
+| [Minimize Equal Sum Subarrays](https://codeforces.com/problemset/problem/1998/B) | `Codeforces` | `1000` | `minimizeEqualSumSubarrays.js` | Key algorithmic application from Day 2026-10-09. |
+| [Two Binary Strings](https://codeforces.com/problemset/problem/1861/B) | `Codeforces` | `1000` | `twoBinaryStrings.js` | Key algorithmic application from Day 2026-10-09. |
 
 ---
 
