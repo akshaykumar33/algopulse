@@ -97,6 +97,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Lunar New Year and Number Division](https://codeforces.com/problemset/problem/1106/C) | `Codeforces` | `900` | `lunarNewYearAndNumberDivision.js` | Key algorithmic application from Day 2026-10-08. |
 | [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
 | [Progressive Square](https://codeforces.com/problemset/problem/1955/B) | `Codeforces` | `1000` | `progressiveSquare.js` | Key algorithmic application from Day 2026-10-08. |
+| [Ehab Fails to Be Thanos](https://codeforces.com/problemset/problem/1174/A) | `Codeforces` | `1000` | `ehabFailsToBeThanos.js` | Key algorithmic application from Day 2026-10-09. |
+| [Eating Queries](https://codeforces.com/problemset/problem/1676/E) | `Codeforces` | `1100` | `eatingQueries.js` | Key algorithmic application from Day 2026-10-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

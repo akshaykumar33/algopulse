@@ -1,0 +1,384 @@
+{
+  "date": "2026-10-09",
+  "day": 15,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "43A",
+      "name": "Football",
+      "rating": 1000,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/43/A",
+      "file": "football",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "579A",
+      "name": "Raising Bacteria",
+      "rating": 1000,
+      "tags": [
+        "bitmasks"
+      ],
+      "url": "https://codeforces.com/problemset/problem/579/A",
+      "file": "raisingBacteria",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2002B",
+      "name": "Removals Game",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2002/B",
+      "file": "removalsGame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1411B",
+      "name": "Fair Numbers",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1411/B",
+      "file": "fairNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1174A",
+      "name": "Ehab Fails to Be Thanos",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1174/A",
+      "file": "ehabFailsToBeThanos",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1998B",
+      "name": "Minimize Equal Sum Subarrays",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1998/B",
+      "file": "minimizeEqualSumSubarrays",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1861B",
+      "name": "Two Binary Strings",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "dp",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1861/B",
+      "file": "twoBinaryStrings",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "224A",
+      "name": "Parallelepiped",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "geometry",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/224/A",
+      "file": "parallelepiped",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1676E",
+      "name": "Eating Queries",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1676/E",
+      "file": "eatingQueries",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1702C",
+      "name": "Train and Queries",
+      "rating": 1100,
+      "tags": [
+        "data structures",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1702/C",
+      "file": "trainAndQueries",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-819",
+      "name": "Most Common Word",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/most-common-word/",
+      "file": "mostCommonWord",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1758",
+      "name": "Minimum Changes To Make Alternating Binary String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/",
+      "file": "minimumChangesToMakeAlternatingBinaryString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2469",
+      "name": "Convert the Temperature",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/convert-the-temperature/",
+      "file": "convertTheTemperature",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-459",
+      "name": "Repeated Substring Pattern",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/repeated-substring-pattern/",
+      "file": "repeatedSubstringPattern",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3174",
+      "name": "Clear Digits",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/clear-digits/",
+      "file": "clearDigits",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-401",
+      "name": "Binary Watch",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-watch/",
+      "file": "binaryWatch",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-141",
+      "name": "Linked List Cycle",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/linked-list-cycle/",
+      "file": "linkedListCycle",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-70",
+      "name": "Climbing Stairs",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/climbing-stairs/",
+      "file": "climbingStairs",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-917",
+      "name": "Reverse Only Letters",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reverse-only-letters/",
+      "file": "reverseOnlyLetters",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-997",
+      "name": "Find the Town Judge",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-town-judge/",
+      "file": "findTheTownJudge",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MOOCHEF",
+      "name": "Moody Chef",
+      "rating": 991,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MOOCHEF",
+      "file": "moodyChef",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NONNEGSUM",
+      "name": "Non-Negative Sum",
+      "rating": 944,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NONNEGSUM",
+      "file": "nonNegativeSum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-AABBCCDD",
+      "name": "AabBcCDd",
+      "rating": 972,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/AABBCCDD",
+      "file": "aabBcCDd",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SKOD",
+      "name": "Skip One Day",
+      "rating": 948,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SKOD",
+      "file": "skipOneDay",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MUL123",
+      "name": "Make Multiple",
+      "rating": 959,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MUL123",
+      "file": "makeMultiple",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADASCOOL",
+      "name": "Ada School",
+      "rating": 1004,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADASCOOL",
+      "file": "adaSchool",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CMIX",
+      "name": "Spell Splice",
+      "rating": 910,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CMIX",
+      "file": "spellSplice",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PRIME1",
+      "name": "Prime Generator",
+      "rating": 1069,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PRIME1",
+      "file": "primeGenerator",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NOWINNER",
+      "name": "No Winner",
+      "rating": 931,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NOWINNER",
+      "file": "noWinner",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CANDY123",
+      "name": "Bear and Candies 123",
+      "rating": 1028,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CANDY123",
+      "file": "bearAndCandies123",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

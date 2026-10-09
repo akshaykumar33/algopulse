@@ -136,6 +136,8 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Lunar New Year and Number Division](https://codeforces.com/problemset/problem/1106/C) | `Codeforces` | `900` | `lunarNewYearAndNumberDivision.js` | Key algorithmic application from Day 2026-10-08. |
 | [Filling Diamonds](https://codeforces.com/problemset/problem/1339/A) | `Codeforces` | `900` | `fillingDiamonds.js` | Key algorithmic application from Day 2026-10-08. |
 | [The number of positions](https://codeforces.com/problemset/problem/124/A) | `Codeforces` | `1000` | `theNumberOfPositions.js` | Key algorithmic application from Day 2026-10-08. |
+| [Minimize Equal Sum Subarrays](https://codeforces.com/problemset/problem/1998/B) | `Codeforces` | `1000` | `minimizeEqualSumSubarrays.js` | Key algorithmic application from Day 2026-10-09. |
+| [Parallelepiped](https://codeforces.com/problemset/problem/224/A) | `Codeforces` | `1100` | `parallelepiped.js` | Key algorithmic application from Day 2026-10-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

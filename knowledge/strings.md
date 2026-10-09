@@ -104,6 +104,7 @@ function isPalindrome(s) {
 | [Rudolf and the Ugly String](https://codeforces.com/problemset/problem/1941/C) | `Codeforces` | `900` | `rudolfAndTheUglyString.js` | Key algorithmic application from Day 2026-10-07. |
 | [Non-Substring Subsequence](https://codeforces.com/problemset/problem/1451/B) | `Codeforces` | `900` | `nonSubstringSubsequence.js` | Key algorithmic application from Day 2026-10-08. |
 | [Palindromic Twist](https://codeforces.com/problemset/problem/1027/A) | `Codeforces` | `1000` | `palindromicTwist.js` | Key algorithmic application from Day 2026-10-08. |
+| [Football](https://codeforces.com/problemset/problem/43/A) | `Codeforces` | `1000` | `football.js` | Key algorithmic application from Day 2026-10-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
