@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abc\"\n",
+    "output": "\"abc\"\n"
+  },
+  {
+    "input": "\"cb34\"\n",
+    "output": "\"\"\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abab\"",
+    "output": "true"
+  },
+  {
+    "input": "\"aba\"",
+    "output": "false"
+  },
+  {
+    "input": "\"abcabcabcabc\"",
+    "output": "true"
+  }
+]

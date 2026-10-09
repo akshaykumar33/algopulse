@@ -1,0 +1,10 @@
+[
+  {
+    "input": "5\nA\nABA\nABA\nA\nA\n",
+    "output": "A\n"
+  },
+  {
+    "input": "1\nABC\n",
+    "output": "ABC\n"
+  }
+]
