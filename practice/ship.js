@@ -77,10 +77,28 @@ async function main() {
     const submitRes = run('node', ['practice/playwright/submit.js', '--date', date, '--parallel'], {
       stdio: 'inherit',
     });
-    if (submitRes.status === 0) {
-      console.log('  ✓ Automated platform submissions completed.');
+    const subLogPath = path.join(dayDir, 'submissions.json');
+    let allAccepted = false;
+    let missingProblems = [];
+    if (fs.existsSync(subLogPath)) {
+      try {
+        const records = JSON.parse(fs.readFileSync(subLogPath, 'utf-8'));
+        missingProblems = set.problems.filter((p) => {
+          const rec = records.find((r) => r.id === p.id || r.problemId === p.id || r.file === p.file);
+          return !rec || !rec.success || !/accepted|correct answer/i.test(rec.verdict || '');
+        });
+        allAccepted = missingProblems.length === 0;
+      } catch {}
+    }
+
+    if (submitRes.status === 0 && allAccepted) {
+      console.log('  ✓ Automated platform submissions completed (100% Accepted).');
     } else {
-      console.warn('  ! Some submissions finished with warnings or were skipped.');
+      console.warn(`  ! Submissions incomplete or failing on live judges! ${missingProblems.length} problem(s) not accepted: ${missingProblems.map((p) => p.id).join(', ')}`);
+      if (args.includes('--strict')) {
+        console.error('  ✗ Aborting ship workflow due to failed live judge submissions (--strict mode).');
+        process.exit(1);
+      }
     }
   } else {
     console.log('[ship] Step 2: Skipping platform submissions (--no-submit flag).');

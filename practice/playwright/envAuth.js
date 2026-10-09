@@ -98,7 +98,7 @@ function syncSessionsFromEnv() {
   // 3. Codeforces
   const cfSession = env.CODEFORCES_SESSION || process.env.CODEFORCES_SESSION;
   if (cfSession && cfSession.trim()) {
-    let cookieName = getExistingCookieName(PLATFORMS.codeforces.authFile, /39af5|JSESSIONID/i, '39af5');
+    let cookieName = getExistingCookieName(PLATFORMS.codeforces.authFile, /39af5|39ce7/i, '39af5');
     let cookieValue = cfSession.trim();
     if (cfSession.includes('=')) {
       const parts = cfSession.split('=');

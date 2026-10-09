@@ -143,6 +143,46 @@ async function launchPersistentBrowserContext({
   return context;
 }
 
+const http = require('http');
+const path = require('path');
+const { spawn } = require('child_process');
+
+/**
+ * Checks if Chrome DevTools Protocol endpoint is reachable on the given port
+ */
+function isCDPAvailable(port = 9222) {
+  return new Promise((resolve) => {
+    const req = http.get(`http://127.0.0.1:${port}/json/version`, (res) => {
+      resolve(res.statusCode === 200);
+    });
+    req.on('error', () => resolve(false));
+    req.setTimeout(1500, () => {
+      req.destroy();
+      resolve(false);
+    });
+  });
+}
+
+/**
+ * Finds system Google Chrome executable path on Windows / macOS / Linux
+ */
+function findChromePath() {
+  if (process.platform === 'win32') {
+    const candidates = [
+      'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+      'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+      path.join(process.env.LOCALAPPDATA || '', 'Google\\Chrome\\Application\\chrome.exe'),
+    ];
+    return candidates.find((p) => p && fs.existsSync(p)) || null;
+  }
+  if (process.platform === 'darwin') {
+    const p = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    return fs.existsSync(p) ? p : null;
+  }
+  const linuxCandidates = ['/usr/bin/google-chrome', '/usr/bin/chrome', '/usr/bin/chromium'];
+  return linuxCandidates.find((p) => fs.existsSync(p)) || null;
+}
+
 /**
  * Connects directly to an already running Chrome browser via Chrome DevTools Protocol (CDP)
  */
@@ -151,10 +191,54 @@ async function connectOverCDP({ port = 9222 } = {}) {
   return await chromium.connectOverCDP(endpoint);
 }
 
+/**
+ * Connects to Chrome via CDP, automatically launching Chrome with remote debugging if not already open
+ */
+async function ensureCDPChrome({ port = 9222 } = {}) {
+  const isUp = await isCDPAvailable(port);
+  if (isUp) {
+    return await connectOverCDP({ port });
+  }
+
+  const chromePath = findChromePath();
+  if (chromePath) {
+    const args = [
+      `--remote-debugging-port=${port}`,
+      '--remote-allow-origins=*',
+      `--user-data-dir=${PERSISTENT_CHROME_PROFILE_DIR}`,
+      '--no-first-run',
+      '--no-default-browser-check',
+    ];
+    const proc = spawn(chromePath, args, {
+      detached: true,
+      stdio: 'ignore',
+    });
+    proc.unref();
+
+    const start = Date.now();
+    while (Date.now() - start < 15000) {
+      await new Promise((r) => setTimeout(r, 600));
+      if (await isCDPAvailable(port)) {
+        console.log(`[browser] Chrome connected via CDP on port ${port}.`);
+        return await connectOverCDP({ port });
+      }
+    }
+  }
+
+  throw new Error(
+    `Could not connect to Chrome via CDP on port ${port}.\n` +
+    `Please ensure Google Chrome is started with: chrome.exe --remote-debugging-port=${port}`
+  );
+}
+
 module.exports = {
   launchBrowser,
   createStealthContext,
   launchPersistentBrowserContext,
   connectOverCDP,
+  ensureCDPChrome,
+  isCDPAvailable,
+  findChromePath,
   isChromeRunning,
 };
+
