@@ -1,0 +1,18 @@
+[
+  {
+    "input": "\"Hello, my name is John\"",
+    "output": "5"
+  },
+  {
+    "input": "\"Hello\"",
+    "output": "1"
+  },
+  {
+    "input": "\"\"",
+    "output": "0"
+  },
+  {
+    "input": "\"                \"",
+    "output": "0"
+  }
+]

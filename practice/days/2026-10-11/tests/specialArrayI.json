@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[1]\n[2,1,4]\n[4,3,1,6]",
+    "output": "true\ntrue\nfalse"
+  }
+]

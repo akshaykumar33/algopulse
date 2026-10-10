@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"bella\",\"label\",\"roller\"]",
+    "output": "[\"e\",\"l\",\"l\"]"
+  },
+  {
+    "input": "[\"cool\",\"lock\",\"cook\"]",
+    "output": "[\"c\",\"o\"]"
+  }
+]

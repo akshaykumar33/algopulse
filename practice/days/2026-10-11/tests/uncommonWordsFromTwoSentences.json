@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"this apple is sweet\"\n\"this apple is sour\"",
+    "output": "[\"sweet\",\"sour\"]"
+  },
+  {
+    "input": "\"apple apple\"\n\"banana\"",
+    "output": "[\"banana\"]"
+  }
+]
