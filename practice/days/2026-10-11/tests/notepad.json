@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\n10\ncodeforces\n8\nlabacaba\n5\nuuuuu\n4\nmama\n6\nrostov\n1\na\n",
+    "output": "NO\nYES\nYES\nYES\nNO\nNO\n"
+  }
+]

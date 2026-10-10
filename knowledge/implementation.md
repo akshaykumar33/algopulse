@@ -424,6 +424,30 @@ function solve() {
 | [Joining Date](https://www.codechef.com/problems/JOINING) | `CodeChef` | `970` | `joiningDate.js` | Key algorithmic application from Day 2026-10-10. |
 | [Equal Difference](https://www.codechef.com/problems/EQSUM) | `CodeChef` | `979` | `equalDifference.js` | Key algorithmic application from Day 2026-10-10. |
 | [Add 1 or 2 Game](https://www.codechef.com/problems/ADD12GAME) | `CodeChef` | `1030` | `add1Or2Game.js` | Key algorithmic application from Day 2026-10-10. |
+| [String Task](https://codeforces.com/problemset/problem/118/A) | `Codeforces` | `1000` | `stringTask.js` | Key algorithmic application from Day 2026-10-11. |
+| [New Year Candles](https://codeforces.com/problemset/problem/379/A) | `Codeforces` | `1000` | `newYearCandles.js` | Key algorithmic application from Day 2026-10-11. |
+| [Lucky Sum of Digits](https://codeforces.com/problemset/problem/109/A) | `Codeforces` | `1000` | `luckySumOfDigits.js` | Key algorithmic application from Day 2026-10-11. |
+| [Notepad#](https://codeforces.com/problemset/problem/1766/B) | `Codeforces` | `1000` | `notepad.js` | Key algorithmic application from Day 2026-10-11. |
+| [Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes/) | `LeetCode` | `Easy` | `minimumDistanceBetweenBSTNodes.js` | Key algorithmic application from Day 2026-10-11. |
+| [Consecutive Characters](https://leetcode.com/problems/consecutive-characters/) | `LeetCode` | `Easy` | `consecutiveCharacters.js` | Key algorithmic application from Day 2026-10-11. |
+| [Special Array I](https://leetcode.com/problems/special-array-i/) | `LeetCode` | `Easy` | `specialArrayI.js` | Key algorithmic application from Day 2026-10-11. |
+| [1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters/) | `LeetCode` | `Easy` | `p1BitAnd2BitCharacters.js` | Key algorithmic application from Day 2026-10-11. |
+| [Uncommon Words from Two Sentences](https://leetcode.com/problems/uncommon-words-from-two-sentences/) | `LeetCode` | `Easy` | `uncommonWordsFromTwoSentences.js` | Key algorithmic application from Day 2026-10-11. |
+| [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | `LeetCode` | `Easy` | `containsDuplicate.js` | Key algorithmic application from Day 2026-10-11. |
+| [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | `LeetCode` | `Easy` | `removeDuplicatesFromSortedArray.js` | Key algorithmic application from Day 2026-10-11. |
+| [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | `LeetCode` | `Easy` | `numberOfSegmentsInAString.js` | Key algorithmic application from Day 2026-10-11. |
+| [Maximum Product Difference Between Two Pairs](https://leetcode.com/problems/maximum-product-difference-between-two-pairs/) | `LeetCode` | `Easy` | `maximumProductDifferenceBetweenTwoPairs.js` | Key algorithmic application from Day 2026-10-11. |
+| [Find Common Characters](https://leetcode.com/problems/find-common-characters/) | `LeetCode` | `Easy` | `findCommonCharacters.js` | Key algorithmic application from Day 2026-10-11. |
+| [Ratio By 2](https://www.codechef.com/problems/RATIO2) | `CodeChef` | `1035` | `ratioBy2.js` | Key algorithmic application from Day 2026-10-11. |
+| [Tekken](https://www.codechef.com/problems/TEKKEN) | `CodeChef` | `947` | `tekken.js` | Key algorithmic application from Day 2026-10-11. |
+| [Hidden Numbers](https://www.codechef.com/problems/UWCOI21A) | `CodeChef` | `917` | `hiddenNumbers.js` | Key algorithmic application from Day 2026-10-11. |
+| [Special Missions](https://www.codechef.com/problems/SPMISS) | `CodeChef` | `1026` | `specialMissions.js` | Key algorithmic application from Day 2026-10-11. |
+| [Chef Diet](https://www.codechef.com/problems/DIET) | `CodeChef` | `1025` | `chefDiet.js` | Key algorithmic application from Day 2026-10-11. |
+| [Bear and Ladder](https://www.codechef.com/problems/BRLADDER) | `CodeChef` | `999` | `bearAndLadder.js` | Key algorithmic application from Day 2026-10-11. |
+| [Balls and Boxes](https://www.codechef.com/problems/BALLBOX) | `CodeChef` | `994` | `ballsAndBoxes.js` | Key algorithmic application from Day 2026-10-11. |
+| [Chef and Two Strings](https://www.codechef.com/problems/CHEFSTLT) | `CodeChef` | `1036` | `chefAndTwoStrings.js` | Key algorithmic application from Day 2026-10-11. |
+| [Zero Ones Equal One Zeros](https://www.codechef.com/problems/ZOOZ) | `CodeChef` | `1009` | `zeroOnesEqualOneZeros.js` | Key algorithmic application from Day 2026-10-11. |
+| [First and Last](https://www.codechef.com/problems/FIRSTANDLAST) | `CodeChef` | `932` | `firstAndLast.js` | Key algorithmic application from Day 2026-10-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "\"leetcode\"",
+    "output": "2"
+  },
+  {
+    "input": "\"abbcccddddeeeeedcba\"",
+    "output": "5"
+  },
+  {
+    "input": "\"triplepillooooow\"",
+    "output": "5"
+  },
+  {
+    "input": "\"hooraaaaaaaaaaay\"",
+    "output": "11"
+  },
+  {
+    "input": "\"tourist\"",
+    "output": "1"
+  }
+]

@@ -1,0 +1,379 @@
+{
+  "date": "2026-10-11",
+  "day": 17,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "2091C",
+      "name": "Combination Lock",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2091/C",
+      "file": "combinationLock",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1851C",
+      "name": "Tiles Comeback",
+      "rating": 1000,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1851/C",
+      "file": "tilesComeback",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "118A",
+      "name": "String Task",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/118/A",
+      "file": "stringTask",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1051B",
+      "name": "Relatively Prime Pairs",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1051/B",
+      "file": "relativelyPrimePairs",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "379A",
+      "name": "New Year Candles",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/379/A",
+      "file": "newYearCandles",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "109A",
+      "name": "Lucky Sum of Digits",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/109/A",
+      "file": "luckySumOfDigits",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1766B",
+      "name": "Notepad#",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1766/B",
+      "file": "notepad",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1791G1",
+      "name": "Teleporters (Easy Version)",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1791/G1",
+      "file": "teleportersEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1872C",
+      "name": "Non-coprime Split",
+      "rating": 1100,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1872/C",
+      "file": "nonCoprimeSplit",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1610B",
+      "name": "Kalindrome Array",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1610/B",
+      "file": "kalindromeArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-783",
+      "name": "Minimum Distance Between BST Nodes",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-distance-between-bst-nodes/",
+      "file": "minimumDistanceBetweenBSTNodes",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1446",
+      "name": "Consecutive Characters",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/consecutive-characters/",
+      "file": "consecutiveCharacters",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3151",
+      "name": "Special Array I",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/special-array-i/",
+      "file": "specialArrayI",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-717",
+      "name": "1-bit and 2-bit Characters",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/1-bit-and-2-bit-characters/",
+      "file": "p1BitAnd2BitCharacters",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-884",
+      "name": "Uncommon Words from Two Sentences",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/uncommon-words-from-two-sentences/",
+      "file": "uncommonWordsFromTwoSentences",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-217",
+      "name": "Contains Duplicate",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/contains-duplicate/",
+      "file": "containsDuplicate",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-26",
+      "name": "Remove Duplicates from Sorted Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+      "file": "removeDuplicatesFromSortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-434",
+      "name": "Number of Segments in a String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-segments-in-a-string/",
+      "file": "numberOfSegmentsInAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1913",
+      "name": "Maximum Product Difference Between Two Pairs",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-product-difference-between-two-pairs/",
+      "file": "maximumProductDifferenceBetweenTwoPairs",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1002",
+      "name": "Find Common Characters",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-common-characters/",
+      "file": "findCommonCharacters",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-RATIO2",
+      "name": "Ratio By 2",
+      "rating": 1035,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RATIO2",
+      "file": "ratioBy2",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TEKKEN",
+      "name": "Tekken",
+      "rating": 947,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TEKKEN",
+      "file": "tekken",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-UWCOI21A",
+      "name": "Hidden Numbers",
+      "rating": 917,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/UWCOI21A",
+      "file": "hiddenNumbers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SPMISS",
+      "name": "Special Missions",
+      "rating": 1026,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SPMISS",
+      "file": "specialMissions",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DIET",
+      "name": "Chef Diet",
+      "rating": 1025,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIET",
+      "file": "chefDiet",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BRLADDER",
+      "name": "Bear and Ladder",
+      "rating": 999,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BRLADDER",
+      "file": "bearAndLadder",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BALLBOX",
+      "name": "Balls and Boxes",
+      "rating": 994,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BALLBOX",
+      "file": "ballsAndBoxes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFSTLT",
+      "name": "Chef and Two Strings",
+      "rating": 1036,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFSTLT",
+      "file": "chefAndTwoStrings",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ZOOZ",
+      "name": "Zero Ones Equal One Zeros",
+      "rating": 1009,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ZOOZ",
+      "file": "zeroOnesEqualOneZeros",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FIRSTANDLAST",
+      "name": "First and Last",
+      "rating": 932,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FIRSTANDLAST",
+      "file": "firstAndLast",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

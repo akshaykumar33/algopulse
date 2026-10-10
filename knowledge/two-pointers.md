@@ -81,6 +81,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Favorite Sequence](https://codeforces.com/problemset/problem/1462/A) | `Codeforces` | `800` | `favoriteSequence.js` | Key algorithmic application from Day 2026-09-30. |
 | [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
 | [Black and White Stripe](https://codeforces.com/problemset/problem/1690/D) | `Codeforces` | `1000` | `blackAndWhiteStripe.js` | Key algorithmic application from Day 2026-10-10. |
+| [Kalindrome Array](https://codeforces.com/problemset/problem/1610/B) | `Codeforces` | `1100` | `kalindromeArray.js` | Key algorithmic application from Day 2026-10-11. |
 
 ---
 

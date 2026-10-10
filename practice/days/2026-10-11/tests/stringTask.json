@@ -1,0 +1,14 @@
+[
+  {
+    "input": "tour\n",
+    "output": ".t.r\n"
+  },
+  {
+    "input": "Codeforces\n",
+    "output": ".c.d.f.r.c.s\n"
+  },
+  {
+    "input": "aBAcAba\n",
+    "output": ".b.c.b\n"
+  }
+]
