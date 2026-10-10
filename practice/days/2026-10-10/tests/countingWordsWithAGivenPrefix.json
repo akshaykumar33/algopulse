@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"pay\",\"attention\",\"practice\",\"attend\"]\n\"at\"",
+    "output": "2"
+  },
+  {
+    "input": "[\"leetcode\",\"win\",\"loops\",\"success\"]\n\"code\"",
+    "output": "0"
+  }
+]

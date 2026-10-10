@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"G()(al)\"",
+    "output": "\"Goal\""
+  },
+  {
+    "input": "\"G()()()()(al)\"",
+    "output": "\"Gooooal\""
+  },
+  {
+    "input": "\"(al)G(al)()()G\"",
+    "output": "\"alGalooG\""
+  }
+]

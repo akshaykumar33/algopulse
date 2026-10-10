@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n80 70 90\n70 80 90\n80 70 90\n70 90 80\n80 70 90\n80 70 90",
+    "output": "DRAGON\nDRAGON\nTIE"
+  }
+]

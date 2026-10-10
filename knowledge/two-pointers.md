@@ -80,6 +80,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Sereja and Dima](https://codeforces.com/problemset/problem/381/A) | `Codeforces` | `800` | `serejaAndDima.js` | Opposing two pointers taking $\max(A[L], A[R])$ at each turn until pointers cross. |
 | [Favorite Sequence](https://codeforces.com/problemset/problem/1462/A) | `Codeforces` | `800` | `favoriteSequence.js` | Key algorithmic application from Day 2026-09-30. |
 | [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
+| [Black and White Stripe](https://codeforces.com/problemset/problem/1690/D) | `Codeforces` | `1000` | `blackAndWhiteStripe.js` | Key algorithmic application from Day 2026-10-10. |
 
 ---
 

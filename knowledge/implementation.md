@@ -399,6 +399,31 @@ function solve() {
 | [Prime Generator](https://www.codechef.com/problems/PRIME1) | `CodeChef` | `1069` | `primeGenerator.js` | Key algorithmic application from Day 2026-10-09. |
 | [No Winner](https://www.codechef.com/problems/NOWINNER) | `CodeChef` | `931` | `noWinner.js` | Key algorithmic application from Day 2026-10-09. |
 | [Bear and Candies 123](https://www.codechef.com/problems/CANDY123) | `CodeChef` | `1028` | `bearAndCandies123.js` | Key algorithmic application from Day 2026-10-09. |
+| [Offshores](https://codeforces.com/problemset/problem/2194/B) | `Codeforces` | `1000` | `offshores.js` | Key algorithmic application from Day 2026-10-10. |
+| [Black and White Stripe](https://codeforces.com/problemset/problem/1690/D) | `Codeforces` | `1000` | `blackAndWhiteStripe.js` | Key algorithmic application from Day 2026-10-10. |
+| [Johnny and Ancient Computer](https://codeforces.com/problemset/problem/1362/A) | `Codeforces` | `1000` | `johnnyAndAncientComputer.js` | Key algorithmic application from Day 2026-10-10. |
+| [Detective Task](https://codeforces.com/problemset/problem/1675/C) | `Codeforces` | `1100` | `detectiveTask.js` | Key algorithmic application from Day 2026-10-10. |
+| [Maximum Rounding](https://codeforces.com/problemset/problem/1857/B) | `Codeforces` | `1100` | `maximumRounding.js` | Key algorithmic application from Day 2026-10-10. |
+| [Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/) | `LeetCode` | `Easy` | `averageOfLevelsInBinaryTree.js` | Key algorithmic application from Day 2026-10-10. |
+| [Assign Cookies](https://leetcode.com/problems/assign-cookies/) | `LeetCode` | `Easy` | `assignCookies.js` | Key algorithmic application from Day 2026-10-10. |
+| [Baseball Game](https://leetcode.com/problems/baseball-game/) | `LeetCode` | `Easy` | `baseballGame.js` | Key algorithmic application from Day 2026-10-10. |
+| [Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/) | `LeetCode` | `Easy` | `numberOfStepsToReduceANumberToZero.js` | Key algorithmic application from Day 2026-10-10. |
+| [Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list/) | `LeetCode` | `Easy` | `decompressRunLengthEncodedList.js` | Key algorithmic application from Day 2026-10-10. |
+| [Number of Students Unable to Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/) | `LeetCode` | `Easy` | `numberOfStudentsUnableToEatLunch.js` | Key algorithmic application from Day 2026-10-10. |
+| [Flood Fill](https://leetcode.com/problems/flood-fill/) | `LeetCode` | `Easy` | `floodFill.js` | Key algorithmic application from Day 2026-10-10. |
+| [Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/) | `LeetCode` | `Easy` | `checkIfItIsAStraightLine.js` | Key algorithmic application from Day 2026-10-10. |
+| [Counting Words With a Given Prefix](https://leetcode.com/problems/counting-words-with-a-given-prefix/) | `LeetCode` | `Easy` | `countingWordsWithAGivenPrefix.js` | Key algorithmic application from Day 2026-10-10. |
+| [Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/) | `LeetCode` | `Easy` | `goalParserInterpretation.js` | Key algorithmic application from Day 2026-10-10. |
+| [Chef and Subarrays](https://www.codechef.com/problems/CHEFARRP) | `CodeChef` | `1041` | `chefAndSubarrays.js` | Key algorithmic application from Day 2026-10-10. |
+| [WEC-REC](https://www.codechef.com/problems/WECREC) | `CodeChef` | `968` | `wECREC.js` | Key algorithmic application from Day 2026-10-10. |
+| [Danny Wants To Know](https://www.codechef.com/problems/DANOW) | `CodeChef` | `1088` | `dannyWantsToKnow.js` | Key algorithmic application from Day 2026-10-10. |
+| [Swapping Marks Digits](https://www.codechef.com/problems/SWMA) | `CodeChef` | `964` | `swappingMarksDigits.js` | Key algorithmic application from Day 2026-10-10. |
+| [The Begining Era Of Cyberverse](https://www.codechef.com/problems/CYBV) | `CodeChef` | `964` | `theBeginingEraOfCyberverse.js` | Key algorithmic application from Day 2026-10-10. |
+| [Triplet Maximization](https://www.codechef.com/problems/MAX123) | `CodeChef` | `994` | `tripletMaximization.js` | Key algorithmic application from Day 2026-10-10. |
+| [TCS Examination](https://www.codechef.com/problems/EXAMTIME) | `CodeChef` | `1006` | `tCSExamination.js` | Key algorithmic application from Day 2026-10-10. |
+| [Joining Date](https://www.codechef.com/problems/JOINING) | `CodeChef` | `970` | `joiningDate.js` | Key algorithmic application from Day 2026-10-10. |
+| [Equal Difference](https://www.codechef.com/problems/EQSUM) | `CodeChef` | `979` | `equalDifference.js` | Key algorithmic application from Day 2026-10-10. |
+| [Add 1 or 2 Game](https://www.codechef.com/problems/ADD12GAME) | `CodeChef` | `1030` | `add1Or2Game.js` | Key algorithmic application from Day 2026-10-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

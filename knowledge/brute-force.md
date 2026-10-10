@@ -113,6 +113,7 @@ function backtrack(index, currentSum, target, arr) {
 | [Filling Diamonds](https://codeforces.com/problemset/problem/1339/A) | `Codeforces` | `900` | `fillingDiamonds.js` | Key algorithmic application from Day 2026-10-08. |
 | [Fair Numbers](https://codeforces.com/problemset/problem/1411/B) | `Codeforces` | `1000` | `fairNumbers.js` | Key algorithmic application from Day 2026-10-09. |
 | [Parallelepiped](https://codeforces.com/problemset/problem/224/A) | `Codeforces` | `1100` | `parallelepiped.js` | Key algorithmic application from Day 2026-10-09. |
+| [Consecutive Points Segment](https://codeforces.com/problemset/problem/1671/B) | `Codeforces` | `1000` | `consecutivePointsSegment.js` | Key algorithmic application from Day 2026-10-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

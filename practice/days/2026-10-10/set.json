@@ -1,0 +1,381 @@
+{
+  "date": "2026-10-10",
+  "day": 16,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1579E1",
+      "name": "Permutation Minimization by Deque",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1579/E1",
+      "file": "permutationMinimizationByDeque",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "58A",
+      "name": "Chat room",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/58/A",
+      "file": "chatRoom",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2194B",
+      "name": "Offshores",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2194/B",
+      "file": "offshores",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1690D",
+      "name": "Black and White Stripe",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1690/D",
+      "file": "blackAndWhiteStripe",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1985C",
+      "name": "Good Prefixes",
+      "rating": 1000,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1985/C",
+      "file": "goodPrefixes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1362A",
+      "name": "Johnny and Ancient Computer",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1362/A",
+      "file": "johnnyAndAncientComputer",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1671B",
+      "name": "Consecutive Points Segment",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1671/B",
+      "file": "consecutivePointsSegment",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "456A",
+      "name": "Laptops",
+      "rating": 1100,
+      "tags": [
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/456/A",
+      "file": "laptops",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1675C",
+      "name": "Detective Task",
+      "rating": 1100,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1675/C",
+      "file": "detectiveTask",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1857B",
+      "name": "Maximum Rounding",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1857/B",
+      "file": "maximumRounding",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-637",
+      "name": "Average of Levels in Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/average-of-levels-in-binary-tree/",
+      "file": "averageOfLevelsInBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-455",
+      "name": "Assign Cookies",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/assign-cookies/",
+      "file": "assignCookies",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-682",
+      "name": "Baseball Game",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/baseball-game/",
+      "file": "baseballGame",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1342",
+      "name": "Number of Steps to Reduce a Number to Zero",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/",
+      "file": "numberOfStepsToReduceANumberToZero",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1313",
+      "name": "Decompress Run-Length Encoded List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/decompress-run-length-encoded-list/",
+      "file": "decompressRunLengthEncodedList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1700",
+      "name": "Number of Students Unable to Eat Lunch",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/",
+      "file": "numberOfStudentsUnableToEatLunch",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-733",
+      "name": "Flood Fill",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/flood-fill/",
+      "file": "floodFill",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1232",
+      "name": "Check If It Is a Straight Line",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-it-is-a-straight-line/",
+      "file": "checkIfItIsAStraightLine",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2185",
+      "name": "Counting Words With a Given Prefix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/counting-words-with-a-given-prefix/",
+      "file": "countingWordsWithAGivenPrefix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1678",
+      "name": "Goal Parser Interpretation",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/goal-parser-interpretation/",
+      "file": "goalParserInterpretation",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFARRP",
+      "name": "Chef and Subarrays",
+      "rating": 1041,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFARRP",
+      "file": "chefAndSubarrays",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-WECREC",
+      "name": "WEC-REC",
+      "rating": 968,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/WECREC",
+      "file": "wECREC",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DANOW",
+      "name": "Danny Wants To Know",
+      "rating": 1088,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DANOW",
+      "file": "dannyWantsToKnow",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SWMA",
+      "name": "Swapping Marks Digits",
+      "rating": 964,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SWMA",
+      "file": "swappingMarksDigits",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CYBV",
+      "name": "The Begining Era Of Cyberverse",
+      "rating": 964,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CYBV",
+      "file": "theBeginingEraOfCyberverse",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAX123",
+      "name": "Triplet Maximization",
+      "rating": 994,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAX123",
+      "file": "tripletMaximization",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EXAMTIME",
+      "name": "TCS Examination",
+      "rating": 1006,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EXAMTIME",
+      "file": "tCSExamination",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-JOINING",
+      "name": "Joining Date",
+      "rating": 970,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/JOINING",
+      "file": "joiningDate",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQSUM",
+      "name": "Equal Difference",
+      "rating": 979,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQSUM",
+      "file": "equalDifference",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADD12GAME",
+      "name": "Add 1 or 2 Game",
+      "rating": 1030,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADD12GAME",
+      "file": "add1Or2Game",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
