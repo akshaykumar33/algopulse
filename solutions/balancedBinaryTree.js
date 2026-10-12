@@ -1,8 +1,8 @@
-const solve = function(root) {
+var isBalanced = function(root) {
   function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
   }
   function buildTree(arr) {
     if (!arr || arr.length === 0 || arr[0] === null) return null;
@@ -46,15 +46,14 @@ if (require.main === module) {
       for (const line of lines) {
         try {
           const parsed = JSON.parse(line);
-          const result = Array.isArray(parsed) && solve.length > 1 ? solve(...parsed) : solve(parsed);
+          const result = isBalanced(parsed);
           console.log(JSON.stringify(result));
         } catch {
-          console.log(JSON.stringify(solve(line)));
+          console.log(JSON.stringify(isBalanced(line)));
         }
       }
     }
   } catch (err) {
-    console.error('Local runner error:', err.message);
   }
 }
-module.exports = solve;
+module.exports = isBalanced;

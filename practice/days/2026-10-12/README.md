@@ -13,8 +13,8 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 
 | # | Platform | Done | Problem | Rating / Difficulty | Solution File | Template | Explanations & Diagrams |
 |---|:---:|:---:|---|:---:|---|---|:---:|
-| 1 | `Codeforces` | [ ] | [1676D — X-Sum](https://codeforces.com/problemset/problem/1676/D) | 1000 | `xSum.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/xSum.md) |
-| 2 | `Codeforces` | [ ] | [2204C — Spring](https://codeforces.com/problemset/problem/2204/C) | 1000 | `spring.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/spring.md) |
+| 1 | `Codeforces` | [x] | [1676D — X-Sum](https://codeforces.com/problemset/problem/1676/D) | 1000 | `xSum.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/xSum.md) |
+| 2 | `Codeforces` | [x] | [2204C — Spring](https://codeforces.com/problemset/problem/2204/C) | 1000 | `spring.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/spring.md) |
 | 3 | `Codeforces` | [x] | [805B — 3-palindrome](https://codeforces.com/problemset/problem/805/B) | 1000 | `p3Palindrome.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/p3Palindrome.md) |
 | 4 | `Codeforces` | [x] | [798A — Mike and palindrome](https://codeforces.com/problemset/problem/798/A) | 1000 | `mikeAndPalindrome.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/mikeAndPalindrome.md) |
 | 5 | `Codeforces` | [x] | [1199B — Water Lily](https://codeforces.com/problemset/problem/1199/B) | 1000 | `waterLily.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/waterLily.md) |
@@ -37,7 +37,7 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 | 22 | `CodeChef` | [x] | [CC-LECANDY — Little Elephant and Candies](https://www.codechef.com/problems/LECANDY) | 1141 | `littleElephantAndCandies.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/littleElephantAndCandies.md) |
 | 23 | `CodeChef` | [x] | [CC-DOTIFYPLAY — Dotify Playlist](https://www.codechef.com/problems/DOTIFYPLAY) | 1178 | `dotifyPlaylist.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/dotifyPlaylist.md) |
 | 24 | `CodeChef` | [x] | [CC-RECTANGL — Rectangle](https://www.codechef.com/problems/RECTANGL) | 1146 | `rectangle.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/rectangle.md) |
-| 25 | `CodeChef` | [ ] | [CC-WATSCORE — That Is My Score!](https://www.codechef.com/problems/WATSCORE) | 1094 | `thatIsMyScore.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/thatIsMyScore.md) |
+| 25 | `CodeChef` | [x] | [CC-WATSCORE — That Is My Score!](https://www.codechef.com/problems/WATSCORE) | 1094 | `thatIsMyScore.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/thatIsMyScore.md) |
 | 26 | `CodeChef` | [x] | [CC-L56GAME — Chef and Game with Sequence](https://www.codechef.com/problems/L56GAME) | 1051 | `chefAndGameWithSequence.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/chefAndGameWithSequence.md) |
 | 27 | `CodeChef` | [x] | [CC-MSNSADM1 — Football](https://www.codechef.com/problems/MSNSADM1) | 1102 | `football.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/football.md) |
 | 28 | `CodeChef` | [x] | [CC-EQEXCH — Equivalent Exchange](https://www.codechef.com/problems/EQEXCH) | 1019 | `equivalentExchange.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/equivalentExchange.md) |
