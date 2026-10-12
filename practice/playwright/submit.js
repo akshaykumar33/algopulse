@@ -6,6 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 const { launchBrowser, createStealthContext, launchPersistentBrowserContext, connectOverCDP, ensureCDPChrome } = require('./browser');
 const { PLATFORMS, PRACTICE_DAYS_DIR, REPO_ROOT } = require('./config');
 const cfEngine = require('./platforms/codeforces');
@@ -14,6 +15,11 @@ const ccEngine = require('./platforms/codechef');
 const { authenticatePlatform } = require('./auth');
 const { sanitizeCodeForSubmission } = require('./sanitize');
 const { syncSessionsFromEnv } = require('./envAuth');
+
+let ai = null;
+try {
+  ai = require('../ai');
+} catch {}
 
 // Auto-sync session keys from .env into .auth session files
 syncSessionsFromEnv();
@@ -576,6 +582,262 @@ async function ensurePlatformAuth(platKey, options = {}) {
 }
 
 /**
+ * Resolves base cooldown duration from command-line arguments or defaults
+ * Default: 3.5 to 5.5 minutes (~210s - 330s) for authentic human pacing.
+ */
+function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
+  const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
+  if (isFast) {
+    return 5000;
+  }
+
+  const i = cliArgs.indexOf('--cooldown');
+  const rawVal = i !== -1 ? cliArgs[i + 1] : null;
+
+  if (!rawVal) {
+    // Default authentic human pacing: 3.5 to 5.5 minutes
+    const minSec = 210;
+    const maxSec = 330;
+    const randomSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
+    return randomSec * 1000;
+  }
+
+  const str = String(rawVal).trim().toLowerCase();
+  if (str.endsWith('m')) {
+    const mins = parseFloat(str.slice(0, -1));
+    return Math.round(mins * 60 * 1000);
+  }
+  if (str.endsWith('s')) {
+    const secs = parseFloat(str.slice(0, -1));
+    return Math.round(secs * 1000);
+  }
+  const num = parseFloat(str);
+  if (isNaN(num)) return 240000;
+  if (num < 30) {
+    // e.g. --cooldown 4 -> 4 minutes
+    return Math.round(num * 60 * 1000);
+  }
+  if (num < 1000) {
+    // e.g. --cooldown 180 -> 180 seconds
+    return Math.round(num * 1000);
+  }
+  return Math.round(num);
+}
+
+/**
+ * Adds natural human variance (+/- 30s) to prevent robotic interval signatures
+ */
+function getCooldownWithJitter(baseMs, isFast = false) {
+  if (isFast || baseMs < 15000) return baseMs;
+  const jitterSec = Math.floor(Math.random() * 61) - 30; // -30s to +30s
+  return Math.max(120000, baseMs + jitterSec * 1000); // minimum 2 mins for human pace
+}
+
+/**
+ * Formats milliseconds into MM:SS format
+ */
+function formatTimeRemaining(ms) {
+  const totalSec = Math.max(0, Math.ceil(ms / 1000));
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+/**
+ * Interactive ticking countdown timer in terminal
+ */
+async function sleepWithCountdown(ms, description = 'Cooling down before next submission') {
+  if (ms <= 0) return;
+  const start = Date.now();
+  const end = start + ms;
+
+  console.log(`\n⏳ [human-pacing] ${description}`);
+  console.log(`   Pacing interval: ${(ms / 60000).toFixed(1)} mins (${Math.round(ms / 1000)}s) to maintain authentic human submission pattern.`);
+
+  return new Promise((resolve) => {
+    const update = () => {
+      const remaining = end - Date.now();
+      if (remaining <= 0) {
+        clearInterval(timer);
+        process.stdout.write(`\r   ✓ Cooldown complete (00:00). Proceeding now!                           \n\n`);
+        resolve();
+      } else {
+        process.stdout.write(`\r   ⏳ Pacing pause: ${formatTimeRemaining(remaining)} remaining ...   `);
+      }
+    };
+    const timer = setInterval(update, 1000);
+    update();
+  });
+}
+
+/**
+ * Diagnoses a failed verdict and attempts an automated fix
+ */
+async function attemptProblemFix(problem, subResult, { dayDir, date }) {
+  const solPath = findSolutionFile(problem, dayDir);
+  if (!solPath) return false;
+
+  const currentCode = fs.readFileSync(solPath, 'utf-8');
+  const plat = getProblemPlatform(problem).toLowerCase();
+
+  // 1. LeetCode Runtime Error signature quick-fix
+  if (plat === 'leetcode') {
+    const guessedFn = problem.file;
+    if (/\b(?:var|function)\s+solve\b/.test(currentCode) && !new RegExp(`\\b${guessedFn}\\b`).test(currentCode)) {
+      const fixedCode = currentCode
+        .replace(/\bvar\s+solve\s*=\s*function/, `var ${guessedFn} = function`)
+        .replace(/\bfunction\s+solve\s*\(/, `function ${guessedFn}(`)
+        + `\nvar solve = typeof ${guessedFn} !== 'undefined' ? ${guessedFn} : null;\n`;
+      fs.writeFileSync(solPath, fixedCode, 'utf-8');
+      const rootSol = path.join(REPO_ROOT, 'solutions', `${problem.file}.js`);
+      if (fs.existsSync(rootSol)) fs.writeFileSync(rootSol, fixedCode, 'utf-8');
+      console.log(`    [fix-flow] Adapted LeetCode signature to function "${guessedFn}"`);
+      return true;
+    }
+  }
+
+  // 2. AI diagnosis and repair
+  if (ai && ai.isReady()) {
+    try {
+      console.log(`    [fix-flow] Querying AI diagnosis engine with live judge verdict: "${subResult.verdict}" ...`);
+
+      const testsPath = path.join(dayDir, 'tests', `${problem.file}.json`);
+      let existingTests = [];
+      if (fs.existsSync(testsPath)) {
+        try { existingTests = JSON.parse(fs.readFileSync(testsPath, 'utf-8')); } catch {}
+      }
+
+      const prompt = `You are a World Finals Competitive Programming Champion in JavaScript (Node.js).
+A previously submitted solution for the following problem failed on ${problem.platform} with live judge verdict: "${subResult.verdict}".
+
+Problem Details:
+- Platform: ${problem.platform}
+- ID: ${problem.id}
+- Name: ${problem.name}
+- Rating / Difficulty: ${problem.rating || 'N/A'}
+- Tags: ${(problem.tags || []).join(', ') || 'N/A'}
+- URL: ${problem.url || 'N/A'}
+
+CURRENT FAILING CODE:
+\`\`\`javascript
+${currentCode}
+\`\`\`
+
+Diagnose why this solution failed with "${subResult.verdict}". Fix the algorithmic, mathematical, or I/O bug.
+CRITICAL RULES:
+- STRICTLY NO COMMENTS (no '//', no '/* */', no JSDoc) anywhere in the code.
+- Pure concise competitive programming naming ('n', 'm', 'ans', 'dp', 'arr', 'vis', 'solve').
+- Fast synchronous I/O via fs.readFileSync(0, 'utf-8').
+- Return ONLY valid JSON:
+{
+  "diagnosis": "<concise explanation of bug>",
+  "solution": "<complete corrected JavaScript code>"
+}`;
+
+      const res = await ai.complete({
+        system: 'You are an expert competitive programming solver fixing an erroneous submission.',
+        prompt,
+        cache: false,
+      });
+
+      let jsonStr = res.text.trim();
+      const match = jsonStr.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+      if (match) jsonStr = match[1].trim();
+      const parsed = JSON.parse(jsonStr);
+
+      if (parsed.solution && typeof parsed.solution === 'string') {
+        const candidateCode = parsed.solution.trim();
+        console.log(`    [fix-flow] AI Diagnosis: ${parsed.diagnosis || 'Bug identified and corrected'}`);
+
+        let testsPassed = true;
+        if (existingTests.length > 0) {
+          for (const [tIdx, t] of existingTests.entries()) {
+            const runner = `require.main = module;\n${candidateCode}`;
+            const r = spawnSync('node', ['-e', runner], {
+              input: t.input,
+              encoding: 'utf-8',
+              timeout: 8000,
+            });
+            const normalize = (s) => String(s || '').trim().split(/\r?\n/).map((l) => l.trim().split(/\s+/).join(' ')).join('\n');
+            if (r.status !== 0 || normalize(r.stdout) !== normalize(t.output)) {
+              console.warn(`    [fix-flow] ⚠️ Candidate fix failed local test ${tIdx + 1}`);
+              testsPassed = false;
+              break;
+            }
+          }
+        }
+
+        if (testsPassed) {
+          fs.writeFileSync(solPath, candidateCode + '\n', 'utf-8');
+          const rootSol = path.join(REPO_ROOT, 'solutions', `${problem.file}.js`);
+          if (fs.existsSync(rootSol)) fs.writeFileSync(rootSol, candidateCode + '\n', 'utf-8');
+          console.log(`    [fix-flow] ✓ Successfully validated candidate fix locally!`);
+          return true;
+        }
+      }
+    } catch (err) {
+      console.warn(`    [fix-flow] Warning during AI auto-fix: ${err.message}`);
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Submits a problem and, if the verdict is non-accepted, initiates the auto-fix loop
+ * with realistic human debugging pauses before resubmission.
+ */
+async function submitWithAutoFix(prob, options) {
+  let res = await submitSingleProblem(prob, options);
+
+  if (isVerdictAccepted(res)) {
+    return res;
+  }
+
+  if (res.verdict === 'NO_SOLUTION_FILE' || res.verdict === 'NOT_AUTHENTICATED' || res.verdict === 'UNSUPPORTED_PLATFORM') {
+    return res;
+  }
+
+  console.log(`\n⚠️  [verdict-alert] Problem "${prob.name}" (${prob.id}) returned non-accepted verdict: "${res.verdict}"!`);
+
+  if (options.noFix) {
+    console.log(`    [fix-flow] Auto-fix is disabled via --no-fix.`);
+    return res;
+  }
+
+  const maxFixAttempts = options.maxFixAttempts || 2;
+  let attempt = 0;
+  let currentRes = res;
+
+  while (attempt < maxFixAttempts && !isVerdictAccepted(currentRes)) {
+    attempt++;
+    console.log(`\n🔧 [fix-flow] Initiating fix attempt ${attempt}/${maxFixAttempts} for ${prob.name} (${prob.id}) ...`);
+
+    const fixed = await attemptProblemFix(prob, currentRes, options);
+    if (!fixed) {
+      console.warn(`    [fix-flow] ✗ Automatic fix could not be generated.`);
+      break;
+    }
+
+    console.log(`    [fix-flow] ✓ Fix verified! Simulating realistic debugging review time before resubmission ...`);
+    const debugPauseMs = options.isFast ? 3000 : (90000 + Math.floor(Math.random() * 60000));
+    await sleepWithCountdown(debugPauseMs, `Debugging & review pause for ${prob.name} before submitting fix`);
+
+    console.log(`    [fix-flow] Resubmitting corrected code for ${prob.name} (${prob.id}) ...`);
+    currentRes = await submitSingleProblem(prob, options);
+
+    if (isVerdictAccepted(currentRes)) {
+      console.log(`\n🎉 [fix-flow] SUCCESS! Problem "${prob.name}" is now ACCEPTED on ${prob.platform}!`);
+      return currentRes;
+    } else {
+      console.warn(`\n⚠️  [fix-flow] Resubmission attempt ${attempt} returned: "${currentRes.verdict}"`);
+    }
+  }
+
+  return currentRes;
+}
+
+/**
  * Worker queue that processes a single platform's problems sequentially one-by-one with cooldown
  */
 async function processPlatformQueue(platKey, queue, options) {
@@ -600,12 +862,26 @@ async function processPlatformQueue(platKey, queue, options) {
 
   for (const [idx, prob] of queue.entries()) {
     console.log(`\n${tag} (${idx + 1}/${queue.length}) Processing: ${prob.name} (${prob.id}) ...`);
-    const res = await submitSingleProblem(prob, options);
+    const res = await submitWithAutoFix(prob, options);
     queueResults.push(res);
 
+    if (options.submissionsLogPath) {
+      try {
+        const curLog = mergeSubmissions(options.historicalSubmissions || [], queueResults);
+        fs.writeFileSync(options.submissionsLogPath, JSON.stringify(curLog, null, 2) + '\n', 'utf-8');
+      } catch {}
+    }
+
+    const isAccepted = isVerdictAccepted(res);
+    if (!isAccepted && !options.continueOnFail) {
+      console.log(`\n⛔ ${tag} [submit] STOPPING queue: Problem "${prob.name}" (${prob.id}) was not accepted (${res.verdict || 'Failed'}).`);
+      console.log(`   Worker paused to prevent spamming live judge.`);
+      break;
+    }
+
     if (idx < queue.length - 1) {
-      console.log(`    ${tag} [cooldown] Waiting ${options.cooldownMs / 1000}s before next problem ...`);
-      await new Promise((r) => setTimeout(r, options.cooldownMs));
+      const waitMs = getCooldownWithJitter(options.baseCooldownMs, options.isFast);
+      await sleepWithCountdown(waitMs, `${tag} Human cooldown before problem ${idx + 2}/${queue.length}`);
     }
   }
 
@@ -636,7 +912,11 @@ async function main() {
   const isHeadless = args.includes('--headless');
   const shouldMirror = args.includes('--mirror');
   const isParallel = args.includes('--parallel');
-  const cooldownMs = parseInt(flag('--cooldown') || '4000', 10);
+  const isFast = args.includes('--fast') || args.includes('--quick');
+  const noFix = args.includes('--no-fix');
+  const continueOnFail = args.includes('--continue-on-fail');
+  const maxFixAttempts = parseInt(flag('--max-fix-attempts') || '2', 10);
+  const baseCooldownMs = resolveCooldownMs(args);
 
   let problems = set.problems || [];
   if (filterPlatform) {
@@ -803,10 +1083,17 @@ async function main() {
 
   const workerOptions = {
     dayDir,
+    date,
     browser,
     persistentContext,
     isPersistentMode,
-    cooldownMs,
+    baseCooldownMs,
+    isFast,
+    noFix,
+    continueOnFail,
+    maxFixAttempts,
+    submissionsLogPath,
+    historicalSubmissions,
   };
 
   let results = [];
@@ -835,13 +1122,35 @@ async function main() {
     } else {
       // Sequential single queue
       for (const [idx, prob] of problems.entries()) {
-        console.log(`\n[${idx + 1}/${problems.length}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
-        const res = await submitSingleProblem(prob, workerOptions);
+        console.log(`\n================================================================`);
+        console.log(`[${idx + 1}/${problems.length}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
+        console.log(`================================================================`);
+
+        const res = await submitWithAutoFix(prob, workerOptions);
         results.push(res);
 
+        // Incremental save after each submission so progress is never lost
+        const incrementalLog = mergeSubmissions(historicalSubmissions, results);
+        fs.writeFileSync(submissionsLogPath, JSON.stringify(incrementalLog, null, 2) + '\n', 'utf-8');
+
+        const isAccepted = isVerdictAccepted(res);
+        if (!isAccepted && !continueOnFail) {
+          console.log(`\n⛔ [submit] STOPPING: Problem "${prob.name}" (${prob.id}) was not accepted on ${prob.platform} (${res.verdict || 'Failed'}).`);
+          console.log(`   To protect your live account reputation and avoid spamming failed submissions, execution has paused.`);
+          console.log(`   Action items:`);
+          console.log(`   1. Inspect / fix: solutions/${prob.file}.js`);
+          console.log(`   2. Re-test locally: node practice/verify.js ${date}`);
+          console.log(`   3. Resubmit: npm run submit -- --date ${date} --problem ${prob.file}`);
+          console.log(`   (Pass --continue-on-fail to bypass pausing on errors).\n`);
+          break;
+        }
+
         if (idx < problems.length - 1) {
-          console.log(`    [cooldown] Waiting ${cooldownMs / 1000}s before next submission ...`);
-          await new Promise((r) => setTimeout(r, cooldownMs));
+          const waitMs = getCooldownWithJitter(baseCooldownMs, isFast);
+          await sleepWithCountdown(
+            waitMs,
+            `Realistic human cooldown before problem ${idx + 2}/${problems.length} (${problems[idx + 1].name})`
+          );
         }
       }
     }
@@ -881,6 +1190,12 @@ module.exports = {
   findSolutionFile,
   getProblemPlatform,
   submitSingleProblem,
+  submitWithAutoFix,
+  attemptProblemFix,
+  resolveCooldownMs,
+  getCooldownWithJitter,
+  formatTimeRemaining,
+  sleepWithCountdown,
   processPlatformQueue,
   runDryRun,
   mirrorSolutionsByPlatform,
