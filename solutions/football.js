@@ -1,23 +1,18 @@
 const fs = require('fs');
-
-function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (!lines || lines.length === 0 || lines[0] === '') return;
-  const n = parseInt(lines[0], 10);
-  const cnt = {};
-  for (let i = 1; i <= n; i++) {
-    const team = lines[i];
-    cnt[team] = (cnt[team] || 0) + 1;
-  }
-  let maxGoals = -1;
-  let winner = '';
-  for (const team in cnt) {
-    if (cnt[team] > maxGoals) {
-      maxGoals = cnt[team];
-      winner = team;
+const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+let lineIdx = 0;
+const t = parseInt(lines[lineIdx++], 10);
+const out = [];
+for (let i = 0; i < t; i++) {
+    const n = parseInt(lines[lineIdx++], 10);
+    const a = lines[lineIdx++].trim().split(/\s+/).map(Number);
+    const b = lines[lineIdx++].trim().split(/\s+/).map(Number);
+    let maxScore = 0;
+    for (let j = 0; j < n; j++) {
+        let score = a[j] * 20 - b[j] * 10;
+        if (score < 0) score = 0;
+        if (score > maxScore) maxScore = score;
     }
-  }
-  console.log(winner);
+    out.push(maxScore);
 }
-
-solve();
+console.log(out.join('\n'));

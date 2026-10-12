@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-12",
+  "day": 18,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1676D",
+      "name": "X-Sum",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1676/D",
+      "file": "xSum",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2204C",
+      "name": "Spring",
+      "rating": 1000,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2204/C",
+      "file": "spring",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "805B",
+      "name": "3-palindrome",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/805/B",
+      "file": "p3Palindrome",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "798A",
+      "name": "Mike and palindrome",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/798/A",
+      "file": "mikeAndPalindrome",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1199B",
+      "name": "Water Lily",
+      "rating": 1000,
+      "tags": [
+        "geometry",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1199/B",
+      "file": "waterLily",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1244B",
+      "name": "Rooms and Staircases",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1244/B",
+      "file": "roomsAndStaircases",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1744C",
+      "name": "Traffic Light",
+      "rating": 1000,
+      "tags": [
+        "binary search",
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1744/C",
+      "file": "trafficLight",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2171C1",
+      "name": "Renako Amaori and XOR Game (easy version)",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "games",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2171/C1",
+      "file": "renakoAmaoriAndXORGameEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2112B",
+      "name": "Shrinking Array",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2112/B",
+      "file": "shrinkingArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1365A",
+      "name": "Matrix Game",
+      "rating": 1100,
+      "tags": [
+        "games",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1365/A",
+      "file": "matrixGame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-110",
+      "name": "Balanced Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/balanced-binary-tree/",
+      "file": "balancedBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2529",
+      "name": "Maximum Count of Positive Integer and Negative Integer",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/",
+      "file": "maximumCountOfPositiveIntegerAndNegativeInteger",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1394",
+      "name": "Find Lucky Integer in an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-lucky-integer-in-an-array/",
+      "file": "findLuckyIntegerInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-263",
+      "name": "Ugly Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/ugly-number/",
+      "file": "uglyNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-501",
+      "name": "Find Mode in Binary Search Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-mode-in-binary-search-tree/",
+      "file": "findModeInBinarySearchTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1",
+      "name": "Two Sum",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/two-sum/",
+      "file": "twoSum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-989",
+      "name": "Add to Array-Form of Integer",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/add-to-array-form-of-integer/",
+      "file": "addToArrayFormOfInteger",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1652",
+      "name": "Defuse the Bomb",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/defuse-the-bomb/",
+      "file": "defuseTheBomb",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2215",
+      "name": "Find the Difference of Two Arrays",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-difference-of-two-arrays/",
+      "file": "findTheDifferenceOfTwoArrays",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-747",
+      "name": "Largest Number At Least Twice of Others",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/largest-number-at-least-twice-of-others/",
+      "file": "largestNumberAtLeastTwiceOfOthers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-RESPAL",
+      "name": "Restrict Palindromes",
+      "rating": 1133,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RESPAL",
+      "file": "restrictPalindromes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LECANDY",
+      "name": "Little Elephant and Candies",
+      "rating": 1141,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LECANDY",
+      "file": "littleElephantAndCandies",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DOTIFYPLAY",
+      "name": "Dotify Playlist",
+      "rating": 1178,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DOTIFYPLAY",
+      "file": "dotifyPlaylist",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-RECTANGL",
+      "name": "Rectangle",
+      "rating": 1146,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RECTANGL",
+      "file": "rectangle",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-WATSCORE",
+      "name": "That Is My Score!",
+      "rating": 1094,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/WATSCORE",
+      "file": "thatIsMyScore",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-L56GAME",
+      "name": "Chef and Game with Sequence",
+      "rating": 1051,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/L56GAME",
+      "file": "chefAndGameWithSequence",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MSNSADM1",
+      "name": "Football",
+      "rating": 1102,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MSNSADM1",
+      "file": "football",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQEXCH",
+      "name": "Equivalent Exchange",
+      "rating": 1019,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQEXCH",
+      "file": "equivalentExchange",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DWNLD",
+      "name": "Download file",
+      "rating": 1147,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DWNLD",
+      "file": "downloadFile",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GRPASSN",
+      "name": "Group Assignment",
+      "rating": 1092,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GRPASSN",
+      "file": "groupAssignment",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

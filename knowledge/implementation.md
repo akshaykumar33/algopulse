@@ -448,6 +448,27 @@ function solve() {
 | [Chef and Two Strings](https://www.codechef.com/problems/CHEFSTLT) | `CodeChef` | `1036` | `chefAndTwoStrings.js` | Key algorithmic application from Day 2026-10-11. |
 | [Zero Ones Equal One Zeros](https://www.codechef.com/problems/ZOOZ) | `CodeChef` | `1009` | `zeroOnesEqualOneZeros.js` | Key algorithmic application from Day 2026-10-11. |
 | [First and Last](https://www.codechef.com/problems/FIRSTANDLAST) | `CodeChef` | `932` | `firstAndLast.js` | Key algorithmic application from Day 2026-10-11. |
+| [X-Sum](https://codeforces.com/problemset/problem/1676/D) | `Codeforces` | `1000` | `xSum.js` | Key algorithmic application from Day 2026-10-12. |
+| [Rooms and Staircases](https://codeforces.com/problemset/problem/1244/B) | `Codeforces` | `1000` | `roomsAndStaircases.js` | Key algorithmic application from Day 2026-10-12. |
+| [Traffic Light](https://codeforces.com/problemset/problem/1744/C) | `Codeforces` | `1000` | `trafficLight.js` | Key algorithmic application from Day 2026-10-12. |
+| [Matrix Game](https://codeforces.com/problemset/problem/1365/A) | `Codeforces` | `1100` | `matrixGame.js` | Key algorithmic application from Day 2026-10-12. |
+| [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | `LeetCode` | `Easy` | `balancedBinaryTree.js` | Key algorithmic application from Day 2026-10-12. |
+| [Maximum Count of Positive Integer and Negative Integer](https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/) | `LeetCode` | `Easy` | `maximumCountOfPositiveIntegerAndNegativeInteger.js` | Key algorithmic application from Day 2026-10-12. |
+| [Find Lucky Integer in an Array](https://leetcode.com/problems/find-lucky-integer-in-an-array/) | `LeetCode` | `Easy` | `findLuckyIntegerInAnArray.js` | Key algorithmic application from Day 2026-10-12. |
+| [Ugly Number](https://leetcode.com/problems/ugly-number/) | `LeetCode` | `Easy` | `uglyNumber.js` | Key algorithmic application from Day 2026-10-12. |
+| [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/) | `LeetCode` | `Easy` | `findModeInBinarySearchTree.js` | Key algorithmic application from Day 2026-10-12. |
+| [Add to Array-Form of Integer](https://leetcode.com/problems/add-to-array-form-of-integer/) | `LeetCode` | `Easy` | `addToArrayFormOfInteger.js` | Key algorithmic application from Day 2026-10-12. |
+| [Defuse the Bomb](https://leetcode.com/problems/defuse-the-bomb/) | `LeetCode` | `Easy` | `defuseTheBomb.js` | Key algorithmic application from Day 2026-10-12. |
+| [Find the Difference of Two Arrays](https://leetcode.com/problems/find-the-difference-of-two-arrays/) | `LeetCode` | `Easy` | `findTheDifferenceOfTwoArrays.js` | Key algorithmic application from Day 2026-10-12. |
+| [Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others/) | `LeetCode` | `Easy` | `largestNumberAtLeastTwiceOfOthers.js` | Key algorithmic application from Day 2026-10-12. |
+| [Restrict Palindromes](https://www.codechef.com/problems/RESPAL) | `CodeChef` | `1133` | `restrictPalindromes.js` | Key algorithmic application from Day 2026-10-12. |
+| [Little Elephant and Candies](https://www.codechef.com/problems/LECANDY) | `CodeChef` | `1141` | `littleElephantAndCandies.js` | Key algorithmic application from Day 2026-10-12. |
+| [Dotify Playlist](https://www.codechef.com/problems/DOTIFYPLAY) | `CodeChef` | `1178` | `dotifyPlaylist.js` | Key algorithmic application from Day 2026-10-12. |
+| [That Is My Score!](https://www.codechef.com/problems/WATSCORE) | `CodeChef` | `1094` | `thatIsMyScore.js` | Key algorithmic application from Day 2026-10-12. |
+| [Chef and Game with Sequence](https://www.codechef.com/problems/L56GAME) | `CodeChef` | `1051` | `chefAndGameWithSequence.js` | Key algorithmic application from Day 2026-10-12. |
+| [Equivalent Exchange](https://www.codechef.com/problems/EQEXCH) | `CodeChef` | `1019` | `equivalentExchange.js` | Key algorithmic application from Day 2026-10-12. |
+| [Download file](https://www.codechef.com/problems/DWNLD) | `CodeChef` | `1147` | `downloadFile.js` | Key algorithmic application from Day 2026-10-12. |
+| [Group Assignment](https://www.codechef.com/problems/GRPASSN) | `CodeChef` | `1092` | `groupAssignment.js` | Key algorithmic application from Day 2026-10-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

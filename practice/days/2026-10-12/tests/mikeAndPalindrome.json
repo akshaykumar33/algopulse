@@ -1,0 +1,22 @@
+[
+  {
+    "input": "abccaa\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "abbc\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "coding\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "aba\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "abba\n",
+    "output": "NO\n"
+  }
+]
