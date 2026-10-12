@@ -115,6 +115,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Parallelepiped](https://codeforces.com/problemset/problem/224/A) | `Codeforces` | `1100` | `parallelepiped.js` | Key algorithmic application from Day 2026-10-09. |
 | [Consecutive Points Segment](https://codeforces.com/problemset/problem/1671/B) | `Codeforces` | `1000` | `consecutivePointsSegment.js` | Key algorithmic application from Day 2026-10-10. |
 | [Lucky Sum of Digits](https://codeforces.com/problemset/problem/109/A) | `Codeforces` | `1000` | `luckySumOfDigits.js` | Key algorithmic application from Day 2026-10-11. |
+| [X-Sum](https://codeforces.com/problemset/problem/1676/D) | `Codeforces` | `1000` | `xSum.js` | Key algorithmic application from Day 2026-10-12. |
+| [Mike and palindrome](https://codeforces.com/problemset/problem/798/A) | `Codeforces` | `1000` | `mikeAndPalindrome.js` | Key algorithmic application from Day 2026-10-12. |
+| [Rooms and Staircases](https://codeforces.com/problemset/problem/1244/B) | `Codeforces` | `1000` | `roomsAndStaircases.js` | Key algorithmic application from Day 2026-10-12. |
+| [Shrinking Array](https://codeforces.com/problemset/problem/2112/B) | `Codeforces` | `1100` | `shrinkingArray.js` | Key algorithmic application from Day 2026-10-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -79,6 +79,8 @@ When presented with any problem (even if pasted raw with contest headers and for
     npm run submit:cc
     ```
   - **Universal Running Chrome Flow (Zero Session/Cookie Friction)**: Submissions connect directly to the user's running Google Chrome browser (`http://127.0.0.1:9222`) where all 3 platforms (Codeforces, LeetCode, CodeChef) are already authenticated. This permanently eliminates expired session files, bot challenge friction (Cloudflare Turnstile), and cookie maintenance.
+  - **Authentic Human Pacing (MANDATORY)**: Never fire rapid submissions within seconds. The runner enforces authentic human delays of **3.5 to 5.5 minutes** (~210s - 330s) between problems with randomized natural jitter (+/- 30s) and an interactive live countdown display.
+  - **Fix It If It's Wrong Before Moving to Next (MANDATORY)**: If a submission yields a non-accepted verdict (WA, RE, TLE), the engine halts proceeding to subsequent problems, initiates diagnosis and repair, verifies locally, simulates a realistic debugging pause (1.5 - 2.5 minutes), and resubmits the fix. If retries fail, it halts safely to protect the user's profile reputation.
 
 
 ---

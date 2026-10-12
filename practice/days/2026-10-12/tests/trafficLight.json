@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\n5 r\nrvggy\n3 r\nrgy\n7 g\nggccccc\n2 r\nrg\n4 y\nyrgy\n1 g\ng",
+    "output": "2\n1\n0\n1\n3\n0"
+  }
+]

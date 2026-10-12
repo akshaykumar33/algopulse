@@ -18,6 +18,9 @@ const {
   isProblemAccepted,
   getProblemStatus,
   mergeSubmissions,
+  resolveCooldownMs,
+  getCooldownWithJitter,
+  formatTimeRemaining,
 } = require('./submit');
 
 describe('Playwright Configuration & Paths', () => {
@@ -290,6 +293,41 @@ describe('Smart Resubmission & Submission Tracking Engine', () => {
     assert.equal(merged[0].attempts, 2);
     assert.equal(merged[0].history.length, 1);
     assert.equal(merged[0].history[0].verdict, 'Wrong Answer');
+  });
+});
+
+describe('Authentic Human Pacing & Cooldown System', () => {
+  it('defaults to authentic human delay between 3.5 and 5.5 minutes', () => {
+    const cd = resolveCooldownMs([]);
+    assert.ok(cd >= 210000 && cd <= 330000, `Expected cooldown in [210000, 330000], got ${cd}`);
+  });
+
+  it('respects --fast and --quick flags for rapid dev testing', () => {
+    assert.equal(resolveCooldownMs(['--fast']), 5000);
+    assert.equal(resolveCooldownMs(['--quick']), 5000);
+  });
+
+  it('parses custom cooldown inputs with minutes, seconds, and numeric strings', () => {
+    assert.equal(resolveCooldownMs(['--cooldown', '4m']), 240000);
+    assert.equal(resolveCooldownMs(['--cooldown', '180s']), 180000);
+    assert.equal(resolveCooldownMs(['--cooldown', '5']), 300000);
+    assert.equal(resolveCooldownMs(['--cooldown', '120']), 120000);
+  });
+
+  it('applies natural human jitter variance without dipping below minimum safe limit', () => {
+    const base = 240000;
+    const jittered = getCooldownWithJitter(base, false);
+    assert.ok(jittered >= 210000 && jittered <= 270000, `Expected jittered cooldown within +/- 30s, got ${jittered}`);
+
+    // Fast mode retains exact base without jitter
+    assert.equal(getCooldownWithJitter(5000, true), 5000);
+  });
+
+  it('formats remaining countdown time into MM:SS format accurately', () => {
+    assert.equal(formatTimeRemaining(0), '00:00');
+    assert.equal(formatTimeRemaining(45000), '00:45');
+    assert.equal(formatTimeRemaining(185000), '03:05');
+    assert.equal(formatTimeRemaining(300000), '05:00');
   });
 });
 

@@ -74,7 +74,11 @@ async function main() {
   const skipSubmit = args.includes('--no-submit');
   if (!skipSubmit) {
     console.log('[ship] Step 2: Running automated platform submissions (Playwright) ...');
-    const submitRes = run('node', ['practice/playwright/submit.js', '--date', date, '--parallel'], {
+    const submitArgs = ['practice/playwright/submit.js', '--date', date];
+    if (args.includes('--parallel')) submitArgs.push('--parallel');
+    if (args.includes('--fast') || args.includes('--quick')) submitArgs.push('--fast');
+    if (flag('--cooldown')) submitArgs.push('--cooldown', flag('--cooldown'));
+    const submitRes = run('node', submitArgs, {
       stdio: 'inherit',
     });
     const subLogPath = path.join(dayDir, 'submissions.json');

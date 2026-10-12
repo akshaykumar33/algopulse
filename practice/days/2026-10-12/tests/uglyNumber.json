@@ -1,0 +1,14 @@
+[
+  {
+    "input": "6\n",
+    "output": "true\n"
+  },
+  {
+    "input": "1\n",
+    "output": "true\n"
+  },
+  {
+    "input": "14\n",
+    "output": "false\n"
+  }
+]

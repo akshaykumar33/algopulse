@@ -82,6 +82,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Game of Mathletes](https://codeforces.com/problemset/problem/2060/C) | `Codeforces` | `900` | `gameOfMathletes.js` | Key algorithmic application from Day 2026-10-08. |
 | [Black and White Stripe](https://codeforces.com/problemset/problem/1690/D) | `Codeforces` | `1000` | `blackAndWhiteStripe.js` | Key algorithmic application from Day 2026-10-10. |
 | [Kalindrome Array](https://codeforces.com/problemset/problem/1610/B) | `Codeforces` | `1100` | `kalindromeArray.js` | Key algorithmic application from Day 2026-10-11. |
+| [Traffic Light](https://codeforces.com/problemset/problem/1744/C) | `Codeforces` | `1000` | `trafficLight.js` | Key algorithmic application from Day 2026-10-12. |
 
 ---
 

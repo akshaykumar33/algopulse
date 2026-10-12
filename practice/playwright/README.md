@@ -87,8 +87,18 @@ practice/playwright/
 
 ---
 
-## 4. Security & Best Practices
+## 4. Security & Authentic Human Pacing Best Practices
 
 1. **Credentials & Cookies are strictly local:** All session tokens and cookies are saved in `.auth/` which is ignored by `.gitignore`. Never commit `.auth/`.
 2. **Anti-Detection Evasions:** Injects evasions to remove `navigator.webdriver`, mock `window.chrome.runtime`, and match desktop Chrome/Edge viewport fingerprints.
-3. **Safe Cooldown:** Includes a configurable `--cooldown <ms>` delay between submissions (default 4000ms) to respect platform rate limits and avoid spam flags.
+3. **Authentic Human Pacing & Cooldown:**
+   - **Default delay:** Submissions automatically pause for **3.5 to 5.5 minutes** (~210s - 330s) between problems with randomized natural jitter (+/- 30s) to reflect real human solve/review time.
+   - **Interactive Terminal Countdown:** Displays a ticking real-time countdown timer (`03:45 remaining`) so pacing is transparent.
+   - **Dev Testing Flag:** Pass `--fast` or `--quick` to run with minimal 5s delay during debugging or tests.
+   - **Custom Cooldown:** Pass `--cooldown <val>` (supports `4m`, `180s`, or milliseconds).
+4. **"Fix It If It's Wrong Before Moving to Next" Workflow:**
+   - Evaluates the live verdict immediately after each submission.
+   - If a submission fails (Wrong Answer, Runtime Error, TLE), the engine halts moving to other problems.
+   - Automatically initiates diagnosis & code repair, validates against test fixtures locally, waits a realistic debugging pause (1.5 - 2.5 minutes), and resubmits.
+   - If a problem cannot be fixed after retries, halts safely to protect your profile's reputation and avoid spamming the live judge. Pass `--continue-on-fail` to bypass if needed.
+   - Incremental state saving persists each submission immediately to `submissions.json`.
