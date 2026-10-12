@@ -125,10 +125,25 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 60000
   let memoryConsumed = null;
 
   while (Date.now() - startTime < timeout) {
-    const row = await page.$('.status-frame-datatable tr[data-submission-id]');
-    if (row) {
-      submissionId = await row.getAttribute('data-submission-id');
-      const cells = await row.$$('td');
+    const rows = await page.$$('.status-frame-datatable tr[data-submission-id]');
+    let matchedRow = null;
+    for (const r of rows) {
+      const cells = await r.$$('td');
+      if (cells.length >= 4) {
+        const probText = (await cells[3].textContent()).trim();
+        const isMatch =
+          probText.toLowerCase().includes(problemCode.toLowerCase()) ||
+          (problem.name && probText.toLowerCase().includes(problem.name.toLowerCase()));
+        if (isMatch) {
+          matchedRow = r;
+          break;
+        }
+      }
+    }
+
+    if (matchedRow) {
+      submissionId = await matchedRow.getAttribute('data-submission-id');
+      const cells = await matchedRow.$$('td');
       if (cells.length >= 6) {
         const rawVerdict = (await cells[5].textContent()).trim();
         timeConsumed = cells.length >= 7 ? (await cells[6].textContent()).trim() : null;
