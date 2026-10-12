@@ -1,21 +1,34 @@
 const fs = require('fs');
 
 function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (lines.length === 0 || lines[0] === '') return;
-  
-  const t = parseInt(lines[0], 10);
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(input[ptr++], 10);
   const out = [];
-  
-  for (let i = 1; i <= t; i++) {
-    const [x, y] = lines[i].split(/\s+/).map(Number);
-    if (Math.abs(x - y) % 5 === 0) {
-      out.push("YES");
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(input[ptr++], 10);
+    const k = parseInt(input[ptr++], 10);
+
+    let cur = 0;
+    let minP = 0;
+    let maxP = 0;
+
+    for (let i = 0; i < n; i++) {
+      const a = parseInt(input[ptr++], 10);
+      cur += a;
+      if (cur < minP) minP = cur;
+      if (cur > maxP) maxP = cur;
+    }
+
+    if (maxP - minP <= k) {
+      out.push('Yes');
     } else {
-      out.push("NO");
+      out.push('No');
     }
   }
-  
+
   console.log(out.join('\n'));
 }
 
