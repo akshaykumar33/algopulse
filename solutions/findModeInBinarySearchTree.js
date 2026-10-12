@@ -1,10 +1,8 @@
-class TreeNode {
-  constructor(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
-  }
-}
+var TreeNode = typeof TreeNode !== 'undefined' ? TreeNode : function(val, left, right) {
+  this.val = (val === undefined ? 0 : val);
+  this.left = (left === undefined ? null : left);
+  this.right = (right === undefined ? null : right);
+};
 
 const buildTree = (arr) => {
   if (!arr || arr.length === 0 || arr[0] === null) return null;
@@ -27,35 +25,53 @@ const buildTree = (arr) => {
   return root;
 };
 
-var solve = function(root) {
+var findMode = function(root) {
   if (Array.isArray(root)) root = buildTree(root);
-  let curVal = null;
-  let curCnt = 0;
+  let cur = root;
+  let prev = null;
+  let cnt = 0;
   let maxCnt = 0;
-  let modes = [];
-  const handleValue = (val) => {
-    if (val === curVal) {
-      curCnt++;
+  let ans = [];
+
+  const update = (val) => {
+    if (prev !== null && val === prev) {
+      cnt++;
     } else {
-      curVal = val;
-      curCnt = 1;
+      cnt = 1;
+      prev = val;
     }
-    if (curCnt > maxCnt) {
-      maxCnt = curCnt;
-      modes = [curVal];
-    } else if (curCnt === maxCnt) {
-      modes.push(curVal);
+    if (cnt > maxCnt) {
+      maxCnt = cnt;
+      ans = [val];
+    } else if (cnt === maxCnt) {
+      ans.push(val);
     }
   };
-  const inorder = (node) => {
-    if (!node) return;
-    inorder(node.left);
-    handleValue(node.val);
-    inorder(node.right);
-  };
-  inorder(root);
-  return modes;
+
+  while (cur) {
+    if (!cur.left) {
+      update(cur.val);
+      cur = cur.right;
+    } else {
+      let pre = cur.left;
+      while (pre.right && pre.right !== cur) {
+        pre = pre.right;
+      }
+      if (!pre.right) {
+        pre.right = cur;
+        cur = cur.left;
+      } else {
+        pre.right = null;
+        update(cur.val);
+        cur = cur.right;
+      }
+    }
+  }
+  return ans;
 };
+
+var findModeInBinarySearchTree = findMode;
+var solve = findMode;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -73,9 +89,7 @@ if (require.main === module) {
         }
       }
     }
-  } catch (err) {
-    console.error('Local runner error:', err.message);
-  }
+  } catch (err) {}
 }
 
 module.exports = solve;
