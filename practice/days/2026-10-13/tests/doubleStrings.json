@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5\nabab\nab\nabc\nabacb\nc\n3\nx\nxx\nxxx\n8\ncodeforc\nes\ncodes\ncod\nforc\nforces\ne\ncode",
+    "output": "10100\n011\n10100101"
+  }
+]

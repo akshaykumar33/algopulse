@@ -183,10 +183,32 @@ function findChromePath() {
   return linuxCandidates.find((p) => fs.existsSync(p)) || null;
 }
 
+async function cleanupBlockingInternalTabs(port = 9222) {
+  return new Promise((resolve) => {
+    http.get(`http://127.0.0.1:${port}/json/list`, (res) => {
+      let data = '';
+      res.on('data', (c) => (data += c));
+      res.on('end', async () => {
+        try {
+          const targets = JSON.parse(data);
+          const blocking = targets.filter((t) => t.url && t.url.startsWith('chrome://newtab'));
+          for (const t of blocking) {
+            await new Promise((r) => {
+              http.get(`http://127.0.0.1:${port}/json/close/${t.id}`, () => r()).on('error', () => r());
+            });
+          }
+        } catch {}
+        resolve();
+      });
+    }).on('error', () => resolve());
+  });
+}
+
 /**
  * Connects directly to an already running Chrome browser via Chrome DevTools Protocol (CDP)
  */
 async function connectOverCDP({ port = 9222 } = {}) {
+  await cleanupBlockingInternalTabs(port);
   const endpoint = `http://127.0.0.1:${port}`;
   return await chromium.connectOverCDP(endpoint);
 }

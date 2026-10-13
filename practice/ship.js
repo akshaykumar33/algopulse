@@ -73,9 +73,8 @@ async function main() {
   // 2. Automated Platform Submissions (Playwright)
   const skipSubmit = args.includes('--no-submit');
   if (!skipSubmit) {
-    console.log('[ship] Step 2: Running automated platform submissions (Playwright) ...');
     const submitArgs = ['practice/playwright/submit.js', '--date', date];
-    if (args.includes('--parallel')) submitArgs.push('--parallel');
+    if (args.includes('--sequential')) submitArgs.push('--sequential');
     if (args.includes('--fast') || args.includes('--quick')) submitArgs.push('--fast');
     if (flag('--cooldown')) submitArgs.push('--cooldown', flag('--cooldown'));
     const submitRes = run('node', submitArgs, {

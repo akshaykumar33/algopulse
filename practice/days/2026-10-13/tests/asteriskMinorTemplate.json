@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\ncodeforces\natcoder\nabc\ndef\na\nab\nab\na\nprogramming\ncontest\ns\ns",
+    "output": "YES\n*co*\nNO\nYES\na*\nYES\na*\nNO\nYES\ns*"
+  }
+]

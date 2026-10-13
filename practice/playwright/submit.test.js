@@ -21,6 +21,10 @@ const {
   resolveCooldownMs,
   getCooldownWithJitter,
   formatTimeRemaining,
+  getProblemDifficultyTier,
+  calculateDifficultyCooldown,
+  loadDLQ,
+  saveDLQ,
 } = require('./submit');
 
 describe('Playwright Configuration & Paths', () => {
@@ -415,5 +419,60 @@ describe('Anti-AI-Fingerprinting & Code Sanitizer', () => {
     assert.ok(sanitized.includes('return nums.reduce((a, b) => a ^ b, 0);'));
   });
 });
+
+describe('Dead Letter Queue (DLQ) & Difficulty Pacing Engine', () => {
+  it('correctly maps problem ratings to difficulty tiers', () => {
+    assert.equal(getProblemDifficultyTier({ rating: 800 }), 'easy');
+    assert.equal(getProblemDifficultyTier({ rating: 1000 }), 'easy');
+    assert.equal(getProblemDifficultyTier({ rating: 1150 }), 'easy');
+    assert.equal(getProblemDifficultyTier({ rating: 1200 }), 'medium');
+    assert.equal(getProblemDifficultyTier({ rating: 1400 }), 'medium');
+    assert.equal(getProblemDifficultyTier({ rating: 1600 }), 'hard');
+    assert.equal(getProblemDifficultyTier({ rating: 'Easy' }), 'easy');
+    assert.equal(getProblemDifficultyTier({ rating: 'Medium' }), 'medium');
+    assert.equal(getProblemDifficultyTier({ rating: 'Hard' }), 'hard');
+  });
+
+  it('calculates humanized cooldown scaling with problem difficulty', () => {
+    const easyProb = { rating: 1000 };
+    const hardProb = { rating: 1700 };
+
+    // In fast mode, returns rapid test delay
+    assert.equal(calculateDifficultyCooldown(easyProb, null, ['--fast']), 4000);
+
+    // Normal mode: hard problem cooldown is strictly longer than easy problem cooldown
+    const easyCd = calculateDifficultyCooldown(easyProb, null, []);
+    const hardCd = calculateDifficultyCooldown(hardProb, null, []);
+
+    assert.ok(easyCd >= 120000 && easyCd <= 280000, `Easy cooldown out of range: ${easyCd}`);
+    assert.ok(hardCd >= 380000 && hardCd <= 720000, `Hard cooldown out of range: ${hardCd}`);
+    assert.ok(hardCd > easyCd, `Hard cooldown (${hardCd}) should be greater than easy (${easyCd})`);
+  });
+
+  it('correctly loads and saves Dead Letter Queue (DLQ) state', () => {
+    const tmpDir = path.join(__dirname, '..', '..', 'stress', 'fixtures');
+    if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
+
+    const sampleDLQ = [
+      {
+        platform: 'Codeforces',
+        id: '2145B',
+        name: 'Deck of Cards',
+        tier: 'easy',
+        initialVerdict: 'Wrong answer on test 1',
+        status: 'PENDING_RETRY',
+      },
+    ];
+
+    saveDLQ(tmpDir, sampleDLQ);
+    const loaded = loadDLQ(tmpDir);
+    assert.deepEqual(loaded, sampleDLQ);
+
+    // Clean up temporary file
+    const dlqFile = path.join(tmpDir, 'dlq.json');
+    if (fs.existsSync(dlqFile)) fs.unlinkSync(dlqFile);
+  });
+});
+
 
 
