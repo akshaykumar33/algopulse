@@ -102,6 +102,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Consecutive Points Segment](https://codeforces.com/problemset/problem/1671/B) | `Codeforces` | `1000` | `consecutivePointsSegment.js` | Key algorithmic application from Day 2026-10-10. |
 | [Laptops](https://codeforces.com/problemset/problem/456/A) | `Codeforces` | `1100` | `laptops.js` | Key algorithmic application from Day 2026-10-10. |
 | [Teleporters (Easy Version)](https://codeforces.com/problemset/problem/1791/G1) | `Codeforces` | `1100` | `teleportersEasyVersion.js` | Key algorithmic application from Day 2026-10-11. |
+| [Similar Pairs](https://codeforces.com/problemset/problem/1360/C) | `Codeforces` | `1100` | `similarPairs.js` | Key algorithmic application from Day 2026-10-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

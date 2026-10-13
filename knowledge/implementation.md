@@ -469,6 +469,31 @@ function solve() {
 | [Equivalent Exchange](https://www.codechef.com/problems/EQEXCH) | `CodeChef` | `1019` | `equivalentExchange.js` | Key algorithmic application from Day 2026-10-12. |
 | [Download file](https://www.codechef.com/problems/DWNLD) | `CodeChef` | `1147` | `downloadFile.js` | Key algorithmic application from Day 2026-10-12. |
 | [Group Assignment](https://www.codechef.com/problems/GRPASSN) | `CodeChef` | `1092` | `groupAssignment.js` | Key algorithmic application from Day 2026-10-12. |
+| [Asterisk-Minor Template](https://codeforces.com/problemset/problem/1796/B) | `Codeforces` | `1000` | `asteriskMinorTemplate.js` | Key algorithmic application from Day 2026-10-13. |
+| [Bear and Finding Criminals](https://codeforces.com/problemset/problem/680/B) | `Codeforces` | `1000` | `bearAndFindingCriminals.js` | Key algorithmic application from Day 2026-10-13. |
+| [Move to the End](https://codeforces.com/problemset/problem/2104/B) | `Codeforces` | `1000` | `moveToTheEnd.js` | Key algorithmic application from Day 2026-10-13. |
+| [Deck of Cards](https://codeforces.com/problemset/problem/2145/B) | `Codeforces` | `1000` | `deckOfCards.js` | Key algorithmic application from Day 2026-10-13. |
+| [Tavas and SaDDas](https://codeforces.com/problemset/problem/535/B) | `Codeforces` | `1100` | `tavasAndSaDDas.js` | Key algorithmic application from Day 2026-10-13. |
+| [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | `LeetCode` | `Easy` | `binaryTreePreorderTraversal.js` | Key algorithmic application from Day 2026-10-13. |
+| [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/) | `LeetCode` | `Easy` | `shuffleTheArray.js` | Key algorithmic application from Day 2026-10-13. |
+| [Count Odd Numbers in an Interval Range](https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/) | `LeetCode` | `Easy` | `countOddNumbersInAnIntervalRange.js` | Key algorithmic application from Day 2026-10-13. |
+| [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | `LeetCode` | `Easy` | `findTheIndexOfTheFirstOccurrenceInAString.js` | Key algorithmic application from Day 2026-10-13. |
+| [Shift 2D Grid](https://leetcode.com/problems/shift-2d-grid/) | `LeetCode` | `Easy` | `shift2DGrid.js` | Key algorithmic application from Day 2026-10-13. |
+| [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) | `LeetCode` | `Easy` | `canPlaceFlowers.js` | Key algorithmic application from Day 2026-10-13. |
+| [Goat Latin](https://leetcode.com/problems/goat-latin/) | `LeetCode` | `Easy` | `goatLatin.js` | Key algorithmic application from Day 2026-10-13. |
+| [Rotate String](https://leetcode.com/problems/rotate-string/) | `LeetCode` | `Easy` | `rotateString.js` | Key algorithmic application from Day 2026-10-13. |
+| [First Bad Version](https://leetcode.com/problems/first-bad-version/) | `LeetCode` | `Easy` | `firstBadVersion.js` | Key algorithmic application from Day 2026-10-13. |
+| [Time Needed to Buy Tickets](https://leetcode.com/problems/time-needed-to-buy-tickets/) | `LeetCode` | `Easy` | `timeNeededToBuyTickets.js` | Key algorithmic application from Day 2026-10-13. |
+| [A - Books](https://www.codechef.com/problems/BIT2A) | `CodeChef` | `1175` | `aBooks.js` | Key algorithmic application from Day 2026-10-13. |
+| [Friends Meetup](https://www.codechef.com/problems/FRIMEET) | `CodeChef` | `1098` | `friendsMeetup.js` | Key algorithmic application from Day 2026-10-13. |
+| [Chefland Library](https://www.codechef.com/problems/BORROWBOOK) | `CodeChef` | `1058` | `cheflandLibrary.js` | Key algorithmic application from Day 2026-10-13. |
+| [Chef and String](https://www.codechef.com/problems/XYSTR) | `CodeChef` | `1124` | `chefAndString.js` | Key algorithmic application from Day 2026-10-13. |
+| [Tanu and Head-bob](https://www.codechef.com/problems/HEADBOB) | `CodeChef` | `1065` | `tanuAndHeadBob.js` | Key algorithmic application from Day 2026-10-13. |
+| [Movie Weekend](https://www.codechef.com/problems/MOVIEWKN) | `CodeChef` | `1175` | `movieWeekend.js` | Key algorithmic application from Day 2026-10-13. |
+| [Bear and Segment 01](https://www.codechef.com/problems/SEGM01) | `CodeChef` | `1150` | `bearAndSegment01.js` | Key algorithmic application from Day 2026-10-13. |
+| [Weird Modulo Problem ](https://www.codechef.com/problems/EXUNA) | `CodeChef` | `1104` | `weirdModuloProblem.js` | Key algorithmic application from Day 2026-10-13. |
+| [From heaven to earth](https://www.codechef.com/problems/ELEVSTRS) | `CodeChef` | `1066` | `fromHeavenToEarth.js` | Key algorithmic application from Day 2026-10-13. |
+| [Large Square](https://www.codechef.com/problems/XLSQUARE) | `CodeChef` | `1160` | `largeSquare.js` | Key algorithmic application from Day 2026-10-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

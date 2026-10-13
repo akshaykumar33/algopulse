@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"sadbutsad\"\n\"sad\"",
+    "output": "0"
+  },
+  {
+    "input": "\"leetcode\"\n\"leeto\"",
+    "output": "-1"
+  }
+]

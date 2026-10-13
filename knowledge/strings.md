@@ -108,6 +108,8 @@ function isPalindrome(s) {
 | [Chat room](https://codeforces.com/problemset/problem/58/A) | `Codeforces` | `1000` | `chatRoom.js` | Key algorithmic application from Day 2026-10-10. |
 | [String Task](https://codeforces.com/problemset/problem/118/A) | `Codeforces` | `1000` | `stringTask.js` | Key algorithmic application from Day 2026-10-11. |
 | [Mike and palindrome](https://codeforces.com/problemset/problem/798/A) | `Codeforces` | `1000` | `mikeAndPalindrome.js` | Key algorithmic application from Day 2026-10-12. |
+| [Asterisk-Minor Template](https://codeforces.com/problemset/problem/1796/B) | `Codeforces` | `1000` | `asteriskMinorTemplate.js` | Key algorithmic application from Day 2026-10-13. |
+| [Double Strings](https://codeforces.com/problemset/problem/1703/D) | `Codeforces` | `1100` | `doubleStrings.js` | Key algorithmic application from Day 2026-10-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
