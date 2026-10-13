@@ -582,6 +582,102 @@ async function ensurePlatformAuth(platKey, options = {}) {
 }
 
 /**
+ * Loads the day's Dead Letter Queue (DLQ) file if present
+ */
+function loadDLQ(dayDir) {
+  if (!dayDir) return [];
+  const dlqPath = path.join(dayDir, 'dlq.json');
+  if (fs.existsSync(dlqPath)) {
+    try {
+      return JSON.parse(fs.readFileSync(dlqPath, 'utf-8'));
+    } catch {}
+  }
+  return [];
+}
+
+/**
+ * Persists the Dead Letter Queue (DLQ) to dlq.json
+ */
+function saveDLQ(dayDir, dlqItems) {
+  if (!dayDir) return;
+  const dlqPath = path.join(dayDir, 'dlq.json');
+  try {
+    fs.writeFileSync(dlqPath, JSON.stringify(dlqItems, null, 2) + '\n', 'utf-8');
+  } catch {}
+}
+
+/**
+ * Resolves difficulty tier for a problem:
+ * - 'easy': CF <= 1150, LC Easy, CC <= 1150
+ * - 'medium': CF 1151-1450, LC Medium, CC 1151-1450
+ * - 'hard': CF > 1450, LC Hard, CC > 1450
+ */
+function getProblemDifficultyTier(problem) {
+  if (!problem) return 'easy';
+  const rating = problem.rating;
+
+  if (typeof rating === 'string') {
+    const rLower = rating.toLowerCase();
+    if (rLower === 'easy') return 'easy';
+    if (rLower === 'medium') return 'medium';
+    if (rLower === 'hard') return 'hard';
+    const num = parseInt(rating, 10);
+    if (!isNaN(num)) return getNumericTier(num);
+  }
+
+  if (typeof rating === 'number') {
+    return getNumericTier(rating);
+  }
+
+  return 'medium';
+}
+
+function getNumericTier(num) {
+  if (num <= 1150) return 'easy';
+  if (num <= 1450) return 'medium';
+  return 'hard';
+}
+
+/**
+ * Calculates humanized cooldown interval tailored to the question's difficulty level
+ * - Easy:   ~2.5 - 3.8 mins (150s - 230s) + jitter (+/- 25s)
+ * - Medium: ~4.2 - 6.5 mins (250s - 390s) + jitter (+/- 35s)
+ * - Hard:   ~7.0 - 11.0 mins (420s - 660s) + jitter (+/- 45s)
+ */
+function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = process.argv.slice(2)) {
+  const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
+  if (isFast) return 4000;
+
+  const i = cliArgs.indexOf('--cooldown');
+  if (i !== -1) {
+    return getCooldownWithJitter(resolveCooldownMs(cliArgs), false);
+  }
+
+  const targetProb = nextProblem || currProblem;
+  const tier = getProblemDifficultyTier(targetProb);
+
+  let minSec = 160;
+  let maxSec = 230;
+  let jitterMax = 25;
+
+  if (tier === 'medium') {
+    minSec = 260;
+    maxSec = 380;
+    jitterMax = 35;
+  } else if (tier === 'hard') {
+    minSec = 440;
+    maxSec = 640;
+    jitterMax = 45;
+  }
+
+  const baseSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
+  const jitterSec = Math.floor(Math.random() * (2 * jitterMax + 1)) - jitterMax;
+  const totalSec = Math.max(120, baseSec + jitterSec);
+
+  return totalSec * 1000;
+}
+
+/**
  * Resolves base cooldown duration from command-line arguments or defaults
  * Default: 3.5 to 5.5 minutes (~210s - 330s) for authentic human pacing.
  */
@@ -838,7 +934,7 @@ async function submitWithAutoFix(prob, options) {
 }
 
 /**
- * Worker queue that processes a single platform's problems sequentially one-by-one with cooldown
+ * Worker queue that processes a single platform's problems sequentially one-by-one with difficulty-aware cooldown and DLQ
  */
 async function processPlatformQueue(platKey, queue, options) {
   const platConfig = PLATFORMS[platKey];
@@ -858,10 +954,15 @@ async function processPlatformQueue(platKey, queue, options) {
   }
 
   const queueResults = [];
-  console.log(`\n>>> Starting worker for ${tag} (${queue.length} problems) ...`);
+  const dlq = [];
+  console.log(`\n================================================================`);
+  console.log(`>>> Starting Worker Queue for ${tag} (${queue.length} problems in main queue)`);
+  console.log(`================================================================`);
 
+  // --- PHASE 1: MAIN QUEUE ---
   for (const [idx, prob] of queue.entries()) {
-    console.log(`\n${tag} (${idx + 1}/${queue.length}) Processing: ${prob.name} (${prob.id}) ...`);
+    const tier = getProblemDifficultyTier(prob);
+    console.log(`\n${tag} (${idx + 1}/${queue.length}) [Difficulty: ${tier.toUpperCase()}] Processing: ${prob.name} (${prob.id}) ...`);
     const res = await submitWithAutoFix(prob, options);
     queueResults.push(res);
 
@@ -873,19 +974,104 @@ async function processPlatformQueue(platKey, queue, options) {
     }
 
     const isAccepted = isVerdictAccepted(res);
-    if (!isAccepted && !options.continueOnFail) {
-      console.log(`\n⛔ ${tag} [submit] STOPPING queue: Problem "${prob.name}" (${prob.id}) was not accepted (${res.verdict || 'Failed'}).`);
-      console.log(`   Worker paused to prevent spamming live judge.`);
-      break;
+    if (!isAccepted) {
+      if (options.haltOnFail) {
+        console.log(`\n⛔ ${tag} [submit] STOPPING queue: Problem "${prob.name}" (${prob.id}) was not accepted (${res.verdict || 'Failed'}).`);
+        console.log(`   Worker paused to prevent spamming live judge (--halt-on-fail active).`);
+        break;
+      } else {
+        console.log(`\n⚠️  ${tag} [DLQ-ENQUEUE] Problem "${prob.name}" (${prob.id}) returned non-accepted verdict: "${res.verdict || 'Failed'}".`);
+        console.log(`   Moving to Dead Letter Queue (DLQ). Continuing remaining main queue questions...`);
+        const dlqEntry = {
+          platform: prob.platform,
+          id: prob.id,
+          name: prob.name,
+          file: prob.file,
+          tier,
+          initialVerdict: res.verdict || 'Failed',
+          enqueuedAt: new Date().toISOString(),
+          attempts: 1,
+          status: 'PENDING_RETRY',
+          problem: prob,
+        };
+        dlq.push(dlqEntry);
+        if (options.dayDir) {
+          const currentDLQ = loadDLQ(options.dayDir).filter((x) => x.id !== prob.id);
+          saveDLQ(options.dayDir, [...currentDLQ, dlqEntry]);
+        }
+      }
     }
 
     if (idx < queue.length - 1) {
-      const waitMs = getCooldownWithJitter(options.baseCooldownMs, options.isFast);
-      await sleepWithCountdown(waitMs, `${tag} Human cooldown before problem ${idx + 2}/${queue.length}`);
+      const nextProb = queue[idx + 1];
+      const nextTier = getProblemDifficultyTier(nextProb);
+      const waitMs = calculateDifficultyCooldown(prob, nextProb, process.argv.slice(2));
+      await sleepWithCountdown(
+        waitMs,
+        `${tag} Humanized cooldown before [${nextTier.toUpperCase()}] problem ${idx + 2}/${queue.length} (${nextProb.name})`
+      );
     }
   }
 
-  console.log(`\n<<< Worker for ${tag} finished all ${queue.length} problems.`);
+  // --- PHASE 2: DEAD LETTER QUEUE (DLQ) RESOLUTION ---
+  if (dlq.length > 0 && !options.haltOnFail && !options.noDlq) {
+    console.log(`\n================================================================`);
+    console.log(`🔄 ${tag} Entering Dead Letter Queue (DLQ) Resolution Phase`);
+    console.log(`   ${dlq.length} failed question(s) awaiting diagnosis, local verification, and retry.`);
+    console.log(`================================================================\n`);
+
+    for (const [dIdx, item] of dlq.entries()) {
+      const prob = item.problem;
+      const debugPauseMs = options.isFast
+        ? 3000
+        : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
+      await sleepWithCountdown(
+        debugPauseMs,
+        `${tag} [DLQ] Realistic debugging & reasoning pause for ${prob.name} (${prob.id})`
+      );
+
+      console.log(`\n${tag} [DLQ-RETRY ${dIdx + 1}/${dlq.length}] Diagnosing & resolving: ${prob.name} (${prob.id}) ...`);
+      const retryRes = await submitWithAutoFix(prob, options);
+
+      // Update in queue results
+      const existIdx = queueResults.findIndex((r) => r.id === prob.id || r.file === prob.file);
+      if (existIdx !== -1) {
+        queueResults[existIdx] = retryRes;
+      } else {
+        queueResults.push(retryRes);
+      }
+
+      if (options.submissionsLogPath) {
+        try {
+          const curLog = mergeSubmissions(options.historicalSubmissions || [], queueResults);
+          fs.writeFileSync(options.submissionsLogPath, JSON.stringify(curLog, null, 2) + '\n', 'utf-8');
+        } catch {}
+      }
+
+      const isResolved = isVerdictAccepted(retryRes);
+      if (isResolved) {
+        console.log(`\n🎉 ${tag} [DLQ-RESOLVED] SUCCESS! Problem "${prob.name}" is now ACCEPTED on ${prob.platform}!`);
+        item.status = 'RESOLVED';
+        item.resolvedAt = new Date().toISOString();
+        item.finalVerdict = retryRes.verdict;
+      } else {
+        console.warn(`\n⛔ ${tag} [DLQ-HALT] Problem "${prob.name}" (${prob.id}) failed DLQ retry (${retryRes.verdict}).`);
+        console.warn(`   Halting further retries on this question to protect account reputation.`);
+        item.status = 'HALTED_UNRESOLVED';
+        item.finalVerdict = retryRes.verdict;
+      }
+
+      if (options.dayDir) {
+        const allDLQ = loadDLQ(options.dayDir);
+        const uIdx = allDLQ.findIndex((x) => x.id === item.id);
+        if (uIdx !== -1) allDLQ[uIdx] = item;
+        else allDLQ.push(item);
+        saveDLQ(options.dayDir, allDLQ);
+      }
+    }
+  }
+
+  console.log(`\n<<< Worker for ${tag} completed (Main: ${queue.length}, DLQ: ${dlq.length}).`);
   return queueResults;
 }
 
@@ -911,10 +1097,11 @@ async function main() {
   const isDryRun = args.includes('--dry-run');
   const isHeadless = args.includes('--headless');
   const shouldMirror = args.includes('--mirror');
-  const isParallel = args.includes('--parallel');
+  const isParallel = !args.includes('--sequential');
   const isFast = args.includes('--fast') || args.includes('--quick');
   const noFix = args.includes('--no-fix');
   const continueOnFail = args.includes('--continue-on-fail');
+  const haltOnFail = args.includes('--halt-on-fail');
   const maxFixAttempts = parseInt(flag('--max-fix-attempts') || '2', 10);
   const baseCooldownMs = resolveCooldownMs(args);
 
@@ -1091,6 +1278,7 @@ async function main() {
     isFast,
     noFix,
     continueOnFail,
+    haltOnFail,
     maxFixAttempts,
     submissionsLogPath,
     historicalSubmissions,
@@ -1121,9 +1309,11 @@ async function main() {
       results = workerOutputs.flat();
     } else {
       // Sequential single queue
+      const dlq = [];
       for (const [idx, prob] of problems.entries()) {
+        const tier = getProblemDifficultyTier(prob);
         console.log(`\n================================================================`);
-        console.log(`[${idx + 1}/${problems.length}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
+        console.log(`[${idx + 1}/${problems.length}] [Difficulty: ${tier.toUpperCase()}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
         console.log(`================================================================`);
 
         const res = await submitWithAutoFix(prob, workerOptions);
@@ -1134,29 +1324,91 @@ async function main() {
         fs.writeFileSync(submissionsLogPath, JSON.stringify(incrementalLog, null, 2) + '\n', 'utf-8');
 
         const isAccepted = isVerdictAccepted(res);
-        if (!isAccepted && !continueOnFail) {
-          console.log(`\n⛔ [submit] STOPPING: Problem "${prob.name}" (${prob.id}) was not accepted on ${prob.platform} (${res.verdict || 'Failed'}).`);
-          console.log(`   To protect your live account reputation and avoid spamming failed submissions, execution has paused.`);
-          console.log(`   Action items:`);
-          console.log(`   1. Inspect / fix: solutions/${prob.file}.js`);
-          console.log(`   2. Re-test locally: node practice/verify.js ${date}`);
-          console.log(`   3. Resubmit: npm run submit -- --date ${date} --problem ${prob.file}`);
-          console.log(`   (Pass --continue-on-fail to bypass pausing on errors).\n`);
-          break;
+        if (!isAccepted) {
+          if (haltOnFail) {
+            console.log(`\n⛔ [submit] STOPPING: Problem "${prob.name}" (${prob.id}) was not accepted on ${prob.platform} (${res.verdict || 'Failed'}).`);
+            console.log(`   To protect your live account reputation and avoid spamming failed submissions, execution has paused.`);
+            break;
+          } else {
+            console.log(`\n⚠️  [DLQ-ENQUEUE] Problem "${prob.name}" (${prob.id}) returned non-accepted verdict: "${res.verdict || 'Failed'}".`);
+            console.log(`   Moving to Dead Letter Queue (DLQ). Continuing remaining questions in queue...\n`);
+            const dlqEntry = {
+              platform: prob.platform,
+              id: prob.id,
+              name: prob.name,
+              file: prob.file,
+              tier,
+              initialVerdict: res.verdict || 'Failed',
+              enqueuedAt: new Date().toISOString(),
+              attempts: 1,
+              status: 'PENDING_RETRY',
+              problem: prob,
+            };
+            dlq.push(dlqEntry);
+            saveDLQ(dayDir, [...loadDLQ(dayDir).filter((x) => x.id !== prob.id), dlqEntry]);
+          }
         }
 
         if (idx < problems.length - 1) {
-          const waitMs = getCooldownWithJitter(baseCooldownMs, isFast);
+          const nextProb = problems[idx + 1];
+          const nextTier = getProblemDifficultyTier(nextProb);
+          const waitMs = calculateDifficultyCooldown(prob, nextProb, process.argv.slice(2));
           await sleepWithCountdown(
             waitMs,
-            `Realistic human cooldown before problem ${idx + 2}/${problems.length} (${problems[idx + 1].name})`
+            `Humanized cooldown before [${nextTier.toUpperCase()}] problem ${idx + 2}/${problems.length} (${nextProb.name})`
           );
+        }
+      }
+
+      if (dlq.length > 0 && !haltOnFail && !workerOptions.noDlq) {
+        console.log(`\n================================================================`);
+        console.log(`🔄 Entering Dead Letter Queue (DLQ) Resolution Phase`);
+        console.log(`   ${dlq.length} failed question(s) awaiting diagnosis, local verification, and retry.`);
+        console.log(`================================================================\n`);
+
+        for (const [dIdx, item] of dlq.entries()) {
+          const prob = item.problem;
+          const debugPauseMs = isFast
+            ? 3000
+            : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
+          await sleepWithCountdown(debugPauseMs, `[DLQ] Realistic debugging pause for ${prob.name} (${prob.id})`);
+
+          console.log(`\n[DLQ-RETRY ${dIdx + 1}/${dlq.length}] Diagnosing & resolving: ${prob.name} (${prob.id}) ...`);
+          const retryRes = await submitWithAutoFix(prob, workerOptions);
+
+          const existIdx = results.findIndex((r) => r.id === prob.id || r.file === prob.file);
+          if (existIdx !== -1) {
+            results[existIdx] = retryRes;
+          } else {
+            results.push(retryRes);
+          }
+
+          const incrementalLog = mergeSubmissions(historicalSubmissions, results);
+          fs.writeFileSync(submissionsLogPath, JSON.stringify(incrementalLog, null, 2) + '\n', 'utf-8');
+
+          const isResolved = isVerdictAccepted(retryRes);
+          if (isResolved) {
+            console.log(`\n🎉 [DLQ-RESOLVED] SUCCESS! Problem "${prob.name}" is now ACCEPTED on ${prob.platform}!`);
+            item.status = 'RESOLVED';
+            item.resolvedAt = new Date().toISOString();
+            item.finalVerdict = retryRes.verdict;
+          } else {
+            console.warn(`\n⛔ [DLQ-HALT] Problem "${prob.name}" (${prob.id}) failed DLQ retry (${retryRes.verdict}).`);
+            item.status = 'HALTED_UNRESOLVED';
+            item.finalVerdict = retryRes.verdict;
+          }
+
+          const allDLQ = loadDLQ(dayDir);
+          const uIdx = allDLQ.findIndex((x) => x.id === item.id);
+          if (uIdx !== -1) allDLQ[uIdx] = item;
+          else allDLQ.push(item);
+          saveDLQ(dayDir, allDLQ);
         }
       }
     }
   } finally {
-    if (browser && !useCdp) await browser.close().catch(() => {});
-    if (persistentContext && !useCdp) await persistentContext.close().catch(() => {});
+    if (browser) await browser.close().catch(() => {});
+    if (persistentContext) await persistentContext.close().catch(() => {});
   }
 
   // Save submissions log (deduplicated by platform and problem)
@@ -1177,6 +1429,22 @@ async function main() {
     console.log(`| ${idx + 1} | ${r.platform} | ${r.id} | ${r.name || r.file} | **${r.verdict}** | ${details} |`);
   }
   console.log('\n================================================================\n');
+
+  // DLQ Summary Table if DLQ items exist
+  const dlqSummary = loadDLQ(dayDir);
+  if (dlqSummary.length > 0) {
+    console.log(`================================================================`);
+    console.log(`Dead Letter Queue (DLQ) Tracking Summary`);
+    console.log(`================================================================\n`);
+    console.log('| # | Platform | ID | Problem | Tier | Initial Verdict | DLQ Status | Final Verdict |');
+    console.log('|---|:---:|:---:|---|:---:|:---:|:---:|:---:|');
+    for (const [idx, item] of dlqSummary.entries()) {
+      console.log(`| ${idx + 1} | ${item.platform} | ${item.id} | ${item.name || item.file} | ${item.tier || '-'} | ${item.initialVerdict} | **${item.status}** | ${item.finalVerdict || item.initialVerdict} |`);
+    }
+    console.log('\n================================================================\n');
+  }
+
+  process.exit(0);
 }
 
 if (require.main === module) {
@@ -1206,5 +1474,9 @@ module.exports = {
   getProblemStatus,
   mergeSubmissions,
   printSubmissionStatus,
+  loadDLQ,
+  saveDLQ,
+  getProblemDifficultyTier,
+  calculateDifficultyCooldown,
 };
 
