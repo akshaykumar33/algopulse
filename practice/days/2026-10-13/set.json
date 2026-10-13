@@ -1,0 +1,387 @@
+{
+  "date": "2026-10-13",
+  "day": 19,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1249B1",
+      "name": "Books Exchange (easy version)",
+      "rating": 1000,
+      "tags": [
+        "dsu",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1249/B1",
+      "file": "booksExchangeEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1796B",
+      "name": "Asterisk-Minor Template",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1796/B",
+      "file": "asteriskMinorTemplate",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1569B",
+      "name": "Chess Tournament",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1569/B",
+      "file": "chessTournament",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "680B",
+      "name": "Bear and Finding Criminals",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/680/B",
+      "file": "bearAndFindingCriminals",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1702D",
+      "name": "Not a Cheap String",
+      "rating": 1000,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1702/D",
+      "file": "notACheapString",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2104B",
+      "name": "Move to the End",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "data structures",
+        "dp",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2104/B",
+      "file": "moveToTheEnd",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2145B",
+      "name": "Deck of Cards",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2145/B",
+      "file": "deckOfCards",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1360C",
+      "name": "Similar Pairs",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "graph matchings",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1360/C",
+      "file": "similarPairs",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "535B",
+      "name": "Tavas and SaDDas",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "brute force",
+        "combinatorics",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/535/B",
+      "file": "tavasAndSaDDas",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1703D",
+      "name": "Double Strings",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "data structures",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1703/D",
+      "file": "doubleStrings",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-144",
+      "name": "Binary Tree Preorder Traversal",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+      "file": "binaryTreePreorderTraversal",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1470",
+      "name": "Shuffle the Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/shuffle-the-array/",
+      "file": "shuffleTheArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1523",
+      "name": "Count Odd Numbers in an Interval Range",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/",
+      "file": "countOddNumbersInAnIntervalRange",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-28",
+      "name": "Find the Index of the First Occurrence in a String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+      "file": "findTheIndexOfTheFirstOccurrenceInAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1260",
+      "name": "Shift 2D Grid",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/shift-2d-grid/",
+      "file": "shift2DGrid",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-605",
+      "name": "Can Place Flowers",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/can-place-flowers/",
+      "file": "canPlaceFlowers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-824",
+      "name": "Goat Latin",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/goat-latin/",
+      "file": "goatLatin",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-796",
+      "name": "Rotate String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rotate-string/",
+      "file": "rotateString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-278",
+      "name": "First Bad Version",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/first-bad-version/",
+      "file": "firstBadVersion",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2073",
+      "name": "Time Needed to Buy Tickets",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/time-needed-to-buy-tickets/",
+      "file": "timeNeededToBuyTickets",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BIT2A",
+      "name": "A - Books",
+      "rating": 1175,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BIT2A",
+      "file": "aBooks",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FRIMEET",
+      "name": "Friends Meetup",
+      "rating": 1098,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FRIMEET",
+      "file": "friendsMeetup",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BORROWBOOK",
+      "name": "Chefland Library",
+      "rating": 1058,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BORROWBOOK",
+      "file": "cheflandLibrary",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XYSTR",
+      "name": "Chef and String",
+      "rating": 1124,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XYSTR",
+      "file": "chefAndString",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-HEADBOB",
+      "name": "Tanu and Head-bob",
+      "rating": 1065,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/HEADBOB",
+      "file": "tanuAndHeadBob",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MOVIEWKN",
+      "name": "Movie Weekend",
+      "rating": 1175,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MOVIEWKN",
+      "file": "movieWeekend",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SEGM01",
+      "name": "Bear and Segment 01",
+      "rating": 1150,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SEGM01",
+      "file": "bearAndSegment01",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EXUNA",
+      "name": "Weird Modulo Problem ",
+      "rating": 1104,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EXUNA",
+      "file": "weirdModuloProblem",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ELEVSTRS",
+      "name": "From heaven to earth",
+      "rating": 1066,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ELEVSTRS",
+      "file": "fromHeavenToEarth",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XLSQUARE",
+      "name": "Large Square",
+      "rating": 1160,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XLSQUARE",
+      "file": "largeSquare",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

@@ -146,6 +146,8 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Non-coprime Split](https://codeforces.com/problemset/problem/1872/C) | `Codeforces` | `1100` | `nonCoprimeSplit.js` | Key algorithmic application from Day 2026-10-11. |
 | [Spring](https://codeforces.com/problemset/problem/2204/C) | `Codeforces` | `1000` | `spring.js` | Key algorithmic application from Day 2026-10-12. |
 | [Water Lily](https://codeforces.com/problemset/problem/1199/B) | `Codeforces` | `1000` | `waterLily.js` | Key algorithmic application from Day 2026-10-12. |
+| [Books Exchange (easy version)](https://codeforces.com/problemset/problem/1249/B1) | `Codeforces` | `1000` | `booksExchangeEasyVersion.js` | Key algorithmic application from Day 2026-10-13. |
+| [Tavas and SaDDas](https://codeforces.com/problemset/problem/535/B) | `Codeforces` | `1100` | `tavasAndSaDDas.js` | Key algorithmic application from Day 2026-10-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

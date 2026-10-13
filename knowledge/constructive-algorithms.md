@@ -96,6 +96,9 @@ function constructMatrix(n, m) {
 | [Combination Lock](https://codeforces.com/problemset/problem/2091/C) | `Codeforces` | `1000` | `combinationLock.js` | Key algorithmic application from Day 2026-10-11. |
 | [3-palindrome](https://codeforces.com/problemset/problem/805/B) | `Codeforces` | `1000` | `p3Palindrome.js` | Key algorithmic application from Day 2026-10-12. |
 | [Mike and palindrome](https://codeforces.com/problemset/problem/798/A) | `Codeforces` | `1000` | `mikeAndPalindrome.js` | Key algorithmic application from Day 2026-10-12. |
+| [Chess Tournament](https://codeforces.com/problemset/problem/1569/B) | `Codeforces` | `1000` | `chessTournament.js` | Key algorithmic application from Day 2026-10-13. |
+| [Bear and Finding Criminals](https://codeforces.com/problemset/problem/680/B) | `Codeforces` | `1000` | `bearAndFindingCriminals.js` | Key algorithmic application from Day 2026-10-13. |
+| [Similar Pairs](https://codeforces.com/problemset/problem/1360/C) | `Codeforces` | `1100` | `similarPairs.js` | Key algorithmic application from Day 2026-10-13. |
 
 ---
 

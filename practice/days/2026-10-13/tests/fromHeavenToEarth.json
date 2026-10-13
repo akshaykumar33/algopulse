@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n5 10 15\n2 5 5",
+    "output": "Elevator\nStairs"
+  }
+]

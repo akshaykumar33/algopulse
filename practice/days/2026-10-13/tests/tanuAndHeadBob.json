@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5\nNRNIN\n3\nYYY\n4\nNNNN\n",
+    "output": "INDIAN\nNOT INDIAN\nNOT SURE\n"
+  }
+]

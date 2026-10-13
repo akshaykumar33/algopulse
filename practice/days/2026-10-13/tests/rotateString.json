@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abcde\"\n\"cdeab\"",
+    "output": "true"
+  },
+  {
+    "input": "\"abcde\"\n\"abced\"",
+    "output": "false"
+  }
+]

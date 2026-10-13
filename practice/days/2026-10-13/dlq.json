@@ -1,0 +1,26 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-BORROWBOOK",
+    "name": "Chefland Library",
+    "file": "cheflandLibrary",
+    "tier": "easy",
+    "initialVerdict": "Pending",
+    "enqueuedAt": "2026-10-13T06:30:09.261Z",
+    "attempts": 2,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-BORROWBOOK",
+      "name": "Chefland Library",
+      "rating": 1058,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BORROWBOOK",
+      "file": "cheflandLibrary",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer"
+  }
+]
