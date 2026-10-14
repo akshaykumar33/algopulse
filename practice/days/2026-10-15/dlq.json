@@ -1,0 +1,221 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "1975B",
+    "name": "378QAQ and Mocha's Array",
+    "file": "p378QAQAndMochaSArray",
+    "tier": "easy",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-14T18:53:41.562Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1975B",
+      "name": "378QAQ and Mocha's Array",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1975/B",
+      "file": "p378QAQAndMochaSArray",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Wrong answer on test 1"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAKEPERM",
+    "name": "Make Permutation",
+    "file": "makePermutation",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:05:13.837Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAKEPERM",
+      "name": "Make Permutation",
+      "rating": 1200,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEPERM",
+      "file": "makePermutation",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ORDDIST",
+    "name": "Ordered Distances",
+    "file": "orderedDistances",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:11:09.252Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ORDDIST",
+      "name": "Ordered Distances",
+      "rating": 1112,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ORDDIST",
+      "file": "orderedDistances",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ANOTSTR",
+    "name": "Another String",
+    "file": "anotherString",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:16:55.748Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ANOTSTR",
+      "name": "Another String",
+      "rating": 1140,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ANOTSTR",
+      "file": "anotherString",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-876",
+    "name": "Middle of the Linked List",
+    "file": "middleOfTheLinkedList",
+    "tier": "easy",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-14T19:20:12.527Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-876",
+      "name": "Middle of the Linked List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+      "file": "middleOfTheLinkedList",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SUM0",
+    "name": "Sum to 0",
+    "file": "sumTo0",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:23:40.374Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SUM0",
+      "name": "Sum to 0",
+      "rating": 1023,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUM0",
+      "file": "sumTo0",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3875",
+    "name": "Construct Uniform Parity Array I",
+    "file": "constructUniformParityArrayI",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:27:44.059Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3875",
+      "name": "Construct Uniform Parity Array I",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/construct-uniform-parity-array-i/",
+      "file": "constructUniformParityArrayI",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ENCMSG",
+    "name": "Encoding Message",
+    "file": "encodingMessage",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:27:57.512Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ENCMSG",
+      "name": "Encoding Message",
+      "rating": 1027,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ENCMSG",
+      "file": "encodingMessage",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-NODDSM",
+    "name": "No Odd Sum",
+    "file": "noOddSum",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-14T19:40:13.880Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-NODDSM",
+      "name": "No Odd Sum",
+      "rating": 1041,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NODDSM",
+      "file": "noOddSum",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]

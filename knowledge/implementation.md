@@ -518,6 +518,27 @@ function solve() {
 | [Three Way Communications](https://www.codechef.com/problems/COMM3) | `CodeChef` | `1083` | `threeWayCommunications.js` | Key algorithmic application from Day 2026-10-14. |
 | [Minimum XOR](https://www.codechef.com/problems/MINMXOR) | `CodeChef` | `1154` | `minimumXOR.js` | Key algorithmic application from Day 2026-10-14. |
 | [World Record](https://www.codechef.com/problems/BOLT) | `CodeChef` | `1128` | `worldRecord.js` | Key algorithmic application from Day 2026-10-14. |
+| [Array Cancellation](https://codeforces.com/problemset/problem/1405/B) | `Codeforces` | `1000` | `arrayCancellation.js` | Key algorithmic application from Day 2026-10-15. |
+| [Subsequence Addition (Easy Version)](https://codeforces.com/problemset/problem/1807/G1) | `Codeforces` | `1100` | `subsequenceAdditionEasyVersion.js` | Key algorithmic application from Day 2026-10-15. |
+| [Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/) | `LeetCode` | `Easy` | `sumOfLeftLeaves.js` | Key algorithmic application from Day 2026-10-15. |
+| [License Key Formatting](https://leetcode.com/problems/license-key-formatting/) | `LeetCode` | `Easy` | `licenseKeyFormatting.js` | Key algorithmic application from Day 2026-10-15. |
+| [Find Minimum Operations to Make All Elements Divisible by Three](https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/) | `LeetCode` | `Easy` | `findMinimumOperationsToMakeAllElementsDivisibleByThree.js` | Key algorithmic application from Day 2026-10-15. |
+| [Pass the Pillow](https://leetcode.com/problems/pass-the-pillow/) | `LeetCode` | `Easy` | `passThePillow.js` | Key algorithmic application from Day 2026-10-15. |
+| [Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array/) | `LeetCode` | `Easy` | `findTargetIndicesAfterSortingArray.js` | Key algorithmic application from Day 2026-10-15. |
+| [Number of Employees Who Met the Target](https://leetcode.com/problems/number-of-employees-who-met-the-target/) | `LeetCode` | `Easy` | `numberOfEmployeesWhoMetTheTarget.js` | Key algorithmic application from Day 2026-10-15. |
+| [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) | `LeetCode` | `Easy` | `middleOfTheLinkedList.js` | Key algorithmic application from Day 2026-10-15. |
+| [Construct Uniform Parity Array I](https://leetcode.com/problems/construct-uniform-parity-array-i/) | `LeetCode` | `Easy` | `constructUniformParityArrayI.js` | Key algorithmic application from Day 2026-10-15. |
+| [Element Appearing More Than 25% In Sorted Array](https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/) | `LeetCode` | `Easy` | `elementAppearingMoreThan25InSortedArray.js` | Key algorithmic application from Day 2026-10-15. |
+| [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) | `LeetCode` | `Easy` | `minCostClimbingStairs.js` | Key algorithmic application from Day 2026-10-15. |
+| [Chef and Work](https://www.codechef.com/problems/CHEFNWRK) | `CodeChef` | `1185` | `chefAndWork.js` | Key algorithmic application from Day 2026-10-15. |
+| [Journey of the Knight](https://www.codechef.com/problems/KNIGHT2) | `CodeChef` | `1144` | `journeyOfTheKnight.js` | Key algorithmic application from Day 2026-10-15. |
+| [Make Permutation](https://www.codechef.com/problems/MAKEPERM) | `CodeChef` | `1200` | `makePermutation.js` | Key algorithmic application from Day 2026-10-15. |
+| [Ordered Distances](https://www.codechef.com/problems/ORDDIST) | `CodeChef` | `1112` | `orderedDistances.js` | Key algorithmic application from Day 2026-10-15. |
+| [Another String](https://www.codechef.com/problems/ANOTSTR) | `CodeChef` | `1140` | `anotherString.js` | Key algorithmic application from Day 2026-10-15. |
+| [Equal Elements](https://www.codechef.com/problems/EQUALELE) | `CodeChef` | `1123` | `equalElements.js` | Key algorithmic application from Day 2026-10-15. |
+| [Sum to 0](https://www.codechef.com/problems/SUM0) | `CodeChef` | `1023` | `sumTo0.js` | Key algorithmic application from Day 2026-10-15. |
+| [Encoding Message](https://www.codechef.com/problems/ENCMSG) | `CodeChef` | `1027` | `encodingMessage.js` | Key algorithmic application from Day 2026-10-15. |
+| [No Odd Sum](https://www.codechef.com/problems/NODDSM) | `CodeChef` | `1041` | `noOddSum.js` | Key algorithmic application from Day 2026-10-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

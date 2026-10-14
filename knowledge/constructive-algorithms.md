@@ -101,6 +101,13 @@ function constructMatrix(n, m) {
 | [Similar Pairs](https://codeforces.com/problemset/problem/1360/C) | `Codeforces` | `1100` | `similarPairs.js` | Key algorithmic application from Day 2026-10-13. |
 | [Make it Zigzag](https://codeforces.com/problemset/problem/2154/B) | `Codeforces` | `1000` | `makeItZigzag.js` | Key algorithmic application from Day 2026-10-14. |
 | [Save the Magazines](https://codeforces.com/problemset/problem/1743/C) | `Codeforces` | `1100` | `saveTheMagazines.js` | Key algorithmic application from Day 2026-10-14. |
+| [Polycarp Recovers the Permutation](https://codeforces.com/problemset/problem/1611/C) | `Codeforces` | `1000` | `polycarpRecoversThePermutation.js` | Key algorithmic application from Day 2026-10-15. |
+| [Crafting](https://codeforces.com/problemset/problem/2055/B) | `Codeforces` | `1000` | `crafting.js` | Key algorithmic application from Day 2026-10-15. |
+| [Valerii Against Everyone](https://codeforces.com/problemset/problem/1438/B) | `Codeforces` | `1000` | `valeriiAgainstEveryone.js` | Key algorithmic application from Day 2026-10-15. |
+| [Koxia and Permutation](https://codeforces.com/problemset/problem/1770/B) | `Codeforces` | `1000` | `koxiaAndPermutation.js` | Key algorithmic application from Day 2026-10-15. |
+| [Array Cancellation](https://codeforces.com/problemset/problem/1405/B) | `Codeforces` | `1000` | `arrayCancellation.js` | Key algorithmic application from Day 2026-10-15. |
+| [Difference of GCDs](https://codeforces.com/problemset/problem/1708/B) | `Codeforces` | `1100` | `differenceOfGCDs.js` | Key algorithmic application from Day 2026-10-15. |
+| [Division by Two and Permutation](https://codeforces.com/problemset/problem/1624/C) | `Codeforces` | `1100` | `divisionByTwoAndPermutation.js` | Key algorithmic application from Day 2026-10-15. |
 
 ---
 
