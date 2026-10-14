@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nababa\naaa\n",
+    "output": "9\n6\n"
+  }
+]

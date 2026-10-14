@@ -1,0 +1,26 @@
+[
+  {
+    "input": "4\n3\n2 4 6\n2\n3 5\n4\n1 2 3 4\n5\n10 20 30 40 50\n",
+    "output": "Yes\nNo\nYes\nYes\n"
+  },
+  {
+    "input": "1\n5\n7 14 21 28 35\n",
+    "output": "Yes\n"
+  },
+  {
+    "input": "1\n3\n6 10 15\n",
+    "output": "No\n"
+  },
+  {
+    "input": "1\n2\n100 1\n",
+    "output": "Yes\n"
+  },
+  {
+    "input": "1\n4\n13 26 39 52\n",
+    "output": "Yes\n"
+  },
+  {
+    "input": "1\n3\n5 10 12\n",
+    "output": "No\n"
+  }
+]

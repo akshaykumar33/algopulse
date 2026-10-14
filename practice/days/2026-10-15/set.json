@@ -1,0 +1,391 @@
+{
+  "date": "2026-10-15",
+  "day": 21,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1611C",
+      "name": "Polycarp Recovers the Permutation",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1611/C",
+      "file": "polycarpRecoversThePermutation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2055B",
+      "name": "Crafting",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2055/B",
+      "file": "crafting",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1975B",
+      "name": "378QAQ and Mocha's Array",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1975/B",
+      "file": "p378QAQAndMochaSArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1395A",
+      "name": "Boboniu Likes to Color Balls",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1395/A",
+      "file": "boboniuLikesToColorBalls",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1438B",
+      "name": "Valerii Against Everyone",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "data structures",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1438/B",
+      "file": "valeriiAgainstEveryone",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1770B",
+      "name": "Koxia and Permutation",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1770/B",
+      "file": "koxiaAndPermutation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1405B",
+      "name": "Array Cancellation",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1405/B",
+      "file": "arrayCancellation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1708B",
+      "name": "Difference of GCDs",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1708/B",
+      "file": "differenceOfGCDs",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1807G1",
+      "name": "Subsequence Addition (Easy Version)",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "data structures",
+        "dp",
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1807/G1",
+      "file": "subsequenceAdditionEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1624C",
+      "name": "Division by Two and Permutation",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "flows",
+        "graph matchings",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1624/C",
+      "file": "divisionByTwoAndPermutation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-404",
+      "name": "Sum of Left Leaves",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sum-of-left-leaves/",
+      "file": "sumOfLeftLeaves",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-482",
+      "name": "License Key Formatting",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/license-key-formatting/",
+      "file": "licenseKeyFormatting",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3190",
+      "name": "Find Minimum Operations to Make All Elements Divisible by Three",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/",
+      "file": "findMinimumOperationsToMakeAllElementsDivisibleByThree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2582",
+      "name": "Pass the Pillow",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/pass-the-pillow/",
+      "file": "passThePillow",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2089",
+      "name": "Find Target Indices After Sorting Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
+      "file": "findTargetIndicesAfterSortingArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2798",
+      "name": "Number of Employees Who Met the Target",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-employees-who-met-the-target/",
+      "file": "numberOfEmployeesWhoMetTheTarget",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-876",
+      "name": "Middle of the Linked List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+      "file": "middleOfTheLinkedList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3875",
+      "name": "Construct Uniform Parity Array I",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/construct-uniform-parity-array-i/",
+      "file": "constructUniformParityArrayI",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1287",
+      "name": "Element Appearing More Than 25% In Sorted Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
+      "file": "elementAppearingMoreThan25InSortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-746",
+      "name": "Min Cost Climbing Stairs",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+      "file": "minCostClimbingStairs",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFNWRK",
+      "name": "Chef and Work",
+      "rating": 1185,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFNWRK",
+      "file": "chefAndWork",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-KNIGHT2",
+      "name": "Journey of the Knight",
+      "rating": 1144,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/KNIGHT2",
+      "file": "journeyOfTheKnight",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAKEPERM",
+      "name": "Make Permutation",
+      "rating": 1200,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEPERM",
+      "file": "makePermutation",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ORDDIST",
+      "name": "Ordered Distances",
+      "rating": 1112,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ORDDIST",
+      "file": "orderedDistances",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ANOTSTR",
+      "name": "Another String",
+      "rating": 1140,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ANOTSTR",
+      "file": "anotherString",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQUALELE",
+      "name": "Equal Elements",
+      "rating": 1123,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQUALELE",
+      "file": "equalElements",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SUM0",
+      "name": "Sum to 0",
+      "rating": 1023,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUM0",
+      "file": "sumTo0",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ENCMSG",
+      "name": "Encoding Message",
+      "rating": 1027,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ENCMSG",
+      "file": "encodingMessage",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFZOT",
+      "name": "Chef and Subarray",
+      "rating": 1191,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFZOT",
+      "file": "chefAndSubarray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NODDSM",
+      "name": "No Odd Sum",
+      "rating": 1041,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NODDSM",
+      "file": "noOddSum",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
