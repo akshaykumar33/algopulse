@@ -148,6 +148,8 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Water Lily](https://codeforces.com/problemset/problem/1199/B) | `Codeforces` | `1000` | `waterLily.js` | Key algorithmic application from Day 2026-10-12. |
 | [Books Exchange (easy version)](https://codeforces.com/problemset/problem/1249/B1) | `Codeforces` | `1000` | `booksExchangeEasyVersion.js` | Key algorithmic application from Day 2026-10-13. |
 | [Tavas and SaDDas](https://codeforces.com/problemset/problem/535/B) | `Codeforces` | `1100` | `tavasAndSaDDas.js` | Key algorithmic application from Day 2026-10-13. |
+| [Special Numbers](https://codeforces.com/problemset/problem/1594/B) | `Codeforces` | `1100` | `specialNumbers.js` | Key algorithmic application from Day 2026-10-14. |
+| [Sum of Odd Integers](https://codeforces.com/problemset/problem/1327/A) | `Codeforces` | `1100` | `sumOfOddIntegers.js` | Key algorithmic application from Day 2026-10-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -122,6 +122,8 @@ function backtrack(index, currentSum, target, arr) {
 | [Move to the End](https://codeforces.com/problemset/problem/2104/B) | `Codeforces` | `1000` | `moveToTheEnd.js` | Key algorithmic application from Day 2026-10-13. |
 | [Tavas and SaDDas](https://codeforces.com/problemset/problem/535/B) | `Codeforces` | `1100` | `tavasAndSaDDas.js` | Key algorithmic application from Day 2026-10-13. |
 | [Double Strings](https://codeforces.com/problemset/problem/1703/D) | `Codeforces` | `1100` | `doubleStrings.js` | Key algorithmic application from Day 2026-10-13. |
+| [Shuffle Hashing](https://codeforces.com/problemset/problem/1278/A) | `Codeforces` | `1000` | `shuffleHashing.js` | Key algorithmic application from Day 2026-10-14. |
+| [Double-ended Strings](https://codeforces.com/problemset/problem/1506/C) | `Codeforces` | `1000` | `doubleEndedStrings.js` | Key algorithmic application from Day 2026-10-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

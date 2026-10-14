@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"leeetcode\"",
+    "output": "\"leetcode\""
+  },
+  {
+    "input": "\"aaabaaaa\"",
+    "output": "\"aabaa\""
+  },
+  {
+    "input": "\"aab\"",
+    "output": "\"aab\""
+  }
+]

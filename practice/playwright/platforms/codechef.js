@@ -130,6 +130,16 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
 
   await page.waitForTimeout(1500);
 
+  // Capture existing submission IDs / viewsolution links before submitting
+  const existingSubIds = await page.evaluate(() => {
+    const text = document.body ? document.body.innerText : '';
+    const idMatches = Array.from(text.matchAll(/Submission ID:\s*(\d+)/gi)).map((m) => m[1]);
+    const links = Array.from(document.querySelectorAll('a[href*="viewsolution"]'))
+      .map((a) => (a.href.match(/viewsolution\/(\d+)/) || [])[1])
+      .filter(Boolean);
+    return Array.from(new Set([...idMatches, ...links]));
+  });
+
   // 5. Submit solution
   console.log(`    [CodeChef] Submitting solution ...`);
   const submitBtn = await page.waitForSelector(
@@ -153,23 +163,61 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
   let timeConsumed = null;
 
   while (Date.now() - startTime < timeout) {
-    const verdictInfo = await page.evaluate(() => {
-      // Find elements containing verdict text
-      const elements = Array.from(document.querySelectorAll('*')).filter((el) => {
-        const text = el.innerText || '';
-        return /Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted/i.test(
-          text
-        );
-      });
+    const verdictInfo = await page.evaluate((existingIds) => {
+      // 1. Look for viewsolution link in the modal or page that wasn't there before
+      const viewLinks = Array.from(document.querySelectorAll('a[href*="viewsolution"]'));
+      let freshSubId = null;
+      for (const a of viewLinks) {
+        const m = a.href.match(/viewsolution\/(\d+)/);
+        if (m && m[1] && (!existingIds || !existingIds.includes(m[1]))) {
+          freshSubId = m[1];
+          break;
+        }
+      }
 
-      for (const el of elements) {
-        const text = el.innerText || '';
-        const match = text.match(
-          /(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i
-        );
-        if (match) {
-          const idMatch = text.match(/Submission ID:\s*(\d+)/i);
-          const timeMatch = text.match(/\((\d+(?:\.\d+)?)\)/);
+      // 2. Also check for "Submission ID: \d+" in text that wasn't there before
+      if (!freshSubId) {
+        const textMatches = Array.from((document.body ? document.body.innerText : '').matchAll(/Submission ID:\s*(\d+)/gi));
+        for (const m of textMatches) {
+          if (m[1] && (!existingIds || !existingIds.includes(m[1]))) {
+            freshSubId = m[1];
+            break;
+          }
+        }
+      }
+
+      // Check dialog first if present, otherwise look across candidate elements
+      const dialog = document.querySelector(
+        '.MuiDialog-root, [role="dialog"], [class*="submission-status"], [class*="modal"], [class*="verdict"]'
+      );
+      const container = dialog || document.body;
+      const fullText = container ? container.innerText : '';
+
+      // If still evaluating, wait
+      if (/(Running|Evaluating|Compiling|Testing|Waiting|Queued|In Queue)/i.test(fullText) &&
+          !/(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i.test(fullText)) {
+        return null;
+      }
+
+      const match = fullText.match(
+        /(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i
+      );
+
+      if (match) {
+        // If we found a fresh submission ID
+        if (freshSubId) {
+          const timeMatch = fullText.match(/\((\d+(?:\.\d+)?)\)/);
+          return {
+            verdict: match[1],
+            submissionId: freshSubId,
+            time: timeMatch ? `${timeMatch[1]}s` : null,
+          };
+        }
+
+        // If inside an explicit result dialog that finished evaluating
+        if (dialog && !/(Running|Evaluating|Compiling|Testing)/i.test(dialog.innerText)) {
+          const idMatch = dialog.innerText.match(/Submission ID:\s*(\d+)/i);
+          const timeMatch = dialog.innerText.match(/\((\d+(?:\.\d+)?)\)/);
           return {
             verdict: match[1],
             submissionId: idMatch ? idMatch[1] : null,
@@ -177,14 +225,43 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
           };
         }
       }
+
       return null;
-    });
+    }, existingSubIds);
 
     if (verdictInfo) {
       verdict = verdictInfo.verdict;
       submissionId = verdictInfo.submissionId;
       timeConsumed = verdictInfo.time;
       break;
+    }
+
+    if (Date.now() - startTime > 45000) {
+      const fallback = await page.evaluate(() => {
+        const dialog = document.querySelector('.MuiDialog-root, [role="dialog"]');
+        if (dialog) {
+          const text = dialog.innerText || '';
+          const match = text.match(
+            /(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i
+          );
+          if (match && !/(Running|Evaluating|Compiling|Testing)/i.test(text)) {
+            const idMatch = text.match(/Submission ID:\s*(\d+)/i);
+            const timeMatch = text.match(/\((\d+(?:\.\d+)?)\)/);
+            return {
+              verdict: match[1],
+              submissionId: idMatch ? idMatch[1] : null,
+              time: timeMatch ? `${timeMatch[1]}s` : null,
+            };
+          }
+        }
+        return null;
+      });
+      if (fallback) {
+        verdict = fallback.verdict;
+        submissionId = fallback.submissionId;
+        timeConsumed = fallback.time;
+        break;
+      }
     }
 
     await page.waitForTimeout(2000);

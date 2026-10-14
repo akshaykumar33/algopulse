@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\na\na\nabcd\nbc\nhello\ncodeforces\nhello\nhelo\ndhjakjsnnpr\npr\n",
+    "output": "0\n2\n13\n3\n9\n"
+  }
+]

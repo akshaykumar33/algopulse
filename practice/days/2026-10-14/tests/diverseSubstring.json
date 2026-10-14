@@ -1,0 +1,30 @@
+[
+  {
+    "input": "3\nabc\n",
+    "output": "YES\nab\n"
+  },
+  {
+    "input": "5\naaaaa\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "2\nab\n",
+    "output": "YES\nab\n"
+  },
+  {
+    "input": "2\naa\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "10\ncodeforces\n",
+    "output": "YES\nco\n"
+  },
+  {
+    "input": "7\nbbbbbbb\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "4\nabba\n",
+    "output": "YES\nab\n"
+  }
+]

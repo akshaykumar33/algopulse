@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2\n5\ncbcdc\n6\naabeee\n",
+    "output": "5\n4\n"
+  },
+  {
+    "input": "4\n1\na\n2\nab\n3\naaa\n4\nabba\n",
+    "output": "1\n2\n2\n3\n"
+  }
+]
