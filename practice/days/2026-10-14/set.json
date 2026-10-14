@@ -1,0 +1,381 @@
+{
+  "date": "2026-10-14",
+  "day": 20,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1987B",
+      "name": "K-Sort",
+      "rating": 1000,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1987/B",
+      "file": "kSort",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1278A",
+      "name": "Shuffle Hashing",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1278/A",
+      "file": "shuffleHashing",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1567B",
+      "name": "MEXor Mixup",
+      "rating": 1000,
+      "tags": [
+        "bitmasks",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1567/B",
+      "file": "mEXorMixup",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1133A",
+      "name": "Middle of the Contest",
+      "rating": 1000,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1133/A",
+      "file": "middleOfTheContest",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1073A",
+      "name": "Diverse Substring",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1073/A",
+      "file": "diverseSubstring",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2154B",
+      "name": "Make it Zigzag",
+      "rating": 1000,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2154/B",
+      "file": "makeItZigzag",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1506C",
+      "name": "Double-ended Strings",
+      "rating": 1000,
+      "tags": [
+        "brute force",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1506/C",
+      "file": "doubleEndedStrings",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1594B",
+      "name": "Special Numbers",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1594/B",
+      "file": "specialNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1743C",
+      "name": "Save the Magazines",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "dp",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1743/C",
+      "file": "saveTheMagazines",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1327A",
+      "name": "Sum of Odd Integers",
+      "rating": 1100,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1327/A",
+      "file": "sumOfOddIntegers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1957",
+      "name": "Delete Characters to Make Fancy String",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/delete-characters-to-make-fancy-string/",
+      "file": "deleteCharactersToMakeFancyString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1603",
+      "name": "Design Parking System",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/design-parking-system/",
+      "file": "designParkingSystem",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-766",
+      "name": "Toeplitz Matrix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/toeplitz-matrix/",
+      "file": "toeplitzMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2206",
+      "name": "Divide Array Into Equal Pairs",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/divide-array-into-equal-pairs/",
+      "file": "divideArrayIntoEqualPairs",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2006",
+      "name": "Count Number of Pairs With Absolute Difference K",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/",
+      "file": "countNumberOfPairsWithAbsoluteDifferenceK",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1122",
+      "name": "Relative Sort Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/relative-sort-array/",
+      "file": "relativeSortArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-821",
+      "name": "Shortest Distance to a Character",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/shortest-distance-to-a-character/",
+      "file": "shortestDistanceToACharacter",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2176",
+      "name": "Count Equal and Divisible Pairs in an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/",
+      "file": "countEqualAndDivisiblePairsInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-441",
+      "name": "Arranging Coins",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/arranging-coins/",
+      "file": "arrangingCoins",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2520",
+      "name": "Count the Digits That Divide a Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-the-digits-that-divide-a-number/",
+      "file": "countTheDigitsThatDivideANumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-STRP",
+      "name": "String protocol",
+      "rating": 1065,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/STRP",
+      "file": "stringProtocol",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DOMINANT2",
+      "name": "Dominant Element",
+      "rating": 1171,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DOMINANT2",
+      "file": "dominantElement",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-AVGOF3",
+      "name": "Average of Three",
+      "rating": 1141,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/AVGOF3",
+      "file": "averageOfThree",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CNDLOVE",
+      "name": "Candy Love",
+      "rating": 1054,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CNDLOVE",
+      "file": "candyLove",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHSERVE",
+      "name": "Chef and Serves",
+      "rating": 1101,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHSERVE",
+      "file": "chefAndServes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADACRA",
+      "name": "Ada and crayons",
+      "rating": 1099,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADACRA",
+      "file": "adaAndCrayons",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ANDOR",
+      "name": "AND Plus OR",
+      "rating": 1151,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ANDOR",
+      "file": "aNDPlusOR",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COMM3",
+      "name": "Three Way Communications",
+      "rating": 1083,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COMM3",
+      "file": "threeWayCommunications",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MINMXOR",
+      "name": "Minimum XOR",
+      "rating": 1154,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MINMXOR",
+      "file": "minimumXOR",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BOLT",
+      "name": "World Record",
+      "rating": 1128,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BOLT",
+      "file": "worldRecord",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

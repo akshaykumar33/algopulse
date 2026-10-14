@@ -110,6 +110,9 @@ function isPalindrome(s) {
 | [Mike and palindrome](https://codeforces.com/problemset/problem/798/A) | `Codeforces` | `1000` | `mikeAndPalindrome.js` | Key algorithmic application from Day 2026-10-12. |
 | [Asterisk-Minor Template](https://codeforces.com/problemset/problem/1796/B) | `Codeforces` | `1000` | `asteriskMinorTemplate.js` | Key algorithmic application from Day 2026-10-13. |
 | [Double Strings](https://codeforces.com/problemset/problem/1703/D) | `Codeforces` | `1100` | `doubleStrings.js` | Key algorithmic application from Day 2026-10-13. |
+| [Shuffle Hashing](https://codeforces.com/problemset/problem/1278/A) | `Codeforces` | `1000` | `shuffleHashing.js` | Key algorithmic application from Day 2026-10-14. |
+| [Diverse Substring](https://codeforces.com/problemset/problem/1073/A) | `Codeforces` | `1000` | `diverseSubstring.js` | Key algorithmic application from Day 2026-10-14. |
+| [Double-ended Strings](https://codeforces.com/problemset/problem/1506/C) | `Codeforces` | `1000` | `doubleEndedStrings.js` | Key algorithmic application from Day 2026-10-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

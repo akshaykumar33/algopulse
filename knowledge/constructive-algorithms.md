@@ -99,6 +99,8 @@ function constructMatrix(n, m) {
 | [Chess Tournament](https://codeforces.com/problemset/problem/1569/B) | `Codeforces` | `1000` | `chessTournament.js` | Key algorithmic application from Day 2026-10-13. |
 | [Bear and Finding Criminals](https://codeforces.com/problemset/problem/680/B) | `Codeforces` | `1000` | `bearAndFindingCriminals.js` | Key algorithmic application from Day 2026-10-13. |
 | [Similar Pairs](https://codeforces.com/problemset/problem/1360/C) | `Codeforces` | `1100` | `similarPairs.js` | Key algorithmic application from Day 2026-10-13. |
+| [Make it Zigzag](https://codeforces.com/problemset/problem/2154/B) | `Codeforces` | `1000` | `makeItZigzag.js` | Key algorithmic application from Day 2026-10-14. |
+| [Save the Magazines](https://codeforces.com/problemset/problem/1743/C) | `Codeforces` | `1100` | `saveTheMagazines.js` | Key algorithmic application from Day 2026-10-14. |
 
 ---
 

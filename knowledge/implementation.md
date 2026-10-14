@@ -494,6 +494,30 @@ function solve() {
 | [Weird Modulo Problem ](https://www.codechef.com/problems/EXUNA) | `CodeChef` | `1104` | `weirdModuloProblem.js` | Key algorithmic application from Day 2026-10-13. |
 | [From heaven to earth](https://www.codechef.com/problems/ELEVSTRS) | `CodeChef` | `1066` | `fromHeavenToEarth.js` | Key algorithmic application from Day 2026-10-13. |
 | [Large Square](https://www.codechef.com/problems/XLSQUARE) | `CodeChef` | `1160` | `largeSquare.js` | Key algorithmic application from Day 2026-10-13. |
+| [Shuffle Hashing](https://codeforces.com/problemset/problem/1278/A) | `Codeforces` | `1000` | `shuffleHashing.js` | Key algorithmic application from Day 2026-10-14. |
+| [Middle of the Contest](https://codeforces.com/problemset/problem/1133/A) | `Codeforces` | `1000` | `middleOfTheContest.js` | Key algorithmic application from Day 2026-10-14. |
+| [Diverse Substring](https://codeforces.com/problemset/problem/1073/A) | `Codeforces` | `1000` | `diverseSubstring.js` | Key algorithmic application from Day 2026-10-14. |
+| [Double-ended Strings](https://codeforces.com/problemset/problem/1506/C) | `Codeforces` | `1000` | `doubleEndedStrings.js` | Key algorithmic application from Day 2026-10-14. |
+| [Delete Characters to Make Fancy String](https://leetcode.com/problems/delete-characters-to-make-fancy-string/) | `LeetCode` | `Easy` | `deleteCharactersToMakeFancyString.js` | Key algorithmic application from Day 2026-10-14. |
+| [Design Parking System](https://leetcode.com/problems/design-parking-system/) | `LeetCode` | `Easy` | `designParkingSystem.js` | Key algorithmic application from Day 2026-10-14. |
+| [Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix/) | `LeetCode` | `Easy` | `toeplitzMatrix.js` | Key algorithmic application from Day 2026-10-14. |
+| [Divide Array Into Equal Pairs](https://leetcode.com/problems/divide-array-into-equal-pairs/) | `LeetCode` | `Easy` | `divideArrayIntoEqualPairs.js` | Key algorithmic application from Day 2026-10-14. |
+| [Count Number of Pairs With Absolute Difference K](https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/) | `LeetCode` | `Easy` | `countNumberOfPairsWithAbsoluteDifferenceK.js` | Key algorithmic application from Day 2026-10-14. |
+| [Relative Sort Array](https://leetcode.com/problems/relative-sort-array/) | `LeetCode` | `Easy` | `relativeSortArray.js` | Key algorithmic application from Day 2026-10-14. |
+| [Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/) | `LeetCode` | `Easy` | `shortestDistanceToACharacter.js` | Key algorithmic application from Day 2026-10-14. |
+| [Count Equal and Divisible Pairs in an Array](https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/) | `LeetCode` | `Easy` | `countEqualAndDivisiblePairsInAnArray.js` | Key algorithmic application from Day 2026-10-14. |
+| [Arranging Coins](https://leetcode.com/problems/arranging-coins/) | `LeetCode` | `Easy` | `arrangingCoins.js` | Key algorithmic application from Day 2026-10-14. |
+| [Count the Digits That Divide a Number](https://leetcode.com/problems/count-the-digits-that-divide-a-number/) | `LeetCode` | `Easy` | `countTheDigitsThatDivideANumber.js` | Key algorithmic application from Day 2026-10-14. |
+| [String protocol](https://www.codechef.com/problems/STRP) | `CodeChef` | `1065` | `stringProtocol.js` | Key algorithmic application from Day 2026-10-14. |
+| [Dominant Element](https://www.codechef.com/problems/DOMINANT2) | `CodeChef` | `1171` | `dominantElement.js` | Key algorithmic application from Day 2026-10-14. |
+| [Average of Three](https://www.codechef.com/problems/AVGOF3) | `CodeChef` | `1141` | `averageOfThree.js` | Key algorithmic application from Day 2026-10-14. |
+| [Candy Love](https://www.codechef.com/problems/CNDLOVE) | `CodeChef` | `1054` | `candyLove.js` | Key algorithmic application from Day 2026-10-14. |
+| [Chef and Serves](https://www.codechef.com/problems/CHSERVE) | `CodeChef` | `1101` | `chefAndServes.js` | Key algorithmic application from Day 2026-10-14. |
+| [Ada and crayons](https://www.codechef.com/problems/ADACRA) | `CodeChef` | `1099` | `adaAndCrayons.js` | Key algorithmic application from Day 2026-10-14. |
+| [AND Plus OR](https://www.codechef.com/problems/ANDOR) | `CodeChef` | `1151` | `aNDPlusOR.js` | Key algorithmic application from Day 2026-10-14. |
+| [Three Way Communications](https://www.codechef.com/problems/COMM3) | `CodeChef` | `1083` | `threeWayCommunications.js` | Key algorithmic application from Day 2026-10-14. |
+| [Minimum XOR](https://www.codechef.com/problems/MINMXOR) | `CodeChef` | `1154` | `minimumXOR.js` | Key algorithmic application from Day 2026-10-14. |
+| [World Record](https://www.codechef.com/problems/BOLT) | `CodeChef` | `1128` | `worldRecord.js` | Key algorithmic application from Day 2026-10-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
