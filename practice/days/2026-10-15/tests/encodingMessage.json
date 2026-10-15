@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\nabcd\nfyrt",
-    "output": "yzwx\nbugi"
+    "input": "2\n4\nabcd\n4\nfyrt\n",
+    "output": "yzwx\nbugi\n"
   }
 ]

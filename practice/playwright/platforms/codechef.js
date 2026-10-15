@@ -150,9 +150,16 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
 
   // Check if login modal dialog popped up
   await page.waitForTimeout(1000);
-  const loginModal = await page.$('.MuiDialog-root, [class*="loginModal"], div:has-text("Please login to continue")');
+  const loginModal = await page.$('[class*="loginModal"], div:has-text("Please login to continue")');
   if (loginModal) {
     throw new Error('CodeChef session unauthenticated: Login modal appeared upon submitting.');
+  }
+  const genericDialog = await page.$('.MuiDialog-root');
+  if (genericDialog) {
+    const dialogText = await genericDialog.innerText().catch(() => '');
+    if (/please log ?in to continue|sign in to your account|login to codechef/i.test(dialogText)) {
+      throw new Error('CodeChef session unauthenticated: Login modal appeared upon submitting.');
+    }
   }
 
   // 6. Monitor Verdict

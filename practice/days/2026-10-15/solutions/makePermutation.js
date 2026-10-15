@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function solve() {
   const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (input.length === 0 || input[0] === '') return;
+  if (!input || input.length === 0 || input[0] === '') return;
   
   let ptr = 0;
   const t = parseInt(input[ptr++], 10);
@@ -19,17 +19,13 @@ function solve() {
     
     let ok = true;
     for (let j = 0; j < n; j++) {
-      if (arr[j] < j + 1) {
+      if (arr[j] > j + 1) {
         ok = false;
         break;
       }
     }
     
-    if (ok) {
-      out.push("YES");
-    } else {
-      out.push("NO");
-    }
+    out.push(ok ? 'YES' : 'NO');
   }
   
   console.log(out.join('\n'));
