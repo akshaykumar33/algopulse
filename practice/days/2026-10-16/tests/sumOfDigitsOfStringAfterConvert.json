@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"iiii\", 1]",
+    "output": "36"
+  },
+  {
+    "input": "[\"leetcode\", 2]",
+    "output": "6"
+  },
+  {
+    "input": "[\"zbax\", 2]",
+    "output": "8"
+  }
+]

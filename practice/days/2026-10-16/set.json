@@ -1,0 +1,389 @@
+{
+  "date": "2026-10-16",
+  "day": 22,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1511B",
+      "name": "GCD Length",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1511/B",
+      "file": "gCDLength",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1991B",
+      "name": "AND Reconstruction",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1991/B",
+      "file": "aNDReconstruction",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1923B",
+      "name": "Monsters Attack!",
+      "rating": 1100,
+      "tags": [
+        "dp",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1923/B",
+      "file": "monstersAttack",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1811C",
+      "name": "Restore the Array",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1811/C",
+      "file": "restoreTheArray",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2043B",
+      "name": "Digits",
+      "rating": 1100,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2043/B",
+      "file": "digits",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1015C",
+      "name": "Songs Compression",
+      "rating": 1100,
+      "tags": [
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1015/C",
+      "file": "songsCompression",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1669F",
+      "name": "Eating Candies",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "data structures",
+        "greedy",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1669/F",
+      "file": "eatingCandies",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2050C",
+      "name": "Uninteresting Number",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "dp",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2050/C",
+      "file": "uninterestingNumber",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1934B",
+      "name": "Yet Another Coin Problem",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1934/B",
+      "file": "yetAnotherCoinProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2056C",
+      "name": "Palindromic Subsequences",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2056/C",
+      "file": "palindromicSubsequences",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-206",
+      "name": "Reverse Linked List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reverse-linked-list/",
+      "file": "reverseLinkedList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2220",
+      "name": "Minimum Bit Flips to Convert Number",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/",
+      "file": "minimumBitFlipsToConvertNumber",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-599",
+      "name": "Minimum Index Sum of Two Lists",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-index-sum-of-two-lists/",
+      "file": "minimumIndexSumOfTwoLists",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-88",
+      "name": "Merge Sorted Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/merge-sorted-array/",
+      "file": "mergeSortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1379",
+      "name": "Find a Corresponding Node of a Binary Tree in a Clone of That Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/",
+      "file": "findACorrespondingNodeOfABinaryTreeInACloneOfThatTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-671",
+      "name": "Second Minimum Node In a Binary Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/",
+      "file": "secondMinimumNodeInABinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1337",
+      "name": "The K Weakest Rows in a Matrix",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/",
+      "file": "theKWeakestRowsInAMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1945",
+      "name": "Sum of Digits of String After Convert",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sum-of-digits-of-string-after-convert/",
+      "file": "sumOfDigitsOfStringAfterConvert",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-228",
+      "name": "Summary Ranges",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/summary-ranges/",
+      "file": "summaryRanges",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1710",
+      "name": "Maximum Units on a Truck",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-units-on-a-truck/",
+      "file": "maximumUnitsOnATruck",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CK87MEDI",
+      "name": "Chef and Employment Test",
+      "rating": 1142,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CK87MEDI",
+      "file": "chefAndEmploymentTest",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-INVEQ",
+      "name": "Invert And Equalize",
+      "rating": 1102,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/INVEQ",
+      "file": "invertAndEqualize",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLIPPAL",
+      "name": "Palindrome Flipping",
+      "rating": 1173,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLIPPAL",
+      "file": "palindromeFlipping",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PERMOR",
+      "name": "OR Permutation",
+      "rating": 1196,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PERMOR",
+      "file": "oRPermutation",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FSTS",
+      "name": "One Down",
+      "rating": 1119,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FSTS",
+      "file": "oneDown",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MIRRIM",
+      "name": "Magic Mirror",
+      "rating": 1178,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MIRRIM",
+      "file": "magicMirror",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MUFFINS3",
+      "name": "Packaging Cupcakes",
+      "rating": 1023,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MUFFINS3",
+      "file": "packagingCupcakes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PRIMEREVERSE",
+      "name": "Prime Reversal",
+      "rating": 1053,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PRIMEREVERSE",
+      "file": "primeReversal",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PERMCON",
+      "name": "Permutation Construct",
+      "rating": 1166,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PERMCON",
+      "file": "permutationConstruct",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFSTEP",
+      "name": "Chef and Steps",
+      "rating": 1110,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFSTEP",
+      "file": "chefAndSteps",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

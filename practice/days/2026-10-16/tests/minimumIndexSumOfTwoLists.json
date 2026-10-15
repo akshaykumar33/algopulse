@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[[\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"],[\"Piatti\",\"The Grill at Torrey Pines\",\"Hungry Hunter Steakhouse\",\"Shogun\"]]\n[[\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"],[\"KFC\",\"Shogun\",\"Burger King\"]]\n[[\"happy\",\"sad\",\"good\"],[\"sad\",\"happy\",\"good\"]]",
+    "output": "[\"Shogun\"]\n[\"Shogun\"]\n[\"sad\",\"happy\"]"
+  }
+]
