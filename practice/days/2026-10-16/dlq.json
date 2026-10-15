@@ -1,0 +1,172 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-206",
+    "name": "Reverse Linked List",
+    "file": "reverseLinkedList",
+    "tier": "easy",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-15T19:09:41.848Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-206",
+      "name": "Reverse Linked List",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reverse-linked-list/",
+      "file": "reverseLinkedList",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PERMOR",
+    "name": "OR Permutation",
+    "file": "oRPermutation",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-15T19:20:23.766Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PERMOR",
+      "name": "OR Permutation",
+      "rating": 1196,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PERMOR",
+      "file": "oRPermutation",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2056C",
+    "name": "Palindromic Subsequences",
+    "file": "palindromicSubsequences",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-15T19:21:17.723Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2056C",
+      "name": "Palindromic Subsequences",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2056/C",
+      "file": "palindromicSubsequences",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Wrong answer on test 1"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-FSTS",
+    "name": "One Down",
+    "file": "oneDown",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-15T19:25:38.507Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-FSTS",
+      "name": "One Down",
+      "rating": 1119,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FSTS",
+      "file": "oneDown",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1379",
+    "name": "Find a Corresponding Node of a Binary Tree in a Clone of That Tree",
+    "file": "findACorrespondingNodeOfABinaryTreeInACloneOfThatTree",
+    "tier": "easy",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-15T19:25:55.567Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1379",
+      "name": "Find a Corresponding Node of a Binary Tree in a Clone of That Tree",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/",
+      "file": "findACorrespondingNodeOfABinaryTreeInACloneOfThatTree",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MIRRIM",
+    "name": "Magic Mirror",
+    "file": "magicMirror",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-15T19:31:16.800Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MIRRIM",
+      "name": "Magic Mirror",
+      "rating": 1178,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MIRRIM",
+      "file": "magicMirror",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PERMCON",
+    "name": "Permutation Construct",
+    "file": "permutationConstruct",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-15T19:47:00.413Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PERMCON",
+      "name": "Permutation Construct",
+      "rating": 1166,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PERMCON",
+      "file": "permutationConstruct",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]

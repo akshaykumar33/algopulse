@@ -154,6 +154,11 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Boboniu Likes to Color Balls](https://codeforces.com/problemset/problem/1395/A) | `Codeforces` | `1000` | `boboniuLikesToColorBalls.js` | Key algorithmic application from Day 2026-10-15. |
 | [Difference of GCDs](https://codeforces.com/problemset/problem/1708/B) | `Codeforces` | `1100` | `differenceOfGCDs.js` | Key algorithmic application from Day 2026-10-15. |
 | [Division by Two and Permutation](https://codeforces.com/problemset/problem/1624/C) | `Codeforces` | `1100` | `divisionByTwoAndPermutation.js` | Key algorithmic application from Day 2026-10-15. |
+| [GCD Length](https://codeforces.com/problemset/problem/1511/B) | `Codeforces` | `1100` | `gCDLength.js` | Key algorithmic application from Day 2026-10-16. |
+| [Digits](https://codeforces.com/problemset/problem/2043/B) | `Codeforces` | `1100` | `digits.js` | Key algorithmic application from Day 2026-10-16. |
+| [Uninteresting Number](https://codeforces.com/problemset/problem/2050/C) | `Codeforces` | `1200` | `uninterestingNumber.js` | Key algorithmic application from Day 2026-10-16. |
+| [Yet Another Coin Problem](https://codeforces.com/problemset/problem/1934/B) | `Codeforces` | `1200` | `yetAnotherCoinProblem.js` | Key algorithmic application from Day 2026-10-16. |
+| [Palindromic Subsequences](https://codeforces.com/problemset/problem/2056/C) | `Codeforces` | `1200` | `palindromicSubsequences.js` | Key algorithmic application from Day 2026-10-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

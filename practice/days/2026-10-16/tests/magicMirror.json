@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4\n",
+    "output": "EVEN\n"
+  },
+  {
+    "input": "7\n",
+    "output": "ODD\n"
+  }
+]

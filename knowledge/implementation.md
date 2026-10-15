@@ -539,6 +539,27 @@ function solve() {
 | [Sum to 0](https://www.codechef.com/problems/SUM0) | `CodeChef` | `1023` | `sumTo0.js` | Key algorithmic application from Day 2026-10-15. |
 | [Encoding Message](https://www.codechef.com/problems/ENCMSG) | `CodeChef` | `1027` | `encodingMessage.js` | Key algorithmic application from Day 2026-10-15. |
 | [No Odd Sum](https://www.codechef.com/problems/NODDSM) | `CodeChef` | `1041` | `noOddSum.js` | Key algorithmic application from Day 2026-10-15. |
+| [Monsters Attack!](https://codeforces.com/problemset/problem/1923/B) | `Codeforces` | `1100` | `monstersAttack.js` | Key algorithmic application from Day 2026-10-16. |
+| [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | `LeetCode` | `Easy` | `reverseLinkedList.js` | Key algorithmic application from Day 2026-10-16. |
+| [Minimum Bit Flips to Convert Number](https://leetcode.com/problems/minimum-bit-flips-to-convert-number/) | `LeetCode` | `Easy` | `minimumBitFlipsToConvertNumber.js` | Key algorithmic application from Day 2026-10-16. |
+| [Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists/) | `LeetCode` | `Easy` | `minimumIndexSumOfTwoLists.js` | Key algorithmic application from Day 2026-10-16. |
+| [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | `LeetCode` | `Easy` | `mergeSortedArray.js` | Key algorithmic application from Day 2026-10-16. |
+| [Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/) | `LeetCode` | `Easy` | `findACorrespondingNodeOfABinaryTreeInACloneOfThatTree.js` | Key algorithmic application from Day 2026-10-16. |
+| [Second Minimum Node In a Binary Tree](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/) | `LeetCode` | `Easy` | `secondMinimumNodeInABinaryTree.js` | Key algorithmic application from Day 2026-10-16. |
+| [The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) | `LeetCode` | `Easy` | `theKWeakestRowsInAMatrix.js` | Key algorithmic application from Day 2026-10-16. |
+| [Sum of Digits of String After Convert](https://leetcode.com/problems/sum-of-digits-of-string-after-convert/) | `LeetCode` | `Easy` | `sumOfDigitsOfStringAfterConvert.js` | Key algorithmic application from Day 2026-10-16. |
+| [Summary Ranges](https://leetcode.com/problems/summary-ranges/) | `LeetCode` | `Easy` | `summaryRanges.js` | Key algorithmic application from Day 2026-10-16. |
+| [Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/) | `LeetCode` | `Easy` | `maximumUnitsOnATruck.js` | Key algorithmic application from Day 2026-10-16. |
+| [Chef and Employment Test](https://www.codechef.com/problems/CK87MEDI) | `CodeChef` | `1142` | `chefAndEmploymentTest.js` | Key algorithmic application from Day 2026-10-16. |
+| [Invert And Equalize](https://www.codechef.com/problems/INVEQ) | `CodeChef` | `1102` | `invertAndEqualize.js` | Key algorithmic application from Day 2026-10-16. |
+| [Palindrome Flipping](https://www.codechef.com/problems/FLIPPAL) | `CodeChef` | `1173` | `palindromeFlipping.js` | Key algorithmic application from Day 2026-10-16. |
+| [OR Permutation](https://www.codechef.com/problems/PERMOR) | `CodeChef` | `1196` | `oRPermutation.js` | Key algorithmic application from Day 2026-10-16. |
+| [One Down](https://www.codechef.com/problems/FSTS) | `CodeChef` | `1119` | `oneDown.js` | Key algorithmic application from Day 2026-10-16. |
+| [Magic Mirror](https://www.codechef.com/problems/MIRRIM) | `CodeChef` | `1178` | `magicMirror.js` | Key algorithmic application from Day 2026-10-16. |
+| [Packaging Cupcakes](https://www.codechef.com/problems/MUFFINS3) | `CodeChef` | `1023` | `packagingCupcakes.js` | Key algorithmic application from Day 2026-10-16. |
+| [Prime Reversal](https://www.codechef.com/problems/PRIMEREVERSE) | `CodeChef` | `1053` | `primeReversal.js` | Key algorithmic application from Day 2026-10-16. |
+| [Permutation Construct](https://www.codechef.com/problems/PERMCON) | `CodeChef` | `1166` | `permutationConstruct.js` | Key algorithmic application from Day 2026-10-16. |
+| [Chef and Steps](https://www.codechef.com/problems/CHEFSTEP) | `CodeChef` | `1110` | `chefAndSteps.js` | Key algorithmic application from Day 2026-10-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

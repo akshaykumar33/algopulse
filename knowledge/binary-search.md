@@ -95,6 +95,7 @@ function lowerBound(arr, target) {
 | [K-divisible Sum](https://codeforces.com/problemset/problem/1476/A) | `Codeforces` | `1000` | `kDivisibleSum.js` | Key algorithmic application from Day 2026-10-05. |
 | [Eating Queries](https://codeforces.com/problemset/problem/1676/E) | `Codeforces` | `1100` | `eatingQueries.js` | Key algorithmic application from Day 2026-10-09. |
 | [Traffic Light](https://codeforces.com/problemset/problem/1744/C) | `Codeforces` | `1000` | `trafficLight.js` | Key algorithmic application from Day 2026-10-12. |
+| [Eating Candies](https://codeforces.com/problemset/problem/1669/F) | `Codeforces` | `1100` | `eatingCandies.js` | Key algorithmic application from Day 2026-10-16. |
 
 ---
 
