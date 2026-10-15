@@ -1,1 +1,54 @@
-class ListNode {constructor(val, next = null) {this.val = val;this.next = next;}}var middleOfTheLinkedList = function(head) {let s = head;let f = head;while (f && f.next) {s = s.next;f = f.next.next;}return s;};if (require.main === module) {const fs = require('fs');const solve = middleOfTheLinkedList;try {const raw = fs.readFileSync(0, 'utf-8').trim();if (raw) {const lines = raw.split(/\r?\n/).filter(Boolean);for (const line of lines) {try {const parsed = JSON.parse(line);const buildList = (arr) => {let d = new ListNode(0);let c = d;for (let x of arr) {c.next = new ListNode(x);c = c.next;}return d.next;};const listToArray = (h) => {let r = [];let c = h;while (c) {r.push(c.val);c = c.next;}return r;};const inputList = buildList(parsed);const resultNode = solve(inputList);console.log(JSON.stringify(listToArray(resultNode)));} catch {console.log(JSON.stringify(solve(line)));}}}} catch (err) {console.error('Local runner error:', err.message);}}module.exports = middleOfTheLinkedList;
+function LNode(val, next) {
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
+}
+
+var middleNode = function(head) {
+  let s = head;
+  let f = head;
+  while (f && f.next) {
+    s = s.next;
+    f = f.next.next;
+  }
+  return s;
+};
+
+var middleOfTheLinkedList = middleNode;
+
+if (require.main === module) {
+  const fs = require('fs');
+  try {
+    const raw = fs.readFileSync(0, 'utf-8').trim();
+    if (raw) {
+      const lines = raw.split(/\r?\n/).filter(Boolean);
+      for (const line of lines) {
+        let str = line.trim();
+        if (str.includes('=')) {
+          str = str.slice(str.indexOf('=') + 1).trim();
+        }
+        try {
+          const parsed = JSON.parse(str);
+          if (Array.isArray(parsed)) {
+            const d = new LNode(0);
+            let c = d;
+            for (const x of parsed) {
+              c.next = new LNode(x);
+              c = c.next;
+            }
+            let res = middleNode(d.next);
+            const ans = [];
+            while (res) {
+              ans.push(res.val);
+              res = res.next;
+            }
+            console.log(JSON.stringify(ans));
+          }
+        } catch {}
+      }
+    }
+  } catch {}
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = middleNode;
+}

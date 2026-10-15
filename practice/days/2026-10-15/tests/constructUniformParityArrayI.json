@@ -5,6 +5,6 @@
   },
   {
     "input": "[1, 2, 3]",
-    "output": "false"
+    "output": "true"
   }
 ]

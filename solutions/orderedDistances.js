@@ -1,40 +1,53 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (input.length === 0 || input[0] === '') return;
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
   
-  let t = parseInt(input[0]);
-  let lineIdx = 1;
-  let out = [];
-  
-  while (t--) {
-    if (lineIdx >= input.length) break;
-    let n = parseInt(input[lineIdx++]);
-    let x = input[lineIdx++].split(' ').map(Number);
-    let y = input[lineIdx++].split(' ').map(Number);
-    
-    let points = [];
-    for (let i = 0; i < n; i++) {
-      points.push({ x: x[i], y: y[i], id: i + 1 });
+  let ptr = 0;
+  const t = parseInt(input[ptr++], 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(input[ptr++], 10);
+    const x = [];
+    for (let j = 0; j < n; j++) {
+      x.push(parseInt(input[ptr++], 10));
     }
-    
-    points.sort((a, b) => {
-      let distA = a.x * a.x + a.y * a.y;
-      let distB = b.x * b.x + b.y * b.y;
-      if (distA !== distB) {
-        return distA - distB;
+    const y = [];
+    for (let j = 0; j < n; j++) {
+      y.push(parseInt(input[ptr++], 10));
+    }
+
+    let ans = -1;
+    for (let i = 0; i < n; i++) {
+      const p = x[i];
+      const list = [];
+      for (let j = 0; j < n; j++) {
+        list.push([Math.abs(x[j] - p), x[j]]);
       }
-      if (a.x !== b.x) {
-        return a.x - b.x;
+      list.sort((a, b) => {
+        if (a[0] !== b[0]) return a[0] - b[0];
+        return a[1] - b[1];
+      });
+
+      let match = true;
+      for (let j = 0; j < n; j++) {
+        if (list[j][1] !== y[j]) {
+          match = false;
+          break;
+        }
       }
-      return a.id - b.id;
-    });
-    
-    let res = points.map(p => p.id).join(' ');
-    out.push(res);
+
+      if (match) {
+        ans = i + 1;
+        break;
+      }
+    }
+
+    out.push(ans);
   }
-  
+
   console.log(out.join('\n'));
 }
 

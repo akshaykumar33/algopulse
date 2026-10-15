@@ -164,11 +164,12 @@ function sanitizeCodeForSubmission(code, platform = '') {
     cleaned = cleaned.slice(0, harnessIndex);
   }
 
-  // 2. Remove require.main === module runner blocks
-  cleaned = cleaned.replace(/if\s*\(\s*require\.main\s*===\s*module\s*\)[\s\S]*?(?=module\.exports|$)/g, '');
+  // 2. Remove require.main === module runner blocks and subsequent exports
+  cleaned = cleaned.replace(/if\s*\(\s*require\.main\s*===\s*module\s*\)[\s\S]*$/g, '');
 
   // 3. Remove module.exports
   cleaned = cleaned.replace(/module\.exports\s*=\s*[^;\n]+;?/g, '');
+  cleaned = cleaned.replace(/if\s*\(\s*typeof\s+module\s*!==\s*['"]undefined['"]\s*\)[\s\S]*$/g, '');
 
   // 4. Strip all comments
   cleaned = stripComments(cleaned);
