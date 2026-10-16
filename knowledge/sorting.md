@@ -108,6 +108,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Valerii Against Everyone](https://codeforces.com/problemset/problem/1438/B) | `Codeforces` | `1000` | `valeriiAgainstEveryone.js` | Key algorithmic application from Day 2026-10-15. |
 | [Subsequence Addition (Easy Version)](https://codeforces.com/problemset/problem/1807/G1) | `Codeforces` | `1100` | `subsequenceAdditionEasyVersion.js` | Key algorithmic application from Day 2026-10-15. |
 | [Songs Compression](https://codeforces.com/problemset/problem/1015/C) | `Codeforces` | `1100` | `songsCompression.js` | Key algorithmic application from Day 2026-10-16. |
+| [Line](https://codeforces.com/problemset/problem/1722/D) | `Codeforces` | `1100` | `line.js` | Key algorithmic application from Day 2026-10-17. |
+| [BerSU Ball](https://codeforces.com/problemset/problem/489/B) | `Codeforces` | `1200` | `berSUBall.js` | Key algorithmic application from Day 2026-10-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

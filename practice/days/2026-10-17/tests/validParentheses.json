@@ -1,0 +1,30 @@
+[
+  {
+    "input": "\"()\"\n",
+    "output": "true\n"
+  },
+  {
+    "input": "\"()[]{}\"\n",
+    "output": "true\n"
+  },
+  {
+    "input": "\"(]\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"([])\"\n",
+    "output": "true\n"
+  },
+  {
+    "input": "\"([)]\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"{\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"}\"\n",
+    "output": "false\n"
+  }
+]

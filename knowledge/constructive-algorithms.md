@@ -112,6 +112,7 @@ function constructMatrix(n, m) {
 | [AND Reconstruction](https://codeforces.com/problemset/problem/1991/B) | `Codeforces` | `1100` | `aNDReconstruction.js` | Key algorithmic application from Day 2026-10-16. |
 | [Restore the Array](https://codeforces.com/problemset/problem/1811/C) | `Codeforces` | `1100` | `restoreTheArray.js` | Key algorithmic application from Day 2026-10-16. |
 | [Palindromic Subsequences](https://codeforces.com/problemset/problem/2056/C) | `Codeforces` | `1200` | `palindromicSubsequences.js` | Key algorithmic application from Day 2026-10-16. |
+| [Vicious Labyrinth](https://codeforces.com/problemset/problem/2078/B) | `Codeforces` | `1100` | `viciousLabyrinth.js` | Key algorithmic application from Day 2026-10-17. |
 
 ---
 

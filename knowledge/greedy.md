@@ -153,6 +153,11 @@ for (const x of arr) {
 | [Restore the Array](https://codeforces.com/problemset/problem/1811/C) | `Codeforces` | `1100` | `restoreTheArray.js` | Key algorithmic application from Day 2026-10-16. |
 | [Eating Candies](https://codeforces.com/problemset/problem/1669/F) | `Codeforces` | `1100` | `eatingCandies.js` | Key algorithmic application from Day 2026-10-16. |
 | [Yet Another Coin Problem](https://codeforces.com/problemset/problem/1934/B) | `Codeforces` | `1200` | `yetAnotherCoinProblem.js` | Key algorithmic application from Day 2026-10-16. |
+| [Line](https://codeforces.com/problemset/problem/1722/D) | `Codeforces` | `1100` | `line.js` | Key algorithmic application from Day 2026-10-17. |
+| [Subtract Min Sort](https://codeforces.com/problemset/problem/2060/D) | `Codeforces` | `1100` | `subtractMinSort.js` | Key algorithmic application from Day 2026-10-17. |
+| [Vicious Labyrinth](https://codeforces.com/problemset/problem/2078/B) | `Codeforces` | `1100` | `viciousLabyrinth.js` | Key algorithmic application from Day 2026-10-17. |
+| [Niko's Tactical Cards](https://codeforces.com/problemset/problem/2173/B) | `Codeforces` | `1100` | `nikoSTacticalCards.js` | Key algorithmic application from Day 2026-10-17. |
+| [BerSU Ball](https://codeforces.com/problemset/problem/489/B) | `Codeforces` | `1200` | `berSUBall.js` | Key algorithmic application from Day 2026-10-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

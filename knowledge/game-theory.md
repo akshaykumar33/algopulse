@@ -72,6 +72,7 @@ function determineWinner(a, b, c) {
 | [Removals Game](https://codeforces.com/problemset/problem/2002/B) | `Codeforces` | `1000` | `removalsGame.js` | Key algorithmic application from Day 2026-10-09. |
 | [Renako Amaori and XOR Game (easy version)](https://codeforces.com/problemset/problem/2171/C1) | `Codeforces` | `1100` | `renakoAmaoriAndXORGameEasyVersion.js` | Key algorithmic application from Day 2026-10-12. |
 | [Matrix Game](https://codeforces.com/problemset/problem/1365/A) | `Codeforces` | `1100` | `matrixGame.js` | Key algorithmic application from Day 2026-10-12. |
+| [Swap Game](https://codeforces.com/problemset/problem/1747/C) | `Codeforces` | `1200` | `swapGame.js` | Key algorithmic application from Day 2026-10-17. |
 
 ---
 
