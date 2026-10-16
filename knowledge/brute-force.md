@@ -130,6 +130,7 @@ function backtrack(index, currentSum, target, arr) {
 | [Uninteresting Number](https://codeforces.com/problemset/problem/2050/C) | `Codeforces` | `1200` | `uninterestingNumber.js` | Key algorithmic application from Day 2026-10-16. |
 | [Yet Another Coin Problem](https://codeforces.com/problemset/problem/1934/B) | `Codeforces` | `1200` | `yetAnotherCoinProblem.js` | Key algorithmic application from Day 2026-10-16. |
 | [Palindromic Subsequences](https://codeforces.com/problemset/problem/2056/C) | `Codeforces` | `1200` | `palindromicSubsequences.js` | Key algorithmic application from Day 2026-10-16. |
+| [The Clock](https://codeforces.com/problemset/problem/1692/D) | `Codeforces` | `1100` | `theClock.js` | Key algorithmic application from Day 2026-10-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

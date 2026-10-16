@@ -560,6 +560,30 @@ function solve() {
 | [Prime Reversal](https://www.codechef.com/problems/PRIMEREVERSE) | `CodeChef` | `1053` | `primeReversal.js` | Key algorithmic application from Day 2026-10-16. |
 | [Permutation Construct](https://www.codechef.com/problems/PERMCON) | `CodeChef` | `1166` | `permutationConstruct.js` | Key algorithmic application from Day 2026-10-16. |
 | [Chef and Steps](https://www.codechef.com/problems/CHEFSTEP) | `CodeChef` | `1110` | `chefAndSteps.js` | Key algorithmic application from Day 2026-10-16. |
+| [The Clock](https://codeforces.com/problemset/problem/1692/D) | `Codeforces` | `1100` | `theClock.js` | Key algorithmic application from Day 2026-10-17. |
+| [Vicious Labyrinth](https://codeforces.com/problemset/problem/2078/B) | `Codeforces` | `1100` | `viciousLabyrinth.js` | Key algorithmic application from Day 2026-10-17. |
+| [Initial Bet](https://codeforces.com/problemset/problem/478/A) | `Codeforces` | `1100` | `initialBet.js` | Key algorithmic application from Day 2026-10-17. |
+| [Airport](https://codeforces.com/problemset/problem/218/B) | `Codeforces` | `1100` | `airport.js` | Key algorithmic application from Day 2026-10-17. |
+| [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | `LeetCode` | `Easy` | `validParentheses.js` | Key algorithmic application from Day 2026-10-17. |
+| [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | `LeetCode` | `Easy` | `fibonacciNumber.js` | Key algorithmic application from Day 2026-10-17. |
+| [Height Checker](https://leetcode.com/problems/height-checker/) | `LeetCode` | `Easy` | `heightChecker.js` | Key algorithmic application from Day 2026-10-17. |
+| [Remove Element](https://leetcode.com/problems/remove-element/) | `LeetCode` | `Easy` | `removeElement.js` | Key algorithmic application from Day 2026-10-17. |
+| [Maximum Nesting Depth of the Parentheses](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/) | `LeetCode` | `Easy` | `maximumNestingDepthOfTheParentheses.js` | Key algorithmic application from Day 2026-10-17. |
+| [Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/) | `LeetCode` | `Easy` | `runningSumOf1dArray.js` | Key algorithmic application from Day 2026-10-17. |
+| [Count Operations to Obtain Zero](https://leetcode.com/problems/count-operations-to-obtain-zero/) | `LeetCode` | `Easy` | `countOperationsToObtainZero.js` | Key algorithmic application from Day 2026-10-17. |
+| [Find Closest Person](https://leetcode.com/problems/find-closest-person/) | `LeetCode` | `Easy` | `findClosestPerson.js` | Key algorithmic application from Day 2026-10-17. |
+| [Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/) | `LeetCode` | `Easy` | `sumOfAllOddLengthSubarrays.js` | Key algorithmic application from Day 2026-10-17. |
+| [Distribute Elements Into Two Arrays I](https://leetcode.com/problems/distribute-elements-into-two-arrays-i/) | `LeetCode` | `Easy` | `distributeElementsIntoTwoArraysI.js` | Key algorithmic application from Day 2026-10-17. |
+| [Conveyor Belt](https://www.codechef.com/problems/CONVEYOR) | `CodeChef` | `1034` | `conveyorBelt.js` | Key algorithmic application from Day 2026-10-17. |
+| [Infernos](https://www.codechef.com/problems/INFERNO) | `CodeChef` | `1162` | `infernos.js` | Key algorithmic application from Day 2026-10-17. |
+| [Distinct Opposite Sums](https://www.codechef.com/problems/DISTOPPSUMS) | `CodeChef` | `1135` | `distinctOppositeSums.js` | Key algorithmic application from Day 2026-10-17. |
+| [Weeding](https://www.codechef.com/problems/WEEDING) | `CodeChef` | `1119` | `weeding.js` | Key algorithmic application from Day 2026-10-17. |
+| [Equal Strings](https://www.codechef.com/problems/EQUALSTRING) | `CodeChef` | `1092` | `equalStrings.js` | Key algorithmic application from Day 2026-10-17. |
+| [Chocolate Distribution](https://www.codechef.com/problems/CHOCOCHEF) | `CodeChef` | `1104` | `chocolateDistribution.js` | Key algorithmic application from Day 2026-10-17. |
+| [Mark Points](https://www.codechef.com/problems/MARKP) | `CodeChef` | `1064` | `markPoints.js` | Key algorithmic application from Day 2026-10-17. |
+| [Airline Restrictions](https://www.codechef.com/problems/AIRLINE) | `CodeChef` | `1042` | `airlineRestrictions.js` | Key algorithmic application from Day 2026-10-17. |
+| [Covid and Theatre Tickets](https://www.codechef.com/problems/COVID_19) | `CodeChef` | `1077` | `covidAndTheatreTickets.js` | Key algorithmic application from Day 2026-10-17. |
+| [Retrieve the Array](https://www.codechef.com/problems/ARRAYRET) | `CodeChef` | `1193` | `retrieveTheArray.js` | Key algorithmic application from Day 2026-10-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
