@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n4\nRGRG\n5\nBBBBB\n6\nRGBRGB\n",
+    "output": "2\n0\n4\n"
+  }
+]

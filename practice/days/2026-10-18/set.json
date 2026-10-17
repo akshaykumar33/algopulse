@@ -1,0 +1,390 @@
+{
+  "date": "2026-10-18",
+  "day": 24,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1760E",
+      "name": "Binary Inversions",
+      "rating": 1100,
+      "tags": [
+        "data structures",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1760/E",
+      "file": "binaryInversions",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2218D",
+      "name": "The 67th OEIS Problem",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2218/D",
+      "file": "the67thOEISProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2137C",
+      "name": "Maximum Even Sum",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2137/C",
+      "file": "maximumEvenSum",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1914C",
+      "name": "Quests",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1914/C",
+      "file": "quests",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1920B",
+      "name": "Summation Game",
+      "rating": 1100,
+      "tags": [
+        "games",
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1920/B",
+      "file": "summationGame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1633C",
+      "name": "Kill the Monster",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1633/C",
+      "file": "killTheMonster",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2025B",
+      "name": "Binomial Coefficients, Kind Of",
+      "rating": 1100,
+      "tags": [
+        "combinatorics",
+        "dp",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2025/B",
+      "file": "binomialCoefficientsKindOf",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1527B1",
+      "name": "Palindrome Game (easy version)",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1527/B1",
+      "file": "palindromeGameEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "327B",
+      "name": "Hungry Sequence",
+      "rating": 1200,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/327/B",
+      "file": "hungrySequence",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1354B",
+      "name": "Ternary String",
+      "rating": 1200,
+      "tags": [
+        "binary search",
+        "dp",
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1354/B",
+      "file": "ternaryString",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3658",
+      "name": "GCD of Odd and Even Sums",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/gcd-of-odd-and-even-sums/",
+      "file": "gCDOfOddAndEvenSums",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-728",
+      "name": "Self Dividing Numbers",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/self-dividing-numbers/",
+      "file": "selfDividingNumbers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3512",
+      "name": "Minimum Operations to Make Array Sum Divisible by K",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-make-array-sum-divisible-by-k/",
+      "file": "minimumOperationsToMakeArraySumDivisibleByK",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-706",
+      "name": "Design HashMap",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/design-hashmap/",
+      "file": "designHashMap",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-448",
+      "name": "Find All Numbers Disappeared in an Array",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/",
+      "file": "findAllNumbersDisappearedInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-409",
+      "name": "Longest Palindrome",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-palindrome/",
+      "file": "longestPalindrome",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1572",
+      "name": "Matrix Diagonal Sum",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/matrix-diagonal-sum/",
+      "file": "matrixDiagonalSum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3541",
+      "name": "Find Most Frequent Vowel and Consonant",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-most-frequent-vowel-and-consonant/",
+      "file": "findMostFrequentVowelAndConsonant",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3105",
+      "name": "Longest Strictly Increasing or Strictly Decreasing Subarray",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/",
+      "file": "longestStrictlyIncreasingOrStrictlyDecreasingSubarray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-590",
+      "name": "N-ary Tree Postorder Traversal",
+      "rating": "Easy",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/n-ary-tree-postorder-traversal/",
+      "file": "nAryTreePostorderTraversal",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAXADJSUM",
+      "name": "Maximise Adjacent Sum",
+      "rating": 1118,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAXADJSUM",
+      "file": "maximiseAdjacentSum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-S01E01",
+      "name": "The One Where It All Began",
+      "rating": 1106,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/S01E01",
+      "file": "theOneWhereItAllBegan",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-STKSTR",
+      "name": "Streak Star",
+      "rating": 1129,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/STKSTR",
+      "file": "streakStar",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FINALSUM",
+      "name": "Final Sum",
+      "rating": 1145,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FINALSUM",
+      "file": "finalSum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQCARDGAME",
+      "name": "Equal Card Game",
+      "rating": 1058,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQCARDGAME",
+      "file": "equalCardGame",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TRAVELPS",
+      "name": "Travel Pass",
+      "rating": 1118,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TRAVELPS",
+      "file": "travelPass",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COLOR",
+      "name": "Chef And Coloring",
+      "rating": 1148,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COLOR",
+      "file": "chefAndColoring",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FLIPPRE",
+      "name": "Flip Prefix",
+      "rating": 1148,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FLIPPRE",
+      "file": "flipPrefix",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PLACE0110",
+      "name": "Placing 01 And 10",
+      "rating": 1114,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PLACE0110",
+      "file": "placing01And10",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MDL",
+      "name": "Medel",
+      "rating": 1139,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MDL",
+      "file": "medel",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

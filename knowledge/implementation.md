@@ -584,6 +584,28 @@ function solve() {
 | [Airline Restrictions](https://www.codechef.com/problems/AIRLINE) | `CodeChef` | `1042` | `airlineRestrictions.js` | Key algorithmic application from Day 2026-10-17. |
 | [Covid and Theatre Tickets](https://www.codechef.com/problems/COVID_19) | `CodeChef` | `1077` | `covidAndTheatreTickets.js` | Key algorithmic application from Day 2026-10-17. |
 | [Retrieve the Array](https://www.codechef.com/problems/ARRAYRET) | `CodeChef` | `1193` | `retrieveTheArray.js` | Key algorithmic application from Day 2026-10-17. |
+| [Maximum Even Sum](https://codeforces.com/problemset/problem/2137/C) | `Codeforces` | `1100` | `maximumEvenSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [Ternary String](https://codeforces.com/problemset/problem/1354/B) | `Codeforces` | `1200` | `ternaryString.js` | Key algorithmic application from Day 2026-10-18. |
+| [GCD of Odd and Even Sums](https://leetcode.com/problems/gcd-of-odd-and-even-sums/) | `LeetCode` | `Easy` | `gCDOfOddAndEvenSums.js` | Key algorithmic application from Day 2026-10-18. |
+| [Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/) | `LeetCode` | `Easy` | `selfDividingNumbers.js` | Key algorithmic application from Day 2026-10-18. |
+| [Minimum Operations to Make Array Sum Divisible by K](https://leetcode.com/problems/minimum-operations-to-make-array-sum-divisible-by-k/) | `LeetCode` | `Easy` | `minimumOperationsToMakeArraySumDivisibleByK.js` | Key algorithmic application from Day 2026-10-18. |
+| [Design HashMap](https://leetcode.com/problems/design-hashmap/) | `LeetCode` | `Easy` | `designHashMap.js` | Key algorithmic application from Day 2026-10-18. |
+| [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | `LeetCode` | `Easy` | `findAllNumbersDisappearedInAnArray.js` | Key algorithmic application from Day 2026-10-18. |
+| [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) | `LeetCode` | `Easy` | `longestPalindrome.js` | Key algorithmic application from Day 2026-10-18. |
+| [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/) | `LeetCode` | `Easy` | `matrixDiagonalSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [Find Most Frequent Vowel and Consonant](https://leetcode.com/problems/find-most-frequent-vowel-and-consonant/) | `LeetCode` | `Easy` | `findMostFrequentVowelAndConsonant.js` | Key algorithmic application from Day 2026-10-18. |
+| [Longest Strictly Increasing or Strictly Decreasing Subarray](https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/) | `LeetCode` | `Easy` | `longestStrictlyIncreasingOrStrictlyDecreasingSubarray.js` | Key algorithmic application from Day 2026-10-18. |
+| [N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) | `LeetCode` | `Easy` | `nAryTreePostorderTraversal.js` | Key algorithmic application from Day 2026-10-18. |
+| [Maximise Adjacent Sum](https://www.codechef.com/problems/MAXADJSUM) | `CodeChef` | `1118` | `maximiseAdjacentSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [The One Where It All Began](https://www.codechef.com/problems/S01E01) | `CodeChef` | `1106` | `theOneWhereItAllBegan.js` | Key algorithmic application from Day 2026-10-18. |
+| [Streak Star](https://www.codechef.com/problems/STKSTR) | `CodeChef` | `1129` | `streakStar.js` | Key algorithmic application from Day 2026-10-18. |
+| [Final Sum](https://www.codechef.com/problems/FINALSUM) | `CodeChef` | `1145` | `finalSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [Equal Card Game](https://www.codechef.com/problems/EQCARDGAME) | `CodeChef` | `1058` | `equalCardGame.js` | Key algorithmic application from Day 2026-10-18. |
+| [Travel Pass](https://www.codechef.com/problems/TRAVELPS) | `CodeChef` | `1118` | `travelPass.js` | Key algorithmic application from Day 2026-10-18. |
+| [Chef And Coloring](https://www.codechef.com/problems/COLOR) | `CodeChef` | `1148` | `chefAndColoring.js` | Key algorithmic application from Day 2026-10-18. |
+| [Flip Prefix](https://www.codechef.com/problems/FLIPPRE) | `CodeChef` | `1148` | `flipPrefix.js` | Key algorithmic application from Day 2026-10-18. |
+| [Placing 01 And 10](https://www.codechef.com/problems/PLACE0110) | `CodeChef` | `1114` | `placing01And10.js` | Key algorithmic application from Day 2026-10-18. |
+| [Medel](https://www.codechef.com/problems/MDL) | `CodeChef` | `1139` | `medel.js` | Key algorithmic application from Day 2026-10-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

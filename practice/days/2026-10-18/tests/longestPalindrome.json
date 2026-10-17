@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abccccdd\"",
+    "output": "7"
+  },
+  {
+    "input": "\"a\"",
+    "output": "1"
+  }
+]

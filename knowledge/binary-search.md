@@ -97,6 +97,7 @@ function lowerBound(arr, target) {
 | [Traffic Light](https://codeforces.com/problemset/problem/1744/C) | `Codeforces` | `1000` | `trafficLight.js` | Key algorithmic application from Day 2026-10-12. |
 | [Eating Candies](https://codeforces.com/problemset/problem/1669/F) | `Codeforces` | `1100` | `eatingCandies.js` | Key algorithmic application from Day 2026-10-16. |
 | [Fear of the Dark](https://codeforces.com/problemset/problem/1886/B) | `Codeforces` | `1200` | `fearOfTheDark.js` | Key algorithmic application from Day 2026-10-17. |
+| [Ternary String](https://codeforces.com/problemset/problem/1354/B) | `Codeforces` | `1200` | `ternaryString.js` | Key algorithmic application from Day 2026-10-18. |
 
 ---
 
