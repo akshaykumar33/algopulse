@@ -131,6 +131,8 @@ function backtrack(index, currentSum, target, arr) {
 | [Yet Another Coin Problem](https://codeforces.com/problemset/problem/1934/B) | `Codeforces` | `1200` | `yetAnotherCoinProblem.js` | Key algorithmic application from Day 2026-10-16. |
 | [Palindromic Subsequences](https://codeforces.com/problemset/problem/2056/C) | `Codeforces` | `1200` | `palindromicSubsequences.js` | Key algorithmic application from Day 2026-10-16. |
 | [The Clock](https://codeforces.com/problemset/problem/1692/D) | `Codeforces` | `1100` | `theClock.js` | Key algorithmic application from Day 2026-10-17. |
+| [Maximum Even Sum](https://codeforces.com/problemset/problem/2137/C) | `Codeforces` | `1100` | `maximumEvenSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [Kill the Monster](https://codeforces.com/problemset/problem/1633/C) | `Codeforces` | `1100` | `killTheMonster.js` | Key algorithmic application from Day 2026-10-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

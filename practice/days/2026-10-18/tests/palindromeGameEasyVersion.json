@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n3\n000\n4\n1010\n2\n00\n",
+    "output": "ALICE\nBOB\nBOB\n"
+  }
+]

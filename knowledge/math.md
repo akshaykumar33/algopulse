@@ -162,6 +162,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Vicious Labyrinth](https://codeforces.com/problemset/problem/2078/B) | `Codeforces` | `1100` | `viciousLabyrinth.js` | Key algorithmic application from Day 2026-10-17. |
 | [Niko's Tactical Cards](https://codeforces.com/problemset/problem/2173/B) | `Codeforces` | `1100` | `nikoSTacticalCards.js` | Key algorithmic application from Day 2026-10-17. |
 | [Fear of the Dark](https://codeforces.com/problemset/problem/1886/B) | `Codeforces` | `1200` | `fearOfTheDark.js` | Key algorithmic application from Day 2026-10-17. |
+| [Binary Inversions](https://codeforces.com/problemset/problem/1760/E) | `Codeforces` | `1100` | `binaryInversions.js` | Key algorithmic application from Day 2026-10-18. |
+| [The 67th OEIS Problem](https://codeforces.com/problemset/problem/2218/D) | `Codeforces` | `1100` | `the67thOEISProblem.js` | Key algorithmic application from Day 2026-10-18. |
+| [Maximum Even Sum](https://codeforces.com/problemset/problem/2137/C) | `Codeforces` | `1100` | `maximumEvenSum.js` | Key algorithmic application from Day 2026-10-18. |
+| [Quests](https://codeforces.com/problemset/problem/1914/C) | `Codeforces` | `1100` | `quests.js` | Key algorithmic application from Day 2026-10-18. |
+| [Summation Game](https://codeforces.com/problemset/problem/1920/B) | `Codeforces` | `1100` | `summationGame.js` | Key algorithmic application from Day 2026-10-18. |
+| [Kill the Monster](https://codeforces.com/problemset/problem/1633/C) | `Codeforces` | `1100` | `killTheMonster.js` | Key algorithmic application from Day 2026-10-18. |
+| [Binomial Coefficients, Kind Of](https://codeforces.com/problemset/problem/2025/B) | `Codeforces` | `1100` | `binomialCoefficientsKindOf.js` | Key algorithmic application from Day 2026-10-18. |
+| [Hungry Sequence](https://codeforces.com/problemset/problem/327/B) | `Codeforces` | `1200` | `hungrySequence.js` | Key algorithmic application from Day 2026-10-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -85,6 +85,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Traffic Light](https://codeforces.com/problemset/problem/1744/C) | `Codeforces` | `1000` | `trafficLight.js` | Key algorithmic application from Day 2026-10-12. |
 | [Eating Candies](https://codeforces.com/problemset/problem/1669/F) | `Codeforces` | `1100` | `eatingCandies.js` | Key algorithmic application from Day 2026-10-16. |
 | [BerSU Ball](https://codeforces.com/problemset/problem/489/B) | `Codeforces` | `1200` | `berSUBall.js` | Key algorithmic application from Day 2026-10-17. |
+| [Ternary String](https://codeforces.com/problemset/problem/1354/B) | `Codeforces` | `1200` | `ternaryString.js` | Key algorithmic application from Day 2026-10-18. |
 
 ---
 
