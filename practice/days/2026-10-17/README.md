@@ -13,8 +13,8 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 
 | # | Platform | Done | Problem | Rating / Difficulty | Solution File | Template | Explanations & Diagrams |
 |---|:---:|:---:|---|:---:|---|---|:---:|
-| 1 | `Codeforces` | [ ] | [1692D — The Clock](https://codeforces.com/problemset/problem/1692/D) | 1100 | `theClock.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/theClock.md) |
-| 2 | `Codeforces` | [ ] | [1722D — Line](https://codeforces.com/problemset/problem/1722/D) | 1100 | `line.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/line.md) |
+| 1 | `Codeforces` | [x] | [1692D — The Clock](https://codeforces.com/problemset/problem/1692/D) | 1100 | `theClock.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/theClock.md) |
+| 2 | `Codeforces` | [x] | [1722D — Line](https://codeforces.com/problemset/problem/1722/D) | 1100 | `line.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/line.md) |
 | 3 | `Codeforces` | [x] | [2060D — Subtract Min Sort](https://codeforces.com/problemset/problem/2060/D) | 1100 | `subtractMinSort.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/subtractMinSort.md) |
 | 4 | `Codeforces` | [x] | [2078B — Vicious Labyrinth](https://codeforces.com/problemset/problem/2078/B) | 1100 | `viciousLabyrinth.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/viciousLabyrinth.md) |
 | 5 | `Codeforces` | [x] | [2173B — Niko's Tactical Cards](https://codeforces.com/problemset/problem/2173/B) | 1100 | `nikoSTacticalCards.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/nikoSTacticalCards.md) |

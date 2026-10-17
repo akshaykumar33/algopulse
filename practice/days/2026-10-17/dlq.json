@@ -1,0 +1,129 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-CONVEYOR",
+    "name": "Conveyor Belt",
+    "file": "conveyorBelt",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-17T07:00:02.868Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CONVEYOR",
+      "name": "Conveyor Belt",
+      "rating": 1034,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CONVEYOR",
+      "file": "conveyorBelt",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-17T09:02:13.901Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-INFERNO",
+    "name": "Infernos",
+    "file": "infernos",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-17T07:05:56.423Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-INFERNO",
+      "name": "Infernos",
+      "rating": 1162,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/INFERNO",
+      "file": "infernos",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-17T09:02:13.901Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2173B",
+    "name": "Niko's Tactical Cards",
+    "file": "nikoSTacticalCards",
+    "tier": "easy",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-17T07:12:51.054Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2173B",
+      "name": "Niko's Tactical Cards",
+      "rating": 1100,
+      "tags": [
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2173/B",
+      "file": "nikoSTacticalCards",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-17T09:02:13.901Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHOCOCHEF",
+    "name": "Chocolate Distribution",
+    "file": "chocolateDistribution",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-17T07:22:09.711Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHOCOCHEF",
+      "name": "Chocolate Distribution",
+      "rating": 1104,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHOCOCHEF",
+      "file": "chocolateDistribution",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-17T09:02:13.901Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MARKP",
+    "name": "Mark Points",
+    "file": "markPoints",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-17T07:28:19.097Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MARKP",
+      "name": "Mark Points",
+      "rating": 1064,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MARKP",
+      "file": "markPoints",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-17T09:02:13.901Z"
+  }
+]

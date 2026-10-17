@@ -1,26 +1,43 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
-    let t = parseInt(lines[0], 10);
-    let idx = 1;
-    let out = [];
-    while (t--) {
-        let n = parseInt(lines[idx++], 10);
-        let arr = lines[idx++].split(/\s+/).map(Number);
-        let maxVal = 0;
-        let sumSec = 0;
-        for (let i = 0; i < n; i++) {
-            if (arr[i] > maxVal) {
-                maxVal = arr[i];
-            }
-            sumSec += Math.ceil(arr[i] / 2);
-        }
-        let ans = Math.min(maxVal, sumSec);
-        out.push(ans);
+  const input = fs.readFileSync(0, 'utf-8');
+  let pos = 0;
+
+  function nextToken() {
+    while (pos < input.length && input.charCodeAt(pos) <= 32) {
+      pos++;
     }
-    console.log(out.join('\n'));
+    if (pos >= input.length) return null;
+    const start = pos;
+    while (pos < input.length && input.charCodeAt(pos) > 32) {
+      pos++;
+    }
+    return input.slice(start, pos);
+  }
+
+  const tStr = nextToken();
+  if (!tStr) return;
+  const t = parseInt(tStr, 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(nextToken(), 10);
+    const x = parseInt(nextToken(), 10);
+
+    let maxVal = 0;
+    let singleTime = 0;
+
+    for (let i = 0; i < n; i++) {
+      const h = parseInt(nextToken(), 10);
+      if (h > maxVal) maxVal = h;
+      singleTime += Math.ceil(h / x);
+    }
+
+    out.push(Math.min(maxVal, singleTime));
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();
