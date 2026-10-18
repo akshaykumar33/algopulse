@@ -50,7 +50,7 @@ async function checkAuth(page) {
 /**
  * Submits solution code to Codeforces and waits for verdict
  */
-async function submitCodeforces(page, problem, code, { filePath, timeout = 60000 } = {}) {
+async function submitCodeforces(page, problem, code, { filePath, timeout = 45000 } = {}) {
   const parsed = parseCodeforcesId(problem);
   if (!parsed) {
     throw new Error(`Unable to parse Codeforces contest ID and index from: ${problem.id || problem.url}`);

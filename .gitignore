@@ -44,6 +44,8 @@ practice/days/*/submissions.json
 submissions.json
 practice/days/*/.done
 .done
+practice/.pause
+.pause
 
 
 # Local TTS service environment and model cache

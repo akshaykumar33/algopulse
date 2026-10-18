@@ -6,7 +6,9 @@
 
 const { chromium } = require('playwright');
 const fs = require('fs');
-const { execSync } = require('child_process');
+const path = require('path');
+const http = require('http');
+const { spawn, execSync } = require('child_process');
 const {
   getBrowserChannel,
   SYSTEM_CHROME_USER_DATA_DIR,
@@ -143,9 +145,7 @@ async function launchPersistentBrowserContext({
   return context;
 }
 
-const http = require('http');
-const path = require('path');
-const { spawn } = require('child_process');
+
 
 /**
  * Checks if Chrome DevTools Protocol endpoint is reachable on the given port
@@ -191,11 +191,14 @@ async function cleanupBlockingInternalTabs(port = 9222) {
       res.on('end', async () => {
         try {
           const targets = JSON.parse(data);
-          const blocking = targets.filter((t) => t.url && t.url.startsWith('chrome://newtab'));
-          for (const t of blocking) {
-            await new Promise((r) => {
-              http.get(`http://127.0.0.1:${port}/json/close/${t.id}`, () => r()).on('error', () => r());
-            });
+          const nonInternal = targets.filter((t) => t.url && !t.url.startsWith('chrome://'));
+          if (nonInternal.length > 0) {
+            const blocking = targets.filter((t) => t.url && (t.url.startsWith('chrome://newtab') || t.url.startsWith('chrome://new-tab-page')));
+            for (const t of blocking) {
+              await new Promise((r) => {
+                http.get(`http://127.0.0.1:${port}/json/close/${t.id}`, () => r()).on('error', () => r());
+              });
+            }
           }
         } catch {}
         resolve();
@@ -208,7 +211,6 @@ async function cleanupBlockingInternalTabs(port = 9222) {
  * Connects directly to an already running Chrome browser via Chrome DevTools Protocol (CDP)
  */
 async function connectOverCDP({ port = 9222 } = {}) {
-  await cleanupBlockingInternalTabs(port);
   const endpoint = `http://127.0.0.1:${port}`;
   return await chromium.connectOverCDP(endpoint);
 }
