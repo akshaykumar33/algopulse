@@ -1,0 +1,26 @@
+[
+  {
+    "input": "123\n",
+    "output": "3\n"
+  },
+  {
+    "input": "5\n",
+    "output": "1\n"
+  },
+  {
+    "input": "100000\n",
+    "output": "6\n"
+  },
+  {
+    "input": "999999999\n",
+    "output": "9\n"
+  },
+  {
+    "input": "1\n",
+    "output": "1\n"
+  },
+  {
+    "input": "10\n",
+    "output": "2\n"
+  }
+]
