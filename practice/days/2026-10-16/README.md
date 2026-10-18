@@ -13,12 +13,12 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 
 | # | Platform | Done | Problem | Rating / Difficulty | Solution File | Template | Explanations & Diagrams |
 |---|:---:|:---:|---|:---:|---|---|:---:|
-| 1 | `Codeforces` | [ ] | [1511B — GCD Length](https://codeforces.com/problemset/problem/1511/B) | 1100 | `gCDLength.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/gCDLength.md) |
-| 2 | `Codeforces` | [ ] | [1991B — AND Reconstruction](https://codeforces.com/problemset/problem/1991/B) | 1100 | `aNDReconstruction.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/aNDReconstruction.md) |
+| 1 | `Codeforces` | [x] | [1511B — GCD Length](https://codeforces.com/problemset/problem/1511/B) | 1100 | `gCDLength.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/gCDLength.md) |
+| 2 | `Codeforces` | [x] | [1991B — AND Reconstruction](https://codeforces.com/problemset/problem/1991/B) | 1100 | `aNDReconstruction.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/aNDReconstruction.md) |
 | 3 | `Codeforces` | [ ] | [1923B — Monsters Attack!](https://codeforces.com/problemset/problem/1923/B) | 1100 | `monstersAttack.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/monstersAttack.md) |
 | 4 | `Codeforces` | [x] | [1811C — Restore the Array](https://codeforces.com/problemset/problem/1811/C) | 1100 | `restoreTheArray.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/restoreTheArray.md) |
-| 5 | `Codeforces` | [ ] | [2043B — Digits](https://codeforces.com/problemset/problem/2043/B) | 1100 | `digits.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/digits.md) |
-| 6 | `Codeforces` | [ ] | [1015C — Songs Compression](https://codeforces.com/problemset/problem/1015/C) | 1100 | `songsCompression.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/songsCompression.md) |
+| 5 | `Codeforces` | [x] | [2043B — Digits](https://codeforces.com/problemset/problem/2043/B) | 1100 | `digits.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/digits.md) |
+| 6 | `Codeforces` | [x] | [1015C — Songs Compression](https://codeforces.com/problemset/problem/1015/C) | 1100 | `songsCompression.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/songsCompression.md) |
 | 7 | `Codeforces` | [ ] | [1669F — Eating Candies](https://codeforces.com/problemset/problem/1669/F) | 1100 | `eatingCandies.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/eatingCandies.md) |
 | 8 | `Codeforces` | [ ] | [2050C — Uninteresting Number](https://codeforces.com/problemset/problem/2050/C) | 1200 | `uninterestingNumber.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/uninterestingNumber.md) |
 | 9 | `Codeforces` | [x] | [1934B — Yet Another Coin Problem](https://codeforces.com/problemset/problem/1934/B) | 1200 | `yetAnotherCoinProblem.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/yetAnotherCoinProblem.md) |

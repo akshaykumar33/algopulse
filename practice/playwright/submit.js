@@ -16,6 +16,21 @@ const { authenticatePlatform } = require('./auth');
 const { sanitizeCodeForSubmission } = require('./sanitize');
 const { syncSessionsFromEnv } = require('./envAuth');
 
+const PAUSE_FILE = path.join(REPO_ROOT, 'practice', '.pause');
+
+function isProcessPaused() {
+  return fs.existsSync(PAUSE_FILE);
+}
+
+async function waitIfPaused(tag = '[runner]') {
+  if (!isProcessPaused()) return;
+  console.log(`\n⏸️  ${tag} Process paused via Monitor Dashboard. Waiting for Play (Resume)...`);
+  while (isProcessPaused()) {
+    await new Promise((r) => setTimeout(r, 800));
+  }
+  console.log(`▶️  ${tag} Process resumed! Continuing execution...\n`);
+}
+
 let ai = null;
 try {
   ai = require('../ai');
@@ -158,6 +173,15 @@ function getProblemStatus(problem, historicalSubmissions = [], dayDir = null) {
 
   if (match) {
     const attempts = match.attempts || (Array.isArray(match.history) ? match.history.length + 1 : 1);
+    const isPending = /pending|in queue|judging|testing/i.test(match.verdict || '');
+    if (isPending) {
+      return {
+        status: 'PENDING',
+        attempts,
+        latestRecord: match,
+        acceptedRecord: null,
+      };
+    }
     return {
       status: 'FAILED',
       attempts,
@@ -297,7 +321,8 @@ function printSubmissionStatus(problems, historicalSubmissions, date, dayDir) {
       pendingCount++;
       platformStats[platKey].pending++;
       statusBadge = '⏳ PENDING';
-      verdictText = 'Not attempted';
+      verdictText = statusInfo.latestRecord?.verdict || 'Not attempted';
+      urlOrDetails = statusInfo.latestRecord?.submissionUrl || (statusInfo.latestRecord?.submissionId ? `#${statusInfo.latestRecord.submissionId}` : '-');
     }
 
     rows.push({
@@ -744,15 +769,26 @@ function formatTimeRemaining(ms) {
  */
 async function sleepWithCountdown(ms, description = 'Cooling down before next submission') {
   if (ms <= 0) return;
-  const start = Date.now();
-  const end = start + ms;
+  let remaining = ms;
 
   console.log(`\n⏳ [human-pacing] ${description}`);
   console.log(`   Pacing interval: ${(ms / 60000).toFixed(1)} mins (${Math.round(ms / 1000)}s) to maintain authentic human submission pattern.`);
 
   return new Promise((resolve) => {
-    const update = () => {
-      const remaining = end - Date.now();
+    let pausedNotified = false;
+    const timer = setInterval(() => {
+      if (isProcessPaused()) {
+        if (!pausedNotified) {
+          process.stdout.write(`\r   ⏸️  Pacing paused via Monitor Dashboard. Waiting for Play (Resume)...   `);
+          pausedNotified = true;
+        }
+        return;
+      }
+      if (pausedNotified) {
+        pausedNotified = false;
+        process.stdout.write(`\r   ▶️  Pacing resumed! Continuing countdown...                            \n`);
+      }
+      remaining -= 1000;
       if (remaining <= 0) {
         clearInterval(timer);
         process.stdout.write(`\r   ✓ Cooldown complete (00:00). Proceeding now!                           \n\n`);
@@ -760,9 +796,7 @@ async function sleepWithCountdown(ms, description = 'Cooling down before next su
       } else {
         process.stdout.write(`\r   ⏳ Pacing pause: ${formatTimeRemaining(remaining)} remaining ...   `);
       }
-    };
-    const timer = setInterval(update, 1000);
-    update();
+    }, 1000);
   });
 }
 
@@ -890,7 +924,12 @@ async function submitWithAutoFix(prob, options) {
     return res;
   }
 
-  if (res.verdict === 'NO_SOLUTION_FILE' || res.verdict === 'NOT_AUTHENTICATED' || res.verdict === 'UNSUPPORTED_PLATFORM') {
+  if (
+    res.verdict === 'NO_SOLUTION_FILE' ||
+    res.verdict === 'NOT_AUTHENTICATED' ||
+    res.verdict === 'UNSUPPORTED_PLATFORM' ||
+    /pending|in queue|judging/i.test(res.verdict || '')
+  ) {
     return res;
   }
 
@@ -961,6 +1000,7 @@ async function processPlatformQueue(platKey, queue, options) {
 
   // --- PHASE 1: MAIN QUEUE ---
   for (const [idx, prob] of queue.entries()) {
+    await waitIfPaused(tag);
     const tier = getProblemDifficultyTier(prob);
     console.log(`\n${tag} (${idx + 1}/${queue.length}) [Difficulty: ${tier.toUpperCase()}] Processing: ${prob.name} (${prob.id}) ...`);
     const res = await submitWithAutoFix(prob, options);
@@ -968,13 +1008,18 @@ async function processPlatformQueue(platKey, queue, options) {
 
     if (options.submissionsLogPath) {
       try {
-        const curLog = mergeSubmissions(options.historicalSubmissions || [], queueResults);
+        let onDisk = [];
+        if (fs.existsSync(options.submissionsLogPath)) {
+          try { onDisk = JSON.parse(fs.readFileSync(options.submissionsLogPath, 'utf-8')); } catch {}
+        }
+        const curLog = mergeSubmissions(onDisk, queueResults);
         fs.writeFileSync(options.submissionsLogPath, JSON.stringify(curLog, null, 2) + '\n', 'utf-8');
       } catch {}
     }
 
     const isAccepted = isVerdictAccepted(res);
-    if (!isAccepted) {
+    const isQueued = /pending|in queue|judging/i.test(res.verdict || '');
+    if (!isAccepted && !isQueued) {
       if (options.haltOnFail) {
         console.log(`\n⛔ ${tag} [submit] STOPPING queue: Problem "${prob.name}" (${prob.id}) was not accepted (${res.verdict || 'Failed'}).`);
         console.log(`   Worker paused to prevent spamming live judge (--halt-on-fail active).`);
@@ -1003,6 +1048,7 @@ async function processPlatformQueue(platKey, queue, options) {
     }
 
     if (idx < queue.length - 1) {
+      await waitIfPaused(tag);
       const nextProb = queue[idx + 1];
       const nextTier = getProblemDifficultyTier(nextProb);
       const waitMs = calculateDifficultyCooldown(prob, nextProb, process.argv.slice(2));
@@ -1021,6 +1067,7 @@ async function processPlatformQueue(platKey, queue, options) {
     console.log(`================================================================\n`);
 
     for (const [dIdx, item] of dlq.entries()) {
+      await waitIfPaused(tag);
       const prob = item.problem;
       const debugPauseMs = options.isFast
         ? 3000
@@ -1043,7 +1090,11 @@ async function processPlatformQueue(platKey, queue, options) {
 
       if (options.submissionsLogPath) {
         try {
-          const curLog = mergeSubmissions(options.historicalSubmissions || [], queueResults);
+          let onDisk = [];
+          if (fs.existsSync(options.submissionsLogPath)) {
+            try { onDisk = JSON.parse(fs.readFileSync(options.submissionsLogPath, 'utf-8')); } catch {}
+          }
+          const curLog = mergeSubmissions(onDisk, queueResults);
           fs.writeFileSync(options.submissionsLogPath, JSON.stringify(curLog, null, 2) + '\n', 'utf-8');
         } catch {}
       }
@@ -1085,6 +1136,23 @@ async function main() {
   const date = flag('--date') || days[days.length - 1];
   const dayDir = path.join(PRACTICE_DAYS_DIR, date);
   const setPath = path.join(dayDir, 'set.json');
+
+  const dayLiveLog = path.join(dayDir, 'live.log');
+  const globalLiveLog = path.join(REPO_ROOT, 'practice', 'live.log');
+  const origStdoutWrite = process.stdout.write.bind(process.stdout);
+  const origStderrWrite = process.stderr.write.bind(process.stderr);
+  try {
+    const logStream = fs.createWriteStream(dayLiveLog, { flags: 'a' });
+    const globalLogStream = fs.createWriteStream(globalLiveLog, { flags: 'w' });
+    process.stdout.write = (chunk, encoding, cb) => {
+      origStdoutWrite(chunk, encoding, cb);
+      try { logStream.write(chunk); globalLogStream.write(chunk); } catch {}
+    };
+    process.stderr.write = (chunk, encoding, cb) => {
+      origStderrWrite(chunk, encoding, cb);
+      try { logStream.write(chunk); globalLogStream.write(chunk); } catch {}
+    };
+  } catch {}
 
   if (!fs.existsSync(setPath)) {
     console.error(`[submit] No set.json found for day ${date}`);
@@ -1311,6 +1379,7 @@ async function main() {
       // Sequential single queue
       const dlq = [];
       for (const [idx, prob] of problems.entries()) {
+        await waitIfPaused('[runner]');
         const tier = getProblemDifficultyTier(prob);
         console.log(`\n================================================================`);
         console.log(`[${idx + 1}/${problems.length}] [Difficulty: ${tier.toUpperCase()}] Processing [${prob.platform}] ${prob.name} (${prob.id}) ...`);
@@ -1324,7 +1393,8 @@ async function main() {
         fs.writeFileSync(submissionsLogPath, JSON.stringify(incrementalLog, null, 2) + '\n', 'utf-8');
 
         const isAccepted = isVerdictAccepted(res);
-        if (!isAccepted) {
+        const isQueued = /pending|in queue|judging/i.test(res.verdict || '');
+        if (!isAccepted && !isQueued) {
           if (haltOnFail) {
             console.log(`\n⛔ [submit] STOPPING: Problem "${prob.name}" (${prob.id}) was not accepted on ${prob.platform} (${res.verdict || 'Failed'}).`);
             console.log(`   To protect your live account reputation and avoid spamming failed submissions, execution has paused.`);
@@ -1407,8 +1477,10 @@ async function main() {
       }
     }
   } finally {
-    if (browser) await browser.close().catch(() => {});
-    if (persistentContext) await persistentContext.close().catch(() => {});
+    if (!useCdp) {
+      if (browser) await browser.close().catch(() => {});
+      if (persistentContext) await persistentContext.close().catch(() => {});
+    }
   }
 
   // Save submissions log (deduplicated by platform and problem)
@@ -1444,11 +1516,17 @@ async function main() {
     console.log('\n================================================================\n');
   }
 
+  if (fs.existsSync(PAUSE_FILE)) {
+    try { fs.unlinkSync(PAUSE_FILE); } catch {}
+  }
   process.exit(0);
 }
 
 if (require.main === module) {
   main().catch((err) => {
+    if (fs.existsSync(PAUSE_FILE)) {
+      try { fs.unlinkSync(PAUSE_FILE); } catch {}
+    }
     console.error(`[submit] Fatal error: ${err.message}`);
     process.exit(1);
   });
