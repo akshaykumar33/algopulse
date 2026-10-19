@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-19",
+  "day": 25,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1867B",
+      "name": "XOR Palindromes",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1867/B",
+      "file": "xORPalindromes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2050B",
+      "name": "Transfusion",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2050/B",
+      "file": "transfusion",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2138A",
+      "name": "Cake Assignment",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2138/A",
+      "file": "cakeAssignment",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1797B",
+      "name": "Li Hua and Pattern",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1797/B",
+      "file": "liHuaAndPattern",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1741C",
+      "name": "Minimize the Thickness",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1741/C",
+      "file": "minimizeTheThickness",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1366A",
+      "name": "Shovels and Swords",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1366/A",
+      "file": "shovelsAndSwords",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "365A",
+      "name": "Good Number",
+      "rating": 1100,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/365/A",
+      "file": "goodNumber",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2065D",
+      "name": "Skibidus and Sigma",
+      "rating": 1200,
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2065/D",
+      "file": "skibidusAndSigma",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2019B",
+      "name": "All Pairs Segments",
+      "rating": 1200,
+      "tags": [
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2019/B",
+      "file": "allPairsSegments",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1385C",
+      "name": "Make It Good",
+      "rating": 1200,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1385/C",
+      "file": "makeItGood",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-59",
+      "name": "Spiral Matrix II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/spiral-matrix-ii/",
+      "file": "spiralMatrixII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-743",
+      "name": "Network Delay Time",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/network-delay-time/",
+      "file": "networkDelayTime",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-45",
+      "name": "Jump Game II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/jump-game-ii/",
+      "file": "jumpGameII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-785",
+      "name": "Is Graph Bipartite?",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/is-graph-bipartite/",
+      "file": "isGraphBipartite",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-442",
+      "name": "Find All Duplicates in an Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-all-duplicates-in-an-array/",
+      "file": "findAllDuplicatesInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-82",
+      "name": "Remove Duplicates from Sorted List II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
+      "file": "removeDuplicatesFromSortedListII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-34",
+      "name": "Find First and Last Position of Element in Sorted Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+      "file": "findFirstAndLastPositionOfElementInSortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-210",
+      "name": "Course Schedule II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/course-schedule-ii/",
+      "file": "courseScheduleII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-50",
+      "name": "Pow(x, n)",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/powx-n/",
+      "file": "powXN",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-230",
+      "name": "Kth Smallest Element in a BST",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+      "file": "kthSmallestElementInABST",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-USELEC",
+      "name": "Elections",
+      "rating": 1133,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/USELEC",
+      "file": "elections",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MXALT",
+      "name": "Maximum Alternating Sum",
+      "rating": 1111,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MXALT",
+      "file": "maximumAlternatingSum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SUPINC",
+      "name": "Superincreasing",
+      "rating": 1201,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUPINC",
+      "file": "superincreasing",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GIFTSRC",
+      "name": "Find Your Gift",
+      "rating": 1157,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GIFTSRC",
+      "file": "findYourGift",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-STUDVOTE",
+      "name": "Drumpf for President!",
+      "rating": 1205,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/STUDVOTE",
+      "file": "drumpfForPresident",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-THREEBOX",
+      "name": "Three Boxes",
+      "rating": 1183,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/THREEBOX",
+      "file": "threeBoxes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DSCPPAS266",
+      "name": "Reduce to Single Element Array",
+      "rating": 1150,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DSCPPAS266",
+      "file": "reduceToSingleElementArray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PRINTINGBIN",
+      "name": "Printing Binary Array",
+      "rating": 1130,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PRINTINGBIN",
+      "file": "printingBinaryArray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHFM",
+      "name": "Chef and Mean  ",
+      "rating": 1229,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHFM",
+      "file": "chefAndMean",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADADISH",
+      "name": "Ada and Dishes",
+      "rating": 1237,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADADISH",
+      "file": "adaAndDishes",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

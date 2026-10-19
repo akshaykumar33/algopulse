@@ -113,6 +113,7 @@ function isPalindrome(s) {
 | [Shuffle Hashing](https://codeforces.com/problemset/problem/1278/A) | `Codeforces` | `1000` | `shuffleHashing.js` | Key algorithmic application from Day 2026-10-14. |
 | [Diverse Substring](https://codeforces.com/problemset/problem/1073/A) | `Codeforces` | `1000` | `diverseSubstring.js` | Key algorithmic application from Day 2026-10-14. |
 | [Double-ended Strings](https://codeforces.com/problemset/problem/1506/C) | `Codeforces` | `1000` | `doubleEndedStrings.js` | Key algorithmic application from Day 2026-10-14. |
+| [XOR Palindromes](https://codeforces.com/problemset/problem/1867/B) | `Codeforces` | `1100` | `xORPalindromes.js` | Key algorithmic application from Day 2026-10-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
