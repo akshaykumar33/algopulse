@@ -1,30 +1,28 @@
-const solve = () => {
-  const input = require('fs').readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  let lineIdx = 0;
-  const n = parseInt(input[lineIdx++]);
+const fs = require('fs');
 
-  let goodCount = 0;
+function solve() {
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (input.length === 0 || input[0] === '') return;
+
+  let ptr = 0;
+  const n = parseInt(input[ptr++], 10);
+  const k = parseInt(input[ptr++], 10);
+
+  let ans = 0;
 
   for (let i = 0; i < n; i++) {
-    const kStr = input[lineIdx++];
-    let isGood = true;
-    const seenDigits = new Set();
-
-    for (let j = 0; j < kStr.length; j++) {
-      const digit = kStr[j];
-      if (seenDigits.has(digit)) {
-        isGood = false;
+    const s = input[ptr++];
+    let ok = true;
+    for (let d = 0; d <= k; d++) {
+      if (!s.includes(String(d))) {
+        ok = false;
         break;
       }
-      seenDigits.add(digit);
     }
-
-    if (isGood) {
-      goodCount++;
-    }
+    if (ok) ans++;
   }
 
-  console.log(goodCount);
-};
+  console.log(ans);
+}
 
 solve();
