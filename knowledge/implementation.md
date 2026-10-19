@@ -606,6 +606,27 @@ function solve() {
 | [Flip Prefix](https://www.codechef.com/problems/FLIPPRE) | `CodeChef` | `1148` | `flipPrefix.js` | Key algorithmic application from Day 2026-10-18. |
 | [Placing 01 And 10](https://www.codechef.com/problems/PLACE0110) | `CodeChef` | `1114` | `placing01And10.js` | Key algorithmic application from Day 2026-10-18. |
 | [Medel](https://www.codechef.com/problems/MDL) | `CodeChef` | `1139` | `medel.js` | Key algorithmic application from Day 2026-10-18. |
+| [Good Number](https://codeforces.com/problemset/problem/365/A) | `Codeforces` | `1100` | `goodNumber.js` | Key algorithmic application from Day 2026-10-19. |
+| [All Pairs Segments](https://codeforces.com/problemset/problem/2019/B) | `Codeforces` | `1200` | `allPairsSegments.js` | Key algorithmic application from Day 2026-10-19. |
+| [Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/) | `LeetCode` | `Medium` | `spiralMatrixII.js` | Key algorithmic application from Day 2026-10-19. |
+| [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | `LeetCode` | `Medium` | `networkDelayTime.js` | Key algorithmic application from Day 2026-10-19. |
+| [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | `LeetCode` | `Medium` | `jumpGameII.js` | Key algorithmic application from Day 2026-10-19. |
+| [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | `LeetCode` | `Medium` | `isGraphBipartite.js` | Key algorithmic application from Day 2026-10-19. |
+| [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/) | `LeetCode` | `Medium` | `findAllDuplicatesInAnArray.js` | Key algorithmic application from Day 2026-10-19. |
+| [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) | `LeetCode` | `Medium` | `removeDuplicatesFromSortedListII.js` | Key algorithmic application from Day 2026-10-19. |
+| [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | `LeetCode` | `Medium` | `findFirstAndLastPositionOfElementInSortedArray.js` | Key algorithmic application from Day 2026-10-19. |
+| [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) | `LeetCode` | `Medium` | `courseScheduleII.js` | Key algorithmic application from Day 2026-10-19. |
+| [Pow(x, n)](https://leetcode.com/problems/powx-n/) | `LeetCode` | `Medium` | `powXN.js` | Key algorithmic application from Day 2026-10-19. |
+| [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | `LeetCode` | `Medium` | `kthSmallestElementInABST.js` | Key algorithmic application from Day 2026-10-19. |
+| [Maximum Alternating Sum](https://www.codechef.com/problems/MXALT) | `CodeChef` | `1111` | `maximumAlternatingSum.js` | Key algorithmic application from Day 2026-10-19. |
+| [Superincreasing](https://www.codechef.com/problems/SUPINC) | `CodeChef` | `1201` | `superincreasing.js` | Key algorithmic application from Day 2026-10-19. |
+| [Find Your Gift](https://www.codechef.com/problems/GIFTSRC) | `CodeChef` | `1157` | `findYourGift.js` | Key algorithmic application from Day 2026-10-19. |
+| [Drumpf for President!](https://www.codechef.com/problems/STUDVOTE) | `CodeChef` | `1205` | `drumpfForPresident.js` | Key algorithmic application from Day 2026-10-19. |
+| [Three Boxes](https://www.codechef.com/problems/THREEBOX) | `CodeChef` | `1183` | `threeBoxes.js` | Key algorithmic application from Day 2026-10-19. |
+| [Reduce to Single Element Array](https://www.codechef.com/problems/DSCPPAS266) | `CodeChef` | `1150` | `reduceToSingleElementArray.js` | Key algorithmic application from Day 2026-10-19. |
+| [Printing Binary Array](https://www.codechef.com/problems/PRINTINGBIN) | `CodeChef` | `1130` | `printingBinaryArray.js` | Key algorithmic application from Day 2026-10-19. |
+| [Chef and Mean  ](https://www.codechef.com/problems/CHFM) | `CodeChef` | `1229` | `chefAndMean.js` | Key algorithmic application from Day 2026-10-19. |
+| [Ada and Dishes](https://www.codechef.com/problems/ADADISH) | `CodeChef` | `1237` | `adaAndDishes.js` | Key algorithmic application from Day 2026-10-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
