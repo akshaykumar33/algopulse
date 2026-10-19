@@ -165,7 +165,7 @@ function sanitizeCodeForSubmission(code, platform = '') {
   }
 
   // 2. Remove require.main === module runner blocks and subsequent exports
-  cleaned = cleaned.replace(/if\s*\(\s*require\.main\s*===\s*module\s*\)[\s\S]*$/g, '');
+  cleaned = cleaned.replace(/if\s*\([^)]*require\.main\s*===\s*module[^)]*\)[\s\S]*$/g, '');
 
   // 3. Remove module.exports
   cleaned = cleaned.replace(/module\.exports\s*=\s*[^;\n]+;?/g, '');
