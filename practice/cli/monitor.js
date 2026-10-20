@@ -20,7 +20,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '../..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
 const PAUSE_FILE = path.join(REPO_ROOT, 'practice', '.pause');
 
@@ -634,7 +634,7 @@ function findRunnerLog(targetDate) {
   const dayLog = path.join(DAYS_DIR, targetDate, 'live.log');
   if (fs.existsSync(dayLog)) return dayLog;
 
-  const globalLog = path.join(REPO_ROOT, 'practice', 'live.log');
+  const globalLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
   if (fs.existsSync(globalLog)) return globalLog;
 
   // Search background tasks, but ONLY pick genuine submit runner logs

@@ -194,7 +194,7 @@ const routes = {
   'POST /api/verify': async (req) => {
     const { date } = await readJsonBody(req);
     store.loadSet(date); // validates the date before it reaches argv
-    const { code, out } = await store.runScript(['practice/verify.js', date]);
+    const { code, out } = await store.runScript(['practice/cli/verify.js', date]);
     return { success: code === 0, output: out };
   },
 

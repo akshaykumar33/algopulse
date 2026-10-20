@@ -1138,7 +1138,7 @@ async function main() {
   const setPath = path.join(dayDir, 'set.json');
 
   const dayLiveLog = path.join(dayDir, 'live.log');
-  const globalLiveLog = path.join(REPO_ROOT, 'practice', 'live.log');
+  const globalLiveLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
   const origStdoutWrite = process.stdout.write.bind(process.stdout);
   const origStderrWrite = process.stderr.write.bind(process.stderr);
   try {

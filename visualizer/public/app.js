@@ -1548,13 +1548,13 @@ async function verifyDay() {
   const modal = $('#verifyModal');
   const out = $('#verifyOutput');
   const btn = $('#btnVerifyDay');
-  out.textContent = `$ node practice/verify.js ${state.date}\n\nRunning…`;
+  out.textContent = `$ node practice/cli/verify.js ${state.date}\n\nRunning…`;
   modal.showModal();
   setLoading(btn, true);
   try {
     if (state.editorDirty) await saveAttempt(); // verify what's on screen, and don't lose it on reload
     const res = await api('/api/verify', { date: state.date });
-    out.textContent = `$ node practice/verify.js ${state.date}\n\n${res.output.trim()}`;
+    out.textContent = `$ node practice/cli/verify.js ${state.date}\n\n${res.output.trim()}`;
     const before = state.problems.filter((p) => p.done).length;
     await loadDay(state.date, { keepFile: state.file, keepTab: state.tab });
     const after = state.problems.filter((p) => p.done).length;

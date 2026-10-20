@@ -20,7 +20,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
 
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '../..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
 
 const C = {
@@ -57,7 +57,7 @@ async function main() {
 
   // Step 1: Pre-flight Local Test Verification
   console.log(`[1/3] ${C.bold}Running pre-flight verification against local test suites ...${C.reset}`);
-  const verifyRes = spawnSync(process.execPath, [path.join(REPO_ROOT, 'practice', 'verify.js'), targetDate], {
+  const verifyRes = spawnSync(process.execPath, [path.join(REPO_ROOT, 'practice', 'cli', 'verify.js'), targetDate], {
     cwd: REPO_ROOT,
     encoding: 'utf-8',
   });
@@ -91,7 +91,7 @@ async function main() {
 
   // Ensure live log path exists
   const dayLog = path.join(dayDir, 'live.log');
-  const globalLog = path.join(REPO_ROOT, 'practice', 'live.log');
+  const globalLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
 
   console.log(`[3/3] ${C.bold}Live Event Stream (Flowing Downwards ↓):${C.reset}\n`);
 

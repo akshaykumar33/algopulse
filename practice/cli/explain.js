@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough } = require('./visualizer');
-const ai = require('./ai');
-const { generateExplanation } = require('./ai/prompts');
+const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough } = require('../lib/visualizer');
+const ai = require('../ai');
+const { generateExplanation } = require('../ai/prompts');
 
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
 const DAYS = path.join(ROOT, 'days');
 
 const args = process.argv.slice(2);

@@ -7,11 +7,11 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const ai = require('./ai');
+const ai = require('../ai');
 
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
 const DAYS = path.join(ROOT, 'days');
-const REPO = path.join(ROOT, '..');
+const REPO = path.resolve(ROOT, '..');
 const ROOT_SOLUTIONS = path.join(REPO, 'solutions');
 
 const args = process.argv.slice(2);

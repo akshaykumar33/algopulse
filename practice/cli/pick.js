@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { fetchCodeforcesProblems, toFileName } = require('./providers/codeforces');
-const { fetchLeetCodeProblems } = require('./providers/leetcode');
-const { fetchCodeChefProblems } = require('./providers/codechef');
-const { rampStatus } = require('./lib/store');
+const { fetchCodeforcesProblems, toFileName } = require('../providers/codeforces');
+const { fetchLeetCodeProblems } = require('../providers/leetcode');
+const { fetchCodeChefProblems } = require('../providers/codechef');
+const { rampStatus } = require('../lib/store');
 
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
 const DAYS = path.join(ROOT, 'days');
 const planPath = path.join(ROOT, 'plan.json');
 const config = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
@@ -58,7 +58,7 @@ const renderReadme = (set) => {
     'Solve each problem at the repo root starting from the designated template, then run the verifier:',
     '',
     '```bash',
-    `node practice/verify ${set.date}`,
+    `node practice/cli/verify ${set.date}`,
     '```',
     '',
     'Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagrams are in `explanations/`.',

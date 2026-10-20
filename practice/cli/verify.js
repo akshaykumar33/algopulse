@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const ROOT = __dirname;
-const REPO = path.join(ROOT, '..');
+const ROOT = path.resolve(__dirname, '..');
+const REPO = path.resolve(ROOT, '..');
 const DAYS = path.join(ROOT, 'days');
 
 const args = process.argv.slice(2);

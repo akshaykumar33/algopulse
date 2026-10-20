@@ -8,9 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync, execSync } = require('child_process');
 
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
 const DAYS = path.join(ROOT, 'days');
-const REPO = path.join(ROOT, '..');
+const REPO = path.resolve(ROOT, '..');
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -62,7 +62,7 @@ async function main() {
 
   // 1. Run Verification
   console.log('[ship] Step 1: Running verifier ...');
-  const verifyRes = run('node', ['practice/verify.js', date]);
+  const verifyRes = run('node', ['practice/cli/verify.js', date]);
   if (verifyRes.status !== 0) {
     console.error(`[ship] Verification failed! Cannot ship incomplete or failing solutions.`);
     console.error(verifyRes.stdout || verifyRes.stderr);
@@ -109,7 +109,7 @@ async function main() {
 
   // 3. Synchronize Knowledge Base
   console.log('[ship] Step 3: Synchronizing Knowledge Base ...');
-  const syncRes = run('node', ['practice/knowledge.js', '--sync']);
+  const syncRes = run('node', ['practice/cli/knowledge.js', '--sync']);
   if (syncRes.status === 0) {
     console.log('  ✓ Knowledge base synchronized.');
   }
@@ -182,11 +182,11 @@ async function main() {
 - Solves all ${set.problems.length} problems for Day ${set.day} (${date}) across ${set.platforms.join(', ')}.
 - Reference solutions in \`practice/days/${date}/solutions/\` and \`solutions/\`.
 - Sample test fixtures in \`practice/days/${date}/tests/\`.
-- Automated verification: 100% green via \`node practice/verify ${date}\`.
+- Automated verification: 100% green via \`node practice/cli/verify ${date}\`.
 - Synchronized topic catalogs in \`knowledge/\` base.
 
 ## Verification
-- Verified via \`node practice/verify ${date}\`.
+- Verified via \`node practice/cli/verify ${date}\`.
 - Verified via \`node practice/knowledge\`.`;
 
     const createRes = run('gh', ['pr', 'create', '--title', prTitle, '--body', prBody]);

@@ -13,9 +13,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '../..');
 const KNOWLEDGE_DIR = path.join(REPO_ROOT, 'knowledge');
-const DAYS_DIR = path.join(__dirname, 'days');
+const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
 const SOLUTIONS_DIR = path.join(REPO_ROOT, 'solutions');
 
 // Standard tag normalization mapping to canonical knowledge file slugs
