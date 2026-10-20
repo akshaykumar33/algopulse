@@ -112,6 +112,7 @@ function missingNumber(nums) {
 | [AND Reconstruction](https://codeforces.com/problemset/problem/1991/B) | `Codeforces` | `1100` | `aNDReconstruction.js` | Key algorithmic application from Day 2026-10-16. |
 | [XOR Palindromes](https://codeforces.com/problemset/problem/1867/B) | `Codeforces` | `1100` | `xORPalindromes.js` | Key algorithmic application from Day 2026-10-19. |
 | [Cake Assignment](https://codeforces.com/problemset/problem/2138/A) | `Codeforces` | `1100` | `cakeAssignment.js` | Key algorithmic application from Day 2026-10-19. |
+| [Beautiful XOR](https://codeforces.com/problemset/problem/2162/C) | `Codeforces` | `1100` | `beautifulXOR.js` | Key algorithmic application from Day 2026-10-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

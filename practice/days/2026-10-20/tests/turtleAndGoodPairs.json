@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n3\naba\n5\naaaaa\n4\ncode\n6\nturtle\n",
+    "output": "aba\naaaaa\ncdeo\nelrtut\n"
+  }
+]

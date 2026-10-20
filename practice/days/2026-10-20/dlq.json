@@ -1,0 +1,126 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAKEMONEY",
+    "name": "Make Money",
+    "file": "makeMoney",
+    "tier": "easy",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NETWORK_CHANGED at https://www.codechef.com/problems/MAKEMONEY\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/MAKEMONEY\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-20T10:07:07.693Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAKEMONEY",
+      "name": "Make Money",
+      "rating": 1101,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEMONEY",
+      "file": "makeMoney",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-20T10:48:08.264Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-450",
+    "name": "Delete Node in a BST",
+    "file": "deleteNodeInABST",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-20T10:07:08.218Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-450",
+      "name": "Delete Node in a BST",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+      "file": "deleteNodeInABST",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-10-20T10:55:04.849Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ROCPAPSCI",
+    "name": "Rock Paper Scissors",
+    "file": "rockPaperScissors",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-20T10:20:00.783Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ROCPAPSCI",
+      "name": "Rock Paper Scissors",
+      "rating": 1220,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ROCPAPSCI",
+      "file": "rockPaperScissors",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-20T10:51:49.236Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-NEWPIECE",
+    "name": "New Piece",
+    "file": "newPiece",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-20T10:25:28.831Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-NEWPIECE",
+      "name": "New Piece",
+      "rating": 1216,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NEWPIECE",
+      "file": "newPiece",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2111C",
+    "name": "Equal Values",
+    "file": "equalValues",
+    "tier": "easy",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-20T11:17:21.677Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2111C",
+      "name": "Equal Values",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "greedy",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2111/C",
+      "file": "equalValues",
+      "template": "templates/codeforces.js"
+    }
+  }
+]

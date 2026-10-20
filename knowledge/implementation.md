@@ -627,6 +627,28 @@ function solve() {
 | [Printing Binary Array](https://www.codechef.com/problems/PRINTINGBIN) | `CodeChef` | `1130` | `printingBinaryArray.js` | Key algorithmic application from Day 2026-10-19. |
 | [Chef and Mean  ](https://www.codechef.com/problems/CHFM) | `CodeChef` | `1229` | `chefAndMean.js` | Key algorithmic application from Day 2026-10-19. |
 | [Ada and Dishes](https://www.codechef.com/problems/ADADISH) | `CodeChef` | `1237` | `adaAndDishes.js` | Key algorithmic application from Day 2026-10-19. |
+| [Carrot Cakes](https://codeforces.com/problemset/problem/799/A) | `Codeforces` | `1100` | `carrotCakes.js` | Key algorithmic application from Day 2026-10-20. |
+| [Large Addition](https://codeforces.com/problemset/problem/1984/B) | `Codeforces` | `1100` | `largeAddition.js` | Key algorithmic application from Day 2026-10-20. |
+| [Level Statistics](https://codeforces.com/problemset/problem/1334/A) | `Codeforces` | `1200` | `levelStatistics.js` | Key algorithmic application from Day 2026-10-20. |
+| [Permutations II](https://leetcode.com/problems/permutations-ii/) | `LeetCode` | `Medium` | `permutationsII.js` | Key algorithmic application from Day 2026-10-20. |
+| [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/) | `LeetCode` | `Medium` | `deleteNodeInABST.js` | Key algorithmic application from Day 2026-10-20. |
+| [Unique Paths](https://leetcode.com/problems/unique-paths/) | `LeetCode` | `Medium` | `uniquePaths.js` | Key algorithmic application from Day 2026-10-20. |
+| [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | `LeetCode` | `Medium` | `validSudoku.js` | Key algorithmic application from Day 2026-10-20. |
+| [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | `LeetCode` | `Medium` | `allNodesDistanceKInBinaryTree.js` | Key algorithmic application from Day 2026-10-20. |
+| [Max Number of K-Sum Pairs](https://leetcode.com/problems/max-number-of-k-sum-pairs/) | `LeetCode` | `Medium` | `maxNumberOfKSumPairs.js` | Key algorithmic application from Day 2026-10-20. |
+| [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | `LeetCode` | `Medium` | `searchInRotatedSortedArray.js` | Key algorithmic application from Day 2026-10-20. |
+| [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) | `LeetCode` | `Medium` | `singleElementInASortedArray.js` | Key algorithmic application from Day 2026-10-20. |
+| [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | `LeetCode` | `Medium` | `validParenthesisString.js` | Key algorithmic application from Day 2026-10-20. |
+| [Lazy Jem](https://www.codechef.com/problems/TALAZY) | `CodeChef` | `1120` | `lazyJem.js` | Key algorithmic application from Day 2026-10-20. |
+| [Sign Moves](https://www.codechef.com/problems/SIGNMOVE) | `CodeChef` | `1126` | `signMoves.js` | Key algorithmic application from Day 2026-10-20. |
+| [Make Money](https://www.codechef.com/problems/MAKEMONEY) | `CodeChef` | `1101` | `makeMoney.js` | Key algorithmic application from Day 2026-10-20. |
+| [To Divide or Not To Divide](https://www.codechef.com/problems/DIVAB) | `CodeChef` | `1224` | `toDivideOrNotToDivide.js` | Key algorithmic application from Day 2026-10-20. |
+| [Rock Paper Scissors](https://www.codechef.com/problems/ROCPAPSCI) | `CodeChef` | `1220` | `rockPaperScissors.js` | Key algorithmic application from Day 2026-10-20. |
+| [New Piece](https://www.codechef.com/problems/NEWPIECE) | `CodeChef` | `1216` | `newPiece.js` | Key algorithmic application from Day 2026-10-20. |
+| [Disabled King](https://www.codechef.com/problems/DISABLEDKING) | `CodeChef` | `1237` | `disabledKing.js` | Key algorithmic application from Day 2026-10-20. |
+| [Single Operation Part 1](https://www.codechef.com/problems/SINGLEOP1) | `CodeChef` | `1217` | `singleOperationPart1.js` | Key algorithmic application from Day 2026-10-20. |
+| [Chef vs Doof](https://www.codechef.com/problems/CLLCM) | `CodeChef` | `1108` | `chefVsDoof.js` | Key algorithmic application from Day 2026-10-20. |
+| [Christmas Candy](https://www.codechef.com/problems/CHRISCANDY) | `CodeChef` | `1214` | `christmasCandy.js` | Key algorithmic application from Day 2026-10-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

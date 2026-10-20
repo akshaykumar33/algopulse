@@ -170,6 +170,11 @@ for (const x of arr) {
 | [Shovels and Swords](https://codeforces.com/problemset/problem/1366/A) | `Codeforces` | `1100` | `shovelsAndSwords.js` | Key algorithmic application from Day 2026-10-19. |
 | [Skibidus and Sigma](https://codeforces.com/problemset/problem/2065/D) | `Codeforces` | `1200` | `skibidusAndSigma.js` | Key algorithmic application from Day 2026-10-19. |
 | [Make It Good](https://codeforces.com/problemset/problem/1385/C) | `Codeforces` | `1200` | `makeItGood.js` | Key algorithmic application from Day 2026-10-19. |
+| [Beautiful XOR](https://codeforces.com/problemset/problem/2162/C) | `Codeforces` | `1100` | `beautifulXOR.js` | Key algorithmic application from Day 2026-10-20. |
+| [Sort Zero](https://codeforces.com/problemset/problem/1712/C) | `Codeforces` | `1100` | `sortZero.js` | Key algorithmic application from Day 2026-10-20. |
+| [Ternary Sequence](https://codeforces.com/problemset/problem/1401/B) | `Codeforces` | `1100` | `ternarySequence.js` | Key algorithmic application from Day 2026-10-20. |
+| [Equal Values](https://codeforces.com/problemset/problem/2111/C) | `Codeforces` | `1100` | `equalValues.js` | Key algorithmic application from Day 2026-10-20. |
+| [Turtle and Good Pairs](https://codeforces.com/problemset/problem/2003/C) | `Codeforces` | `1200` | `turtleAndGoodPairs.js` | Key algorithmic application from Day 2026-10-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
