@@ -649,6 +649,27 @@ function solve() {
 | [Single Operation Part 1](https://www.codechef.com/problems/SINGLEOP1) | `CodeChef` | `1217` | `singleOperationPart1.js` | Key algorithmic application from Day 2026-10-20. |
 | [Chef vs Doof](https://www.codechef.com/problems/CLLCM) | `CodeChef` | `1108` | `chefVsDoof.js` | Key algorithmic application from Day 2026-10-20. |
 | [Christmas Candy](https://www.codechef.com/problems/CHRISCANDY) | `CodeChef` | `1214` | `christmasCandy.js` | Key algorithmic application from Day 2026-10-20. |
+| [Medians](https://codeforces.com/problemset/problem/2032/B) | `Codeforces` | `1100` | `medians.js` | Key algorithmic application from Day 2026-10-21. |
+| [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) | `LeetCode` | `Medium` | `longestRepeatingCharacterReplacement.js` | Key algorithmic application from Day 2026-10-21. |
+| [Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/) | `LeetCode` | `Medium` | `diagonalTraverse.js` | Key algorithmic application from Day 2026-10-21. |
+| [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | `LeetCode` | `Medium` | `longestSubstringWithoutRepeatingCharacters.js` | Key algorithmic application from Day 2026-10-21. |
+| [Maximal Square](https://leetcode.com/problems/maximal-square/) | `LeetCode` | `Medium` | `maximalSquare.js` | Key algorithmic application from Day 2026-10-21. |
+| [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | `LeetCode` | `Medium` | `findMinimumInRotatedSortedArray.js` | Key algorithmic application from Day 2026-10-21. |
+| [Remove K Digits](https://leetcode.com/problems/remove-k-digits/) | `LeetCode` | `Medium` | `removeKDigits.js` | Key algorithmic application from Day 2026-10-21. |
+| [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | `LeetCode` | `Medium` | `sumOfTwoIntegers.js` | Key algorithmic application from Day 2026-10-21. |
+| [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) | `LeetCode` | `Medium` | `findEventualSafeStates.js` | Key algorithmic application from Day 2026-10-21. |
+| [Gas Station](https://leetcode.com/problems/gas-station/) | `LeetCode` | `Medium` | `gasStation.js` | Key algorithmic application from Day 2026-10-21. |
+| [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | `LeetCode` | `Medium` | `maximumProductSubarray.js` | Key algorithmic application from Day 2026-10-21. |
+| [Tourist Translations](https://www.codechef.com/problems/TOTR) | `CodeChef` | `1252` | `touristTranslations.js` | Key algorithmic application from Day 2026-10-21. |
+| [Chef and Proportion](https://www.codechef.com/problems/CHEFCBA) | `CodeChef` | `1122` | `chefAndProportion.js` | Key algorithmic application from Day 2026-10-21. |
+| [Divisible by i ](https://www.codechef.com/problems/DIVBYI) | `CodeChef` | `1184` | `divisibleByI.js` | Key algorithmic application from Day 2026-10-21. |
+| [Add Two Numbers (Linked List)](https://www.codechef.com/problems/ADDTWOLL) | `CodeChef` | `1150` | `addTwoNumbersLinkedList.js` | Key algorithmic application from Day 2026-10-21. |
+| [OR Operations](https://www.codechef.com/problems/OROPS) | `CodeChef` | `1245` | `oROperations.js` | Key algorithmic application from Day 2026-10-21. |
+| [Chef and Coupon](https://www.codechef.com/problems/COUPON2) | `CodeChef` | `1222` | `chefAndCoupon.js` | Key algorithmic application from Day 2026-10-21. |
+| [Xenny and Alternating Tasks](https://www.codechef.com/problems/XENTASK) | `CodeChef` | `1110` | `xennyAndAlternatingTasks.js` | Key algorithmic application from Day 2026-10-21. |
+| [Sale](https://www.codechef.com/problems/FINALSALE) | `CodeChef` | `1180` | `sale.js` | Key algorithmic application from Day 2026-10-21. |
+| [Luigi and Uniformity](https://www.codechef.com/problems/DIVIDEMAKEEQ) | `CodeChef` | `1185` | `luigiAndUniformity.js` | Key algorithmic application from Day 2026-10-21. |
+| [Lift Requests](https://www.codechef.com/problems/LIFTME) | `CodeChef` | `1247` | `liftRequests.js` | Key algorithmic application from Day 2026-10-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

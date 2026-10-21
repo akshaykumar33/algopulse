@@ -100,6 +100,8 @@ function lowerBound(arr, target) {
 | [Ternary String](https://codeforces.com/problemset/problem/1354/B) | `Codeforces` | `1200` | `ternaryString.js` | Key algorithmic application from Day 2026-10-18. |
 | [Shovels and Swords](https://codeforces.com/problemset/problem/1366/A) | `Codeforces` | `1100` | `shovelsAndSwords.js` | Key algorithmic application from Day 2026-10-19. |
 | [Building an Aquarium](https://codeforces.com/problemset/problem/1873/E) | `Codeforces` | `1100` | `buildingAnAquarium.js` | Key algorithmic application from Day 2026-10-20. |
+| [Variety is Discouraged](https://codeforces.com/problemset/problem/2064/B) | `Codeforces` | `1100` | `varietyIsDiscouraged.js` | Key algorithmic application from Day 2026-10-21. |
+| [Getting Points](https://codeforces.com/problemset/problem/1902/B) | `Codeforces` | `1100` | `gettingPoints.js` | Key algorithmic application from Day 2026-10-21. |
 
 ---
 

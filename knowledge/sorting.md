@@ -115,6 +115,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Sort Zero](https://codeforces.com/problemset/problem/1712/C) | `Codeforces` | `1100` | `sortZero.js` | Key algorithmic application from Day 2026-10-20. |
 | [Building an Aquarium](https://codeforces.com/problemset/problem/1873/E) | `Codeforces` | `1100` | `buildingAnAquarium.js` | Key algorithmic application from Day 2026-10-20. |
 | [Turtle and Good Pairs](https://codeforces.com/problemset/problem/2003/C) | `Codeforces` | `1200` | `turtleAndGoodPairs.js` | Key algorithmic application from Day 2026-10-20. |
+| [Hemose Shopping](https://codeforces.com/problemset/problem/1592/B) | `Codeforces` | `1200` | `hemoseShopping.js` | Key algorithmic application from Day 2026-10-21. |
+| [Less or Equal](https://codeforces.com/problemset/problem/977/C) | `Codeforces` | `1200` | `lessOrEqual.js` | Key algorithmic application from Day 2026-10-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

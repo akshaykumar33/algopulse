@@ -1,0 +1,269 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "2032B",
+    "name": "Medians",
+    "file": "medians",
+    "tier": "easy",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-21T09:07:28.464Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2032B",
+      "name": "Medians",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2032/B",
+      "file": "medians",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1731B",
+    "name": "Kill Demodogs",
+    "file": "killDemodogs",
+    "tier": "easy",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-10-21T09:25:56.896Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1731B",
+      "name": "Kill Demodogs",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1731/B",
+      "file": "killDemodogs",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1977B",
+    "name": "Binary Colouring",
+    "file": "binaryColouring",
+    "tier": "easy",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-10-21T09:29:20.909Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1977B",
+      "name": "Binary Colouring",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1977/B",
+      "file": "binaryColouring",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-COUPON2",
+    "name": "Chef and Coupon",
+    "file": "chefAndCoupon",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/COUPON2\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/COUPON2\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-21T09:29:22.326Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-COUPON2",
+      "name": "Chef and Coupon",
+      "rating": 1222,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COUPON2",
+      "file": "chefAndCoupon",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-XENTASK",
+    "name": "Xenny and Alternating Tasks",
+    "file": "xennyAndAlternatingTasks",
+    "tier": "easy",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/XENTASK\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/XENTASK\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-21T09:32:00.867Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-XENTASK",
+      "name": "Xenny and Alternating Tasks",
+      "rating": 1110,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XENTASK",
+      "file": "xennyAndAlternatingTasks",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1097B",
+    "name": "Petr and a Combination Lock",
+    "file": "petrAndACombinationLock",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-10-21T09:35:06.241Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1097B",
+      "name": "Petr and a Combination Lock",
+      "rating": 1200,
+      "tags": [
+        "bitmasks",
+        "brute force",
+        "dp"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1097/B",
+      "file": "petrAndACombinationLock",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-FINALSALE",
+    "name": "Sale",
+    "file": "sale",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/FINALSALE\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/FINALSALE\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-21T09:36:53.413Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-FINALSALE",
+      "name": "Sale",
+      "rating": 1180,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FINALSALE",
+      "file": "sale",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1592B",
+    "name": "Hemose Shopping",
+    "file": "hemoseShopping",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-10-21T09:41:59.062Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1592B",
+      "name": "Hemose Shopping",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "dsu",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1592/B",
+      "file": "hemoseShopping",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-DIVIDEMAKEEQ",
+    "name": "Luigi and Uniformity",
+    "file": "luigiAndUniformity",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/DIVIDEMAKEEQ\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/DIVIDEMAKEEQ\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-21T09:43:11.713Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DIVIDEMAKEEQ",
+      "name": "Luigi and Uniformity",
+      "rating": 1185,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIVIDEMAKEEQ",
+      "file": "luigiAndUniformity",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "977C",
+    "name": "Less or Equal",
+    "file": "lessOrEqual",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-10-21T09:48:31.542Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "977C",
+      "name": "Less or Equal",
+      "rating": 1200,
+      "tags": [
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/977/C",
+      "file": "lessOrEqual",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-OROPS",
+    "name": "OR Operations",
+    "file": "oROperations",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-21T10:25:44.715Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-OROPS",
+      "name": "OR Operations",
+      "rating": 1245,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/OROPS",
+      "file": "oROperations",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-21T11:01:32.275Z",
+    "finalVerdict": "Correct Answer"
+  }
+]

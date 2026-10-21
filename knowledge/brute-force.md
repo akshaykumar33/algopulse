@@ -137,6 +137,8 @@ function backtrack(index, currentSum, target, arr) {
 | [Minimize the Thickness](https://codeforces.com/problemset/problem/1741/C) | `Codeforces` | `1100` | `minimizeTheThickness.js` | Key algorithmic application from Day 2026-10-19. |
 | [Carrot Cakes](https://codeforces.com/problemset/problem/799/A) | `Codeforces` | `1100` | `carrotCakes.js` | Key algorithmic application from Day 2026-10-20. |
 | [Equal Values](https://codeforces.com/problemset/problem/2111/C) | `Codeforces` | `1100` | `equalValues.js` | Key algorithmic application from Day 2026-10-20. |
+| [Getting Points](https://codeforces.com/problemset/problem/1902/B) | `Codeforces` | `1100` | `gettingPoints.js` | Key algorithmic application from Day 2026-10-21. |
+| [Petr and a Combination Lock](https://codeforces.com/problemset/problem/1097/B) | `Codeforces` | `1200` | `petrAndACombinationLock.js` | Key algorithmic application from Day 2026-10-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

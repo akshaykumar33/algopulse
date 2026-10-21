@@ -178,6 +178,11 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Large Addition](https://codeforces.com/problemset/problem/1984/B) | `Codeforces` | `1100` | `largeAddition.js` | Key algorithmic application from Day 2026-10-20. |
 | [Level Statistics](https://codeforces.com/problemset/problem/1334/A) | `Codeforces` | `1200` | `levelStatistics.js` | Key algorithmic application from Day 2026-10-20. |
 | [Make Them Equal](https://codeforces.com/problemset/problem/1154/B) | `Codeforces` | `1200` | `makeThemEqual.js` | Key algorithmic application from Day 2026-10-20. |
+| [Medians](https://codeforces.com/problemset/problem/2032/B) | `Codeforces` | `1100` | `medians.js` | Key algorithmic application from Day 2026-10-21. |
+| [Lucky Numbers](https://codeforces.com/problemset/problem/630/C) | `Codeforces` | `1100` | `luckyNumbers.js` | Key algorithmic application from Day 2026-10-21. |
+| [Kill Demodogs](https://codeforces.com/problemset/problem/1731/B) | `Codeforces` | `1100` | `killDemodogs.js` | Key algorithmic application from Day 2026-10-21. |
+| [Binary Colouring](https://codeforces.com/problemset/problem/1977/B) | `Codeforces` | `1100` | `binaryColouring.js` | Key algorithmic application from Day 2026-10-21. |
+| [Hemose Shopping](https://codeforces.com/problemset/problem/1592/B) | `Codeforces` | `1200` | `hemoseShopping.js` | Key algorithmic application from Day 2026-10-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
