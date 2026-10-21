@@ -26,29 +26,6 @@
     }
   },
   {
-    "platform": "CodeChef",
-    "id": "CC-OROPS",
-    "name": "OR Operations",
-    "file": "oROperations",
-    "tier": "medium",
-    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/OROPS\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/OROPS\", waiting until \"domcontentloaded\"\u001b[22m\n",
-    "enqueuedAt": "2026-10-21T09:23:00.101Z",
-    "attempts": 1,
-    "status": "PENDING_RETRY",
-    "problem": {
-      "platform": "CodeChef",
-      "id": "CC-OROPS",
-      "name": "OR Operations",
-      "rating": 1245,
-      "tags": [
-        "codechef"
-      ],
-      "url": "https://www.codechef.com/problems/OROPS",
-      "file": "oROperations",
-      "template": "templates/codechef.js"
-    }
-  },
-  {
     "platform": "Codeforces",
     "id": "1731B",
     "name": "Kill Demodogs",
@@ -263,5 +240,30 @@
       "file": "lessOrEqual",
       "template": "templates/codeforces.js"
     }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-OROPS",
+    "name": "OR Operations",
+    "file": "oROperations",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-21T10:25:44.715Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-OROPS",
+      "name": "OR Operations",
+      "rating": 1245,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/OROPS",
+      "file": "oROperations",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-21T11:01:32.275Z",
+    "finalVerdict": "Correct Answer"
   }
 ]
