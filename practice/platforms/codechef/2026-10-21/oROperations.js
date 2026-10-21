@@ -1,21 +1,31 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
+    const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+    if (!input || input.length === 0 || input[0] === '') return;
     let ptr = 0;
-    const t = parseInt(lines[ptr++], 10);
-    const out = [];
-    for (let i = 0; i < t; i++) {
-        const n = parseInt(lines[ptr++], 10);
-        const arr = lines[ptr++].split(/\s+/).map(Number);
-        let ans = 0;
-        let cur = 0;
-        for (let j = 0; j < n; j++) {
-            cur |= arr[j];
-            ans = Math.max(ans, cur);
+    let tc = parseInt(input[ptr++], 10);
+    let out = [];
+    while (tc-- > 0) {
+        let n = parseInt(input[ptr++], 10);
+        let a = new Int32Array(n);
+        let totalOr = 0;
+        for (let i = 0; i < n; i++) {
+            let val = parseInt(input[ptr++], 10);
+            a[i] = val;
+            totalOr |= val;
         }
-        out.push(ans);
+        let cnt = 0;
+        let cur = 0;
+        for (let i = 0; i < n; i++) {
+            cur |= a[i];
+            if (cur === totalOr) {
+                cnt++;
+                cur = 0;
+            }
+        }
+        if (cnt === 0) cnt = 1;
+        out.push(n - cnt);
     }
     console.log(out.join('\n'));
 }
