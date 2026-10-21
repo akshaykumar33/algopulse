@@ -118,6 +118,9 @@ function constructMatrix(n, m) {
 | [XOR Palindromes](https://codeforces.com/problemset/problem/1867/B) | `Codeforces` | `1100` | `xORPalindromes.js` | Key algorithmic application from Day 2026-10-19. |
 | [Cake Assignment](https://codeforces.com/problemset/problem/2138/A) | `Codeforces` | `1100` | `cakeAssignment.js` | Key algorithmic application from Day 2026-10-19. |
 | [Li Hua and Pattern](https://codeforces.com/problemset/problem/1797/B) | `Codeforces` | `1100` | `liHuaAndPattern.js` | Key algorithmic application from Day 2026-10-19. |
+| [Beautiful XOR](https://codeforces.com/problemset/problem/2162/C) | `Codeforces` | `1100` | `beautifulXOR.js` | Key algorithmic application from Day 2026-10-20. |
+| [Ternary Sequence](https://codeforces.com/problemset/problem/1401/B) | `Codeforces` | `1100` | `ternarySequence.js` | Key algorithmic application from Day 2026-10-20. |
+| [Turtle and Good Pairs](https://codeforces.com/problemset/problem/2003/C) | `Codeforces` | `1200` | `turtleAndGoodPairs.js` | Key algorithmic application from Day 2026-10-20. |
 
 ---
 

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"()\"",
+    "output": "true"
+  },
+  {
+    "input": "\"(*)\"",
+    "output": "true"
+  },
+  {
+    "input": "\"(*))\"",
+    "output": "true"
+  }
+]

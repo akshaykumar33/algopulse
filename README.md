@@ -91,7 +91,7 @@ npm run verify
 npm run verify:ref
 
 # Verify a specific day
-node practice/verify 2026-09-27
+node practice/cli/verify 2026-09-27
 ```
 
 ### 4. Explanations, Intuitions & Mermaid Diagrams
@@ -102,7 +102,7 @@ Generate and view complete Markdown explanations for problems featuring step-by-
 npm run explain
 
 # Generate for a specific problem
-node practice/explain onlyPluses
+node practice/cli/explain onlyPluses
 ```
 
 Explanations are located in `practice/days/<date>/explanations/<problem>.md`.
@@ -204,7 +204,7 @@ npm run knowledge
 npm run knowledge:sync
 
 # Add a specific problem to its tag guides
-node practice/knowledge --add <problemFile>
+node practice/cli/knowledge --add <problemFile>
 ```
 
 ---

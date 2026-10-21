@@ -1,42 +1,65 @@
 # Daily Practice
 
-Ten Codeforces problems a day. They start easy and get harder each week.
-
-| Week | Set |
-|------|-----|
-| 1 | 10 × 800 |
-| 2 | 7 × 900 + 3 × 1000 |
-| 3 | 7 × 1000 + 3 × 1100 |
-| … | +100 per week, capped at `maxRating` in `plan.json` |
+Thirty multi-platform competitive programming problems a day across Codeforces, LeetCode, and CodeChef.
 
 ## Daily loop
 
-1. At 12:00, the `CP Daily Practice` scheduled task runs `remind.ps1`. It builds today's set, shows a notification and opens `days/<date>/README.md`.
-2. Solve each problem at the repo root as `<file>.js`, starting from `cp.js`.
+1. At 12:00, the `CP Daily Practice` scheduled task runs `practice/scripts/remind.ps1`. It builds today's set, shows a notification and opens `days/<date>/README.md`.
+2. Solve each problem at the repo root or in `solutions/` as `<file>.js`, starting from the platform template.
 3. Check your attempts against the tests:
 
-   ```
-   node practice/verify            # latest day
-   node practice/verify 2026-09-25 # a specific day
-   node practice/verify --ref      # the reference solutions
+   ```bash
+   node practice/cli/verify            # latest day (or: npm run verify)
+   node practice/cli/verify 2026-10-20 # a specific day
+   node practice/cli/verify --ref      # the reference solutions
    ```
 
 4. Open `days/<date>/solutions/` only after an honest attempt.
 
-## Files
+## Architecture & Directory Structure
 
 ```
 practice/
-├── plan.json      # per-day count, rating ramp, optional Codeforces handle
-├── pick.js        # picks the day's problems from the Codeforces API
-├── verify.js      # runs solutions against days/<date>/tests/*.json
-├── remind.ps1     # daily 12:00 reminder (Windows Task Scheduler)
-└── days/<date>/
-    ├── README.md  # links and checklist
-    ├── set.json
-    ├── tests/     # sample + edge-case tests per problem
-    └── solutions/ # reference solutions
+├── plan.json              # Per-platform curriculum config & rating ramps
+├── README.md              # Practice guide & documentation
+├── ROADMAP.md             # Multi-week progression plan
+├── cli/                   # Operational CLI commands
+│   ├── pick.js            # Picks daily problems from APIs (CF, LC, CC)
+│   ├── verify.js          # Verifies solutions against tests
+│   ├── solve.js           # Automated solving & scaffolding engine
+│   ├── explain.js         # Generates diagrams & explanation docs
+│   ├── ship.js            # Git commit, PR, and auto-merge pipeline
+│   ├── auto.js            # Full autonomous curriculum & submission loop
+│   ├── monitor.js         # Interactive live submission dashboard & stream
+│   ├── knowledge.js       # Living knowledge base auditor & synchronizer
+│   └── syncVerdicts.js    # Verdict synchronization utility
+├── lib/                   # Internal algorithmic helpers & shared libraries
+│   ├── progression.js     # Platform progression & curriculum math
+│   ├── ramp.js            # Difficulty ramp calculators
+│   ├── store.js           # State persistence layer
+│   ├── visualizer.js      # Mermaid flowchart & sequence generator
+│   └── injection.js       # Prompt injection defenses
+├── playwright/            # Browser automation & platform submission workers
+│   ├── submit.js          # Unified submission engine via Chrome CDP
+│   ├── auth.js            # Session & credentials manager
+│   ├── browser.js         # Playwright Chrome launcher & CDP connector
+│   └── sanitize.js        # Automated code sanitizer & comment stripper
+├── scripts/               # System & platform scripts
+│   ├── remind.ps1         # Daily scheduled practice trigger
+│   └── remind-install.ps1 # Windows Task Scheduler installer
+├── logs/                  # Execution & reminder logs (gitignored)
+│   ├── live.log           # Real-time downward event stream log
+│   └── remind.log         # Scheduled reminder background log
+├── platforms/             # Platform-mirrored solution catalogs
+│   ├── codeforces/
+│   ├── leetcode/
+│   └── codechef/
+├── days/<date>/           # Daily missions & test suites
+│   ├── README.md          # Daily checklist & problem links
+│   ├── set.json           # Daily problem set metadata
+│   ├── tests/             # Input/output test fixtures
+│   ├── solutions/         # Canonical reference solutions
+│   ├── attempts/          # Daily working attempts
+│   └── explanations/      # Intuitions & Mermaid diagrams
+└── ai/                    # Autonomous AI agents & providers
 ```
-
-Set `handle` in `plan.json` to your Codeforces handle to skip problems you've already solved.
-Run `node practice/pick.js --date <date> --ids 4A,71A,...` to choose a set by hand.

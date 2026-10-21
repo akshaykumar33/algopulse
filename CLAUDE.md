@@ -212,7 +212,7 @@ To maintain a clean and scalable codebase:
 3. **Knowledge Base Directory (`/knowledge`):**
    - Centralized repository of algorithmic concepts, mental models, mathematical invariants, and solved problem catalogs organized by tags: `knowledge/<tag>.md`.
    - Master index `knowledge/README.md` tracks all tags, problem counts, and navigation matrices.
-   - CLI engine `node practice/knowledge` (or `npm run knowledge`) audits and synchronizes problems by tags.
+   - CLI engine `node practice/cli/knowledge` (or `npm run knowledge`) audits and synchronizes problems by tags.
 4. **Root Directory (`/`):**
    - Universal clean starter template `cp.js` remains pure boilerplate.
    - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
@@ -223,7 +223,10 @@ To maintain a clean and scalable codebase:
    - Place all independent brute-force references, fuzzers, and stress suites here (`stress/<problem>_stress.js`).
    - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
 7. **Practice Directory (`/practice`):**
-   - Automated multi-platform daily curriculum (`pick.js`, `verify.js`, `explain.js`).
+   - Automated multi-platform daily curriculum CLI tools segregated in `practice/cli/` (`pick.js`, `verify.js`, `explain.js`, `solve.js`, `ship.js`, `auto.js`, `monitor.js`, `knowledge.js`).
+   - System scripts and task reminders in `practice/scripts/` (`remind.ps1`, `remind-install.ps1`).
+   - Unified Playwright platform submission suite in `practice/playwright/`.
+   - Internal helper libraries in `practice/lib/` (`visualizer.js`, `progression.js`, `ramp.js`, `store.js`).
    - Daily directories `practice/days/<date>/` strictly segregated into `explanations/` (Mermaid diagrams & intuitions), `solutions/` (reference), `attempts/` (practice code), and `tests/` (test cases).
 8. **Filename Standards:**
    - Solutions: Strict camelCase or PascalCase matching the problem title (e.g., `goodContest.js`, `subRbsEasyVersion.js`).
@@ -300,5 +303,5 @@ Every competitive programming problem solved in this repository must contribute 
    - Create a dedicated guide `knowledge/<newTag>.md` adhering to the standard 7-section format (Principles, Recognition Signals, Invariants/Formulas, JS Patterns & Traps, Sub-patterns, Solved Problems Catalog, Pitfalls).
    - Register the new guide in `knowledge/README.md`.
 4. **Automated Audit & Synchronization:**
-   - Run `node practice/knowledge --sync` (or `npm run knowledge:sync`) to ensure all solved problem references and counts are synchronized across the knowledge base.
-   - Run `node practice/knowledge` to verify 100% topic coverage.
+   - Run `node practice/cli/knowledge --sync` (or `npm run knowledge:sync`) to ensure all solved problem references and counts are synchronized across the knowledge base.
+   - Run `node practice/cli/knowledge` to verify 100% topic coverage.

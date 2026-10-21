@@ -174,6 +174,10 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Minimize the Thickness](https://codeforces.com/problemset/problem/1741/C) | `Codeforces` | `1100` | `minimizeTheThickness.js` | Key algorithmic application from Day 2026-10-19. |
 | [Shovels and Swords](https://codeforces.com/problemset/problem/1366/A) | `Codeforces` | `1100` | `shovelsAndSwords.js` | Key algorithmic application from Day 2026-10-19. |
 | [All Pairs Segments](https://codeforces.com/problemset/problem/2019/B) | `Codeforces` | `1200` | `allPairsSegments.js` | Key algorithmic application from Day 2026-10-19. |
+| [Ternary Sequence](https://codeforces.com/problemset/problem/1401/B) | `Codeforces` | `1100` | `ternarySequence.js` | Key algorithmic application from Day 2026-10-20. |
+| [Large Addition](https://codeforces.com/problemset/problem/1984/B) | `Codeforces` | `1100` | `largeAddition.js` | Key algorithmic application from Day 2026-10-20. |
+| [Level Statistics](https://codeforces.com/problemset/problem/1334/A) | `Codeforces` | `1200` | `levelStatistics.js` | Key algorithmic application from Day 2026-10-20. |
+| [Make Them Equal](https://codeforces.com/problemset/problem/1154/B) | `Codeforces` | `1200` | `makeThemEqual.js` | Key algorithmic application from Day 2026-10-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
