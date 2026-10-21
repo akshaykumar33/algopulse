@@ -1,0 +1,391 @@
+{
+  "date": "2026-10-21",
+  "day": 27,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "2064B",
+      "name": "Variety is Discouraged",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "constructive algorithms",
+        "greedy",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2064/B",
+      "file": "varietyIsDiscouraged",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2032B",
+      "name": "Medians",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2032/B",
+      "file": "medians",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1902B",
+      "name": "Getting Points",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "brute force",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1902/B",
+      "file": "gettingPoints",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "501B",
+      "name": "Misha and Changing Handles",
+      "rating": 1100,
+      "tags": [
+        "data structures",
+        "dsu",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/501/B",
+      "file": "mishaAndChangingHandles",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "630C",
+      "name": "Lucky Numbers",
+      "rating": 1100,
+      "tags": [
+        "combinatorics",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/630/C",
+      "file": "luckyNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1731B",
+      "name": "Kill Demodogs",
+      "rating": 1100,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1731/B",
+      "file": "killDemodogs",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1977B",
+      "name": "Binary Colouring",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1977/B",
+      "file": "binaryColouring",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1097B",
+      "name": "Petr and a Combination Lock",
+      "rating": 1200,
+      "tags": [
+        "bitmasks",
+        "brute force",
+        "dp"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1097/B",
+      "file": "petrAndACombinationLock",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1592B",
+      "name": "Hemose Shopping",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "dsu",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1592/B",
+      "file": "hemoseShopping",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "977C",
+      "name": "Less or Equal",
+      "rating": 1200,
+      "tags": [
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/977/C",
+      "file": "lessOrEqual",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-424",
+      "name": "Longest Repeating Character Replacement",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+      "file": "longestRepeatingCharacterReplacement",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-498",
+      "name": "Diagonal Traverse",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/diagonal-traverse/",
+      "file": "diagonalTraverse",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3",
+      "name": "Longest Substring Without Repeating Characters",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "file": "longestSubstringWithoutRepeatingCharacters",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-221",
+      "name": "Maximal Square",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximal-square/",
+      "file": "maximalSquare",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-153",
+      "name": "Find Minimum in Rotated Sorted Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+      "file": "findMinimumInRotatedSortedArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-402",
+      "name": "Remove K Digits",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-k-digits/",
+      "file": "removeKDigits",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-371",
+      "name": "Sum of Two Integers",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sum-of-two-integers/",
+      "file": "sumOfTwoIntegers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-802",
+      "name": "Find Eventual Safe States",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-eventual-safe-states/",
+      "file": "findEventualSafeStates",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-134",
+      "name": "Gas Station",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/gas-station/",
+      "file": "gasStation",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-152",
+      "name": "Maximum Product Subarray",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-product-subarray/",
+      "file": "maximumProductSubarray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TOTR",
+      "name": "Tourist Translations",
+      "rating": 1252,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TOTR",
+      "file": "touristTranslations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFCBA",
+      "name": "Chef and Proportion",
+      "rating": 1122,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFCBA",
+      "file": "chefAndProportion",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DIVBYI",
+      "name": "Divisible by i ",
+      "rating": 1184,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIVBYI",
+      "file": "divisibleByI",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADDTWOLL",
+      "name": "Add Two Numbers (Linked List)",
+      "rating": 1150,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADDTWOLL",
+      "file": "addTwoNumbersLinkedList",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-OROPS",
+      "name": "OR Operations",
+      "rating": 1245,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/OROPS",
+      "file": "oROperations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-COUPON2",
+      "name": "Chef and Coupon",
+      "rating": 1222,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COUPON2",
+      "file": "chefAndCoupon",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XENTASK",
+      "name": "Xenny and Alternating Tasks",
+      "rating": 1110,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XENTASK",
+      "file": "xennyAndAlternatingTasks",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FINALSALE",
+      "name": "Sale",
+      "rating": 1180,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FINALSALE",
+      "file": "sale",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DIVIDEMAKEEQ",
+      "name": "Luigi and Uniformity",
+      "rating": 1185,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIVIDEMAKEEQ",
+      "file": "luigiAndUniformity",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LIFTME",
+      "name": "Lift Requests",
+      "rating": 1247,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LIFTME",
+      "file": "liftRequests",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "input": "3\na b\nb c\nd e\n",
+    "output": "2\na c\nd e\n"
+  },
+  {
+    "input": "5\na b\nb c\nc d\nd e\nf g\n",
+    "output": "2\na e\nf g\n"
+  },
+  {
+    "input": "1\nmisha misha_new\n",
+    "output": "1\nmisha misha_new\n"
+  },
+  {
+    "input": "2\nx y\ny x\n",
+    "output": "1\nx x\n"
+  },
+  {
+    "input": "4\napple banana\nbanana cherry\ncherry date\ndate elderberry\n",
+    "output": "1\napple elderberry\n"
+  },
+  {
+    "input": "0\n",
+    "output": "0\n"
+  }
+]
