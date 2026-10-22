@@ -5,7 +5,8 @@ const { fetchLeetCodeProblems } = require('../lib/providers/leetcode');
 const { fetchCodeChefProblems } = require('../lib/providers/codechef');
 const { rampStatus } = require('../lib/store');
 
-const ROOT = path.resolve(__dirname, '..');
+const REPO = path.resolve(__dirname, '..', '..');
+const ROOT = path.join(REPO, 'practice');
 const DAYS = path.join(ROOT, 'days');
 const planPath = path.join(ROOT, 'plan.json');
 const config = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
@@ -58,7 +59,7 @@ const renderReadme = (set) => {
     'Solve each problem at the repo root starting from the designated template, then run the verifier:',
     '',
     '```bash',
-    `node practice/cli/verify ${set.date}`,
+    `node src/cli/verify ${set.date}`,
     '```',
     '',
     'Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagrams are in `explanations/`.',
@@ -166,7 +167,7 @@ async function main() {
   const prior = existingDays().filter((d) => d < date);
   const dayNumber = prior.length + 1;
   const exclude = usedIds(date);
-  const rootFiles = new Set(fs.readdirSync(path.join(ROOT, '..')).map((f) => f.replace(/\.js$/, '')));
+  const rootFiles = new Set(fs.readdirSync(REPO).map((f) => f.replace(/\.js$/, '')));
 
   const selectedPlatform = flag('--platform') || config.defaultPlatform || 'all';
   const customCount = flag('--count') ? parseInt(flag('--count'), 10) : null;

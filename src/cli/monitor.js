@@ -634,7 +634,7 @@ function findRunnerLog(targetDate) {
   const dayLog = path.join(DAYS_DIR, targetDate, 'live.log');
   if (fs.existsSync(dayLog)) return dayLog;
 
-  const globalLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
+  const globalLog = path.join(REPO_ROOT, 'logs', 'live.log');
   if (fs.existsSync(globalLog)) return globalLog;
 
   // Search background tasks, but ONLY pick genuine submit runner logs

@@ -656,7 +656,7 @@ function guideData() {
     ['Stories & traces', '<code>practice/days/&lt;date&gt;/stories/*.json</code>', 'Your git repo'],
     ['Solved / streak', '<code>[x]</code> marks in each day\'s <code>README.md</code>', 'Your git repo'],
     ['AI keys', '<code>.env</code>', 'Your PC only (gitignored)'],
-    ['AI provider choice', '<code>practice/ai/settings.local.json</code>', 'Your PC only (gitignored)'],
+    ['AI provider choice', '<code>src/ai/settings.local.json</code>', 'Your PC only (gitignored)'],
     ['AI answer cache', '<code>.cache/ai/</code>', 'Your PC only (gitignored)'],
     ['Theme, reminder time, tour seen', 'Browser storage', 'This browser only'],
   ];

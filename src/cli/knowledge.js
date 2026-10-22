@@ -5,9 +5,9 @@
  * algorithmic Knowledge Base (knowledge/).
  * 
  * Commands:
- *   node practice/knowledge              - Audit knowledge base & show coverage matrix
- *   node practice/knowledge --sync       - Sync problem references across tag files and README.md
- *   node practice/knowledge --add <file> - Add a problem to corresponding knowledge base tag files
+ *   node src/cli/knowledge              - Audit knowledge base & show coverage matrix
+ *   node src/cli/knowledge --sync       - Sync problem references across tag files and README.md
+ *   node src/cli/knowledge --add <file> - Add a problem to corresponding knowledge base tag files
  */
 
 const fs = require('fs');
@@ -149,8 +149,8 @@ function auditKnowledgeBase() {
   console.log('---------------------------------------------------------------');
   console.log(`Coverage Summary: ${coveredCount} of ${sortedSlugs.length} topics documented.\n`);
   console.log('Quick commands:');
-  console.log('  node practice/knowledge --sync       Update index & problem catalog');
-  console.log('  node practice/knowledge --add <file> Add problem to its tag guides');
+  console.log('  node src/cli/knowledge --sync       Update index & problem catalog');
+  console.log('  node src/cli/knowledge --add <file> Add problem to its tag guides');
   console.log('===============================================================\n');
 }
 

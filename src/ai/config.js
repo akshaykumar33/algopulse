@@ -1,6 +1,6 @@
 /**
  * AI configuration: secrets come from process env or the repo-root .env (gitignored);
- * the non-secret provider choice is stored in practice/ai/settings.local.json
+ * the non-secret provider choice is stored in src/ai/settings.local.json
  * (also gitignored) so the dashboard can switch providers without touching .env.
  */
 

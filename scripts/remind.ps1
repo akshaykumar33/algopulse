@@ -60,13 +60,13 @@ $hasExplanations = (Get-ChildItem "$dayDir\explanations" -Filter *.md -ErrorActi
 $port = 3333
 $studioUrl = "http://localhost:$port/#/$date"
 if (-not (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)) {
-    Start-Process -FilePath 'node' -ArgumentList 'visualizer/server.js' -WorkingDirectory $repo -WindowStyle Hidden
+    Start-Process -FilePath 'node' -ArgumentList 'apps/visualizer/server.js' -WorkingDirectory $repo -WindowStyle Hidden
 }
 
 # 4. Streak, from the same store the dashboard uses.
 $streak = 0
 try {
-    $streak = [int](node -e "process.stdout.write(String(require('./practice/lib/store').streaks().current))")
+    $streak = [int](node -e "process.stdout.write(String(require('./src/lib/store').streaks().current))")
 } catch {
     Add-Content $log "[$date] streak lookup failed: $_"
 }

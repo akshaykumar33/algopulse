@@ -25,7 +25,7 @@ async function fetchUserStatus(handle, count = 20) {
 }
 
 async function sync(dateStr = '2026-10-18') {
-  const filePath = path.join(__dirname, '..', 'days', dateStr, 'submissions.json');
+  const filePath = path.join(__dirname, '..', '..', 'practice', 'days', dateStr, 'submissions.json');
   if (!fs.existsSync(filePath)) {
     console.error(`Submissions file not found: ${filePath}`);
     return;

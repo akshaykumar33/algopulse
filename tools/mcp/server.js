@@ -10,8 +10,8 @@
 
 const readline = require('readline');
 const path = require('path');
-const store = require('../../practice/lib/store');
-const rag = require('../../practice/ai/rag');
+const store = require('../../src/lib/store');
+const rag = require('../../src/ai/rag');
 
 const SERVER_INFO = { name: 'algopulse', version: '1.0.0' };
 const SUPPORTED_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];

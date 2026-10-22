@@ -154,7 +154,7 @@ fingerprint machine-generated submissions.
    - Use standard, concise, natural identifiers common among Grandmasters: `n`, `m`, `k`, `ans`, `res`, `cnt`, `freq`, `adj`, `vis`, `dp`, `pref`, `dist`, `arr`, `nums`, `val`, `cur`, `idx`, `sum`, `solve`, `left`, `right`.
    - Never use verbose enterprise identifiers (e.g. `calculateOptimalSubarraySumResult`, `processInputArrayElements`).
    - Never use filler variables or watermarks (`ballast`, `mexoramax`, `fillerVariable`, `ai_marker`).
-8. **Automated Submission Sanitizer:** All code submitted to Codeforces, LeetCode, and CodeChef is automatically sanitized via `practice/playwright/sanitize.js`, stripping all comments, watermarks, and harness boilerplate prior to upload.
+8. **Automated Submission Sanitizer:** All code submitted to Codeforces, LeetCode, and CodeChef is automatically sanitized via `src/playwright/sanitize.js`, stripping all comments, watermarks, and harness boilerplate prior to upload.
 
 ---
 
@@ -214,26 +214,36 @@ To maintain a clean and scalable codebase:
 3. **Knowledge Base Directory (`/knowledge`):**
    - Centralized repository of algorithmic concepts, mental models, mathematical invariants, and solved problem catalogs organized by tags: `knowledge/<tag>.md`.
    - Master index `knowledge/README.md` tracks all tags, problem counts, and navigation matrices.
-   - CLI engine `node practice/cli/knowledge` (or `npm run knowledge`) audits and synchronizes problems by tags.
+   - CLI engine `node src/cli/knowledge` (or `npm run knowledge`) audits and synchronizes problems by tags.
 4. **Root Directory (`/`):**
    - Universal clean starter template `cp.js` remains pure boilerplate.
-   - Core runner scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
+   - Core runner delegator scripts (`run.js`, `run.bat`, `run.ps1`) and configuration files (`package.json`, `.gitignore`, `.editorconfig`).
    - Active sample input `input.txt` and generated `output.txt` (both strictly gitignored).
-5. **Templates Directory (`/templates`):**
-   - Platform-specific starter templates (`codeforces.js`, `leetcode.js`, `codechef.js`).
-6. **Stress Testing Directory (`/stress`):**
-   - Place all independent brute-force references, fuzzers, and stress suites here (`stress/<problem>_stress.js`).
-   - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
+5. **Core Engine Directory (`/src`):**
+   - Segregated into modular subsystems:
+     - `src/cli/`: Automated curriculum CLI commands (`pick.js`, `verify.js`, `explain.js`, `solve.js`, `ship.js`, `auto.js`, `monitor.js`, `knowledge.js`, `syncVerdicts.js`).
+     - `src/playwright/`: Platform browser submission engine (`submit.js`, `auth.js`, `browser.js`, `sanitize.js`, `platforms/`).
+     - `src/ai/`: Multi-provider AI agents, RAG engine, local voice buddy, and prompts (`agent.js`, `rag.js`, `localVoice.js`, `providers/`).
+     - `src/lib/`: Core data store, streak logic, injection defense, progression XP, and platform adapters (`store.js`, `ramp.js`, `progression.js`, `injection.js`, `providers/`).
+     - `src/runner/`: Universal CP runner implementation (`run.js`) discovering solutions across directories.
+6. **Applications Directory (`/apps`):**
+   - `apps/studio-ui/`: Vite + React + TypeScript interactive learning and problem dashboard.
+   - `apps/visualizer/`: Local Node.js visualizer server and canvas animation engine.
 7. **Practice Directory (`/practice`):**
-   - Automated multi-platform daily curriculum CLI tools segregated in `practice/cli/` (`pick.js`, `verify.js`, `explain.js`, `solve.js`, `ship.js`, `auto.js`, `monitor.js`, `knowledge.js`).
-   - Unified Playwright platform submission suite in `practice/playwright/`.
-   - Internal helper libraries and curriculum providers in `practice/lib/` (`visualizer.js`, `progression.js`, `ramp.js`, `store.js`, `providers/`).
-   - Daily directories `practice/days/<date>/` strictly segregated into `explanations/` (Mermaid diagrams & intuitions), `solutions/` (reference), `attempts/` (practice code), and `tests/` (test cases).
-8. **Tools & Automation Directories (`/tools`, `/scripts`, `/docker`):**
-   - Workspace tools in `tools/` (`tools/mcp/server.js`, `tools/tts/`).
-   - Task reminders and system automation in `scripts/` (`remind.ps1`, `remind-install.ps1`).
-   - Containerized deployment configs in `docker/` (`Dockerfile`, `docker-compose.yml`).
-9. **Filename Standards:**
+   - Strictly reserved for curriculum data and daily problem sets:
+     - `practice/days/<date>/`: Daily problem sets segregated into `explanations/` (intuitions & Mermaid diagrams), `solutions/` (reference solutions), `attempts/` (user practice code), and `tests/` (test cases).
+     - `practice/plan.json` & `practice/ROADMAP.md`: Daily difficulty ramps and curriculum schedule.
+8. **Templates Directory (`/templates`):**
+   - Platform-specific starter templates (`codeforces.js`, `leetcode.js`, `codechef.js`).
+9. **Stress Testing Directory (`/stress`):**
+   - Independent brute-force references, fuzzers, and stress suites (`stress/<problem>_stress.js`).
+   - Large stress fixtures in `stress/fixtures/` (gitignored).
+10. **Tools & Automation Directories (`/tools`, `/scripts`, `/docker`, `/docs`):**
+    - Workspace MCP tools in `tools/mcp/` and local TTS services in `tools/tts/`.
+    - Automation and daily reminder tasks in `scripts/` (`remind.ps1`, `remind-install.ps1`).
+    - Containerized deployment configs in `docker/` (`Dockerfile`, `docker-compose.yml`).
+    - Architecture decision records in `docs/adr/`.
+11. **Filename Standards:**
    - Solutions: Strict camelCase or PascalCase matching the problem title (e.g., `goodContest.js`, `subRbsEasyVersion.js`).
    - Stress suites: `<problem>_stress.js` or `<problem>_stress2.js`.
    - Never use special characters (parentheses, brackets, spaces) in filenames to guarantee shell compatibility across PowerShell, CMD, and Bash.
@@ -308,5 +318,5 @@ Every competitive programming problem solved in this repository must contribute 
    - Create a dedicated guide `knowledge/<newTag>.md` adhering to the standard 7-section format (Principles, Recognition Signals, Invariants/Formulas, JS Patterns & Traps, Sub-patterns, Solved Problems Catalog, Pitfalls).
    - Register the new guide in `knowledge/README.md`.
 4. **Automated Audit & Synchronization:**
-   - Run `node practice/cli/knowledge --sync` (or `npm run knowledge:sync`) to ensure all solved problem references and counts are synchronized across the knowledge base.
-   - Run `node practice/cli/knowledge` to verify 100% topic coverage.
+   - Run `node src/cli/knowledge --sync` (or `npm run knowledge:sync`) to ensure all solved problem references and counts are synchronized across the knowledge base.
+   - Run `node src/cli/knowledge` to verify 100% topic coverage.

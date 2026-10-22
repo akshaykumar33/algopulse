@@ -8,9 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync, execSync } = require('child_process');
 
-const ROOT = path.resolve(__dirname, '..');
+const REPO = path.resolve(__dirname, '..', '..');
+const ROOT = path.join(REPO, 'practice');
 const DAYS = path.join(ROOT, 'days');
-const REPO = path.resolve(ROOT, '..');
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -62,7 +62,7 @@ async function main() {
 
   // 1. Run Verification
   console.log('[ship] Step 1: Running verifier ...');
-  const verifyRes = run('node', ['practice/cli/verify.js', date]);
+  const verifyRes = run('node', ['src/cli/verify.js', date]);
   if (verifyRes.status !== 0) {
     console.error(`[ship] Verification failed! Cannot ship incomplete or failing solutions.`);
     console.error(verifyRes.stdout || verifyRes.stderr);
@@ -73,7 +73,7 @@ async function main() {
   // 2. Automated Platform Submissions (Playwright)
   const skipSubmit = args.includes('--no-submit');
   if (!skipSubmit) {
-    const submitArgs = ['practice/playwright/submit.js', '--date', date];
+    const submitArgs = ['src/playwright/submit.js', '--date', date];
     if (args.includes('--sequential')) submitArgs.push('--sequential');
     if (args.includes('--fast') || args.includes('--quick')) submitArgs.push('--fast');
     if (flag('--cooldown')) submitArgs.push('--cooldown', flag('--cooldown'));
@@ -109,7 +109,7 @@ async function main() {
 
   // 3. Synchronize Knowledge Base
   console.log('[ship] Step 3: Synchronizing Knowledge Base ...');
-  const syncRes = run('node', ['practice/cli/knowledge.js', '--sync']);
+  const syncRes = run('node', ['src/cli/knowledge.js', '--sync']);
   if (syncRes.status === 0) {
     console.log('  ✓ Knowledge base synchronized.');
   }
@@ -182,12 +182,12 @@ async function main() {
 - Solves all ${set.problems.length} problems for Day ${set.day} (${date}) across ${set.platforms.join(', ')}.
 - Reference solutions in \`practice/days/${date}/solutions/\` and \`solutions/\`.
 - Sample test fixtures in \`practice/days/${date}/tests/\`.
-- Automated verification: 100% green via \`node practice/cli/verify ${date}\`.
+- Automated verification: 100% green via \`node src/cli/verify.js ${date}\`.
 - Synchronized topic catalogs in \`knowledge/\` base.
 
 ## Verification
-- Verified via \`node practice/cli/verify ${date}\`.
-- Verified via \`node practice/knowledge\`.`;
+- Verified via \`node src/cli/verify.js ${date}\`.
+- Verified via \`node src/cli/knowledge.js\`.`;
 
     const createRes = run('gh', ['pr', 'create', '--title', prTitle, '--body', prBody]);
     if (createRes.status === 0) {

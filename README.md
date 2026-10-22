@@ -91,7 +91,7 @@ npm run verify
 npm run verify:ref
 
 # Verify a specific day
-node practice/cli/verify 2026-09-27
+node src/cli/verify 2026-09-27
 ```
 
 ### 4. Explanations, Intuitions & Mermaid Diagrams
@@ -102,7 +102,7 @@ Generate and view complete Markdown explanations for problems featuring step-by-
 npm run explain
 
 # Generate for a specific problem
-node practice/cli/explain onlyPluses
+node src/cli/explain onlyPluses
 ```
 
 Explanations are located in `practice/days/<date>/explanations/<problem>.md`.
@@ -149,10 +149,10 @@ npm run submit:dry
 npm run submit
 
 # Submit for a specific day or platform
-node practice/playwright/submit.js --date 2026-09-30 --platform leetcode
+node src/playwright/submit.js --date 2026-09-30 --platform leetcode
 
 # Organize/mirror all day-wise code into platform directories
-node practice/playwright/submit.js --mirror --all --dry-run
+node src/playwright/submit.js --mirror --all --dry-run
 ```
 
 ---
@@ -204,7 +204,7 @@ npm run knowledge
 npm run knowledge:sync
 
 # Add a specific problem to its tag guides
-node practice/cli/knowledge --add <problemFile>
+node src/cli/knowledge --add <problemFile>
 ```
 
 ---

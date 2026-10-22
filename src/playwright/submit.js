@@ -65,7 +65,6 @@ function findSolutionFile(problem, dayDir) {
     path.join(dayDir, 'solutions', `${problem.file}.sql`),
     path.join(dayDir, 'solutions', `${problem.file}.js`),
     path.join(dayDir, 'attempts', `${problem.file}.js`),
-    path.join(REPO_ROOT, 'practice', 'platforms', platKey, dateStr, `${problem.file}.js`),
     path.join(REPO_ROOT, 'contests', platKey, dateStr, `${problem.file}.js`),
     path.join(REPO_ROOT, 'solutions', `${problem.file}.js`),
     path.join(REPO_ROOT, `${problem.file}.js`),
@@ -357,7 +356,7 @@ function printSubmissionStatus(problems, historicalSubmissions, date, dayDir) {
 
   if (failedCount > 0) {
     console.log(`\n💡 To resubmit ONLY the ${failedCount} failed case(s), run:`);
-    console.log(`   node practice/playwright/submit.js --date ${date} --failed-only`);
+    console.log(`   node src/playwright/submit.js --date ${date} --failed-only`);
     console.log(`   (Or platform specific: npm run submit:cc -- --failed-only)\n`);
   } else if (acceptedCount === problems.length) {
     console.log(`\n🎉 All ${problems.length} problems are 100% Accepted! No resubmissions required.\n`);
@@ -426,9 +425,9 @@ async function runDryRun(problems, dayDir, date, isParallel = false, historicalS
     `\nDry run completed: ${acceptedCount} already accepted (will be skipped), ${failedCount} failed (eligible for retry), ${readyCount - failedCount} pending, ${missingCount} missing code.`
   );
   console.log(`\nNext steps:`);
-  console.log(`  • To submit unaccepted/failed problems: node practice/playwright/submit.js --date ${date}`);
-  console.log(`  • To resubmit ONLY failed cases:        node practice/playwright/submit.js --date ${date} --failed-only`);
-  console.log(`  • To force resubmission of all:          node practice/playwright/submit.js --date ${date} --force\n`);
+  console.log(`  • To submit unaccepted/failed problems: node src/playwright/submit.js --date ${date}`);
+  console.log(`  • To resubmit ONLY failed cases:        node src/playwright/submit.js --date ${date} --failed-only`);
+  console.log(`  • To force resubmission of all:          node src/playwright/submit.js --date ${date} --force\n`);
 }
 
 
@@ -1132,7 +1131,7 @@ async function main() {
   const setPath = path.join(dayDir, 'set.json');
 
   const dayLiveLog = path.join(dayDir, 'live.log');
-  const globalLiveLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
+  const globalLiveLog = path.join(REPO_ROOT, 'logs', 'live.log');
   const origStdoutWrite = process.stdout.write.bind(process.stdout);
   const origStderrWrite = process.stderr.write.bind(process.stderr);
   try {

@@ -1,6 +1,6 @@
 /**
  * The three AI jobs — walkthrough doc, layman story + trace, and coach answers — written
- * once and run on whichever provider is active (practice/ai/index.js).
+ * once and run on whichever provider is active (src/ai/index.js).
  *
  * The AI never sees the problem statement (we do not scrape it), so every prompt is
  * grounded in what IS on disk: the verified reference solution and the sample tests.

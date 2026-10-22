@@ -8,20 +8,20 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const store = require('../practice/lib/store');
-const ai = require('../practice/ai');
-const prompts = require('../practice/ai/prompts');
-const rag = require('../practice/ai/rag');
-const agent = require('../practice/ai/agent');
-const web = require('../practice/ai/web');
-const report = require('../practice/ai/report');
-const localVoice = require('../practice/ai/localVoice');
+const store = require('../../src/lib/store');
+const ai = require('../../src/ai');
+const prompts = require('../../src/ai/prompts');
+const rag = require('../../src/ai/rag');
+const agent = require('../../src/ai/agent');
+const web = require('../../src/ai/web');
+const report = require('../../src/ai/report');
+const localVoice = require('../../src/ai/localVoice');
 
 const { HttpError, REPO_ROOT, DAYS_DIR, readIf, toRepoRel } = store;
 const PORT = Number(process.env.PORT) || 3333;
 const HOST = '127.0.0.1';
-const PUBLIC_DIR = process.env.USE_STUDIO_V2 === '1' && fs.existsSync(path.join(REPO_ROOT, 'studio-ui', 'dist'))
-  ? path.join(REPO_ROOT, 'studio-ui', 'dist')
+const PUBLIC_DIR = process.env.USE_STUDIO_V2 === '1' && fs.existsSync(path.join(REPO_ROOT, 'apps', 'studio-ui', 'dist'))
+  ? path.join(REPO_ROOT, 'apps', 'studio-ui', 'dist')
   : path.join(__dirname, 'public');
 const MAX_BODY = 2 * 1024 * 1024; // custom inputs can be large
 
@@ -194,7 +194,7 @@ const routes = {
   'POST /api/verify': async (req) => {
     const { date } = await readJsonBody(req);
     store.loadSet(date); // validates the date before it reaches argv
-    const { code, out } = await store.runScript(['practice/cli/verify.js', date]);
+    const { code, out } = await store.runScript(['src/cli/verify.js', date]);
     return { success: code === 0, output: out };
   },
 

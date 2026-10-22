@@ -24,7 +24,7 @@ if (!CHROME) {
   process.exit(2);
 }
 
-const server = spawn(process.execPath, ['visualizer/server.js'], { env: { ...process.env, PORT: String(PORT) }, stdio: 'ignore' });
+const server = spawn(process.execPath, ['apps/visualizer/server.js'], { env: { ...process.env, PORT: String(PORT) }, stdio: 'ignore' });
 const profile = mkdtempSync(join(tmpdir(), 'algopulse-ui-'));
 const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${DEBUG_PORT}`, `--user-data-dir=${profile}`, '--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--window-size=1440,900', 'about:blank'], { stdio: 'ignore' });
 

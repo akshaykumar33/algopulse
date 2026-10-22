@@ -12,7 +12,7 @@ Built with Playwright and stealth anti-detection evasions to automate submitting
 ```bash
 npm run submit:status
 # or
-node practice/playwright/auth.js --status
+node src/playwright/auth.js --status
 ```
 
 ### Save Persistent Login Sessions
@@ -22,9 +22,9 @@ Opens a visible browser window for you to log in (solve any captcha or 2FA). Ses
 npm run submit:auth
 
 # Or authenticate a specific platform:
-node practice/playwright/auth.js --platform codeforces
-node practice/playwright/auth.js --platform leetcode
-node practice/playwright/auth.js --platform codechef
+node src/playwright/auth.js --platform codeforces
+node src/playwright/auth.js --platform leetcode
+node src/playwright/auth.js --platform codechef
 ```
 
 ### Preview Day-Wise Submissions (Dry-Run)
@@ -32,7 +32,7 @@ Inspects the active practice day, matches solution files, checks auth, and displ
 ```bash
 npm run submit:dry
 # or
-node practice/playwright/submit.js --dry-run
+node src/playwright/submit.js --dry-run
 ```
 
 ### Perform Automated Submissions
@@ -40,21 +40,21 @@ Submits the active practice day's solutions to each respective platform:
 ```bash
 npm run submit
 # Or run for a specific day:
-node practice/playwright/submit.js --date 2026-09-30
+node src/playwright/submit.js --date 2026-09-30
 
 # Filter by platform:
-node practice/playwright/submit.js --platform codeforces
-node practice/playwright/submit.js --platform leetcode
-node practice/playwright/submit.js --platform codechef
+node src/playwright/submit.js --platform codeforces
+node src/playwright/submit.js --platform leetcode
+node src/playwright/submit.js --platform codechef
 
 # Submit a single problem:
-node practice/playwright/submit.js --problem calculatingFunction
+node src/playwright/submit.js --problem calculatingFunction
 
 # Run in headless mode:
-node practice/playwright/submit.js --headless
+node src/playwright/submit.js --headless
 
 # Mirror / organize day-wise solutions into contests/<platform>/<date>/:
-node practice/playwright/submit.js --mirror
+node src/playwright/submit.js --mirror
 ```
 
 ---
@@ -72,7 +72,7 @@ node practice/playwright/submit.js --mirror
 ## 3. Directory Layout
 
 ```
-practice/playwright/
+src/playwright/
 ├── README.md               # Engine documentation & CLI guide
 ├── config.js               # Platform metadata, URLs, storage paths
 ├── browser.js              # Stealth browser launcher & evasion context

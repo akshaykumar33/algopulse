@@ -1,7 +1,7 @@
 /**
  * Practice data layer — the single source of truth for reading day sets, attempts,
  * tests and stories, and for running solutions. Shared by the dashboard server
- * (visualizer/server.js) and the MCP server (practice/mcp/server.js) so the two can
+ * (apps/visualizer/server.js) and the MCP server (tools/mcp/server.js) so the two can
  * never disagree about where a file lives or what "solved" means.
  */
 

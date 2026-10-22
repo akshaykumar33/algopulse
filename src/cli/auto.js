@@ -57,7 +57,7 @@ async function main() {
 
   // Step 1: Pre-flight Local Test Verification
   console.log(`[1/3] ${C.bold}Running pre-flight verification against local test suites ...${C.reset}`);
-  const verifyRes = spawnSync(process.execPath, [path.join(REPO_ROOT, 'practice', 'cli', 'verify.js'), targetDate], {
+  const verifyRes = spawnSync(process.execPath, [path.join(REPO_ROOT, 'src', 'cli', 'verify.js'), targetDate], {
     cwd: REPO_ROOT,
     encoding: 'utf-8',
   });
@@ -73,7 +73,7 @@ async function main() {
   // Step 2: Prepare Submit Runner Options
   console.log(`[2/3] ${C.bold}Dispatching Playwright platform workers (Chrome CDP Port 9222) ...${C.reset}`);
   const submitArgs = [
-    path.join(REPO_ROOT, 'practice', 'playwright', 'submit.js'),
+    path.join(REPO_ROOT, 'src', 'playwright', 'submit.js'),
     '--date',
     targetDate,
   ];
@@ -91,7 +91,7 @@ async function main() {
 
   // Ensure live log path exists
   const dayLog = path.join(dayDir, 'live.log');
-  const globalLog = path.join(REPO_ROOT, 'practice', 'logs', 'live.log');
+  const globalLog = path.join(REPO_ROOT, 'logs', 'live.log');
 
   console.log(`[3/3] ${C.bold}Live Event Stream (Flowing Downwards ↓):${C.reset}\n`);
 

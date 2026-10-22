@@ -4,7 +4,8 @@ const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough }
 const ai = require('../ai');
 const { generateExplanation } = require('../ai/prompts');
 
-const ROOT = path.resolve(__dirname, '..');
+const REPO = path.resolve(__dirname, '..', '..');
+const ROOT = path.join(REPO, 'practice');
 const DAYS = path.join(ROOT, 'days');
 
 const args = process.argv.slice(2);

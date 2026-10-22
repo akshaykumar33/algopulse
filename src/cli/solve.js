@@ -9,9 +9,9 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const ai = require('../ai');
 
-const ROOT = path.resolve(__dirname, '..');
+const REPO = path.resolve(__dirname, '..', '..');
+const ROOT = path.join(REPO, 'practice');
 const DAYS = path.join(ROOT, 'days');
-const REPO = path.resolve(ROOT, '..');
 const ROOT_SOLUTIONS = path.join(REPO, 'solutions');
 
 const args = process.argv.slice(2);
