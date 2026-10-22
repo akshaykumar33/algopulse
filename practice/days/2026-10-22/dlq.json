@@ -1,0 +1,124 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-FFL",
+    "name": "Chef in Fantasy League",
+    "file": "chefInFantasyLeague",
+    "tier": "medium",
+    "initialVerdict": "ERROR: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "enqueuedAt": "2026-10-22T07:09:32.053Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-FFL",
+      "name": "Chef in Fantasy League",
+      "rating": 1225,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FFL",
+      "file": "chefInFantasyLeague",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "ERROR: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    49 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div aria-hidden=\"true\" class=\"MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-1lbe2ow\"></div> from <div id=\"menu-\" role=\"presentation\" class=\"MuiPopover-root MuiMenu-root MuiModal-root css-749mnm\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-337",
+    "name": "House Robber III",
+    "file": "houseRobberIII",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-22T07:17:46.105Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-337",
+      "name": "House Robber III",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/house-robber-iii/",
+      "file": "houseRobberIII",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-10-22T08:10:03.287Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2183B",
+    "name": "Yet Another MEX Problem",
+    "file": "yetAnotherMEXProblem",
+    "tier": "easy",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-22T07:19:18.110Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2183B",
+      "name": "Yet Another MEX Problem",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2183/B",
+      "file": "yetAnotherMEXProblem",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Wrong answer on test 1"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHEFAPAR",
+    "name": "Chef and His Apartment Dues",
+    "file": "chefAndHisApartmentDues",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-22T07:22:26.293Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHEFAPAR",
+      "name": "Chef and His Apartment Dues",
+      "rating": 1238,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFAPAR",
+      "file": "chefAndHisApartmentDues",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-TWOPLG",
+    "name": "Two Pile Game",
+    "file": "twoPileGame",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-22T07:52:02.427Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-TWOPLG",
+      "name": "Two Pile Game",
+      "rating": 1189,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TWOPLG",
+      "file": "twoPileGame",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]

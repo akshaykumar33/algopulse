@@ -1,26 +1,64 @@
-const fs = require('fs');
+function getMinimumDistance(n, edges, x, y) {
+  if (x === y) return 0;
+  const head = new Int32Array(n + 1).fill(-1);
+  const to = new Int32Array(edges.length * 2);
+  const next = new Int32Array(edges.length * 2);
+  let edgeCount = 0;
 
-function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (lines.length === 0 || lines[0] === '') return;
-  
-  let lineIdx = 0;
-  const t = parseInt(lines[lineIdx++], 10);
-  const out = [];
-  
-  for (let i = 0; i < t; i++) {
-    if (lineIdx >= lines.length) break;
-    const parts = lines[lineIdx++].trim().split(/\s+/).map(Number);
-    const x1 = parts[0];
-    const y1 = parts[1];
-    const x2 = parts[2];
-    const y2 = parts[3];
-    
-    const ans = Math.abs(x1 - x2) + Math.abs(y1 - y2);
-    out.push(ans);
+  function addEdge(u, v) {
+    to[edgeCount] = v;
+    next[edgeCount] = head[u];
+    head[u] = edgeCount++;
   }
-  
-  console.log(out.join('\n'));
+
+  for (let i = 0; i < edges.length; i++) {
+    const u = edges[i][0];
+    const v = edges[i][1];
+    if (u <= n && v <= n) {
+      addEdge(u, v);
+      addEdge(v, u);
+    }
+  }
+
+  const dist = new Int32Array(n + 1).fill(-1);
+  const queue = new Int32Array(n + 1);
+  let headQ = 0, tailQ = 0;
+
+  dist[x] = 0;
+  queue[tailQ++] = x;
+
+  while (headQ < tailQ) {
+    const cur = queue[headQ++];
+    if (cur === y) return dist[cur];
+    for (let e = head[cur]; e !== -1; e = next[e]) {
+      const neighbor = to[e];
+      if (dist[neighbor] === -1) {
+        dist[neighbor] = dist[cur] + 1;
+        if (neighbor === y) return dist[neighbor];
+        queue[tailQ++] = neighbor;
+      }
+    }
+  }
+
+  return dist[y];
 }
 
-solve();
+if (typeof require !== 'undefined' && require.main === module) {
+  const fs = require('fs');
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (input && input.length >= 4 && input[0] !== '') {
+    let ptr = 0;
+    while (ptr < input.length) {
+      const n = parseInt(input[ptr++], 10);
+      const m = parseInt(input[ptr++], 10);
+      if (isNaN(n) || isNaN(m)) break;
+      const edges = [];
+      for (let i = 0; i < m; i++) {
+        edges.push([parseInt(input[ptr++], 10), parseInt(input[ptr++], 10)]);
+      }
+      const x = parseInt(input[ptr++], 10);
+      const y = parseInt(input[ptr++], 10);
+      console.log(getMinimumDistance(n, edges, x, y));
+    }
+  }
+}

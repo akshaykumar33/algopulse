@@ -2,37 +2,34 @@ const fs = require('fs');
 
 function solve() {
   const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || !input[0]) return;
-  let idx = 0;
-  const t = parseInt(input[idx++], 10);
-  const out = [];
-
+  if (!input || input.length === 0 || input[0] === '') return;
+  let ptr = 0;
+  const t = Number(input[ptr++]);
+  const ans = [];
   for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[idx++], 10);
-    const s = parseInt(input[idx++], 10);
-    const p = [];
+    const n = Number(input[ptr++]);
+    const s = Number(input[ptr++]);
+    const p = new Int32Array(n);
     for (let i = 0; i < n; i++) {
-      p.push(parseInt(input[idx++], 10));
+      p[i] = Number(input[ptr++]);
     }
-    let min0 = Infinity;
-    let min1 = Infinity;
+    let min0 = 1e9;
+    let min1 = 1e9;
     for (let i = 0; i < n; i++) {
-      const type = parseInt(input[idx++], 10);
+      const type = Number(input[ptr++]);
       if (type === 0) {
         if (p[i] < min0) min0 = p[i];
       } else {
         if (p[i] < min1) min1 = p[i];
       }
     }
-
     if (s + min0 + min1 <= 100) {
-      out.push('yes');
+      ans.push('yes');
     } else {
-      out.push('no');
+      ans.push('no');
     }
   }
-
-  console.log(out.join('\n'));
+  console.log(ans.join('\n'));
 }
 
 solve();

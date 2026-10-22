@@ -79,6 +79,8 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
           await jsOption.click().catch(() => {});
           await page.waitForTimeout(500);
         }
+        await page.keyboard.press('Escape').catch(() => {});
+        await page.waitForTimeout(300);
       }
     }
   } catch (err) {
@@ -121,7 +123,8 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
   if (!codeSet) {
     const editor = await page.$('.ace_editor, .monaco-editor, #editor');
     if (editor) {
-      await editor.click();
+      await page.keyboard.press('Escape').catch(() => {});
+      await editor.click({ force: true }).catch(() => {});
       await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
       await page.keyboard.press('Backspace');
       await page.keyboard.insertText(code);
@@ -146,7 +149,8 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
     'button:has-text("Submit"), button[id*="submit"], [data-testid="submit-button"]',
     { timeout: 15000 }
   );
-  await submitBtn.click();
+  await page.keyboard.press('Escape').catch(() => {});
+  await submitBtn.click({ force: true });
 
   // Check if login modal dialog popped up
   await page.waitForTimeout(1000);

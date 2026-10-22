@@ -1,31 +1,39 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (input.length === 0 || input[0] === '') return;
-  
-  let lineIdx = 0;
-  const t = parseInt(input[lineIdx++], 10);
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length < 2 || input[0] === '') return;
+  let ptr = 0;
   const out = [];
-  
-  for (let i = 0; i < t; i++) {
-    const [n, m] = input[lineIdx++].split(' ').map(Number);
-    const a = input[lineIdx++].split(' ').map(Number);
-    const b = input[lineIdx++].split(' ').map(Number);
-    
-    let sumA = 0;
-    for (let j = 0; j < n; j++) sumA += a[j];
-    
-    let sumB = 0;
-    for (let j = 0; j < m; j++) sumB += b[j];
-    
-    if (sumA <= sumB) {
-      out.push("Yes");
-    } else {
-      out.push("No");
+
+  while (ptr < input.length) {
+    const n = parseInt(input[ptr++], 10);
+    const m = parseInt(input[ptr++], 10);
+    if (isNaN(n) || isNaN(m)) break;
+    const a = new Int32Array(n);
+    let maxA = 0;
+    for (let i = 0; i < n; i++) {
+      a[i] = parseInt(input[ptr++], 10);
+      if (a[i] > maxA) maxA = a[i];
     }
+
+    let low = 1, high = maxA, ans = 0;
+    while (low <= high) {
+      const mid = (low + high) >> 1;
+      let count = 0;
+      for (let i = 0; i < n; i++) {
+        count += Math.floor(a[i] / mid);
+        if (count >= m) break;
+      }
+      if (count >= m) {
+        ans = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    out.push(ans);
   }
-  
   console.log(out.join('\n'));
 }
 
