@@ -6,7 +6,7 @@
 Solve each problem at the repo root starting from the designated template, then run the verifier:
 
 ```bash
-node practice/cli/verify 2026-10-22
+node src/cli/verify 2026-10-22
 ```
 
 Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagrams are in `explanations/`.

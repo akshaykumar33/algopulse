@@ -1,4 +1,4 @@
-const agent = require('../practice/ai/agent');
+const agent = require('../src/ai/agent');
 
 async function testMultilingual() {
   const testInputs = [

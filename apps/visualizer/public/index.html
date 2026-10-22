@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AlgoPulse Studio</title>
+  <meta name="description" content="Daily competitive programming practice: stories, walkthroughs, diagrams, visual simulations, an in-browser editor, a test runner and an AI coach.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+  <!-- Apply the saved theme before first paint so there is no flash. -->
+  <script>
+    try { const t = localStorage.getItem('algopulse-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,100,1&family=Nunito:ital,wght@0,400..800;1,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="features.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="guide.js"></script>
+  <script defer src="mascot.js"></script>
+  <script defer src="ear.js"></script>
+  <script defer src="voice.js"></script>
+  <script defer src="assistant.js"></script>
+  <script defer src="copilot.js"></script>
+  <script defer src="remote.js"></script>
+  <script defer src="select.js"></script>
+</head>
+<body>
+  <!-- Boot loader: an acorn brewing cocoa while the first data arrives -->
+  <div class="boot" id="boot" role="status" aria-live="polite">
+    <div class="boot-art" aria-hidden="true">
+      <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+      <svg class="boot-cup" viewBox="0 0 64 56"><path d="M8 18h40v14a20 20 0 0 1-40 0z" class="cup"/><path d="M48 22h4a7 7 0 0 1 0 14h-5" class="cup-handle"/><ellipse cx="28" cy="18" rx="20" ry="4" class="cocoa"/><path d="M4 52h48" class="saucer"/></svg>
+    </div>
+    <p class="boot-text">Brewing today's set<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to problem</a>
+
+  <!-- Control glyphs (buttons). Decorative/illustrative icons come from Phosphor duotone. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="lg-nut" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8a868"/><stop offset="1" stop-color="#b86f35"/></linearGradient>
+      <linearGradient id="lg-cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4b2c"/><stop offset="1" stop-color="#4a2c18"/></linearGradient>
+      <linearGradient id="lg-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9dbb78"/><stop offset="1" stop-color="#5f8a45"/></linearGradient>
+    </defs>
+    <!-- Logo: an acorn with a heartbeat across it — AlgoPulse. -->
+    <symbol id="i-logo" viewBox="0 0 64 64">
+      <path d="M33 13c3.5-6 11-8.5 19-6.5-2 7.5-9.5 11-19 6.5z" fill="url(#lg-leaf)" class="logo-leaf"/>
+      <path d="M35 11.5c4-2.4 8.5-3.4 13-3.4" stroke="#4e7438" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M32 15V8.5" stroke="#4a2c18" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M13 31h38c0 16-8.7 27-19 27S13 47 13 31z" fill="url(#lg-nut)"/>
+      <ellipse cx="21.5" cy="40" rx="3.2" ry="7" fill="#fff" opacity=".22" transform="rotate(12 21.5 40)"/>
+      <path d="M17 43h7.5l3.2-7.5 4.6 14 3.6-10 2.3 3.5H47" stroke="#fdf3e4" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="logo-pulse" pathLength="100"/>
+      <path d="M9 31.5C9 20 19 13.5 32 13.5S55 20 55 31.5c0 1.4-1.1 2.5-2.5 2.5h-41A2.5 2.5 0 0 1 9 31.5z" fill="url(#lg-cap)"/>
+      <g fill="#a87650" opacity=".55"><circle cx="20" cy="24" r="1.3"/><circle cx="26" cy="20.5" r="1.3"/><circle cx="32" cy="19" r="1.3"/><circle cx="38" cy="20.5" r="1.3"/><circle cx="44" cy="24" r="1.3"/><circle cx="17" cy="29" r="1.3"/><circle cx="23" cy="26" r="1.3"/><circle cx="29" cy="24.5" r="1.3"/><circle cx="35" cy="24.5" r="1.3"/><circle cx="41" cy="26" r="1.3"/><circle cx="47" cy="29" r="1.3"/></g>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 3.4 7.4 8 8-4.6.6-7.4 3.4-8 8-.6-4.6-3.4-7.4-8-8 4.6-.6 7.4-3.4 8-8z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></symbol>
+    <symbol id="i-file-plus" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></symbol>
+    <symbol id="i-acorn" viewBox="0 0 32 32"><path d="M6 13c0-5 4.5-8 10-8s10 3 10 8z" class="acorn-cap"/><path d="M7.5 13h17c0 8-4 13-8.5 13S7.5 21 7.5 13z" class="acorn-nut"/><path d="M16 5V2" class="acorn-stem"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AlgoPulse Studio home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-logo"/></svg>
+      <span class="brand-name">AlgoPulse <em>Studio</em></span>
+    </a>
+
+    <div class="topbar-day">
+      <!-- Custom listbox day picker (button + role=listbox, full keyboard support) -->
+      <div class="picker" id="dayPicker">
+        <button class="picker-button" id="dayButton" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="dayList" disabled>
+          <i class="ph-duotone ph-calendar-heart picker-icon" aria-hidden="true"></i>
+          <span class="picker-label" id="dayLabel">Loading days…</span>
+          <svg class="icon picker-chevron" aria-hidden="true"><use href="#i-down"/></svg>
+        </button>
+        <ul class="picker-list" id="dayList" role="listbox" aria-label="Practice day" tabindex="-1" hidden></ul>
+      </div>
+      <div class="progress" id="dayProgress" role="img" aria-label="Progress">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="progress-track" cx="18" cy="18" r="15"/><circle class="progress-fill" id="progressRing" cx="18" cy="18" r="15" pathLength="100"/></svg>
+        <span class="progress-text"><strong id="statDone">0</strong><span>/</span><span id="statTotal">0</span></span>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="streak" id="streakBadge" type="button" hidden>
+        <i class="ph-duotone ph-fire" aria-hidden="true"></i><span class="streak-count">0</span><span class="streak-unit hide-sm">day streak</span>
+      </button>
+      <button class="btn btn-ghost btn-icon assist-btn" id="btnVoice" type="button" aria-pressed="false" aria-label="Voice control" title="Voice control (V)">
+        <i class="ph-duotone ph-microphone" aria-hidden="true" style="font-size:1.3rem"></i>
+      </button>
+      <button class="btn btn-ghost btn-icon assist-btn" id="btnGestures" type="button" aria-pressed="false" aria-label="Gesture control" title="Gesture control (W)">
+        <i class="ph-duotone ph-hand-waving" aria-hidden="true" style="font-size:1.3rem"></i>
+      </button>
+      <button class="btn btn-ghost btn-icon" id="btnGuide" type="button" aria-label="Open the guide" title="Guide (G)">
+        <i class="ph-duotone ph-question" aria-hidden="true" style="font-size:1.3rem"></i>
+      </button>
+      <button class="btn btn-ghost btn-icon" id="btnTheme" type="button" aria-label="Switch to dark theme" title="Toggle theme (T)">
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <button class="btn btn-secondary" id="btnVerifyDay" type="button" title="Run src/cli/verify.js for this day">
+        <svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span class="hide-sm">Verify day</span>
+      </button>
+      <button class="btn btn-primary" id="btnCoach" type="button" title="Open the AI coach (C)">
+        <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span class="hide-sm">Coach</span>
+        <span class="status-dot" id="coachDot" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <!-- Problem list: a static column on wide screens, a modal drawer on narrow ones. -->
+    <dialog class="sidebar" id="sidebar" aria-label="Problems">
+      <div class="sidebar-head">
+        <h2 class="sidebar-title"><i class="ph-duotone ph-plant" aria-hidden="true"></i>Today's set</h2>
+        <button class="btn btn-ghost btn-icon drawer-close" type="button" id="btnCloseSidebar" aria-label="Close problem list">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <section class="player" id="player" aria-label="Your progress" hidden></section>
+      <div class="search">
+        <label for="search" class="visually-hidden">Search problems or tags</label>
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="search" type="search" placeholder="Search name or tag" autocomplete="off">
+        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+      </div>
+      <div class="segmented" role="radiogroup" aria-label="Filter by status">
+        <label><input type="radio" name="status" value="all" checked><span>All</span></label>
+        <label><input type="radio" name="status" value="todo"><span>To do</span></label>
+        <label><input type="radio" name="status" value="done"><span>Solved</span></label>
+      </div>
+      <ol class="problem-list" id="problemList" aria-busy="true">
+        <li class="skeleton-row"></li><li class="skeleton-row"></li><li class="skeleton-row"></li><li class="skeleton-row"></li><li class="skeleton-row"></li>
+      </ol>
+    </dialog>
+
+    <main id="main" class="main" tabindex="-1">
+      <section class="hero" aria-labelledby="problemTitle">
+        <svg class="hero-hills" viewBox="0 0 600 160" preserveAspectRatio="none" aria-hidden="true">
+          <path class="hill hill-3" d="M0 110 C 90 60, 170 70, 260 100 S 450 40, 600 80 V160 H0z"/>
+          <path class="hill hill-2" d="M0 130 C 120 90, 220 120, 330 115 S 520 80, 600 110 V160 H0z"/>
+          <path class="hill hill-1" d="M0 150 C 140 125, 260 150, 380 140 S 540 125, 600 138 V160 H0z"/>
+        </svg>
+        <svg class="hero-cloud" viewBox="0 0 120 40" aria-hidden="true"><g><ellipse cx="52" cy="26" rx="34" ry="12"/><ellipse cx="72" cy="18" rx="22" ry="14"/><ellipse cx="34" cy="20" rx="16" ry="10"/></g></svg>
+
+        <div class="hero-top">
+          <button class="btn btn-secondary btn-sm show-drawer" type="button" id="btnOpenSidebar">
+            <svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Problems
+          </button>
+          <p class="hero-meta" id="problemMeta"><span class="skeleton-text"></span></p>
+          <div class="hero-nav">
+            <button class="btn btn-ghost btn-icon" type="button" id="btnPrev" aria-label="Previous problem" title="Previous (K)"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="btn btn-ghost btn-icon" type="button" id="btnNext" aria-label="Next problem" title="Next (J)"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+        <h1 class="hero-title" id="problemTitle"><span class="skeleton-text wide"></span></h1>
+        <ul class="tag-list" id="problemTags" aria-label="Tags"></ul>
+        <div class="hero-actions">
+          <a class="btn btn-secondary btn-sm" id="linkProblem" href="#" target="_blank" rel="noopener noreferrer" hidden>
+            Open statement<svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg>
+          </a>
+          <span class="status-badge" id="statusBadge" hidden></span>
+        </div>
+      </section>
+
+      <div class="tabs" role="tablist" aria-label="Problem views" id="tablist">
+        <button role="tab" id="tab-story" aria-controls="panel-story" aria-selected="true"><i class="ph-duotone ph-book-open-text" aria-hidden="true"></i>Story</button>
+        <button role="tab" id="tab-walkthrough" aria-controls="panel-walkthrough" aria-selected="false" tabindex="-1"><i class="ph-duotone ph-signpost" aria-hidden="true"></i>Walkthrough</button>
+        <button role="tab" id="tab-diagrams" aria-controls="panel-diagrams" aria-selected="false" tabindex="-1"><i class="ph-duotone ph-tree-structure" aria-hidden="true"></i>Diagrams <span class="count" id="diagramCount"></span></button>
+        <button role="tab" id="tab-visualize" aria-controls="panel-visualize" aria-selected="false" tabindex="-1"><i class="ph-duotone ph-cube-focus" aria-hidden="true"></i>Visualize</button>
+        <button role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1"><i class="ph-duotone ph-code" aria-hidden="true"></i>Code</button>
+        <button role="tab" id="tab-tests" aria-controls="panel-tests" aria-selected="false" tabindex="-1"><i class="ph-duotone ph-flask" aria-hidden="true"></i>Tests <span class="count" id="testCount"></span></button>
+        <span class="tab-indicator" id="tabIndicator" aria-hidden="true"></span>
+      </div>
+
+      <section class="panel" role="tabpanel" id="panel-story" aria-labelledby="tab-story" tabindex="0">
+        <div id="story"></div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-walkthrough" aria-labelledby="tab-walkthrough" tabindex="0" hidden>
+        <div class="walkthrough">
+          <div id="explainBanner"></div>
+          <article class="prose" id="explanation"></article>
+          <nav class="toc" id="toc" aria-label="On this page"></nav>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-diagrams" aria-labelledby="tab-diagrams" tabindex="0" hidden>
+        <div class="diagram-grid" id="diagramGrid"></div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-visualize" aria-labelledby="tab-visualize" tabindex="0" hidden>
+        <div id="visualizer"></div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-code" aria-labelledby="tab-code" tabindex="0" hidden>
+        <div class="card code-card">
+          <div class="card-bar">
+            <div class="segmented" role="radiogroup" aria-label="Which code to show">
+              <label><input type="radio" name="codeMode" value="attempt" checked><span>Your attempt</span></label>
+              <label><input type="radio" name="codeMode" value="reference"><span>Reference</span></label>
+              <label><input type="radio" name="codeMode" value="template"><span>Template</span></label>
+            </div>
+            <span class="code-path" id="codePath"></span>
+            <span class="save-state" id="saveState" aria-live="polite"></span>
+            <button class="btn btn-primary btn-sm" type="button" id="btnSave" hidden title="Save (Ctrl+S)"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg><span>Save</span></button>
+            <button class="btn btn-ghost btn-sm" type="button" id="btnCopy"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button>
+          </div>
+          <div class="code-body" id="codeBody"></div>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-tests" aria-labelledby="tab-tests" tabindex="0" hidden>
+        <div class="run-bar card">
+          <div>
+            <h2 class="card-title"><i class="ph-duotone ph-flask" aria-hidden="true"></i>Sample tests</h2>
+            <p class="muted" id="runTarget">Runs your attempt against every sample.</p>
+          </div>
+          <div class="run-controls">
+            <div class="segmented" role="radiogroup" aria-label="Code to run">
+              <label><input type="radio" name="runSource" value="attempt" checked><span>Your attempt</span></label>
+              <label><input type="radio" name="runSource" value="reference"><span>Reference</span></label>
+            </div>
+            <button class="btn btn-primary" type="button" id="btnRun"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Run samples</button>
+          </div>
+        </div>
+        <p class="run-summary" id="runSummary" role="status" aria-live="polite"></p>
+        <div class="test-grid" id="testGrid"></div>
+
+        <form class="card playground" id="playground">
+          <div class="playground-head">
+            <h2 class="card-title"><i class="ph-duotone ph-test-tube" aria-hidden="true"></i>Playground</h2>
+            <p class="muted">Try any input. Add an expected output to get a verdict.</p>
+          </div>
+          <div class="playground-grid">
+            <div class="field">
+              <label for="pgInput">Input</label>
+              <textarea id="pgInput" rows="6" spellcheck="false" required></textarea>
+            </div>
+            <div class="field">
+              <label for="pgExpected">Expected output <span class="optional">(optional)</span></label>
+              <textarea id="pgExpected" rows="6" spellcheck="false"></textarea>
+            </div>
+          </div>
+          <div class="playground-actions">
+            <button class="btn btn-secondary btn-sm" type="button" id="pgFromSample">Fill from sample 1</button>
+            <button class="btn btn-primary" type="submit" id="pgRun"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Run</button>
+          </div>
+          <div class="pg-result" id="pgResult" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- AI coach side sheet -->
+  <dialog class="coach" id="coach" aria-labelledby="coachTitle">
+    <div class="coach-head">
+      <div>
+        <h2 id="coachTitle" class="coach-title"><i class="ph-duotone ph-sparkle" aria-hidden="true"></i>Coach</h2>
+        <p class="muted coach-sub" id="coachSub">About this problem</p>
+      </div>
+      <button class="btn btn-ghost btn-icon" type="button" id="btnCloseCoach" aria-label="Close coach"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="tutor-modes" id="tutorModes" role="toolbar" aria-label="Tutor modes">
+      <button type="button" class="tutor-mode" data-mode="explain"><i class="ph-duotone ph-book-open" aria-hidden="true"></i><span>Explain</span></button>
+      <button type="button" class="tutor-mode" data-mode="hint"><i class="ph-duotone ph-lightbulb" aria-hidden="true"></i><span>Hint 1 of 3</span></button>
+      <button type="button" class="tutor-mode" data-mode="review"><i class="ph-duotone ph-magnifying-glass" aria-hidden="true"></i><span>Review my code</span></button>
+      <button type="button" class="tutor-mode" data-mode="solution"><i class="ph-duotone ph-key" aria-hidden="true"></i><span>Solution</span></button>
+      <button type="button" class="tutor-mode" id="btnStatement" aria-expanded="false" aria-controls="statementPanel"><i class="ph-duotone ph-clipboard-text" aria-hidden="true"></i><span>Paste statement</span></button>
+    </div>
+    <form class="statement-panel" id="statementPanel" hidden>
+      <label for="statementText"><strong>Problem statement</strong> <span class="muted">— paste it from the problem page. Sentences aimed at AI are removed and shown to you.</span></label>
+      <textarea id="statementText" rows="6" spellcheck="false" required></textarea>
+      <div class="empty-actions" style="justify-content:flex-end">
+        <button class="btn btn-ghost btn-sm" type="button" id="btnStatementCancel">Cancel</button>
+        <button class="btn btn-primary btn-sm" type="submit" id="btnStatementSave">Scan &amp; save</button>
+      </div>
+    </form>
+    <div class="coach-log" id="coachLog" aria-live="polite"></div>
+    <div class="coach-prompts" id="coachPrompts">
+      <button type="button" class="chip-btn" data-q="Explain this problem like I'm 10 years old, with an everyday analogy."><i class="ph-duotone ph-baby" aria-hidden="true"></i>Explain like I'm 10</button>
+      <button type="button" class="chip-btn" data-q="Why is this approach correct? Give the key invariant or exchange argument."><i class="ph-duotone ph-seal-check" aria-hidden="true"></i>Why it works</button>
+      <button type="button" class="chip-btn" data-q="Which edge cases usually cause wrong answers here?"><i class="ph-duotone ph-warning-diamond" aria-hidden="true"></i>Edge cases</button>
+    </div>
+    <form class="coach-form" id="coachForm">
+      <label for="coachInput" class="visually-hidden">Ask the coach</label>
+      <textarea id="coachInput" rows="2" placeholder="Ask anything about this problem…" required></textarea>
+      <button class="btn btn-primary btn-icon" type="submit" id="btnAsk" aria-label="Send question"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+    </form>
+  </dialog>
+
+  <!-- Day verification output -->
+  <dialog class="modal" id="verifyModal" aria-labelledby="verifyTitle">
+    <div class="modal-head">
+      <h2 id="verifyTitle" class="card-title">Verify day</h2>
+      <button class="btn btn-ghost btn-icon" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <pre class="terminal" id="verifyOutput"></pre>
+  </dialog>
+
+
+  <!-- Guide: setup, how it works, MCP, reminders, data -->
+  <dialog class="guide" id="guide" aria-labelledby="guideTitle">
+    <div class="guide-top">
+      <div class="guide-brand">
+        <svg class="guide-logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-logo"/></svg>
+        <h2 id="guideTitle">Guide</h2>
+      </div>
+      <button class="btn btn-ghost btn-icon" type="button" id="btnCloseGuide" aria-label="Close guide"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="guide-layout">
+      <nav class="guide-nav" id="guideNav" aria-label="Guide sections"></nav>
+      <div class="guide-body" id="guideBody"></div>
+    </div>
+  </dialog>
+
+  <!-- Guided tour: a spotlight that walks the real interface -->
+  <dialog class="tour" id="tour" aria-labelledby="tourTitle">
+    <div class="tour-spot" id="tourSpot" aria-hidden="true"></div>
+    <div class="tour-card" id="tourCard">
+      <div class="tour-meta"><span id="tourCount"></span><button class="btn btn-ghost btn-sm" type="button" id="tourSkip">Skip tour</button></div>
+      <h2 id="tourTitle"></h2>
+      <p id="tourText"></p>
+      <div class="tour-foot">
+        <div class="tour-dots" id="tourDots" aria-hidden="true"></div>
+        <button class="btn btn-secondary btn-sm" type="button" id="tourPrev">Back</button>
+        <button class="btn btn-primary btn-sm" type="button" id="tourNext">Next</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+</body>
+</html>

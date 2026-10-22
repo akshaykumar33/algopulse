@@ -44,10 +44,10 @@ When solving any competitive programming problem in this repository:
 4. **Automated Audit & Sync:**
    ```bash
    # Inspect coverage and verify all tags are mapped
-   node practice/cli/knowledge
+   node src/cli/knowledge
    
    # Synchronize references across all guides
-   node practice/cli/knowledge --sync
+   node src/cli/knowledge --sync
    ```
 
 ---
