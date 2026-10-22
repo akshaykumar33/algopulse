@@ -86,8 +86,8 @@ if (!target) {
     target = allFiles[0].fullPath;
     console.log(`[runner] No file specified. Auto-detected latest: ${path.relative(REPO_ROOT, target)}`);
   } else {
-    target = 'cp.js';
-    console.log(`[runner] No file specified. Defaulting to template: ${target}`);
+    target = path.join(REPO_ROOT, 'templates', 'cp.js');
+    console.log(`[runner] No file specified. Defaulting to template: ${path.relative(REPO_ROOT, target)}`);
   }
 }
 

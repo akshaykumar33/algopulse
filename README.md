@@ -10,46 +10,50 @@ A high-performance, strictly verified Competitive Programming toolkit and multi-
 ---
 
 ## 📁 Repository Architecture & Structurization
-
-```
-CP/
-├── cp.js                   # Universal clean CP starter boilerplate (never polluted)
-├── templates/              # Platform-specific idiomatic starting templates
-│   ├── codeforces.js       # Fast synchronous buffer I/O for Codeforces & AtCoder
-│   ├── leetcode.js         # LeetCode function export + local test execution harness
-│   └── codechef.js         # Fast I/O tailored for CodeChef multi-test cases
+CP/
 ├── input.txt               # Active sample inputs (gitignored)
 ├── output.txt              # Generated outputs from latest run (gitignored)
-├── run.js                  # Smart execution runner (pipes input.txt -> solution -> output.txt)
-├── run.bat                 # Windows CMD runner shortcut
-├── run.ps1                 # Windows PowerShell runner shortcut
+├── run.js                  # Fast runner proxy (delegates to src/runner/run.js)
 ├── package.json            # Node.js manifest with standard npm scripts
 ├── .gitignore              # Ignores input.txt, output.txt, heavy logs, and stress fixtures
+├── .editorconfig           # Uniform formatting rules
 ├── README.md               # User-facing master documentation
 ├── AGENTS.md               # AI operational guidelines & protocol specification
 ├── CLAUDE.md               # Claude CLI mirror instructions
-├── stress/                 # Stress-testing suites, brute-force oracles, and fuzzers
-│   └── <problem>_stress.js # Dedicated multi-round stress tests
-├── knowledge/              # Algorithmic Knowledge Base & Pattern Catalog
-│   ├── README.md           # Master index, topic matrix, and learning roadmaps
-│   └── <tag>.md            # Tag-specific guides (greedy, math, dp, two-pointers, etc.)
-├── practice/               # Automated multi-platform daily curriculum system
+├── src/                    # Core Operational Engine
+│   ├── cli/                # Automated CLI commands (pick, verify, solve, explain, ship, auto, monitor, knowledge)
+│   ├── playwright/         # Browser automation & submission suite (Codeforces, LeetCode, CodeChef)
+│   ├── ai/                 # Multi-provider AI agents, RAG engine, local voice buddy
+│   ├── lib/                # Core data store, streak logic, progression XP, platform providers
+│   └── runner/             # Universal CP runner implementation
+├── apps/                   # Frontend Web Applications
+│   ├── studio-ui/          # Vite + React + TypeScript interactive learning dashboard
+│   └── visualizer/         # Local Node visualizer server & canvas animation engine
+├── practice/               # Curriculum Problem Data
 │   ├── plan.json           # Daily problem quota, ratings, and platform configuration
-│   ├── pick.js             # Multi-platform problem fetcher (Codeforces, LeetCode, CodeChef)
-│   ├── verify.js           # Automated local test suite runner & multi-platform judge
-│   ├── explain.js          # Automated explanation & Mermaid diagram doc generator
-│   ├── remind.ps1          # Task Scheduler daily reminder script
-│   ├── providers/          # Modular platform API integrations
-│   │   ├── codeforces.js   # Codeforces API fetcher & filter
-│   │   ├── leetcode.js     # LeetCode REST API & difficulty mapper
-│   │   └── codechef.js     # CodeChef API fetcher & difficulty filter
+│   ├── ROADMAP.md          # Multi-week progression plan
 │   └── days/<date>/        # Daily problem sets, tests, and documentation
 │       ├── README.md       # Interactive daily checklist & platform table
 │       ├── set.json        # Structured day manifest
 │       ├── solutions/      # Clean reference solutions
 │       ├── tests/          # Local test cases per problem (*.json)
 │       └── explanations/   # Rich algorithmic intuitions & Mermaid diagrams (*.md)
-└── <problemName>.js        # Problem solutions (clean camelCase / PascalCase)
+├── templates/              # Idiomatic starter templates
+│   ├── cp.js               # Universal clean CP starter boilerplate
+│   ├── codeforces.js       # Fast synchronous buffer I/O for Codeforces & AtCoder
+│   ├── leetcode.js         # LeetCode function export + local test execution harness
+│   └── codechef.js         # Fast I/O tailored for CodeChef multi-test cases
+├── scripts/                # Runner shortcuts and scheduled automation
+│   ├── run.bat             # Windows CMD runner shortcut
+│   ├── run.ps1             # Windows PowerShell runner shortcut
+│   └── remind.ps1          # Task Scheduler daily reminder script
+├── contests/               # Contest solutions organized by platform and date/round
+├── solutions/              # Standalone / general problem solutions (camelCase / PascalCase)
+├── stress/                 # Stress-testing suites, brute-force oracles, and fuzzers
+├── knowledge/              # Living Algorithmic Knowledge Base & Pattern Catalog
+├── tools/                  # Workspace MCP tools and TTS services
+├── docker/                 # Container deployment configurations
+└── docs/                   # Architecture decision records (ADRs)
 ```
 
 ---
@@ -57,7 +61,7 @@ CP/
 ## ⚡ Quickstart & Daily Practice Workflow
 
 ### 1. Generating Daily Practice Sets (Multi-Platform)
-The `practice/pick.js` engine fetches from **Codeforces**, **LeetCode**, and **CodeChef**:
+The `src/cli/pick.js` engine fetches from **Codeforces**, **LeetCode**, and **CodeChef**:
 
 ```bash
 # Fetch 10 problems from EACH platform (30 total)
@@ -69,7 +73,7 @@ npm run pick:lc      # LeetCode
 npm run pick:cc      # CodeChef
 
 # Custom date and count
-node practice/pick.js --date 2026-09-28 --platform all --count 10
+node src/cli/pick.js --date 2026-09-28 --platform all --count 10
 ```
 
 ### 2. Solving with Dedicated Platform Templates
