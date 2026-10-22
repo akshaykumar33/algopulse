@@ -12,14 +12,19 @@ function solve() {
     let n = parseInt(lines[lineIdx++], 10);
     let arr = lines[lineIdx++].split(' ').map(Number);
     
-    let zeros = 0;
+    let unpaid = 0;
+    let firstZero = -1;
     for (let i = 0; i < n; i++) {
       if (arr[i] === 0) {
-        zeros++;
+        unpaid++;
+        if (firstZero === -1) firstZero = i;
       }
     }
     
-    let ans = zeros * 1100 + (zeros > 0 ? n * 100 : 0);
+    let ans = 0;
+    if (unpaid > 0) {
+      ans = unpaid * 1000 + (n - firstZero) * 100;
+    }
     out.push(ans);
   }
   
