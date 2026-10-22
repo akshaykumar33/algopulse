@@ -125,6 +125,10 @@ function constructMatrix(n, m) {
 | [Medians](https://codeforces.com/problemset/problem/2032/B) | `Codeforces` | `1100` | `medians.js` | Key algorithmic application from Day 2026-10-21. |
 | [Binary Colouring](https://codeforces.com/problemset/problem/1977/B) | `Codeforces` | `1100` | `binaryColouring.js` | Key algorithmic application from Day 2026-10-21. |
 | [Hemose Shopping](https://codeforces.com/problemset/problem/1592/B) | `Codeforces` | `1200` | `hemoseShopping.js` | Key algorithmic application from Day 2026-10-21. |
+| [Sign Flipping](https://codeforces.com/problemset/problem/1375/A) | `Codeforces` | `1100` | `signFlipping.js` | Key algorithmic application from Day 2026-10-22. |
+| [Fedor and New Game](https://codeforces.com/problemset/problem/467/B) | `Codeforces` | `1100` | `fedorAndNewGame.js` | Key algorithmic application from Day 2026-10-22. |
+| [Yet Another MEX Problem](https://codeforces.com/problemset/problem/2183/B) | `Codeforces` | `1100` | `yetAnotherMEXProblem.js` | Key algorithmic application from Day 2026-10-22. |
+| [Boboniu Plays Chess](https://codeforces.com/problemset/problem/1395/B) | `Codeforces` | `1100` | `boboniuPlaysChess.js` | Key algorithmic application from Day 2026-10-22. |
 
 ---
 
