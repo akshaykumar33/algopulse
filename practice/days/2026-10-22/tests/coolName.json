@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nabc\nccb\n",
+    "output": "14\n17\n"
+  }
+]

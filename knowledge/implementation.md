@@ -670,6 +670,31 @@ function solve() {
 | [Sale](https://www.codechef.com/problems/FINALSALE) | `CodeChef` | `1180` | `sale.js` | Key algorithmic application from Day 2026-10-21. |
 | [Luigi and Uniformity](https://www.codechef.com/problems/DIVIDEMAKEEQ) | `CodeChef` | `1185` | `luigiAndUniformity.js` | Key algorithmic application from Day 2026-10-21. |
 | [Lift Requests](https://www.codechef.com/problems/LIFTME) | `CodeChef` | `1247` | `liftRequests.js` | Key algorithmic application from Day 2026-10-21. |
+| [Fedor and New Game](https://codeforces.com/problemset/problem/467/B) | `Codeforces` | `1100` | `fedorAndNewGame.js` | Key algorithmic application from Day 2026-10-22. |
+| [Rank List](https://codeforces.com/problemset/problem/166/A) | `Codeforces` | `1100` | `rankList.js` | Key algorithmic application from Day 2026-10-22. |
+| [Yet Another Card Deck](https://codeforces.com/problemset/problem/1511/C) | `Codeforces` | `1100` | `yetAnotherCardDeck.js` | Key algorithmic application from Day 2026-10-22. |
+| [Christmas Spruce](https://codeforces.com/problemset/problem/913/B) | `Codeforces` | `1200` | `christmasSpruce.js` | Key algorithmic application from Day 2026-10-22. |
+| [AccurateLee](https://codeforces.com/problemset/problem/1369/B) | `Codeforces` | `1200` | `accurateLee.js` | Key algorithmic application from Day 2026-10-22. |
+| [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) | `LeetCode` | `Medium` | `countCompleteTreeNodes.js` | Key algorithmic application from Day 2026-10-22. |
+| [House Robber III](https://leetcode.com/problems/house-robber-iii/) | `LeetCode` | `Medium` | `houseRobberIII.js` | Key algorithmic application from Day 2026-10-22. |
+| [Accounts Merge](https://leetcode.com/problems/accounts-merge/) | `LeetCode` | `Medium` | `accountsMerge.js` | Key algorithmic application from Day 2026-10-22. |
+| [Rotate Image](https://leetcode.com/problems/rotate-image/) | `LeetCode` | `Medium` | `rotateImage.js` | Key algorithmic application from Day 2026-10-22. |
+| [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) | `LeetCode` | `Medium` | `allPathsFromSourceToTarget.js` | Key algorithmic application from Day 2026-10-22. |
+| [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | `LeetCode` | `Medium` | `capacityToShipPackagesWithinDDays.js` | Key algorithmic application from Day 2026-10-22. |
+| [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | `LeetCode` | `Medium` | `boatsToSavePeople.js` | Key algorithmic application from Day 2026-10-22. |
+| [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) | `LeetCode` | `Medium` | `minimumSizeSubarraySum.js` | Key algorithmic application from Day 2026-10-22. |
+| [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | `LeetCode` | `Medium` | `removeNthNodeFromEndOfList.js` | Key algorithmic application from Day 2026-10-22. |
+| [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | `LeetCode` | `Medium` | `bestTimeToBuyAndSellStockWithCooldown.js` | Key algorithmic application from Day 2026-10-22. |
+| [Chef in Fantasy League](https://www.codechef.com/problems/FFL) | `CodeChef` | `1225` | `chefInFantasyLeague.js` | Key algorithmic application from Day 2026-10-22. |
+| [Equal Coins](https://www.codechef.com/problems/EQUALCOIN) | `CodeChef` | `1233` | `equalCoins.js` | Key algorithmic application from Day 2026-10-22. |
+| [Chef and His Apartment Dues](https://www.codechef.com/problems/CHEFAPAR) | `CodeChef` | `1238` | `chefAndHisApartmentDues.js` | Key algorithmic application from Day 2026-10-22. |
+| [Minimum Distance Between Two Nodes](https://www.codechef.com/problems/CHEFDIST) | `CodeChef` | `1250` | `minimumDistanceBetweenTwoNodes.js` | Key algorithmic application from Day 2026-10-22. |
+| [Valid Minimum](https://www.codechef.com/problems/VALIDMIN) | `CodeChef` | `1132` | `validMinimum.js` | Key algorithmic application from Day 2026-10-22. |
+| [Food Resources](https://www.codechef.com/problems/FOODRES) | `CodeChef` | `1235` | `foodResources.js` | Key algorithmic application from Day 2026-10-22. |
+| [Cool Name](https://www.codechef.com/problems/CALPOWER) | `CodeChef` | `1223` | `coolName.js` | Key algorithmic application from Day 2026-10-22. |
+| [Two Pile Game](https://www.codechef.com/problems/TWOPLG) | `CodeChef` | `1189` | `twoPileGame.js` | Key algorithmic application from Day 2026-10-22. |
+| [Little Chef and Sums](https://www.codechef.com/problems/CHEFSUM) | `CodeChef` | `1252` | `littleChefAndSums.js` | Key algorithmic application from Day 2026-10-22. |
+| [The One with Russ](https://www.codechef.com/problems/S02E10) | `CodeChef` | `1230` | `theOneWithRuss.js` | Key algorithmic application from Day 2026-10-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

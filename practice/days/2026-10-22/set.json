@@ -1,0 +1,387 @@
+{
+  "date": "2026-10-22",
+  "day": 28,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "1375A",
+      "name": "Sign Flipping",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1375/A",
+      "file": "signFlipping",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1593D1",
+      "name": "All are Same",
+      "rating": 1100,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1593/D1",
+      "file": "allAreSame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "467B",
+      "name": "Fedor and New Game",
+      "rating": 1100,
+      "tags": [
+        "bitmasks",
+        "brute force",
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/467/B",
+      "file": "fedorAndNewGame",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2183B",
+      "name": "Yet Another MEX Problem",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2183/B",
+      "file": "yetAnotherMEXProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "166A",
+      "name": "Rank List",
+      "rating": 1100,
+      "tags": [
+        "binary search",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/166/A",
+      "file": "rankList",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1395B",
+      "name": "Boboniu Plays Chess",
+      "rating": 1100,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1395/B",
+      "file": "boboniuPlaysChess",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1511C",
+      "name": "Yet Another Card Deck",
+      "rating": 1100,
+      "tags": [
+        "brute force",
+        "data structures",
+        "implementation",
+        "trees"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1511/C",
+      "file": "yetAnotherCardDeck",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1954C",
+      "name": "Long Multiplication",
+      "rating": 1200,
+      "tags": [
+        "greedy",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1954/C",
+      "file": "longMultiplication",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "913B",
+      "name": "Christmas Spruce",
+      "rating": 1200,
+      "tags": [
+        "implementation",
+        "trees"
+      ],
+      "url": "https://codeforces.com/problemset/problem/913/B",
+      "file": "christmasSpruce",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1369B",
+      "name": "AccurateLee",
+      "rating": 1200,
+      "tags": [
+        "greedy",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1369/B",
+      "file": "accurateLee",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-222",
+      "name": "Count Complete Tree Nodes",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-complete-tree-nodes/",
+      "file": "countCompleteTreeNodes",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-337",
+      "name": "House Robber III",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/house-robber-iii/",
+      "file": "houseRobberIII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-721",
+      "name": "Accounts Merge",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/accounts-merge/",
+      "file": "accountsMerge",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-48",
+      "name": "Rotate Image",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rotate-image/",
+      "file": "rotateImage",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-797",
+      "name": "All Paths From Source to Target",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/all-paths-from-source-to-target/",
+      "file": "allPathsFromSourceToTarget",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1011",
+      "name": "Capacity To Ship Packages Within D Days",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+      "file": "capacityToShipPackagesWithinDDays",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-881",
+      "name": "Boats to Save People",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/boats-to-save-people/",
+      "file": "boatsToSavePeople",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-209",
+      "name": "Minimum Size Subarray Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+      "file": "minimumSizeSubarraySum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-19",
+      "name": "Remove Nth Node From End of List",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+      "file": "removeNthNodeFromEndOfList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-309",
+      "name": "Best Time to Buy and Sell Stock with Cooldown",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",
+      "file": "bestTimeToBuyAndSellStockWithCooldown",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FFL",
+      "name": "Chef in Fantasy League",
+      "rating": 1225,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FFL",
+      "file": "chefInFantasyLeague",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EQUALCOIN",
+      "name": "Equal Coins",
+      "rating": 1233,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EQUALCOIN",
+      "file": "equalCoins",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFAPAR",
+      "name": "Chef and His Apartment Dues",
+      "rating": 1238,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFAPAR",
+      "file": "chefAndHisApartmentDues",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFDIST",
+      "name": "Minimum Distance Between Two Nodes",
+      "rating": 1250,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFDIST",
+      "file": "minimumDistanceBetweenTwoNodes",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-VALIDMIN",
+      "name": "Valid Minimum",
+      "rating": 1132,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/VALIDMIN",
+      "file": "validMinimum",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FOODRES",
+      "name": "Food Resources",
+      "rating": 1235,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FOODRES",
+      "file": "foodResources",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CALPOWER",
+      "name": "Cool Name",
+      "rating": 1223,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CALPOWER",
+      "file": "coolName",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TWOPLG",
+      "name": "Two Pile Game",
+      "rating": 1189,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TWOPLG",
+      "file": "twoPileGame",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFSUM",
+      "name": "Little Chef and Sums",
+      "rating": 1252,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFSUM",
+      "file": "littleChefAndSums",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-S02E10",
+      "name": "The One with Russ",
+      "rating": 1230,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/S02E10",
+      "file": "theOneWithRuss",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

@@ -118,6 +118,7 @@ class MinHeap {
 | [Eating Candies](https://codeforces.com/problemset/problem/1669/F) | `Codeforces` | `1100` | `eatingCandies.js` | Key algorithmic application from Day 2026-10-16. |
 | [Binary Inversions](https://codeforces.com/problemset/problem/1760/E) | `Codeforces` | `1100` | `binaryInversions.js` | Key algorithmic application from Day 2026-10-18. |
 | [Misha and Changing Handles](https://codeforces.com/problemset/problem/501/B) | `Codeforces` | `1100` | `mishaAndChangingHandles.js` | Key algorithmic application from Day 2026-10-21. |
+| [Yet Another Card Deck](https://codeforces.com/problemset/problem/1511/C) | `Codeforces` | `1100` | `yetAnotherCardDeck.js` | Key algorithmic application from Day 2026-10-22. |
 
 ---
 

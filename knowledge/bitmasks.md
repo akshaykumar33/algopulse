@@ -115,6 +115,7 @@ function missingNumber(nums) {
 | [Beautiful XOR](https://codeforces.com/problemset/problem/2162/C) | `Codeforces` | `1100` | `beautifulXOR.js` | Key algorithmic application from Day 2026-10-20. |
 | [Binary Colouring](https://codeforces.com/problemset/problem/1977/B) | `Codeforces` | `1100` | `binaryColouring.js` | Key algorithmic application from Day 2026-10-21. |
 | [Petr and a Combination Lock](https://codeforces.com/problemset/problem/1097/B) | `Codeforces` | `1200` | `petrAndACombinationLock.js` | Key algorithmic application from Day 2026-10-21. |
+| [Fedor and New Game](https://codeforces.com/problemset/problem/467/B) | `Codeforces` | `1100` | `fedorAndNewGame.js` | Key algorithmic application from Day 2026-10-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

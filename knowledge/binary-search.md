@@ -102,6 +102,7 @@ function lowerBound(arr, target) {
 | [Building an Aquarium](https://codeforces.com/problemset/problem/1873/E) | `Codeforces` | `1100` | `buildingAnAquarium.js` | Key algorithmic application from Day 2026-10-20. |
 | [Variety is Discouraged](https://codeforces.com/problemset/problem/2064/B) | `Codeforces` | `1100` | `varietyIsDiscouraged.js` | Key algorithmic application from Day 2026-10-21. |
 | [Getting Points](https://codeforces.com/problemset/problem/1902/B) | `Codeforces` | `1100` | `gettingPoints.js` | Key algorithmic application from Day 2026-10-21. |
+| [Rank List](https://codeforces.com/problemset/problem/166/A) | `Codeforces` | `1100` | `rankList.js` | Key algorithmic application from Day 2026-10-22. |
 
 ---
 
