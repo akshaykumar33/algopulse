@@ -130,7 +130,7 @@ async function main() {
   }
 
   // Stage changes including categorized platform solutions
-  runSh(`git add practice/days/${date}/ practice/platforms/ solutions/ contests/ knowledge/`);
+  runSh(`git add practice/days/${date}/ solutions/ contests/ knowledge/`);
   const status = runSh('git status --porcelain');
 
   if (status) {

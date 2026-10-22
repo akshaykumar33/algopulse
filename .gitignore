@@ -6,7 +6,8 @@ input.txt
 *.log
 _*.txt
 *.big*.txt
-practice/logs/*.log
+logs/
+logs/*.log
 stress/fixtures/*.txt
 stress/*.log
 

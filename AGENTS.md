@@ -226,11 +226,14 @@ To maintain a clean and scalable codebase:
    - Keep large generated input files in `stress/fixtures/` (which are ignored by `.gitignore`).
 7. **Practice Directory (`/practice`):**
    - Automated multi-platform daily curriculum CLI tools segregated in `practice/cli/` (`pick.js`, `verify.js`, `explain.js`, `solve.js`, `ship.js`, `auto.js`, `monitor.js`, `knowledge.js`).
-   - System scripts and task reminders in `practice/scripts/` (`remind.ps1`, `remind-install.ps1`).
    - Unified Playwright platform submission suite in `practice/playwright/`.
-   - Internal helper libraries in `practice/lib/` (`visualizer.js`, `progression.js`, `ramp.js`, `store.js`).
+   - Internal helper libraries and curriculum providers in `practice/lib/` (`visualizer.js`, `progression.js`, `ramp.js`, `store.js`, `providers/`).
    - Daily directories `practice/days/<date>/` strictly segregated into `explanations/` (Mermaid diagrams & intuitions), `solutions/` (reference), `attempts/` (practice code), and `tests/` (test cases).
-8. **Filename Standards:**
+8. **Tools & Automation Directories (`/tools`, `/scripts`, `/docker`):**
+   - Workspace tools in `tools/` (`tools/mcp/server.js`, `tools/tts/`).
+   - Task reminders and system automation in `scripts/` (`remind.ps1`, `remind-install.ps1`).
+   - Containerized deployment configs in `docker/` (`Dockerfile`, `docker-compose.yml`).
+9. **Filename Standards:**
    - Solutions: Strict camelCase or PascalCase matching the problem title (e.g., `goodContest.js`, `subRbsEasyVersion.js`).
    - Stress suites: `<problem>_stress.js` or `<problem>_stress2.js`.
    - Never use special characters (parentheses, brackets, spaces) in filenames to guarantee shell compatibility across PowerShell, CMD, and Bash.
