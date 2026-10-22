@@ -444,19 +444,13 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
     if (!solPath) continue;
 
     const platKey = getProblemPlatform(p).toLowerCase();
-    const targetDir = path.join(REPO_ROOT, 'practice', 'platforms', platKey, date);
-    fs.mkdirSync(targetDir, { recursive: true });
-
-    const targetFile = path.join(targetDir, `${p.file}.js`);
-    fs.copyFileSync(solPath, targetFile);
-
     const contestDir = path.join(REPO_ROOT, 'contests', platKey, date);
     fs.mkdirSync(contestDir, { recursive: true });
     fs.copyFileSync(solPath, path.join(contestDir, `${p.file}.js`));
     mirrored++;
   }
 
-  console.log(`  ✓ Mirrored ${mirrored} solutions into platform directories\n`);
+  console.log(`  ✓ Mirrored ${mirrored} solutions into contests/${platKey} directories\n`);
 }
 
 /**

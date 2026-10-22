@@ -33,7 +33,8 @@ practice/
 │   ├── monitor.js         # Interactive live submission dashboard & stream
 │   ├── knowledge.js       # Living knowledge base auditor & synchronizer
 │   └── syncVerdicts.js    # Verdict synchronization utility
-├── lib/                   # Internal algorithmic helpers & shared libraries
+├── lib/                   # Internal algorithmic helpers, shared libraries & providers
+│   ├── providers/         # Platform curriculum fetchers (CF, LC, CC)
 │   ├── progression.js     # Platform progression & curriculum math
 │   ├── ramp.js            # Difficulty ramp calculators
 │   ├── store.js           # State persistence layer
@@ -44,16 +45,6 @@ practice/
 │   ├── auth.js            # Session & credentials manager
 │   ├── browser.js         # Playwright Chrome launcher & CDP connector
 │   └── sanitize.js        # Automated code sanitizer & comment stripper
-├── scripts/               # System & platform scripts
-│   ├── remind.ps1         # Daily scheduled practice trigger
-│   └── remind-install.ps1 # Windows Task Scheduler installer
-├── logs/                  # Execution & reminder logs (gitignored)
-│   ├── live.log           # Real-time downward event stream log
-│   └── remind.log         # Scheduled reminder background log
-├── platforms/             # Platform-mirrored solution catalogs
-│   ├── codeforces/
-│   ├── leetcode/
-│   └── codechef/
 ├── days/<date>/           # Daily missions & test suites
 │   ├── README.md          # Daily checklist & problem links
 │   ├── set.json           # Daily problem set metadata

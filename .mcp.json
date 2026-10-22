@@ -2,7 +2,7 @@
   "mcpServers": {
     "algopulse": {
       "command": "node",
-      "args": ["practice/mcp/server.js"]
+      "args": ["tools/mcp/server.js"]
     }
   }
 }

@@ -1,28 +1,42 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
-    let ptr = 0;
-    const t = parseInt(lines[ptr++]);
-    const out = [];
-    for (let test = 0; test < t; test++) {
-        const [n, x, k] = lines[ptr++].split(/\s+/).map(Number);
-        const a = lines[ptr++].split(/\s+/).map(Number);
-        const b = lines[ptr++].split(/\s+/).map(Number);
-        let cnt = 0;
-        for (let i = 0; i < n; i++) {
-            if (Math.abs(a[i] - b[i]) <= x) {
-                cnt++;
-            }
-        }
-        if (cnt >= k) {
-            out.push("YES");
-        } else {
-            out.push("NO");
-        }
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(input[ptr++], 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(input[ptr++], 10);
+    const x = parseInt(input[ptr++], 10);
+    const k = parseInt(input[ptr++], 10);
+
+    const a = new Int32Array(n);
+    for (let i = 0; i < n; i++) {
+      a[i] = parseInt(input[ptr++], 10);
     }
-    console.log(out.join('\n'));
+
+    const b = new Int32Array(n);
+    for (let i = 0; i < n; i++) {
+      b[i] = parseInt(input[ptr++], 10);
+    }
+
+    let cnt = 0;
+    for (let i = 0; i < n; i++) {
+      if (Math.abs(a[i] - b[i]) <= k) {
+        cnt++;
+      }
+    }
+
+    if (cnt >= x) {
+      out.push('YES');
+    } else {
+      out.push('NO');
+    }
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

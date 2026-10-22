@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { fetchCodeforcesProblems, toFileName } = require('../providers/codeforces');
-const { fetchLeetCodeProblems } = require('../providers/leetcode');
-const { fetchCodeChefProblems } = require('../providers/codechef');
+const { fetchCodeforcesProblems, toFileName } = require('../lib/providers/codeforces');
+const { fetchLeetCodeProblems } = require('../lib/providers/leetcode');
+const { fetchCodeChefProblems } = require('../lib/providers/codechef');
 const { rampStatus } = require('../lib/store');
 
 const ROOT = path.resolve(__dirname, '..');
