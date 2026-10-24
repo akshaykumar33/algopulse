@@ -1552,7 +1552,7 @@ function renderSideBySideCards(state, termWidth, frame = 0) {
       return `${C.textMuted}NEXT: ${truncateAnsiPreserving(w.nextProblem.title, maxChars - 6)}${C.reset}`;
     }
     if (p.accepted === p.total && p.total > 0) {
-      return `${C.neonGreen}✓ 10/10 CLEARED!${C.reset}`;
+      return `${C.neonGreen}✓ ${p.total}/${p.total} CLEARED!${C.reset}`;
     }
     const dlqCount = state.dlq.filter((d) => (d.platform || '').toLowerCase() === key && d.status !== 'RESOLVED').length;
     if (dlqCount > 0) {

@@ -100,7 +100,7 @@ module.exports = {
   },
 
   // Text to speech fallback: returns 24 kHz mono 16-bit PCM as base64.
-  speak({ text, voice = 'nova', model = 'tts-1', timeoutMs = 30000 }) {
+  speak({ text, voice = 'nova', model = env('OPENAI_TTS_MODEL') || 'tts-1-hd', timeoutMs = 30000 }) {
     const apiKey = this.getKey();
     if (!apiKey) return Promise.reject(new Error('OPENAI_API_KEY is not set'));
 

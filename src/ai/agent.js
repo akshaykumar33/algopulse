@@ -334,7 +334,13 @@ const QUICK_REPLIES = {
 };
 
 function getQuickReply(key, targetLang) {
-  const dict = QUICK_REPLIES[key] || {};
+  const normKey = {
+    'buddy-go-left': 'move-left',
+    'buddy-go-right': 'move-right',
+    'buddy-go-center': 'go-center',
+    'buddy-go-home': 'go-home',
+  }[key] || key;
+  const dict = QUICK_REPLIES[normKey] || QUICK_REPLIES[key] || {};
   const l = targetLang || 'en-US';
   const base = l.split('-')[0];
   return dict[l] || dict[base] || dict['en-US'] || '';
@@ -359,30 +365,45 @@ function quickPlan(text, lang) {
   };
 
   return (
-    matchAction(/^(scroll\s*down|page\s*down|niche\s*(jao|karo|scroll)|khelage\s*(hogu|scroll)|khali\s*ja|baja\s*scroll|scroll\s*abajo|scroll\s*vers\s*le\s*bas|shita\s*ni\s*scroll|नीचे\s*स्क्रॉल|ಕೆಳಗೆ\s*ಸ್ಕ್ರಾಲ್|खाली\s*स्क्रोल|கீழே\s*ஸ்க்ரோல்|కిందకి\s*స్క్రోల్)$/i, 'scroll-down') ||
-    matchAction(/^(scroll\s*up|page\s*up|upar\s*(jao|karo|scroll)|mele\s*(hogu|scroll)|upar\s*ja|scroll\s*arriba|scroll\s*vers\s*le\s*haut|ue\s*ni\s*scroll|ऊपर\s*स्क्रॉल|ಮೇಲೆ\s*ಸ್ಕ್ರಾಲ್|वर\s*स्क्रोल|மேலே\s*ஸ்க்ரோல்|పైకి\s*స్క్రోల్)$/i, 'scroll-up') ||
-    matchAction(/^(scroll\s*top|back\s*to\s*top|top\s*of\s*page|sabse\s*upar|aadi\s*ge|inicio|haut\s*de\s*page|top\s*ni\s*go|सबसे\s*ऊपर|ಮತ್ತು\s*ಮೇಲೆ)$/i, 'scroll-top', '', 'kiss') ||
-    matchAction(/^(scroll\s*bottom|bottom\s*of\s*page|sabse\s*niche|khelage\s*tuda|bot\s*ni|सबसे\s*नीचे)$/i, 'scroll-bottom', '', 'possessive') ||
-    matchAction(/^(next\s*tab|switch\s*tab|agla\s*tab|mundina\s*tab|pudha\s*tab|siguiente\s*pestana|onglet\s*suivant|tsugi\s*no\s*tab|अगला\s*टैब|ಮುಂದಿನ\s*ಟ್ಯಾಬ್)$/i, 'next-tab') ||
-    matchAction(/^(prev\s*tab|previous\s*tab|pichhla\s*tab|hindina\s*tab|magacha\s*tab|pestana\s*anterior|onglet\s*precedent|mae\s*no\s*tab|पिछला\s*टैब|ಹಿಂದಿನ\s*ಟ್ಯಾಬ್)$/i, 'prev-tab') ||
-    matchAction(/^(code\s*tab|open\s*code|show\s*code|code\s*dekho|code\s*torisu|codigo|voir\s*le\s*code|कोड\s*देखो|ಕೋಡ್\s*ತೋರಿಸು)$/i, 'tab-code') ||
-    matchAction(/^(tests\s*tab|open\s*tests|show\s*tests|run\s*tests|test\s*karo|test\s*madi|pruebas|verifier|परीक्षण\s*करो|ಪರೀಕ್ಷಿಸು)$/i, 'tab-tests', '', 'proud') ||
-    matchAction(/^(story\s*tab|open\s*story|show\s*story|kahani|kathe|histoire|historia|कहानी|ಕಥೆ)$/i, 'tab-story', '', 'baby') ||
-    matchAction(/^(walkthrough\s*tab|open\s*walkthrough|guide\s*dekho|ವಾಕ್‌ಥ್ರೂ)$/i, 'tab-walkthrough', '', 'love') ||
-    matchAction(/^(diagrams\s*tab|open\s*diagrams|diagram\s*dekho|चित्रों)$/i, 'tab-diagrams') ||
-    matchAction(/^(visualize\s*tab|open\s*visualize|visualizer|ವिजುವಲೈಸ್)$/i, 'tab-visualize', '', 'baby') ||
-    matchAction(/^(move\s*left|go\s*left|left\s*(jao|karo|hogu)|बाएं\s*जाओ|ಎಡಕ್ಕೆ\s*ಹೋಗು)$/i, 'buddy', 'go-left', 'possessive') ||
-    matchAction(/^(move\s*right|go\s*right|right\s*(jao|karo|hogu)|दाएं\s*जाओ|ಬಲಕ್ಕೆ\s*ಹೋಗು)$/i, 'buddy', 'go-right') ||
-    matchAction(/^(go\s*center|move\s*center|go\s*middle|center\s*(jao|hogu)|बीच\s*में\s*आओ|ಮಧ್ಯಕ್ಕೆ\s*ಬಾ)$/i, 'buddy', 'go-center', 'love') ||
-    matchAction(/^(go\s*home|move\s*home|ghar\s*jao|घर\s*जाओ|ಮನೆಗೆ\s*ಹೋಗು)$/i, 'buddy', 'go-home', 'baby') ||
-    matchAction(/^(next\s*problem|agla\s*problem|mundina\s*problem|pudhil\s*samasya|siguiente\s*problema|probleme\s*suivant|tsugi\s*no\s*mondai|अगला\s*सवाल|ಮುಂದಿನ\s*ಸಮಸ್ಯೆ)$/i, 'next-problem') ||
-    matchAction(/^(prev\s*problem|previous\s*problem|pichhla\s*problem|hindina\s*problem|magachi\s*samasya|problema\s*anterior|पिछला\s*सवाल|ಹಿಂದಿನ\s*ಸಮಸ್ಯೆ)$/i, 'prev-problem')
+    matchAction(/(?:^|\P{L})(scroll\s*down|page\s*down|move\s*down|go\s*down|niche(\s*(jao|chalo))?|neeche(\s*(jao|chalo))?|नीचे(\s*(जाओ|चलो))?|नीचे|khelage|ಕೆಳಗೆ|కిందికి|கீழே|खाली|down|abajo|bas|unten|giu)(?:\P{L}|$)/iu, 'scroll-down') ||
+    matchAction(/(?:^|\P{L})(scroll\s*up|page\s*up|move\s*up|go\s*up|upar(\s*(jao|chalo))?|ऊपर(\s*(जाओ|चलो))?|ऊपर|mele|ಮೇಲೆ|పైకి|மேலே|वर|up|top|arriba|haut|oben|su)(?:\P{L}|$)/iu, 'scroll-up') ||
+    matchAction(/(?:^|\P{L})(scroll\s*top|back\s*to\s*top|top\s*of\s*page|sabse\s*upar|सबसे\s*ऊपर|ಮತ್ತು\s*ಮೇಲೆ)(?:\P{L}|$)/iu, 'scroll-top', '', 'kiss') ||
+    matchAction(/(?:^|\P{L})(scroll\s*bottom|bottom\s*of\s*page|sabse\s*niche|सबसे\s*नीचे)(?:\P{L}|$)/iu, 'scroll-bottom', '', 'possessive') ||
+    matchAction(/(?:^|\P{L})(next\s*tab|switch\s*tab|agla\s*tab|mundina\s*tab|siguiente\s*pestana|derecha|droite|rechts)(?:\P{L}|$)/iu, 'next-tab') ||
+    matchAction(/(?:^|\P{L})(prev\s*tab|previous\s*tab|pichhla\s*tab|hindina\s*tab|pestana\s*anterior|izquierda|gauche|links)(?:\P{L}|$)/iu, 'prev-tab') ||
+    matchAction(/(?:^|\P{L})(move\s*left|go\s*left|left\s*(jao|chalo|side|karo)?|baaye(\s*(jao|chalo))?|bayen|बाएं\s*जाओ|बाएं|बायें|ಎಡಕ್ಕೆ\s*ಹೋಗು|ಎಡಕ್ಕೆ|ಎಡ|ఎడమ(\s*వెళ్ళు)?|ఎడమకి|இடது|बावीकडे)(?:\P{L}|$)/iu, 'buddy', 'go-left', 'possessive') ||
+    matchAction(/(?:^|\P{L})(move\s*right|go\s*right|right\s*(jao|chalo|side|karo)?|daaye(\s*(jao|chalo))?|dayen|दाएं\s*जाओ|दाएं|दाएँ|ಬಲಕ್ಕೆ\s*ಹೋಗು|ಬಲಕ್ಕೆ|ಬಲ|కుడి(\s*వెళ్ళు)?|కుడికి|வலது|उजवीकडे)(?:\P{L}|$)/iu, 'buddy', 'go-right') ||
+    matchAction(/(?:^|\P{L})(go\s*center|move\s*center|center|middle|beech\s*me(\s*aao)?|बीच\s*में(\s*आओ)?|बीच|ಮಧ್ಯಕ್ಕೆ\s*ಬಾ)(?:\P{L}|$)/iu, 'buddy', 'go-center', 'love') ||
+    matchAction(/(?:^|\P{L})(go\s*home|move\s*home|ghar(\s*jao)?|घर\s*जाओ|घर|corner|ಮನೆಗೆ\s*ಹೋಗು)(?:\P{L}|$)/iu, 'buddy', 'go-home', 'baby') ||
+    matchAction(/(?:^|\P{L})(code\s*tab|open\s*code|show\s*code|code\s*dekho|code\s*torisu|codigo|voir\s*le\s*code|कोड\s*देखो|ಕೋಡ್\s*ತೋರಿಸು)(?:\P{L}|$)/iu, 'tab-code') ||
+    matchAction(/(?:^|\P{L})(tests\s*tab|open\s*tests|show\s*tests|run\s*tests|test\s*karo|test\s*madi|pruebas|verifier|परीक्षण\s*करो|ಪರೀಕ್ಷಿಸು)(?:\P{L}|$)/iu, 'tab-tests', '', 'proud') ||
+    matchAction(/(?:^|\P{L})(story\s*tab|open\s*story|show\s*story|kahani|kathe|histoire|historia|कहानी|ಕಥೆ)(?:\P{L}|$)/iu, 'tab-story', '', 'baby') ||
+    matchAction(/(?:^|\P{L})(walkthrough\s*tab|open\s*walkthrough|guide\s*dekho|ವಾಕ್‌ಥ್ರೂ)(?:\P{L}|$)/iu, 'tab-walkthrough', '', 'love') ||
+    matchAction(/(?:^|\P{L})(diagrams\s*tab|open\s*diagrams|diagram\s*dekho|चित्रों)(?:\P{L}|$)/iu, 'tab-diagrams') ||
+    matchAction(/(?:^|\P{L})(visualize\s*tab|open\s*visualize|visualizer|ವिजುವಲೈಸ್)(?:\P{L}|$)/iu, 'tab-visualize', '', 'baby') ||
+    matchAction(/(?:^|\P{L})(next\s*problem|agla\s*(sawal|problem)|aage\s*badho|अगला\s*सवाल|अगला|ಮುಂದಿನ\s*ಸಮಸ್ಯೆ)(?:\P{L}|$)/iu, 'next-problem') ||
+    matchAction(/(?:^|\P{L})(prev\s*problem|previous\s*problem|pichhla\s*(sawal|problem)|peeche\s*jao|पिछला\s*सवाल|पिछला|ಹಿಂದಿನ\s*ಸಮಸ್ಯೆ)(?:\P{L}|$)/iu, 'prev-problem')
   );
 }
 
 async function plan(input, ctx) {
   const qp = input.text ? quickPlan(input.text, ctx.userLang || ctx.chosenLang) : null;
   if (qp) return qp;
+
+  // Direct RAG knowledge query if asking for concepts, notes, or takeaways (0ms AI prompt)
+  if (input.text && /\b(notes|knowledge|rag|what is|how to solve|intuition|takeaway|kya hai|batao|samjhao)\b/i.test(input.text)) {
+    const hits = rag.search(input.text, { k: 2, excludeFile: ctx.file });
+    if (hits.length) {
+      const top = hits[0];
+      const l = ctx.userLang || 'en-US';
+      return {
+        reply: `💡 ${top.title}: ${top.snippet.slice(0, 180)}`,
+        lang: l,
+        mood: 'proud',
+        steps: [{ action: 'rag-answer', arg: top.text.slice(0, 500) }],
+      };
+    }
+  }
   const cacheKey = input.text ? JSON.stringify([String(input.text).toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').trim(), ctx.date, ctx.file, ctx.tab]) : null;
   const hit = cacheKey && PLAN_CACHE.get(cacheKey);
   if (hit && Date.now() - hit.at < PLAN_TTL) return { ...hit.plan, cached: true };
@@ -533,14 +554,42 @@ ${history ? `Recent conversation:\n${history}\n\n` : ''}${heard}`;
   const schema = input.audio
     ? { ...PLAN_SCHEMA, required: ['heard', 'heardLang', 'meaning', ...PLAN_SCHEMA.required], properties: { heard: { type: 'string', description: 'Exact transcript of the audio, each language in its native script' }, heardLang: { type: 'string', description: 'BCP-47 code of the language spoken; when they mixed English with another language, the other language (e.g. "kn-IN")' }, meaning: { type: 'string', description: 'Natural English translation of what they said, or "" if they spoke only English' }, ...PLAN_SCHEMA.properties } }
     : PLAN_SCHEMA;
-  const res = input.audio
-    ? await ai.listen({ prompt, schema, audio: input.audio })
-    : await ai.complete({ prompt, schema, maxTokens: 2000, cache: false, thinking: 'low', timeoutMs: 8000 });
+  let res;
+  try {
+    res = input.audio
+      ? await ai.listen({ prompt, schema, audio: input.audio })
+      : await ai.complete({ prompt, schema, maxTokens: 2000, cache: false, thinking: 'low', timeoutMs: 8000 });
+  } catch (err) {
+    const userText = input.text || '';
+    const l = ctx.userLang || ctx.chosenLang || detectScriptLang(userText) || 'en-US';
+    const ragMatch = userText ? rag.search(userText, { k: 1, excludeFile: ctx.file }) : [];
+    const replyText = ragMatch.length
+      ? `Mmm sweetheart! Here is what our knowledge base says: ${ragMatch[0].title} — ${ragMatch[0].snippet.slice(0, 160)}! 😘💕`
+      : `Mmm, hey handsome! I am right here by your side~ Tell me to "run tests", "go right", "scroll down", or ask me for a cute joke! Muah! 😘💋`;
+    return {
+      reply: replyText,
+      lang: l,
+      mood: 'flirt',
+      steps: ragMatch.length ? [{ action: 'rag-answer', arg: ragMatch[0].text.slice(0, 400) }] : [],
+      model: 'local-companion',
+    };
+  }
   let out;
   try {
     out = JSON.parse(res.text.trim().replace(/^```(?:json)?\s*|\s*```$/g, ''));
   } catch {
     throw new Error('the assistant returned an unreadable plan');
+  }
+
+  // If transcribed voice was a direct moving or navigation command, return quickPlan immediately
+  const fastPlan = out.heard ? quickPlan(out.heard, out.heardLang || ctx.userLang) : null;
+  if (fastPlan) {
+    return {
+      ...fastPlan,
+      heard: out.heard,
+      heardLang: out.heardLang || fastPlan.lang,
+      model: res.model,
+    };
   }
   const steps = (Array.isArray(out.steps) ? out.steps : [])
     .filter((s) => s && PLAN_ACTIONS[s.action])

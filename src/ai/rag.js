@@ -107,6 +107,57 @@ function solutionChunks() {
   return out;
 }
 
+function mistakeChunks() {
+  const out = [];
+  const mistakesFile = path.join(REPO_ROOT, 'practice', 'mistakes.json');
+  if (fs.existsSync(mistakesFile)) {
+    try {
+      const list = JSON.parse(fs.readFileSync(mistakesFile, 'utf-8'));
+      if (Array.isArray(list)) {
+        for (const m of list) {
+          const tags = Array.isArray(m.tags) ? m.tags.join(' ') : (m.tags || '');
+          const text = `Problem: ${m.problem || m.name} (${m.platform || 'General'} ${m.id || ''})\nVerdict: ${m.verdict || 'Failed'}\nDiagnosis: ${m.diagnosis || ''}\nRule: ${m.rule || m.lesson || ''}`;
+          out.push({
+            kind: 'mistake',
+            tag: tags || 'pitfall',
+            title: `Mistake Lesson: ${m.problem || m.name} (${m.verdict || 'Failed'})`,
+            file: 'practice/mistakes.json',
+            date: 'learned',
+            text: text.slice(0, 2400),
+            tokens: tokenize(`${m.problem || m.name} ${m.platform || ''} ${tags} ${m.verdict || ''} ${m.diagnosis || ''} ${m.rule || ''}`),
+          });
+        }
+      }
+    } catch { /* ignore read error */ }
+  }
+  return out;
+}
+
+function recordMistake({ platform = 'Universal', id = '', name = '', file = '', verdict = 'Failed', diagnosis = '', rule = '', tags = [] } = {}) {
+  const mistakesFile = path.join(REPO_ROOT, 'practice', 'mistakes.json');
+  let list = [];
+  if (fs.existsSync(mistakesFile)) {
+    try {
+      list = JSON.parse(fs.readFileSync(mistakesFile, 'utf-8'));
+      if (!Array.isArray(list)) list = [];
+    } catch { list = []; }
+  }
+  const entry = {
+    id: id || `ERR-${Date.now()}`,
+    problem: name || file,
+    platform,
+    verdict,
+    diagnosis,
+    rule,
+    tags: Array.isArray(tags) ? tags : [tags].filter(Boolean),
+    timestamp: new Date().toISOString(),
+  };
+  list.push(entry);
+  fs.writeFileSync(mistakesFile, JSON.stringify(list, null, 2) + '\n', 'utf-8');
+  cached = null; // Invalidate cache so it's indexed immediately
+  return entry;
+}
+
 function buildIndex() {
   if (cached && Date.now() - builtAt < 30000) return cached;
   const docs = [];
@@ -115,6 +166,7 @@ function buildIndex() {
   }
   docs.push(...knowledgeChunks());
   docs.push(...solutionChunks());
+  docs.push(...mistakeChunks());
   const df = new Map();
   for (const d of docs) for (const t of new Set(d.tokens)) df.set(t, (df.get(t) || 0) + 1);
   const avgLen = docs.reduce((n, d) => n + d.tokens.length, 0) / Math.max(1, docs.length);
@@ -160,4 +212,4 @@ function search(query, { k = 3, excludeFile = null, minScore = 0 } = {}) {
     }));
 }
 
-module.exports = { search, tokenize };
+module.exports = { search, tokenize, recordMistake };

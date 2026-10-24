@@ -26,8 +26,10 @@ function toGeminiSchema(schema) {
 // Gemini 3 takes a thinking level; 2.x takes a token budget. Low effort turns thinking
 // off on 2.5 Flash, and sends nothing to the -latest aliases, which reject a budget.
 function thinkingFor(model, thinking, schema) {
-  if (/^gemini-[3-9]/.test(model)) return { thinkingConfig: { thinkingLevel: thinking || env('GEMINI_THINKING') || 'high' } };
-  if (thinking === 'low') return /^gemini-2\.5-(flash|flash-lite)$/.test(model) ? { thinkingConfig: { thinkingBudget: 0 } } : {};
+  const effort = thinking || env('GEMINI_THINKING') || 'high';
+  if (/^gemini-[3-9]/.test(model)) return { thinkingConfig: { thinkingLevel: effort } };
+  if (effort === 'low') return /^gemini-2\.5-(flash|flash-lite)$/.test(model) ? { thinkingConfig: { thinkingBudget: 0 } } : {};
+  if (effort === 'medium') return { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 1024 : 512 } };
   return { temperature: 0.2, thinkingConfig: { thinkingBudget: schema ? 2048 : 1024 } };
 }
 
@@ -36,15 +38,26 @@ module.exports = {
   label: 'Google Gemini',
   keyName: 'GEMINI_API_KEY',
   getKey: () => env('GEMINI_API_KEY') || env('GOOGLE_API_KEY'),
-  getModel: () => env('GEMINI_MODEL') || 'gemini-2.5-flash',
+  getModel: () => env('GEMINI_MODEL') || 'gemini-3.8-flash',
   isConfigured() {
     return Boolean(this.getKey());
   },
 
-  // Fallback ladder, one level down at a time; override with a comma list in the env.
+  // Fallback ladder, from top models like 3.8 down to 2.5; override with a comma list in the env.
   fallbacks() {
     const own = env(this.fallbackEnv);
-    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : ['gemini-2.5-flash', 'gemini-flash-lite-latest', 'gemini-2.0-flash'];
+    return own ? own.split(',').map((m) => m.trim()).filter(Boolean) : [
+      'gemini-3.8-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-3.5-flash',
+      'gemini-3.7-flash',
+      'gemini-3.6-flash',
+      'gemini-3-flash-preview',
+      'gemini-2.5-pro',
+      'gemini-2.5-flash',
+      'gemini-flash-latest',
+      'gemini-flash-lite-latest',
+    ];
   },
 
   fallbackEnv: 'GEMINI_FALLBACK_MODELS',

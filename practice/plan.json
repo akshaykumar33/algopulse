@@ -1,28 +1,28 @@
 {
   "handle": null,
   "defaultPlatform": "all",
-  "perPlatformCount": 10,
+  "perPlatformCount": 33,
   "platforms": {
     "codeforces": {
       "enabled": true,
-      "perDay": 10,
+      "perDay": 33,
       "startRating": 800,
       "ratingStepPerWeek": 100,
       "maxRating": 1600,
-      "stretchCount": 3
+      "stretchCount": 8
     },
     "leetcode": {
       "enabled": true,
-      "perDay": 10,
+      "perDay": 33,
       "difficulty": "Easy"
     },
     "codechef": {
       "enabled": true,
-      "perDay": 10,
+      "perDay": 33,
       "startRating": 800,
       "ratingStepPerWeek": 100,
       "maxRating": 1600
     }
   },
-  "poolSize": 200
+  "poolSize": 350
 }

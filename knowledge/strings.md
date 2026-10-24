@@ -117,6 +117,8 @@ function isPalindrome(s) {
 | [Turtle and Good Pairs](https://codeforces.com/problemset/problem/2003/C) | `Codeforces` | `1200` | `turtleAndGoodPairs.js` | Key algorithmic application from Day 2026-10-20. |
 | [Misha and Changing Handles](https://codeforces.com/problemset/problem/501/B) | `Codeforces` | `1100` | `mishaAndChangingHandles.js` | Key algorithmic application from Day 2026-10-21. |
 | [AccurateLee](https://codeforces.com/problemset/problem/1369/B) | `Codeforces` | `1200` | `accurateLee.js` | Key algorithmic application from Day 2026-10-22. |
+| [A-B Palindrome](https://codeforces.com/problemset/problem/1512/C) | `Codeforces` | `1200` | `aBPalindrome.js` | Key algorithmic application from Day 2026-10-24. |
+| [Removal of Unattractive Pairs](https://codeforces.com/problemset/problem/1907/C) | `Codeforces` | `1200` | `removalOfUnattractivePairs.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

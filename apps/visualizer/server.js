@@ -202,12 +202,11 @@ const routes = {
 
   'GET /api/ai/status': () => ai.status(),
 
-  // The buddy's AI voice: text -> 24 kHz mono PCM (base64), cached on disk.
+  // The buddy's neural AI voice: text -> neural audio (base64 MP3 / PCM), cached on disk.
   'POST /api/voice/local': async (req) => {
-    const { text, lang = 'en-US', mood = '' } = await readJsonBody(req);
+    const { text, lang = 'en-US', mood = 'flirt' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
-    if (!/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(lang) || !/^[a-z]{0,12}$/.test(mood)) throw new HttpError(400, 'Bad language');
-    return localVoice.speak(text.trim(), lang, mood).catch((err) => {
+    return ai.speech({ text: text.trim(), lang, mood }).catch((err) => {
       throw new HttpError(503, err.message);
     });
   },
@@ -219,10 +218,9 @@ const routes = {
   },
 
   'POST /api/voice/speak': async (req) => {
-    const { text, voice = 'Leda', style = '' } = await readJsonBody(req);
+    const { text, voice = '', style = '', lang = 'en-US', mood = 'flirt' } = await readJsonBody(req);
     if (typeof text !== 'string' || !text.trim() || text.length > 600) throw new HttpError(400, 'Say something short');
-    if (!/^[A-Za-z]{2,20}$/.test(voice) || typeof style !== 'string' || style.length > 600) throw new HttpError(400, 'Bad voice');
-    return ai.speech({ text: text.trim(), voice, style }).catch(aiError('Voice'));
+    return ai.speech({ text: text.trim(), voice, style, lang, mood }).catch(aiError('Voice'));
   },
 
   'POST /api/ai/provider': async (req) => {
