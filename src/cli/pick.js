@@ -40,9 +40,9 @@ const usedIds = (skip) => {
 const targetsFor = (dayNumber, cfConfig) => {
   const week = Math.floor((dayNumber - 1) / 7);
   const base = Math.min(cfConfig.startRating + cfConfig.ratingStepPerWeek * week, cfConfig.maxRating);
-  const perDay = cfConfig.perDay || 10;
+  const perDay = cfConfig.perDay || 33;
   if (week === 0) return [{ rating: base, count: perDay }];
-  const stretch = Math.min(cfConfig.stretchCount || 3, perDay);
+  const stretch = Math.min(cfConfig.stretchCount || 8, perDay);
   return [
     { rating: base, count: perDay - stretch },
     { rating: Math.min(base + 100, cfConfig.maxRating), count: stretch },
@@ -196,15 +196,15 @@ async function main() {
         startRating: 800,
         ratingStepPerWeek: 100,
         maxRating: 1600,
-        perDay: customCount || config.perPlatformCount || 10,
-        stretchCount: 3,
+        perDay: customCount || config.perPlatformCount || 33,
+        stretchCount: 8,
       };
       if (customCount) cfConfig.perDay = customCount;
       const targets = adaptive
         ? (() => {
             const base = adaptive.codeforces.rating;
-            const perDay = cfConfig.perDay || 10;
-            const stretch = Math.min(cfConfig.stretchCount || 3, perDay);
+            const perDay = cfConfig.perDay || 33;
+            const stretch = Math.min(cfConfig.stretchCount || 8, perDay);
             const top = Math.min(base + 100, cfConfig.maxRating || 3500);
             return top > base ? [{ rating: base, count: perDay - stretch }, { rating: top, count: stretch }] : [{ rating: base, count: perDay }];
           })()
@@ -215,16 +215,16 @@ async function main() {
         usedIds: exclude,
         rootFiles,
         targets,
-        poolSize: config.poolSize || 200,
+        poolSize: config.poolSize || 350,
       });
       chosen.push(...cfProblems);
       platformsIncluded.push('Codeforces');
     } else if (plat === 'leetcode') {
       const lcConfig = config.platforms?.leetcode || {
-        perDay: customCount || config.perPlatformCount || 10,
+        perDay: customCount || config.perPlatformCount || 33,
         difficulty: 'Easy',
       };
-      const count = customCount || lcConfig.perDay || 10;
+      const count = customCount || lcConfig.perDay || 33;
       if (adaptive) lcConfig.difficulty = adaptive.leetcode.difficulty;
       console.log(`[practice] Fetching LeetCode ${count} problems (${lcConfig.difficulty}) ...`);
       const lcProblems = await fetchLeetCodeProblems({
@@ -232,17 +232,17 @@ async function main() {
         rootFiles,
         count,
         difficulty: lcConfig.difficulty || 'Easy',
-        poolSize: config.poolSize || 100,
+        poolSize: config.poolSize || 200,
       });
       chosen.push(...lcProblems);
       platformsIncluded.push('LeetCode');
     } else if (plat === 'codechef') {
       const ccConfig = config.platforms?.codechef || {
-        perDay: customCount || config.perPlatformCount || 10,
+        perDay: customCount || config.perPlatformCount || 33,
         startRating: 800,
         endRating: 1200,
       };
-      const count = customCount || ccConfig.perDay || 10;
+      const count = customCount || ccConfig.perDay || 33;
       const startRating = adaptive ? adaptive.codechef.rating : ccConfig.startRating || 800;
       const endRating = adaptive ? startRating + 200 : ccConfig.endRating || ccConfig.maxRating || 1200;
       console.log(`[practice] Fetching CodeChef ${count} problems (${startRating}-${endRating}) ...`);
@@ -252,7 +252,7 @@ async function main() {
         count,
         startRating,
         endRating,
-        poolSize: config.poolSize || 100,
+        poolSize: config.poolSize || 200,
       });
       chosen.push(...ccProblems);
       platformsIncluded.push('CodeChef');

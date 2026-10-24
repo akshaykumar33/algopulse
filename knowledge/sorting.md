@@ -118,6 +118,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Hemose Shopping](https://codeforces.com/problemset/problem/1592/B) | `Codeforces` | `1200` | `hemoseShopping.js` | Key algorithmic application from Day 2026-10-21. |
 | [Less or Equal](https://codeforces.com/problemset/problem/977/C) | `Codeforces` | `1200` | `lessOrEqual.js` | Key algorithmic application from Day 2026-10-21. |
 | [Rank List](https://codeforces.com/problemset/problem/166/A) | `Codeforces` | `1100` | `rankList.js` | Key algorithmic application from Day 2026-10-22. |
+| [Building Permutation](https://codeforces.com/problemset/problem/285/C) | `Codeforces` | `1200` | `buildingPermutation.js` | Key algorithmic application from Day 2026-10-23. |
+| [Pashmak and Flowers](https://codeforces.com/problemset/problem/459/B) | `Codeforces` | `1300` | `pashmakAndFlowers.js` | Key algorithmic application from Day 2026-10-23. |
+| [Weight of the System of Nested Segments](https://codeforces.com/problemset/problem/1650/C) | `Codeforces` | `1200` | `weightOfTheSystemOfNestedSegments.js` | Key algorithmic application from Day 2026-10-24. |
+| [Virus](https://codeforces.com/problemset/problem/1704/C) | `Codeforces` | `1200` | `virus.js` | Key algorithmic application from Day 2026-10-24. |
+| [Chat Order](https://codeforces.com/problemset/problem/637/B) | `Codeforces` | `1200` | `chatOrder.js` | Key algorithmic application from Day 2026-10-24. |
+| [Vika and the Bridge](https://codeforces.com/problemset/problem/1848/B) | `Codeforces` | `1200` | `vikaAndTheBridge.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

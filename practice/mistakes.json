@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ERR-SORT-LEX",
+    "problem": "Generic Array Sorting",
+    "platform": "Universal",
+    "verdict": "Wrong Answer",
+    "diagnosis": "JavaScript Array.prototype.sort() sorts elements lexicographically by default (converting numbers to strings, e.g. [10, 2] becomes [10, 2]).",
+    "rule": "ALWAYS pass a numeric comparator: arr.sort((a, b) => a - b). For descending sort: arr.sort((a, b) => b - a).",
+    "tags": ["sorting", "arrays", "wrong-answer"]
+  },
+  {
+    "id": "ERR-STACK-OVERFLOW",
+    "problem": "Tree and Graph Traversals",
+    "platform": "Universal",
+    "verdict": "Runtime Error (Maximum call stack size exceeded)",
+    "diagnosis": "Node.js default V8 call stack is limited to ~10,000 frames. Deep recursion in DFS on trees or graphs where N can reach 2e5 causes immediate crash.",
+    "rule": "ALWAYS replace deep recursive DFS with an explicit iterative stack array (const stack = [start]) or iterative BFS queue.",
+    "tags": ["trees-and-graphs", "dfs", "recursion", "runtime-error"]
+  },
+  {
+    "id": "ERR-MULTI-TEST-ALLOC",
+    "problem": "Multi-Test Case Memory Overhead",
+    "platform": "Codeforces",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "Allocating fixed-size MAX arrays (e.g. new Array(200005)) inside while(t--) loop triggers excessive GC pause times across hundreds of test cases.",
+    "rule": "Allocate arrays dynamically sized to current n (new Int32Array(n)), or allocate a single static global buffer once outside the testcase loop.",
+    "tags": ["multi-test", "memory", "time-limit-exceeded"]
+  },
+  {
+    "id": "ERR-MODULO-NEGATIVE",
+    "problem": "Modular Arithmetic Subtraction",
+    "platform": "Universal",
+    "verdict": "Wrong Answer",
+    "diagnosis": "In JavaScript, negative numbers preserve sign under remainder operator (%): (-5) % 3 === -2. This breaks modular arithmetic invariants.",
+    "rule": "Always compute modular arithmetic with non-negative guarantee: ((val % MOD) + MOD) % MOD.",
+    "tags": ["math", "number-theory", "modulo", "wrong-answer"]
+  },
+  {
+    "id": "ERR-BIGINT-OVERUSE-TLE",
+    "problem": "Unnecessary BigInt Usage",
+    "platform": "Universal",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "Using BigInt for standard 32-bit or 53-bit integers is 3x to 5x slower than native Number arithmetic, causing avoidable TLE.",
+    "rule": "Use native Number up to 9e15 (Number.MAX_SAFE_INTEGER = 9007199254740991). Only switch to BigInt when numbers provably exceed 9e15 (such as 10^18 products).",
+    "tags": ["math", "bigint", "performance", "time-limit-exceeded"]
+  },
+  {
+    "id": "ERR-FAST-IO-STDOUT",
+    "problem": "Per-Iteration Output Flushing",
+    "platform": "Universal",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "Calling console.log() inside a loop of size 1e5 incurs heavy I/O system call overhead, leading to TLE.",
+    "rule": "Buffer all output lines into an array (out.push(...)) and flush once with console.log(out.join('\\n')) or process.stdout.write(out.join('\\n') + '\\n').",
+    "tags": ["io", "buffer", "time-limit-exceeded"]
+  },
+  {
+    "id": "ERR-LC-SIGNATURE",
+    "problem": "LeetCode Wrapper & Return Format",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error / Compile Error",
+    "diagnosis": "LeetCode evaluates specific function exports or class methods. Including standard Node.js process.stdin reading or test runner code causes judging failures.",
+    "rule": "Export the exact function name expected by LeetCode and return the direct answer object or array. Sanitizer automatically strips require.main and local harnesses.",
+    "tags": ["leetcode", "format", "runtime-error"]
+  }
+]

@@ -36,16 +36,17 @@ function Invoke-NodeTask([string]$name, [string]$script, [string[]]$cmdArgs) {
 }
 
 # 1. Fetch today's multi-platform problem set (Codeforces, LeetCode, CodeChef)
-Invoke-NodeTask "Fetching multi-platform daily practice set" "$practiceDir\cli\pick.js" @('--date', $date, '--platform', 'all') | Out-Null
+$srcCli = Join-Path $repo 'src\cli'
+Invoke-NodeTask "Fetching multi-platform daily practice set" "$srcCli\pick.js" @('--date', $date, '--platform', 'all') | Out-Null
 
 # 2. Automatically generate reference solutions and sample tests
-Invoke-NodeTask "Solving daily practice set" "$practiceDir\cli\solve.js" @('--date', $date) | Out-Null
+Invoke-NodeTask "Solving daily practice set" "$srcCli\solve.js" @('--date', $date) | Out-Null
 
 # 3. Ensure all explanation docs, intuitions, and Mermaid diagrams are generated
-Invoke-NodeTask "Generating explanations" "$practiceDir\cli\explain.js" @('--date', $date) | Out-Null
+Invoke-NodeTask "Generating explanations" "$srcCli\explain.js" @('--date', $date) | Out-Null
 
 # 4. Verify solutions, create branch, push, open PR, and auto-merge if green
-Invoke-NodeTask "Running automated ship and PR pipeline" "$practiceDir\cli\ship.js" @('--date', $date) | Out-Null
+Invoke-NodeTask "Running automated ship and PR pipeline" "$srcCli\ship.js" @('--date', $date) | Out-Null
 
 $dayDir = Join-Path $practiceDir "days\$date"
 $readme = Join-Path $dayDir 'README.md'
@@ -56,11 +57,19 @@ if (Test-Path "$dayDir\set.json") {
 $hasSolutions = (Get-ChildItem "$dayDir\solutions" -Filter *.js -ErrorAction SilentlyContinue).Count -gt 0
 $hasExplanations = (Get-ChildItem "$dayDir\explanations" -Filter *.md -ErrorAction SilentlyContinue).Count -gt 0
 
-# 3. Make sure the studio is running so the toast's "Open studio" button lands somewhere.
+# 5. Make sure the studio visualizer & TTS servers are running
 $port = 3333
 $studioUrl = "http://localhost:$port/#/$date"
 if (-not (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)) {
     Start-Process -FilePath 'node' -ArgumentList 'apps/visualizer/server.js' -WorkingDirectory $repo -WindowStyle Hidden
+}
+
+$ttsPort = 3334
+if (-not (Get-NetTCPConnection -LocalPort $ttsPort -State Listen -ErrorAction SilentlyContinue)) {
+    $python = Join-Path $repo 'tools\tts\.venv\Scripts\python.exe'
+    if (Test-Path $python) {
+        Start-Process -FilePath $python -ArgumentList 'tools/tts/server.py' -WorkingDirectory $repo -WindowStyle Hidden
+    }
 }
 
 # 4. Streak, from the same store the dashboard uses.

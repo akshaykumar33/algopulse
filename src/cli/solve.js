@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const ai = require('../ai');
+const rag = require('../ai/rag');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const ROOT = path.join(REPO, 'practice');
@@ -89,6 +90,14 @@ module.exports = solve;
 - Tests format: 'input' must be exact raw multiline stdin ending with newline, 'output' must be exact expected stdout ending with newline.`;
   }
 
+  let ragContext = '';
+  try {
+    const hits = rag.search(`${problem.name} ${(problem.tags || []).join(' ')}`, { k: 2, minScore: 2 });
+    if (hits.length) {
+      ragContext = `\nKnowledge Base Algorithmic Invariants & Similar Patterns:\n${hits.map((h) => `- ${h.title}: ${h.snippet}`).join('\n')}\n`;
+    }
+  } catch {}
+
   return `You are a World Finals Competitive Programming Champion in JavaScript (Node.js).
 Write an optimal, bug-free reference solution and verified sample test fixtures for this problem.
 
@@ -99,13 +108,21 @@ Problem Details:
 - Rating / Difficulty: ${problem.rating}
 - Tags: ${(problem.tags || []).join(', ') || 'N/A'}
 - URL: ${problem.url}
-
+${ragContext}
 Implementation Guidelines:
 ${formatInstructions}
-- STRICT RULE: ABSOLUTELY NO COMMENTS (no '//', no '/* */', no JSDoc) in the solution code. Pure logic only.
-- STRICT NAMING: Use standard, concise, natural competitive programming variable names ('n', 'm', 'k', 'ans', 'res', 'cnt', 'freq', 'adj', 'vis', 'dp', 'arr', 'nums', 'val', 'cur', 'sum', 'solve'). Strictly NO filler variables, watermarks (e.g. 'ballast', 'mexoramax'), or verbose enterprise names.
-- Zero AI signatures or watermarks. The code must look 100% like authentic human-written competitive programming code.
-- Use plain JS Number where safe integers (< 9e15) suffice; only use BigInt if numbers exceed 9e15.
+- STRICT NON-AI RULE: ABSOLUTELY NO COMMENTS (no '//', no '/* */', no JSDoc) in the solution code. Pure logic only. Submissions with comments look like machine-generated code.
+- STRICT CP NAMING: Use standard, concise, natural competitive programming variable names ('n', 'm', 'k', 'ans', 'res', 'cnt', 'freq', 'adj', 'vis', 'dp', 'arr', 'nums', 'val', 'cur', 'sum', 'solve'). Strictly NO filler variables, watermarks (e.g. 'ballast', 'mexoramax'), or verbose enterprise names.
+- PREVENT WRONG ANSWER (WA):
+  * Numeric sorting: ALWAYS pass a comparator: 'arr.sort((a, b) => a - b)'. Never call 'arr.sort()' without a comparator on numbers!
+  * Modulo arithmetic: Apply '% MOD' after EVERY multiplication and addition, and ensure '(a - b % MOD + MOD) % MOD' for subtraction.
+  * Indexing & Output: Verify exact 0-based vs 1-based indexing, and exact case for strings ('YES'/'NO', 'Yes'/'No').
+- PREVENT RUNTIME ERROR (RE):
+  * Recursion limit: Node.js call stack is limited to ~10k frames. For tree/graph traversals (N up to 2e5), ALWAYS use an explicit iterative stack array or BFS.
+  * Array indexing: Guard boundary lookups and undefined elements.
+- PREVENT TIME LIMIT EXCEEDED (TLE):
+  * Multi-test loops ('while (t--)'): Allocate arrays sized to 'n', NEVER allocate fixed large arrays (e.g. 'new Array(200005)') inside the loop to avoid GC pauses.
+  * Plain Number vs BigInt: Use plain JS Numbers (< 9e15) for fast 64-bit float math. Switch to BigInt ONLY if intermediate values exceed 9e15.
 - Fast, clean, optimal time and space complexity.
 - Return ONLY valid JSON in this exact structure:
 {

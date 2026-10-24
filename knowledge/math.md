@@ -186,6 +186,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Sign Flipping](https://codeforces.com/problemset/problem/1375/A) | `Codeforces` | `1100` | `signFlipping.js` | Key algorithmic application from Day 2026-10-22. |
 | [All are Same](https://codeforces.com/problemset/problem/1593/D1) | `Codeforces` | `1100` | `allAreSame.js` | Key algorithmic application from Day 2026-10-22. |
 | [Long Multiplication](https://codeforces.com/problemset/problem/1954/C) | `Codeforces` | `1200` | `longMultiplication.js` | Key algorithmic application from Day 2026-10-22. |
+| [Pashmak and Flowers](https://codeforces.com/problemset/problem/459/B) | `Codeforces` | `1300` | `pashmakAndFlowers.js` | Key algorithmic application from Day 2026-10-23. |
+| [A Good Problem](https://codeforces.com/problemset/problem/2119/C) | `Codeforces` | `1300` | `aGoodProblem.js` | Key algorithmic application from Day 2026-10-23. |
+| [Forever Winter](https://codeforces.com/problemset/problem/1829/F) | `Codeforces` | `1300` | `foreverWinter.js` | Key algorithmic application from Day 2026-10-23. |
+| [Odd Selection](https://codeforces.com/problemset/problem/1363/A) | `Codeforces` | `1200` | `oddSelection.js` | Key algorithmic application from Day 2026-10-24. |
+| [Removal of Unattractive Pairs](https://codeforces.com/problemset/problem/1907/C) | `Codeforces` | `1200` | `removalOfUnattractivePairs.js` | Key algorithmic application from Day 2026-10-24. |
+| [Vika and the Bridge](https://codeforces.com/problemset/problem/1848/B) | `Codeforces` | `1200` | `vikaAndTheBridge.js` | Key algorithmic application from Day 2026-10-24. |
+| [Kar Salesman](https://codeforces.com/problemset/problem/2022/B) | `Codeforces` | `1300` | `karSalesman.js` | Key algorithmic application from Day 2026-10-24. |
+| [Inversion Graph](https://codeforces.com/problemset/problem/1638/C) | `Codeforces` | `1300` | `inversionGraph.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

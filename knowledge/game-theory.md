@@ -75,6 +75,7 @@ function determineWinner(a, b, c) {
 | [Swap Game](https://codeforces.com/problemset/problem/1747/C) | `Codeforces` | `1200` | `swapGame.js` | Key algorithmic application from Day 2026-10-17. |
 | [Summation Game](https://codeforces.com/problemset/problem/1920/B) | `Codeforces` | `1100` | `summationGame.js` | Key algorithmic application from Day 2026-10-18. |
 | [Palindrome Game (easy version)](https://codeforces.com/problemset/problem/1527/B1) | `Codeforces` | `1200` | `palindromeGameEasyVersion.js` | Key algorithmic application from Day 2026-10-18. |
+| [Binary String Battle](https://codeforces.com/problemset/problem/2123/D) | `Codeforces` | `1200` | `binaryStringBattle.js` | Key algorithmic application from Day 2026-10-23. |
 
 ---
 

@@ -113,6 +113,10 @@ function dfsIterative(start, adj, n) {
 | [BerSU Ball](https://codeforces.com/problemset/problem/489/B) | `Codeforces` | `1200` | `berSUBall.js` | Key algorithmic application from Day 2026-10-17. |
 | [Yet Another Card Deck](https://codeforces.com/problemset/problem/1511/C) | `Codeforces` | `1100` | `yetAnotherCardDeck.js` | Key algorithmic application from Day 2026-10-22. |
 | [Christmas Spruce](https://codeforces.com/problemset/problem/913/B) | `Codeforces` | `1200` | `christmasSpruce.js` | Key algorithmic application from Day 2026-10-22. |
+| [Fall Down](https://codeforces.com/problemset/problem/1669/G) | `Codeforces` | `1200` | `fallDown.js` | Key algorithmic application from Day 2026-10-23. |
+| [Permutation Transformation](https://codeforces.com/problemset/problem/1490/D) | `Codeforces` | `1200` | `permutationTransformation.js` | Key algorithmic application from Day 2026-10-23. |
+| [Forever Winter](https://codeforces.com/problemset/problem/1829/F) | `Codeforces` | `1300` | `foreverWinter.js` | Key algorithmic application from Day 2026-10-23. |
+| [Inversion Graph](https://codeforces.com/problemset/problem/1638/C) | `Codeforces` | `1300` | `inversionGraph.js` | Key algorithmic application from Day 2026-10-24. |
 
 ---
 

@@ -36,6 +36,7 @@ yarn-error.log*
 
 # AI response cache and local, non-secret AI settings (provider choice)
 .cache/
+.codegraph/
 src/ai/settings.local.json
 **/settings.local.json
 

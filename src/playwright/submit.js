@@ -830,6 +830,15 @@ async function attemptProblemFix(problem, subResult, { dayDir, date }) {
         try { existingTests = JSON.parse(fs.readFileSync(testsPath, 'utf-8')); } catch {}
       }
 
+      let ragContext = '';
+      try {
+        const rag = require('../ai/rag');
+        const hits = rag.search(`${problem.name} ${(problem.tags || []).join(' ')} ${subResult.verdict}`, { k: 2, minScore: 2 });
+        if (hits.length) {
+          ragContext = `\nKnowledge Base Algorithmic Invariants & Known Pitfalls:\n${hits.map((h) => `- ${h.title}: ${h.snippet}`).join('\n')}\n`;
+        }
+      } catch {}
+
       const prompt = `You are a World Finals Competitive Programming Champion in JavaScript (Node.js).
 A previously submitted solution for the following problem failed on ${problem.platform} with live judge verdict: "${subResult.verdict}".
 
@@ -840,7 +849,7 @@ Problem Details:
 - Rating / Difficulty: ${problem.rating || 'N/A'}
 - Tags: ${(problem.tags || []).join(', ') || 'N/A'}
 - URL: ${problem.url || 'N/A'}
-
+${ragContext}
 CURRENT FAILING CODE:
 \`\`\`javascript
 ${currentCode}
@@ -848,12 +857,22 @@ ${currentCode}
 
 Diagnose why this solution failed with "${subResult.verdict}". Fix the algorithmic, mathematical, or I/O bug.
 CRITICAL RULES:
-- STRICTLY NO COMMENTS (no '//', no '/* */', no JSDoc) anywhere in the code.
-- Pure concise competitive programming naming ('n', 'm', 'ans', 'dp', 'arr', 'vis', 'solve').
-- Fast synchronous I/O via fs.readFileSync(0, 'utf-8').
+- STRICT NON-AI RULE: STRICTLY NO COMMENTS (no '//', no '/* */', no JSDoc) anywhere in the code. Pure logic only.
+- PURE CP NAMING: Use concise human competitive programming names ('n', 'm', 'k', 'ans', 'dp', 'arr', 'vis', 'solve'). Strictly no filler variables or watermarks.
+- PREVENT WRONG ANSWER (WA):
+  * Numeric sorting: ALWAYS pass a comparator: 'arr.sort((a, b) => a - b)'. Never call 'arr.sort()' without a comparator on numbers!
+  * Modulo arithmetic: Apply '% MOD' after multiplications and additions, and use '((a - b % MOD + MOD) % MOD)' for subtraction.
+  * Indexing: Check 0-based vs 1-based indexing and exact string case.
+- PREVENT RUNTIME ERROR (RE):
+  * Node.js call stack limit: For deep DFS/Tree traversals (N up to 2e5), ALWAYS use iterative BFS or an explicit stack array to prevent stack overflow.
+- PREVENT TIME LIMIT EXCEEDED (TLE):
+  * Do NOT allocate fixed large MAX arrays inside multi-test loops ('while (t--)'). Allocate dynamically to 'n' or use a static buffer.
+  * Use plain Number (< 9e15). Switch to BigInt ONLY if values exceed 9e15.
+  * Buffer stdout output into an array and join with '\\n'.
 - Return ONLY valid JSON:
 {
   "diagnosis": "<concise explanation of bug>",
+  "rule": "<generalizable takeaway/rule for future problems>",
   "solution": "<complete corrected JavaScript code>"
 }`;
 
@@ -895,6 +914,22 @@ CRITICAL RULES:
           const rootSol = path.join(REPO_ROOT, 'solutions', `${problem.file}.js`);
           if (fs.existsSync(rootSol)) fs.writeFileSync(rootSol, candidateCode + '\n', 'utf-8');
           console.log(`    [fix-flow] ✓ Successfully validated candidate fix locally!`);
+
+          // Record mistake and lesson learned in RAG memory
+          try {
+            const rag = require('../ai/rag');
+            rag.recordMistake({
+              platform: problem.platform,
+              id: problem.id,
+              name: problem.name,
+              file: problem.file,
+              verdict: subResult.verdict,
+              diagnosis: parsed.diagnosis || 'Auto-fix repair',
+              rule: parsed.rule || parsed.diagnosis || '',
+              tags: problem.tags || [],
+            });
+          } catch {}
+
           return true;
         }
       }
