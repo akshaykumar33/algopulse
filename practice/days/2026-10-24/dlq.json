@@ -1,0 +1,75 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-99",
+    "name": "Recover Binary Search Tree",
+    "file": "recoverBinarySearchTree",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-24T06:31:33.235Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-99",
+      "name": "Recover Binary Search Tree",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/recover-binary-search-tree/",
+      "file": "recoverBinarySearchTree",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-NAS_2523",
+    "name": "Odd GCD Permutation",
+    "file": "oddGCDPermutation",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-24T06:32:08.554Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-NAS_2523",
+      "name": "Odd GCD Permutation",
+      "rating": 1158,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NAS_2523",
+      "file": "oddGCDPermutation",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-NUTRITION",
+    "name": "Max Nutrition",
+    "file": "maxNutrition",
+    "tier": "easy",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-24T06:35:41.786Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-NUTRITION",
+      "name": "Max Nutrition",
+      "rating": 1123,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NUTRITION",
+      "file": "maxNutrition",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-24T06:49:04.100Z",
+    "finalVerdict": "Correct Answer"
+  }
+]

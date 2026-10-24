@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nAlex\nTresoring\nAlex\nSam\n",
+    "output": "Sam\nAlex\nTresoring\n"
+  }
+]
