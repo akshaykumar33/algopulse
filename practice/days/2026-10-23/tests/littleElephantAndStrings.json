@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2 3\n47\n74\n4447\n7777\n4774\n",
+    "output": "Good\nBad\nGood\n"
+  }
+]

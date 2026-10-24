@@ -1,0 +1,389 @@
+{
+  "date": "2026-10-23",
+  "day": 29,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "285C",
+      "name": "Building Permutation",
+      "rating": 1200,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/285/C",
+      "file": "buildingPermutation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2123D",
+      "name": "Binary String Battle",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "games",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2123/D",
+      "file": "binaryStringBattle",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "743B",
+      "name": "Chloe and the sequence ",
+      "rating": 1200,
+      "tags": [
+        "binary search",
+        "bitmasks",
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/743/B",
+      "file": "chloeAndTheSequence",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1669G",
+      "name": "Fall Down",
+      "rating": 1200,
+      "tags": [
+        "dfs and similar",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1669/G",
+      "file": "fallDown",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1935B",
+      "name": "Informatics in MAC",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1935/B",
+      "file": "informaticsInMAC",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1490D",
+      "name": "Permutation Transformation",
+      "rating": 1200,
+      "tags": [
+        "dfs and similar",
+        "divide and conquer",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1490/D",
+      "file": "permutationTransformation",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2072C",
+      "name": "Creating Keys for StORages Has Become My Main Skill",
+      "rating": 1200,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2072/C",
+      "file": "creatingKeysForStORagesHasBecomeMyMainSkill",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "459B",
+      "name": "Pashmak and Flowers",
+      "rating": 1300,
+      "tags": [
+        "combinatorics",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/459/B",
+      "file": "pashmakAndFlowers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2119C",
+      "name": "A Good Problem",
+      "rating": 1300,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2119/C",
+      "file": "aGoodProblem",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1829F",
+      "name": "Forever Winter",
+      "rating": 1300,
+      "tags": [
+        "dfs and similar",
+        "graphs",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1829/F",
+      "file": "foreverWinter",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-417",
+      "name": "Pacific Atlantic Water Flow",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+      "file": "pacificAtlanticWaterFlow",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-237",
+      "name": "Delete Node in a Linked List",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+      "file": "deleteNodeInALinkedList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-46",
+      "name": "Permutations",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/permutations/",
+      "file": "permutations",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-18",
+      "name": "4Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/4sum/",
+      "file": "p4Sum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-852",
+      "name": "Peak Index in a Mountain Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/peak-index-in-a-mountain-array/",
+      "file": "peakIndexInAMountainArray",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-165",
+      "name": "Compare Version Numbers",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/compare-version-numbers/",
+      "file": "compareVersionNumbers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-322",
+      "name": "Coin Change",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/coin-change/",
+      "file": "coinChange",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-113",
+      "name": "Path Sum II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/path-sum-ii/",
+      "file": "pathSumII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1448",
+      "name": "Count Good Nodes in Binary Tree",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/",
+      "file": "countGoodNodesInBinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-86",
+      "name": "Partition List",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/partition-list/",
+      "file": "partitionList",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ARRSWAP",
+      "name": "Asymmetric Swaps",
+      "rating": 1230,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ARRSWAP",
+      "file": "asymmetricSwaps",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ARRAYBREAK",
+      "name": "Break the elements",
+      "rating": 1191,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ARRAYBREAK",
+      "file": "breakTheElements",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-DEVARRAY",
+      "name": "Devu and an Array",
+      "rating": 1126,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DEVARRAY",
+      "file": "devuAndAnArray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-UTMOPR",
+      "name": "Strange operations",
+      "rating": 1148,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/UTMOPR",
+      "file": "strangeOperations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EID",
+      "name": "Chef and Eid",
+      "rating": 1135,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EID",
+      "file": "chefAndEid",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GRIDXOR",
+      "name": "Sarthak and his Magic Grid",
+      "rating": 1227,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GRIDXOR",
+      "file": "sarthakAndHisMagicGrid",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-EUREKA",
+      "name": "N Queens Puzzle Solved !",
+      "rating": 1109,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/EUREKA",
+      "file": "nQueensPuzzleSolved",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LUCKYSTR",
+      "name": "Little Elephant and Strings",
+      "rating": 1166,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LUCKYSTR",
+      "file": "littleElephantAndStrings",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MD_RIEV",
+      "name": "Palindromic Prime Numbers",
+      "rating": 1253,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MD_RIEV",
+      "file": "palindromicPrimeNumbers",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-VACCINE2",
+      "name": "Vaccine Distribution",
+      "rating": 1219,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/VACCINE2",
+      "file": "vaccineDistribution",
+      "template": "templates/codechef.js"
+    }
+  ]
+}

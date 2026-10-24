@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n6\naabccb\n7\nabacaba\n6\naabbcc\n8\naaaaabbc\n1\nz\n",
+    "output": "0\n1\n0\n2\n1\n"
+  }
+]

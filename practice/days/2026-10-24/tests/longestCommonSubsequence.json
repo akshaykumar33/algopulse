@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abcde\"\n\"ace\"",
+    "output": "3"
+  },
+  {
+    "input": "\"abc\"\n\"abc\"",
+    "output": "3"
+  },
+  {
+    "input": "\"abc\"\n\"def\"",
+    "output": "0"
+  }
+]
