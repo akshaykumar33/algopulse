@@ -1,0 +1,31 @@
+{
+  "edge": {
+    "hi-IN": { "voice": "hi-IN-SwaraNeural", "gender": "female", "style": "warm, expressive, affectionate" },
+    "en-US": { "voice": "en-US-JennyNeural", "gender": "female", "style": "warm, natural, friendly" },
+    "en-IN": { "voice": "en-IN-NeerjaNeural", "gender": "female", "style": "charming, sweet Indian English" },
+    "kn-IN": { "voice": "kn-IN-SapnaNeural", "gender": "female", "style": "sweet, native Kannada" },
+    "mr-IN": { "voice": "mr-IN-AarohiNeural", "gender": "female", "style": "sweet, native Marathi" },
+    "ta-IN": { "voice": "ta-IN-PallaviNeural", "gender": "female", "style": "melodious, native Tamil" },
+    "te-IN": { "voice": "te-IN-ShrutiNeural", "gender": "female", "style": "natural, native Telugu" },
+    "bn-IN": { "voice": "bn-IN-TanishaaNeural", "gender": "female", "style": "sweet, native Bengali" },
+    "gu-IN": { "voice": "gu-IN-DhwaniNeural", "gender": "female", "style": "warm, native Gujarati" },
+    "ml-IN": { "voice": "ml-IN-SobhanaNeural", "gender": "female", "style": "soft, native Malayalam" },
+    "pa-IN": { "voice": "pa-IN-GurpreetNeural", "gender": "female", "style": "lively, native Punjabi" },
+    "ur-PK": { "voice": "ur-PK-UzmaNeural", "gender": "female", "style": "polite, native Urdu" },
+    "es-ES": { "voice": "es-ES-ElviraNeural", "gender": "female", "style": "seductive, native Spanish" },
+    "fr-FR": { "voice": "fr-FR-DeniseNeural", "gender": "female", "style": "charming, native French" },
+    "ja-JP": { "voice": "ja-JP-NanamiNeural", "gender": "female", "style": "cute, native Japanese" },
+    "ko-KR": { "voice": "ko-KR-SunHiNeural", "gender": "female", "style": "sweet, native Korean" },
+    "zh-CN": { "voice": "zh-CN-XiaoxiaoNeural", "gender": "female", "style": "warm, native Mandarin" },
+    "de-DE": { "voice": "de-DE-KatjaNeural", "gender": "female", "style": "clear, native German" },
+    "it-IT": { "voice": "it-IT-ElsaNeural", "gender": "female", "style": "expressive, native Italian" },
+    "ru-RU": { "voice": "ru-RU-SvetlanaNeural", "gender": "female", "style": "natural, native Russian" },
+    "ar-SA": { "voice": "ar-SA-ZariyahNeural", "gender": "female", "style": "gentle, native Arabic" }
+  },
+  "kokoro": {
+    "cute": "af_bella",
+    "sweet": "af_heart",
+    "bright": "af_nova",
+    "gentle": "af_sarah"
+  }
+}

@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { REPO_ROOT, env, readSettings, writeSettings } = require('./config');
+const localVoice = require('./localVoice');
 
 const PROVIDERS = {
   gemini: require('./providers/gemini'),
@@ -189,7 +190,7 @@ async function complete({ system = '', prompt, schema = null, maxTokens, cache =
 /* ---------- voice: listening and speaking (Gemini primary, OpenAI TTS fallback) ---------- */
 
 const TTS_DIR = path.join(REPO_ROOT, '.cache', 'tts');
-const canHear = () => Boolean(PROVIDERS.gemini.isConfigured() || PROVIDERS.openai.isConfigured());
+const canHear = () => Boolean(PROVIDERS.openai.isConfigured() || PROVIDERS.gemini.isConfigured() || localVoice.status().available);
 
 // Models that just said "quota" or "busy" sit out for a while, so the next sentence goes
 // straight to one that answers instead of paying a failed round trip per busy model.
@@ -248,42 +249,15 @@ async function listen({ prompt, schema, audio }) {
   }
 }
 
-// Text in, 24 kHz PCM out, cached on disk so repeated lines play instantly.
-async function speech({ text, voice, style }) {
-  if (!canHear()) throw new Error('The AI voice needs an API key (Gemini or OpenAI).');
-  const key = cacheKey(['tts-v2', voice, style, text]);
-  const file = path.join(TTS_DIR, `${key}.json`);
-  if (fs.existsSync(file)) return { ...JSON.parse(fs.readFileSync(file, 'utf-8')), cached: true };
+const voiceOrchestrator = require('./voice');
 
-  const tried = [];
-  // 1. Try Gemini TTS if configured
-  if (PROVIDERS.gemini.isConfigured()) {
-    const g = PROVIDERS.gemini;
-    const models = (env('GEMINI_TTS_MODELS') || 'gemini-3.8-flash-tts,gemini-3.8-flash-lite-tts,gemini-3.1-flash-tts-preview').split(',').map((m) => m.trim()).filter(Boolean);
-    try {
-      const out = await ladder(models, (model) => g.speak({ text, voice, style, model }));
-      fs.mkdirSync(TTS_DIR, { recursive: true });
-      fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
-      return { ...out, cached: false };
-    } catch (err) {
-      tried.push(`gemini: ${err.message}`);
-    }
+// Text in, neural audio out, cached on disk so repeated lines play instantly.
+async function speech({ text, voice, style, lang, mood }) {
+  try {
+    return await voiceOrchestrator.synthesize({ text, lang: lang || 'en-US', mood: mood || 'flirt', voice });
+  } catch (err) {
+    throw new Error(`The AI voice failed — ${err.message}`);
   }
-
-  // 2. Try OpenAI TTS fallback if configured
-  if (PROVIDERS.openai.isConfigured()) {
-    const o = PROVIDERS.openai;
-    try {
-      const out = await o.speak({ text, voice: 'nova' });
-      fs.mkdirSync(TTS_DIR, { recursive: true });
-      fs.writeFileSync(file, JSON.stringify(out), 'utf-8');
-      return { ...out, cached: false, provider: 'openai' };
-    } catch (err) {
-      tried.push(`openai: ${err.message}`);
-    }
-  }
-
-  throw new Error(`The AI voice failed — ${tried.join(' | ')}`);
 }
 
 module.exports = { isRetryable, PROVIDERS, activeProvider, isReady, status, setProvider, complete, clearCache, listen, speech, canHear };

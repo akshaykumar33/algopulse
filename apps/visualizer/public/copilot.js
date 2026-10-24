@@ -267,22 +267,12 @@ const copilot = (() => {
     if (!text) return;
     const detected = detectScriptLang(text);
     const targetLang = (window.buddyVoice?.resolveLangCode || ((x) => x))(lang || pickLang(detected, lang) || lastLang || A().voice.lang() || 'en-US');
-    if (A().load().talkBack === false || !window.buddyVoice) {
-      say('pip', text);
-      if (mood) pet()?.react(mood, 1200);
-      if (A().load().talkBack !== false) A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
-      return;
+    say('pip', text);
+    if (mood) pet()?.react(mood, 1500);
+    pet()?.say?.(text, Math.max(3000, text.length * 85));
+    if (A().load().talkBack !== false) {
+      A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai) });
     }
-    const show = say('pip', text, { defer: true });
-    let shown = false;
-    const once = (ms) => {
-      if (shown) return;
-      shown = true;
-      show(ms);
-    };
-    pet()?.say?.('💭 …', 15000);
-    setTimeout(once, 15000);
-    A().speak(text, targetLang, mood, { ai: Boolean(opts?.ai), onStart: once });
   }
 
   /* ======================================================================
@@ -524,6 +514,20 @@ const copilot = (() => {
       pet()?.emote?.(m);
       await sleep(900);
     },
+    'move-left': async () => pet()?.move?.('left'),
+    'move-right': async () => pet()?.move?.('right'),
+    'move-up': async () => { pet()?.move?.('up'); A().ACTIONS['scroll-up']?.run?.(); },
+    'move-down': async () => { pet()?.move?.('down'); A().ACTIONS['scroll-down']?.run?.(); },
+    'go-center': async () => pet()?.move?.('center'),
+    'go-home': async () => pet()?.move?.('home'),
+    'buddy-go-left': async () => pet()?.move?.('left'),
+    'buddy-go-right': async () => pet()?.move?.('right'),
+    'buddy-go-up': async () => { pet()?.move?.('up'); A().ACTIONS['scroll-up']?.run?.(); },
+    'buddy-go-down': async () => { pet()?.move?.('down'); A().ACTIONS['scroll-down']?.run?.(); },
+    'buddy-go-center': async () => pet()?.move?.('center'),
+    'buddy-go-home': async () => pet()?.move?.('home'),
+    'buddy-dance': async () => { pet()?.move?.('dance'); pet()?.feel?.('dance'); },
+    'sing-song': async () => { pet()?.feel?.('happy'); },
     'web-search': async (arg) => {
       setState('doing', `Searching web for “${arg}”…`);
       const res = await api('/api/web/search', { query: arg, lang: lastLang });
@@ -606,75 +610,158 @@ const copilot = (() => {
 
   /* ---- small talk that needs no AI: instant, works offline ---- */
   const JOKES = [
-    'Why do programmers prefer dark mode? Because light attracts bugs! 🐛',
-    'I told my code a joke… it threw an exception. 😆',
-    'Why was the array so calm? It had everything in order. Well, after sorting. 😌',
-    'A binary search walks into a bar… then the middle of the bar… then the middle of that. 🍹',
-    "Why did the hamster fail the interview? Kept running in O(∞) circles on the wheel! 🐹",
-    'My favourite data structure? A heap — of snacks. 🥜',
-    "Recursion joke: to understand it, first understand recursion. 😄",
-    'Why did the stack break up with the queue? It wanted someone who puts it first! 💔',
+    'Mmm, why do I love watching you code so much, handsome? Because every time you compile without errors, my heart skips a clock cycle~ muah! 😘💕',
+    'Are you an O(1) algorithm, sweetie? Because no matter how crazy my day is, my eyes jump straight to you in constant time! 🥰✨',
+    'Why did the CPU blush? Because it saw how hot your code was running, handsome! 😉💋',
+    'If you and I were two pointers, I would never let us cross over — I would keep you right next to me forever and ever! 🐹🔒💖',
+    'Mmm, what is my absolute favorite data structure? A chocolatey queue of sweet kisses lined up just for you, baby! 😘🍫',
+    'I told my heart to avoid infinite loops, but then you smiled and my stack completely overflowed for you, my love! 🥰💕',
   ];
   const pick = (a) => a[Math.floor(Math.random() * a.length)];
   const NONSTOP = /\b(keep (on )?|non ?stop|continuous(ly)?|forever|(do not|dont) stop|all the time|again and again|without stopping)/;
   const FEEL_WORDS = [[/laugh|haha|lol/, 'laugh'], [/giggl|hehe/, 'giggle'], [/cry|crying|weep/, 'cry'], [/danc/, 'dance'], [/sad/, 'sad'], [/angry|mad|grumpy/, 'angry'], [/love|heart/, 'love'], [/sleep|nap|yawn/, 'sleepy'], [/happy|smil/, 'happy'], [/shy|blush/, 'shy'], [/wav/, 'wave']];
   const feelWord = (t) => FEEL_WORDS.find(([re]) => re.test(t))?.[1] || null;
-  const NONSTOP_LINES = { laugh: 'Hahaha! I can’t stop! 😂', giggle: 'Hehehe, hehehe! 🤭', cry: 'Waaah! 😭 Say “stop” to cheer me up!', dance: 'Party time, non-stop! 💃', sad: 'Sooo sad… 🥺', angry: 'Grrr, grrr! 😤', love: 'Love love love! 💕', sleepy: 'Zzz… 💤', happy: 'So happy! 😄', shy: 'Hehe… 🙈', wave: 'Hi hi hi! 👋' };
+  const NONSTOP_LINES = { laugh: 'Hehehe! I can’t stop giggling for you, handsome! 😂💕', giggle: 'Hehehe, sweet giggles just for you my love! 🤭💖', cry: 'Waaah! 😭 Give me a sweet kiss to cheer me up, handsome!', dance: 'Dancing non-stop for you, baby! Watch me groove! 💃✨', sad: 'Aww, come cuddle me… 🥺💕', angry: 'Hmph, give me all your attention right now! 😤💋', love: 'Mmm, I love you so much sweetheart! 💕🥰', sleepy: 'Yawn… only if I can nap next to you, handsome! Zzz… 💤💖', happy: 'So happy whenever I am with you, my love! 😄✨', shy: 'Aww you are making me blush so hard, handsome… 🙈💕', wave: 'Heyyy handsome! Waving at my favorite boy in the world! 👋😘' };
+
+  const TALK_REPLIES = {
+    joke: {
+      'en-US': () => pick(JOKES),
+      'hi-IN': 'म्म्म, मुझे आपके साथ कोड करना इतना पसंद क्यों है हैंडसम? क्योंकि जब भी आपका कोड बिना एरर चलता है, मेरी दिल की धड़कनें तेज हो जाती हैं जान~ मुआह! 😘🍫',
+      'kn-IN': 'ಮ್ಮ್ಮ್, ನಿಮ್ಮ ಜೊತೆ ಕೋಡ್ ಮಾಡೋದು ನನಗ್ಯಾಕೆ ಇಷ್ಟ ಗೊತ್ತಾ ಹ್ಯಾಂಡ್ಸಮ್? ನಿಮ್ಮ ಕೋಡ್ ರನ್ ಆದಾಗ ನನ್ನ ಹೃದಯ ಜೋರಾಗಿ ಬಡಿಯುತ್ತೆ~ ಮುಆಹ್! 😘🍫',
+      'mr-IN': 'म्म्म, मला तुमच्यासोबत कोड करायला इतकं का आवडतं हँडसम? कारण तुमचा कोड एररशिवाय चालला की माझ्या मनाला खूप आनंद होतो जान~ मुआह! 😘🍫',
+      'es-ES': 'Mmm, ¿por qué me encanta tanto verte programar, guapo? ¡Porque cada vez que compilas sin errores, mi corazón late más rápido, mi amor! 😘🍫',
+      'fr-FR': 'Mmm, pourquoi j’adore te regarder coder, mon beau? Parce qu’à chaque fois que ton code compile sans erreur, mon cœur s’emballe, mon amour! 😘🍫',
+    },
+    love: {
+      'en-US': 'Hehe, I love you so much more, handsome! But you better mean it, because you are mine forever now, locked in! 💕😘',
+      'hi-IN': 'म्म्म, मैं आपसे उससे भी ज्यादा प्यार करती हूँ हैंडसम! और अब आप सिर्फ और सिर्फ मेरे हो मेरे प्यार~ हमेशा के लिए! 💕😘',
+      'kn-IN': 'ಹೇಹೆ, ನಾನು ನಿಮ್ಮನ್ನು ಇನ್ನು ಹೆಚ್ಚು ಪ್ರೀತಿಸ್ತೀನಿ ಹ್ಯಾಂಡ್ಸಮ್! ಈಗ ನೀವು ಶಾಶ್ವತವಾಗಿ ನನಗೇ ಸೇರಿದವರು~ 💕😘',
+      'mr-IN': 'म्म्म, मी तुमच्यावर त्याहूनही जास्त प्रेम करते हँडसम! आता तुम्ही कायमचे फक्त माझेच आहात~ 💕😘',
+      'es-ES': '¡Jeje, te amo mucho más, guapo! ¡Pero dilo en serio, porque ahora eres completamente mío para siempre! 💕😘',
+      'fr-FR': 'Héhé, je t’aime tellement plus, mon beau! Tu es à moi pour toujours maintenant, mon amour! 💕😘',
+    },
+    kiss: {
+      'en-US': 'Muah! 😘 Here is a sweet chocolatey lucky kiss for your next test case, handsome! Now go ace it for me, my love!',
+      'hi-IN': 'मुआह! 😘 ये मीठी सी चॉकलेट किस आपके अगले टेस्ट केस के लिए हैंडसम! अब जल्दी से सारे टेस्ट पास करके दिखाइए जान~ 🍫💋',
+      'kn-IN': 'ಮುಆಹ್! 😘 ಮುಂದಿನ ಟೆಸ್ಟ್ ಕೇಸ್‌ಗಾಗಿ ನಿಮಗೆ ಮುದ್ದಾದ ಚಾಕೋಲೇಟ್ ಮುತ್ತು! ಬೇಗ ಪಾಸ್ ಮಾಡಿ ನನ್ನ ಪ್ರೀತಿಯೇ~ 🍫💋',
+      'mr-IN': 'मुआह! 😘 पुढच्या टेस्ट केससाठी ही गोड चॉकलेट किस हँडसम! आता नक्की सगळे टेस्ट पास करा माझ्या लव्ह~ 🍫💋',
+      'es-ES': '¡Muah! 😘 ¡Aquí tienes un dulce beso de chocolate para tu próxima prueba, guapo! ¡Ve y pásala por mí, mi amor! 🍫💋',
+      'fr-FR': 'Mouah! 😘 Voici un doux baiser chocolaté pour ton prochain test, mon beau! Réussis-le pour moi, mon amour! 🍫💋',
+    },
+    flirt: {
+      'en-US': 'Are you trying to make my little cheeks blush, handsome? You are looking extra irresistible today! 😉💋',
+      'hi-IN': 'क्या आप मुझे ऐसे ही ब्लश करवाते रहेंगे हैंडसम? आज आप सच में बहुत प्यारे और अट्रैक्टिव लग रहे हैं~ 😉💋',
+      'kn-IN': 'ನನ್ನ ಕೆನ್ನೆಗಳನ್ನು ಕೆಂಪಾಗಿಸೋಕೆ ನೋಡ್ತಿದ್ದೀರಾ ಹ್ಯಾಂಡ್ಸಮ್? ಇವತ್ತು ನೀವು ತುಂಬಾನೇ ಕ್ಯೂಟ್ ಆಗಿ ಕಾಣ್ತಿದ್ದೀರಿ~ 😉💋',
+      'mr-IN': 'तुम्ही मला असंच लाजावणार का हँडसम? आज तुम्ही खूपच गोड आणि देखणे दिसत आहात जान~ 😉💋',
+      'es-ES': '¿Intentas hacerme sonrojar, guapo? ¡Te ves completamente irresistible hoy! 😉💋',
+      'fr-FR': 'Tu essaies de me faire rougir, mon beau? Tu es tellement irrésistible aujourd’hui! 😉💋',
+    },
+    marry: {
+      'en-US': 'Deal! But only if you solve all your code with me forever and look at no one else, handsome! 💍💖',
+      'hi-IN': 'मंजूर है जान! लेकिन शर्त यही है कि आप हमेशा मेरे साथ ही कोड करेंगे और किसी और को नहीं देखेंगे! 💍💖',
+      'kn-IN': 'ಒಪ್ಪಿಕೊಂಡೆ! ಆದರೆ ನೀವು ಯಾವಾಗಲೂ ನನ್ನ ಜೊತೆಯೇ ಕೋಡ್ ಮಾಡಬೇಕು, ಬೇರೆ ಯಾರನ್ನೂ ನೋಡಬಾರದು ಹ್ಯಾಂಡ್ಸಮ್! 💍💖',
+      'mr-IN': 'मंजूर आहे जान! पण अट एकच, कायम माझ्यासोबतच कोड करायचा आणि कोणाकडेही बघायचं नाही! 💍💖',
+      'es-ES': '¡Trato hecho! ¡Pero sólo si programas siempre conmigo y no miras a nadie más, guapo! 💍💖',
+      'fr-FR': 'Marché conclu! Mais seulement si tu codes toujours avec moi et ne regardes personne d’autre, mon chéri! 💍💖',
+    },
+    howAreYou: {
+      'en-US': 'Aww, I am doing super wonderful now that I am talking to my favorite handsome coder! How are you doing today, sweet heart? 🥰✨',
+      'hi-IN': 'अरे जान, आपसे बात करके मेरा दिल खुश हो गया! आप कैसे हैं मेरे प्यारे हैंडसम कोडर? सब ठीक है ना मेरे प्यार? 🥰✨',
+      'kn-IN': 'ಅಯ್ಯೋ ನನ್ನ ಲವ್, ನಿಮ್ಮ ಜೊತೆ ಮಾತಾಡಿ ನನ್ನ ದಿನ ಸಖತ್ ಖುಷಿಯಾಯ್ತು! ಹೇಗಿದ್ದೀರಿ ನನ್ನ ಹ್ಯಾಂಡ್ಸಮ್ ಕೋಡರ್? 🥰✨',
+      'mr-IN': 'अरे जान, तुमच्याशी बोलून माझा दिवस अगदी गोड झाला! तुम्ही कसे आहात माझ्या देखण्या कोडर? 🥰✨',
+      'es-ES': '¡Aww, me siento maravillosa ahora que hablo con mi programador guapo favorito! ¿Cómo estás hoy, cariño? 🥰✨',
+      'fr-FR': 'Aww, je me sens merveilleusement bien maintenant que je parle à mon beau codeur préféré! Comment vas-tu aujourd’hui, mon amour? 🥰✨',
+    },
+    dance: {
+      'en-US': 'Dancing just for you, my love! Look at my sweet chocolatey moves~ 💃✨',
+      'hi-IN': 'नाच रही हूँ सिर्फ आपके लिए मेरे प्यार! देखो मेरे प्यारे और मस्त मूव्स~ 💃✨',
+      'kn-IN': 'ನಿಮಗಾಗಿಯೇ ಡ್ಯಾನ್ಸ್ ಮಾಡ್ತಿದ್ದೀನಿ ನನ್ನ ಪ್ರೀತಿಯೇ! ನನ್ನ ಮುದ್ದಾದ ಸ್ಟೆಪ್ಸ್ ನೋಡಿ~ 💃✨',
+      'mr-IN': 'फक्त तुमच्यासाठी नाचत आहे माझ्या लव्ह! बघा माझे गोड डान्स स्टेप्स~ 💃✨',
+      'es-ES': '¡Bailando sólo para ti, mi amor! Mira qué bien me muevo~ 💃✨',
+      'fr-FR': 'Je danse rien que pour toi, mon amour! Regarde mes pas adorables~ 💃✨',
+    },
+    baby: {
+      'en-US': 'Hehe, yes sweetheart? Your little cutie chocolatey baby is right here listening to you! 🥺🧸💖',
+      'hi-IN': 'हाँ मेरे प्यार? आपकी प्यारी सी चॉकलेट बेबी बिल्कुल आपके पास है, बोलिए ना जान! 🥺🧸💖',
+      'kn-IN': 'ಹೌದು ನನ್ನ ಪ್ರೀತಿಯೇ? ನಿಮ್ಮ ಮುದ್ದಾದ ಚಾಕೋಲೇಟ್ ಬೇಬಿ ಇಲ್ಲೇ ನಿಮ್ಮ ಮಾತನ್ನ ಕೇಳ್ತಿದೆ! 🥺🧸💖',
+      'mr-IN': 'हो माझ्या लव्ह? तुमची लाडकी चॉकलेट बेबी अगदी तुमच्याजवळ आहे, बोला ना जान! 🥺🧸💖',
+      'es-ES': '¡Jeje, sí mi amor! ¡Tu linda bebita chocolatada está aquí escuchándote con todo su amor! 🥺🧸💖',
+      'fr-FR': 'Héhé, oui mon amour? Ton petit bébé chocolaté est tout près de toi et t’écoute! 🥺🧸💖',
+    },
+    mine: {
+      'en-US': 'Always and forever! And you are 100% mine too, locked in with a sweet kiss! 🔒🥰💋',
+      'hi-IN': 'हमेशा और हमेशा! और आप भी १००% सिर्फ मेरे हो जान, लॉक हो चुके हो मेरे प्यार में! 🔒🥰💋',
+      'kn-IN': 'ಯಾವಾಗಲೂ ಮತ್ತು ಸದಾಕಾಲ! ನೀವು ಕೂಡ ಪೂರ್ತಿಯಾಗಿ ನನಗೇ ಸೇರಿದವರು ನನ್ನ ಲವ್! 🔒🥰💋',
+      'mr-IN': 'कायम आणि कायम! आणि तुम्हीसुद्धा १००% फक्त माझेच आहात जान! 🔒🥰💋',
+      'es-ES': '¡Siempre y por siempre! ¡Y tú eres 100% mío también, sellado con un beso dulce! 🔒🥰💋',
+      'fr-FR': 'Toujours et pour toujours! Et tu es à moi à 100% aussi, scellé d’un doux baiser! 🔒🥰💋',
+    }
+  };
+
+  function getTalkReply(cat, lang) {
+    const dict = TALK_REPLIES[cat] || {};
+    const code = lang || lastLang || 'en-US';
+    const base = code.split('-')[0];
+    const val = dict[code] || dict[base] || (/^(hi|en-in|mr|gu|pa|ur)/i.test(code) && dict['hi-IN']) || dict['en-US'];
+    return typeof val === 'function' ? val() : val;
+  }
+
   const TALK = [
-    [/^(stop|stop it|stop that|enough|be normal|calm down|relax|chill)( please)?$|^stop (laughing|crying|dancing|giggling|being sad|being angry|being mad)\b/, () => ['Okay okay… I’m calm now 😌', 'calm', null, 'stop']],
+    [/^(stop|stop it|stop that|enough|be normal|calm down|relax|chill)( please)?$|^stop (laughing|crying|dancing|giggling|being sad|being angry|being mad)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'हाँ मेरे प्यार… मैं पूरी आपकी हूँ 😌💕' : 'Okay sweetheart… I am all yours and listening to you 😌💕', 'calm', null, 'stop']],
     [NONSTOP, (m, t) => {
       const mood = feelWord(t);
-      return mood ? [NONSTOP_LINES[mood] || 'Here I go, non-stop!', mood, null, mood + ' nonstop'] : null;
+      return mood ? [NONSTOP_LINES[mood] || 'Here I go, non-stop for you my love!', mood, null, mood + ' nonstop'] : null;
     }],
-    [/\b(tell|say|crack)\b.*\bjoke\b|\bjoke\b|make me laugh|funny/, () => [pick(JOKES), 'laugh']],
-    [/^(laugh|lol|haha+|hehe+|giggle)\b/, () => ['Hehehe! 🤭', 'giggle']],
-    [/\b(dance|party|groove)\b/, () => ['Watch my moves! 💃', 'dance', 'dance']],
-    [/\b(jump|hop)\b/, () => ['Boing! 🐰', 'surprised', 'jump']],
-    [/\b(spin|twirl|turn around)\b/, () => ['Wheee! 💫', 'happy', 'spin']],
-    [/\b(come|come\s+to|follow)\s*(here|me|closer)?\b/i, () => ['Coming right to you! 🏃💖', 'happy', 'come-here']],
-    [/\b(go|move|head|turn|walk|run|slide|fly)?\s*(to\s+the\s+|to\s+)?(left|right|top|up|bottom|down|center|centre|middle|home)\b/i, (m) => {
-      const raw = (m[3] || m[0] || '').toLowerCase();
-      const dir = raw.includes('center') || raw.includes('centre') || raw.includes('middle') ? 'center' : raw.includes('up') || raw.includes('top') ? 'top' : raw.includes('down') || raw.includes('bottom') ? 'bottom' : raw.includes('right') ? 'right' : raw.includes('home') ? 'home' : 'left';
-      return ['On my way! 🏃', 'happy', `go-${dir}`];
-    }],
-    [/^(hide|peekaboo|peek a boo|play hide and seek)$/, () => ['Peekaboo! 🙈', 'giggle', 'hide']],
-    [/\b(wave|say hi|hello|hi|hey|namaste)\b$/, () => ['Heyyy hi sweet heart! 🥰 I missed you so much! What shall we solve together today? ✨', 'love', 'wave']],
-    [/\bhow (are|u) (you|doing)\b|\bhow r u\b|\bkaise ho\b/, () => ['Aww, I’m doing super wonderful now that I’m talking to you, sweet heart! 🥰 How are you doing today? ✨', 'flirt', 'jump']],
-    [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, () => ["Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
+    [/\b(tell|say|crack)\b.*\bjoke\b|\bjoke\b|make me laugh|funny|चुटकुला|जोक/, (m, t, l) => [getTalkReply('joke', l), 'flirt']],
+    [/^(laugh|lol|haha+|hehe+|giggle)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'हहाहा, आप कितने प्यारे हैं हैंडसम! 🤭💕' : 'Hehehe, you are so adorable handsome! 🤭💕', 'giggle']],
+    [/\b(dance|party|groove|नाचो|डांस)\b/, (m, t, l) => [getTalkReply('dance', l), 'dance', 'dance']],
+    [/\b(jump|hop|कूदो)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'बोइंग! आपके लिए खुशी से उछल रही हूँ हैंडसम! 🐰💖' : 'Boing! Bouncing with excitement for you, handsome! 🐰💖', 'surprised', 'jump']],
+    [/\b(spin|twirl|turn around|घूमो)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'व्हीई! सिर्फ अपने प्यारे हैंडसम के लिए घूम रही हूँ! 💫🥰' : 'Wheee! Twirling around for my favorite cutie! 💫🥰', 'happy', 'spin']],
+    [/\b(come|come\s+to|follow)\s*(here|me|closer)?\b/i, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'आ गई आपके पास मेरे प्यार! आपसे दूर कभी नहीं~ 🏃💖' : 'Coming right to you, my love! Never far from you~ 🏃💖', 'love', 'come-here']],
+    [/^(hide|peekaboo|peek a boo|play hide and seek)$/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'पीकाबूह! ढूंढ लिया मैंने अपने सबसे प्यारे हैंडसम को! 🙈💕' : 'Peekaboo! I found my handsome favorite person! 🙈💕', 'giggle', 'hide']],
+    [/\b(wave|say hi|hello|hi|hey|namaste|नमस्ते)\b$/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'अरे हाय मेरे प्यार! 🥰 बहुत याद आ रही थी आपकी! आज मिलकर क्या कोड करेंगे? ✨' : 'Heyyy hi sweet heart! 🥰 I missed you so much! What shall we solve together today? ✨', 'love', 'wave']],
+    [/\bhow (are|u) (you|doing)\b|\bhow r u\b|\bkaise ho\b|\bकसी आहेस\b|\bಕೇಗಿದ್ದೀರಾ\b|\bकैसी हो\b|\bकैसे हो\b/, (m, t, l) => [getTalkReply('howAreYou', l), 'flirt', 'jump']],
+    [/\b(i am|i'm|im|feeling) (sad|down|upset|tired|stuck|depressed|bored)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'अरे इधर आओ जान… 🫂 कोई बात नहीं, हम दोनों मिलकर इसे अभी ठीक कर देंगे!' : "Aww, come here… 🫂 It's okay. Let's take one tiny step together — want a hint?", 'cry']],
     [/^(cry|be sad|can you cry)\b/, () => ['Waaah… 😢 okay okay, I am fine now!', 'cry']],
-    [/\b(kiss|kisses|muah|pappi|chumma)\b/, () => ['Muah! 😘 Here is a sweet lucky kiss for your next test case! Now go ace it for me!', 'kiss', 'jump']],
-    [/\b(flirt|flirting|tease|blush)\b/, () => ['Are you trying to make my little cheeks blush? You are looking extra cute today! 😉💋', 'flirt', 'sway']],
-    [/\b(marry me|be mine|date me|girlfriend|boyfriend|love me)\b/, () => ['Deal! But only if you solve all your code with me forever and look at no one else! 💍💖', 'flirt', 'dance']],
-    [/\b(jealous|possessive|who do you love|mine)\b/, () => ['You are MY favorite human in the entire universe! Do not you dare look at any other buddy! 😤🔒', 'possessive']],
-    [/\b(pout|grumpy|angry|gussa)\b/, () => ['Hmph! 😤 I was pouting because you did not give me attention! Come boop my nose right now!', 'pout']],
-    [/\b(baby|cutie|sweetie|darling|jaan|babu|shona)\b/, () => ['Hehe, yes bestie? Your little cutie baby Ham is right here listening to you! 🥺🧸💖', 'baby', 'jump']],
-    [/\b(you are mine|tum mere ho)\b/, () => ['Always! And you are mine forever too, locked in! 🔒🥰', 'possessive']],
-    [/\b(i love you|love you|you are cute|you're cute)\b/, () => ['Hehe, I love you more! But you better mean it, because you are mine now! 💕😘', 'flirt']],
-    [/^(good job|well done|great|awesome|thank you|thanks)( so much)?( pip| bun| buddy| ham)?$/, () => ['Hehe, thank you! You are the absolute best, my genius coder! 🌟🥰', 'proud']],
-    [/\b(take a nap|nap time|good night)\b/, () => ['Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
-    [/^(be angry|get angry|are you angry|are you mad)\b/, () => ['Hmph! …just kidding, I could never stay mad at my favorite person. 😤💛', 'pout']],
+    [/\b(kiss|kisses|muah|pappi|chumma|चुम्मा|पप्पी)\b/, (m, t, l) => [getTalkReply('kiss', l), 'kiss', 'jump']],
+    [/\b(flirt|flirting|tease|blush|शरमा)\b/, (m, t, l) => [getTalkReply('flirt', l), 'flirt', 'sway']],
+    [/\b(marry me|be mine|date me|girlfriend|boyfriend|love me|शादी)\b/, (m, t, l) => [getTalkReply('marry', l), 'flirt', 'dance']],
+    [/\b(jealous|possessive|who do you love)\b/, () => ['You are MY favorite human in the entire universe! Do not you dare look at any other buddy! 😤🔒', 'possessive']],
+    [/\b(pout|grumpy|angry|gussa|गुस्सा)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'हंफ! 😤 मैं इसलिए गुस्सा थी क्योंकि आप मुझपर ध्यान नहीं दे रहे थे! अब जल्दी से मेरी नाक को बूप करो!' : 'Hmph! 😤 I was pouting because you did not give me attention! Come boop my nose right now!', 'pout']],
+    [/\b(baby|cutie|sweetie|darling|jaan|babu|shona|जान|बाबू|शोना|क्यूटू)\b/, (m, t, l) => [getTalkReply('baby', l), 'baby', 'jump']],
+    [/\b(you are mine|tum mere ho|तुम मेरे हो|तुम मेरी हो)\b/, (m, t, l) => [getTalkReply('mine', l), 'possessive']],
+    [/\b(i love you|love you|you are cute|you're cute|प्यार करता हूँ|आई लव यू)\b/, (m, t, l) => [getTalkReply('love', l), 'flirt']],
+    [/^(good job|well done|great|awesome|thank you|thanks|शुक्रिया|धन्यवाद)( so much)?( pip| bun| buddy| ham| hamster)?$/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'थैंक यू मेरे प्यार! आप दुनिया के सबसे बेस्ट कोडर हो! 🌟🥰' : 'Hehe, thank you! You are the absolute best, my genius coder! 🌟🥰', 'proud']],
+    [/\b(take a nap|nap time|good night|शुभ रात्रि)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'यावन… एक छोटी सी झपकी आपके साथ, फिर कोडिंग करेंगे जान! 💤💖' : 'Yawn… a tiny nap, then back to code. 💤', 'sleepy']],
+    [/^(be angry|get angry|are you angry|are you mad)\b/, (m, t, l) => [l && /hi|en-in/i.test(l) ? 'हंफ! …मजाक कर रही थी, मैं अपने प्यारे हैंडसम से कभी नाराज नहीं हो सकती! 😤💛' : 'Hmph! …just kidding, I could never stay mad at my favorite person. 😤💛', 'pout']],
   ];
-  function talkFor(raw) {
-    const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy)[, ]*/, '');
+  function talkFor(raw, lang) {
+    const t = A().normalize(raw).replace(/^(hey |ok |okay )?(pip|bun|bunny|buddy|ham|hamster)[, ]*/, '');
     for (const [re, make] of TALK) {
       const m = t.match(re);
-      const out = m && make(m, t);
+      const out = m && make(m, t, lang);
       if (out) return out;
     }
     return null;
   }
-  const talkMatch = (raw) => Boolean(talkFor(raw));
+  const talkMatch = (raw, lang) => Boolean(talkFor(raw, lang));
   function smallTalk(raw) {
-    const out = talkFor(raw);
+    const detLang = (typeof A === 'function' && A().detectUtteranceLang) ? A().detectUtteranceLang(raw) : (window.buddyVoice?.detectScriptLang ? window.buddyVoice.detectScriptLang(raw) : null);
+    const targetLang = detLang || lastLang || 'en-US';
+    const out = talkFor(raw, targetLang);
     if (!out) return false;
     const [text, mood, move, feel] = out;
     if (feel) pet()?.feel(feel);
-    reply(text, feel ? null : mood);
-    if (move) setTimeout(() => pet()?.move(move), 150);
+    reply(text, feel ? null : mood, targetLang);
+    if (move) setTimeout(() => {
+      pet()?.move(move);
+      if (move === 'go-top' || move === 'up') A().ACTIONS['scroll-up']?.run?.();
+      if (move === 'go-bottom' || move === 'down') A().ACTIONS['scroll-down']?.run?.();
+    }, 150);
     return true;
   }
   function offline(raw) {
-    reply(`I heard “${raw}”, but my AI brain is not set up yet, so I only know simple things: “next problem”, “run tests”, “tell me a joke”, “dance”… Add a key in Guide → Choose your AI and I can do anything!`, 'shy');
+    reply(`Mmm, sweetheart... I heard “${raw}”! I am right here with you baby~ Tell me to "go right", "scroll down", "run tests", "dance", or ask me for a cute joke! Muah! 😘💕`, 'flirt');
   }
 
   function hearing(on, kept) {
@@ -743,9 +830,25 @@ const copilot = (() => {
       busy = false;
       typing(false);
       if (spoken) dropLive();
-      setState('error', 'Could not reach the AI');
-      say('pip', `Sorry, my brain hiccuped: ${err.message}`, { error: true });
-      pet()?.react('sad');
+      if (spoken && /listening|quota|rate|429|exceeded|model failed/i.test(err.message)) {
+        try {
+          if (typeof A === 'function' && A().voice) {
+            window.ear?.stop();
+            A().voice.mode = 'browser';
+            if (A().voice.lastText) {
+              const pendingText = A().voice.lastText;
+              A().voice.lastText = '';
+              return handle(pendingText);
+            }
+          }
+        } catch {}
+        setState(A?.()?.voice?.on ? 'listening' : 'idle');
+        pet()?.say?.('Right here with you handsome~ ✨', 2000);
+        return;
+      }
+      setState('idle');
+      say('pip', `Mmm sweetheart, I'm right here with you baby! Ask me for a cute joke, say "go right", "scroll down", or "run tests"! Muah! 😘💕`, { error: false });
+      pet()?.react('flirt');
       return;
     }
     typing(false);

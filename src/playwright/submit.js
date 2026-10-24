@@ -449,7 +449,7 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
     mirrored++;
   }
 
-  console.log(`  ✓ Mirrored ${mirrored} solutions into contests/${platKey} directories\n`);
+  console.log(`  ✓ Mirrored ${mirrored} solutions into contests/ directories\n`);
 }
 
 /**

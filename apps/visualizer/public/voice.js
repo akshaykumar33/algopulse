@@ -263,20 +263,64 @@ window.buddyVoice = (() => {
     });
   }
 
-  /* ---------- 1. Gemini voice ---------- */
-  async function gemini(text, mood, my, lang) {
+  // Plays an AudioBuffer; resolves when done.
+  function playBuffer(buf, my, mood, speed = 1) {
+    return new Promise((resolve) => {
+      if (my !== token) return resolve();
+      const c = audio();
+      const src = c.createBufferSource();
+      src.buffer = buf;
+      src.playbackRate.value = speed;
+      src.connect(c.destination);
+      src.onended = () => {
+        if (source === src) {
+          source = null;
+          pet()?.talking?.(false);
+          pet()?.stopReact?.();
+        }
+        resolve();
+      };
+      source = src;
+      const durationMs = (buf.duration * 1000) / speed;
+      busyUntil = Math.max(busyUntil, Date.now() + durationMs + 300);
+      pet()?.talking?.(true);
+      if (mood) pet()?.react?.(mood, durationMs);
+      started(durationMs);
+      src.start();
+    });
+  }
+
+  async function decodeResponse(res) {
+    const c = audio();
+    if (res.audio) {
+      const bin = atob(res.audio);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return await c.decodeAudioData(bytes.buffer.slice(0));
+    }
+    if (res.pcm) {
+      const bin = atob(res.pcm);
+      const n = bin.length >> 1;
+      const rate = res.rate || 24000;
+      const buf = c.createBuffer(1, n, rate);
+      const ch = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) {
+        const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
+        ch[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
+      }
+      return buf;
+    }
+    throw new Error('Unsupported audio payload');
+  }
+
+  /* ---------- 1. Neural AI Voice (Edge Neural / OpenAI / Local MMS) ---------- */
+  async function neuralSpeak(text, mood, my, lang) {
     const s = style();
     const accent = accentStyle(lang);
     const stylePrompt = [s.words, accent, MOOD[mood]].filter(Boolean).join(', ');
-    const res = await api('/api/voice/speak', { text, voice: s.ai, style: stylePrompt });
-    const bin = atob(res.pcm);
-    const n = bin.length >> 1;
-    const out = new Float32Array(n);
-    for (let i = 0; i < n; i++) {
-      const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
-      out[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
-    }
-    await play(out, my, mood);
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style: stylePrompt, lang, mood });
+    const buf = await decodeResponse(res);
+    await playBuffer(buf, my, mood);
   }
 
   /* ---------- 2. Kokoro, in a worker so the page never stutters ---------- */
@@ -337,7 +381,7 @@ window.buddyVoice = (() => {
   /* ---------- 3. The best browser voice ---------- */
   const NATURAL = /natural|neural|online|premium|enhanced/i;
   const CHILD = /\bana\b|maisie|child|kid/i; // Edge's "Ana" is a child's voice: the cutest there is
-  const FEMALE = /female|woman|girl|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|zira|heera|gurpreet|gul|elsa|francisca|svetlana|zariyah|emel|gadis|ayumi|haruka|huihui|google (us|uk english female)|हिन्दी|हिंदी|ಕನ್ನಡ|தமிழ்|తెలుగు|मराठी|বাংলা|മലയാളം|ગુજરાતી|日本語|한국어|中文/i;
+  const FEMALE = /female|woman|girl|zira|aria|jenny|sonia|libby|natasha|ana\b|michelle|emma|ava|samantha|victoria|karen|moira|tessa|swara|neerja|kalpana|sapna|pallavi|shruti|aarohi|sobhana|dhwani|nanami|xiaoxiao|sunhi|denise|elvira|dalia|heera|gurpreet|gul|elsa|francisca|svetlana|zariyah|emel|gadis|ayumi|haruka|huihui|google (us|uk english female)|हिन्दी|हिंदी|ಕನ್ನಡ|தமிழ்|తెలుగు|मराठी|বাংলা|മലയാളം|ગુજરાતી|日本語|한국어|中文/i;
   const MALE = /\b(male|man|david|mark|guy|ryan|george|james|daniel|brian|eric|liam|andrew|christopher|prabhat|madhur|ravi|hemant)\b/i;
   function pickVoice(lang) {
     const all = ('speechSynthesis' in window && speechSynthesis.getVoices()) || [];
@@ -351,11 +395,11 @@ window.buddyVoice = (() => {
     }
     if (!pool.length) return null; // better the default than a voice of another language
     const score = (v) =>
-      (NATURAL.test(v.name) ? 40 : 0) +
-      (/google/i.test(v.name) ? 20 : 0) +
-      (CHILD.test(v.name) && store().voiceStyle !== 'sweet' ? 15 : 0) +
-      (FEMALE.test(v.name) ? 10 : 0) -
-      (MALE.test(v.name) ? 30 : 0) +
+      (FEMALE.test(v.name) ? 500 : 0) -
+      (MALE.test(v.name) ? 1000 : 0) +
+      (NATURAL.test(v.name) ? 60 : 0) +
+      (/google/i.test(v.name) ? 30 : 0) +
+      (CHILD.test(v.name) && store().voiceStyle !== 'sweet' ? 25 : 0) +
       (v.localService ? 0 : 3);
     const best = pool.slice().sort((a, b) => score(b) - score(a))[0];
     return { voice: best, kind: NATURAL.test(best.name) ? 'natural' : /google/i.test(best.name) ? 'google' : 'desktop' };
@@ -368,9 +412,9 @@ window.buddyVoice = (() => {
       const u = new SpeechSynthesisUtterance(text);
       if (pick) u.voice = pick.voice;
       u.lang = pick?.voice.lang || lang || 'en-US';
-      const lift = mood === 'laugh' || mood === 'giggle' || mood === 'surprised' ? 0.06 : mood === 'sad' || mood === 'cry' ? -0.1 : 0;
-      u.pitch = Math.max(0.8, Math.min(1.5, s.pitch[pick?.kind || 'desktop'] + lift));
-      u.rate = s.rate;
+      const lift = mood === 'laugh' || mood === 'giggle' || mood === 'surprised' || mood === 'flirt' || mood === 'kiss' ? 0.08 : mood === 'sad' || mood === 'cry' ? -0.06 : 0.04;
+      u.pitch = Math.max(0.9, Math.min(1.45, (s.pitch[pick?.kind || 'desktop'] || 1.15) + lift));
+      u.rate = 0.94; // slightly slower, sweeter, seductive feminine pace
       const durationEstimate = Math.max(1600, 800 + text.length * 85);
       busyUntil = Math.max(busyUntil, Date.now() + durationEstimate);
       // Synchronize expression & talking with the exact millisecond speech begins
@@ -460,38 +504,22 @@ window.buddyVoice = (() => {
     stop();
     const my = token;
     try {
-<<<<<<< HEAD
-      // Gemini voices the whole reply in one go, so it sounds like one breath.
-      // A natural (neural) browser voice — Edge's Ana, Aria, Swara, Sapna… — starts
-      // speaking at once with no quota, so it wins over the AI voice's 3-4 s wait.
-      // The AI voice is for browsers that only have robotic voices for this language.
-      const instant = pickVoice(lang)?.kind === 'natural';
-      if (ai && !instant && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser') {
-=======
-      // Gemini voices the whole reply in one go with the target language accent.
-      if (ai && state.ai?.canHear && Date.now() > aiOffUntil && store().voiceEngine !== 'browser' && pickVoice(targetLang)?.kind !== 'natural') {
->>>>>>> origin/main
+      // 1. Neural AI Voice (Edge Neural / OpenAI / Local MMS) with multi-language native audio
+      if (store().voiceEngine !== 'browser') {
         try {
-          await gemini(words, resolvedMood, my, targetLang);
+          await neuralSpeak(words, resolvedMood, my, targetLang);
           return;
-        } catch (err) {
-          if (/quota|429|rate|exceeded/i.test(err.message)) {
-            aiOffUntil = Date.now() + 30 * 60 * 1000;
-            try {
-              localStorage.setItem('buddyVoiceOffUntil', String(aiOffUntil));
-            } catch { /* storage blocked */ }
-            if (!notified) toast('The AI voice is busy, so I am using my local voice.');
-            notified = true;
-          }
+        } catch {
           if (my !== token) return;
         }
       }
+
+      // 2. Kokoro on-device neural voice (English only)
       const parts = sentences(words);
       const isUsEnglish = /^(en-US|en)$/i.test(targetLang);
       if (isUsEnglish) kokoro.start();
       if (isUsEnglish && kokoro.state === 'ready') {
         try {
-          // Make the next sentence while the current one plays.
           let next = kokoro.speak(parts[0]);
           for (let i = 0; i < parts.length && my === token; i++) {
             const samples = await next;
@@ -507,26 +535,9 @@ window.buddyVoice = (() => {
           kokoro.state = 'failed';
         }
       }
+
+      // 3. Browser SpeechSynthesis API fallback
       const native = pickVoice(targetLang);
-      if (!native || native.kind === 'desktop') {
-        try {
-          const fetchPart = (p) => api('/api/voice/local', { text: p, lang: targetLang, mood: resolvedMood });
-          // Ask for the next sentence while the current one plays.
-          let next = fetchPart(parts[0]);
-          for (let i = 0; i < parts.length && my === token; i++) {
-            const res = await next;
-            next = i + 1 < parts.length ? fetchPart(parts[i + 1]) : null;
-            const bin = atob(res.pcm);
-            const out = new Float32Array(bin.length >> 1);
-            for (let j = 0; j < out.length; j++) {
-              const v = bin.charCodeAt(2 * j) | (bin.charCodeAt(2 * j + 1) << 8);
-              out[j] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
-            }
-            await play(out, my, resolvedMood, res.rate, res.rate > 30000 ? 1 : 1.1);
-          }
-          return;
-        } catch { /* local voice not running: fall back to the browser */ }
-      }
       if (!/^en\b/i.test(targetLang) && speechSynthesis.getVoices().length && !native) {
         if (!missing.has(targetLang)) toast(`No ${targetLang} voice is installed in this browser, so I'm showing my reply as text.`);
         missing.add(targetLang);

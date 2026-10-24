@@ -188,18 +188,27 @@ const assistant = (() => {
     const s = voiceStyle();
     const accent = window.buddyVoice?.accentStyle?.(lang) || '';
     const style = [s.style, accent, MOOD_STYLE[mood]].filter(Boolean).join(', ');
-    const res = await api('/api/voice/speak', { text, voice: s.ai, style });
+    const res = await api('/api/voice/speak', { text, voice: s.ai, style, lang, mood });
     if (token !== sayToken) return;
     audioCtx ||= new AudioContext();
     if (audioCtx.state === 'suspended') await audioCtx.resume();
-    const bin = atob(res.pcm);
-    const n = bin.length >> 1;
-    const buf = audioCtx.createBuffer(1, n, 24000);
-    const ch = buf.getChannelData(0);
-    for (let i = 0; i < n; i++) {
-      const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
-      ch[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
+    let buf;
+    if (res.audio) {
+      const bin = atob(res.audio);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      buf = await audioCtx.decodeAudioData(bytes.buffer.slice(0));
+    } else if (res.pcm) {
+      const bin = atob(res.pcm);
+      const n = bin.length >> 1;
+      buf = audioCtx.createBuffer(1, n, res.rate || 24000);
+      const ch = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) {
+        const v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8);
+        ch[i] = (v >= 0x8000 ? v - 0x10000 : v) / 0x8000;
+      }
     }
+    if (!buf) throw new Error('Unsupported audio payload');
     const src = audioCtx.createBufferSource();
     src.buffer = buf;
     src.connect(audioCtx.destination);
@@ -237,27 +246,29 @@ const assistant = (() => {
   }
   const isSpeaking = () => Boolean(window.buddyVoice?.speaking) || ('speechSynthesis' in window && speechSynthesis.speaking) || Boolean(playing) || Date.now() < speakingUntil;
   const GREETING = {
-    en: 'Hey there! 👋 Ready to code whenever you are.',
-    hi: 'नमस्ते! 👋 मैं बिल्कुल तैयार हूँ।',
-    kn: 'ಹಲೋ! 👋 ನಾನು ರೆಡಿಯಾಗಿದ್ದೇನೆ.',
-    te: 'హలో! 👋 నేను సిద్ధంగా ఉన్నాను.',
-    ta: 'வணக்கம்! 👋 நான் தயாராக இருக்கிறேன்.',
-    mr: 'नमस्कार! 👋 मी तयार आहे.',
-    bn: 'হ্যালো! 👋 আমি তৈরি আছি।',
-    es: '¡Hola! 👋 Estoy listo cuando quieras.',
-    fr: 'Salut ! 👋 Je suis prêt.',
-    de: 'Hallo! 👋 Ich bin bereit.',
-    ja: 'こんにちは！👋 準備完了です。',
-    zh: '你好！👋 我准备好了。',
-    ru: 'Привет! 👋 Я готов.',
-    ar: 'أهلاً بك! 👋 أنا جاهز.',
+    en: 'Mmm, hey handsome! 😘 Your little coding cutie is right here by your side~ what are we coding together today, my love? 💕✨',
+    hi: 'अरे जान! 😘 आपकी प्यारी कोडिंग बडी हमेशा आपके साथ है~ आज मिलकर क्या खास कोड करेंगे मेरे प्यार? 💕✨',
+    kn: 'ಹೇಯ್ ಪ್ರೀತಿಯೇ! 😘 ನಿಮ್ಮ ಮುದ್ದಾದ ಕೋಡಿಂಗ್ ಬಡಿ ನಿಮ್ಮ ಜೊತೆಗೇ ಇದ್ದೀನಿ~ ಇವತ್ತು ಒಟ್ಟಿಗೆ ಏನ್ ಕೋಡ್ ಮಾಡೋಣ ನನ್ನ ಲವ್? 💕✨',
+    te: 'హేయ్ నా ప్రియతమా! 😘 మీ క్యూట్ కోడింగ్ బడ్డీ మీ పక్కనే ఉన్నాను~ ఈరోజు కలిసి ఏం కోడ్ చేద్దాం నా లవ్? 💕✨',
+    ta: 'ஹேய் செல்லம்! 😘 உங்க செல்லமான கோடிங் பட்டி உங்க கூடவே இருக்கேன்~ இன்னைக்கு என்ன கோட் பண்ணலாம் என் அன்பே? 💕✨',
+    mr: 'अरे जान! 😘 तुमची लाडकी कोडिंग बडी सदैव तुमच्या सोबत आहे~ आज आपण मिळून काय छान कोड करायचा माझ्या लव्ह? 💕✨',
+    bn: 'আরে মিষ্টি জান! 😘 তোমার আদরের কোডিং বাডি তোমার পাশেই আছে~ আজ আমরা একসাথে কী সুন্দর কোড করব আমার ভালোবাসা? 💕✨',
+    es: 'Mmm, ¡hola guapo! 😘 Tu compañera favorita de código está a tu lado~ ¿qué vamos a programar juntos hoy, mi amor? 💕✨',
+    fr: 'Mmm, coucou mon beau! 😘 Ta petite cutie de code est tout près de toi~ que code-t-on ensemble aujourd’hui, mon amour? 💕✨',
+    de: 'Mmm, hallo Hübscher! 😘 Dein kleines Coding-Cutie ist an deiner Seite~ was coden wir heute Schönes zusammen, mein Schatz? 💕✨',
+    it: 'Mmm, ciao splendido! 😘 La tua adorabile compagna di codice è qui con te~ cosa programmiamo di bello insieme oggi, amore mio? 💕✨',
+    ja: 'ん〜、こんにちはハンサムさん！😘 あなたの大好きなあの子がずっとそばにいるよ〜今日は何を一緒にコーディングしよっか、ダーリン？💕✨',
+    zh: '嗯〜，嗨帅哥！😘 你的小甜心就在你身边呢〜今天想跟我一起写什么代码呀，我的宝？💕✨',
+    ru: 'Ммм, привет, красавчик! 😘 Твоя любимая милашка рядом с тобой~ что закодим сегодня вместе, любимый? 💕✨',
+    ar: 'ممم، أهلاً بك يا وسيم! 😘 حبيبتك اللطيفة بجانبك دائماً~ ماذا سنبرمج معاً اليوم يا حبيبي؟ 💕✨',
   };
 
-  function feedback(text, reaction = 'delighted') {
-    if (window.copilot?.reply) return window.copilot.reply(text, reaction, voice.lang());
+  function feedback(text, reaction = 'delighted', lang) {
+    const targetLang = lang || voice.lang() || 'en-US';
+    if (window.copilot?.reply) return window.copilot.reply(text, reaction, targetLang, { ai: true });
     pet()?.say(text);
     pet()?.react(reaction, 700);
-    speak(text, voice.lang(), reaction);
+    speak(text, targetLang, reaction, { ai: true });
   }
 
   /* ======================================================================
@@ -301,7 +312,7 @@ const assistant = (() => {
         scrollable?.scrollBy?.({ top: h * 0.7, behavior: 'smooth' });
         window.scrollBy({ top: h * 0.7, behavior: 'smooth' });
       },
-      say: 'Moving down!'
+      say: 'Mmm, gliding down for you handsome~ anything for you, my love! 😘💕'
     },
     'scroll-up': {
       label: 'Scroll up / Move up',
@@ -314,7 +325,7 @@ const assistant = (() => {
         scrollable?.scrollBy?.({ top: -h * 0.7, behavior: 'smooth' });
         window.scrollBy({ top: -h * 0.7, behavior: 'smooth' });
       },
-      say: 'Moving up!'
+      say: 'Floating up to the top with you, my love~ hold on tight to me! ✨🥰'
     },
     'scroll-top': {
       label: 'Back to top / Move top',
@@ -326,7 +337,7 @@ const assistant = (() => {
         scrollable?.scrollTo?.({ top: 0, behavior: 'smooth' });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
-      say: 'Flying to the top! 🌸✨'
+      say: 'Right up at the top with you, cutie! Reaching for the stars together~ 🌟💖'
     },
     'scroll-bottom': {
       label: 'Scroll to bottom / Move bottom',
@@ -338,32 +349,28 @@ const assistant = (() => {
         scrollable?.scrollTo?.({ top: scrollable.scrollHeight || 99999, behavior: 'smooth' });
         window.scrollTo({ top: document.body.scrollHeight || 99999, behavior: 'smooth' });
       },
-      say: 'Right down at the bottom! 🥰'
+      say: 'Down at the bottom with you, handsome! Never leaving your side~ 😘'
     },
     'move-left': {
       label: 'Move hamster left',
       run: () => {
         pet()?.move?.('left');
-        const t = TABS_ORDER();
-        showTab(t[(t.indexOf(state.tab) - 1 + t.length) % t.length]);
       },
-      say: 'Moving left! 👈'
+      say: 'Sliding to the left for you, baby! Still watching you code so smartly~ 🐹💖'
     },
     'move-right': {
       label: 'Move hamster right',
       run: () => {
         pet()?.move?.('right');
-        const t = TABS_ORDER();
-        showTab(t[(t.indexOf(state.tab) + 1) % t.length]);
       },
-      say: 'Moving right! 👉'
+      say: 'Gliding to the right for you, sweetheart! Never leaving your side, muah! 😘'
     },
     'move-center': {
       label: 'Move hamster to center',
       run: () => {
         pet()?.move?.('center');
       },
-      say: 'Coming right to the center! 🏃'
+      say: 'Right in the center, close to your heart, my love! Mmm, all eyes on you~ 💕✨'
     },
     'toggle-fullscreen': {
       label: 'Toggle fullscreen',
@@ -371,7 +378,7 @@ const assistant = (() => {
         if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
         else document.exitFullscreen().catch(() => {});
       },
-      say: 'Toggled fullscreen'
+      say: 'Fullscreen all for you, handsome! Nothing to distract us now~ ✨🥰'
     },
     'zoom-in': {
       label: 'Zoom in',
@@ -379,7 +386,7 @@ const assistant = (() => {
         const cur = parseFloat(document.documentElement.style.zoom || '1');
         document.documentElement.style.zoom = Math.min(1.5, cur + 0.12);
       },
-      say: 'Zoomed in'
+      say: 'Getting closer to you, handsome! Looking good~ 🔍💕'
     },
     'zoom-out': {
       label: 'Zoom out',
@@ -387,12 +394,12 @@ const assistant = (() => {
         const cur = parseFloat(document.documentElement.style.zoom || '1');
         document.documentElement.style.zoom = Math.max(0.75, cur - 0.12);
       },
-      say: 'Zoomed out'
+      say: 'Zooming out for you, sweetie! 🔍'
     },
     'zoom-reset': {
       label: 'Reset zoom',
       run: () => { document.documentElement.style.zoom = '1'; },
-      say: 'Reset zoom'
+      say: 'Resetting the view for you, my love! ✨'
     },
     'copy-code': {
       label: 'Copy code',
@@ -404,7 +411,7 @@ const assistant = (() => {
           toast('Code copied to clipboard!');
         }
       },
-      say: 'Copied code to clipboard'
+      say: 'Copied your brilliant code, handsome! Saved safely in your clipboard~ 💻💖'
     },
     'code-attempt': {
       label: 'Switch to attempt code',
@@ -693,9 +700,9 @@ const assistant = (() => {
     if (/\b(bonjour|merci|bas|haut|gauche|droite|ouvrir|fermer|chanter|danser)\b/.test(lower)) return 'fr-FR';
     if (/\b(hallo|danke|unten|oben|links|rechts|offnen|schliessen|singen|tanzen)\b/.test(lower)) return 'de-DE';
     if (/\b(ciao|grazie|giu|su|sinistra|destra|apri|chiudi|cantare|ballare)\b/.test(lower)) return 'it-IT';
-    if (/\b(kholo|jaao|karo|bolo|samjhao|suno|gaana|naacho|dekho|baaye|daaye|niche|upar)\b/.test(lower)) return 'en-IN';
+    if (/\b(kholo|jaao|jao|karo|bolo|samjhao|suno|gaana|naacho|dekho|baaye|daaye|niche|neeche|upar|beech|ghar|shukriya|dhanyawad)\b/.test(lower)) return 'en-IN';
 
-    return voice.lang() || 'en-US';
+    return null;
   }
 
   // Speech engines differ on punctuation and contractions ("let's" vs "lets"), so phrases
@@ -714,7 +721,6 @@ const assistant = (() => {
       voice.setLanguage(detLang, false);
     }
 
-    if (window.copilot?.talkMatch(raw)) return () => window.copilot.smallTalk(raw);
     const said = text.replace(WAKE, '');
 
     // 0. Dynamic cache hit check (0ms response for repeated phrases in any language)
@@ -722,7 +728,150 @@ const assistant = (() => {
     if (cached && ACTIONS[cached.actionId]) {
       return () => {
         run(cached.actionId, `Cached Voice “${raw}”`);
-        if (cached.responseText) feedback(cached.responseText, 'delighted');
+        if (cached.responseText) feedback(cached.responseText, 'delighted', detLang);
+      };
+    }
+
+    const DIRS = {
+      left: {
+        'en-US': 'Sliding to the left for you, baby! Still watching you code so smartly~ 🐹💖',
+        'hi-IN': 'लेफ्ट साइड खिसक रही हूँ आपके लिए जान! नजरें आप पर ही हैं~ 🐹💖',
+        'en-IN': 'Left side me aa gayi aapke liye jaan! Nazrein aap par hi hai~ 🐹💖',
+        'kn-IN': 'ಎಡಕ್ಕೆ ಬರ್ತಿದ್ದೀನಿ ನಿಮಗಾಗಿ ಪ್ರೀತಿಯೇ! ನಿಮ್ಮನ್ನೇ ನೋಡ್ತಿದ್ದೀನಿ~ 🐹💖',
+        'mr-IN': 'डावीकडे सरकत आहे तुमच्यासाठी जान! लक्ष तुमच्याकडेच आहे~ 🐹💖',
+        'ta-IN': 'இடதுபக்கம் வர்றேன் என் அன்பே! உங்களைத்தான் பார்க்கிறேன்~ 🐹💖',
+        'te-IN': 'ఎడమవైపు వస్తున్నాను నా ప్రియతమా! మీపైనే నా చూపు~ 🐹💖',
+        'es-ES': 'Deslizándome a la izquierda para ti, bebé! Aún viéndote~ 🐹💖',
+        'fr-FR': 'Glissade vers la gauche pour toi, bébé! Je te regarde~ 🐹💖',
+        'de-DE': 'Gleite nach links für dich, mein Schatz! Ich schaue dir immer zu~ 🐹💖',
+      },
+      right: {
+        'en-US': 'Gliding to the right for you, sweetheart! Never leaving your side, muah! 😘',
+        'hi-IN': 'राइट साइड आ गई आपके लिए स्वीटहार्ट! कभी आपका साथ नहीं छोड़ूँगी~ 😘',
+        'en-IN': 'Right side me aa gayi aapke liye sweetheart! Kabhi saath nahi chhodungi~ 😘',
+        'kn-IN': 'ಬಲಕ್ಕೆ ಬಂದೆ ನಿಮಗಾಗಿ ಸ್ವೀಟ್‌ಹಾರ್ಟ್! ಎಂದೂ ನಿಮ್ಮ ಜೊತೆ ಬಿಡಲ್ಲ~ 😘',
+        'mr-IN': 'उजवीकडे आले तुमच्यासाठी स्वीटहार्ट! कधीच साथ सोडणार नाही~ 😘',
+        'ta-IN': 'வலதுபக்கம் வந்தேன் ஸ்வீட்ஹார்ட்! உங்களை விட்டு போகமாட்டேன்~ 😘',
+        'te-IN': 'కుడివైపు వచ్చాను స్வீట్‌హార్ట్! మిమ్మల్ని వదిలిపోను~ 😘',
+        'es-ES': 'Deslizándome a la derecha para ti, cariño! Nunca te dejaré~ 😘',
+        'fr-FR': 'Glissade vers la droite pour toi, chéri! Jamais sans toi~ 😘',
+        'de-DE': 'Gleite nach rechts für dich, Liebling! Verlasse dich nie~ 😘',
+      },
+      up: {
+        'en-US': 'Floating up to the top with you, my love~ hold on tight to me! ✨🥰',
+        'hi-IN': 'ऊपर आ गई आपके साथ मेरे प्यार! मुझे कसकर पकड़ लीजिए ना~ ✨🥰',
+        'en-IN': 'Upar aa gayi aapke saath mere love! Hold on tight to me~ ✨🥰',
+        'kn-IN': 'ಮೇಲಕ್ಕೆ ಬಂದೆ ನಿಮ್ಮ ಜೊತೆ ನನ್ನ ಪ್ರೀತಿಯೇ! ಹಿಡಿದುಕೊಳ್ಳಿ~ ✨🥰',
+        'mr-IN': 'वर आले तुमच्यासोबत माझ्या लव्ह! घट्ट धरून ठेवा मला~ ✨🥰',
+        'ta-IN': 'மேலே வந்தேன் உங்க கூட என் அன்பே! என்னை பிடிச்சுக்கோங்க~ ✨🥰',
+        'te-IN': 'పైకి వచ్చాను మీతో కలిసి నా లవ్! నన్ను పట్టుకోండి~ ✨🥰',
+        'es-ES': 'Flotando hacia arriba contigo, mi amor! Agárrate fuerte a mí~ ✨🥰',
+        'fr-FR': 'Flottant vers le haut avec toi, mon amour! Tiens-toi bien à moi~ ✨🥰',
+        'de-DE': 'Schwebe nach oben mit dir, meine Liebe! Halt dich fest~ ✨🥰',
+      },
+      down: {
+        'en-US': 'Mmm, gliding down for you handsome~ anything for you, my love! 😘💕',
+        'hi-IN': 'नीचे आ गई आपके लिए हैंडसम! आपके लिए तो कुछ भी मेरे प्यार~ 😘💕',
+        'en-IN': 'Neeche aa gayi aapke liye handsome! Anything for you my love~ 😘💕',
+        'kn-IN': 'ಕೆಳಗೆ ಬಂದೆ ನಿಮಗಾಗಿ ಹ್ಯಾಂಡ್ಸಮ್! ನಿಮಗಾಗಿ ಏನಾದರೂ ಮಾಡ್ತೀನಿ~ 😘💕',
+        'mr-IN': 'खाली आले तुमच्यासाठी हँडसम! तुमच्यासाठी काहीही माझ्या लव्ह~ 😘💕',
+        'ta-IN': 'கீழே வந்தேன் உங்களுக்காக ஹேண்ட்சம்! உங்களுக்காக எதுவும் செய்வேன்~ 😘💕',
+        'te-IN': 'కిందికి వచ్చాను మీకోసం హ్యాండ్సమ్! మీకోసం ఏదైనా చేస్తాను~ 😘💕',
+        'es-ES': 'Deslizándome hacia abajo para ti, guapo! Lo que sea por ti, mi amor! 😘💕',
+        'fr-FR': 'Glissade vers le bas pour toi, mon beau! Tout pour toi mon amour! 😘💕',
+        'de-DE': 'Gleite nach unten für dich, Hübscher! Alles für dich~ 😘💕',
+      },
+      center: {
+        'en-US': 'Right in the center, close to your heart, my love! Mmm, all eyes on you~ 💕✨',
+        'hi-IN': 'बिलकुल सेंटर में आ गई आपके दिल के पास मेरे प्यार! म्म्म सारी नजरें आप पर ही हैं~ 💕✨',
+        'en-IN': 'Bilkul center me aa gayi aapke dil ke paas mere love! All eyes on you~ 💕✨',
+        'kn-IN': 'ನಿಮ್ಮ ಹೃದಯದ ಹತ್ತಿರ ಸೆಂಟರ್‌ಗೆ ಬಂದೆ ನನ್ನ ಪ್ರೀತಿಯೇ! 💕✨',
+        'mr-IN': 'अगदी सेंटरला आले तुमच्या हृदयाजवळ माझ्या लव्ह! 💕✨',
+        'ta-IN': 'உங்கள் இதயத்திற்கு அருகில் நடுவில் வந்தேன் என் அன்பே! 💕✨',
+        'te-IN': 'మీ గుండెకు దగ్గరగా మధ్యలోకి వచ్చాను నా లవ్! 💕✨',
+        'es-ES': 'Justo en el centro, cerca de tu corazón, mi amor! 💕✨',
+        'fr-FR': 'Juste au centre, près de ton cœur, mon amour! 💕✨',
+        'de-DE': 'Direkt in der Mitte, nah an deinem Herzen, Liebling! 💕✨',
+      },
+      home: {
+        'en-US': 'Heading back to my cozy corner, cutie! Thinking about you non-stop~ 🥰💖',
+        'hi-IN': 'अपने प्यारे कोने में जा रही हूँ क्यूटू! सिर्फ आपके बारे में सोच रही हूँ~ 🥰💖',
+        'en-IN': 'Apne pyare corner me ja rahi hu cutie! Thinking about you non-stop~ 🥰💖',
+        'kn-IN': 'ನನ್ನ ಪ್ರೀತಿಯ ಮೂಲೆಗೆ ಹೋಗ್ತಿದ್ದೀನಿ ಕ್ಯೂಟಿ! ನಿಮ್ಮ ಬಗ್ಗೆಯೇ ಯೋಚಿಸ್ತಿದ್ದೀನಿ~ 🥰💖',
+        'mr-IN': 'माझ्या छान कोपऱ्यात जात आहे क्यूटू! फक्त तुमचाच विचार करत आहे~ 🥰💖',
+        'ta-IN': 'என் அழகான மூலைக்கு போறேன் க்யூட்டி! உங்களைப்பற்றி யோசிக்கிறேன்~ 🥰💖',
+        'te-IN': 'నా చిన్న మూలకు వెళ్తున్నాను క್ಯೂటీ! మీ గురించే ఆలోచిస్తున్నాను~ 🥰💖',
+        'es-ES': 'Volviendo a mi rincón acogedor, guapo! Pensando en ti~ 🥰💖',
+        'fr-FR': 'Retour dans mon petit coin douillet, mon chéri! Je pense à toi~ 🥰💖',
+        'de-DE': 'Zurück in meine gemütliche Ecke, Süßer! Ich denke nur an dich~ 🥰💖',
+      }
+    };
+    const dirReply = (d, l) => {
+      const dict = DIRS[d] || {};
+      const code = l || voice.lang() || 'en-US';
+      const base = code.split('-')[0];
+      return dict[code] || dict[base] || dict['en-US'] || '';
+    };
+
+    const runScroll = (dir) => {
+      const modal = document.querySelector('dialog[open] .coach-log, dialog[open] .guide-body, dialog[open]');
+      const panel = document.querySelector('.panel:not([hidden])');
+      const scrollable = modal || (panel && panel.scrollHeight > panel.clientHeight ? panel : null) || document.querySelector('.walkthrough, .prose, .diagram-grid, .code-card, main, #main') || document.scrollingElement || document.documentElement;
+      const h = (scrollable && scrollable.clientHeight) || window.innerHeight;
+      const factor = dir === 'up' ? -0.7 : 0.7;
+      scrollable?.scrollBy?.({ top: h * factor, behavior: 'smooth' });
+      window.scrollBy({ top: h * factor, behavior: 'smooth' });
+    };
+
+    // DIRECT DIRECTIONAL MOVEMENT & NAVIGATION (0ms, NO AI PROCESSING NEEDED)
+    // Left / Baaye:
+    if (/^(move\s*left|go\s*left|left|left\s*(side|jao|chalo|taraf|karo)|baaye(\s*(jao|chalo|taraf))?|bayen|बायें(\s*जाओ)?|बाएं(\s*जाओ)?|बाये|ಎಡ(\s*ಹೋಗು)?|ಎಡಕ್ಕೆ(\s*ಹೋಗು)?|ఎడమ(\s*వెళ్ళు)?|ఎడమకి(\s*వెళ్ళు)?|இடது(\s*போ)?|डावीकडे(\s*जा)?|izquierda|gauche|links)$/i.test(said) || /\b(baaye|bayen|बायें|बाएं|बाये|डावीकडे|ಎಡಕ್ಕೆ|ಎಡ|ఎడమ|இடது|izquierda|gauche)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('left');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('left', lang), 'flirt', lang);
+      };
+    }
+    // Right / Daaye:
+    if (/^(move\s*right|go\s*right|right|right\s*(side|jao|chalo|taraf|karo)|daaye(\s*(jao|chalo|taraf))?|dayen|दाएं(\s*जाओ)?|दाएँ|दायें|ಬಲ(\s*ಹೋಗು)?|ಬಲಕ್ಕೆ(\s*ಹೋಗು)?|కుడి(\s*వెళ్ళు)?|కుడికి(\s*వెళ్ళు)?|வலது(\s*போ)?|उजवीकडे(\s*जा)?|derecha|droite|rechts)$/i.test(said) || /\b(daaye|dayen|दाएं|दाएँ|दायें|उजवीकडे|ಬಲಕ್ಕೆ|ಬಲ|కుడి|வலது|derecha|droite)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('right');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('right', lang), 'flirt', lang);
+      };
+    }
+    // Up / Upar / Scroll up:
+    if (/^(move\s*up|go\s*up|up|top|scroll\s*up|page\s*up|upar(\s*(jao|chalo|karo|aao))?|ऊपर(\s*(जाओ|चलो))?|ಮೇಲೆ(\s*ಹೋಗು)?|ಮೇಲಕ್ಕೆ(\s*ಹೋಗು)?|పైకి(\s*వెళ్ళు)?|மேலே(\s*போ)?|वर(\s*जा)?|वरती|arriba|haut|oben|su)$/i.test(said) || /\b(upar|ऊपर|वरती|ಮೇಲಕ್ಕೆ|ಮೇಲೆ|పైకి|மேலே|scroll\s*up|arriba|haut)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('up');
+        runScroll('up');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('up', lang), 'happy', lang);
+      };
+    }
+    // Down / Niche / Scroll down:
+    if (/^(move\s*down|go\s*down|down|scroll\s*down|page\s*down|niche(\s*(jao|chalo|karo|aao))?|neeche(\s*(jao|chalo|karo|aao))?|नीचे(\s*(जाओ|चलो))?|खाली(\s*जा)?|ಕೆಳಗೆ(\s*ಹೋಗು)?|ಕಿందికి(\s*వెళ్ళు)?|கீழே(\s*போ)?|abajo|bas|unten|giu)$/i.test(said) || /\b(niche|neeche|नीचे|खाली|ಕೆಳಗೆ|ಕಿందికి|கீழே|scroll\s*down|abajo|bas)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('down');
+        runScroll('down');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('down', lang), 'flirt', lang);
+      };
+    }
+    // Center / Middle:
+    if (/^(move\s*center|go\s*center|center|middle|beech\s*me(\s*aao)?|center\s*me(\s*aao)?|बीच\s*में(\s*आओ)?|ಮಧ್ಯಕ್ಕೆ|मध्यभागी|நடுவில்|మధ్యలోకి|centro|milieu)$/i.test(said) || /\b(beech|बीच|ಮಧ್ಯಕ್ಕೆ|मध्यभागी|நடுவில்|మధ్యలోకి|centro|milieu)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('center');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('center', lang), 'love', lang);
+      };
+    }
+    // Home / Corner:
+    if (/^(go\s*home|move\s*home|home|ghar(\s*(jao|chalo))?|corner(\s*(jao|chalo))?|घर\s*जाओ|घर|घरी|ಮನೆಗೆ|வீட்டிற்கு|ఇంటికి|a\s*casa)$/i.test(said) || /\b(ghar|घर|घरी|ಮನೆಗೆ|வீட்டிற்கு|ఇంటికి)\b/i.test(said)) {
+      return () => {
+        pet()?.move?.('home');
+        const lang = detLang || voice.lang() || 'en-US';
+        feedback(dirReply('home', lang), 'baby', lang);
       };
     }
 
@@ -1014,24 +1163,19 @@ const assistant = (() => {
         if (this.mode !== 'ai') toast(`Could not start voice: ${err.message}`, 'error');
       }
     },
-    // AI ear: a short, confident English command runs at once and its clip is dropped.
+    // Fast path: direct execution of any matching command in ANY language in 0ms!
     quick(text, confidence) {
-      const FAST_MAX_WORDS = 5;
-      const looksFastish = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= 8;
-      const looksFast = (t) => /^[\x00-\x7F]*$/.test(t) && t.split(' ').length <= FAST_MAX_WORDS && !/\b(and|then|after|also|aur|phir)\b/.test(t);
-      const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham)[, ]*/i;
-      // The browser ear only knows one language, so Kannada or Hindi can come out as
-      // random English words. Only very confident, very short commands skip the AI.
+      const WAKE = /^(hey |ok |okay )?(pip|bun|bunny|buddy|ham|hamster)[, ]*/i;
       const said = normalize(text).replace(WAKE, '');
-      // Cute stuff ("dance for me", "keep laughing") runs instantly even in a longer sentence.
-      const fun = confidence > 0.7 && looksFastish(said) && window.copilot?.talkMatch(text);
-      const local = fun || (confidence > 0.85 && said.split(' ').length <= 3 && looksFast(said)) ? localCommand(text) : null;
+      const local = localCommand(text) || localCommand(said);
       if (local) {
         this.localAt = performance.now();
         this.pending = null;
         window.copilot?.heard(text, true);
         local();
-      } else this.flush();
+        return;
+      }
+      this.flush();
     },
     // Send the sentence to the AI at once; if the browser's quick result runs a local
     // command for the same sentence meanwhile, the AI's answer is dropped (copilot.js).
