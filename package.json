@@ -32,6 +32,7 @@
     "knowledge": "node src/cli/knowledge.js",
     "knowledge:sync": "node src/cli/knowledge.js --sync",
     "codegraph:sync": "codegraph sync .",
+    "achieve": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/achieve.ps1",
     "submit": "node src/playwright/submit.js",
     "submit:dry": "node src/playwright/submit.js --dry-run",
     "submit:failed": "node src/playwright/submit.js --failed-only",
