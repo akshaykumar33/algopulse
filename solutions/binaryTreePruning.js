@@ -4,6 +4,18 @@ function TreeNode(val, left, right) {
   this.right = (right === undefined ? null : right);
 }
 
+var pruneTree = function(root) {
+  function dfs(node) {
+    if (!node) return null;
+    node.left = dfs(node.left);
+    node.right = dfs(node.right);
+    if (!node.left && !node.right && node.val === 0) return null;
+    return node;
+  }
+  return dfs(root);
+};
+
+// ---------------- LOCAL TEST HARNESS ----------------
 function buildTree(arr) {
   if (!arr || arr.length === 0 || arr[0] === null) return null;
   const root = new TreeNode(arr[0]);
@@ -43,20 +55,11 @@ function treeToArr(root) {
   return res;
 }
 
-var pruneTree = function(root) {
-  if (Array.isArray(root)) root = buildTree(root);
-  function dfs(node) {
-    if (!node) return null;
-    node.left = dfs(node.left);
-    node.right = dfs(node.right);
-    if (!node.left && !node.right && node.val === 0) return null;
-    return node;
-  }
-  const res = dfs(root);
-  return treeToArr(res);
+var solve = function(arr) {
+  const root = buildTree(arr);
+  const pruned = pruneTree(root);
+  return treeToArr(pruned);
 };
-
-var solve = pruneTree;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -74,4 +77,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = pruneTree;
+module.exports = { pruneTree, solve };

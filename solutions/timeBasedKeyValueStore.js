@@ -1,31 +1,30 @@
-class TimeMap {
-  constructor() {
-    this.map = new Map();
-  }
+var TimeMap = function() {
+  this.map = new Map();
+};
 
-  set(key, val, time) {
-    if (!this.map.has(key)) this.map.set(key, []);
-    this.map.get(key).push([time, val]);
-  }
+TimeMap.prototype.set = function(key, value, timestamp) {
+  if (!this.map.has(key)) this.map.set(key, []);
+  this.map.get(key).push([timestamp, value]);
+};
 
-  get(key, time) {
-    const arr = this.map.get(key);
-    if (!arr || arr.length === 0) return '';
-    let lo = 0, hi = arr.length - 1, res = '';
-    while (lo <= hi) {
-      const mid = (lo + hi) >> 1;
-      if (arr[mid][0] <= time) {
-        res = arr[mid][1];
-        lo = mid + 1;
-      } else {
-        hi = mid - 1;
-      }
+TimeMap.prototype.get = function(key, timestamp) {
+  const arr = this.map.get(key);
+  if (!arr || arr.length === 0) return '';
+  let lo = 0, hi = arr.length - 1, res = '';
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (arr[mid][0] <= timestamp) {
+      res = arr[mid][1];
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
     }
-    return res;
   }
-}
+  return res;
+};
 
-var solve = function(operations, operands) {
+// ---------------- LOCAL TEST HARNESS ----------------
+function solve(operations, operands) {
   let obj = null;
   const res = [];
   for (let i = 0; i < operations.length; i++) {
@@ -42,7 +41,7 @@ var solve = function(operations, operands) {
     }
   }
   return res;
-};
+}
 
 if (require.main === module) {
   const fs = require('fs');

@@ -3,6 +3,27 @@ function ListNode(val, next) {
   this.next = (next === undefined ? null : next);
 }
 
+function gcd(a, b) {
+  while (b) {
+    const t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+var insertGreatestCommonDivisors = function(head) {
+  let cur = head;
+  while (cur && cur.next) {
+    const g = gcd(cur.val, cur.next.val);
+    const mid = new ListNode(g, cur.next);
+    cur.next = mid;
+    cur = mid.next;
+  }
+  return head;
+};
+
+// ---------------- LOCAL TEST HARNESS ----------------
 function buildList(arr) {
   if (!arr || arr.length === 0) return null;
   const head = new ListNode(arr[0]);
@@ -24,28 +45,11 @@ function listToArr(head) {
   return res;
 }
 
-function gcd(a, b) {
-  while (b) {
-    const t = b;
-    b = a % b;
-    a = t;
-  }
-  return a;
-}
-
-var insertGreatestCommonDivisors = function(head) {
-  if (Array.isArray(head)) head = buildList(head);
-  let cur = head;
-  while (cur && cur.next) {
-    const g = gcd(cur.val, cur.next.val);
-    const mid = new ListNode(g, cur.next);
-    cur.next = mid;
-    cur = mid.next;
-  }
-  return listToArr(head);
+var solve = function(arr) {
+  const head = buildList(arr);
+  const res = insertGreatestCommonDivisors(head);
+  return listToArr(res);
 };
-
-var solve = insertGreatestCommonDivisors;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -63,4 +67,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = insertGreatestCommonDivisors;
+module.exports = { insertGreatestCommonDivisors, solve };

@@ -3,6 +3,21 @@ function ListNode(val, next) {
   this.next = (next === undefined ? null : next);
 }
 
+var modifiedList = function(nums, head) {
+  const seen = new Set(nums);
+  const dummy = new ListNode(0, head);
+  let cur = dummy;
+  while (cur.next) {
+    if (seen.has(cur.next.val)) {
+      cur.next = cur.next.next;
+    } else {
+      cur = cur.next;
+    }
+  }
+  return dummy.next;
+};
+
+// ---------------- LOCAL TEST HARNESS ----------------
 function buildList(arr) {
   if (!arr || arr.length === 0) return null;
   const head = new ListNode(arr[0]);
@@ -24,22 +39,11 @@ function listToArr(head) {
   return res;
 }
 
-var modifiedList = function(nums, head) {
-  if (Array.isArray(head)) head = buildList(head);
-  const seen = new Set(nums);
-  const dummy = new ListNode(0, head);
-  let cur = dummy;
-  while (cur.next) {
-    if (seen.has(cur.next.val)) {
-      cur.next = cur.next.next;
-    } else {
-      cur = cur.next;
-    }
-  }
-  return listToArr(dummy.next);
+var solve = function(nums, arr) {
+  const head = buildList(arr);
+  const res = modifiedList(nums, head);
+  return listToArr(res);
 };
-
-var solve = modifiedList;
 
 if (require.main === module) {
   const fs = require('fs');
@@ -57,4 +61,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = modifiedList;
+module.exports = { modifiedList, solve };
