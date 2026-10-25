@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aab\"",
+    "output": "0"
+  },
+  {
+    "input": "\"aaabbbcc\"",
+    "output": "2"
+  },
+  {
+    "input": "\"ceabaacb\"",
+    "output": "2"
+  }
+]
