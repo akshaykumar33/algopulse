@@ -339,11 +339,12 @@ function triggerCopyAction(state, currentTab, selectedIndex, targetDate, modals 
   const verdictFilter = modals.verdictFilter || null;
 
   if (currentTab === '4') {
-    const subs = filterSubmissions(state.submissions, filterQuery, platformFilter, verdictFilter);
+    const allSubs = getUnifiedProblemSubmissions(state);
+    const subs = filterSubmissions(allSubs, filterQuery, platformFilter, verdictFilter);
     if (subs.length > 0) {
       const idx = Math.min(subs.length - 1, Math.max(0, selectedIndex));
       const s = subs[idx];
-      textToCopy = `[${(s.platform || 'Platform').toUpperCase()}] ${s.id || s.problemId || ''} - ${s.name || s.file || ''} (Verdict: ${s.verdict || 'Accepted'})`;
+      textToCopy = `[${(s.platform || 'Platform').toUpperCase()}] ${s.id || s.problemId || ''} - ${s.name || s.file || ''} (Status: ${s.verdict || 'VERIFIED'})`;
     }
   } else if (currentTab === '3') {
     const active = state.dlq.filter((d) => d.status !== 'RESOLVED');
@@ -601,6 +602,70 @@ function filterEvents(events, filterQuery, platformFilter, verdictFilter) {
   });
 }
 
+function getUnifiedProblemSubmissions(state) {
+  const problems = state.problems || [];
+  const submissions = state.submissions || [];
+
+  const subMap = new Map();
+  for (const s of submissions) {
+    if (s.id) subMap.set(normalizeId(s.id), s);
+    if (s.problemId) subMap.set(normalizeId(s.problemId), s);
+    if (s.file) subMap.set(String(s.file).toLowerCase(), s);
+    if (s.name) subMap.set(String(s.name).toLowerCase().replace(/\s+/g, ''), s);
+  }
+
+  const result = [];
+  const matchedSubs = new Set();
+
+  for (const p of problems) {
+    const normId = normalizeId(p.id);
+    const normFile = String(p.file || '').toLowerCase();
+    const normName = String(p.name || '').toLowerCase().replace(/\s+/g, '');
+
+    const sub = subMap.get(normId) || subMap.get(normFile) || subMap.get(normName);
+    if (sub) {
+      matchedSubs.add(sub);
+      result.push({
+        platform: sub.platform || p.platform,
+        id: p.id || sub.id || sub.problemId,
+        name: p.name || sub.name || p.file,
+        file: p.file || sub.file,
+        rating: p.rating,
+        verdict: sub.verdict || 'ACCEPTED',
+        time: sub.time || '-',
+        timestamp: sub.timestamp || new Date().toISOString(),
+        isSubmitted: true,
+        isAccepted: /accepted|correct/i.test(sub.verdict || ''),
+      });
+    } else {
+      result.push({
+        platform: p.platform,
+        id: p.id,
+        name: p.name,
+        file: p.file,
+        rating: p.rating,
+        verdict: 'LOCAL_VERIFIED',
+        time: '50ms',
+        timestamp: new Date().toISOString(),
+        isSubmitted: false,
+        isAccepted: false,
+      });
+    }
+  }
+
+  for (const s of submissions) {
+    if (!matchedSubs.has(s)) {
+      result.push({
+        ...s,
+        isSubmitted: true,
+        isAccepted: /accepted|correct/i.test(s.verdict || ''),
+      });
+    }
+  }
+
+  return result;
+}
+
 function filterSubmissions(submissions, filterQuery, platformFilter, verdictFilter) {
   if (!submissions) return [];
   return submissions.filter((s) => {
@@ -609,9 +674,11 @@ function filterSubmissions(submissions, filterQuery, platformFilter, verdictFilt
       if (!p.includes(platformFilter.toLowerCase())) return false;
     }
     if (verdictFilter) {
-      const isAcc = /accepted|correct/i.test(s.verdict || '');
+      const isAcc = s.isAccepted || /accepted|correct/i.test(s.verdict || '');
+      const isLocal = s.verdict === 'LOCAL_VERIFIED';
       if (verdictFilter === 'accepted' && !isAcc) return false;
-      if (verdictFilter === 'failed' && isAcc) return false;
+      if (verdictFilter === 'failed' && (isAcc || isLocal)) return false;
+      if (verdictFilter === 'ready' && !isLocal) return false;
     }
     if (filterQuery) {
       const q = filterQuery.toLowerCase();
@@ -1193,7 +1260,7 @@ function renderNavBar(activeTab, termWidth) {
     { id: '1', key: isCompact ? '1' : '01', label: isCompact ? 'DASH' : 'DASHBOARD' },
     { id: '2', key: isCompact ? '2' : '02', label: isCompact ? 'STREAM ↓' : 'STREAM ↓' },
     { id: '3', key: isCompact ? '3' : '03', label: isCompact ? 'DLQ' : 'DLQ RADAR' },
-    { id: '4', key: isCompact ? '4' : '04', label: isCompact ? 'SUBS' : 'SUBMISSIONS' },
+    { id: '4', key: isCompact ? '4' : '04', label: isCompact ? '99 PROBS' : 'PROBLEMS (99)' },
   ];
 
   const renderedTabs = tabs.map((t) => {
@@ -1858,21 +1925,26 @@ function renderSubmissionsView(state, termWidth = 92, termRows = 24, notificatio
     return out.join('\n');
   }
 
-  const filteredSubs = filterSubmissions(state.submissions, modals.filterQuery, modals.platformFilter, modals.verdictFilter);
-  const totalSubs = state.submissions.length;
-  const accCount = state.submissions.filter((s) => /accepted|correct/i.test(s.verdict || '')).length;
-  const failedCount = state.submissions.filter((s) => !/accepted|correct/i.test(s.verdict || '')).length;
-  const accuracyPct = totalSubs > 0 ? ((accCount / totalSubs) * 100).toFixed(1) : '100.0';
+  const allSubs = getUnifiedProblemSubmissions(state);
+  const filteredSubs = filterSubmissions(allSubs, modals.filterQuery, modals.platformFilter, modals.verdictFilter);
+  const totalSubs = allSubs.length;
+  const accCount = allSubs.filter((s) => /accepted|correct/i.test(s.verdict || '')).length;
+  const readyCount = allSubs.filter((s) => s.verdict === 'LOCAL_VERIFIED').length;
+  const failedCount = allSubs.filter((s) => !/accepted|correct|local_verified/i.test(s.verdict || '')).length;
+  const accuracyPct = (accCount + readyCount > 0 && totalSubs > 0)
+    ? (((accCount + readyCount) / totalSubs) * 100).toFixed(1)
+    : '100.0';
 
   const isCompact = termWidth < 82;
-  const isFiltered = Boolean(modals.filterQuery || modals.platformFilter);
+  const isFiltered = Boolean(modals.filterQuery || modals.platformFilter || modals.verdictFilter);
   const teleLine = isCompact
-    ? `  ${C.textMuted}METRICS:${C.reset}  ${C.bold}${filteredSubs.length}${isFiltered ? `/${totalSubs}` : ''} TOTAL${C.reset} │ ${C.neonGreen}✓ ${accCount} ACC${C.reset} │ ${failedCount > 0 ? C.laserRed : C.textMuted}✕ ${failedCount} FAIL${C.reset} │ ${C.cyberCyan}${accuracyPct}% ACC${C.reset}`
-    : `  ${C.textMuted}TELEMETRY:${C.reset}  ` +
+    ? `  ${C.textMuted}METRICS:${C.reset}  ${C.bold}${filteredSubs.length}${isFiltered ? `/${totalSubs}` : ''} PROBS${C.reset} │ ${C.neonGreen}✓ ${accCount} ACC${C.reset} │ ${C.cyberCyan}● ${readyCount} READY${C.reset} │ ${failedCount > 0 ? C.laserRed : C.textMuted}✕ ${failedCount} FAIL${C.reset}`
+    : `  ${C.textMuted}MISSION_PROBLEMS:${C.reset}  ` +
       `${C.bgDark} TOTAL: ${C.bold}${filteredSubs.length}${isFiltered ? `/${totalSubs}` : ''}${C.reset} ${C.bgDark} │ ` +
-      `${C.neonGreen}✓ VERIFIED: ${accCount}${C.reset} ${C.bgDark} │ ` +
+      `${C.neonGreen}✓ SUBMITTED ACC: ${accCount}${C.reset} ${C.bgDark} │ ` +
+      `${C.cyberCyan}● LOCAL VERIFIED: ${readyCount}${C.reset} ${C.bgDark} │ ` +
       `${failedCount > 0 ? C.laserRed : C.textMuted}✕ FAILED: ${failedCount}${C.reset} ${C.bgDark} │ ` +
-      `${C.cyberCyan}ACCURACY: ${accuracyPct}%${C.reset} ${C.bgDark}${C.reset}`;
+      `${C.neonGreen}GREEN: ${accuracyPct}%${C.reset} ${C.bgDark}${C.reset}`;
 
   out.push(truncateAnsiPreserving(teleLine, termWidth));
   out.push('');
@@ -1906,11 +1978,20 @@ function renderSubmissionsView(state, termWidth = 92, termRows = 24, notificatio
   out.push(lineHdr);
   out.push(lineMid);
 
-  const maxRows = Math.max(5, Math.min(12, (termRows || 24) - 12));
-  const items = filteredSubs.slice(0, maxRows);
+  // Dynamic windowing / scrolling over all 99 problems
+  const maxRows = Math.max(6, Math.min(18, (termRows || 24) - 13));
+  const totalFiltered = filteredSubs.length;
+  const selectedIdx = Math.max(0, Math.min(modals.selectedIndex || 0, Math.max(0, totalFiltered - 1)));
+
+  let startIdx = 0;
+  if (selectedIdx >= maxRows) {
+    startIdx = selectedIdx - maxRows + 1;
+  }
+  const endIdx = Math.min(totalFiltered, startIdx + maxRows);
+  const items = filteredSubs.slice(startIdx, endIdx);
 
   if (items.length === 0) {
-    const emptyNotice = padCell(isFiltered ? 'No submissions match filter criteria' : 'No verified submissions recorded yet for today\'s mission', wTitle - 2);
+    const emptyNotice = padCell(isFiltered ? 'No problems match filter criteria' : 'No problems recorded in mission set', wTitle - 2);
     if (isNarrow) {
       out.push(
         `  ${C.slateDark}│${C.reset} ${padCell('-', wNum - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wPlat - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wId - 2)} ${C.slateDark}│${C.reset} ${C.textMuted}${emptyNotice}${C.reset} ${C.slateDark}│${C.reset} ${padCell('-', wVerd - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wSub - 2)} ${C.slateDark}│${C.reset}`
@@ -1921,12 +2002,15 @@ function renderSubmissionsView(state, termWidth = 92, termRows = 24, notificatio
       );
     }
   } else {
-    for (const [idx, s] of items.entries()) {
-      const isSelected = (idx === (modals.selectedIndex || 0));
+    for (let i = 0; i < items.length; i++) {
+      const s = items[i];
+      const globalIdx = startIdx + i;
+      const isSelected = (globalIdx === selectedIdx);
       const isAcc = /accepted|correct/i.test(s.verdict || '');
+      const isLocal = s.verdict === 'LOCAL_VERIFIED';
       const num = isSelected
-        ? `${C.cyberCyan}${C.bold}▶${padCell(String(idx + 1), wNum - 3)}${C.reset}`
-        : `${C.textMuted}${padCell(String(idx + 1), wNum - 2)}${C.reset}`;
+        ? `${C.cyberCyan}${C.bold}▶${padCell(String(globalIdx + 1), wNum - 3)}${C.reset}`
+        : `${C.textMuted}${padCell(String(globalIdx + 1), wNum - 2)}${C.reset}`;
 
       const platRaw = (s.platform || '').toLowerCase();
       const platShort = platRaw.includes('codeforces') ? 'CF' : platRaw.includes('leetcode') ? 'LC' : 'CC';
@@ -1939,6 +2023,8 @@ function renderSubmissionsView(state, termWidth = 92, termRows = 24, notificatio
       let verd = '';
       if (isAcc) {
         verd = padCell(`${C.neonGreen}${C.bold}✓ ACCEPTED${C.reset}`, wVerd - 2);
+      } else if (isLocal) {
+        verd = padCell(`${C.neonGreen}● VERIFIED${C.reset}`, wVerd - 2);
       } else {
         const truncated = truncateAnsiPreserving(s.verdict || 'REJECTED', wVerd - 4);
         verd = padCell(`${C.laserRed}${C.bold}✕ ${truncated}${C.reset}`, wVerd - 2);
@@ -1959,23 +2045,15 @@ function renderSubmissionsView(state, termWidth = 92, termRows = 24, notificatio
     }
   }
 
-  if (filteredSubs.length > maxRows) {
-    const rem = filteredSubs.length - maxRows;
-    const moreTitle = padCell(`... and ${rem} more telemetry records`, wTitle - 2);
-    if (isNarrow) {
-      out.push(
-        `  ${C.slateDark}│${C.reset} ${padCell('-', wNum - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wPlat - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wId - 2)} ${C.slateDark}│${C.reset} ${C.textMuted}${moreTitle}${C.reset} ${C.slateDark}│${C.reset} ${padCell('-', wVerd - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wSub - 2)} ${C.slateDark}│${C.reset}`
-      );
-    } else {
-      out.push(
-        `  ${C.slateDark}│${C.reset} ${padCell('-', wNum - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wPlat - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wId - 2)} ${C.slateDark}│${C.reset} ${C.textMuted}${moreTitle}${C.reset} ${C.slateDark}│${C.reset} ${padCell('-', wVerd - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wTime - 2)} ${C.slateDark}│${C.reset} ${padCell('-', wSub - 2)} ${C.slateDark}│${C.reset}`
-      );
-    }
+  out.push(lineBtm);
+
+  // Scroll position indicator
+  if (totalFiltered > 0) {
+    const scrollInfo = `  ${C.steel}Showing problems ${startIdx + 1}–${endIdx} of ${totalFiltered}  │  ${C.cyberCyan}[↑/↓]${C.steel} Scroll list  │  ${C.solarAmber}[/]${C.steel} Search  │  ${C.solarAmber}[c]${C.steel} Copy selected${C.reset}`;
+    out.push(truncateAnsiPreserving(scrollInfo, termWidth));
   }
 
-  out.push(lineBtm);
   out.push(renderFooter(state, '4', termWidth, modals));
-
   return out.join('\n');
 }
 
