@@ -1,0 +1,50 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-DOUBLE",
+    "name": "Double Strings",
+    "file": "doubleStrings",
+    "tier": "easy",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-10-25T07:55:06.820Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DOUBLE",
+      "name": "Double Strings",
+      "rating": 1134,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DOUBLE",
+      "file": "doubleStrings",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2117C",
+    "name": "Cool Partition",
+    "file": "coolPartition",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-25T08:30:08.175Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2117C",
+      "name": "Cool Partition",
+      "rating": 1200,
+      "tags": [
+        "data structures",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2117/C",
+      "file": "coolPartition",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Wrong answer on test 1"
+  }
+]
