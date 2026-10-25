@@ -1,21 +1,20 @@
-class NumMatrix {
-  constructor(matrix) {
-    const R = matrix.length;
-    const C = matrix[0].length;
-    this.pref = Array.from({ length: R + 1 }, () => new Int32Array(C + 1));
-    for (let r = 0; r < R; r++) {
-      for (let c = 0; c < C; c++) {
-        this.pref[r + 1][c + 1] = matrix[r][c] + this.pref[r][c + 1] + this.pref[r + 1][c] - this.pref[r][c];
-      }
+var NumMatrix = function(matrix) {
+  const R = matrix ? matrix.length : 0;
+  const C = R > 0 ? matrix[0].length : 0;
+  this.pref = Array.from({ length: R + 1 }, () => new Int32Array(C + 1));
+  for (let r = 0; r < R; r++) {
+    for (let c = 0; c < C; c++) {
+      this.pref[r + 1][c + 1] = matrix[r][c] + this.pref[r][c + 1] + this.pref[r + 1][c] - this.pref[r][c];
     }
   }
+};
 
-  sumRegion(row1, col1, row2, col2) {
-    return this.pref[row2 + 1][col2 + 1] - this.pref[row1][col2 + 1] - this.pref[row2 + 1][col1] + this.pref[row1][col1];
-  }
-}
+NumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {
+  return this.pref[row2 + 1][col2 + 1] - this.pref[row1][col2 + 1] - this.pref[row2 + 1][col1] + this.pref[row1][col1];
+};
 
-var solve = function(operations, operands) {
+// ---------------- LOCAL TEST HARNESS ----------------
+function solve(operations, operands) {
   let obj = null;
   const res = [];
   for (let i = 0; i < operations.length; i++) {
@@ -28,7 +27,7 @@ var solve = function(operations, operands) {
     }
   }
   return res;
-};
+}
 
 if (require.main === module) {
   const fs = require('fs');
