@@ -119,6 +119,11 @@ function isPalindrome(s) {
 | [AccurateLee](https://codeforces.com/problemset/problem/1369/B) | `Codeforces` | `1200` | `accurateLee.js` | Key algorithmic application from Day 2026-10-22. |
 | [A-B Palindrome](https://codeforces.com/problemset/problem/1512/C) | `Codeforces` | `1200` | `aBPalindrome.js` | Key algorithmic application from Day 2026-10-24. |
 | [Removal of Unattractive Pairs](https://codeforces.com/problemset/problem/1907/C) | `Codeforces` | `1200` | `removalOfUnattractivePairs.js` | Key algorithmic application from Day 2026-10-24. |
+| [Count Magical Substring Pairs I](https://leetcode.com/problems/count-magical-substring-pairs-i/) | `LeetCode` | `Medium` | `countMagicalSubstringPairs.js` | Adjacent substring boundary decomposition: precompute distinct character counts via 26-bit bitmasks, matching left and right distinct frequencies across split points. |
+| [Count Magical Substring Pairs II](https://leetcode.com/problems/count-magical-substring-pairs-ii/) | `LeetCode` | `Hard` | `countMagicalSubstringPairsII.js` | Full linear-scale O(26N) adjacent distinct counting: maintain sorted last/first occurrence arrays of size <= 26 via insertion sort to compute interval lengths in O(1) per distinct level. |
+| [Needle in a Haystack](https://codeforces.com/problemset/problem/2174/A) | `Codeforces` | `1200` | `needleInAHaystack.js` | Key algorithmic application from Day 2026-10-24. |
+| [Common Prefixes](https://codeforces.com/problemset/problem/1384/A) | `Codeforces` | `1200` | `commonPrefixes.js` | Key algorithmic application from Day 2026-10-24. |
+| [Kuroni and Simple Strings](https://codeforces.com/problemset/problem/1305/B) | `Codeforces` | `1200` | `kuroniAndSimpleStrings.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

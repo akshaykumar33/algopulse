@@ -194,6 +194,17 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Vika and the Bridge](https://codeforces.com/problemset/problem/1848/B) | `Codeforces` | `1200` | `vikaAndTheBridge.js` | Key algorithmic application from Day 2026-10-24. |
 | [Kar Salesman](https://codeforces.com/problemset/problem/2022/B) | `Codeforces` | `1300` | `karSalesman.js` | Key algorithmic application from Day 2026-10-24. |
 | [Inversion Graph](https://codeforces.com/problemset/problem/1638/C) | `Codeforces` | `1300` | `inversionGraph.js` | Key algorithmic application from Day 2026-10-24. |
+| [Odd Sum Segments](https://codeforces.com/problemset/problem/1196/B) | `Codeforces` | `1200` | `oddSumSegments.js` | Key algorithmic application from Day 2026-10-24. |
+| [Sanatorium](https://codeforces.com/problemset/problem/732/C) | `Codeforces` | `1200` | `sanatorium.js` | Key algorithmic application from Day 2026-10-24. |
+| [Another Permutation Problem](https://codeforces.com/problemset/problem/1859/C) | `Codeforces` | `1200` | `anotherPermutationProblem.js` | Key algorithmic application from Day 2026-10-24. |
+| [Plus Minus Permutation](https://codeforces.com/problemset/problem/1872/D) | `Codeforces` | `1200` | `plusMinusPermutation.js` | Key algorithmic application from Day 2026-10-24. |
+| [The Strict Teacher (Hard Version)](https://codeforces.com/problemset/problem/2005/B2) | `Codeforces` | `1200` | `theStrictTeacherHardVersion.js` | Key algorithmic application from Day 2026-10-24. |
+| [Build Permutation](https://codeforces.com/problemset/problem/1713/C) | `Codeforces` | `1200` | `buildPermutation.js` | Key algorithmic application from Day 2026-10-24. |
+| [Fedya and Maths](https://codeforces.com/problemset/problem/456/B) | `Codeforces` | `1200` | `fedyaAndMaths.js` | Key algorithmic application from Day 2026-10-24. |
+| [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
+| [Magnitude (Easy Version)](https://codeforces.com/problemset/problem/1984/C1) | `Codeforces` | `1300` | `magnitudeEasyVersion.js` | Key algorithmic application from Day 2026-10-24. |
+| [Divide and Equalize](https://codeforces.com/problemset/problem/1881/D) | `Codeforces` | `1300` | `divideAndEqualize.js` | Key algorithmic application from Day 2026-10-24. |
+| [Nice Matrix](https://codeforces.com/problemset/problem/1422/B) | `Codeforces` | `1300` | `niceMatrix.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

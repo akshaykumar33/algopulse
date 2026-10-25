@@ -124,6 +124,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Virus](https://codeforces.com/problemset/problem/1704/C) | `Codeforces` | `1200` | `virus.js` | Key algorithmic application from Day 2026-10-24. |
 | [Chat Order](https://codeforces.com/problemset/problem/637/B) | `Codeforces` | `1200` | `chatOrder.js` | Key algorithmic application from Day 2026-10-24. |
 | [Vika and the Bridge](https://codeforces.com/problemset/problem/1848/B) | `Codeforces` | `1200` | `vikaAndTheBridge.js` | Key algorithmic application from Day 2026-10-24. |
+| [Appleman and Toastman](https://codeforces.com/problemset/problem/461/A) | `Codeforces` | `1200` | `applemanAndToastman.js` | Key algorithmic application from Day 2026-10-24. |
+| [The Strict Teacher (Hard Version)](https://codeforces.com/problemset/problem/2005/B2) | `Codeforces` | `1200` | `theStrictTeacherHardVersion.js` | Key algorithmic application from Day 2026-10-24. |
+| [Soldier and Badges](https://codeforces.com/problemset/problem/546/B) | `Codeforces` | `1200` | `soldierAndBadges.js` | Key algorithmic application from Day 2026-10-24. |
+| [Queue Sort](https://codeforces.com/problemset/problem/1899/E) | `Codeforces` | `1300` | `queueSort.js` | Key algorithmic application from Day 2026-10-24. |
+| [Little Elephant and Problem](https://codeforces.com/problemset/problem/220/A) | `Codeforces` | `1300` | `littleElephantAndProblem.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

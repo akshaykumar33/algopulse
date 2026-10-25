@@ -138,6 +138,18 @@ function constructMatrix(n, m) {
 | [Removal of Unattractive Pairs](https://codeforces.com/problemset/problem/1907/C) | `Codeforces` | `1200` | `removalOfUnattractivePairs.js` | Key algorithmic application from Day 2026-10-24. |
 | [Chat Order](https://codeforces.com/problemset/problem/637/B) | `Codeforces` | `1200` | `chatOrder.js` | Key algorithmic application from Day 2026-10-24. |
 | [Qingshan Loves Strings 2](https://codeforces.com/problemset/problem/1889/A) | `Codeforces` | `1300` | `qingshanLovesStrings2.js` | Key algorithmic application from Day 2026-10-24. |
+| [Spying on the Beaver](https://codeforces.com/problemset/problem/2257/C) | `Codeforces` | `1200` | `spyingOnTheBeaver.js` | Key algorithmic application from Day 2026-10-24. |
+| [Odd Sum Segments](https://codeforces.com/problemset/problem/1196/B) | `Codeforces` | `1200` | `oddSumSegments.js` | Key algorithmic application from Day 2026-10-24. |
+| [Sanatorium](https://codeforces.com/problemset/problem/732/C) | `Codeforces` | `1200` | `sanatorium.js` | Key algorithmic application from Day 2026-10-24. |
+| [Floor of MEX (Easy Version)](https://codeforces.com/problemset/problem/2262/A1) | `Codeforces` | `1200` | `floorOfMEXEasyVersion.js` | Key algorithmic application from Day 2026-10-24. |
+| [Square Filling](https://codeforces.com/problemset/problem/1207/B) | `Codeforces` | `1200` | `squareFilling.js` | Key algorithmic application from Day 2026-10-24. |
+| [Corrupted Array](https://codeforces.com/problemset/problem/1512/D) | `Codeforces` | `1200` | `corruptedArray.js` | Key algorithmic application from Day 2026-10-24. |
+| [Build Permutation](https://codeforces.com/problemset/problem/1713/C) | `Codeforces` | `1200` | `buildPermutation.js` | Key algorithmic application from Day 2026-10-24. |
+| [Replace with Occurrences](https://codeforces.com/problemset/problem/2137/D) | `Codeforces` | `1200` | `replaceWithOccurrences.js` | Key algorithmic application from Day 2026-10-24. |
+| [Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `Codeforces` | `1200` | `setOfStrangers.js` | Key algorithmic application from Day 2026-10-24. |
+| [Common Prefixes](https://codeforces.com/problemset/problem/1384/A) | `Codeforces` | `1200` | `commonPrefixes.js` | Key algorithmic application from Day 2026-10-24. |
+| [Kuroni and Simple Strings](https://codeforces.com/problemset/problem/1305/B) | `Codeforces` | `1200` | `kuroniAndSimpleStrings.js` | Key algorithmic application from Day 2026-10-24. |
+| [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
 
 ---
 
