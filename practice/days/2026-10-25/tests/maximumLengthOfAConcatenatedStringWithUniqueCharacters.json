@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"un\",\"iq\",\"ue\"]\n",
+    "output": "4\n"
+  },
+  {
+    "input": "[\"cha\",\"r\",\"act\",\"ers\"]\n",
+    "output": "6\n"
+  },
+  {
+    "input": "[\"abcdefghijklmnopqrstuvwxyz\"]\n",
+    "output": "26\n"
+  }
+]

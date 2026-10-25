@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[[\"TimeMap\",\"set\",\"get\",\"get\",\"set\",\"get\",\"get\"],[[],[\"foo\",\"bar\",1],[\"foo\",1],[\"foo\",3],[\"foo\",\"bar2\",4],[\"foo\",4],[\"foo\",5]]]\n",
+    "output": "[null,null,\"bar\",\"bar\",null,\"bar2\",\"bar2\"]\n"
+  }
+]
