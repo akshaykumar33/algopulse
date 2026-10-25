@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n1 2 1\n",
+    "output": "Conan\n"
+  },
+  {
+    "input": "2\n1 1\n",
+    "output": "Agasa\n"
+  }
+]
