@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n3\nR P S\nS R P\n2\nR R\nP P\n1\nR\nP\n",
+    "output": "0\n1\n1\n"
+  }
+]
