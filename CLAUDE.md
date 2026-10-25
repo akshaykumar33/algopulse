@@ -13,6 +13,12 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
 5. **Passing the samples proves nothing:** Samples are a smoke test. A solution is only "verified" after §6 (brute-force stress + worst-case timing).
 6. **Git cleanliness is non-negotiable:** Never commit `output.txt`, dirty templates, or multi-megabyte transient benchmark dumps. Every commit must follow Conventional Commits. See §9.
 7. **Zero AI detection signatures, standard naming, & NO comments:** Solutions must look 100% like clean, natural, human-written competitive programming code. Strictly NO comments (`//`, `/* */`, JSDoc) in code. Standard concise CP naming (`n`, `m`, `ans`, `dp`, `arr`, `solve`). Zero watermarks or filler variables (`ballast`, `mexoramax`). See §5.
+8. **Intelligent Placement & Zero-Repetition Rule:**
+   - **Direct Contest Questions:** When a question is pasted from a contest (Codeforces, CodeChef, LeetCode, AtCoder), place it directly into that platform's contest directory for the day/round (`contests/<platform>/<dateOrRound>/<problemName>.js`).
+   - **Daily Practice Questions:** If it is a daily practice or curriculum problem, place it in `practice/days/<date>/solutions/<problemName>.js` (with explanation in `practice/days/<date>/explanations/<problemName>.md`).
+   - **Zero Repetition / Deduplication:** Check beforehand across `contests/`, `practice/`, and `solutions/` whether this exact problem has already been solved. Never duplicate files or re-solve existing problems without reason.
+   - **Continuous Knowledge Base Sync:** The knowledge base (`knowledge/<tag>.md`) must ALWAYS be updated with key takeaways and synchronized via `node src/cli/knowledge --sync`, with zero duplicate entries in any tag catalog.
+
 
 ---
 

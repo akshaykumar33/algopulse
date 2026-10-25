@@ -142,6 +142,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Fedor and New Game](https://codeforces.com/problemset/problem/467/B) | `Codeforces` | `1100` | `fedorAndNewGame.js` | Key algorithmic application from Day 2026-10-22. |
 | [Yet Another Card Deck](https://codeforces.com/problemset/problem/1511/C) | `Codeforces` | `1100` | `yetAnotherCardDeck.js` | Key algorithmic application from Day 2026-10-22. |
 | [Odd Selection](https://codeforces.com/problemset/problem/1363/A) | `Codeforces` | `1200` | `oddSelection.js` | Key algorithmic application from Day 2026-10-24. |
+| [Another Permutation Problem](https://codeforces.com/problemset/problem/1859/C) | `Codeforces` | `1200` | `anotherPermutationProblem.js` | Key algorithmic application from Day 2026-10-24. |
+| [Sail](https://codeforces.com/problemset/problem/298/B) | `Codeforces` | `1200` | `sail.js` | Key algorithmic application from Day 2026-10-24. |
+| [Soldier and Badges](https://codeforces.com/problemset/problem/546/B) | `Codeforces` | `1200` | `soldierAndBadges.js` | Key algorithmic application from Day 2026-10-24. |
+| [Flipping Game](https://codeforces.com/problemset/problem/327/A) | `Codeforces` | `1200` | `flippingGame.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

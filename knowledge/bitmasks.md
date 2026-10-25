@@ -119,6 +119,9 @@ function missingNumber(nums) {
 | [Chloe and the sequence ](https://codeforces.com/problemset/problem/743/B) | `Codeforces` | `1200` | `chloeAndTheSequence.js` | Key algorithmic application from Day 2026-10-23. |
 | [Creating Keys for StORages Has Become My Main Skill](https://codeforces.com/problemset/problem/2072/C) | `Codeforces` | `1200` | `creatingKeysForStORagesHasBecomeMyMainSkill.js` | Key algorithmic application from Day 2026-10-23. |
 | [A Good Problem](https://codeforces.com/problemset/problem/2119/C) | `Codeforces` | `1300` | `aGoodProblem.js` | Key algorithmic application from Day 2026-10-23. |
+| [Count Magical Substring Pairs I](https://leetcode.com/problems/count-magical-substring-pairs-i/) | `LeetCode` | `Medium` | `countMagicalSubstringPairs.js` | Adjacent substring boundary decomposition: precompute distinct character counts via 26-bit bitmasks, matching left and right distinct frequencies across split points. |
+| [Count Magical Substring Pairs II](https://leetcode.com/problems/count-magical-substring-pairs-ii/) | `LeetCode` | `Hard` | `countMagicalSubstringPairsII.js` | Full linear-scale O(26N) adjacent distinct counting: maintain sorted last/first occurrence arrays of size <= 26 via insertion sort to compute interval lengths in O(1) per distinct level. |
+| [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

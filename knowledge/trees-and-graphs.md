@@ -117,6 +117,7 @@ function dfsIterative(start, adj, n) {
 | [Permutation Transformation](https://codeforces.com/problemset/problem/1490/D) | `Codeforces` | `1200` | `permutationTransformation.js` | Key algorithmic application from Day 2026-10-23. |
 | [Forever Winter](https://codeforces.com/problemset/problem/1829/F) | `Codeforces` | `1300` | `foreverWinter.js` | Key algorithmic application from Day 2026-10-23. |
 | [Inversion Graph](https://codeforces.com/problemset/problem/1638/C) | `Codeforces` | `1300` | `inversionGraph.js` | Key algorithmic application from Day 2026-10-24. |
+| [Spying on the Beaver](https://codeforces.com/problemset/problem/2257/C) | `Codeforces` | `1200` | `spyingOnTheBeaver.js` | Key algorithmic application from Day 2026-10-24. |
 
 ---
 
