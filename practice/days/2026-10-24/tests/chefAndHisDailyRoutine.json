@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\nCES\nCS\nCCC\nSC\nECCC",
+    "output": "yes\nyes\nyes\nno\nno"
+  }
+]

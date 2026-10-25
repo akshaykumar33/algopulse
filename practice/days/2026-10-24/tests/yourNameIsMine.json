@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\njohn johanna\nira ira\nkayla jayla",
+    "output": "YES\nYES\nNO"
+  }
+]
