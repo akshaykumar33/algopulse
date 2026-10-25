@@ -1,35 +1,23 @@
 const fs = require('fs');
-const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-let inputIndex = 0;
-
-const readLine = () => input[inputIndex++];
-const readInt = () => parseInt(readLine(), 10);
-const readIntArray = () => readLine().trim().split(/\s+/).map(Number);
-
-const output = [];
-const print = (val) => output.push(val);
-const printAll = () => console.log(output.join('\n'));
 
 function solve() {
-  const T = readInt();
-  for (let t = 0; t < T; t++) {
-    const n = readInt();
-    const a = readIntArray();
-    const b = readIntArray();
-    let sumA = 0;
-    let minLoss = Infinity;
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
+  const t = parseInt(input[0], 10);
+  let idx = 1;
+  const out = [];
 
+  for (let tc = 0; tc < t && idx < input.length; tc++) {
+    const n = parseInt(input[idx++], 10);
+    let count0 = 0;
+    let count1 = 0;
     for (let i = 0; i < n; i++) {
-      sumA += a[i];
-      const loss = a[i] - b[i];
-      if (loss < minLoss) {
-        minLoss = loss;
-      }
+      if (input[idx++] === '1') count1++;
+      else count0++;
     }
-
-    print(sumA - minLoss);
+    out.push(Math.min(count0, count1));
   }
+  console.log(out.join('\n'));
 }
 
 solve();
-printAll();
