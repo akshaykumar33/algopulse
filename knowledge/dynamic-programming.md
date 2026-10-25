@@ -104,6 +104,10 @@ dp.fill(-1); // Memoization sentinel
 | [Flipping Game](https://codeforces.com/problemset/problem/327/A) | `Codeforces` | `1200` | `flippingGame.js` | Key algorithmic application from Day 2026-10-24. |
 | [Binary Path](https://codeforces.com/problemset/problem/1937/B) | `Codeforces` | `1300` | `binaryPath.js` | Key algorithmic application from Day 2026-10-24. |
 | [Magnitude (Easy Version)](https://codeforces.com/problemset/problem/1984/C1) | `Codeforces` | `1300` | `magnitudeEasyVersion.js` | Key algorithmic application from Day 2026-10-24. |
+| [Spotlights](https://codeforces.com/problemset/problem/729/B) | `Codeforces` | `1200` | `spotlights.js` | Key algorithmic application from Day 2026-10-25. |
+| [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
+| [Vlad and a Sum of Sum of Digits](https://codeforces.com/problemset/problem/1926/C) | `Codeforces` | `1200` | `vladAndASumOfSumOfDigits.js` | Key algorithmic application from Day 2026-10-25. |
+| [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
 
 ---
 

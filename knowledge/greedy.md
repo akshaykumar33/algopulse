@@ -213,6 +213,23 @@ for (const x of arr) {
 | [Magnitude (Easy Version)](https://codeforces.com/problemset/problem/1984/C1) | `Codeforces` | `1300` | `magnitudeEasyVersion.js` | Key algorithmic application from Day 2026-10-24. |
 | [Nice Matrix](https://codeforces.com/problemset/problem/1422/B) | `Codeforces` | `1300` | `niceMatrix.js` | Key algorithmic application from Day 2026-10-24. |
 | [Minimize Distance](https://codeforces.com/problemset/problem/1585/C) | `Codeforces` | `1300` | `minimizeDistance.js` | Key algorithmic application from Day 2026-10-24. |
+| [Minimum Notation](https://codeforces.com/problemset/problem/1730/C) | `Codeforces` | `1200` | `minimumNotation.js` | Key algorithmic application from Day 2026-10-25. |
+| [Almost Equal](https://codeforces.com/problemset/problem/1205/A) | `Codeforces` | `1200` | `almostEqual.js` | Key algorithmic application from Day 2026-10-25. |
+| [Great Sequence](https://codeforces.com/problemset/problem/1641/A) | `Codeforces` | `1200` | `greatSequence.js` | Key algorithmic application from Day 2026-10-25. |
+| [Cool Partition](https://codeforces.com/problemset/problem/2117/C) | `Codeforces` | `1200` | `coolPartition.js` | Key algorithmic application from Day 2026-10-25. |
+| [K Is Important](https://codeforces.com/problemset/problem/2268/A) | `Codeforces` | `1200` | `kIsImportant.js` | Key algorithmic application from Day 2026-10-25. |
+| [Marenol (hard version)](https://codeforces.com/problemset/problem/2254/C2) | `Codeforces` | `1200` | `marenolHardVersion.js` | Key algorithmic application from Day 2026-10-25. |
+| [Princesses and Princes](https://codeforces.com/problemset/problem/1327/B) | `Codeforces` | `1200` | `princessesAndPrinces.js` | Key algorithmic application from Day 2026-10-25. |
+| [Hot Potatoes at the Fairy Warehouse](https://codeforces.com/problemset/problem/2255/A) | `Codeforces` | `1200` | `hotPotatoesAtTheFairyWarehouse.js` | Key algorithmic application from Day 2026-10-25. |
+| [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
+| [Neighbor Grid](https://codeforces.com/problemset/problem/1375/B) | `Codeforces` | `1200` | `neighborGrid.js` | Key algorithmic application from Day 2026-10-25. |
+| [Right Left Wrong](https://codeforces.com/problemset/problem/2000/D) | `Codeforces` | `1200` | `rightLeftWrong.js` | Key algorithmic application from Day 2026-10-25. |
+| [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
+| [Inflation](https://codeforces.com/problemset/problem/1476/B) | `Codeforces` | `1300` | `inflation.js` | Key algorithmic application from Day 2026-10-25. |
+| [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
+| [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
+| [All-in-one Gun](https://codeforces.com/problemset/problem/2192/C) | `Codeforces` | `1300` | `allInOneGun.js` | Key algorithmic application from Day 2026-10-25. |
+| [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -150,6 +150,16 @@ function constructMatrix(n, m) {
 | [Common Prefixes](https://codeforces.com/problemset/problem/1384/A) | `Codeforces` | `1200` | `commonPrefixes.js` | Key algorithmic application from Day 2026-10-24. |
 | [Kuroni and Simple Strings](https://codeforces.com/problemset/problem/1305/B) | `Codeforces` | `1200` | `kuroniAndSimpleStrings.js` | Key algorithmic application from Day 2026-10-24. |
 | [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
+| [Almost Equal](https://codeforces.com/problemset/problem/1205/A) | `Codeforces` | `1200` | `almostEqual.js` | Key algorithmic application from Day 2026-10-25. |
+| [Sorted Adjacent Differences](https://codeforces.com/problemset/problem/1339/B) | `Codeforces` | `1200` | `sortedAdjacentDifferences.js` | Key algorithmic application from Day 2026-10-25. |
+| [Mocha and Hiking](https://codeforces.com/problemset/problem/1559/C) | `Codeforces` | `1200` | `mochaAndHiking.js` | Key algorithmic application from Day 2026-10-25. |
+| [K Is Important](https://codeforces.com/problemset/problem/2268/A) | `Codeforces` | `1200` | `kIsImportant.js` | Key algorithmic application from Day 2026-10-25. |
+| [Super-Permutation](https://codeforces.com/problemset/problem/1822/D) | `Codeforces` | `1200` | `superPermutation.js` | Key algorithmic application from Day 2026-10-25. |
+| [A Prosperous Lot](https://codeforces.com/problemset/problem/934/B) | `Codeforces` | `1200` | `aProsperousLot.js` | Key algorithmic application from Day 2026-10-25. |
+| [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
+| [Neighbor Grid](https://codeforces.com/problemset/problem/1375/B) | `Codeforces` | `1200` | `neighborGrid.js` | Key algorithmic application from Day 2026-10-25. |
+| [Nastia and a Good Array](https://codeforces.com/problemset/problem/1521/B) | `Codeforces` | `1300` | `nastiaAndAGoodArray.js` | Key algorithmic application from Day 2026-10-25. |
+| [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
 
 ---
 

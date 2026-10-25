@@ -1,40 +1,31 @@
 const fs = require('fs');
 
 function solve() {
-  const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-  if (!lines.length || !lines[0]) return;
-  let idx = 0;
-  const t = parseInt(lines[idx++], 10);
-  const out = [];
+  const buffer = fs.readFileSync(0);
+  let offset = 0;
 
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(lines[idx++], 10);
-    const arr = [];
-    const set = new Set();
-    for (let i = 0; i < n; i++) {
-      const s = lines[idx++];
-      arr.push(s);
-      set.add(s);
+  function readInt() {
+    while (offset < buffer.length && buffer[offset] <= 32) {
+      offset++;
     }
-
-    const res = [];
-    for (let i = 0; i < n; i++) {
-      const s = arr[i];
-      let ok = false;
-      for (let j = 1; j < s.length; j++) {
-        const pref = s.slice(0, j);
-        const suff = s.slice(j);
-        if (set.has(pref) && set.has(suff)) {
-          ok = true;
-          break;
-        }
-      }
-      res.push(ok ? '1' : '0');
+    if (offset >= buffer.length) return null;
+    let res = 0;
+    while (offset < buffer.length && buffer[offset] > 32) {
+      res = res * 10 + (buffer[offset] - 48);
+      offset++;
     }
-
-    out.push(res.join(''));
+    return res;
   }
 
+  const t = readInt();
+  if (t === null) return;
+
+  const out = [];
+  for (let i = 0; i < t; i++) {
+    const n = readInt();
+    if (n === null) break;
+    out.push(n % 2 === 0 ? n : n - 1);
+  }
   console.log(out.join('\n'));
 }
 

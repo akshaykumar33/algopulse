@@ -77,6 +77,7 @@ function determineWinner(a, b, c) {
 | [Palindrome Game (easy version)](https://codeforces.com/problemset/problem/1527/B1) | `Codeforces` | `1200` | `palindromeGameEasyVersion.js` | Key algorithmic application from Day 2026-10-18. |
 | [Binary String Battle](https://codeforces.com/problemset/problem/2123/D) | `Codeforces` | `1200` | `binaryStringBattle.js` | Key algorithmic application from Day 2026-10-23. |
 | [Conan and Agasa play a Card Game](https://codeforces.com/problemset/problem/914/B) | `Codeforces` | `1200` | `conanAndAgasaPlayACardGame.js` | Key algorithmic application from Day 2026-10-24. |
+| [Hot Potatoes at the Fairy Warehouse](https://codeforces.com/problemset/problem/2255/A) | `Codeforces` | `1200` | `hotPotatoesAtTheFairyWarehouse.js` | Key algorithmic application from Day 2026-10-25. |
 
 ---
 

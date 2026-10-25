@@ -6,7 +6,11 @@
     "verdict": "Wrong Answer",
     "diagnosis": "JavaScript Array.prototype.sort() sorts elements lexicographically by default (converting numbers to strings, e.g. [10, 2] becomes [10, 2]).",
     "rule": "ALWAYS pass a numeric comparator: arr.sort((a, b) => a - b). For descending sort: arr.sort((a, b) => b - a).",
-    "tags": ["sorting", "arrays", "wrong-answer"]
+    "tags": [
+      "sorting",
+      "arrays",
+      "wrong-answer"
+    ]
   },
   {
     "id": "ERR-STACK-OVERFLOW",
@@ -15,7 +19,12 @@
     "verdict": "Runtime Error (Maximum call stack size exceeded)",
     "diagnosis": "Node.js default V8 call stack is limited to ~10,000 frames. Deep recursion in DFS on trees or graphs where N can reach 2e5 causes immediate crash.",
     "rule": "ALWAYS replace deep recursive DFS with an explicit iterative stack array (const stack = [start]) or iterative BFS queue.",
-    "tags": ["trees-and-graphs", "dfs", "recursion", "runtime-error"]
+    "tags": [
+      "trees-and-graphs",
+      "dfs",
+      "recursion",
+      "runtime-error"
+    ]
   },
   {
     "id": "ERR-MULTI-TEST-ALLOC",
@@ -24,7 +33,11 @@
     "verdict": "Time Limit Exceeded",
     "diagnosis": "Allocating fixed-size MAX arrays (e.g. new Array(200005)) inside while(t--) loop triggers excessive GC pause times across hundreds of test cases.",
     "rule": "Allocate arrays dynamically sized to current n (new Int32Array(n)), or allocate a single static global buffer once outside the testcase loop.",
-    "tags": ["multi-test", "memory", "time-limit-exceeded"]
+    "tags": [
+      "multi-test",
+      "memory",
+      "time-limit-exceeded"
+    ]
   },
   {
     "id": "ERR-MODULO-NEGATIVE",
@@ -33,7 +46,12 @@
     "verdict": "Wrong Answer",
     "diagnosis": "In JavaScript, negative numbers preserve sign under remainder operator (%): (-5) % 3 === -2. This breaks modular arithmetic invariants.",
     "rule": "Always compute modular arithmetic with non-negative guarantee: ((val % MOD) + MOD) % MOD.",
-    "tags": ["math", "number-theory", "modulo", "wrong-answer"]
+    "tags": [
+      "math",
+      "number-theory",
+      "modulo",
+      "wrong-answer"
+    ]
   },
   {
     "id": "ERR-BIGINT-OVERUSE-TLE",
@@ -42,7 +60,12 @@
     "verdict": "Time Limit Exceeded",
     "diagnosis": "Using BigInt for standard 32-bit or 53-bit integers is 3x to 5x slower than native Number arithmetic, causing avoidable TLE.",
     "rule": "Use native Number up to 9e15 (Number.MAX_SAFE_INTEGER = 9007199254740991). Only switch to BigInt when numbers provably exceed 9e15 (such as 10^18 products).",
-    "tags": ["math", "bigint", "performance", "time-limit-exceeded"]
+    "tags": [
+      "math",
+      "bigint",
+      "performance",
+      "time-limit-exceeded"
+    ]
   },
   {
     "id": "ERR-FAST-IO-STDOUT",
@@ -51,7 +74,11 @@
     "verdict": "Time Limit Exceeded",
     "diagnosis": "Calling console.log() inside a loop of size 1e5 incurs heavy I/O system call overhead, leading to TLE.",
     "rule": "Buffer all output lines into an array (out.push(...)) and flush once with console.log(out.join('\\n')) or process.stdout.write(out.join('\\n') + '\\n').",
-    "tags": ["io", "buffer", "time-limit-exceeded"]
+    "tags": [
+      "io",
+      "buffer",
+      "time-limit-exceeded"
+    ]
   },
   {
     "id": "ERR-LC-SIGNATURE",
@@ -60,6 +87,34 @@
     "verdict": "Runtime Error / Compile Error",
     "diagnosis": "LeetCode evaluates specific function exports or class methods. Including standard Node.js process.stdin reading or test runner code causes judging failures.",
     "rule": "Export the exact function name expected by LeetCode and return the direct answer object or array. Sanitizer automatically strips require.main and local harnesses.",
-    "tags": ["leetcode", "format", "runtime-error"]
+    "tags": [
+      "leetcode",
+      "format",
+      "runtime-error"
+    ]
+  },
+  {
+    "id": "CC-DOUBLE",
+    "problem": "Double Strings",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The solution fails with Time Limit Exceeded because for each string in the input of length up to L, it slices prefixes and suffixes in a nested loop and checks a Set, but more importantly, splitting the entire input by '\\n' and processing lines using regex can be slow and memory-intensive for large inputs. Also, the problem asks whether a string can be formed by concatenating two strings from the set. Wait, looking at the problem 'Double Strings', if $N$ is up to $10^5$, checking all slices can be $O(L^2)$ per string, which might TLE if $L$ is large or if there are many test cases.",
+    "rule": "Avoid slow string slicing and regex splitting on large inputs; buffer I/O efficiently and optimize substring checks.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-25T07:54:45.227Z"
+  },
+  {
+    "id": "CC-DOUBLE",
+    "problem": "Double Strings",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The problem Double Strings asks whether each string can be formed by concatenating two strings from the given set. The current solution uses `s.substring(0, j)` and `s.substring(j)` inside nested loops, which can lead to slow string operations and `Set` lookups. More importantly, depending on the specific problem version, if the input strings are up to a certain length or test cases are large, string slicing repeatedly can be slow. However, looking at CodeChef's 'DOUBLE' problem, the number of test cases and total length might cause TLE if not using optimized checks or if string splits are excessive. Wait, the problem 'DOUBLE' on CodeChef actually states: 'You are given a string. You have to print the length of the longest double string...'. Wait, no, the problem CC-DOUBLE (Double Strings) asks: for each string, can it be split into two parts both of which are in the set? Actually, the problem CodeChef DOUBLE is: 'A double string is a string that can be written as two identical strings concatenated...'. Wait! CodeChef problem DOUBLE (Double Strings): 'For a given string S, find the length of the longest double string that is a substring of S.' Or is it the Codeforces 'Double Strings' problem? Codeforces problem 'Double Strings' (1797A or similar, wait, 1725A or 1730? No, Codeforces 1725B or 1734B? No, Codeforces 1703F? No, Codeforces 1742D? No, Codeforces 1760E? No. Codeforces 1734C? No. Wait, Codeforces 1722D? No. Wait, the problem is Codeforces 1736C2? No. Wait, CodeChef CC-DOUBLE is 'Double Strings', where we are given $N$ strings and for each we check if it can be formed by concatenating two strings from the array. To avoid TLE in JavaScript, using `Set` for exact string existence is correct, but we should optimize string slicing or ensure fast I/O and avoid unnecessary array allocations inside the loop.)",
+    "rule": "Avoid heavy string allocations and repeated substring slicing inside tight loops where possible, and use fast buffered I/O and output collection.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-25T07:55:27.471Z"
   }
 ]
