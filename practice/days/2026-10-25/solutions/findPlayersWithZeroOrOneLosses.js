@@ -36,3 +36,5 @@ if (require.main === module) {
 }
 
 module.exports = findWinners;
+
+var solve = typeof findPlayersWithZeroOrOneLosses !== 'undefined' ? findPlayersWithZeroOrOneLosses : null;

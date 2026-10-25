@@ -14,7 +14,7 @@ NumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {
 };
 
 // ---------------- LOCAL TEST HARNESS ----------------
-function solve(operations, operands) {
+function rangeSumQuery2DImmutable(operations, operands) {
   let obj = null;
   const res = [];
   for (let i = 0; i < operations.length; i++) {
@@ -46,3 +46,5 @@ if (require.main === module) {
 }
 
 module.exports = { NumMatrix, solve };
+
+var solve = typeof rangeSumQuery2DImmutable !== 'undefined' ? rangeSumQuery2DImmutable : null;

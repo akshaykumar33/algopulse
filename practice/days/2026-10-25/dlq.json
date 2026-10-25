@@ -92,5 +92,29 @@
       "file": "binaryTreePruning",
       "template": "templates/leetcode.js"
     }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-C00K0FF",
+    "name": "Chef and Cook-Off Contests",
+    "file": "chefAndCookOffContests",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-25T12:45:08.006Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-C00K0FF",
+      "name": "Chef and Cook-Off Contests",
+      "rating": 1185,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/C00K0FF",
+      "file": "chefAndCookOffContests",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
   }
 ]
