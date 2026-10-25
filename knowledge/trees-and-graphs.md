@@ -118,6 +118,10 @@ function dfsIterative(start, adj, n) {
 | [Forever Winter](https://codeforces.com/problemset/problem/1829/F) | `Codeforces` | `1300` | `foreverWinter.js` | Key algorithmic application from Day 2026-10-23. |
 | [Inversion Graph](https://codeforces.com/problemset/problem/1638/C) | `Codeforces` | `1300` | `inversionGraph.js` | Key algorithmic application from Day 2026-10-24. |
 | [Spying on the Beaver](https://codeforces.com/problemset/problem/2257/C) | `Codeforces` | `1200` | `spyingOnTheBeaver.js` | Key algorithmic application from Day 2026-10-24. |
+| [Mocha and Hiking](https://codeforces.com/problemset/problem/1559/C) | `Codeforces` | `1200` | `mochaAndHiking.js` | Key algorithmic application from Day 2026-10-25. |
+| [WeirdSort](https://codeforces.com/problemset/problem/1311/B) | `Codeforces` | `1200` | `weirdSort.js` | Key algorithmic application from Day 2026-10-25. |
+| [Princesses and Princes](https://codeforces.com/problemset/problem/1327/B) | `Codeforces` | `1200` | `princessesAndPrinces.js` | Key algorithmic application from Day 2026-10-25. |
+| [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
 
 ---
 

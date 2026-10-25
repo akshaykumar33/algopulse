@@ -146,6 +146,12 @@ function backtrack(index, currentSum, target, arr) {
 | [Sail](https://codeforces.com/problemset/problem/298/B) | `Codeforces` | `1200` | `sail.js` | Key algorithmic application from Day 2026-10-24. |
 | [Soldier and Badges](https://codeforces.com/problemset/problem/546/B) | `Codeforces` | `1200` | `soldierAndBadges.js` | Key algorithmic application from Day 2026-10-24. |
 | [Flipping Game](https://codeforces.com/problemset/problem/327/A) | `Codeforces` | `1200` | `flippingGame.js` | Key algorithmic application from Day 2026-10-24. |
+| [Great Sequence](https://codeforces.com/problemset/problem/1641/A) | `Codeforces` | `1200` | `greatSequence.js` | Key algorithmic application from Day 2026-10-25. |
+| [Princesses and Princes](https://codeforces.com/problemset/problem/1327/B) | `Codeforces` | `1200` | `princessesAndPrinces.js` | Key algorithmic application from Day 2026-10-25. |
+| [Classroom Watch](https://codeforces.com/problemset/problem/875/A) | `Codeforces` | `1200` | `classroomWatch.js` | Key algorithmic application from Day 2026-10-25. |
+| [The Monster](https://codeforces.com/problemset/problem/787/A) | `Codeforces` | `1200` | `theMonster.js` | Key algorithmic application from Day 2026-10-25. |
+| [Inflation](https://codeforces.com/problemset/problem/1476/B) | `Codeforces` | `1300` | `inflation.js` | Key algorithmic application from Day 2026-10-25. |
+| [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

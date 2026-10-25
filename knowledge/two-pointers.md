@@ -92,6 +92,10 @@ for (let right = 0; right < arr.length; right++) {
 | [Count Subarrays With Loose Bounds](https://leetcode.com/problems/count-subarrays-with-loose-bounds/) | `LeetCode` | `Medium` | `countSubarraysWithLooseBounds.js` | Contiguous valid run decomposition via single-pass accumulator: each valid contiguous segment of length L contributes L(L+1)/2 valid subarrays. |
 | [Needle in a Haystack](https://codeforces.com/problemset/problem/2174/A) | `Codeforces` | `1200` | `needleInAHaystack.js` | Key algorithmic application from Day 2026-10-24. |
 | [Kuroni and Simple Strings](https://codeforces.com/problemset/problem/1305/B) | `Codeforces` | `1200` | `kuroniAndSimpleStrings.js` | Key algorithmic application from Day 2026-10-24. |
+| [Right Left Wrong](https://codeforces.com/problemset/problem/2000/D) | `Codeforces` | `1200` | `rightLeftWrong.js` | Key algorithmic application from Day 2026-10-25. |
+| [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
+| [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
+| [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
 
 ---
 

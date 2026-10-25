@@ -129,6 +129,14 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Soldier and Badges](https://codeforces.com/problemset/problem/546/B) | `Codeforces` | `1200` | `soldierAndBadges.js` | Key algorithmic application from Day 2026-10-24. |
 | [Queue Sort](https://codeforces.com/problemset/problem/1899/E) | `Codeforces` | `1300` | `queueSort.js` | Key algorithmic application from Day 2026-10-24. |
 | [Little Elephant and Problem](https://codeforces.com/problemset/problem/220/A) | `Codeforces` | `1300` | `littleElephantAndProblem.js` | Key algorithmic application from Day 2026-10-24. |
+| [Minimum Notation](https://codeforces.com/problemset/problem/1730/C) | `Codeforces` | `1200` | `minimumNotation.js` | Key algorithmic application from Day 2026-10-25. |
+| [Great Sequence](https://codeforces.com/problemset/problem/1641/A) | `Codeforces` | `1200` | `greatSequence.js` | Key algorithmic application from Day 2026-10-25. |
+| [Sorted Adjacent Differences](https://codeforces.com/problemset/problem/1339/B) | `Codeforces` | `1200` | `sortedAdjacentDifferences.js` | Key algorithmic application from Day 2026-10-25. |
+| [WeirdSort](https://codeforces.com/problemset/problem/1311/B) | `Codeforces` | `1200` | `weirdSort.js` | Key algorithmic application from Day 2026-10-25. |
+| [Marenol (hard version)](https://codeforces.com/problemset/problem/2254/C2) | `Codeforces` | `1200` | `marenolHardVersion.js` | Key algorithmic application from Day 2026-10-25. |
+| [Alyona and Mex](https://codeforces.com/problemset/problem/682/B) | `Codeforces` | `1200` | `alyonaAndMex.js` | Key algorithmic application from Day 2026-10-25. |
+| [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
+| [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
