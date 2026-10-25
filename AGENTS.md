@@ -308,6 +308,13 @@ Before staging with `git add`, verify:
 - [ ] Commit message follows Conventional Commits format
 ```
 
+### 9.5 Pull Request Sizing & Segregation Protocol (GLOBAL MANDATORY RULE)
+1. **Hard Upper Bound on PR Size:** Every Pull Request must contain **no more than 50 changed files**. Never bundle multi-hundred-file changes or multiple platforms into a single monolithic PR.
+2. **Systematic Segregation Strategy:**
+   - Group logically by platform and cohesive batch (e.g., Codeforces batch $\le 50$ files, LeetCode batch $\le 50$ files, CodeChef batch $\le 50$ files, curriculum/tests batch $\le 50$ files).
+   - Each PR must be atomic, fully verified, green on tests, and reviewable in isolation.
+3. **Branch-First Delivery:** Always branch first (`<type>/<scope>-<slug>`), never commit or push directly to `main`.
+
 ---
 
 ## 10. Knowledge Base Protocol (Continuous Learning & Tag-Driven Knowledge Base)

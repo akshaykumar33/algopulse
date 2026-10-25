@@ -72,7 +72,7 @@ for (const p of problemsToVerify) {
     const start = Date.now();
     const r = spawnSync('node', [file], { input: t.input, encoding: 'utf-8', timeout: 10000, maxBuffer: 64 * 1024 * 1024 });
     slowest = Math.max(slowest, Date.now() - start);
-    if (r.status === 0 && normalize(r.stdout || '') === normalize(t.output)) passed++;
+    if (r.status === 0 && normalize(r.stdout || '') === normalize(t.output ?? t.expected ?? '')) passed++;
     else if (!firstFailure) firstFailure = { i, t, r };
   }
 

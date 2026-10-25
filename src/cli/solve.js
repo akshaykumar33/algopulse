@@ -219,6 +219,8 @@ async function main() {
   const date = flag('--date') || days[days.length - 1];
   const force = args.includes('--force');
   const filterPlatform = flag('--platform');
+  const filterProblem = flag('--problem');
+  const limit = flag('--limit') ? parseInt(flag('--limit'), 10) : null;
   const dayDir = path.join(DAYS, date);
   const setPath = path.join(dayDir, 'set.json');
 
@@ -228,9 +230,18 @@ async function main() {
   }
 
   const set = JSON.parse(fs.readFileSync(setPath, 'utf-8'));
-  const problems = filterPlatform
+  let problems = filterPlatform
     ? set.problems.filter((p) => (p.platform || '').toLowerCase() === filterPlatform.toLowerCase())
     : set.problems;
+
+  if (filterProblem) {
+    const q = filterProblem.toLowerCase();
+    problems = problems.filter((p) => (p.file || '').toLowerCase().includes(q) || (p.id || '').toLowerCase().includes(q));
+  }
+
+  if (limit && limit > 0) {
+    problems = problems.slice(0, limit);
+  }
 
   console.log(`[solve] Processing Day ${set.day} (${date}) [${problems.length} problems] ...`);
 
