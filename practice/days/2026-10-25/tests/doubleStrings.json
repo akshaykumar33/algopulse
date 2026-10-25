@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2\n2\n4\n",
+    "output": "2\n4\n"
+  },
+  {
+    "input": "2\n3\n5\n",
+    "output": "2\n4\n"
+  }
+]
