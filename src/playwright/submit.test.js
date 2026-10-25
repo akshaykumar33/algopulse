@@ -301,9 +301,9 @@ describe('Smart Resubmission & Submission Tracking Engine', () => {
 });
 
 describe('Authentic Human Pacing & Cooldown System', () => {
-  it('defaults to authentic human delay between 3.5 and 5.5 minutes', () => {
+  it('defaults to authentic human delay between 1.0 and 3.0 minutes', () => {
     const cd = resolveCooldownMs([]);
-    assert.ok(cd >= 210000 && cd <= 330000, `Expected cooldown in [210000, 330000], got ${cd}`);
+    assert.ok(cd >= 60000 && cd <= 180000, `Expected cooldown in [60000, 180000], got ${cd}`);
   });
 
   it('respects --fast and --quick flags for rapid dev testing', () => {
@@ -312,16 +312,16 @@ describe('Authentic Human Pacing & Cooldown System', () => {
   });
 
   it('parses custom cooldown inputs with minutes, seconds, and numeric strings', () => {
-    assert.equal(resolveCooldownMs(['--cooldown', '4m']), 240000);
+    assert.equal(resolveCooldownMs(['--cooldown', '2.5m']), 150000);
     assert.equal(resolveCooldownMs(['--cooldown', '180s']), 180000);
-    assert.equal(resolveCooldownMs(['--cooldown', '5']), 300000);
-    assert.equal(resolveCooldownMs(['--cooldown', '120']), 120000);
+    assert.equal(resolveCooldownMs(['--cooldown', '2']), 120000);
+    assert.equal(resolveCooldownMs(['--cooldown', '90']), 90000);
   });
 
   it('applies natural human jitter variance without dipping below minimum safe limit', () => {
-    const base = 240000;
+    const base = 120000;
     const jittered = getCooldownWithJitter(base, false);
-    assert.ok(jittered >= 210000 && jittered <= 270000, `Expected jittered cooldown within +/- 30s, got ${jittered}`);
+    assert.ok(jittered >= 105000 && jittered <= 135000, `Expected jittered cooldown within +/- 15s, got ${jittered}`);
 
     // Fast mode retains exact base without jitter
     assert.equal(getCooldownWithJitter(5000, true), 5000);
@@ -440,12 +440,12 @@ describe('Dead Letter Queue (DLQ) & Difficulty Pacing Engine', () => {
     // In fast mode, returns rapid test delay
     assert.equal(calculateDifficultyCooldown(easyProb, null, ['--fast']), 4000);
 
-    // Normal mode: hard problem cooldown is strictly longer than easy problem cooldown
+    // Normal mode: hard problem cooldown is strictly longer than easy problem cooldown and all within [60s, 180s]
     const easyCd = calculateDifficultyCooldown(easyProb, null, []);
     const hardCd = calculateDifficultyCooldown(hardProb, null, []);
 
-    assert.ok(easyCd >= 120000 && easyCd <= 280000, `Easy cooldown out of range: ${easyCd}`);
-    assert.ok(hardCd >= 380000 && hardCd <= 720000, `Hard cooldown out of range: ${hardCd}`);
+    assert.ok(easyCd >= 60000 && easyCd <= 100000, `Easy cooldown out of range: ${easyCd}`);
+    assert.ok(hardCd >= 130000 && hardCd <= 180000, `Hard cooldown out of range: ${hardCd}`);
     assert.ok(hardCd > easyCd, `Hard cooldown (${hardCd}) should be greater than easy (${easyCd})`);
   });
 

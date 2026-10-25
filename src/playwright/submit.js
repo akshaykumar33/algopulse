@@ -658,9 +658,10 @@ function getNumericTier(num) {
 
 /**
  * Calculates humanized cooldown interval tailored to the question's difficulty level
- * - Easy:   ~2.5 - 3.8 mins (150s - 230s) + jitter (+/- 25s)
- * - Medium: ~4.2 - 6.5 mins (250s - 390s) + jitter (+/- 35s)
- * - Hard:   ~7.0 - 11.0 mins (420s - 660s) + jitter (+/- 45s)
+ * Capped strictly between 1.0 and 3.0 minutes (60s to 180s):
+ * - Easy:   ~1.0 - 1.5 mins (60s - 90s) + jitter (+/- 10s)
+ * - Medium: ~1.5 - 2.3 mins (90s - 140s) + jitter (+/- 15s)
+ * - Hard:   ~2.3 - 3.0 mins (140s - 180s) + jitter (+/- 10s)
  */
 function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
@@ -674,30 +675,31 @@ function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = 
   const targetProb = nextProblem || currProblem;
   const tier = getProblemDifficultyTier(targetProb);
 
-  let minSec = 160;
-  let maxSec = 230;
-  let jitterMax = 25;
+  let minSec = 65;
+  let maxSec = 85;
+  let jitterMax = 10;
 
   if (tier === 'medium') {
-    minSec = 260;
-    maxSec = 380;
-    jitterMax = 35;
+    minSec = 95;
+    maxSec = 130;
+    jitterMax = 15;
   } else if (tier === 'hard') {
-    minSec = 440;
-    maxSec = 640;
-    jitterMax = 45;
+    minSec = 145;
+    maxSec = 170;
+    jitterMax = 10;
   }
 
   const baseSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
   const jitterSec = Math.floor(Math.random() * (2 * jitterMax + 1)) - jitterMax;
-  const totalSec = Math.max(120, baseSec + jitterSec);
+  // Strictly clamp between 60s (1 min) and 180s (3 mins)
+  const totalSec = Math.min(180, Math.max(60, baseSec + jitterSec));
 
   return totalSec * 1000;
 }
 
 /**
  * Resolves base cooldown duration from command-line arguments or defaults
- * Default: 3.5 to 5.5 minutes (~210s - 330s) for authentic human pacing.
+ * Default: 1.0 to 3.0 minutes (~60s - 180s) for authentic human pacing.
  */
 function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
@@ -709,42 +711,44 @@ function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
   const rawVal = i !== -1 ? cliArgs[i + 1] : null;
 
   if (!rawVal) {
-    // Default authentic human pacing: 3.5 to 5.5 minutes
-    const minSec = 210;
-    const maxSec = 330;
+    // Default authentic human pacing: 1.0 to 3.0 minutes (60s - 180s)
+    const minSec = 60;
+    const maxSec = 180;
     const randomSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
     return randomSec * 1000;
   }
 
   const str = String(rawVal).trim().toLowerCase();
+  let ms = 120000;
   if (str.endsWith('m')) {
     const mins = parseFloat(str.slice(0, -1));
-    return Math.round(mins * 60 * 1000);
-  }
-  if (str.endsWith('s')) {
+    ms = Math.round(mins * 60 * 1000);
+  } else if (str.endsWith('s')) {
     const secs = parseFloat(str.slice(0, -1));
-    return Math.round(secs * 1000);
+    ms = Math.round(secs * 1000);
+  } else {
+    const num = parseFloat(str);
+    if (isNaN(num)) ms = 120000;
+    else if (num < 30) {
+      // e.g. --cooldown 2 -> 2 minutes
+      ms = Math.round(num * 60 * 1000);
+    } else if (num < 1000) {
+      // e.g. --cooldown 120 -> 120 seconds
+      ms = Math.round(num * 1000);
+    } else {
+      ms = Math.round(num);
+    }
   }
-  const num = parseFloat(str);
-  if (isNaN(num)) return 240000;
-  if (num < 30) {
-    // e.g. --cooldown 4 -> 4 minutes
-    return Math.round(num * 60 * 1000);
-  }
-  if (num < 1000) {
-    // e.g. --cooldown 180 -> 180 seconds
-    return Math.round(num * 1000);
-  }
-  return Math.round(num);
+  return Math.min(180000, Math.max(60000, ms));
 }
 
 /**
- * Adds natural human variance (+/- 30s) to prevent robotic interval signatures
+ * Adds natural human variance (+/- 15s) bounded strictly within 1 to 3 minutes
  */
 function getCooldownWithJitter(baseMs, isFast = false) {
   if (isFast || baseMs < 15000) return baseMs;
-  const jitterSec = Math.floor(Math.random() * 61) - 30; // -30s to +30s
-  return Math.max(120000, baseMs + jitterSec * 1000); // minimum 2 mins for human pace
+  const jitterSec = Math.floor(Math.random() * 31) - 15; // -15s to +15s
+  return Math.min(180000, Math.max(60000, baseMs + jitterSec * 1000));
 }
 
 /**
@@ -983,7 +987,7 @@ async function submitWithAutoFix(prob, options) {
     }
 
     console.log(`    [fix-flow] ✓ Fix verified! Simulating realistic debugging review time before resubmission ...`);
-    const debugPauseMs = options.isFast ? 3000 : (90000 + Math.floor(Math.random() * 60000));
+    const debugPauseMs = options.isFast ? 3000 : (60000 + Math.floor(Math.random() * 30000));
     await sleepWithCountdown(debugPauseMs, `Debugging & review pause for ${prob.name} before submitting fix`);
 
     console.log(`    [fix-flow] Resubmitting corrected code for ${prob.name} (${prob.id}) ...`);
@@ -1099,7 +1103,7 @@ async function processPlatformQueue(platKey, queue, options) {
       const prob = item.problem;
       const debugPauseMs = options.isFast
         ? 3000
-        : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
+        : Math.min(180000, Math.max(60000, Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.75)));
       await sleepWithCountdown(
         debugPauseMs,
         `${tag} [DLQ] Realistic debugging & reasoning pause for ${prob.name} (${prob.id})`

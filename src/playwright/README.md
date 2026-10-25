@@ -92,10 +92,10 @@ src/playwright/
 1. **Credentials & Cookies are strictly local:** All session tokens and cookies are saved in `.auth/` which is ignored by `.gitignore`. Never commit `.auth/`.
 2. **Anti-Detection Evasions:** Injects evasions to remove `navigator.webdriver`, mock `window.chrome.runtime`, and match desktop Chrome/Edge viewport fingerprints.
 3. **Authentic Human Pacing & Cooldown:**
-   - **Default delay:** Submissions automatically pause for **3.5 to 5.5 minutes** (~210s - 330s) between problems with randomized natural jitter (+/- 30s) to reflect real human solve/review time.
-   - **Interactive Terminal Countdown:** Displays a ticking real-time countdown timer (`03:45 remaining`) so pacing is transparent.
+   - **Default delay:** Submissions automatically pause for **1.0 to 3.0 minutes** (~60s - 180s) between problems with randomized natural jitter (+/- 15s) tailored by difficulty (Easy ~1-1.5m, Medium ~1.5-2.3m, Hard ~2.3-3m) to reflect real human solve/review time while guaranteeing all 3 platforms finish in ~100 minutes.
+   - **Interactive Terminal Countdown:** Displays a ticking real-time countdown timer (`01:45 remaining`) so pacing is transparent.
    - **Dev Testing Flag:** Pass `--fast` or `--quick` to run with minimal 5s delay during debugging or tests.
-   - **Custom Cooldown:** Pass `--cooldown <val>` (supports `4m`, `180s`, or milliseconds).
+   - **Custom Cooldown:** Pass `--cooldown <val>` (supports `2m`, `90s`, or milliseconds, strictly clamped to 1-3 minutes).
 4. **"Fix It If It's Wrong Before Moving to Next" Workflow:**
    - Evaluates the live verdict immediately after each submission.
    - If a submission fails (Wrong Answer, Runtime Error, TLE), the engine halts moving to other problems.
