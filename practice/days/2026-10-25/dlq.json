@@ -46,5 +46,51 @@
       "template": "templates/codeforces.js"
     },
     "finalVerdict": "Wrong answer on test 1"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-304",
+    "name": "Range Sum Query 2D - Immutable",
+    "file": "rangeSumQuery2DImmutable",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-25T11:44:16.334Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-304",
+      "name": "Range Sum Query 2D - Immutable",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/range-sum-query-2d-immutable/",
+      "file": "rangeSumQuery2DImmutable",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-814",
+    "name": "Binary Tree Pruning",
+    "file": "binaryTreePruning",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-25T12:08:10.633Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-814",
+      "name": "Binary Tree Pruning",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-tree-pruning/",
+      "file": "binaryTreePruning",
+      "template": "templates/leetcode.js"
+    }
   }
 ]
