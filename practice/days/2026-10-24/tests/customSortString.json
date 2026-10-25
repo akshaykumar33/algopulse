@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"cba\"\n\"abcd\"",
+    "output": "\"cbad\""
+  },
+  {
+    "input": "\"bcafg\"\n\"abcd\"",
+    "output": "\"bcad\""
+  }
+]

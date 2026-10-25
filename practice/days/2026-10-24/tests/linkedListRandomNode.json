@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"Solution\",\"getRandom\",\"getRandom\"]\n[[[1]],[],[]]",
+    "output": "[null,1,1]"
+  },
+  {
+    "input": "[\"Solution\",\"getRandom\"]\n[[[42]],[]]",
+    "output": "[null,42]"
+  }
+]
