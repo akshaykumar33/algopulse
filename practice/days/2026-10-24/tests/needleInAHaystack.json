@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nabcdef\ncd\naabbcc\nabc\naabbcc\nabcd\n",
+    "output": "YES\ncdabef\nYES\nabcabc\nNO"
+  }
+]
