@@ -13,10 +13,11 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
 5. **Passing the samples proves nothing:** Samples are a smoke test. A solution is only "verified" after §6 (brute-force stress + worst-case timing).
 6. **Git cleanliness is non-negotiable:** Never commit `output.txt`, dirty templates, or multi-megabyte transient benchmark dumps. Every commit must follow Conventional Commits. See §9.
 7. **Zero AI detection signatures, standard naming, & NO comments:** Solutions must look 100% like clean, natural, human-written competitive programming code. Strictly NO comments (`//`, `/* */`, JSDoc) in code. Standard concise CP naming (`n`, `m`, `ans`, `dp`, `arr`, `solve`). Zero watermarks or filler variables (`ballast`, `mexoramax`). See §5.
-8. **Intelligent Placement & Zero-Repetition Rule:**
-   - **Direct Contest Questions:** When a question is pasted from a contest (Codeforces, CodeChef, LeetCode, AtCoder), place it directly into that platform's contest directory for the day/round (`contests/<platform>/<dateOrRound>/<problemName>.js`).
-   - **Daily Practice Questions:** If it is a daily practice or curriculum problem, place it in `practice/days/<date>/solutions/<problemName>.js` (with explanation in `practice/days/<date>/explanations/<problemName>.md`).
-   - **Zero Repetition / Deduplication:** Check beforehand across `contests/`, `practice/`, and `solutions/` whether this exact problem has already been solved. Never duplicate files or re-solve existing problems without reason.
+8. **Strict Segregation of Practice vs. Contests (MANDATORY RULE):**
+   - **Daily Practice & Curriculum Problems:** All daily curriculum and practice problems belong **STRICTLY AND EXCLUSIVELY** in `practice/days/<date>/solutions/<problemName>.js` (with test cases in `practice/days/<date>/tests/<problemName>.json` and explanations in `practice/days/<date>/explanations/<problemName>.md`).
+   - **NEVER MIRROR PRACTICE INTO `contests/`:** Under NO circumstances should daily practice problems be copied, mirrored, or placed into `contests/` or `contests/<platform>/<date>/`. The `contests/` directory is strictly reserved for official live or virtual contests (e.g., Codeforces Round 990, LeetCode Weekly Contest 420, CodeChef Starters 150).
+   - **Submissions Source:** Platform submissions (`npm run submit`) source code directly from `practice/days/<date>/solutions/`, NEVER from `contests/`.
+   - **Zero Repetition / Deduplication:** Always verify whether a problem has already been solved before writing files. Never create redundant duplicates.
    - **Continuous Knowledge Base Sync:** The knowledge base (`knowledge/<tag>.md`) must ALWAYS be updated with key takeaways and synchronized via `node src/cli/knowledge --sync`, with zero duplicate entries in any tag catalog.
 
 
@@ -73,9 +74,9 @@ When presented with any problem (even if pasted raw with contest headers and for
   - Check boundary conditions and 0/1 indexing.
   - Fix logic systematically.
 
-### Phase 5: Categorization & Platform Submissions (Playwright Flow via Running Chrome CDP)
+### Phase 5: Platform Submissions (Playwright Flow via Running Chrome CDP)
 - Every day, once day solutions are verified 100% green:
-  - Mirror solutions into platform-specific directories (`contests/<platform>/<date>/`).
+  - **DO NOT mirror practice solutions into `contests/`**: Daily practice problems belong strictly in `practice/days/<date>/`. Submissions are sourced directly from `practice/days/<date>/solutions/`.
   - Execute automated platform submissions via Playwright directly through Google Chrome via Chrome DevTools Protocol (CDP, port 9222):
     ```bash
     npm run submit
@@ -211,8 +212,8 @@ the observed maximum sits inside the cap.
 To maintain a clean and scalable codebase:
 
 1. **Contests Directory (`/contests`):**
-   - Active contest problems and their companion stress suites are organized by platform and date/round: `contests/<platform>/<dateOrRound>/` (e.g. `contests/codechef/2026-09-28/`).
-   - Keeps contest problem sets neatly grouped, isolated, and self-contained.
+   - Strictly reserved for official live or virtual contest rounds organized by platform and round identifier: `contests/<platform>/<roundIdentifier>/` (e.g. `contests/codeforces/round990/`, `contests/leetcode/weekly420/`).
+   - **NEVER** place or mirror daily curriculum practice problems into `/contests`.
 2. **Solutions Directory (`/solutions`):**
    - General and standalone problem solutions live in `solutions/<problemName>.js`, keeping the root completely clean.
    - The runner engine (`node run <problemName>` or `.\run <problemName>`) automatically resolves files recursively from `contests/`, `solutions/`, `stress/`, and the root.
