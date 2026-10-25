@@ -30,9 +30,9 @@ function solve() {
     const hasHard = (count['medium-hard'] + count.hard) > 0;
 
     if (hasCakewalk && hasSimple && hasEasy && hasMed && hasHard) {
-      out.push("yes");
+      out.push("Yes");
     } else {
-      out.push("no");
+      out.push("No");
     }
   }
   console.log(out.join('\n'));

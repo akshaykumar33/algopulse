@@ -1,6 +1,6 @@
 [
   {
     "input": "3\n5\neasy\nmedium\nmedium-hard\nsimple\ncakewalk\n6\neasy-medium\nmedium\neasy\neasy-medium\nsimple\ncakewalk\n7\ncakewalk\nsimple\neasy\neasy-medium\nmedium\nmedium-hard\nhard\n",
-    "output": "yes\nno\nyes\n"
+    "output": "Yes\nNo\nYes\n"
   }
 ]
