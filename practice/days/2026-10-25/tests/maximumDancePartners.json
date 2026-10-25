@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nxy\nxyxxy\nyy\n",
+    "output": "1\n2\n0\n"
+  }
+]

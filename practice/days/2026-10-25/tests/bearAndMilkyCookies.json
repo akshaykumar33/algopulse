@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n7\ncookie milk milk cookie milk cookie milk\n5\ncookie cookie milk milk milk\n4\nmilk milk milk milk\n1\ncookie\n",
+    "output": "YES\nNO\nYES\nNO\n"
+  }
+]
