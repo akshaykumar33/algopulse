@@ -7,8 +7,8 @@
     - Tests: `practice/days/<YYYY-MM-DD>/tests/<problemName>.json`
     - Explanations: `practice/days/<YYYY-MM-DD>/explanations/<problemName>.md`
   - Manifests: `practice/days/<YYYY-MM-DD>/set.json`
-- **`contests/` (Strictly for Official / Real Contests):**
-  - Reserved **ONLY** for official contest rounds (live or virtual), organized by platform and contest identifier:
+- **`contests/` (Strictly for Official / Live Contests):**
+  - Reserved **ONLY** for problems that are explicitly pasted in the chat/terminal for solving during an active live/virtual contest, or when the user explicitly states *"this is a contest"*:
     - Codeforces: `contests/codeforces/<roundName>/<problemName>.js` (e.g. `contests/codeforces/round990/problemA.js`)
     - LeetCode: `contests/leetcode/<contestName>/<problemName>.js` (e.g. `contests/leetcode/weekly420/problem1.js`)
     - CodeChef: `contests/codechef/<startersName>/<problemName>.js` (e.g. `contests/codechef/starters150/problemA.js`)
