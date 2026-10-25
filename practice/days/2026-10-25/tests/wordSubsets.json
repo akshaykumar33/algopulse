@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"amazon\",\"apple\",\"facebook\",\"google\",\"leetcode\"]\n[\"e\",\"o\"]\n",
+    "output": "[\"facebook\",\"google\",\"leetcode\"]\n"
+  },
+  {
+    "input": "[\"amazon\",\"apple\",\"facebook\",\"google\",\"leetcode\"]\n[\"l\",\"e\"]\n",
+    "output": "[\"apple\",\"google\",\"leetcode\"]\n"
+  }
+]

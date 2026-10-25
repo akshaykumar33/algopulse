@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT\"\n",
+    "output": "[\"AAAAACCCCC\",\"CCCCCAAAAA\"]\n"
+  },
+  {
+    "input": "\"AAAAAAAAAAAAA\"\n",
+    "output": "[\"AAAAAAAAAA\"]\n"
+  }
+]
