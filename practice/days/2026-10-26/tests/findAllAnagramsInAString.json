@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"cbaebabacd\"\n\"abc\"",
+    "output": "[0,6]"
+  },
+  {
+    "input": "\"abab\"\n\"ab\"",
+    "output": "[0,1,2]"
+  }
+]

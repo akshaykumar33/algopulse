@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n11\ncodeandchef\n11\nchefandcode\n13\ncodechefcode\n",
+    "output": "AC\nWA\nAC"
+  }
+]

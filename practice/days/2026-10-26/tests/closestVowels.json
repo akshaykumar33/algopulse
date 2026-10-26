@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5\nbiode\n6\nclothe\n1\na\n",
+    "output": "1\n4\n1\n"
+  }
+]

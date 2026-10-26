@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"bbbab\"",
+    "output": "4"
+  },
+  {
+    "input": "\"cbbd\"",
+    "output": "2"
+  }
+]
