@@ -125,6 +125,9 @@ function isPalindrome(s) {
 | [Common Prefixes](https://codeforces.com/problemset/problem/1384/A) | `Codeforces` | `1200` | `commonPrefixes.js` | Key algorithmic application from Day 2026-10-24. |
 | [Kuroni and Simple Strings](https://codeforces.com/problemset/problem/1305/B) | `Codeforces` | `1200` | `kuroniAndSimpleStrings.js` | Key algorithmic application from Day 2026-10-24. |
 | [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
+| [Phone Numbers](https://codeforces.com/problemset/problem/151/B) | `Codeforces` | `1200` | `phoneNumbers.js` | Key algorithmic application from Day 2026-10-26. |
+| [Center Alignment](https://codeforces.com/problemset/problem/5/B) | `Codeforces` | `1200` | `centerAlignment.js` | Key algorithmic application from Day 2026-10-26. |
+| [Petya and Java](https://codeforces.com/problemset/problem/66/A) | `Codeforces` | `1300` | `petyaAndJava.js` | Key algorithmic application from Day 2026-10-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

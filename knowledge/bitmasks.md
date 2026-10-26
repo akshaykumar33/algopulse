@@ -123,6 +123,7 @@ function missingNumber(nums) {
 | [Count Magical Substring Pairs II](https://leetcode.com/problems/count-magical-substring-pairs-ii/) | `LeetCode` | `Hard` | `countMagicalSubstringPairsII.js` | Full linear-scale O(26N) adjacent distinct counting: maintain sorted last/first occurrence arrays of size <= 26 via insertion sort to compute interval lengths in O(1) per distinct level. |
 | [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
 | [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
+| [Slice to Survive](https://codeforces.com/problemset/problem/2109/B) | `Codeforces` | `1200` | `sliceToSurvive.js` | Key algorithmic application from Day 2026-10-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

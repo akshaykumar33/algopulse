@@ -108,6 +108,8 @@ dp.fill(-1); // Memoization sentinel
 | [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
 | [Vlad and a Sum of Sum of Digits](https://codeforces.com/problemset/problem/1926/C) | `Codeforces` | `1200` | `vladAndASumOfSumOfDigits.js` | Key algorithmic application from Day 2026-10-25. |
 | [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
+| [Boring Day](https://codeforces.com/problemset/problem/1982/C) | `Codeforces` | `1200` | `boringDay.js` | Key algorithmic application from Day 2026-10-26. |
+| [Delete Two Elements](https://codeforces.com/problemset/problem/1598/C) | `Codeforces` | `1200` | `deleteTwoElements.js` | Key algorithmic application from Day 2026-10-26. |
 
 ---
 
