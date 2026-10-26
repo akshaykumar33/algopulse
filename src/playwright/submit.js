@@ -807,21 +807,7 @@ async function attemptProblemFix(problem, subResult, { dayDir, date }) {
   const currentCode = fs.readFileSync(solPath, 'utf-8');
   const plat = getProblemPlatform(problem).toLowerCase();
 
-  // 1. LeetCode Runtime Error signature quick-fix
-  if (plat === 'leetcode') {
-    const guessedFn = problem.file;
-    if (/\b(?:var|function)\s+solve\b/.test(currentCode) && !new RegExp(`\\b${guessedFn}\\b`).test(currentCode)) {
-      const fixedCode = currentCode
-        .replace(/\bvar\s+solve\s*=\s*function/, `var ${guessedFn} = function`)
-        .replace(/\bfunction\s+solve\s*\(/, `function ${guessedFn}(`)
-        + `\nvar solve = typeof ${guessedFn} !== 'undefined' ? ${guessedFn} : null;\n`;
-      fs.writeFileSync(solPath, fixedCode, 'utf-8');
-      const rootSol = path.join(REPO_ROOT, 'solutions', `${problem.file}.js`);
-      if (fs.existsSync(rootSol)) fs.writeFileSync(rootSol, fixedCode, 'utf-8');
-      console.log(`    [fix-flow] Adapted LeetCode signature to function "${guessedFn}"`);
-      return true;
-    }
-  }
+  // 1. LeetCode Runtime Error signature quick-fix is handled dynamically in leetcode.js
 
   // 2. AI diagnosis and repair
   if (ai && ai.isReady()) {
@@ -960,6 +946,7 @@ async function submitWithAutoFix(prob, options) {
     res.verdict === 'NO_SOLUTION_FILE' ||
     res.verdict === 'NOT_AUTHENTICATED' ||
     res.verdict === 'UNSUPPORTED_PLATFORM' ||
+    (typeof res.verdict === 'string' && res.verdict.startsWith('ERROR:')) ||
     /pending|in queue|judging/i.test(res.verdict || '')
   ) {
     return res;
