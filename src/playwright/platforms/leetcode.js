@@ -149,10 +149,11 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
         let finalCode = src;
         if (!isSql) {
           const starter = m.getValue() || '';
-          const fnMatch = starter.match(/(?:var|let|const)\s+([a-zA-Z0-9_$]+)\s*=\s*function|function\s+([a-zA-Z0-9_$]+)\s*\(/);
-          const expectedFn = fnMatch ? (fnMatch[1] || fnMatch[2]) : null;
+          const cleanStarter = starter.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '').trim();
+          const fnMatch = cleanStarter.match(/(?:var|let|const)\s+([a-zA-Z0-9_$]+)\s*=\s*function|function\s+([a-zA-Z0-9_$]+)\s*\(|class\s+([a-zA-Z0-9_$]+)\b/);
+          const expectedFn = fnMatch ? (fnMatch[1] || fnMatch[2] || fnMatch[3]) : null;
           if (expectedFn && expectedFn !== 'solve') {
-            const hasExpected = new RegExp(`(?:var|let|const|function)\\s+${expectedFn}\\b`).test(src);
+            const hasExpected = new RegExp(`(?:var|let|const|function|class)\\s+${expectedFn}\\b`).test(src);
             if (!hasExpected) {
               if (/\b(?:var|let|const)\s+solve\s*=\s*function|\bfunction\s+solve\s*\(/.test(src)) {
                 finalCode = src.replace(/\b(?:var|let|const)\s+solve\s*=\s*function/, `var ${expectedFn} = function`)
