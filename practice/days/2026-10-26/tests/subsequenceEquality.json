@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nabc\naba\n",
+    "output": "no\nyes\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"bab\"\n\"aba\"",
+    "output": "1"
+  },
+  {
+    "input": "\"leetcode\"\n\"practice\"",
+    "output": "5"
+  },
+  {
+    "input": "\"anagram\"\n\"mangaar\"",
+    "output": "0"
+  }
+]

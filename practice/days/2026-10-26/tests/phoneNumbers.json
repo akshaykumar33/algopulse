@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n2 Rogulenko\n22-22-22\n98-76-54\n",
+    "output": "If you want to call a taxi, you should call: Rogulenko.\nIf you want to order a pizza, you should call: Rogulenko.\nIf you want to go to a cafe with a wonderful girl, you should call: Rogulenko.\n"
+  }
+]

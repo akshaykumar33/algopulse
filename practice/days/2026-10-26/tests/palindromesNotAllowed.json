@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n1\n3\n28\n",
+    "output": "a\nabc\nabcdefghijklmnopqrstuvwxyzab\n"
+  }
+]
