@@ -1,0 +1,30 @@
+const fs = require('fs');
+
+function solve() {
+    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+    if (lines.length === 0 || lines[0] === '') return;
+    
+    let lineIdx = 0;
+    const t = parseInt(lines[lineIdx++], 10);
+    const out = [];
+    
+    for (let i = 0; i < t; i++) {
+        const n = parseInt(lines[lineIdx++], 10);
+        let maxProfit = 0;
+        
+        for (let j = 0; j < n; j++) {
+            const [s, p, v] = lines[lineIdx++].split(/\s+/).map(Number);
+            const count = Math.floor(p / (s + 1));
+            const profit = count * v;
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+        }
+        
+        out.push(maxProfit);
+    }
+    
+    console.log(out.join('\n'));
+}
+
+solve();
