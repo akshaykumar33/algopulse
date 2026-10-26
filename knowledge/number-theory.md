@@ -124,6 +124,12 @@ function sieve(maxN) {
 | [Playing with GCD](https://codeforces.com/problemset/problem/1736/B) | `Codeforces` | `1200` | `playingWithGCD.js` | Key algorithmic application from Day 2026-10-25. |
 | [The Monster](https://codeforces.com/problemset/problem/787/A) | `Codeforces` | `1200` | `theMonster.js` | Key algorithmic application from Day 2026-10-25. |
 | [Nastia and a Good Array](https://codeforces.com/problemset/problem/1521/B) | `Codeforces` | `1300` | `nastiaAndAGoodArray.js` | Key algorithmic application from Day 2026-10-25. |
+| [Honey Cake](https://codeforces.com/problemset/problem/2181/H) | `Codeforces` | `1200` | `honeyCake.js` | Key algorithmic application from Day 2026-10-26. |
+| [A Balanced Problemset?](https://codeforces.com/problemset/problem/1925/B) | `Codeforces` | `1200` | `aBalancedProblemset.js` | Key algorithmic application from Day 2026-10-26. |
+| [Add 0 or K](https://codeforces.com/problemset/problem/2134/B) | `Codeforces` | `1200` | `add0OrK.js` | Key algorithmic application from Day 2026-10-26. |
+| [Yet Another Array Restoration](https://codeforces.com/problemset/problem/1409/C) | `Codeforces` | `1200` | `yetAnotherArrayRestoration.js` | Key algorithmic application from Day 2026-10-26. |
+| [T-primes](https://codeforces.com/problemset/problem/230/B) | `Codeforces` | `1300` | `tPrimes.js` | Key algorithmic application from Day 2026-10-26. |
+| [Fox Dividing Cheese](https://codeforces.com/problemset/problem/371/B) | `Codeforces` | `1300` | `foxDividingCheese.js` | Key algorithmic application from Day 2026-10-26. |
 
 ---
 

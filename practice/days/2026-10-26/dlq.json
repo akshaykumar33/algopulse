@@ -1,0 +1,328 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-103",
+    "name": "Binary Tree Zigzag Level Order Traversal",
+    "file": "binaryTreeZigzagLevelOrderTraversal",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-26T12:02:56.907Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-103",
+      "name": "Binary Tree Zigzag Level Order Traversal",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+      "file": "binaryTreeZigzagLevelOrderTraversal",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-26T15:36:26.834Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2181H",
+    "name": "Honey Cake",
+    "file": "honeyCake",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-26T12:04:25.738Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2181H",
+      "name": "Honey Cake",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2181/H",
+      "file": "honeyCake",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-10-26T13:17:45.750Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1305",
+    "name": "All Elements in Two Binary Search Trees",
+    "file": "allElementsInTwoBinarySearchTrees",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-26T12:08:59.392Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1305",
+      "name": "All Elements in Two Binary Search Trees",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/all-elements-in-two-binary-search-trees/",
+      "file": "allElementsInTwoBinarySearchTrees",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-26T15:36:26.835Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHEFRP",
+    "name": "Chef and new recipe",
+    "file": "chefAndNewRecipe",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T12:10:24.401Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHEFRP",
+      "name": "Chef and new recipe",
+      "rating": 1310,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFRP",
+      "file": "chefAndNewRecipe",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-26T13:19:54.531Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-951",
+    "name": "Flip Equivalent Binary Trees",
+    "file": "flipEquivalentBinaryTrees",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-26T12:14:54.304Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-951",
+      "name": "Flip Equivalent Binary Trees",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/flip-equivalent-binary-trees/",
+      "file": "flipEquivalentBinaryTrees",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-26T15:36:26.835Z"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-622",
+    "name": "Design Circular Queue",
+    "file": "designCircularQueue",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-26T12:20:40.961Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-622",
+      "name": "Design Circular Queue",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/design-circular-queue/",
+      "file": "designCircularQueue",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-26T15:36:26.835Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SRTO3",
+    "name": "ORST ",
+    "file": "oRST",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T12:24:47.110Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SRTO3",
+      "name": "ORST ",
+      "rating": 1278,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SRTO3",
+      "file": "oRST",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-26T13:21:48.420Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2134B",
+    "name": "Add 0 or K",
+    "file": "add0OrK",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-26T12:35:45.579Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2134B",
+      "name": "Add 0 or K",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2134/B",
+      "file": "add0OrK",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-10-26T13:19:05.727Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MINANDMAX",
+    "name": "Minimum And Maximum I",
+    "file": "minimumAndMaximumI",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T12:36:49.562Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MINANDMAX",
+      "name": "Minimum And Maximum I",
+      "rating": 1288,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MINANDMAX",
+      "file": "minimumAndMaximumI",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SEPX",
+    "name": "Separation",
+    "file": "separation",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T12:44:56.242Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SEPX",
+      "name": "Separation",
+      "rating": 1203,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SEPX",
+      "file": "separation",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAX1XOR",
+    "name": "Max count of 1",
+    "file": "maxCountOf1",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T12:49:52.868Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAX1XOR",
+      "name": "Max count of 1",
+      "rating": 1381,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAX1XOR",
+      "file": "maxCountOf1",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-FREQP",
+    "name": "Partition",
+    "file": "partition",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T17:15:54.668Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-FREQP",
+      "name": "Partition",
+      "rating": 1366,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FREQP",
+      "file": "partition",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-26T17:29:10.299Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-DPF",
+    "name": "Beautiful Garden",
+    "file": "beautifulGarden",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-26T17:21:27.452Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DPF",
+      "name": "Beautiful Garden",
+      "rating": 1227,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DPF",
+      "file": "beautifulGarden",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-26T17:30:33.333Z",
+    "finalVerdict": "Correct Answer"
+  }
+]

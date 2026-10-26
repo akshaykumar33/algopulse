@@ -116,5 +116,126 @@
       "codechef"
     ],
     "timestamp": "2026-10-25T07:55:27.471Z"
+  },
+  {
+    "id": "LC-103",
+    "problem": "Binary Tree Zigzag Level Order Traversal",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The solution failed because `solve` was not defined or exported correctly (the main function was named `binaryTreeZigzagLevelOrderTraversal` while `solve` pointed to it, but the local testing runner or LeetCode environment expected the function signature to match exactly, and there might be potential issues with `q.shift()` taking O(N) time leading to inefficiency or potential recursion/stack issues if inputs were malformed).",
+    "rule": "Always ensure the primary solution function is named `solve` or exported correctly, and use efficient queue structures or iterative BFS for tree traversals.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-26T12:01:28.290Z"
+  },
+  {
+    "id": "5B",
+    "problem": "Center Alignment",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 11",
+    "diagnosis": "The code trims trailing empty lines from the input, which changes the formatting and removes valid empty lines or trailing blank lines that might be part of the test case, or it fails to handle empty input lines correctly. In Codeforces 5B, blank lines in the input should be treated as lines of length 0.",
+    "rule": "Never remove trailing empty lines from input unless explicitly specified by the problem, as blank lines can be significant parts of the output.",
+    "tags": [
+      "implementation",
+      "strings"
+    ],
+    "timestamp": "2026-10-26T12:06:33.970Z"
+  },
+  {
+    "id": "LC-622",
+    "problem": "Design Circular Queue",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runner script calls `solve(ops, vals)`, but the function implementing the test runner logic was named `designCircularQueue` while `solve` was assigned to it later, but inside the `if (require.main === module)` block it invokes `solve(ops, vals)` which might cause a ReferenceError if `solve` is not properly defined before use, or the function naming mismatch caused an execution failure.",
+    "rule": "Always ensure function names match when exporting or invoking entry points in Node.js competitive programming boilerplates.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-26T12:19:03.461Z"
+  },
+  {
+    "id": "CC-SRTO3",
+    "problem": "ORST ",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem states that for each element in b, a prefix of length b[j] is sorted in non-descending order. Sorting prefixes repeatedly from smallest to largest length is equivalent to saying that the largest sumB elements of the array will end up sorted at the end of the array. However, the current code just takes the sum of b and sorts the entire tail of size k, but the problem's prefix sorting operations actually means suffixes get sorted. Wait, sorting a prefix of length L puts the largest elements of that prefix at the end of the prefix. Since we apply this for all elements in b, effectively the maximum number of elements that can be affected is the maximum value in b, or rather, the suffix of length equal to the maximum element in b (or max of b) gets fully sorted. Specifically, the operation 'sort prefix of length L' applied for a set of lengths means the largest max(B) elements will be sorted at the end. The current code uses sumB instead of max(b), which is completely wrong because sorting overlapping prefixes just makes the suffix of length max(b) sorted.",
+    "rule": "Understand the cumulative effect of prefix sorting operations: sorting prefixes of lengths b[j] is equivalent to sorting the suffix of length equal to the maximum of b[j].",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T12:23:02.883Z"
+  },
+  {
+    "id": "CC-SEPX",
+    "problem": "Separation",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to find the minimum operations to separate a binary string such that all 0s are separated from 1s, but the previous solution just checked if both 0 and 1 exist and outputted 1 or 0 without implementing the actual separation logic or finding the minimum operations.",
+    "rule": "Carefully read the problem statement to implement the exact logic required rather than guessing based on simple character counts.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T12:41:40.898Z"
+  },
+  {
+    "id": "CC-SEPX",
+    "problem": "Separation",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to find the minimum operations to separate a binary string such that all 0s appear before all 1s (or all 1s before all 0s), which corresponds to the form 0*1* or 1*0*. The current solution incorrectly checks partitions after every prefix without considering the correct cost model for transforming a string into 0*1* or 1*0*, or misses the empty prefix/suffix check where all elements are on one side.",
+    "rule": "For problems requiring all 0s before 1s or vice-versa, carefully evaluate costs at all split points including before the first character and after the last character.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T12:43:24.923Z"
+  },
+  {
+    "id": "CC-SEPX",
+    "problem": "Separation",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to find the minimum operations to rearrange or modify a binary string such that all 0s appear before all 1s (or vice versa), or perhaps the cost to split. Wait, standard separation of 0s and 1s means finding a split point where all 0s are on one side and 1s on the other, or counting operations. Looking at the logic, the loop computes costs incorrectly or checks unnecessary cases like making everything 0 or everything 1. For a string where all 0s are before all 1s, the cost at any split point (prefix of 0s, suffix of 1s) is the number of 1s in the prefix plus the number of 0s in the suffix. The current code includes `leftOnes + rightZeros` which is correct for '0'* + '1'*, but checks `totalZeros` and `totalOnes` prematurely and incorrectly compares with `cost1 = rightZeros` which assumes a split at index 0.",
+    "rule": "When finding the minimum cost to separate binary strings into all 0s then all 1s, correctly evaluate the prefix/suffix mismatches for all possible split positions without redundant or flawed boundary initializations.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T13:25:53.655Z"
+  },
+  {
+    "id": "CC-SEPX",
+    "problem": "Separation",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The loop evaluating the cost checks prefixes by moving through the string, but the initial value 'ans = rightZeros' only considers making the entire string ones (i.e. splitting at index 0). It misses the case where the split happens before the first character, or fails to properly initialize the cost before iterating through all possible split points.",
+    "rule": "When checking all split points in a string to separate characters (e.g., all 0s before all 1s), ensure that all valid split positions from index 0 to n are correctly considered, including the empty prefix and empty suffix.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T13:27:57.697Z"
+  },
+  {
+    "id": "CC-DPF",
+    "problem": "Beautiful Garden",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The time-skipping logic in the problem 'Beautiful Garden' is flawed. When the garden has <= k flowers and regrowPQ is not empty, jumping days directly can miss optimal plucking opportunities or miscalculate days when flowers become available.",
+    "rule": "Avoid aggressive day-jumping heuristics in simulation problems unless mathematically proven correct; simulate day-by-day or ensure priority queue events cover all necessary transitions without skipping valid actions.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T17:18:30.504Z"
+  },
+  {
+    "id": "CC-DPF",
+    "problem": "Beautiful Garden",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The time-skipping logic for when the number of flowers is small or when we can simulate day-by-day is missing or too slow/incorrect for large d. However, the simulation iterates day by day up to d, which can TLE if d is large, or if time-skipping is required when bloomPQ.size() <= k. But wait, if bloomPQ.size() <= k, no flowers are plucked, so time can jump until regrowPQ has something or d is reached. Actually, the main issue in this problem is simulation of days up to d when d is up to 10^9. Simulating day-by-day will cause TLE or incorrect time jumps. We need to jump time when bloomPQ.size() <= k and no regrowions happen soon.",
+    "rule": "For problems with large constraints on time (like days up to 10^9), simulate using event-driven time-jumping instead of iterating day-by-day.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-26T17:20:07.256Z"
   }
 ]

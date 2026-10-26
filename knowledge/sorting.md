@@ -137,6 +137,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Alyona and Mex](https://codeforces.com/problemset/problem/682/B) | `Codeforces` | `1200` | `alyonaAndMex.js` | Key algorithmic application from Day 2026-10-25. |
 | [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
 | [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
+| [Loyalty](https://codeforces.com/problemset/problem/2161/C) | `Codeforces` | `1200` | `loyalty.js` | Key algorithmic application from Day 2026-10-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

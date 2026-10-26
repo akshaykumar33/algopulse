@@ -96,6 +96,10 @@ for (let right = 0; right < arr.length; right++) {
 | [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
 | [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
 | [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
+| [Loyalty](https://codeforces.com/problemset/problem/2161/C) | `Codeforces` | `1200` | `loyalty.js` | Key algorithmic application from Day 2026-10-26. |
+| [Boring Day](https://codeforces.com/problemset/problem/1982/C) | `Codeforces` | `1200` | `boringDay.js` | Key algorithmic application from Day 2026-10-26. |
+| [Delete Two Elements](https://codeforces.com/problemset/problem/1598/C) | `Codeforces` | `1200` | `deleteTwoElements.js` | Key algorithmic application from Day 2026-10-26. |
+| [Points on Line](https://codeforces.com/problemset/problem/251/A) | `Codeforces` | `1300` | `pointsOnLine.js` | Key algorithmic application from Day 2026-10-26. |
 
 ---
 

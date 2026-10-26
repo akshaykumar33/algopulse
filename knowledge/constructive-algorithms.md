@@ -160,6 +160,13 @@ function constructMatrix(n, m) {
 | [Neighbor Grid](https://codeforces.com/problemset/problem/1375/B) | `Codeforces` | `1200` | `neighborGrid.js` | Key algorithmic application from Day 2026-10-25. |
 | [Nastia and a Good Array](https://codeforces.com/problemset/problem/1521/B) | `Codeforces` | `1300` | `nastiaAndAGoodArray.js` | Key algorithmic application from Day 2026-10-25. |
 | [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
+| [Unnatural Conditions](https://codeforces.com/problemset/problem/1028/B) | `Codeforces` | `1200` | `unnaturalConditions.js` | Key algorithmic application from Day 2026-10-26. |
+| [Loyalty](https://codeforces.com/problemset/problem/2161/C) | `Codeforces` | `1200` | `loyalty.js` | Key algorithmic application from Day 2026-10-26. |
+| [Diameter of Graph](https://codeforces.com/problemset/problem/1581/B) | `Codeforces` | `1200` | `diameterOfGraph.js` | Key algorithmic application from Day 2026-10-26. |
+| [Add 0 or K](https://codeforces.com/problemset/problem/2134/B) | `Codeforces` | `1200` | `add0OrK.js` | Key algorithmic application from Day 2026-10-26. |
+| [Distances to Zero](https://codeforces.com/problemset/problem/803/B) | `Codeforces` | `1200` | `distancesToZero.js` | Key algorithmic application from Day 2026-10-26. |
+| [World Cup](https://codeforces.com/problemset/problem/931/B) | `Codeforces` | `1200` | `worldCup.js` | Key algorithmic application from Day 2026-10-26. |
+| [Binary String Constructing](https://codeforces.com/problemset/problem/1003/B) | `Codeforces` | `1300` | `binaryStringConstructing.js` | Key algorithmic application from Day 2026-10-26. |
 
 ---
 

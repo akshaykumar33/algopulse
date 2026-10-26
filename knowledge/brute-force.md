@@ -152,6 +152,10 @@ function backtrack(index, currentSum, target, arr) {
 | [The Monster](https://codeforces.com/problemset/problem/787/A) | `Codeforces` | `1200` | `theMonster.js` | Key algorithmic application from Day 2026-10-25. |
 | [Inflation](https://codeforces.com/problemset/problem/1476/B) | `Codeforces` | `1300` | `inflation.js` | Key algorithmic application from Day 2026-10-25. |
 | [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
+| [Honey Cake](https://codeforces.com/problemset/problem/2181/H) | `Codeforces` | `1200` | `honeyCake.js` | Key algorithmic application from Day 2026-10-26. |
+| [A Balanced Problemset?](https://codeforces.com/problemset/problem/1925/B) | `Codeforces` | `1200` | `aBalancedProblemset.js` | Key algorithmic application from Day 2026-10-26. |
+| [Yet Another Array Restoration](https://codeforces.com/problemset/problem/1409/C) | `Codeforces` | `1200` | `yetAnotherArrayRestoration.js` | Key algorithmic application from Day 2026-10-26. |
+| [Summarize to the Power of Two](https://codeforces.com/problemset/problem/1005/C) | `Codeforces` | `1300` | `summarizeToThePowerOfTwo.js` | Key algorithmic application from Day 2026-10-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
