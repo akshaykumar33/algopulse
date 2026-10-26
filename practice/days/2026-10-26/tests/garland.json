@@ -1,0 +1,10 @@
+[
+  {
+    "input": "aabb\naa\n",
+    "output": "2\n"
+  },
+  {
+    "input": "aabb\nabc\n",
+    "output": "-1\n"
+  }
+]

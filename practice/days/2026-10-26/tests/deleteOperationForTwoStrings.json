@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"sea\"\n\"eat\"",
+    "output": "2"
+  },
+  {
+    "input": "\"leetcode\"\n\"etco\"",
+    "output": "4"
+  }
+]

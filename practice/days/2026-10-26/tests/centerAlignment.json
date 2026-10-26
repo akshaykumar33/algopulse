@@ -1,0 +1,6 @@
+[
+  {
+    "input": "helloworld\na\nb\n",
+    "output": "************\n*helloworld*\n*    a     *\n*    b     *\n************\n"
+  }
+]
