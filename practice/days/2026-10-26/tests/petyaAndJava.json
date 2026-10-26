@@ -1,0 +1,14 @@
+[
+  {
+    "input": "120\n",
+    "output": "byte\n"
+  },
+  {
+    "input": "300000\n",
+    "output": "int\n"
+  },
+  {
+    "input": "10000000000000000000000000000000000\n",
+    "output": "BigInteger\n"
+  }
+]

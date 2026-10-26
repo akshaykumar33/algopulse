@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n5 5\nspoon\nxxxxn\nxxxxo\nxxxxo\nxxxxp\n5 5\nspooo\nxxxxx\nxxxxx\nxxxxx\nxxxxx\n",
+    "output": "There is a spoon!\nThere is indeed no spoon!\n"
+  }
+]

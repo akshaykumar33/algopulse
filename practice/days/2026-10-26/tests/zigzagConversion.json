@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"PAYPALISHIRING\"\n3",
+    "output": "\"PAHNAPLSIIGYIR\""
+  },
+  {
+    "input": "\"PAYPALISHIRING\"\n4",
+    "output": "\"PINALSIGYAHRPI\""
+  },
+  {
+    "input": "\"A\"\n1",
+    "output": "\"A\""
+  }
+]
