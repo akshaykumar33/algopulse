@@ -1,0 +1,14 @@
+[
+  {
+    "input": "aabbcc\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "aaacb\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "aabcc\n",
+    "output": "YES\n"
+  }
+]

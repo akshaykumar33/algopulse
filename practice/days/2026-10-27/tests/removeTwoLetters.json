@@ -1,0 +1,6 @@
+[
+  {
+    "input": "7\n6\naaabcc\n10\naaaaaaaaaa\n6\nabcdef\n7\nabaabab\n5\naaaaa\n4\nbaac\n7\nxsdfsbs\n",
+    "output": "4\n1\n5\n3\n1\n3\n5\n"
+  }
+]

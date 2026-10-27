@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"bread\"]\n[[\"yeast\",\"flour\"]]\n[\"yeast\",\"flour\",\"corn\"]",
+    "output": "[\"bread\"]"
+  }
+]

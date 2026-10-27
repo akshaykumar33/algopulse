@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3 4\nG..S\n.G.S\n..GS\n",
+    "output": "3"
+  },
+  {
+    "input": "2 4\n.*G.\n*G..\n",
+    "output": "-1\n"
+  }
+]

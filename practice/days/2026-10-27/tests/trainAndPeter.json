@@ -1,0 +1,10 @@
+[
+  {
+    "input": "atob\na\nb\n",
+    "output": "forward\n"
+  },
+  {
+    "input": "aaacaaa\naca\naa\n",
+    "output": "both\n"
+  }
+]

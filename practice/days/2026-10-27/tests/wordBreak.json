@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"leetcode\"\n[\"leet\",\"code\"]",
+    "output": "true"
+  },
+  {
+    "input": "\"applepenapple\"\n[\"apple\",\"pen\"]",
+    "output": "true"
+  },
+  {
+    "input": "\"catsandog\"\n[\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]",
+    "output": "false"
+  }
+]

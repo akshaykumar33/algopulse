@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"RandomizedSet\", \"insert\", \"remove\", \"insert\", \"getRandom\", \"remove\", \"insert\", \"getRandom\"]\n[[], [1], [2], [2], [], [1], [2], []]",
+    "output": "[null,true,false,true,2,true,false,2]"
+  }
+]

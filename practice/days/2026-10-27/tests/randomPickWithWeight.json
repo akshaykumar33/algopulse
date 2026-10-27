@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"Solution\",\"pickIndex\"]\n[[[1]],[]]",
+    "output": "[null,0]"
+  }
+]
