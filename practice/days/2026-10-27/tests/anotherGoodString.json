@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n4 2\nabcd\na\nb\n",
+    "output": "1 1 1"
+  }
+]
