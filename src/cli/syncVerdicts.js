@@ -35,11 +35,20 @@ async function sync(dateStr = '2026-10-18') {
   const cfSubs = submissions.filter(s => s.platform === 'Codeforces');
 
   try {
-    const apiRecords = await fetchUserStatus('akshaykumarpatil33', 30);
+    const apiRecords = await fetchUserStatus('akshaykumarpatil33', 100);
     let changed = false;
 
     for (const sub of cfSubs) {
-      const match = apiRecords.find(r => String(r.id) === String(sub.submissionId));
+      // First look for exact submissionId match, or any OK submission for this problem
+      let match = apiRecords.find(r => String(r.id) === String(sub.submissionId));
+      const okMatch = apiRecords.find(r => {
+        const pCode = `${r.problem.contestId}${r.problem.index}`;
+        return (pCode === sub.problemId || pCode === sub.id) && r.verdict === 'OK';
+      });
+      if (okMatch) {
+        match = okMatch;
+      }
+
       if (match && match.verdict) {
         let newVerdict = match.verdict;
         if (match.verdict === 'OK') newVerdict = 'Accepted';
@@ -47,8 +56,9 @@ async function sync(dateStr = '2026-10-18') {
         else if (match.verdict === 'TIME_LIMIT_EXCEEDED') newVerdict = `Time limit exceeded on test ${match.passedTestCount + 1}`;
         else if (match.verdict === 'MEMORY_LIMIT_EXCEEDED') newVerdict = `Memory limit exceeded on test ${match.passedTestCount + 1}`;
 
-        if (sub.verdict !== newVerdict) {
-          console.log(`[sync] Updating ${sub.problemId} (${sub.submissionId}): ${sub.verdict} -> ${newVerdict}`);
+        if (sub.verdict !== newVerdict || String(sub.submissionId) !== String(match.id)) {
+          console.log(`[sync] Updating ${sub.problemId} (#${match.id}): ${sub.verdict} -> ${newVerdict}`);
+          sub.submissionId = String(match.id);
           sub.verdict = newVerdict;
           sub.time = `${match.timeConsumedMillis}\u00a0ms`;
           sub.memory = `${Math.round(match.memoryConsumedBytes / 1024)}\u00a0KB`;

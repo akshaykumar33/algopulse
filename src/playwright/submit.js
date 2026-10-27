@@ -665,11 +665,11 @@ function getNumericTier(num) {
  */
 function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
-  if (isFast) return 4000;
+  if (isFast) return 3000;
 
   const i = cliArgs.indexOf('--cooldown');
   if (i !== -1) {
-    return getCooldownWithJitter(resolveCooldownMs(cliArgs), false);
+    return resolveCooldownMs(cliArgs);
   }
 
   const targetProb = nextProblem || currProblem;
@@ -704,7 +704,7 @@ function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = 
 function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
   if (isFast) {
-    return 5000;
+    return 3000;
   }
 
   const i = cliArgs.indexOf('--cooldown');
@@ -730,16 +730,14 @@ function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
     const num = parseFloat(str);
     if (isNaN(num)) ms = 120000;
     else if (num < 30) {
-      // e.g. --cooldown 2 -> 2 minutes
       ms = Math.round(num * 60 * 1000);
     } else if (num < 1000) {
-      // e.g. --cooldown 120 -> 120 seconds
       ms = Math.round(num * 1000);
     } else {
       ms = Math.round(num);
     }
   }
-  return Math.min(180000, Math.max(60000, ms));
+  return Math.max(1000, ms);
 }
 
 /**

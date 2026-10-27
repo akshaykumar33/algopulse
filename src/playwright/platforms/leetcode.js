@@ -146,21 +146,21 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
         return lang === 'javascript' || lang === 'typescript';
       });
       const applyCode = (m) => {
-        let finalCode = src;
+        let finalCode = (src || '').replace(/\r\n/g, '\n');
         if (!isSql) {
           const starter = m.getValue() || '';
           const cleanStarter = starter.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '').trim();
           const fnMatch = cleanStarter.match(/(?:var|let|const)\s+([a-zA-Z0-9_$]+)\s*=\s*function|function\s+([a-zA-Z0-9_$]+)\s*\(|class\s+([a-zA-Z0-9_$]+)\b/);
           const expectedFn = fnMatch ? (fnMatch[1] || fnMatch[2] || fnMatch[3]) : null;
           if (expectedFn && expectedFn !== 'solve') {
-            const hasExpected = new RegExp(`(?:var|let|const|function|class)\\s+${expectedFn}\\b`).test(src);
+            const hasExpected = new RegExp(`(?:var|let|const|function|class)\\s+${expectedFn}\\b`).test(finalCode);
             if (!hasExpected) {
-              if (/\b(?:var|let|const)\s+solve\s*=\s*function|\bfunction\s+solve\s*\(/.test(src)) {
-                finalCode = src.replace(/\b(?:var|let|const)\s+solve\s*=\s*function/, `var ${expectedFn} = function`)
+              if (/\b(?:var|let|const)\s+solve\s*=\s*function|\bfunction\s+solve\s*\(/.test(finalCode)) {
+                finalCode = finalCode.replace(/\b(?:var|let|const)\s+solve\s*=\s*function/, `var ${expectedFn} = function`)
                                .replace(/\bfunction\s+solve\s*\(/, `function ${expectedFn}(`)
                                + `\nvar solve = typeof ${expectedFn} !== 'undefined' ? ${expectedFn} : null;\n`;
               } else {
-                finalCode = src + `\nvar ${expectedFn} = typeof solve !== 'undefined' ? solve : null;\n`;
+                finalCode = finalCode + `\nvar ${expectedFn} = typeof solve !== 'undefined' ? solve : null;\n`;
               }
             }
           }
@@ -197,13 +197,15 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   }, { src: code, isSql });
 
   if (!setViaMonaco) {
-    // Fallback: click editor, select all, fill/paste
+    // Fallback: click editor, select all, fill/paste via clipboard
     const editor = await page.$('.monaco-editor');
     if (editor) {
       await editor.click();
       await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
       await page.keyboard.press('Backspace');
-      await page.keyboard.insertText(code);
+      const normCode = code.replace(/\r\n/g, '\n');
+      await page.evaluate((src) => navigator.clipboard.writeText(src), normCode).catch(() => {});
+      await page.keyboard.press(process.platform === 'darwin' ? 'Meta+V' : 'Control+V');
     }
   }
 

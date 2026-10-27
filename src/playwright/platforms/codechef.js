@@ -74,7 +74,17 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
         console.log(`    [CodeChef] Switching language to JavaScript ...`);
         await langSelect.click({ timeout: 2000 }).catch(() => {});
         await page.waitForTimeout(500);
-        const jsOption = await page.$('li[role="option"]:has-text("JavaScript"), li:has-text("JavaScript")');
+        const searchBox = await page.$('input[placeholder*="search" i], input[type="text"]');
+        if (searchBox) {
+          await searchBox.fill('JavaScript');
+          await page.waitForTimeout(500);
+        }
+        let jsOption = await page.$('li[role="option"]:has-text("JavaScript"), li:has-text("JavaScript"), div[role="option"]:has-text("JavaScript")');
+        if (!jsOption && searchBox) {
+          await searchBox.fill('Node');
+          await page.waitForTimeout(500);
+          jsOption = await page.$('li[role="option"]:has-text("Node"), li:has-text("Node"), div[role="option"]:has-text("Node")');
+        }
         if (jsOption) {
           await jsOption.click().catch(() => {});
           await page.waitForTimeout(500);
@@ -94,20 +104,22 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
   let codeSet = false;
   for (let attempt = 0; attempt < 3; attempt++) {
     const success = await page.evaluate((src) => {
+      const norm = (s) => (s || '').replace(/\r\n/g, '\n').trim();
+      const target = norm(src);
       const editorEl = document.querySelector('.ace_editor');
       if (editorEl && window.ace) {
         try {
           const editor = window.ace.edit(editorEl);
-          editor.setValue(src, -1);
+          editor.setValue(target, -1);
           editor.session.getUndoManager().reset();
-          return editor.getValue().trim() === src.trim();
+          return norm(editor.getValue()) === target;
         } catch {}
       }
       if (window.monaco && window.monaco.editor) {
         const models = window.monaco.editor.getModels();
         if (models && models.length > 0) {
-          models[0].setValue(src);
-          return models[0].getValue().trim() === src.trim();
+          models[0].setValue(target);
+          return norm(models[0].getValue()) === target;
         }
       }
       return false;
@@ -127,7 +139,9 @@ async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
       await editor.click({ force: true }).catch(() => {});
       await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
       await page.keyboard.press('Backspace');
-      await page.keyboard.insertText(code);
+      const normCode = code.replace(/\r\n/g, '\n');
+      await page.evaluate((src) => navigator.clipboard.writeText(src), normCode).catch(() => {});
+      await page.keyboard.press(process.platform === 'darwin' ? 'Meta+V' : 'Control+V');
     }
   }
 
