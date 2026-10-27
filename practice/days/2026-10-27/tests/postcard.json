@@ -1,0 +1,14 @@
+[
+  {
+    "input": "hw?owl*d\n9\n",
+    "output": "hwowlllld\n"
+  },
+  {
+    "input": "hw?owl*d\n5\n",
+    "output": "howld\n"
+  },
+  {
+    "input": "ab?c\n5\n",
+    "output": "Impossible\n"
+  }
+]

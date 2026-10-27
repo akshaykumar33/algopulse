@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[3,2,1,6,0,5]",
+    "output": "{\"val\":6,\"left\":{\"val\":3,\"left\":null,\"right\":{\"val\":2,\"left\":null,\"right\":{\"val\":1,\"left\":null,\"right\":null}}},\"right\":{\"val\":5,\"left\":{\"val\":0,\"left\":null,\"right\":null},\"right\":null}}"
+  },
+  {
+    "input": "[3,2,1]",
+    "output": "{\"val\":3,\"left\":null,\"right\":{\"val\":2,\"left\":null,\"right\":{\"val\":1,\"left\":null,\"right\":null}}}"
+  }
+]

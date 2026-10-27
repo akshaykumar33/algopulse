@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aabcc\"\n\"dbbca\"\n\"aadbbcbcac\"",
+    "output": "true"
+  },
+  {
+    "input": "\"aabcc\"\n\"dbbca\"\n\"aadbbbaccc\"",
+    "output": "false"
+  },
+  {
+    "input": "\"\"\n\"\"\n\"\"",
+    "output": "true"
+  }
+]
