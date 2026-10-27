@@ -128,6 +128,10 @@ function isPalindrome(s) {
 | [Phone Numbers](https://codeforces.com/problemset/problem/151/B) | `Codeforces` | `1200` | `phoneNumbers.js` | Key algorithmic application from Day 2026-10-26. |
 | [Center Alignment](https://codeforces.com/problemset/problem/5/B) | `Codeforces` | `1200` | `centerAlignment.js` | Key algorithmic application from Day 2026-10-26. |
 | [Petya and Java](https://codeforces.com/problemset/problem/66/A) | `Codeforces` | `1300` | `petyaAndJava.js` | Key algorithmic application from Day 2026-10-26. |
+| [Remove Two Letters](https://codeforces.com/problemset/problem/1800/D) | `Codeforces` | `1200` | `removeTwoLetters.js` | Key algorithmic application from Day 2026-10-27. |
+| [A and B](https://codeforces.com/problemset/problem/2149/D) | `Codeforces` | `1200` | `aAndB.js` | Key algorithmic application from Day 2026-10-27. |
+| [Train and Peter](https://codeforces.com/problemset/problem/8/A) | `Codeforces` | `1200` | `trainAndPeter.js` | Key algorithmic application from Day 2026-10-27. |
+| [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

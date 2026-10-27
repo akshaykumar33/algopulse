@@ -156,6 +156,11 @@ function backtrack(index, currentSum, target, arr) {
 | [A Balanced Problemset?](https://codeforces.com/problemset/problem/1925/B) | `Codeforces` | `1200` | `aBalancedProblemset.js` | Key algorithmic application from Day 2026-10-26. |
 | [Yet Another Array Restoration](https://codeforces.com/problemset/problem/1409/C) | `Codeforces` | `1200` | `yetAnotherArrayRestoration.js` | Key algorithmic application from Day 2026-10-26. |
 | [Summarize to the Power of Two](https://codeforces.com/problemset/problem/1005/C) | `Codeforces` | `1300` | `summarizeToThePowerOfTwo.js` | Key algorithmic application from Day 2026-10-26. |
+| [Inna and New Matrix of Candies](https://codeforces.com/problemset/problem/400/B) | `Codeforces` | `1200` | `innaAndNewMatrixOfCandies.js` | Key algorithmic application from Day 2026-10-27. |
+| [Two Cakes](https://codeforces.com/problemset/problem/911/B) | `Codeforces` | `1200` | `twoCakes.js` | Key algorithmic application from Day 2026-10-27. |
+| [Two Problems](https://codeforces.com/problemset/problem/203/A) | `Codeforces` | `1200` | `twoProblems.js` | Key algorithmic application from Day 2026-10-27. |
+| [3SUM](https://codeforces.com/problemset/problem/1692/F) | `Codeforces` | `1300` | `threeSum1692F.js` | Key algorithmic application from Day 2026-10-27. |
+| [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -130,6 +130,9 @@ class MinHeap {
 | [Find the Different Ones!](https://codeforces.com/problemset/problem/1927/D) | `Codeforces` | `1300` | `findTheDifferentOnes.js` | Key algorithmic application from Day 2026-10-25. |
 | [Boring Day](https://codeforces.com/problemset/problem/1982/C) | `Codeforces` | `1200` | `boringDay.js` | Key algorithmic application from Day 2026-10-26. |
 | [Delete Two Elements](https://codeforces.com/problemset/problem/1598/C) | `Codeforces` | `1200` | `deleteTwoElements.js` | Key algorithmic application from Day 2026-10-26. |
+| [Lecture Sleep](https://codeforces.com/problemset/problem/961/B) | `Codeforces` | `1200` | `lectureSleep.js` | Key algorithmic application from Day 2026-10-27. |
+| [Three Parts of the Array](https://codeforces.com/problemset/problem/1006/C) | `Codeforces` | `1200` | `threePartsOfTheArray.js` | Key algorithmic application from Day 2026-10-27. |
+| [Remove Two Letters](https://codeforces.com/problemset/problem/1800/D) | `Codeforces` | `1200` | `removeTwoLetters.js` | Key algorithmic application from Day 2026-10-27. |
 
 ---
 

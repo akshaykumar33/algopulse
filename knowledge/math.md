@@ -231,6 +231,12 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [T-primes](https://codeforces.com/problemset/problem/230/B) | `Codeforces` | `1300` | `tPrimes.js` | Key algorithmic application from Day 2026-10-26. |
 | [Points on Line](https://codeforces.com/problemset/problem/251/A) | `Codeforces` | `1300` | `pointsOnLine.js` | Key algorithmic application from Day 2026-10-26. |
 | [Fox Dividing Cheese](https://codeforces.com/problemset/problem/371/B) | `Codeforces` | `1300` | `foxDividingCheese.js` | Key algorithmic application from Day 2026-10-26. |
+| [Divisibility by 2^n](https://codeforces.com/problemset/problem/1744/D) | `Codeforces` | `1200` | `divisibilityBy2N.js` | Key algorithmic application from Day 2026-10-27. |
+| [Beautiful Array](https://codeforces.com/problemset/problem/2041/E) | `Codeforces` | `1200` | `beautifulArray.js` | Key algorithmic application from Day 2026-10-27. |
+| [Training Before the Olympiad](https://codeforces.com/problemset/problem/1916/C) | `Codeforces` | `1200` | `trainingBeforeTheOlympiad.js` | Key algorithmic application from Day 2026-10-27. |
+| [3SUM](https://codeforces.com/problemset/problem/1692/F) | `Codeforces` | `1300` | `threeSum1692F.js` | Key algorithmic application from Day 2026-10-27. |
+| [Stamina and Tasks](https://codeforces.com/problemset/problem/2208/C) | `Codeforces` | `1300` | `staminaAndTasks.js` | Key algorithmic application from Day 2026-10-27. |
+| [Closest Cities](https://codeforces.com/problemset/problem/1922/C) | `Codeforces` | `1300` | `closestCities.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

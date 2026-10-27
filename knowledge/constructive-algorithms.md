@@ -167,6 +167,14 @@ function constructMatrix(n, m) {
 | [Distances to Zero](https://codeforces.com/problemset/problem/803/B) | `Codeforces` | `1200` | `distancesToZero.js` | Key algorithmic application from Day 2026-10-26. |
 | [World Cup](https://codeforces.com/problemset/problem/931/B) | `Codeforces` | `1200` | `worldCup.js` | Key algorithmic application from Day 2026-10-26. |
 | [Binary String Constructing](https://codeforces.com/problemset/problem/1003/B) | `Codeforces` | `1300` | `binaryStringConstructing.js` | Key algorithmic application from Day 2026-10-26. |
+| [Lesha and array splitting](https://codeforces.com/problemset/problem/754/A) | `Codeforces` | `1200` | `leshaAndArraySplitting.js` | Key algorithmic application from Day 2026-10-27. |
+| [MEX Multiset](https://codeforces.com/problemset/problem/2259/D) | `Codeforces` | `1200` | `mEXMultiset.js` | Key algorithmic application from Day 2026-10-27. |
+| [Maximum Number](https://codeforces.com/problemset/problem/774/C) | `Codeforces` | `1200` | `maximumNumber.js` | Key algorithmic application from Day 2026-10-27. |
+| [Beautiful Array](https://codeforces.com/problemset/problem/2041/E) | `Codeforces` | `1200` | `beautifulArray.js` | Key algorithmic application from Day 2026-10-27. |
+| [Restricted RPS](https://codeforces.com/problemset/problem/1245/B) | `Codeforces` | `1200` | `restrictedRPS.js` | Key algorithmic application from Day 2026-10-27. |
+| [Postcard](https://codeforces.com/problemset/problem/1099/C) | `Codeforces` | `1200` | `postcard.js` | Key algorithmic application from Day 2026-10-27. |
+| [Training Before the Olympiad](https://codeforces.com/problemset/problem/1916/C) | `Codeforces` | `1200` | `trainingBeforeTheOlympiad.js` | Key algorithmic application from Day 2026-10-27. |
+| [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
 
 ---
 

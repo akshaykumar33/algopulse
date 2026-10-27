@@ -100,6 +100,10 @@ for (let right = 0; right < arr.length; right++) {
 | [Boring Day](https://codeforces.com/problemset/problem/1982/C) | `Codeforces` | `1200` | `boringDay.js` | Key algorithmic application from Day 2026-10-26. |
 | [Delete Two Elements](https://codeforces.com/problemset/problem/1598/C) | `Codeforces` | `1200` | `deleteTwoElements.js` | Key algorithmic application from Day 2026-10-26. |
 | [Points on Line](https://codeforces.com/problemset/problem/251/A) | `Codeforces` | `1300` | `pointsOnLine.js` | Key algorithmic application from Day 2026-10-26. |
+| [Eugeny and Play List](https://codeforces.com/problemset/problem/302/B) | `Codeforces` | `1200` | `eugenyAndPlayList.js` | Key algorithmic application from Day 2026-10-27. |
+| [Lecture Sleep](https://codeforces.com/problemset/problem/961/B) | `Codeforces` | `1200` | `lectureSleep.js` | Key algorithmic application from Day 2026-10-27. |
+| [Three Parts of the Array](https://codeforces.com/problemset/problem/1006/C) | `Codeforces` | `1200` | `threePartsOfTheArray.js` | Key algorithmic application from Day 2026-10-27. |
+| [News About Credit](https://codeforces.com/problemset/problem/769/B) | `Codeforces` | `1200` | `newsAboutCredit.js` | Key algorithmic application from Day 2026-10-27. |
 
 ---
 
