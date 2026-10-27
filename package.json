@@ -34,6 +34,7 @@
     "codegraph:sync": "codegraph sync .",
     "achieve": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/achieve.ps1",
     "submit": "node src/playwright/submit.js",
+    "submit:fast": "node src/playwright/submit.js --fast",
     "submit:dry": "node src/playwright/submit.js --dry-run",
     "submit:failed": "node src/playwright/submit.js --failed-only",
     "submit:retry": "node src/playwright/submit.js --failed-only",

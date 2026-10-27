@@ -29,8 +29,29 @@ const existingDays = () =>
     : [];
 
 function runCode(code, input) {
-  // Ensure require.main === module is true when executing via node -e
-  const runner = `require.main = module;\n${code}`;
+  let runner = `require.main = module;\n${code}`;
+  // If the code doesn't output anything via console.log on its own, invoke solve() as fallback
+  if (!code.includes('console.log') || !code.includes('require.main === module')) {
+    runner += `\n
+if (typeof solve === 'function') {
+  const fs = require('fs');
+  let raw = '';
+  try { raw = fs.readFileSync(0, 'utf-8').trim(); } catch (_) {}
+  if (raw) {
+    const lines = raw.split(/\\r?\\n/).filter(Boolean);
+    for (const line of lines) {
+      try {
+        const parsed = JSON.parse(line);
+        const res = Array.isArray(parsed) && solve.length > 1 ? solve(...parsed) : solve(parsed);
+        console.log(JSON.stringify(res));
+      } catch (_) {
+        console.log(JSON.stringify(solve(line)));
+      }
+    }
+  }
+}
+`;
+  }
   return spawnSync('node', ['-e', runner], {
     input,
     encoding: 'utf-8',
@@ -55,9 +76,16 @@ function buildPrompt(problem) {
   let formatInstructions = '';
   if (isLc) {
     formatInstructions = `Platform is LeetCode:
-- Write the core solution function (e.g. \`var solve = function(...) { ... };\`).
-- If inputs can be trees, include a TreeNode definition and helper \`if (Array.isArray(root)) root = buildTree(root);\`.
-- Wrap in the standard local runner:
+- Function Signature & Class Structure:
+  * For standard functions, declare the function matching the problem (e.g. \`var ${problem.file} = function(...) { ... };\`) and alias \`var solve = typeof ${problem.file} !== 'undefined' ? ${problem.file} : null;\`.
+  * For Design / Class problems, declare the class or constructor function at the top level (e.g. \`class WordDictionary { ... }\`).
+  * Return types must match LeetCode judge specifications:
+    - If LeetCode expects a TreeNode, return the TreeNode root node directly (NOT an array).
+    - If LeetCode expects a ListNode, return the ListNode head node directly (NOT an array).
+- Segregate Local Test Harness:
+  * Put all local helpers (buildTree, treeToArray, arrayToList, listToArray) and local runner logic strictly below this marker:
+    // ---------------- LOCAL TEST HARNESS ----------------
+  * In the local harness, implement \`var solve = function(...) { ... }\` that converts array inputs into trees/lists, calls the main function, converts output to array, and prints/returns it for local test verification:
 \`\`\`javascript
 if (require.main === module) {
   const fs = require('fs');
@@ -81,12 +109,17 @@ if (require.main === module) {
 }
 module.exports = solve;
 \`\`\`
-- Tests format: 'input' must be JSON-serialized string lines matching standard LeetCode input, 'output' must be JSON-serialized strings (e.g. "true\\nfalse\\n" or "1\\n4\\n").`;
+- Tests format: 'input' must be JSON string lines matching standard LeetCode input, 'output' must be JSON string (e.g. "true\\nfalse\\n" or "1\\n4\\n").`;
   } else {
     formatInstructions = `Platform is ${isCc ? 'CodeChef' : 'Codeforces'}:
-- Read all standard input synchronously via \`fs.readFileSync(0, 'utf-8').trim().split(/\\r?\\n/)\`.
-- Handle multi-test case loops (\`t\`) if the problem specifies multiple test cases.
-- Buffer output into an array and flush with \`console.log(out.join('\\n'))\`.
+- Fast Robust I/O:
+  * Read input using tokenized fast I/O:
+    const fs = require('fs');
+    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\\s+/);
+    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+    let ptr = 0;
+  * Read multi-test cases safely: const t = parseInt(tokens[ptr++], 10);
+  * Buffer all output into an array (\`const out = [];\`) and flush once with \`console.log(out.join('\\n'))\`.
 - Tests format: 'input' must be exact raw multiline stdin ending with newline, 'output' must be exact expected stdout ending with newline.`;
   }
 
