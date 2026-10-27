@@ -124,6 +124,7 @@ function missingNumber(nums) {
 | [Divisor Chain](https://codeforces.com/problemset/problem/1864/C) | `Codeforces` | `1300` | `divisorChain.js` | Key algorithmic application from Day 2026-10-24. |
 | [Bit Flipping](https://codeforces.com/problemset/problem/1659/B) | `Codeforces` | `1300` | `bitFlipping.js` | Key algorithmic application from Day 2026-10-25. |
 | [Slice to Survive](https://codeforces.com/problemset/problem/2109/B) | `Codeforces` | `1200` | `sliceToSurvive.js` | Key algorithmic application from Day 2026-10-26. |
+| [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

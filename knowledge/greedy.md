@@ -240,6 +240,24 @@ for (const x of arr) {
 | [Sereja and Contests](https://codeforces.com/problemset/problem/401/B) | `Codeforces` | `1200` | `serejaAndContests.js` | Key algorithmic application from Day 2026-10-26. |
 | [Nastya and Door](https://codeforces.com/problemset/problem/1341/B) | `Codeforces` | `1300` | `nastyaAndDoor.js` | Key algorithmic application from Day 2026-10-26. |
 | [Summarize to the Power of Two](https://codeforces.com/problemset/problem/1005/C) | `Codeforces` | `1300` | `summarizeToThePowerOfTwo.js` | Key algorithmic application from Day 2026-10-26. |
+| [A Simple GCD Problem (Easy Version)](https://codeforces.com/problemset/problem/2210/C1) | `Codeforces` | `1200` | `aSimpleGCDProblemEasyVersion.js` | Key algorithmic application from Day 2026-10-27. |
+| [Lesha and array splitting](https://codeforces.com/problemset/problem/754/A) | `Codeforces` | `1200` | `leshaAndArraySplitting.js` | Key algorithmic application from Day 2026-10-27. |
+| [Robot's Task](https://codeforces.com/problemset/problem/583/B) | `Codeforces` | `1200` | `robotSTask.js` | Key algorithmic application from Day 2026-10-27. |
+| [Assembly via Minimums](https://codeforces.com/problemset/problem/1857/C) | `Codeforces` | `1200` | `assemblyViaMinimums.js` | Key algorithmic application from Day 2026-10-27. |
+| [MEX Multiset](https://codeforces.com/problemset/problem/2259/D) | `Codeforces` | `1200` | `mEXMultiset.js` | Key algorithmic application from Day 2026-10-27. |
+| [Divisibility by 2^n](https://codeforces.com/problemset/problem/1744/D) | `Codeforces` | `1200` | `divisibilityBy2N.js` | Key algorithmic application from Day 2026-10-27. |
+| [Maximum Number](https://codeforces.com/problemset/problem/774/C) | `Codeforces` | `1200` | `maximumNumber.js` | Key algorithmic application from Day 2026-10-27. |
+| [News About Credit](https://codeforces.com/problemset/problem/769/B) | `Codeforces` | `1200` | `newsAboutCredit.js` | Key algorithmic application from Day 2026-10-27. |
+| [Two Cakes](https://codeforces.com/problemset/problem/1130/B) | `Codeforces` | `1200` | `twoCakes1130B.js` | Key algorithmic application from Day 2026-10-27. |
+| [Remove Two Letters](https://codeforces.com/problemset/problem/1800/D) | `Codeforces` | `1200` | `removeTwoLetters.js` | Key algorithmic application from Day 2026-10-27. |
+| [Restricted RPS](https://codeforces.com/problemset/problem/1245/B) | `Codeforces` | `1200` | `restrictedRPS.js` | Key algorithmic application from Day 2026-10-27. |
+| [Training Before the Olympiad](https://codeforces.com/problemset/problem/1916/C) | `Codeforces` | `1200` | `trainingBeforeTheOlympiad.js` | Key algorithmic application from Day 2026-10-27. |
+| [Polycarp's Practice](https://codeforces.com/problemset/problem/1006/B) | `Codeforces` | `1200` | `polycarpSPractice.js` | Key algorithmic application from Day 2026-10-27. |
+| [Stamina and Tasks](https://codeforces.com/problemset/problem/2208/C) | `Codeforces` | `1300` | `staminaAndTasks.js` | Key algorithmic application from Day 2026-10-27. |
+| [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
+| [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
+| [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
+| [Closest Cities](https://codeforces.com/problemset/problem/1922/C) | `Codeforces` | `1300` | `closestCities.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -138,6 +138,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Rudolf and the Another Competition](https://codeforces.com/problemset/problem/1846/C) | `Codeforces` | `1200` | `rudolfAndTheAnotherCompetition.js` | Key algorithmic application from Day 2026-10-25. |
 | [Longest Strike](https://codeforces.com/problemset/problem/1676/F) | `Codeforces` | `1300` | `longestStrike.js` | Key algorithmic application from Day 2026-10-25. |
 | [Loyalty](https://codeforces.com/problemset/problem/2161/C) | `Codeforces` | `1200` | `loyalty.js` | Key algorithmic application from Day 2026-10-26. |
+| [Assembly via Minimums](https://codeforces.com/problemset/problem/1857/C) | `Codeforces` | `1200` | `assemblyViaMinimums.js` | Key algorithmic application from Day 2026-10-27. |
+| [Divisibility by 2^n](https://codeforces.com/problemset/problem/1744/D) | `Codeforces` | `1200` | `divisibilityBy2N.js` | Key algorithmic application from Day 2026-10-27. |
+| [Polycarp's Practice](https://codeforces.com/problemset/problem/1006/B) | `Codeforces` | `1200` | `polycarpSPractice.js` | Key algorithmic application from Day 2026-10-27. |
+| [Jeff and Periods](https://codeforces.com/problemset/problem/352/B) | `Codeforces` | `1300` | `jeffAndPeriods.js` | Key algorithmic application from Day 2026-10-27. |
+| [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -123,6 +123,7 @@ function dfsIterative(start, adj, n) {
 | [Princesses and Princes](https://codeforces.com/problemset/problem/1327/B) | `Codeforces` | `1200` | `princessesAndPrinces.js` | Key algorithmic application from Day 2026-10-25. |
 | [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
 | [Diameter of Graph](https://codeforces.com/problemset/problem/1581/B) | `Codeforces` | `1200` | `diameterOfGraph.js` | Key algorithmic application from Day 2026-10-26. |
+| [Mahmoud and Ehab and the bipartiteness](https://codeforces.com/problemset/problem/862/B) | `Codeforces` | `1300` | `mahmoudAndEhabAndTheBipartiteness.js` | Key algorithmic application from Day 2026-10-27. |
 
 ---
 

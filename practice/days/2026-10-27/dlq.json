@@ -1,0 +1,488 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-PREP35P",
+    "name": "Graphs - Capture Regions",
+    "file": "graphsCaptureRegions",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T12:24:50.728Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PREP35P",
+      "name": "Graphs - Capture Regions",
+      "rating": 1350,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PREP35P",
+      "file": "graphsCaptureRegions",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:55:44.594Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "769B",
+    "name": "News About Credit",
+    "file": "newsAboutCredit",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 12",
+    "enqueuedAt": "2026-10-27T12:31:31.265Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "769B",
+      "name": "News About Credit",
+      "rating": 1200,
+      "tags": [
+        "*special",
+        "greedy",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/769/B",
+      "file": "newsAboutCredit",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T13:27:17.024Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-FILLGRID",
+    "name": "The Grid Fill Problem",
+    "file": "theGridFillProblem",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:53:19.020Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-FILLGRID",
+      "name": "The Grid Fill Problem",
+      "rating": 1393,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FILLGRID",
+      "file": "theGridFillProblem",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-27T14:08:41.826Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "400B",
+    "name": "Inna and New Matrix of Candies",
+    "file": "innaAndNewMatrixOfCandies",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T13:55:09.896Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "400B",
+      "name": "Inna and New Matrix of Candies",
+      "rating": 1200,
+      "tags": [
+        "brute force",
+        "implementation",
+        "schedules"
+      ],
+      "url": "https://codeforces.com/problemset/problem/400/B",
+      "file": "innaAndNewMatrixOfCandies",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T13:20:56.906Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2041E",
+    "name": "Beautiful Array",
+    "file": "beautifulArray",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T13:55:46.578Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2041E",
+      "name": "Beautiful Array",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2041/E",
+      "file": "beautifulArray",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T13:28:37.548Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ADVITIYA4",
+    "name": "Another Good String ",
+    "file": "anotherGoodString",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:54:04.315Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ADVITIYA4",
+      "name": "Another Good String ",
+      "rating": 1314,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADVITIYA4",
+      "file": "anotherGoodString",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:52:25.462Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-HUNDW",
+    "name": " Houses Under Watch",
+    "file": "housesUnderWatch",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:57:21.699Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-HUNDW",
+      "name": " Houses Under Watch",
+      "rating": 1242,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/HUNDW",
+      "file": "housesUnderWatch",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:48:15.627Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-JLY",
+    "name": "Jolly Jolly",
+    "file": "jollyJolly",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:56:54.437Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-JLY",
+      "name": "Jolly Jolly",
+      "rating": 1300,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/JLY",
+      "file": "jollyJolly",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T15:07:12.173Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SPLITMAX",
+    "name": "Split and Maximize",
+    "file": "splitAndMaximize",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:57:18.931Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SPLITMAX",
+      "name": "Split and Maximize",
+      "rating": 1313,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SPLITMAX",
+      "file": "splitAndMaximize",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:36:04.719Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MODMIR",
+    "name": "Modular Mirrors",
+    "file": "modularMirrors",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T13:59:43.883Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MODMIR",
+      "name": "Modular Mirrors",
+      "rating": 1373,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MODMIR",
+      "file": "modularMirrors",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T15:05:20.237Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CUREX",
+    "name": "Currency Exchange",
+    "file": "currencyExchange",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T14:00:48.260Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CUREX",
+      "name": "Currency Exchange",
+      "rating": 1357,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CUREX",
+      "file": "currencyExchange",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T15:02:54.825Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-DIFFGCD",
+    "name": "Difference is GCD",
+    "file": "differenceIsGCD",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T14:01:13.530Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DIFFGCD",
+      "name": "Difference is GCD",
+      "rating": 1345,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIFFGCD",
+      "file": "differenceIsGCD",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:59:50.266Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PER_MED",
+    "name": "Permutation And Median",
+    "file": "permutationAndMedian",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T14:02:32.260Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PER_MED",
+      "name": "Permutation And Median",
+      "rating": 1318,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PER_MED",
+      "file": "permutationAndMedian",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:57:43.491Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2145C",
+    "name": "Monocarp's String",
+    "file": "monocarpSString",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T14:04:15.915Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2145C",
+      "name": "Monocarp's String",
+      "rating": 1300,
+      "tags": [
+        "binary search",
+        "greedy",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2145/C",
+      "file": "monocarpSString",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T13:32:07.783Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2210C1",
+    "name": "A Simple GCD Problem (Easy Version)",
+    "file": "aSimpleGCDProblemEasyVersion",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T14:05:56.683Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2210C1",
+      "name": "A Simple GCD Problem (Easy Version)",
+      "rating": 1200,
+      "tags": [
+        "greedy",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2210/C1",
+      "file": "aSimpleGCDProblemEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T14:23:07.116Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2259D",
+    "name": "MEX Multiset",
+    "file": "mEXMultiset",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T14:06:05.275Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2259D",
+      "name": "MEX Multiset",
+      "rating": 1200,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2259/D",
+      "file": "mEXMultiset",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T14:25:51.562Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2208C",
+    "name": "Stamina and Tasks",
+    "file": "staminaAndTasks",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-27T14:06:16.323Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2208C",
+      "name": "Stamina and Tasks",
+      "rating": 1300,
+      "tags": [
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2208/C",
+      "file": "staminaAndTasks",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-27T14:27:30.136Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CLEANUP",
+    "name": "Cleaning Up",
+    "file": "cleaningUp",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T14:37:28.681Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CLEANUP",
+      "name": "Cleaning Up",
+      "rating": 1309,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CLEANUP",
+      "file": "cleaningUp",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:39:06.906Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SYLLUE",
+    "name": "Synapse ,Life Universe and Everything",
+    "file": "synapseLifeUniverseAndEverything",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-27T14:48:44.831Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SYLLUE",
+      "name": "Synapse ,Life Universe and Everything",
+      "rating": 1300,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SYLLUE",
+      "file": "synapseLifeUniverseAndEverything",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "resolvedAt": "2026-10-27T14:50:44.479Z"
+  }
+]
