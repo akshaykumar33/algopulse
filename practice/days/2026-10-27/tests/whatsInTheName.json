@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nmohandas karamchand gandhi\nmahatma gandhi\njawaharlal nehru\n",
+    "output": "M. K. Gandhi\nM. Gandhi\nJ. Nehru"
+  }
+]

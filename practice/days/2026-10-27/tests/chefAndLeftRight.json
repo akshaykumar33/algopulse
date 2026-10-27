@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nl\nr\nll\nlr\n",
+    "output": "2\n4\n3\n5\n"
+  }
+]

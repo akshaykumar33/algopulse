@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n4\nXXXX\nXOOX\nXXOX\nXOXX\n",
+    "output": "XXXX\nXXXX\nXXXX\nXOXX"
+  }
+]

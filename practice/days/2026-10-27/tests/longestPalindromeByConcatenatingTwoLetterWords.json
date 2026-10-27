@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"lc\",\"cl\",\"gg\"]\n",
+    "output": "6\n"
+  },
+  {
+    "input": "[\"ab\",\"ty\",\"yt\",\"lc\",\"cl\",\"ab\"]\n",
+    "output": "8\n"
+  },
+  {
+    "input": "[\"cc\",\"ll\",\"xx\"]\n",
+    "output": "2\n"
+  }
+]
