@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\n5\n1 1 1 -1 -1\n3\n1 1 1\n6\n1 -1 -1 -1 -1 1\n",
+    "expected": "Yes\nNo\nYes"
+  }
+]
+

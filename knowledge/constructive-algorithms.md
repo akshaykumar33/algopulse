@@ -175,6 +175,9 @@ function constructMatrix(n, m) {
 | [Postcard](https://codeforces.com/problemset/problem/1099/C) | `Codeforces` | `1200` | `postcard.js` | Key algorithmic application from Day 2026-10-27. |
 | [Training Before the Olympiad](https://codeforces.com/problemset/problem/1916/C) | `Codeforces` | `1200` | `trainingBeforeTheOlympiad.js` | Key algorithmic application from Day 2026-10-27. |
 | [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
+| [Rudolph and Christmas Tree](https://codeforces.com/problemset/problem/1846/D) | `Codeforces` | `1200` | `rudolphAndChristmasTree.js` | Key algorithmic application from Day 2026-10-28. |
+| [Little Frog](https://codeforces.com/problemset/problem/53/C) | `Codeforces` | `1200` | `littleFrog.js` | Key algorithmic application from Day 2026-10-28. |
+| [Before an Exam](https://codeforces.com/problemset/problem/4/B) | `Codeforces` | `1200` | `beforeAnExam.js` | Key algorithmic application from Day 2026-10-28. |
 
 ---
 

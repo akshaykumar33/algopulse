@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\nABABAB\nABC\n",
+    "expected": "YES\nNO"
+  }
+]
+

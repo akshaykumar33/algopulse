@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\n4\nizbz\n3\naba\n4\nzzbb\n",
+    "expected": "iabz\naba\naabb"
+  }
+]
+

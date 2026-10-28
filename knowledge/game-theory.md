@@ -81,6 +81,8 @@ function determineWinner(a, b, c) {
 | [Doors Breaking and Repairing](https://codeforces.com/problemset/problem/1102/C) | `Codeforces` | `1200` | `doorsBreakingAndRepairing.js` | Key algorithmic application from Day 2026-10-26. |
 | [Training Before the Olympiad](https://codeforces.com/problemset/problem/1916/C) | `Codeforces` | `1200` | `trainingBeforeTheOlympiad.js` | Key algorithmic application from Day 2026-10-27. |
 | [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
+| [Game with a Fraction](https://codeforces.com/problemset/problem/2196/A) | `Codeforces` | `1200` | `gameWithAFraction.js` | Key algorithmic application from Day 2026-10-28. |
+| [Jellyfish and Game](https://codeforces.com/problemset/problem/1874/A) | `Codeforces` | `1200` | `jellyfishAndGame.js` | Key algorithmic application from Day 2026-10-28. |
 
 ---
 

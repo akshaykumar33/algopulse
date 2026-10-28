@@ -1,0 +1,11 @@
+[
+  {
+    "input": "5\n2 1 5 3 3\n",
+    "expected": "2"
+  },
+  {
+    "input": "1\n1\n",
+    "expected": "1"
+  }
+]
+

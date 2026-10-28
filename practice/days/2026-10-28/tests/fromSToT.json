@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nab\nacxb\ncax\na\naaaa\naaabbb\namr\namr\nmlunp\nax\nxb\nx\n",
+    "expected": "YES\nYES\nYES\nNO"
+  }
+]

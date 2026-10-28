@@ -132,6 +132,10 @@ function isPalindrome(s) {
 | [A and B](https://codeforces.com/problemset/problem/2149/D) | `Codeforces` | `1200` | `aAndB.js` | Key algorithmic application from Day 2026-10-27. |
 | [Train and Peter](https://codeforces.com/problemset/problem/8/A) | `Codeforces` | `1200` | `trainAndPeter.js` | Key algorithmic application from Day 2026-10-27. |
 | [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
+| [Single Wildcard Pattern Matching](https://codeforces.com/problemset/problem/1023/A) | `Codeforces` | `1200` | `singleWildcardPatternMatching.js` | Key algorithmic application from Day 2026-10-28. |
+| [Substring and Subsequence](https://codeforces.com/problemset/problem/1989/B) | `Codeforces` | `1200` | `substringAndSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [From S To T](https://codeforces.com/problemset/problem/1194/C) | `Codeforces` | `1300` | `fromSToT.js` | Key algorithmic application from Day 2026-10-28. |
+| [WOW Factor](https://codeforces.com/problemset/problem/1178/B) | `Codeforces` | `1300` | `wOWFactor.js` | Key algorithmic application from Day 2026-10-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

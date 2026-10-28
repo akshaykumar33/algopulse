@@ -113,6 +113,9 @@ dp.fill(-1); // Memoization sentinel
 | [Lecture Sleep](https://codeforces.com/problemset/problem/961/B) | `Codeforces` | `1200` | `lectureSleep.js` | Key algorithmic application from Day 2026-10-27. |
 | [Restricted RPS](https://codeforces.com/problemset/problem/1245/B) | `Codeforces` | `1200` | `restrictedRPS.js` | Key algorithmic application from Day 2026-10-27. |
 | [Stamina and Tasks](https://codeforces.com/problemset/problem/2208/C) | `Codeforces` | `1300` | `staminaAndTasks.js` | Key algorithmic application from Day 2026-10-27. |
+| [Production of Snowmen](https://codeforces.com/problemset/problem/2182/C) | `Codeforces` | `1200` | `productionOfSnowmen.js` | Key algorithmic application from Day 2026-10-28. |
+| [Replace and Keep Sorted](https://codeforces.com/problemset/problem/1485/B) | `Codeforces` | `1200` | `replaceAndKeepSorted.js` | Key algorithmic application from Day 2026-10-28. |
+| [WOW Factor](https://codeforces.com/problemset/problem/1178/B) | `Codeforces` | `1300` | `wOWFactor.js` | Key algorithmic application from Day 2026-10-28. |
 
 ---
 

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "6 7\na*b\nabc\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "3 5\na*b\nacxab\n",
+    "output": "YES\n"
+  }
+]

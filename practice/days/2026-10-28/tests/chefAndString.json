@@ -1,0 +1,7 @@
+[
+  {
+    "input": "4\na\nab\nabcd\naaaaa\n",
+    "expected": "YES\nYES\nNO\nYES"
+  }
+]
+

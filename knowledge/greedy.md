@@ -258,6 +258,20 @@ for (const x of arr) {
 | [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
 | [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
 | [Closest Cities](https://codeforces.com/problemset/problem/1922/C) | `Codeforces` | `1300` | `closestCities.js` | Key algorithmic application from Day 2026-10-27. |
+| [Coloring a Tree](https://codeforces.com/problemset/problem/902/B) | `Codeforces` | `1200` | `coloringATree.js` | Key algorithmic application from Day 2026-10-28. |
+| [Before an Exam](https://codeforces.com/problemset/problem/4/B) | `Codeforces` | `1200` | `beforeAnExam.js` | Key algorithmic application from Day 2026-10-28. |
+| [Make Them Odd](https://codeforces.com/problemset/problem/1277/B) | `Codeforces` | `1200` | `makeThemOdd.js` | Key algorithmic application from Day 2026-10-28. |
+| [Jellyfish and Game](https://codeforces.com/problemset/problem/1874/A) | `Codeforces` | `1200` | `jellyfishAndGame.js` | Key algorithmic application from Day 2026-10-28. |
+| [Leftmost Below](https://codeforces.com/problemset/problem/2128/C) | `Codeforces` | `1200` | `leftmostBelow.js` | Key algorithmic application from Day 2026-10-28. |
+| [Games](https://codeforces.com/problemset/problem/2141/B) | `Codeforces` | `1200` | `games.js` | Key algorithmic application from Day 2026-10-28. |
+| [The Modcrab](https://codeforces.com/problemset/problem/903/B) | `Codeforces` | `1200` | `theModcrab.js` | Key algorithmic application from Day 2026-10-28. |
+| [Bracket Subsequence](https://codeforces.com/problemset/problem/1023/C) | `Codeforces` | `1200` | `bracketSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [Bets](https://codeforces.com/problemset/problem/69/B) | `Codeforces` | `1200` | `bets.js` | Key algorithmic application from Day 2026-10-28. |
+| [Substring and Subsequence](https://codeforces.com/problemset/problem/1989/B) | `Codeforces` | `1200` | `substringAndSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [Jatayu's Balanced Bracket Sequence](https://codeforces.com/problemset/problem/1726/C) | `Codeforces` | `1300` | `jatayuSBalancedBracketSequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [Good Numbers (easy version)](https://codeforces.com/problemset/problem/1249/C1) | `Codeforces` | `1300` | `goodNumbersEasyVersion.js` | Key algorithmic application from Day 2026-10-28. |
+| [Ian and Array Sorting](https://codeforces.com/problemset/problem/1815/A) | `Codeforces` | `1300` | `ianAndArraySorting.js` | Key algorithmic application from Day 2026-10-28. |
+| [Skibidus and Fanum Tax (hard version)](https://codeforces.com/problemset/problem/2065/C2) | `Codeforces` | `1300` | `skibidusAndFanumTaxHardVersion.js` | Key algorithmic application from Day 2026-10-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

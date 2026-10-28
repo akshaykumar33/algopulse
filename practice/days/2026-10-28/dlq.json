@@ -1,0 +1,127 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-15",
+    "name": "3Sum",
+    "file": "p3Sum",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-10-28T05:55:51.733Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-15",
+      "name": "3Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/3sum/",
+      "file": "p3Sum",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MTE",
+    "name": "Make Them Equal",
+    "file": "makeThemEqual",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-28T05:56:00.284Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MTE",
+      "name": "Make Them Equal",
+      "rating": 1348,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MTE",
+      "file": "makeThemEqual",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-28T08:37:32.753Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-RECNDSTR",
+    "name": "Chef and String",
+    "file": "chefAndString",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-28T05:57:59.779Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-RECNDSTR",
+      "name": "Chef and String",
+      "rating": 1206,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RECNDSTR",
+      "file": "chefAndString",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-10-28T08:37:32.754Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2196A",
+    "name": "Game with a Fraction",
+    "file": "gameWithAFraction",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-28T06:03:42.724Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2196A",
+      "name": "Game with a Fraction",
+      "rating": 1200,
+      "tags": [
+        "games",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2196/A",
+      "file": "gameWithAFraction",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-10-28T06:17:15.938Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "413A",
+    "name": "Data Recovery",
+    "file": "dataRecovery",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-28T06:08:00.188Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "413A",
+      "name": "Data Recovery",
+      "rating": 1200,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/413/A",
+      "file": "dataRecovery",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-10-28T06:19:07.208Z",
+    "finalVerdict": "Accepted"
+  }
+]

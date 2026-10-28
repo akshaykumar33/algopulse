@@ -1,0 +1,11 @@
+[
+  {
+    "input": "6\nabcdef\nabdfec\n",
+    "output": "4\n3 5 4 5\n"
+  },
+  {
+    "input": "4\nabcd\naccd\n",
+    "output": "-1\n"
+  }
+]
+

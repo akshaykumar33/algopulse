@@ -124,6 +124,9 @@ function dfsIterative(start, adj, n) {
 | [Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/problemset/problem/2234/C) | `Codeforces` | `1200` | `vesselsHeightsAndTwoVersionsEasyVersion.js` | Key algorithmic application from Day 2026-10-25. |
 | [Diameter of Graph](https://codeforces.com/problemset/problem/1581/B) | `Codeforces` | `1200` | `diameterOfGraph.js` | Key algorithmic application from Day 2026-10-26. |
 | [Mahmoud and Ehab and the bipartiteness](https://codeforces.com/problemset/problem/862/B) | `Codeforces` | `1300` | `mahmoudAndEhabAndTheBipartiteness.js` | Key algorithmic application from Day 2026-10-27. |
+| [Coloring a Tree](https://codeforces.com/problemset/problem/902/B) | `Codeforces` | `1200` | `coloringATree.js` | Key algorithmic application from Day 2026-10-28. |
+| [Jatayu's Balanced Bracket Sequence](https://codeforces.com/problemset/problem/1726/C) | `Codeforces` | `1300` | `jatayuSBalancedBracketSequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [PolandBall and Forest](https://codeforces.com/problemset/problem/755/C) | `Codeforces` | `1300` | `polandBallAndForest.js` | Key algorithmic application from Day 2026-10-28. |
 
 ---
 

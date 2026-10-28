@@ -1,0 +1,11 @@
+[
+  {
+    "input": "\"bcabc\"",
+    "output": "\"abc\""
+  },
+  {
+    "input": "\"cbacdcbc\"",
+    "output": "\"acdb\""
+  }
+]
+

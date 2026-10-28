@@ -237,6 +237,12 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [3SUM](https://codeforces.com/problemset/problem/1692/F) | `Codeforces` | `1300` | `threeSum1692F.js` | Key algorithmic application from Day 2026-10-27. |
 | [Stamina and Tasks](https://codeforces.com/problemset/problem/2208/C) | `Codeforces` | `1300` | `staminaAndTasks.js` | Key algorithmic application from Day 2026-10-27. |
 | [Closest Cities](https://codeforces.com/problemset/problem/1922/C) | `Codeforces` | `1300` | `closestCities.js` | Key algorithmic application from Day 2026-10-27. |
+| [Rudolph and Christmas Tree](https://codeforces.com/problemset/problem/1846/D) | `Codeforces` | `1200` | `rudolphAndChristmasTree.js` | Key algorithmic application from Day 2026-10-28. |
+| [Game with a Fraction](https://codeforces.com/problemset/problem/2196/A) | `Codeforces` | `1200` | `gameWithAFraction.js` | Key algorithmic application from Day 2026-10-28. |
+| [Production of Snowmen](https://codeforces.com/problemset/problem/2182/C) | `Codeforces` | `1200` | `productionOfSnowmen.js` | Key algorithmic application from Day 2026-10-28. |
+| [Leftmost Below](https://codeforces.com/problemset/problem/2128/C) | `Codeforces` | `1200` | `leftmostBelow.js` | Key algorithmic application from Day 2026-10-28. |
+| [Replace and Keep Sorted](https://codeforces.com/problemset/problem/1485/B) | `Codeforces` | `1200` | `replaceAndKeepSorted.js` | Key algorithmic application from Day 2026-10-28. |
+| [Ian and Array Sorting](https://codeforces.com/problemset/problem/1815/A) | `Codeforces` | `1300` | `ianAndArraySorting.js` | Key algorithmic application from Day 2026-10-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

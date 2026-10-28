@@ -1,0 +1,11 @@
+[
+  {
+    "input": "[\"cdbcbbaaabab\", 4, 5]",
+    "output": "19"
+  },
+  {
+    "input": "[\"aabbaaxybbaabb\", 5, 4]",
+    "output": "20"
+  }
+]
+

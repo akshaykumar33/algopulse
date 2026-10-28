@@ -218,11 +218,8 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
     const csrfList = cookies.filter((c) => c.name === 'csrftoken');
     if (csrfList.length > 1) {
       const primaryToken = csrfList[csrfList.length - 1];
-      for (const c of csrfList) {
-        if (c !== primaryToken) {
-          await page.context().clearCookies({ name: 'csrftoken', domain: c.domain }).catch(() => {});
-        }
-      }
+      await page.context().clearCookies({ name: 'csrftoken' }).catch(() => {});
+      await page.context().addCookies([primaryToken]).catch(() => {});
     }
   } catch {}
 
