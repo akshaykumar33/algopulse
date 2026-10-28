@@ -79,7 +79,7 @@ function syncSessionsFromEnv() {
       cookieValue = lcSession.split('LEETCODE_SESSION=')[1].split(';')[0].trim();
     }
     if (cookieValue) {
-      updateAuthFile(PLATFORMS.leetcode.authFile, [
+      const newCookies = [
         {
           name: 'LEETCODE_SESSION',
           value: cookieValue,
@@ -90,7 +90,26 @@ function syncSessionsFromEnv() {
           secure: true,
           sameSite: 'Lax',
         },
-      ]);
+      ];
+      try {
+        const parts = cookieValue.split('.');
+        if (parts.length === 3) {
+          const payload = JSON.parse(Buffer.from(parts[1], 'base64url').toString('utf8'));
+          if (Array.isArray(payload.device_with_ip) && payload.device_with_ip[0]) {
+            newCookies.push({
+              name: 'uuuserid',
+              value: payload.device_with_ip[0],
+              domain: 'leetcode.com',
+              path: '/',
+              expires: 2000000000,
+              httpOnly: false,
+              secure: true,
+              sameSite: 'Lax',
+            });
+          }
+        }
+      } catch {}
+      updateAuthFile(PLATFORMS.leetcode.authFile, newCookies);
       results.leetcode = true;
     }
   }

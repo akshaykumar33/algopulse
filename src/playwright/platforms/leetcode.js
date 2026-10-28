@@ -213,15 +213,7 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
 
   // 4. Click Submit button & intercept network submission
   console.log(`    [LeetCode] Submitting solution ...`);
-  try {
-    const cookies = await page.context().cookies(['https://leetcode.com']);
-    const csrfList = cookies.filter((c) => c.name === 'csrftoken');
-    if (csrfList.length > 1) {
-      const primaryToken = csrfList[csrfList.length - 1];
-      await page.context().clearCookies({ name: 'csrftoken' }).catch(() => {});
-      await page.context().addCookies([primaryToken]).catch(() => {});
-    }
-  } catch {}
+
 
   let submitBtn = await page.$('button[data-e2e-locator="console-submit-button"]');
   if (!submitBtn) {

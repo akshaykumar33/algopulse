@@ -1,29 +1,5 @@
 [
   {
-    "platform": "LeetCode",
-    "id": "LC-15",
-    "name": "3Sum",
-    "file": "p3Sum",
-    "tier": "medium",
-    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
-    "enqueuedAt": "2026-10-28T05:55:51.733Z",
-    "attempts": 1,
-    "status": "HALTED_UNRESOLVED",
-    "problem": {
-      "platform": "LeetCode",
-      "id": "LC-15",
-      "name": "3Sum",
-      "rating": "Medium",
-      "tags": [
-        "algorithms"
-      ],
-      "url": "https://leetcode.com/problems/3sum/",
-      "file": "p3Sum",
-      "template": "templates/leetcode.js"
-    },
-    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
-  },
-  {
     "platform": "CodeChef",
     "id": "CC-MTE",
     "name": "Make Them Equal",
