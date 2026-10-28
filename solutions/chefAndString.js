@@ -1,29 +1,32 @@
 const fs = require('fs');
 
 function solve() {
-    const lines = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-    if (lines.length === 0 || lines[0] === '') return;
-    
-    const t = parseInt(lines[0], 10);
-    const out = [];
-    
-    for (let i = 1; i <= t; i++) {
-        const s = lines[i];
-        let ans = 0;
-        let j = 0;
-        
-        while (j < s.length - 1) {
-            if ((s[j] === 'x' && s[j + 1] === 'y') || (s[j] === 'y' && s[j + 1] === 'x')) {
-                ans++;
-                j += 2;
-            } else {
-                j++;
-            }
-        }
-        out.push(ans);
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const s = tokens[ptr++];
+    const n = s.length;
+    if (n <= 2) {
+      out.push('YES');
+      continue;
     }
-    
-    console.log(out.join('\n'));
+
+    let ok = true;
+    for (let i = 0; i < n; i++) {
+      if (s[i] !== s[(i + 2) % n]) {
+        ok = false;
+        break;
+      }
+    }
+
+    out.push(ok ? 'YES' : 'NO');
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();
