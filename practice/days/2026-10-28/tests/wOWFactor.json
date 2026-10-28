@@ -1,0 +1,11 @@
+[
+  {
+    "input": "vvvovvv\n",
+    "expected": "4"
+  },
+  {
+    "input": "vvovooovovvovoovoovvvvovovvvov\n",
+    "expected": "100"
+  }
+]
+

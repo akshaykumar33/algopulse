@@ -1,0 +1,7 @@
+[
+  {
+    "input": "5\n1 3\n5\n9 1 1000000000\n3 2\n1 4 3\n3 4\n4 3\n2 4 6 5\n6 1 8\n5 2\n6 4 5 4 5\n4 1000\n3 1\n9 8 7\n8\n",
+    "expected": "YES\nNO\nYES\nNO\nYES"
+  }
+]
+

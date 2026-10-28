@@ -1,0 +1,15 @@
+[
+  {
+    "input": "A>B\nC<B\nA>C\n",
+    "output": "CBA\n"
+  },
+  {
+    "input": "A<B\nB>C\nC>A\n",
+    "output": "ACB\n"
+  },
+  {
+    "input": "A>B\nB>C\nC>A\n",
+    "output": "Impossible\n"
+  }
+]
+

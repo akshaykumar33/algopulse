@@ -1,0 +1,14 @@
+[
+  {
+    "input": "10 2 10 20\n10 20\n",
+    "output": "Correct\n"
+  },
+  {
+    "input": "10 2 10 20\n10 15\n",
+    "output": "Correct\n"
+  },
+  {
+    "input": "10 1 10 20\n5\n",
+    "output": "Incorrect\n"
+  }
+]

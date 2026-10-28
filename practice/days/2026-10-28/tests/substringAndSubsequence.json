@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\naba\ncb\ner\nr\na\nz\n",
+    "output": "4\n2\n2\n"
+  }
+]
+

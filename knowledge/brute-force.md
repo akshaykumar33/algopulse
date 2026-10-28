@@ -161,6 +161,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Two Problems](https://codeforces.com/problemset/problem/203/A) | `Codeforces` | `1200` | `twoProblems.js` | Key algorithmic application from Day 2026-10-27. |
 | [3SUM](https://codeforces.com/problemset/problem/1692/F) | `Codeforces` | `1300` | `threeSum1692F.js` | Key algorithmic application from Day 2026-10-27. |
 | [Sets and Union](https://codeforces.com/problemset/problem/1882/B) | `Codeforces` | `1300` | `setsAndUnion.js` | Key algorithmic application from Day 2026-10-27. |
+| [Single Wildcard Pattern Matching](https://codeforces.com/problemset/problem/1023/A) | `Codeforces` | `1200` | `singleWildcardPatternMatching.js` | Key algorithmic application from Day 2026-10-28. |
+| [Production of Snowmen](https://codeforces.com/problemset/problem/2182/C) | `Codeforces` | `1200` | `productionOfSnowmen.js` | Key algorithmic application from Day 2026-10-28. |
+| [Jellyfish and Game](https://codeforces.com/problemset/problem/1874/A) | `Codeforces` | `1200` | `jellyfishAndGame.js` | Key algorithmic application from Day 2026-10-28. |
+| [Encrypting Messages](https://codeforces.com/problemset/problem/177/D1) | `Codeforces` | `1200` | `encryptingMessages.js` | Key algorithmic application from Day 2026-10-28. |
+| [Substring and Subsequence](https://codeforces.com/problemset/problem/1989/B) | `Codeforces` | `1200` | `substringAndSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
+| [Alyona and copybooks](https://codeforces.com/problemset/problem/740/A) | `Codeforces` | `1300` | `alyonaAndCopybooks.js` | Key algorithmic application from Day 2026-10-28. |
+| [Good Numbers (easy version)](https://codeforces.com/problemset/problem/1249/C1) | `Codeforces` | `1300` | `goodNumbersEasyVersion.js` | Key algorithmic application from Day 2026-10-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

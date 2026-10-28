@@ -120,6 +120,7 @@ function lowerBound(arr, target) {
 | [Three Parts of the Array](https://codeforces.com/problemset/problem/1006/C) | `Codeforces` | `1200` | `threePartsOfTheArray.js` | Key algorithmic application from Day 2026-10-27. |
 | [Two Cakes](https://codeforces.com/problemset/problem/911/B) | `Codeforces` | `1200` | `twoCakes.js` | Key algorithmic application from Day 2026-10-27. |
 | [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
+| [Skibidus and Fanum Tax (hard version)](https://codeforces.com/problemset/problem/2065/C2) | `Codeforces` | `1300` | `skibidusAndFanumTaxHardVersion.js` | Key algorithmic application from Day 2026-10-28. |
 
 ---
 

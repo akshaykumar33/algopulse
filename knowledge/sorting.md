@@ -143,6 +143,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Polycarp's Practice](https://codeforces.com/problemset/problem/1006/B) | `Codeforces` | `1200` | `polycarpSPractice.js` | Key algorithmic application from Day 2026-10-27. |
 | [Jeff and Periods](https://codeforces.com/problemset/problem/352/B) | `Codeforces` | `1300` | `jeffAndPeriods.js` | Key algorithmic application from Day 2026-10-27. |
 | [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
+| [Collecting Packages](https://codeforces.com/problemset/problem/1294/B) | `Codeforces` | `1200` | `collectingPackages.js` | Key algorithmic application from Day 2026-10-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
