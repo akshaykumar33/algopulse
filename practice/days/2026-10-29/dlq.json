@@ -1,0 +1,24 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-ONP",
+    "name": "Transform the Expression",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "status": "PLATFORM_LIMIT_EXCEEDED",
+    "finalVerdict": "Platform Sandbox Memory Limit Exceeded (Node.js runtime baseline 48M exceeds legacy 2009 limit)",
+    "reason": "CodeChef sandbox memory limit for this 2009 problem is lower than Node.js runtime baseline (~48MB), causing all JS executions to trigger cgroup OOM kill.",
+    "solutionPath": "practice/days/2026-10-29/solutions/transformTheExpression.js"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHFIDEAL",
+    "name": "Chef and An Ideal Problem",
+    "tier": "medium",
+    "initialVerdict": "Direct Submission Disabled",
+    "status": "PLATFORM_UNSUPPORTED",
+    "finalVerdict": "Platform Interactive Submission Unsupported (isSupportedByJudge: false)",
+    "reason": "CodeChef web IDE permanently disables submission for interactive problems (isSupportedByJudge: false). Solution verified locally against test grader.",
+    "solutionPath": "practice/days/2026-10-29/solutions/chefAndAnIdealProblem.js"
+  }
+]

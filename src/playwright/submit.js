@@ -552,7 +552,7 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
     };
   } finally {
     if (context) await context.close().catch(() => {});
-    else if (page) await page.close().catch(() => {});
+    else if (page) { await Promise.race([page.close({ runBeforeUnload: false }), new Promise((r) => setTimeout(r, 2000))]).catch(() => {}); }
   }
 }
 

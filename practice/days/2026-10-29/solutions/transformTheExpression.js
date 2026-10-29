@@ -1,42 +1,38 @@
 const fs = require('fs');
 
-function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input[0] === '') return;
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-  const t = parseInt(input[0], 10);
+let data = '';
+process.stdin.on('data', (chunk) => {
+  data += chunk;
+});
+
+process.stdin.on('end', () => {
+  const lines = data.trim().split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  if (lines.length === 0) process.exit(0);
+
+  const t = parseInt(lines[0], 10);
   const out = [];
 
-  for (let tc = 1; tc <= t; tc++) {
-    const s = input[tc];
+  for (let i = 1; i <= t && i < lines.length; i++) {
+    const s = lines[i];
     const stack = [];
     let res = '';
-
-    for (let i = 0; i < s.length; i++) {
-      const ch = s[i];
-      if (ch >= 'a' && ch <= 'z') {
+    for (let j = 0; j < s.length; j++) {
+      const ch = s[j];
+      if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
         res += ch;
-      } else if (ch === '(') {
+      } else if (ch === '+' || ch === '-' || ch === '*' || ch === '/' || ch === '^') {
         stack.push(ch);
       } else if (ch === ')') {
-        while (stack.length > 0 && stack[stack.length - 1] !== '(') {
-          res += stack.pop();
-        }
-        stack.pop();
-      } else {
-        stack.push(ch);
+        if (stack.length > 0) res += stack.pop();
       }
     }
-
-    while (stack.length > 0) {
-      const op = stack.pop();
-      if (op !== '(') res += op;
-    }
-
+    while (stack.length > 0) res += stack.pop();
     out.push(res);
   }
 
-  console.log(out.join('\n'));
-}
-
-solve();
+  process.stdout.write(out.join('\n') + '\n');
+  process.exit(0);
+});
