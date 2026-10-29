@@ -168,6 +168,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Substring and Subsequence](https://codeforces.com/problemset/problem/1989/B) | `Codeforces` | `1200` | `substringAndSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
 | [Alyona and copybooks](https://codeforces.com/problemset/problem/740/A) | `Codeforces` | `1300` | `alyonaAndCopybooks.js` | Key algorithmic application from Day 2026-10-28. |
 | [Good Numbers (easy version)](https://codeforces.com/problemset/problem/1249/C1) | `Codeforces` | `1300` | `goodNumbersEasyVersion.js` | Key algorithmic application from Day 2026-10-28. |
+| [Heidi Learns Hashing (Easy)](https://codeforces.com/problemset/problem/1184/A1) | `Codeforces` | `1200` | `heidiLearnsHashingEasy.js` | Key algorithmic application from Day 2026-10-29. |
+| [King's Task](https://codeforces.com/problemset/problem/1510/K) | `Codeforces` | `1200` | `kingSTask.js` | Key algorithmic application from Day 2026-10-29. |
+| [Parallelogram is Back](https://codeforces.com/problemset/problem/749/B) | `Codeforces` | `1200` | `parallelogramIsBack.js` | Key algorithmic application from Day 2026-10-29. |
+| [Three Activities](https://codeforces.com/problemset/problem/1914/D) | `Codeforces` | `1200` | `threeActivities.js` | Key algorithmic application from Day 2026-10-29. |
+| [Collatz Conjecture](https://codeforces.com/problemset/problem/1982/B) | `Codeforces` | `1200` | `collatzConjecture.js` | Key algorithmic application from Day 2026-10-29. |
+| [Planning The Expedition](https://codeforces.com/problemset/problem/1011/B) | `Codeforces` | `1200` | `planningTheExpedition.js` | Key algorithmic application from Day 2026-10-29. |
+| [Black Circles](https://codeforces.com/problemset/problem/2002/C) | `Codeforces` | `1200` | `blackCircles.js` | Key algorithmic application from Day 2026-10-29. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -83,6 +83,7 @@ function determineWinner(a, b, c) {
 | [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
 | [Game with a Fraction](https://codeforces.com/problemset/problem/2196/A) | `Codeforces` | `1200` | `gameWithAFraction.js` | Key algorithmic application from Day 2026-10-28. |
 | [Jellyfish and Game](https://codeforces.com/problemset/problem/1874/A) | `Codeforces` | `1200` | `jellyfishAndGame.js` | Key algorithmic application from Day 2026-10-28. |
+| [Little Girl and Game](https://codeforces.com/problemset/problem/276/B) | `Codeforces` | `1300` | `littleGirlAndGame.js` | Key algorithmic application from Day 2026-10-29. |
 
 ---
 

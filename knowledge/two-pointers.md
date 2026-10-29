@@ -104,6 +104,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Lecture Sleep](https://codeforces.com/problemset/problem/961/B) | `Codeforces` | `1200` | `lectureSleep.js` | Key algorithmic application from Day 2026-10-27. |
 | [Three Parts of the Array](https://codeforces.com/problemset/problem/1006/C) | `Codeforces` | `1200` | `threePartsOfTheArray.js` | Key algorithmic application from Day 2026-10-27. |
 | [News About Credit](https://codeforces.com/problemset/problem/769/B) | `Codeforces` | `1200` | `newsAboutCredit.js` | Key algorithmic application from Day 2026-10-27. |
+| [Balanced Team](https://codeforces.com/problemset/problem/1133/C) | `Codeforces` | `1200` | `balancedTeam.js` | Key algorithmic application from Day 2026-10-29. |
+| [Split](https://codeforces.com/problemset/problem/2148/E) | `Codeforces` | `1200` | `split.js` | Key algorithmic application from Day 2026-10-29. |
 
 ---
 

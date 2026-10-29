@@ -144,6 +144,14 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Jeff and Periods](https://codeforces.com/problemset/problem/352/B) | `Codeforces` | `1300` | `jeffAndPeriods.js` | Key algorithmic application from Day 2026-10-27. |
 | [Not Sitting](https://codeforces.com/problemset/problem/1627/B) | `Codeforces` | `1300` | `notSitting.js` | Key algorithmic application from Day 2026-10-27. |
 | [Collecting Packages](https://codeforces.com/problemset/problem/1294/B) | `Codeforces` | `1200` | `collectingPackages.js` | Key algorithmic application from Day 2026-10-28. |
+| [Stable Groups](https://codeforces.com/problemset/problem/1539/C) | `Codeforces` | `1200` | `stableGroups.js` | Key algorithmic application from Day 2026-10-29. |
+| [Prefix Sum Addicts](https://codeforces.com/problemset/problem/1738/B) | `Codeforces` | `1200` | `prefixSumAddicts.js` | Key algorithmic application from Day 2026-10-29. |
+| [Balanced Team](https://codeforces.com/problemset/problem/1133/C) | `Codeforces` | `1200` | `balancedTeam.js` | Key algorithmic application from Day 2026-10-29. |
+| [Devu, the Dumb Guy](https://codeforces.com/problemset/problem/439/B) | `Codeforces` | `1200` | `devuTheDumbGuy.js` | Key algorithmic application from Day 2026-10-29. |
+| [Cards with Numbers](https://codeforces.com/problemset/problem/254/A) | `Codeforces` | `1200` | `cardsWithNumbers.js` | Key algorithmic application from Day 2026-10-29. |
+| [Three Activities](https://codeforces.com/problemset/problem/1914/D) | `Codeforces` | `1200` | `threeActivities.js` | Key algorithmic application from Day 2026-10-29. |
+| [A-B-C Sort](https://codeforces.com/problemset/problem/1674/D) | `Codeforces` | `1200` | `aBCSort.js` | Key algorithmic application from Day 2026-10-29. |
+| [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

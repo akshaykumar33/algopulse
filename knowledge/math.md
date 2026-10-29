@@ -243,6 +243,19 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Leftmost Below](https://codeforces.com/problemset/problem/2128/C) | `Codeforces` | `1200` | `leftmostBelow.js` | Key algorithmic application from Day 2026-10-28. |
 | [Replace and Keep Sorted](https://codeforces.com/problemset/problem/1485/B) | `Codeforces` | `1200` | `replaceAndKeepSorted.js` | Key algorithmic application from Day 2026-10-28. |
 | [Ian and Array Sorting](https://codeforces.com/problemset/problem/1815/A) | `Codeforces` | `1300` | `ianAndArraySorting.js` | Key algorithmic application from Day 2026-10-28. |
+| [Heidi Learns Hashing (Easy)](https://codeforces.com/problemset/problem/1184/A1) | `Codeforces` | `1200` | `heidiLearnsHashingEasy.js` | Key algorithmic application from Day 2026-10-29. |
+| [Prefix Sum Addicts](https://codeforces.com/problemset/problem/1738/B) | `Codeforces` | `1200` | `prefixSumAddicts.js` | Key algorithmic application from Day 2026-10-29. |
+| [Magical Calendar](https://codeforces.com/problemset/problem/1371/B) | `Codeforces` | `1200` | `magicalCalendar.js` | Key algorithmic application from Day 2026-10-29. |
+| [Parallelogram is Back](https://codeforces.com/problemset/problem/749/B) | `Codeforces` | `1200` | `parallelogramIsBack.js` | Key algorithmic application from Day 2026-10-29. |
+| [Asuna and the Mosquitoes](https://codeforces.com/problemset/problem/2092/C) | `Codeforces` | `1200` | `asunaAndTheMosquitoes.js` | Key algorithmic application from Day 2026-10-29. |
+| [Divisor Subtraction](https://codeforces.com/problemset/problem/1076/B) | `Codeforces` | `1200` | `divisorSubtraction.js` | Key algorithmic application from Day 2026-10-29. |
+| [Collatz Conjecture](https://codeforces.com/problemset/problem/1982/B) | `Codeforces` | `1200` | `collatzConjecture.js` | Key algorithmic application from Day 2026-10-29. |
+| [NN and the Optical Illusion](https://codeforces.com/problemset/problem/1100/C) | `Codeforces` | `1200` | `nNAndTheOpticalIllusion.js` | Key algorithmic application from Day 2026-10-29. |
+| [Black Circles](https://codeforces.com/problemset/problem/2002/C) | `Codeforces` | `1200` | `blackCircles.js` | Key algorithmic application from Day 2026-10-29. |
+| [Selection of Personnel](https://codeforces.com/problemset/problem/630/F) | `Codeforces` | `1300` | `selectionOfPersonnel.js` | Key algorithmic application from Day 2026-10-29. |
+| [Omkar and Last Class of Math](https://codeforces.com/problemset/problem/1372/B) | `Codeforces` | `1300` | `omkarAndLastClassOfMath.js` | Key algorithmic application from Day 2026-10-29. |
+| [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
+| [Product of Three Numbers](https://codeforces.com/problemset/problem/1294/C) | `Codeforces` | `1300` | `productOfThreeNumbers.js` | Key algorithmic application from Day 2026-10-29. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

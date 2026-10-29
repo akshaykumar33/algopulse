@@ -178,6 +178,14 @@ function constructMatrix(n, m) {
 | [Rudolph and Christmas Tree](https://codeforces.com/problemset/problem/1846/D) | `Codeforces` | `1200` | `rudolphAndChristmasTree.js` | Key algorithmic application from Day 2026-10-28. |
 | [Little Frog](https://codeforces.com/problemset/problem/53/C) | `Codeforces` | `1200` | `littleFrog.js` | Key algorithmic application from Day 2026-10-28. |
 | [Before an Exam](https://codeforces.com/problemset/problem/4/B) | `Codeforces` | `1200` | `beforeAnExam.js` | Key algorithmic application from Day 2026-10-28. |
+| [Prefix Sum Addicts](https://codeforces.com/problemset/problem/1738/B) | `Codeforces` | `1200` | `prefixSumAddicts.js` | Key algorithmic application from Day 2026-10-29. |
+| [Parallelogram is Back](https://codeforces.com/problemset/problem/749/B) | `Codeforces` | `1200` | `parallelogramIsBack.js` | Key algorithmic application from Day 2026-10-29. |
+| [Asuna and the Mosquitoes](https://codeforces.com/problemset/problem/2092/C) | `Codeforces` | `1200` | `asunaAndTheMosquitoes.js` | Key algorithmic application from Day 2026-10-29. |
+| [Cards with Numbers](https://codeforces.com/problemset/problem/254/A) | `Codeforces` | `1200` | `cardsWithNumbers.js` | Key algorithmic application from Day 2026-10-29. |
+| [A Tide of Riverscape](https://codeforces.com/problemset/problem/989/B) | `Codeforces` | `1200` | `aTideOfRiverscape.js` | Key algorithmic application from Day 2026-10-29. |
+| [A-B-C Sort](https://codeforces.com/problemset/problem/1674/D) | `Codeforces` | `1200` | `aBCSort.js` | Key algorithmic application from Day 2026-10-29. |
+| [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
+| [Vasya and Isolated Vertices](https://codeforces.com/problemset/problem/1065/B) | `Codeforces` | `1300` | `vasyaAndIsolatedVertices.js` | Key algorithmic application from Day 2026-10-29. |
 
 ---
 
