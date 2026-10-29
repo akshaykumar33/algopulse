@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[{\"id\":101,\"name\":\"John\",\"managerId\":null},{\"id\":102,\"name\":\"Dan\",\"managerId\":101},{\"id\":103,\"name\":\"James\",\"managerId\":101},{\"id\":104,\"name\":\"Amy\",\"managerId\":101},{\"id\":105,\"name\":\"Anne\",\"managerId\":101},{\"id\":106,\"name\":\"Ron\",\"managerId\":101}]",
+    "output": "[\"John\"]"
+  }
+]

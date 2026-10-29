@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[[{\"id\":1,\"importance\":5,\"subordinates\":[2,3]},{\"id\":2,\"importance\":3,\"subordinates\":[]},{\"id\":3,\"importance\":3,\"subordinates\":[]}], 1]",
+    "output": "11"
+  }
+]
