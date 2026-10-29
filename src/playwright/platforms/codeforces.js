@@ -62,9 +62,9 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
   console.log(`    [Codeforces] Navigating to submit page for ${problemCode} ...`);
   page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
   try {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 20000 });
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 30000 });
   } catch {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 15000 });
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 30000 });
   }
 
   // 1. Verify Authentication
@@ -125,6 +125,7 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
   let memoryConsumed = null;
 
   while (Date.now() - startTime < timeout) {
+    try {
     const rows = await page.$$('.status-frame-datatable tr[data-submission-id]');
     let matchedRow = null;
     for (const r of rows) {
@@ -159,6 +160,7 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
       }
     }
 
+        } catch {}
     await page.waitForTimeout(2500);
     // Reload status page to refresh verdict
     await page.goto(statusUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});

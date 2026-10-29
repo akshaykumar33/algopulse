@@ -1,4 +1,4 @@
-function Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
+function _Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
   this.val = val;
   this.isLeaf = isLeaf;
   this.topLeft = topLeft;
@@ -8,11 +8,13 @@ function Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
 }
 
 var intersect = function(quadTree1, quadTree2) {
+  const Ctor = typeof _Node !== 'undefined' ? _Node : (typeof Node !== 'undefined' ? Node : Object);
+
   if (quadTree1.isLeaf) {
-    return quadTree1.val ? quadTree1 : quadTree2;
+    return quadTree1.val ? new Ctor(true, true, null, null, null, null) : quadTree2;
   }
   if (quadTree2.isLeaf) {
-    return quadTree2.val ? quadTree2 : quadTree1;
+    return quadTree2.val ? new Ctor(true, true, null, null, null, null) : quadTree1;
   }
 
   const tl = intersect(quadTree1.topLeft, quadTree2.topLeft);
@@ -22,25 +24,11 @@ var intersect = function(quadTree1, quadTree2) {
 
   if (tl.isLeaf && tr.isLeaf && bl.isLeaf && br.isLeaf &&
       tl.val === tr.val && tr.val === bl.val && bl.val === br.val) {
-    return new Node(tl.val, true, null, null, null, null);
+    return new Ctor(tl.val, true, null, null, null, null);
   }
 
-  return new Node(false, false, tl, tr, bl, br);
+  return new Ctor(false, false, tl, tr, bl, br);
 };
 
 var solve = typeof intersect !== 'undefined' ? intersect : null;
-module.exports = { intersect, solve };
-
-var solve = typeof intersect !== 'undefined' ? intersect : null;
-
-
-function solveQuadTree() {
-  return [[0,1],[1,1],[1,1],[1,0],[1,0]];
-}
-var solve = solveQuadTree;
-
-// ---------------- LOCAL TEST HARNESS ----------------
-if (require.main === module) {
-  console.log(JSON.stringify(solveQuadTree()));
-}
 module.exports = solve;

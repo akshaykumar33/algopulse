@@ -9,11 +9,11 @@ function solve() {
   const C = parseInt(input[ptr++], 10);
 
   const mat = [];
-  const rowMin = new Int32Array(R).fill(Infinity);
-  const colMax = new Int32Array(C).fill(-Infinity);
+  const rowMin = new Array(R).fill(Infinity);
+  const colMax = new Array(C).fill(-Infinity);
 
   for (let r = 0; r < R; r++) {
-    const row = new Int32Array(C);
+    const row = new Array(C);
     for (let c = 0; c < C; c++) {
       const val = parseInt(input[ptr++], 10);
       row[c] = val;
