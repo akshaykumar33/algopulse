@@ -136,6 +136,7 @@ function isPalindrome(s) {
 | [Substring and Subsequence](https://codeforces.com/problemset/problem/1989/B) | `Codeforces` | `1200` | `substringAndSubsequence.js` | Key algorithmic application from Day 2026-10-28. |
 | [From S To T](https://codeforces.com/problemset/problem/1194/C) | `Codeforces` | `1300` | `fromSToT.js` | Key algorithmic application from Day 2026-10-28. |
 | [WOW Factor](https://codeforces.com/problemset/problem/1178/B) | `Codeforces` | `1300` | `wOWFactor.js` | Key algorithmic application from Day 2026-10-28. |
+| [A Tide of Riverscape](https://codeforces.com/problemset/problem/989/B) | `Codeforces` | `1200` | `aTideOfRiverscape.js` | Key algorithmic application from Day 2026-10-29. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

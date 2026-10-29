@@ -127,6 +127,10 @@ function dfsIterative(start, adj, n) {
 | [Coloring a Tree](https://codeforces.com/problemset/problem/902/B) | `Codeforces` | `1200` | `coloringATree.js` | Key algorithmic application from Day 2026-10-28. |
 | [Jatayu's Balanced Bracket Sequence](https://codeforces.com/problemset/problem/1726/C) | `Codeforces` | `1300` | `jatayuSBalancedBracketSequence.js` | Key algorithmic application from Day 2026-10-28. |
 | [PolandBall and Forest](https://codeforces.com/problemset/problem/755/C) | `Codeforces` | `1300` | `polandBallAndForest.js` | Key algorithmic application from Day 2026-10-28. |
+| [King's Task](https://codeforces.com/problemset/problem/1510/K) | `Codeforces` | `1200` | `kingSTask.js` | Key algorithmic application from Day 2026-10-29. |
+| [Rudolf and the Ball Game](https://codeforces.com/problemset/problem/1941/D) | `Codeforces` | `1200` | `rudolfAndTheBallGame.js` | Key algorithmic application from Day 2026-10-29. |
+| [Vertical Paths](https://codeforces.com/problemset/problem/1675/D) | `Codeforces` | `1300` | `verticalPaths.js` | Key algorithmic application from Day 2026-10-29. |
+| [Vasya and Isolated Vertices](https://codeforces.com/problemset/problem/1065/B) | `Codeforces` | `1300` | `vasyaAndIsolatedVertices.js` | Key algorithmic application from Day 2026-10-29. |
 
 ---
 

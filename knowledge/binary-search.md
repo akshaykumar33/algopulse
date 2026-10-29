@@ -121,6 +121,9 @@ function lowerBound(arr, target) {
 | [Two Cakes](https://codeforces.com/problemset/problem/911/B) | `Codeforces` | `1200` | `twoCakes.js` | Key algorithmic application from Day 2026-10-27. |
 | [Monocarp's String](https://codeforces.com/problemset/problem/2145/C) | `Codeforces` | `1300` | `monocarpSString.js` | Key algorithmic application from Day 2026-10-27. |
 | [Skibidus and Fanum Tax (hard version)](https://codeforces.com/problemset/problem/2065/C2) | `Codeforces` | `1300` | `skibidusAndFanumTaxHardVersion.js` | Key algorithmic application from Day 2026-10-28. |
+| [Planning The Expedition](https://codeforces.com/problemset/problem/1011/B) | `Codeforces` | `1200` | `planningTheExpedition.js` | Key algorithmic application from Day 2026-10-29. |
+| [NN and the Optical Illusion](https://codeforces.com/problemset/problem/1100/C) | `Codeforces` | `1200` | `nNAndTheOpticalIllusion.js` | Key algorithmic application from Day 2026-10-29. |
+| [Split](https://codeforces.com/problemset/problem/2148/E) | `Codeforces` | `1200` | `split.js` | Key algorithmic application from Day 2026-10-29. |
 
 ---
 
