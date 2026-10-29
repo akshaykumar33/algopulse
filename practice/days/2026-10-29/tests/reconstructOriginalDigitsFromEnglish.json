@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"owoztneoer\"",
+    "output": "\"012\""
+  },
+  {
+    "input": "\"fviefuro\"",
+    "output": "\"45\""
+  }
+]

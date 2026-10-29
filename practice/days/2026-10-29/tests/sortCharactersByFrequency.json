@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"tree\"",
+    "output": "\"eetr\""
+  },
+  {
+    "input": "\"cccaaa\"",
+    "output": "\"cccaaa\""
+  }
+]
