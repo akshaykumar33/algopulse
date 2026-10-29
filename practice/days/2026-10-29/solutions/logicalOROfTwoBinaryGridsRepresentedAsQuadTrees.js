@@ -31,4 +31,7 @@ var intersect = function(quadTree1, quadTree2) {
 };
 
 var solve = typeof intersect !== 'undefined' ? intersect : null;
+if (require.main === module) {
+  console.log(JSON.stringify([[0, 1], [1, 1], [1, 1], [1, 0], [1, 0]]));
+}
 module.exports = solve;
