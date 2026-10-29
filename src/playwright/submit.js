@@ -62,6 +62,7 @@ function findSolutionFile(problem, dayDir) {
   const dateStr = path.basename(dayDir);
   const platKey = getProblemPlatform(problem).toLowerCase();
   const candidates = [
+    path.join(dayDir, 'solutions', `${problem.file}.sh`),
     path.join(dayDir, 'solutions', `${problem.file}.sql`),
     path.join(dayDir, 'solutions', `${problem.file}.js`),
     path.join(dayDir, 'attempts', `${problem.file}.js`),

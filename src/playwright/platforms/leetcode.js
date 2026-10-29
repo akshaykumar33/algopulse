@@ -85,16 +85,17 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   console.log(`    [LeetCode] Waiting for code editor ...`);
   await page.waitForSelector('.monaco-editor, [data-track-load="code_editor"]', { timeout: 25000 });
 
-  // 2. Ensure Language matches solution type (MySQL for SQL queries, JavaScript otherwise)
-  const isSql = /^\s*(--[\s\S]*?\n\s*)?select\s+[\s\S]+\s+from\s+/i.test(code) || (problem.tags || []).includes('database');
-  const targetLang = isSql ? 'MySQL' : 'JavaScript';
+  // 2. Ensure Language matches solution type (Bash for shell, MySQL for SQL, JavaScript otherwise)
+  const isBash = /^\s*(cat|awk|grep|sed|tr)\b/i.test(code) || (problem.tags || []).includes('shell');
+  const isSql = !isBash && (/^\s*(--[\s\S]*?\n\s*)?select\s+[\s\S]+\s+from\s+/i.test(code) || (problem.tags || []).includes('database'));
+  const targetLang = isBash ? 'Bash' : (isSql ? 'MySQL' : 'JavaScript');
 
   try {
     const buttons = await page.$$('button');
     let langBtn = null;
     let currentLang = '';
     const knownLanguages = [
-      'MySQL', 'MS SQL Server', 'Oracle', 'PostgreSQL', 'Pandas',
+      'Bash', 'MySQL', 'MS SQL Server', 'Oracle', 'PostgreSQL', 'Pandas',
       'C++', 'Java', 'Python', 'Python3', 'JavaScript', 'TypeScript',
       'C', 'C#', 'Go', 'Rust', 'Ruby', 'Swift', 'Kotlin', 'Dart', 'Scala'
     ];
@@ -136,18 +137,19 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   console.log(`    [LeetCode] Inserting ${targetLang} solution ...`);
   await page.waitForTimeout(1000);
 
-  const setViaMonaco = await page.evaluate(({ src, isSql }) => {
+  const setViaMonaco = await page.evaluate(({ src, isSql, isBash }) => {
     if (window.monaco && window.monaco.editor) {
       const models = window.monaco.editor.getModels();
       // 1. Find model by target language
       const targetModel = models.find((m) => {
         const lang = (m.getLanguageId() || '').toLowerCase();
+        if (isBash) return lang.includes('shell') || lang.includes('bash');
         if (isSql) return lang.includes('sql') || lang.includes('mysql');
         return lang === 'javascript' || lang === 'typescript';
       });
       const applyCode = (m) => {
         let finalCode = (src || '').replace(/\r\n/g, '\n');
-        if (!isSql) {
+        if (!isSql && !isBash) {
           const starter = m.getValue() || '';
           const cleanStarter = starter.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '').trim();
           const fnMatch = cleanStarter.match(/(?:var|let|const)\s+([a-zA-Z0-9_$]+)\s*=\s*function|function\s+([a-zA-Z0-9_$]+)\s*\(|class\s+([a-zA-Z0-9_$]+)\b/);
@@ -194,7 +196,7 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       }
     }
     return false;
-  }, { src: code, isSql });
+  }, { src: code, isSql, isBash });
 
   if (!setViaMonaco) {
     // Fallback: click editor, select all, fill/paste via clipboard
