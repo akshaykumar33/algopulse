@@ -666,7 +666,13 @@ function getNumericTier(num) {
  */
 function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
-  if (isFast) return 3000;
+  if (isFast) {
+    const minSec = 45;
+    const maxSec = 65;
+    const baseSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
+    const jitter = Math.floor(Math.random() * 11) - 5;
+    return Math.max(40, baseSec + jitter) * 1000;
+  }
 
   const i = cliArgs.indexOf('--cooldown');
   if (i !== -1) {
@@ -705,7 +711,7 @@ function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = 
 function resolveCooldownMs(cliArgs = process.argv.slice(2)) {
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
   if (isFast) {
-    return 3000;
+    return (45 + Math.floor(Math.random() * 20)) * 1000;
   }
 
   const i = cliArgs.indexOf('--cooldown');
@@ -973,7 +979,7 @@ async function submitWithAutoFix(prob, options) {
     }
 
     console.log(`    [fix-flow] ✓ Fix verified! Simulating realistic debugging review time before resubmission ...`);
-    const debugPauseMs = options.isFast ? 3000 : (60000 + Math.floor(Math.random() * 30000));
+    const debugPauseMs = options.isFast ? (30000 + Math.floor(Math.random() * 15000)) : (60000 + Math.floor(Math.random() * 30000));
     await sleepWithCountdown(debugPauseMs, `Debugging & review pause for ${prob.name} before submitting fix`);
 
     console.log(`    [fix-flow] Resubmitting corrected code for ${prob.name} (${prob.id}) ...`);
@@ -1088,7 +1094,7 @@ async function processPlatformQueue(platKey, queue, options) {
       await waitIfPaused(tag);
       const prob = item.problem;
       const debugPauseMs = options.isFast
-        ? 3000
+        ? (30000 + Math.floor(Math.random() * 15000))
         : Math.min(180000, Math.max(60000, Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.75)));
       await sleepWithCountdown(
         debugPauseMs,
@@ -1457,7 +1463,7 @@ async function main() {
         for (const [dIdx, item] of dlq.entries()) {
           const prob = item.problem;
           const debugPauseMs = isFast
-            ? 3000
+            ? (30000 + Math.floor(Math.random() * 15000))
             : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
           await sleepWithCountdown(debugPauseMs, `[DLQ] Realistic debugging pause for ${prob.name} (${prob.id})`);
 
