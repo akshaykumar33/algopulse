@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n3\nA B A\n4\nA B AB O\n",
+    "output": "2\n3"
+  }
+]

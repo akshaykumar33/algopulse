@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\ni do not have any fancy quotes\nwhen nothing goes right go left\n",
+    "output": "Real Fancy\nregularly fancy"
+  }
+]
