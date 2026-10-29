@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n(a+(b*c))\n((a+b)*(z+x))\n",
+    "output": "abc*+\nab+zx+*"
+  }
+]

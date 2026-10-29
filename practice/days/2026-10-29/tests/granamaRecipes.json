@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nchef chef\nheadchef chefhead\ncook chef\n",
+    "output": "YES\nYES\nYES"
+  }
+]

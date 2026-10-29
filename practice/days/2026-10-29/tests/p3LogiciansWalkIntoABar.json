@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n3\n111\n3\n101\n",
+    "output": "IDK\nIDK\nYES\nIDK\nNO\nNO"
+  }
+]

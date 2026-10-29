@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n15\nI\nAF 1\nAL 2\nAL 3\nI\nF\nL\nREV\nRF\nRL\nRF\nAL 5\nREV\nRL\nRL\n",
+    "output": "true\n1->null\n1->2->null\n1->2->3->null\nfalse\n1\n3\n3->2->1->null\n2->1->null\n2->null\nnull\n5->null\n5->null\nnull\nListEmptyException"
+  }
+]
