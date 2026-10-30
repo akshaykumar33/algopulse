@@ -152,6 +152,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Three Activities](https://codeforces.com/problemset/problem/1914/D) | `Codeforces` | `1200` | `threeActivities.js` | Key algorithmic application from Day 2026-10-29. |
 | [A-B-C Sort](https://codeforces.com/problemset/problem/1674/D) | `Codeforces` | `1200` | `aBCSort.js` | Key algorithmic application from Day 2026-10-29. |
 | [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
+| [K for the Price of One (Easy Version)](https://codeforces.com/problemset/problem/1282/B1) | `Codeforces` | `1400` | `kForThePriceOfOneEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -175,6 +175,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Collatz Conjecture](https://codeforces.com/problemset/problem/1982/B) | `Codeforces` | `1200` | `collatzConjecture.js` | Key algorithmic application from Day 2026-10-29. |
 | [Planning The Expedition](https://codeforces.com/problemset/problem/1011/B) | `Codeforces` | `1200` | `planningTheExpedition.js` | Key algorithmic application from Day 2026-10-29. |
 | [Black Circles](https://codeforces.com/problemset/problem/2002/C) | `Codeforces` | `1200` | `blackCircles.js` | Key algorithmic application from Day 2026-10-29. |
+| [Twist the Permutation](https://codeforces.com/problemset/problem/1650/D) | `Codeforces` | `1300` | `twistThePermutation.js` | Key algorithmic application from Day 2026-10-30. |
+| [pspspsps](https://codeforces.com/problemset/problem/2049/B) | `Codeforces` | `1300` | `pspspsps.js` | Key algorithmic application from Day 2026-10-30. |
+| [Dress'em in Vests!](https://codeforces.com/problemset/problem/161/A) | `Codeforces` | `1300` | `dressEmInVests.js` | Key algorithmic application from Day 2026-10-30. |
+| [Mike and strings](https://codeforces.com/problemset/problem/798/B) | `Codeforces` | `1300` | `mikeAndStrings.js` | Key algorithmic application from Day 2026-10-30. |
+| [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -106,6 +106,9 @@ for (let right = 0; right < arr.length; right++) {
 | [News About Credit](https://codeforces.com/problemset/problem/769/B) | `Codeforces` | `1200` | `newsAboutCredit.js` | Key algorithmic application from Day 2026-10-27. |
 | [Balanced Team](https://codeforces.com/problemset/problem/1133/C) | `Codeforces` | `1200` | `balancedTeam.js` | Key algorithmic application from Day 2026-10-29. |
 | [Split](https://codeforces.com/problemset/problem/2148/E) | `Codeforces` | `1200` | `split.js` | Key algorithmic application from Day 2026-10-29. |
+| [Money Trees](https://codeforces.com/problemset/problem/1873/F) | `Codeforces` | `1300` | `moneyTrees.js` | Key algorithmic application from Day 2026-10-30. |
+| [Colorful Table](https://codeforces.com/problemset/problem/1870/C) | `Codeforces` | `1300` | `colorfulTable.js` | Key algorithmic application from Day 2026-10-30. |
+| [Dress'em in Vests!](https://codeforces.com/problemset/problem/161/A) | `Codeforces` | `1300` | `dressEmInVests.js` | Key algorithmic application from Day 2026-10-30. |
 
 ---
 

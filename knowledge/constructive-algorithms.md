@@ -186,6 +186,19 @@ function constructMatrix(n, m) {
 | [A-B-C Sort](https://codeforces.com/problemset/problem/1674/D) | `Codeforces` | `1200` | `aBCSort.js` | Key algorithmic application from Day 2026-10-29. |
 | [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
 | [Vasya and Isolated Vertices](https://codeforces.com/problemset/problem/1065/B) | `Codeforces` | `1300` | `vasyaAndIsolatedVertices.js` | Key algorithmic application from Day 2026-10-29. |
+| [Sonya and Exhibition](https://codeforces.com/problemset/problem/1004/B) | `Codeforces` | `1300` | `sonyaAndExhibition.js` | Key algorithmic application from Day 2026-10-30. |
+| [Twist the Permutation](https://codeforces.com/problemset/problem/1650/D) | `Codeforces` | `1300` | `twistThePermutation.js` | Key algorithmic application from Day 2026-10-30. |
+| [Salyg1n and the MEX Game](https://codeforces.com/problemset/problem/1867/C) | `Codeforces` | `1300` | `salyg1nAndTheMEXGame.js` | Key algorithmic application from Day 2026-10-30. |
+| [Di-visible Confusion](https://codeforces.com/problemset/problem/1603/A) | `Codeforces` | `1300` | `diVisibleConfusion.js` | Key algorithmic application from Day 2026-10-30. |
+| [XOR Convenience (Easy Version)](https://codeforces.com/problemset/problem/2189/C1) | `Codeforces` | `1300` | `xORConvenienceEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
+| [pspspsps](https://codeforces.com/problemset/problem/2049/B) | `Codeforces` | `1300` | `pspspsps.js` | Key algorithmic application from Day 2026-10-30. |
+| [Mex in the Grid](https://codeforces.com/problemset/problem/2101/A) | `Codeforces` | `1300` | `mexInTheGrid.js` | Key algorithmic application from Day 2026-10-30. |
+| [Ehab and a Special Coloring Problem](https://codeforces.com/problemset/problem/1174/C) | `Codeforces` | `1300` | `ehabAndASpecialColoringProblem.js` | Key algorithmic application from Day 2026-10-30. |
+| [Madoka and Childish Pranks](https://codeforces.com/problemset/problem/1647/C) | `Codeforces` | `1300` | `madokaAndChildishPranks.js` | Key algorithmic application from Day 2026-10-30. |
+| [You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | `Codeforces` | `1400` | `youSoaredAfarWithGrace.js` | Key algorithmic application from Day 2026-10-30. |
+| [Good Pair Queries](https://codeforces.com/problemset/problem/2248/D) | `Codeforces` | `1400` | `goodPairQueries.js` | Key algorithmic application from Day 2026-10-30. |
+| [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
+| [Find B](https://codeforces.com/problemset/problem/1923/C) | `Codeforces` | `1400` | `findB.js` | Key algorithmic application from Day 2026-10-30. |
 
 ---
 
