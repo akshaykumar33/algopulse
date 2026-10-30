@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nonetwone\ntestme\noneoneone\nonetwonetwoone\n",
+    "output": "2\n2 6\n0\n\n3\n2 5 8\n4\n2 6 10 13\n"
+  }
+]
