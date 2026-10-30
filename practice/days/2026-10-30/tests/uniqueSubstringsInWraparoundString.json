@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"a\"",
+    "output": "1"
+  },
+  {
+    "input": "\"cac\"",
+    "output": "2"
+  },
+  {
+    "input": "\"zab\"",
+    "output": "6"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "\"name age\\nalice 21\\nryan 30\"",
+    "output": "\"name alice ryan\\nage 21 30\""
+  }
+]
