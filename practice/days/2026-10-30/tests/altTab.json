@@ -1,0 +1,10 @@
+[
+  {
+    "input": "9\nNAUTILUS\nFIREFOX\nGEDIT\nFIREFOX\nNAUTILUS\nWINE\nGIMP\nTERMINAL\nWINE",
+    "output": "NEALMPUSOXIT"
+  },
+  {
+    "input": "2\nYDK\nIDK",
+    "output": "DKDK"
+  }
+]

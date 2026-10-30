@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\r\n20 2\r\nstayinghomesaveslife\r\n1\r\n3",
+    "output": "6\r\n0"
+  }
+]

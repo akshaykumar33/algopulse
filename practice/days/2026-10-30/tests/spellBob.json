@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\r\nbob\r\nrob\r\ndbc\r\nocb\r\nboc\r\nobc",
+    "output": "yes\r\nyes\r\nno"
+  }
+]
