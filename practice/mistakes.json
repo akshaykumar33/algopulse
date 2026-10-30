@@ -606,5 +606,145 @@
       "codechef"
     ],
     "timestamp": "2026-10-27T14:14:59.903Z"
+  },
+  {
+    "id": "1867C",
+    "problem": "Salyg1n and the MEX Game",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The interactive game is read incorrectly. The solution consumes responses from the initial input tokens array instead of reading dynamically from stdin interactively during each test case, which causes desynchronization and Wrong Answer.",
+    "rule": "For interactive problems, responses to outputs must be read dynamically from standard input after each write operation, rather than pre-reading all tokens at the start.",
+    "tags": [
+      "constructive algorithms",
+      "data structures",
+      "games",
+      "greedy",
+      "interactive"
+    ],
+    "timestamp": "2026-10-30T07:36:12.483Z"
+  },
+  {
+    "id": "1867C",
+    "problem": "Salyg1n and the MEX Game",
+    "platform": "Codeforces",
+    "verdict": "Pending",
+    "diagnosis": "The interactive game loop does not handle the case correctly where the judge returns -1 (meaning the game is won/over or terminated), and printing needs to be flushed or handled properly in Node.js. Also, the strategy for the game requires printing the initial MEX, and then whatever the judge outputs, we output that same value back until the judge outputs -1.",
+    "rule": "In interactive games, ensure standard output is flushed or correctly captured, and properly terminate the loop when the termination signal (like -1) is received.",
+    "tags": [
+      "constructive algorithms",
+      "data structures",
+      "games",
+      "greedy",
+      "interactive"
+    ],
+    "timestamp": "2026-10-30T07:38:19.139Z"
+  },
+  {
+    "id": "1603A",
+    "problem": "Di-visible Confusion",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 2",
+    "diagnosis": "The limit for checking non-divisibility was hardcoded to 22, but more divisors may be needed up to min(i + 1, 40) to guarantee a valid non-divisor exists.",
+    "rule": "For problems requiring divisibility checks against a growing prefix of indices, check up to min(i + 1, 45) since the LCM of numbers exceeds standard constraints quickly.",
+    "tags": [
+      "constructive algorithms",
+      "math",
+      "number theory"
+    ],
+    "timestamp": "2026-10-30T07:46:37.404Z"
+  },
+  {
+    "id": "1603A",
+    "problem": "Di-visible Confusion",
+    "platform": "Codeforces",
+    "verdict": "Pending",
+    "diagnosis": "The limit for checking non-divisibility was hardcoded to 40. However, for an element at position i (1-indexed), we need to check all integers from 2 to i + 1. If i is larger (e.g., around 50), checking only up to 40 might miss a divisor or incorrectly determine that an element can be removed.",
+    "rule": "When a problem requires checking divisibility against all integers from 2 up to i + 1, do not cap the upper limit with an arbitrary constant like 40 or 22; check up to Math.min(i + 1, n + 1) or simply up to i + 1.",
+    "tags": [
+      "constructive algorithms",
+      "math",
+      "number theory"
+    ],
+    "timestamp": "2026-10-30T07:48:46.879Z"
+  },
+  {
+    "id": "LC-602",
+    "problem": "Friend Requests II: Who Has the Most Friends",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The solution failed because LeetCode SQL/DataFrame problems in JS environment often pass input differently or expect a specific output format, or the input table might be empty, causing `maxNum` to remain `-1` and returning an invalid structure or handling empty constraints improperly.",
+    "rule": "Always handle edge cases such as empty input arrays gracefully, returning empty arrays or correct default structures as expected by the problem statement.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-30T08:02:17.322Z"
+  },
+  {
+    "id": "LC-602",
+    "problem": "Friend Requests II: Who Has the Most Friends",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The solution failed because LeetCode database problems presented as JavaScript functions sometimes receive DataFrame-like inputs or objects depending on the specific platform harness, or the return format expected by the test runner requires an array of objects matching Pandas output format. Wait, looking at LeetCode's Pandas/Node.js support, DataFrame inputs are passed as objects or arrays of arrays. The primary runtime error could stem from destructuring `[u, v]` when the input is malformed or empty, or JSON parsing issues.",
+    "rule": "Ensure robust input handling and match the exact output format expected by LeetCode DataFrame/SQL problems in JavaScript.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-30T08:28:07.094Z"
+  },
+  {
+    "id": "LC-602",
+    "problem": "Friend Requests II: Who Has the Most Friends",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The problem expects to return all users tied for the maximum number of friends, but the previous code only kept track of a single bestId and maxNum, failing to handle ties or outputting in the correct format expected by LeetCode DataFrame pandas/SQL problems adapted to JS.",
+    "rule": "When returning top elements from frequency counts in database-style problems, ensure all items meeting the maximum criteria are returned, and format the output as an array of objects matching the expected columns.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-30T08:29:23.248Z"
+  },
+  {
+    "id": "2084C",
+    "problem": "You Soared Afar With Grace",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 3",
+    "diagnosis": "The swap logic in the current solution incorrectly updates positions and elements during the construction of pairs. Specifically, when elements are swapped, the `pos` map needs to be accurately tracked, or alternatively, a much simpler constructive approach should be used: match each element (a[i], b[i]) with its dual (b[i], a[i]), and place them symmetrically at positions i and n - i + 1. The current greedy implementation fails to maintain map consistency and can result in incorrect swaps or infinite loops.",
+    "rule": "When solving permutation/matching construction problems with symmetric conditions, explicitly find pairs and perform exact swaps to their designated mirror positions, ensuring all index-tracking maps are either updated correctly or avoided by working directly with the original matched pairs.",
+    "tags": [
+      "constructive algorithms",
+      "data structures",
+      "greedy",
+      "implementation"
+    ],
+    "timestamp": "2026-10-30T08:29:32.141Z"
+  },
+  {
+    "id": "2084C",
+    "problem": "You Soared Afar With Grace",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The solution incorrectly tracks and updates the hash map of positions (`pos`) after performing swaps. When elements are swapped, their corresponding entries in the hash map are not accurately maintained or updated for all affected indices, leading to invalid position lookups and incorrect swap sequences.",
+    "rule": "When simulating swap-based constructive algorithms that rely on position lookups, either update all affected map entries correctly or re-index/re-build the position map after every swap operation.",
+    "tags": [
+      "constructive algorithms",
+      "data structures",
+      "greedy",
+      "implementation"
+    ],
+    "timestamp": "2026-10-30T08:31:02.078Z"
+  },
+  {
+    "id": "2248D",
+    "problem": "Good Pair Queries",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks whether two strings can be made equal by certain operations or conditions, but the previous solution used an incorrect heuristic formula (checking len % 2 === 0 && diff <= common) which does not correctly model the problem logic for 'Good Pair Queries'.",
+    "rule": "Carefully derive the necessary and sufficient conditions for string transformation or matching problems rather than guessing heuristic parity/difference conditions.",
+    "tags": [
+      "constructive algorithms",
+      "greedy",
+      "math"
+    ],
+    "timestamp": "2026-10-30T12:40:17.169Z"
   }
 ]

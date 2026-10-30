@@ -14,7 +14,7 @@ function solve() {
       const val = parseInt(tokens[ptr++], 10);
       if (!ok) continue;
       let found = false;
-      const limit = Math.min(i + 1, 22);
+      const limit = i + 1;
       for (let j = 2; j <= limit; j++) {
         if (val % j !== 0) {
           found = true;
