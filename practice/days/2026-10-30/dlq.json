@@ -1,0 +1,154 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-194",
+    "name": "Transpose File",
+    "file": "transposeFile",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-30T07:27:57.574Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-194",
+      "name": "Transpose File",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/transpose-file/",
+      "file": "transposeFile",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-10-30T08:26:29.626Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1867C",
+    "name": "Salyg1n and the MEX Game",
+    "file": "salyg1nAndTheMEXGame",
+    "tier": "medium",
+    "initialVerdict": "Time limit exceeded on test 1",
+    "enqueuedAt": "2026-10-30T07:40:06.057Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1867C",
+      "name": "Salyg1n and the MEX Game",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "data structures",
+        "games",
+        "greedy",
+        "interactive"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1867/C",
+      "file": "salyg1nAndTheMEXGame",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SPELLBOB",
+    "name": "Spell Bob",
+    "file": "spellBob",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-30T07:52:41.707Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SPELLBOB",
+      "name": "Spell Bob",
+      "rating": 1283,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SPELLBOB",
+      "file": "spellBob",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-30T08:28:53.585Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHEFDETE",
+    "name": "Chef-Detective",
+    "file": "chefDetective",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on CodeChef. Please run \"npm run submit:auth -- --platform codechef\" to log in first.",
+    "enqueuedAt": "2026-10-30T08:01:36.561Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHEFDETE",
+      "name": "Chef-Detective",
+      "rating": 1253,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFDETE",
+      "file": "chefDetective",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-602",
+    "name": "Friend Requests II: Who Has the Most Friends",
+    "file": "friendRequestsIIWhoHasTheMostFriends",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-30T08:03:50.007Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-602",
+      "name": "Friend Requests II: Who Has the Most Friends",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/",
+      "file": "friendRequestsIIWhoHasTheMostFriends",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2189C1",
+    "name": "XOR Convenience (Easy Version)",
+    "file": "xORConvenienceEasyVersion",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-30T12:14:14.568Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2189C1",
+      "name": "XOR Convenience (Easy Version)",
+      "rating": 1300,
+      "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2189/C1",
+      "file": "xORConvenienceEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n"
+  }
+]

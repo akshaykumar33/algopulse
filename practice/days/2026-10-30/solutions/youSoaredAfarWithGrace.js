@@ -14,26 +14,28 @@ function solve() {
     const b = new Int32Array(n + 1);
     for (let i = 1; i <= n; i++) b[i] = parseInt(tokens[ptr++], 10);
 
+    let selfCount = 0;
+    let possible = true;
+    for (let i = 1; i <= n; i++) {
+      if (a[i] === b[i]) selfCount++;
+    }
+
+    if ((n % 2 === 0 && selfCount !== 0) || (n % 2 === 1 && selfCount !== 1)) {
+      possible = false;
+    }
+
     const pos = new Map();
     for (let i = 1; i <= n; i++) {
       pos.set(a[i] + ',' + b[i], i);
     }
 
-    let possible = true;
-    let selfCount = 0;
     for (let i = 1; i <= n; i++) {
-      if (a[i] === b[i]) {
-        selfCount++;
-      } else {
+      if (a[i] !== b[i]) {
         if (!pos.has(b[i] + ',' + a[i])) {
           possible = false;
           break;
         }
       }
-    }
-
-    if ((n % 2 === 0 && selfCount !== 0) || (n % 2 === 1 && selfCount !== 1)) {
-      possible = false;
     }
 
     if (!possible) {
@@ -42,44 +44,36 @@ function solve() {
     }
 
     const swaps = [];
-    const used = new Uint8Array(n + 1);
+    const doSwap = (i, j) => {
+      if (i === j) return;
+      swaps.push(i + ' ' + j);
+      const ta = a[i]; a[i] = a[j]; a[j] = ta;
+      const tb = b[i]; b[i] = b[j]; b[j] = tb;
+      pos.set(a[i] + ',' + b[i], i);
+      pos.set(a[j] + ',' + b[j], j);
+    };
 
     for (let i = 1; i <= Math.floor(n / 2); i++) {
-      const targetI = i;
-      const targetJ = n - i + 1;
-
-      let curI = targetI;
-      if (used[curI]) {
+      const j = n - i + 1;
+      if (a[i] === b[i]) {
+        let alt = -1;
         for (let k = 1; k <= n; k++) {
-          if (!used[k] && a[k] !== b[k]) {
-            curI = k;
+          if (a[k] !== b[k]) {
+            alt = k;
             break;
           }
         }
+        if (alt !== -1) {
+          doSwap(i, alt);
+        }
       }
 
-      const u = a[curI];
-      const v = b[curI];
-      const curJ = pos.get(v + ',' + u);
+      const targetA = b[i];
+      const targetB = a[i];
+      const curPos = pos.get(targetA + ',' + targetB);
 
-      used[curI] = 1;
-      used[curJ] = 1;
-
-      if (curI !== targetI) {
-        swaps.push(curI + ' ' + targetI);
-        pos.set(a[targetI] + ',' + b[targetI], curI);
-        pos.set(u + ',' + v, targetI);
-        const tmpA = a[curI]; a[curI] = a[targetI]; a[targetI] = tmpA;
-        const tmpB = b[curI]; b[curI] = b[targetI]; b[targetI] = tmpB;
-      }
-
-      const updatedCurJ = pos.get(v + ',' + u);
-      if (updatedCurJ !== targetJ) {
-        swaps.push(updatedCurJ + ' ' + targetJ);
-        pos.set(a[targetJ] + ',' + b[targetJ], updatedCurJ);
-        pos.set(v + ',' + u, targetJ);
-        const tmpA = a[updatedCurJ]; a[updatedCurJ] = a[targetJ]; a[targetJ] = tmpA;
-        const tmpB = b[updatedCurJ]; b[updatedCurJ] = b[targetJ]; b[targetJ] = tmpB;
+      if (curPos !== j) {
+        doSwap(curPos, j);
       }
     }
 
@@ -92,15 +86,15 @@ function solve() {
           break;
         }
       }
-      if (selfPos !== mid) {
-        swaps.push(selfPos + ' ' + mid);
-        const tmpA = a[selfPos]; a[selfPos] = a[mid]; a[mid] = tmpA;
-        const tmpB = b[selfPos]; b[selfPos] = b[mid]; b[mid] = tmpB;
+      if (selfPos !== -1 && selfPos !== mid) {
+        doSwap(selfPos, mid);
       }
     }
 
     out.push(swaps.length);
-    for (const s of swaps) out.push(s);
+    for (let i = 0; i < swaps.length; i++) {
+      out.push(swaps[i]);
+    }
   }
   console.log(out.join('\n'));
 }
