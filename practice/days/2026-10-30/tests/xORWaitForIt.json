@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n1 4\n2 6\n3 3\n2 3",
+    "output": "Even\nEven\nOdd\nOdd"
+  }
+]
