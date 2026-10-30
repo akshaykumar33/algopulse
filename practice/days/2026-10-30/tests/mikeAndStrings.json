@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nxzzwo\nzwoxz\nzzwox\nxzzwo\n",
+    "output": "5\n"
+  }
+]
