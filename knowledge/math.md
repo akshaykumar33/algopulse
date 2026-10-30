@@ -256,6 +256,21 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Omkar and Last Class of Math](https://codeforces.com/problemset/problem/1372/B) | `Codeforces` | `1300` | `omkarAndLastClassOfMath.js` | Key algorithmic application from Day 2026-10-29. |
 | [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
 | [Product of Three Numbers](https://codeforces.com/problemset/problem/1294/C) | `Codeforces` | `1300` | `productOfThreeNumbers.js` | Key algorithmic application from Day 2026-10-29. |
+| [Sonya and Exhibition](https://codeforces.com/problemset/problem/1004/B) | `Codeforces` | `1300` | `sonyaAndExhibition.js` | Key algorithmic application from Day 2026-10-30. |
+| [Expansion coefficient of the array](https://codeforces.com/problemset/problem/1159/B) | `Codeforces` | `1300` | `expansionCoefficientOfTheArray.js` | Key algorithmic application from Day 2026-10-30. |
+| [Money Trees](https://codeforces.com/problemset/problem/1873/F) | `Codeforces` | `1300` | `moneyTrees.js` | Key algorithmic application from Day 2026-10-30. |
+| [Colorful Table](https://codeforces.com/problemset/problem/1870/C) | `Codeforces` | `1300` | `colorfulTable.js` | Key algorithmic application from Day 2026-10-30. |
+| [Cow and Friend](https://codeforces.com/problemset/problem/1307/B) | `Codeforces` | `1300` | `cowAndFriend.js` | Key algorithmic application from Day 2026-10-30. |
+| [Twist the Permutation](https://codeforces.com/problemset/problem/1650/D) | `Codeforces` | `1300` | `twistThePermutation.js` | Key algorithmic application from Day 2026-10-30. |
+| [Dreaming of Freedom](https://codeforces.com/problemset/problem/1826/C) | `Codeforces` | `1300` | `dreamingOfFreedom.js` | Key algorithmic application from Day 2026-10-30. |
+| [Di-visible Confusion](https://codeforces.com/problemset/problem/1603/A) | `Codeforces` | `1300` | `diVisibleConfusion.js` | Key algorithmic application from Day 2026-10-30. |
+| [XOR Convenience (Easy Version)](https://codeforces.com/problemset/problem/2189/C1) | `Codeforces` | `1300` | `xORConvenienceEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
+| [Particles](https://codeforces.com/problemset/problem/1844/C) | `Codeforces` | `1300` | `particles.js` | Key algorithmic application from Day 2026-10-30. |
+| [Insane Problem](https://codeforces.com/problemset/problem/2044/E) | `Codeforces` | `1300` | `insaneProblem.js` | Key algorithmic application from Day 2026-10-30. |
+| [Prefix Permutation Sums](https://codeforces.com/problemset/problem/1851/D) | `Codeforces` | `1300` | `prefixPermutationSums.js` | Key algorithmic application from Day 2026-10-30. |
+| [Birthday](https://codeforces.com/problemset/problem/1068/A) | `Codeforces` | `1400` | `birthday.js` | Key algorithmic application from Day 2026-10-30. |
+| [Good Pair Queries](https://codeforces.com/problemset/problem/2248/D) | `Codeforces` | `1400` | `goodPairQueries.js` | Key algorithmic application from Day 2026-10-30. |
+| [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

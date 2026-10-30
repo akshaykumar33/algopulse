@@ -119,6 +119,11 @@ dp.fill(-1); // Memoization sentinel
 | [Rudolf and the Ball Game](https://codeforces.com/problemset/problem/1941/D) | `Codeforces` | `1200` | `rudolfAndTheBallGame.js` | Key algorithmic application from Day 2026-10-29. |
 | [Three Activities](https://codeforces.com/problemset/problem/1914/D) | `Codeforces` | `1200` | `threeActivities.js` | Key algorithmic application from Day 2026-10-29. |
 | [Against the Difference](https://codeforces.com/problemset/problem/2135/A) | `Codeforces` | `1200` | `againstTheDifference.js` | Key algorithmic application from Day 2026-10-29. |
+| [Colorful Table](https://codeforces.com/problemset/problem/1870/C) | `Codeforces` | `1300` | `colorfulTable.js` | Key algorithmic application from Day 2026-10-30. |
+| [Particles](https://codeforces.com/problemset/problem/1844/C) | `Codeforces` | `1300` | `particles.js` | Key algorithmic application from Day 2026-10-30. |
+| [Mike and strings](https://codeforces.com/problemset/problem/798/B) | `Codeforces` | `1300` | `mikeAndStrings.js` | Key algorithmic application from Day 2026-10-30. |
+| [As Simple as One and Two](https://codeforces.com/problemset/problem/1276/A) | `Codeforces` | `1400` | `asSimpleAsOneAndTwo.js` | Key algorithmic application from Day 2026-10-30. |
+| [K for the Price of One (Easy Version)](https://codeforces.com/problemset/problem/1282/B1) | `Codeforces` | `1400` | `kForThePriceOfOneEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
 
 ---
 

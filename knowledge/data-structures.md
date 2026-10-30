@@ -136,6 +136,11 @@ class MinHeap {
 | [Jatayu's Balanced Bracket Sequence](https://codeforces.com/problemset/problem/1726/C) | `Codeforces` | `1300` | `jatayuSBalancedBracketSequence.js` | Key algorithmic application from Day 2026-10-28. |
 | [Against the Difference](https://codeforces.com/problemset/problem/2135/A) | `Codeforces` | `1200` | `againstTheDifference.js` | Key algorithmic application from Day 2026-10-29. |
 | [Split](https://codeforces.com/problemset/problem/2148/E) | `Codeforces` | `1200` | `split.js` | Key algorithmic application from Day 2026-10-29. |
+| [Colorful Table](https://codeforces.com/problemset/problem/1870/C) | `Codeforces` | `1300` | `colorfulTable.js` | Key algorithmic application from Day 2026-10-30. |
+| [Cosmic Tables](https://codeforces.com/problemset/problem/222/B) | `Codeforces` | `1300` | `cosmicTables.js` | Key algorithmic application from Day 2026-10-30. |
+| [Salyg1n and the MEX Game](https://codeforces.com/problemset/problem/1867/C) | `Codeforces` | `1300` | `salyg1nAndTheMEXGame.js` | Key algorithmic application from Day 2026-10-30. |
+| [Box Fitting](https://codeforces.com/problemset/problem/1498/B) | `Codeforces` | `1300` | `boxFitting.js` | Key algorithmic application from Day 2026-10-30. |
+| [You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | `Codeforces` | `1400` | `youSoaredAfarWithGrace.js` | Key algorithmic application from Day 2026-10-30. |
 
 ---
 
