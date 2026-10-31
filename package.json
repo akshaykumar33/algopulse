@@ -53,7 +53,9 @@
     "auth:status": "node src/playwright/auth.js --status",
     "test:playwright": "node --test src/playwright/submit.test.js",
     "test:unit": "node --test \"src/**/*.test.js\"",
-    "test:ui": "node apps/visualizer/test/ui.e2e.mjs"
+    "test:ui": "node apps/visualizer/test/ui.e2e.mjs",
+    "autonomous": "node src/cli/autonomous.js",
+    "autonomous:fast": "node src/cli/autonomous.js --fast"
   },
   "keywords": [
     "competitive-programming",

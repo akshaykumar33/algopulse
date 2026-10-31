@@ -489,7 +489,7 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
   let page = null;
 
   if (isPersistentMode) {
-    if (fs.existsSync(platConfig.authFile)) {
+    if (platKey !== 'codeforces' && fs.existsSync(platConfig.authFile)) {
       try {
         const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
         if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {

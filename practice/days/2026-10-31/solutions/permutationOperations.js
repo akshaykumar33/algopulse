@@ -1,36 +1,44 @@
 const fs = require('fs');
-const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-let ptr = 0;
 
-const readInt = () => parseInt(tokens[ptr++], 10);
+function solve() {
+  const buffer = fs.readFileSync(0);
+  let offset = 0;
 
-const out = [];
+  function readInt() {
+    while (offset < buffer.length && buffer[offset] <= 32) {
+      offset++;
+    }
+    if (offset >= buffer.length) return null;
+    let res = 0;
+    while (offset < buffer.length && buffer[offset] > 32) {
+      res = res * 10 + (buffer[offset] - 48);
+      offset++;
+    }
+    return res;
+  }
 
-const solve = () => {
+  const t = readInt();
+  if (t === null) return;
+
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
     const n = readInt();
-    const a = new Array(n);
-    for (let i = 0; i < n; i++) {
-        a[i] = readInt();
+    const pos = new Int32Array(n + 1);
+    for (let i = 1; i <= n; i++) {
+      const val = readInt();
+      pos[val] = i;
     }
 
-    const p = new Array(n);
-    const ops = new Array(n);
-
-    for (let i = 0; i < n; i++) {
-        p[i] = n - i;
+    const ans = new Int32Array(n);
+    for (let i = 1; i <= n; i++) {
+      ans[i - 1] = pos[i] < n ? pos[i] + 1 : 1;
     }
 
-    for (let i = 0; i < n; i++) {
-        ops[i] = n - i;
-    }
+    out.push(ans.join(' '));
+  }
 
-    out.push(p.join(' '));
-    out.push(ops.join(' '));
-};
-
-const t = readInt();
-for (let i = 0; i < t; i++) {
-    solve();
+  console.log(out.join('\n'));
 }
 
-console.log(out.join('\n'));
+solve();

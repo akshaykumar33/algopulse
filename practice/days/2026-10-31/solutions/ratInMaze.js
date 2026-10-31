@@ -1,11 +1,43 @@
 const fs = require('fs');
 
+function findAllPaths(n, grid) {
+  if (!grid || n === 0 || grid[0][0] === 0 || grid[n - 1][n - 1] === 0) return [];
+  const vis = Array.from({ length: n }, () => new Array(n).fill(false));
+  const paths = [];
+
+  const moves = [
+    { dir: 'D', dr: 1, dc: 0 },
+    { dir: 'L', dr: 0, dc: -1 },
+    { dir: 'R', dr: 0, dc: 1 },
+    { dir: 'U', dr: -1, dc: 0 },
+  ];
+
+  function dfs(r, c, path) {
+    if (r === n - 1 && c === n - 1) {
+      paths.push(path);
+      return;
+    }
+    vis[r][c] = true;
+    for (const m of moves) {
+      const nr = r + m.dr;
+      const nc = c + m.dc;
+      if (nr >= 0 && nr < n && nc >= 0 && nc < n && !vis[nr][nc] && grid[nr][nc] === 1) {
+        dfs(nr, nc, path + m.dir);
+      }
+    }
+    vis[r][c] = false;
+  }
+
+  dfs(0, 0, '');
+  paths.sort();
+  return paths;
+}
+
 function solve() {
   const input = fs.readFileSync(0, 'utf-8').trim();
   if (!input) return;
   const tokens = input.split(/\s+/);
   let ptr = 0;
-
   const t = parseInt(tokens[ptr++], 10);
   const out = [];
 
@@ -20,38 +52,21 @@ function solve() {
       grid.push(row);
     }
 
-    if (grid[0][0] === 0 || grid[n - 1][n - 1] === 0) {
-      out.push('NO');
-      continue;
-    }
-
-    const dist = Array.from({ length: n }, () => new Array(n).fill(-1));
-    const q = [[0, 0]];
-    dist[0][0] = 1;
-    let head = 0;
-    const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
-
-    while (head < q.length) {
-      const [r, c] = q[head++];
-      if (r === n - 1 && c === n - 1) break;
-      for (const [dr, dc] of dirs) {
-        const nr = r + dr, nc = c + dc;
-        if (nr >= 0 && nr < n && nc >= 0 && nc < n && grid[nr][nc] === 1 && dist[nr][nc] === -1) {
-          dist[nr][nc] = dist[r][c] + 1;
-          q.push([nr, nc]);
-        }
-      }
-    }
-
-    if (dist[n - 1][n - 1] !== -1) {
-      out.push(`YES\n${dist[n - 1][n - 1]}`);
+    const paths = findAllPaths(n, grid);
+    if (paths.length === 0) {
+      out.push('-1');
     } else {
-      out.push('NO');
+      out.push(`[ ${paths.map((p) => `"${p}"`).join(', ')} ]`);
     }
   }
 
   console.log(out.join('\n'));
 }
 
-solve();
+if (typeof require !== 'undefined' && require.main === module) {
+  solve();
+}
 
+if (typeof module !== 'undefined') {
+  module.exports = { findAllPaths };
+}

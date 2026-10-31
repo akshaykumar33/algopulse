@@ -1,37 +1,30 @@
 const fs = require('fs');
 
 function solve() {
-    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-    let ptr = 0;
-    const t = parseInt(tokens[ptr++], 10);
-    const out = [];
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+  const t = parseInt(tokens[ptr++], 10);
+  const out = [];
 
-    for (let tc = 0; tc < t; tc++) {
-        const n = parseInt(tokens[ptr++], 10);
-        const k = parseInt(tokens[ptr++], 10);
-        const arr = [];
-        for (let i = 0; i < n; i++) {
-            arr.push(parseInt(tokens[ptr++], 10));
-        }
-        arr.sort((a, b) => a - b);
-        
-        let ans = 0;
-        let maxVal = arr[n - 1];
-        let secondMax = 0;
-        
-        if (k === 2) {
-            secondMax = arr[n - 2];
-            ans = maxVal + secondMax;
-        } else {
-            let max1 = arr[n - 1];
-            let max2 = arr[n - 2];
-            let max3 = arr[n - 3];
-            ans = max1 + max2 + max3;
-        }
-        out.push(ans);
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(tokens[ptr++], 10);
+    const k = parseInt(tokens[ptr++], 10);
+    const a = [];
+    for (let i = 0; i < n; i++) {
+      a.push(parseInt(tokens[ptr++], 10));
     }
-    console.log(out.join('\n'));
+
+    a.sort((x, y) => x - y);
+
+    if (k === 1) {
+      out.push(a[0] + a[n - 2] + 2 * a[n - 1]);
+    } else {
+      out.push(a[0] + a[n - 1] + a[n - 2] + a[n - k - 1]);
+    }
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

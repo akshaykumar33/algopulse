@@ -651,7 +651,8 @@
       "name": "Tree Node",
       "rating": "Medium",
       "tags": [
-        "algorithms"
+        "database",
+        "sql"
       ],
       "url": "https://leetcode.com/problems/tree-node/",
       "file": "treeNode",

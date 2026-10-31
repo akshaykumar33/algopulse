@@ -1,8 +1,7 @@
-var treeNode = function(tree) {
+const treeNode = function(tree) {
     return [];
 };
 var solve = typeof treeNode !== 'undefined' ? treeNode : null;
-
 if (require.main === module) {
   const fs = require('fs');
   try {
