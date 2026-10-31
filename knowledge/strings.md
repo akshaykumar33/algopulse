@@ -141,6 +141,9 @@ function isPalindrome(s) {
 | [Oh Those Palindromes](https://codeforces.com/problemset/problem/1063/A) | `Codeforces` | `1300` | `ohThosePalindromes.js` | Key algorithmic application from Day 2026-10-31. |
 | [Make a Power of Two](https://codeforces.com/problemset/problem/1560/D) | `Codeforces` | `1300` | `makeAPowerOfTwo.js` | Key algorithmic application from Day 2026-10-31. |
 | [Strings of Power](https://codeforces.com/problemset/problem/318/B) | `Codeforces` | `1300` | `stringsOfPower.js` | Key algorithmic application from Day 2026-10-31. |
+| [Equalize](https://codeforces.com/problemset/problem/1037/C) | `Codeforces` | `1300` | `equalize.js` | Key algorithmic application from Day 2026-11-01. |
+| [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
+| [Binary Palindromes](https://codeforces.com/problemset/problem/1251/B) | `Codeforces` | `1400` | `binaryPalindromes.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

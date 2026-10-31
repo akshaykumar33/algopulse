@@ -310,6 +310,26 @@ for (const x of arr) {
 | [Increasing Subsequence (easy version)](https://codeforces.com/problemset/problem/1157/C1) | `Codeforces` | `1300` | `increasingSubsequenceEasyVersion.js` | Key algorithmic application from Day 2026-10-31. |
 | [Make a Power of Two](https://codeforces.com/problemset/problem/1560/D) | `Codeforces` | `1300` | `makeAPowerOfTwo.js` | Key algorithmic application from Day 2026-10-31. |
 | [PIN Codes](https://codeforces.com/problemset/problem/1263/B) | `Codeforces` | `1400` | `pINCodes.js` | Key algorithmic application from Day 2026-10-31. |
+| [Array Sharpening](https://codeforces.com/problemset/problem/1291/B) | `Codeforces` | `1300` | `arraySharpening.js` | Key algorithmic application from Day 2026-11-01. |
+| [Company Merging](https://codeforces.com/problemset/problem/1090/A) | `Codeforces` | `1300` | `companyMerging.js` | Key algorithmic application from Day 2026-11-01. |
+| [Square Earth?](https://codeforces.com/problemset/problem/57/A) | `Codeforces` | `1300` | `squareEarth.js` | Key algorithmic application from Day 2026-11-01. |
+| [Precision Alignment](https://codeforces.com/problemset/problem/2275/D) | `Codeforces` | `1300` | `precisionAlignment.js` | Key algorithmic application from Day 2026-11-01. |
+| [Labs](https://codeforces.com/problemset/problem/1236/C) | `Codeforces` | `1300` | `labs.js` | Key algorithmic application from Day 2026-11-01. |
+| [MEX Game 1](https://codeforces.com/problemset/problem/1943/A) | `Codeforces` | `1300` | `mEXGame1.js` | Key algorithmic application from Day 2026-11-01. |
+| [Polo the Penguin and Strings](https://codeforces.com/problemset/problem/288/A) | `Codeforces` | `1300` | `poloThePenguinAndStrings.js` | Key algorithmic application from Day 2026-11-01. |
+| [Make It Permutation](https://codeforces.com/problemset/problem/1810/C) | `Codeforces` | `1300` | `makeItPermutation.js` | Key algorithmic application from Day 2026-11-01. |
+| [Equalize](https://codeforces.com/problemset/problem/1037/C) | `Codeforces` | `1300` | `equalize.js` | Key algorithmic application from Day 2026-11-01. |
+| [Binary Number](https://codeforces.com/problemset/problem/92/B) | `Codeforces` | `1300` | `binaryNumber.js` | Key algorithmic application from Day 2026-11-01. |
+| [SUMdamental Decomposition](https://codeforces.com/problemset/problem/2108/B) | `Codeforces` | `1300` | `sUMdamentalDecomposition.js` | Key algorithmic application from Day 2026-11-01. |
+| [OR in Matrix](https://codeforces.com/problemset/problem/486/B) | `Codeforces` | `1300` | `oRInMatrix.js` | Key algorithmic application from Day 2026-11-01. |
+| [Lose it!](https://codeforces.com/problemset/problem/1176/C) | `Codeforces` | `1300` | `loseIt.js` | Key algorithmic application from Day 2026-11-01. |
+| [Remove the Ends](https://codeforces.com/problemset/problem/2064/C) | `Codeforces` | `1300` | `removeTheEnds.js` | Key algorithmic application from Day 2026-11-01. |
+| [And It's Non-Zero](https://codeforces.com/problemset/problem/1615/B) | `Codeforces` | `1300` | `andItSNonZero.js` | Key algorithmic application from Day 2026-11-01. |
+| [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Yuhao and a Parenthesis](https://codeforces.com/problemset/problem/1097/C) | `Codeforces` | `1400` | `yuhaoAndAParenthesis.js` | Key algorithmic application from Day 2026-11-01. |
+| [Tape](https://codeforces.com/problemset/problem/1110/B) | `Codeforces` | `1400` | `tape.js` | Key algorithmic application from Day 2026-11-01. |
+| [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Binary Palindromes](https://codeforces.com/problemset/problem/1251/B) | `Codeforces` | `1400` | `binaryPalindromes.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -134,6 +134,10 @@ function dfsIterative(start, adj, n) {
 | [Find the Permutation](https://codeforces.com/problemset/problem/2056/B) | `Codeforces` | `1300` | `findThePermutation.js` | Key algorithmic application from Day 2026-10-31. |
 | [Books Exchange (hard version)](https://codeforces.com/problemset/problem/1249/B2) | `Codeforces` | `1300` | `booksExchangeHardVersion.js` | Key algorithmic application from Day 2026-10-31. |
 | [Soldier and Cards](https://codeforces.com/problemset/problem/546/C) | `Codeforces` | `1400` | `soldierAndCards.js` | Key algorithmic application from Day 2026-10-31. |
+| [Masha and a Beautiful Tree](https://codeforces.com/problemset/problem/1741/D) | `Codeforces` | `1300` | `mashaAndABeautifulTree.js` | Key algorithmic application from Day 2026-11-01. |
+| [Square Earth?](https://codeforces.com/problemset/problem/57/A) | `Codeforces` | `1300` | `squareEarth.js` | Key algorithmic application from Day 2026-11-01. |
+| [Friends](https://codeforces.com/problemset/problem/94/B) | `Codeforces` | `1300` | `friends.js` | Key algorithmic application from Day 2026-11-01. |
+| [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 
 ---
 

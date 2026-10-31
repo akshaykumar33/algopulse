@@ -112,6 +112,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
 | [Strings of Power](https://codeforces.com/problemset/problem/318/B) | `Codeforces` | `1300` | `stringsOfPower.js` | Key algorithmic application from Day 2026-10-31. |
 | [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
+| [Tokitsukaze and Discard Items](https://codeforces.com/problemset/problem/1190/A) | `Codeforces` | `1400` | `tokitsukazeAndDiscardItems.js` | Key algorithmic application from Day 2026-11-01. |
+| [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 
 ---
 

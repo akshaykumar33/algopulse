@@ -136,6 +136,9 @@ function lowerBound(arr, target) {
 | [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
 | [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
 | [Valhalla Siege](https://codeforces.com/problemset/problem/975/C) | `Codeforces` | `1400` | `valhallaSiege.js` | Key algorithmic application from Day 2026-10-31. |
+| [Precision Alignment](https://codeforces.com/problemset/problem/2275/D) | `Codeforces` | `1300` | `precisionAlignment.js` | Key algorithmic application from Day 2026-11-01. |
+| [Interview](https://codeforces.com/problemset/problem/1807/E) | `Codeforces` | `1300` | `interview.js` | Key algorithmic application from Day 2026-11-01. |
+| [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 
 ---
 

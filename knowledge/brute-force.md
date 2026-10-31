@@ -186,6 +186,15 @@ function backtrack(index, currentSum, target, arr) {
 | [Dasha and friends](https://codeforces.com/problemset/problem/761/B) | `Codeforces` | `1300` | `dashaAndFriends.js` | Key algorithmic application from Day 2026-10-31. |
 | [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
 | [Soldier and Cards](https://codeforces.com/problemset/problem/546/C) | `Codeforces` | `1400` | `soldierAndCards.js` | Key algorithmic application from Day 2026-10-31. |
+| [Segment Occurrences](https://codeforces.com/problemset/problem/1016/B) | `Codeforces` | `1300` | `segmentOccurrences.js` | Key algorithmic application from Day 2026-11-01. |
+| [Precision Alignment](https://codeforces.com/problemset/problem/2275/D) | `Codeforces` | `1300` | `precisionAlignment.js` | Key algorithmic application from Day 2026-11-01. |
+| [IQ test](https://codeforces.com/problemset/problem/25/A) | `Codeforces` | `1300` | `iQTest.js` | Key algorithmic application from Day 2026-11-01. |
+| [Make It Permutation](https://codeforces.com/problemset/problem/1810/C) | `Codeforces` | `1300` | `makeItPermutation.js` | Key algorithmic application from Day 2026-11-01. |
+| [Calendar](https://codeforces.com/problemset/problem/304/B) | `Codeforces` | `1300` | `calendar.js` | Key algorithmic application from Day 2026-11-01. |
+| [Remove the Ends](https://codeforces.com/problemset/problem/2064/C) | `Codeforces` | `1300` | `removeTheEnds.js` | Key algorithmic application from Day 2026-11-01. |
+| [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
+| [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
