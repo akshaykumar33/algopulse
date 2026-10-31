@@ -351,16 +351,28 @@ To protect user profile reputations on Codeforces, LeetCode, and CodeChef agains
 
 ## 12. Zero-Defect Algorithmic Quality (Minimizing WA, TLE, RE)
 
-Competitive programming solutions must be crafted with high algorithmic precision to minimize non-accepted verdicts:
-1. **Pre-Submission Smoke & Stress Verification:**
-   - Always run sample validation and local test suite checks via `node src/cli/verify --ref <date>` before any platform submission.
-2. **Avoid Common JavaScript / Node.js Traps:**
+Competitive programming solutions must be crafted with high algorithmic precision to eliminate non-accepted verdicts (WA, TLE, RE). Activate skill `zero-defect-cp`:
+
+1. **Strict Prohibition of Stubs or Heuristic Placeholders:**
+   - NEVER write placeholder branches or trivial stubs (e.g. `if (c0 > 0) out.push(1); else out.push(1);`).
+   - Every branch must be mathematically sound and derived from the exact problem invariants.
+2. **Mandatory Input Protocol Audit (The #1 Source of Unforced Errors):**
+   - **Testcase Loop ($T$):** Always check whether the input starts with a testcase count $T$. CodeChef and Codeforces almost always provide $T$. Never omit the `for (let tc = 0; tc < t; tc++)` loop.
+   - **Per-Testcase State Isolation:** Always clear and reinitialize all state, frequency maps, visited sets, and prefix sums per testcase.
+   - **Whitespace Parsing:** Use `split(/\s+/)` for space/newline tokenization to avoid split line errors.
+3. **Pre-Submission Smoke & Stress Verification:**
+   - Sample test cases are deliberately minimal. Passing sample 1 proves nothing.
+   - Validate against generated corner-case fixtures ($N=1, N=2$, all equal elements, all zeros, alternating parity, maximum values) via `node src/cli/verify --ref <date>`.
+4. **Avoid Common JavaScript / Node.js Traps:**
    - **TypedArray Infinity Coercion Trap:** `new Int32Array(n).fill(Infinity)` coerces `Infinity` to `0`. For min/max tracking, always use standard array: `new Array(n).fill(Infinity)` or `new Array(n).fill(-Infinity)`.
    - **Interactive I/O Deadlock Trap:** `fs.readFileSync(0)` blocks until EOF and will hang on interactive problems. For interactive judges, use non-blocking unbuffered synchronous chunk reading (`fs.readSync(0, buf, 0, len, null)`).
    - **Large Integer Overflow:** Standard JS `Number` is safe up to $9 \times 10^{15}$ (`Number.MAX_SAFE_INTEGER`). If values or intermediate products exceed this, strictly use `BigInt`.
    - **Array Sort Comparator Invariant:** Always use `arr.sort((a, b) => a - b)`. Never use parameterless `arr.sort()`, which sorts lexicographically as strings.
    - **Multi-Test Case Allocation:** If $\sum N \le 2 \cdot 10^5$, never allocate $O(\text{MAX})$ arrays inside the `while (t--)` loop. Reuse buffers or allocate dynamically sized to $N$.
    - **Call Stack Limits:** Default Node.js stack limit is ~10,000 frames. For deep recursion ($N \ge 10^5$), write iterative BFS/DFS with an explicit stack array.
+5. **Immediate Non-Accepted Verdict Circuit Breaker:**
+   - If any submitted problem yields WA, TLE, or RE, immediately halt further submissions on that platform.
+   - Analyze the verdict, repair the solution, verify locally on expanded test suites, simulate an authentic human debugging pause (60s–90s), and only then resubmit.
 
 ---
 
