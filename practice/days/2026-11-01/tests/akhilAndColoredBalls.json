@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nBW\nWB\nWW\nWW\n",
+    "output": "BB\nBB\n"
+  }
+]
