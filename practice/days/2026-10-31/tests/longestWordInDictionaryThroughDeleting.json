@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abpcplea\"\n[\"ale\",\"apple\",\"monkey\",\"plea\"]",
+    "output": "\"apple\""
+  },
+  {
+    "input": "\"abpcplea\"\n[\"a\",\"b\",\"c\"]",
+    "output": "\"a\""
+  }
+]
