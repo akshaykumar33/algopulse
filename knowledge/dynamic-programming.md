@@ -124,6 +124,7 @@ dp.fill(-1); // Memoization sentinel
 | [Mike and strings](https://codeforces.com/problemset/problem/798/B) | `Codeforces` | `1300` | `mikeAndStrings.js` | Key algorithmic application from Day 2026-10-30. |
 | [As Simple as One and Two](https://codeforces.com/problemset/problem/1276/A) | `Codeforces` | `1400` | `asSimpleAsOneAndTwo.js` | Key algorithmic application from Day 2026-10-30. |
 | [K for the Price of One (Easy Version)](https://codeforces.com/problemset/problem/1282/B1) | `Codeforces` | `1400` | `kForThePriceOfOneEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
+| [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

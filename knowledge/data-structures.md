@@ -141,6 +141,7 @@ class MinHeap {
 | [Salyg1n and the MEX Game](https://codeforces.com/problemset/problem/1867/C) | `Codeforces` | `1300` | `salyg1nAndTheMEXGame.js` | Key algorithmic application from Day 2026-10-30. |
 | [Box Fitting](https://codeforces.com/problemset/problem/1498/B) | `Codeforces` | `1300` | `boxFitting.js` | Key algorithmic application from Day 2026-10-30. |
 | [You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | `Codeforces` | `1400` | `youSoaredAfarWithGrace.js` | Key algorithmic application from Day 2026-10-30. |
+| [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

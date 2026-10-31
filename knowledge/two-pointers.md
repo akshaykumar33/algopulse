@@ -109,6 +109,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Money Trees](https://codeforces.com/problemset/problem/1873/F) | `Codeforces` | `1300` | `moneyTrees.js` | Key algorithmic application from Day 2026-10-30. |
 | [Colorful Table](https://codeforces.com/problemset/problem/1870/C) | `Codeforces` | `1300` | `colorfulTable.js` | Key algorithmic application from Day 2026-10-30. |
 | [Dress'em in Vests!](https://codeforces.com/problemset/problem/161/A) | `Codeforces` | `1300` | `dressEmInVests.js` | Key algorithmic application from Day 2026-10-30. |
+| [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
+| [Strings of Power](https://codeforces.com/problemset/problem/318/B) | `Codeforces` | `1300` | `stringsOfPower.js` | Key algorithmic application from Day 2026-10-31. |
+| [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

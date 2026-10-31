@@ -199,6 +199,13 @@ function constructMatrix(n, m) {
 | [Good Pair Queries](https://codeforces.com/problemset/problem/2248/D) | `Codeforces` | `1400` | `goodPairQueries.js` | Key algorithmic application from Day 2026-10-30. |
 | [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
 | [Find B](https://codeforces.com/problemset/problem/1923/C) | `Codeforces` | `1400` | `findB.js` | Key algorithmic application from Day 2026-10-30. |
+| [Subset Multiplication](https://codeforces.com/problemset/problem/2124/C) | `Codeforces` | `1300` | `subsetMultiplication.js` | Key algorithmic application from Day 2026-10-31. |
+| [Students in Railway Carriage](https://codeforces.com/problemset/problem/962/B) | `Codeforces` | `1300` | `studentsInRailwayCarriage.js` | Key algorithmic application from Day 2026-10-31. |
+| [Qualifying Contest](https://codeforces.com/problemset/problem/659/B) | `Codeforces` | `1300` | `qualifyingContest.js` | Key algorithmic application from Day 2026-10-31. |
+| [Permutation Operations](https://codeforces.com/problemset/problem/1746/C) | `Codeforces` | `1300` | `permutationOperations.js` | Key algorithmic application from Day 2026-10-31. |
+| [Oh Those Palindromes](https://codeforces.com/problemset/problem/1063/A) | `Codeforces` | `1300` | `ohThosePalindromes.js` | Key algorithmic application from Day 2026-10-31. |
+| [Mister B and Angle in Polygon](https://codeforces.com/problemset/problem/820/B) | `Codeforces` | `1300` | `misterBAndAngleInPolygon.js` | Key algorithmic application from Day 2026-10-31. |
+| [Absolute Sorting](https://codeforces.com/problemset/problem/1772/D) | `Codeforces` | `1400` | `absoluteSorting.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

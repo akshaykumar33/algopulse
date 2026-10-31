@@ -138,6 +138,9 @@ function isPalindrome(s) {
 | [WOW Factor](https://codeforces.com/problemset/problem/1178/B) | `Codeforces` | `1300` | `wOWFactor.js` | Key algorithmic application from Day 2026-10-28. |
 | [A Tide of Riverscape](https://codeforces.com/problemset/problem/989/B) | `Codeforces` | `1200` | `aTideOfRiverscape.js` | Key algorithmic application from Day 2026-10-29. |
 | [Mike and strings](https://codeforces.com/problemset/problem/798/B) | `Codeforces` | `1300` | `mikeAndStrings.js` | Key algorithmic application from Day 2026-10-30. |
+| [Oh Those Palindromes](https://codeforces.com/problemset/problem/1063/A) | `Codeforces` | `1300` | `ohThosePalindromes.js` | Key algorithmic application from Day 2026-10-31. |
+| [Make a Power of Two](https://codeforces.com/problemset/problem/1560/D) | `Codeforces` | `1300` | `makeAPowerOfTwo.js` | Key algorithmic application from Day 2026-10-31. |
+| [Strings of Power](https://codeforces.com/problemset/problem/318/B) | `Codeforces` | `1300` | `stringsOfPower.js` | Key algorithmic application from Day 2026-10-31. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -153,6 +153,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [A-B-C Sort](https://codeforces.com/problemset/problem/1674/D) | `Codeforces` | `1200` | `aBCSort.js` | Key algorithmic application from Day 2026-10-29. |
 | [Concatenation of Arrays](https://codeforces.com/problemset/problem/2023/A) | `Codeforces` | `1300` | `concatenationOfArrays.js` | Key algorithmic application from Day 2026-10-29. |
 | [K for the Price of One (Easy Version)](https://codeforces.com/problemset/problem/1282/B1) | `Codeforces` | `1400` | `kForThePriceOfOneEasyVersion.js` | Key algorithmic application from Day 2026-10-30. |
+| [Qualifying Contest](https://codeforces.com/problemset/problem/659/B) | `Codeforces` | `1300` | `qualifyingContest.js` | Key algorithmic application from Day 2026-10-31. |
+| [Find the Permutation](https://codeforces.com/problemset/problem/2056/B) | `Codeforces` | `1300` | `findThePermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Blue-Red Permutation](https://codeforces.com/problemset/problem/1607/D) | `Codeforces` | `1300` | `blueRedPermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
+| [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
+| [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
