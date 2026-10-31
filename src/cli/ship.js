@@ -63,7 +63,7 @@ async function main() {
 
   // 1. Run Verification
   console.log('[ship] Step 1: Running verifier ...');
-  const verifyRes = run('node', ['src/cli/verify.js', date]);
+  const verifyRes = run('node', ['src/cli/verify.js', date, '--ref']);
   if (verifyRes.status !== 0) {
     console.error(`[ship] Verification failed! Cannot ship incomplete or failing solutions.`);
     console.error(verifyRes.stdout || verifyRes.stderr);
