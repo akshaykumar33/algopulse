@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"cat\", \"bat\", \"rat\"]\n\"the cattle was rattled by the battery\"",
+    "output": "\"the cat was rat by the bat\""
+  },
+  {
+    "input": "[\"a\", \"b\", \"c\"]\n\"aadsfasf absbs bbab cadsfafs\"",
+    "output": "\"a a b c\""
+  }
+]
