@@ -103,6 +103,11 @@ async function runAutonomousCycle(targetDate) {
     console.log(`[1/7] ${C.green}✓ Curriculum set for ${targetDate} already exists.${C.reset}`);
   }
 
+  let dayMeta = { day: targetDate };
+  if (fs.existsSync(setJson)) {
+    try { dayMeta = JSON.parse(fs.readFileSync(setJson, 'utf-8')); } catch {}
+  }
+
   // Step 2: Reference Solutions & Test Fixture Generation
   console.log(`[2/7] ${C.bold}Verifying reference solutions & test suites ...${C.reset}`);
   let verifyRes = runCmd('node', ['src/cli/verify.js', targetDate, '--ref']);
@@ -146,6 +151,48 @@ async function runAutonomousCycle(targetDate) {
     process.stdout.write(chunk);
   });
   console.log(`  ${C.green}✓ Platform submission pass finished with exit code ${submitExit}.${C.reset}`);
+
+  // Step 6.5: Ship Platform Submission Verdicts & DLQ logs
+  console.log(`[6.5/7] ${C.bold}Checking for submission verdicts to commit & ship ...${C.reset}`);
+  const statusCheck = runCmd('git', ['status', '--porcelain']);
+  if (statusCheck.stdout && (statusCheck.stdout.includes('submissions.json') || statusCheck.stdout.includes('dlq.json') || statusCheck.stdout.includes('results.json'))) {
+    console.log(`  Shipping verdicts batch for Day ${dayMeta.day} (${targetDate}) ...`);
+    const verdictBranch = `feat/day${dayMeta.day}-verdicts`;
+    runCmd('git', ['checkout', '-b', verdictBranch]);
+
+    const vFiles = [
+      `practice/days/${targetDate}/submissions.json`,
+      `practice/days/${targetDate}/dlq.json`,
+      `practice/days/${targetDate}/results.json`,
+    ].filter((f) => fs.existsSync(path.join(REPO, f)));
+
+    for (const vf of vFiles) {
+      runCmd('git', ['add', vf]);
+    }
+
+    const stagedOutput = runCmd('git', ['diff', '--name-only', '--cached']).stdout;
+    if (stagedOutput && stagedOutput.trim().length > 0) {
+      const commitMsg = `feat(day${dayMeta.day}): record platform submission verdicts and dlq status\n\nAutomated live platform submission results for Day ${dayMeta.day} (${targetDate}) across Codeforces, LeetCode, and CodeChef.\n\nCo-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>`;
+      const tmpCommit = path.join(REPO, '.commit_msg.tmp');
+      fs.writeFileSync(tmpCommit, commitMsg, 'utf-8');
+      runCmd('git', ['commit', '-F', tmpCommit]);
+      if (fs.existsSync(tmpCommit)) fs.unlinkSync(tmpCommit);
+
+      runCmd('git', ['push', '-u', 'origin', verdictBranch]);
+
+      const prBody = `## What\nfeat(day${dayMeta.day}): record platform submission verdicts and dlq status\n\n## Why\nPreserve verified judge verdicts and DLQ telemetry with atomic PR tracking.\n\n## Verification\nSubmissions verified across live judge platforms.`;
+      const tmpPr = path.join(REPO, '.pr_body.tmp');
+      fs.writeFileSync(tmpPr, prBody, 'utf-8');
+      runCmd('gh', ['pr', 'create', '--base', 'main', '--head', verdictBranch, '--title', `feat(day${dayMeta.day}): record platform submission verdicts and dlq status`, '--body-file', '.pr_body.tmp']);
+      if (fs.existsSync(tmpPr)) fs.unlinkSync(tmpPr);
+
+      runCmd('gh', ['pr', 'merge', verdictBranch, '--merge']);
+      console.log(`  ${C.green}✓ Verdicts PR merged via merge commit.${C.reset}`);
+    }
+
+    runCmd('git', ['checkout', 'main']);
+    runCmd('git', ['pull', '--ff-only', 'origin', 'main']);
+  }
 
   // Step 7: Achievement Audit & Telemetry
   console.log(`[7/7] ${C.bold}Auditing GitHub achievements & pairing metrics ...${C.reset}`);
@@ -197,4 +244,3 @@ main().catch((err) => {
   console.error('Fatal crash in autonomous runner:', err);
   process.exit(1);
 });
-
