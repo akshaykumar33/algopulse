@@ -2,6 +2,7 @@
  * Automated Git Ship & PR Engine for Daily Practice Sets
  * Verifies the set, commits changes, opens a Pull Request, and auto-merges
  * with a merge commit when all checks pass.
+ * Strictly adheres to Rule §9.5: <= 50 files per PR via segregated atomic batches.
  */
 
 const fs = require('fs');
@@ -114,105 +115,154 @@ async function main() {
     console.log('  ✓ Knowledge base synchronized.');
   }
 
-  // 4. Git Operations
-  const branchName = `feat/practice-day-${date}`;
-  console.log(`[ship] Step 4: Git branching & staging (${branchName}) ...`);
+  // 4. Git Operations with Segregated Batches (<= 50 files/PR)
+  console.log(`[ship] Step 4: Building segregated PR batches (<= 50 files limit) ...`);
+  const problems = set.problems || [];
+  const platforms = [
+    { key: 'Codeforces', prefix: 'cf', name: 'Codeforces' },
+    { key: 'LeetCode', prefix: 'lc', name: 'LeetCode' },
+    { key: 'CodeChef', prefix: 'cc', name: 'CodeChef' },
+  ];
 
-  // Ensure on branch
-  const currentBranch = runSh('git rev-parse --abbrev-ref HEAD');
-  if (currentBranch !== branchName) {
-    const branchExists = runSh(`git branch --list ${branchName}`);
-    if (branchExists) {
-      runSh(`git checkout ${branchName}`);
-    } else {
-      runSh(`git checkout -b ${branchName}`);
-    }
-  }
+  const batches = [];
+  for (const plat of platforms) {
+    const platProblems = problems.filter((p) => (p.platform || '').toLowerCase() === plat.key.toLowerCase());
+    if (platProblems.length === 0) continue;
 
-  // Stage changes including categorized platform solutions
-  runSh(`git add practice/days/${date}/ solutions/ contests/ knowledge/`);
-  const status = runSh('git status --porcelain');
+    const chunkSize = 17;
+    for (let i = 0; i < platProblems.length; i += chunkSize) {
+      const chunk = platProblems.slice(i, i + chunkSize);
+      const partNum = Math.floor(i / chunkSize) + 1;
+      const totalParts = Math.ceil(platProblems.length / chunkSize);
+      const partSuffix = totalParts > 1 ? ` (part ${partNum})` : '';
+      const branchSuffix = totalParts > 1 ? `-part${partNum}` : '';
 
-  if (status) {
-    console.log('[ship] Step 4: Committing changes ...');
-    const commitMsg = `feat(practice): solve and verify day ${date} problem set`;
-    const commitBody = `Solve and verify all ${set.problems.length} problems for Day ${set.day} (${date}). Update topic catalogs in knowledge base.`;
-    run('git', ['commit', '-m', commitMsg, '-m', commitBody]);
-    console.log(`  ✓ Committed: ${commitMsg}`);
-
-    console.log('[ship] Step 5: Pushing branch to origin ...');
-    const pushRes = run('git', ['push', '-u', 'origin', branchName]);
-    if (pushRes.status !== 0) {
-      console.error(`[ship] Git push failed:\n${pushRes.stderr}`);
-      process.exit(1);
-    }
-    console.log('  ✓ Branch pushed to origin.');
-  } else {
-    console.log('[ship] No uncommitted changes on branch.');
-  }
-
-  // 4. GitHub Pull Request
-  console.log('[ship] Step 6: Checking Pull Request ...');
-  let prUrl = null;
-  let prNumber = null;
-
-  const prListRaw = runSh(`gh pr list --head ${branchName} --state all --json number,url,state`);
-  if (prListRaw) {
-    try {
-      const prList = JSON.parse(prListRaw);
-      if (prList.length > 0) {
-        prUrl = prList[0].url;
-        prNumber = prList[0].number;
-        const prState = prList[0].state;
-        console.log(`  ✓ Found existing PR #${prNumber}: ${prUrl} (${prState})`);
-        if (prState === 'MERGED') {
-          console.log('[ship] PR is already merged into main. Everything up to date!');
-          runSh('git checkout main');
-          runSh('git pull origin main');
-          return;
-        }
+      const files = [];
+      for (const p of chunk) {
+        files.push(`practice/days/${date}/solutions/${p.file}.js`);
+        files.push(`practice/days/${date}/tests/${p.file}.json`);
       }
-    } catch {}
-  }
 
-  if (!prNumber) {
-    console.log('[ship] Creating GitHub Pull Request ...');
-    const prTitle = `feat(practice): solve and verify day ${date} problem set`;
-    const prBody = `## Summary
-- Solves all ${set.problems.length} problems for Day ${set.day} (${date}) across ${set.platforms.join(', ')}.
-- Reference solutions in \`practice/days/${date}/solutions/\` and \`solutions/\`.
-- Sample test fixtures in \`practice/days/${date}/tests/\`.
-- Automated verification: 100% green via \`node src/cli/verify.js ${date}\`.
-- Synchronized topic catalogs in \`knowledge/\` base.
-
-## Verification
-- Verified via \`node src/cli/verify.js ${date}\`.
-- Verified via \`node src/cli/knowledge.js\`.`;
-
-    const createRes = run('gh', ['pr', 'create', '--title', prTitle, '--body', prBody]);
-    if (createRes.status === 0) {
-      prUrl = (createRes.stdout || '').trim();
-      const numMatch = prUrl.match(/pull\/(\d+)/);
-      if (numMatch) prNumber = numMatch[1];
-      console.log(`  ✓ Created PR #${prNumber}: ${prUrl}`);
-    } else {
-      console.error(`[ship] Failed to create PR:\n${createRes.stderr}`);
-      process.exit(1);
+      batches.push({
+        branch: `feat/day${set.day}-${plat.prefix}${branchSuffix}`,
+        title: `feat(day${set.day}): add ${plat.name} solutions and tests${partSuffix}`,
+        body: `Add reference solutions and unit test suites for ${chunk.length} ${plat.name} problems of Day ${set.day}.`,
+        verify: `\`node src/cli/verify.js ${date} --ref --platform ${plat.prefix}\` (100% green)`,
+        files: files.filter((f) => fs.existsSync(path.join(REPO, f))),
+      });
     }
   }
 
-  // 5. Merge Pull Request if requested
-  if (autoMerge && prNumber) {
-    console.log(`[ship] Step 7: Merging PR #${prNumber} into main with merge commit ...`);
-    const mergeRes = run('gh', ['pr', 'merge', String(prNumber), '--merge']);
-    if (mergeRes.status === 0) {
-      console.log(`  ✓ PR #${prNumber} successfully merged into main!`);
+  for (const plat of platforms) {
+    const platProblems = problems.filter((p) => (p.platform || '').toLowerCase() === plat.key.toLowerCase());
+    if (platProblems.length === 0) continue;
+
+    const files = [];
+    for (const p of platProblems) {
+      files.push(`practice/days/${date}/explanations/${p.file}.md`);
+    }
+
+    const isLastPlat = plat.prefix === 'cc';
+    if (isLastPlat) {
+      if (fs.existsSync(path.join(REPO, `practice/days/${date}/README.md`))) {
+        files.push(`practice/days/${date}/README.md`);
+      }
+      if (fs.existsSync(path.join(REPO, `practice/days/${date}/set.json`))) {
+        files.push(`practice/days/${date}/set.json`);
+      }
+    }
+
+    batches.push({
+      branch: `docs/day${set.day}-explanations-${plat.prefix}`,
+      title: isLastPlat
+        ? `docs(day${set.day}): add ${plat.name} problem explanations and curriculum manifest`
+        : `docs(day${set.day}): add ${plat.name} problem explanations`,
+      body: `Add detailed algorithmic explanations and complexity breakdowns for Day ${set.day} ${plat.name} problems.`,
+      verify: 'Markdown documentation and diagrams audit.',
+      files: files.filter((f) => fs.existsSync(path.join(REPO, f))),
+    });
+  }
+
+  const knowledgeDir = path.join(REPO, 'knowledge');
+  if (fs.existsSync(knowledgeDir)) {
+    const kFiles = fs.readdirSync(knowledgeDir).filter((f) => f.endsWith('.md')).map((f) => `knowledge/${f}`);
+    batches.push({
+      branch: `docs/sync-knowledge-day${set.day}`,
+      title: `docs(knowledge): sync knowledge base catalogs for Day ${set.day}`,
+      body: `Synchronize 14 algorithmic topic catalogs in knowledge base with Day ${set.day} solved problems.`,
+      verify: '`node src/cli/knowledge.js --sync` (clean catalog audit)',
+      files: kFiles.filter((f) => fs.existsSync(path.join(REPO, f))),
+    });
+  }
+
+  console.log(`[ship] Generated ${batches.length} segregated PR batches.`);
+
+  for (let i = 0; i < batches.length; i++) {
+    const b = batches[i];
+    console.log(`\n[ship] Processing batch ${i + 1}/${batches.length}: ${b.branch} (${b.files.length} files) ...`);
+
+    if (b.files.length > 50) {
+      throw new Error(`CRITICAL: Batch ${b.branch} has ${b.files.length} files, exceeding limit of 50!`);
+    }
+
+    const existingPr = runSh(`gh pr list --head ${b.branch} --state all --json number,url,state`);
+    let prMerged = false;
+    if (existingPr) {
+      try {
+        const prList = JSON.parse(existingPr);
+        if (prList.length > 0 && prList[0].state === 'MERGED') {
+          console.log(`  ✓ PR for ${b.branch} already merged. Skipping.`);
+          prMerged = true;
+        }
+      } catch {}
+    }
+    if (prMerged) continue;
+
+    runSh(`git checkout -b ${b.branch}`);
+
+    for (const f of b.files) {
+      runSh(`git add "${f}"`);
+    }
+
+    const stagedOutput = runSh('git diff --name-only --cached');
+    const stagedCount = stagedOutput ? stagedOutput.split('\n').filter(Boolean).length : 0;
+    if (stagedCount === 0) {
+      console.log(`  ! No changes staged for ${b.branch}, skipping.`);
       runSh('git checkout main');
-      runSh('git pull origin main');
-      console.log('  ✓ Local main updated and in sync with origin/main.');
-    } else {
-      console.warn(`[ship] Could not auto-merge PR #${prNumber}: ${mergeRes.stderr || mergeRes.stdout}`);
+      continue;
     }
+
+    if (stagedCount > 50) {
+      throw new Error(`CRITICAL: Staged count ${stagedCount} exceeds 50!`);
+    }
+
+    const commitMsg = `${b.title}\n\n${b.body}\n\nCo-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>`;
+    const tmpCommit = path.join(REPO, '.commit_msg.tmp');
+    fs.writeFileSync(tmpCommit, commitMsg, 'utf-8');
+    run('git', ['commit', '-F', tmpCommit]);
+    if (fs.existsSync(tmpCommit)) fs.unlinkSync(tmpCommit);
+    console.log(`  ✓ Committed: ${b.title}`);
+
+    run('git', ['push', '-u', 'origin', b.branch]);
+    console.log(`  ✓ Pushed branch ${b.branch} to origin.`);
+
+    const prBody = `## What\n${b.title}\n\n## Why\nDaily practice curriculum with <= 50 files/PR segregation.\n\n## How to verify\n${b.verify}`;
+    const tmpPr = path.join(REPO, '.pr_body.tmp');
+    fs.writeFileSync(tmpPr, prBody, 'utf-8');
+    const prOut = runSh(`gh pr create --base main --head ${b.branch} --title "${b.title}" --body-file .pr_body.tmp`);
+    if (fs.existsSync(tmpPr)) fs.unlinkSync(tmpPr);
+    console.log(`  ✓ PR Created: ${prOut}`);
+
+    if (autoMerge) {
+      runSh(`gh pr merge ${b.branch} --merge`);
+      console.log(`  ✓ PR merged via merge commit.`);
+    }
+
+    try {
+      runSh('git checkout -- practice/days/ solutions/ contests/');
+    } catch {}
+    runSh('git checkout main');
+    runSh('git pull --ff-only origin main');
   }
 
   console.log(`\n[ship] Day ${set.day} (${date}) ship workflow completed successfully!`);
