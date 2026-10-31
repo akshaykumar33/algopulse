@@ -45,15 +45,17 @@ try {
     Write-Host ("`nTotal Merged PRs (Recent 20 repos): {0}" -f $totalMerged) -ForegroundColor Yellow
 
     Write-Host "`nAchievement Milestones Status:" -ForegroundColor White
-    if ($totalMerged -ge 128) {
-        Write-Host "  [GOLD]   Pull Shark: UNLOCKED (128+ PRs)" -ForegroundColor Yellow
+    if ($totalMerged -ge 1024) {
+        Write-Host "  [GOLD]   Pull Shark: UNLOCKED (1,024+ PRs)" -ForegroundColor Yellow
+    } elseif ($totalMerged -ge 128) {
+        Write-Host ("  [SILVER] Pull Shark: UNLOCKED ({0}/1,024 PRs, Next: Gold at 1,024)" -f $totalMerged) -ForegroundColor Gray
     } elseif ($totalMerged -ge 16) {
-        Write-Host "  [SILVER] Pull Shark: UNLOCKED (16+ PRs, Next: 128)" -ForegroundColor Gray
+        Write-Host ("  [BRONZE] Pull Shark: UNLOCKED ({0}/128 PRs, Next: Silver at 128)" -f $totalMerged) -ForegroundColor DarkYellow
     } else {
-        Write-Host "  [BRONZE] Pull Shark: In Progress ($totalMerged/16)" -ForegroundColor DarkYellow
+        Write-Host ("  [BASE]   Pull Shark: In Progress ({0}/16 PRs, Next: Bronze at 16)" -f $totalMerged) -ForegroundColor DarkYellow
     }
 
-    Write-Host "  [ACTIVE] Pair Extraordinaire: Automated for Akshaykumarpatil333 on every merged PR." -ForegroundColor Cyan
+    Write-Host "  [GOLD]   Pair Extraordinaire: Active (Gold achieved at 48+ co-authored merged PRs for Akshaykumarpatil333)." -ForegroundColor Yellow
     Write-Host "  [ACTIVE] Quickdraw: Merge within 5 minutes of opening PR." -ForegroundColor Cyan
     Write-Host "  [ACTIVE] YOLO: Direct merge via 'gh pr merge --merge'." -ForegroundColor Cyan
 

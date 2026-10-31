@@ -29,7 +29,7 @@ try {
     Write-Output "✓ Chrome CDP is already listening on port 9222." | Tee-Object -FilePath $runLog -Append
 } catch {
     Write-Output "Launching background Chrome with remote debugging on port 9222..." | Tee-Object -FilePath $runLog -Append
-    node -e "const { ensureCDPChrome } = require('./src/playwright/browser'); ensureCDPChrome({ port: 9222 }).catch(() => {});"
+    node -e "const { ensureCDPChrome } = require('./src/playwright/browser'); ensureCDPChrome({ port: 9222 }).then(() => process.exit(0)).catch(() => process.exit(0));"
     Start-Sleep -Seconds 3
 }
 
