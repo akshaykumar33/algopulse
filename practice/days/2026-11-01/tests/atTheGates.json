@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n5 2\nH H T T H\n5 3\nH T T H T",
+    "output": "2\n1"
+  }
+]
+

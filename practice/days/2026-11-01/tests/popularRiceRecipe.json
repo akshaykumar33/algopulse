@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n3\njeff +\njeff -\njeff +\n4\nalice +\nBob -\nalice +\ncharlie -\n",
+    "output": "1\n-1\n"
+  }
+]
