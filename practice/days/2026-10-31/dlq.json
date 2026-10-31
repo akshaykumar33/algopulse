@@ -1,0 +1,1225 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAXORMIN",
+    "name": "Maximum OR Minimum",
+    "file": "maximumORMinimum",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:06:32.171Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAXORMIN",
+      "name": "Maximum OR Minimum",
+      "rating": 1313,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAXORMIN",
+      "file": "maximumORMinimum",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CAMPON",
+    "name": "Camp Or Not",
+    "file": "campOrNot",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:13:08.591Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CAMPON",
+      "name": "Camp Or Not",
+      "rating": 1350,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CAMPON",
+      "file": "campOrNot",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MATDIF",
+    "name": "Difference Matrix",
+    "file": "differenceMatrix",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:15:13.886Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MATDIF",
+      "name": "Difference Matrix",
+      "rating": 1377,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MATDIF",
+      "file": "differenceMatrix",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PARTSCORE",
+    "name": "Partition Score",
+    "file": "partitionScore",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:22:30.059Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PARTSCORE",
+      "name": "Partition Score",
+      "rating": 1380,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PARTSCORE",
+      "file": "partitionScore",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-OG",
+    "name": "Origin",
+    "file": "origin",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:36:59.078Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-OG",
+      "name": "Origin",
+      "rating": 1309,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/OG",
+      "file": "origin",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Time Limit Exceeded"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-608",
+    "name": "Tree Node",
+    "file": "treeNode",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-10-31T07:38:04.676Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-608",
+      "name": "Tree Node",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/tree-node/",
+      "file": "treeNode",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-BAB_I",
+    "name": "Chef And Babla",
+    "file": "chefAndBabla",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T07:42:32.918Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-BAB_I",
+      "name": "Chef And Babla",
+      "rating": 1346,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BAB_I",
+      "file": "chefAndBabla",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MARKALL",
+    "name": "Mark All",
+    "file": "markAll",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-31T07:51:01.142Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MARKALL",
+      "name": "Mark All",
+      "rating": 1386,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MARKALL",
+      "file": "markAll",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-538",
+    "name": "Convert BST to Greater Tree",
+    "file": "convertBSTToGreaterTree",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-10-31T07:51:05.114Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-538",
+      "name": "Convert BST to Greater Tree",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/convert-bst-to-greater-tree/",
+      "file": "convertBSTToGreaterTree",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-10-31T08:19:44.899Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-DELDIF",
+    "name": "Deletion and Difference",
+    "file": "deletionAndDifference",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T08:11:55.144Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DELDIF",
+      "name": "Deletion and Difference",
+      "rating": 1343,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DELDIF",
+      "file": "deletionAndDifference",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAKEAP7",
+    "name": "Make An AP",
+    "file": "makeAnAP",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T08:14:13.344Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAKEAP7",
+      "name": "Make An AP",
+      "rating": 1340,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEAP7",
+      "file": "makeAnAP",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SHOPI",
+    "name": "Toy Boxes",
+    "file": "toyBoxes",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-10-31T08:17:45.216Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SHOPI",
+      "name": "Toy Boxes",
+      "rating": 1308,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SHOPI",
+      "file": "toyBoxes",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SALARY",
+    "name": "The Minimum Number Of Moves",
+    "file": "theMinimumNumberOfMoves",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-31T08:27:00.693Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SALARY",
+      "name": "The Minimum Number Of Moves",
+      "rating": 1286,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SALARY",
+      "file": "theMinimumNumberOfMoves",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-31T08:55:01.946Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-P2P",
+    "name": "Make Odd",
+    "file": "makeOdd",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.codechef.com/problems/P2P\nCall log:\n\u001b[2m  - navigating to \"https://www.codechef.com/problems/P2P\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:11:26.270Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-P2P",
+      "name": "Make Odd",
+      "rating": 1203,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/P2P",
+      "file": "makeOdd",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-10-31T10:13:18.160Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1737B",
+    "name": "Ela's Fitness and the Luxury Number",
+    "file": "elaSFitnessAndTheLuxuryNumber",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:16:09.789Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1737B",
+      "name": "Ela's Fitness and the Luxury Number",
+      "rating": 1300,
+      "tags": [
+        "binary search",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1737/B",
+      "file": "elaSFitnessAndTheLuxuryNumber",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2124C",
+    "name": "Subset Multiplication",
+    "file": "subsetMultiplication",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:20:01.714Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2124C",
+      "name": "Subset Multiplication",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2124/C",
+      "file": "subsetMultiplication",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "962B",
+    "name": "Students in Railway Carriage",
+    "file": "studentsInRailwayCarriage",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:23:37.559Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "962B",
+      "name": "Students in Railway Carriage",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/962/B",
+      "file": "studentsInRailwayCarriage",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1070D",
+    "name": "Garbage Disposal",
+    "file": "garbageDisposal",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:27:28.668Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1070D",
+      "name": "Garbage Disposal",
+      "rating": 1300,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1070/D",
+      "file": "garbageDisposal",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "192A",
+    "name": "Funky Numbers",
+    "file": "funkyNumbers",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:31:30.766Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "192A",
+      "name": "Funky Numbers",
+      "rating": 1300,
+      "tags": [
+        "binary search",
+        "brute force",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/192/A",
+      "file": "funkyNumbers",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "659B",
+    "name": "Qualifying Contest",
+    "file": "qualifyingContest",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:35:36.909Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "659B",
+      "name": "Qualifying Contest",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/659/B",
+      "file": "qualifyingContest",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "158D",
+    "name": "Ice Sculptures",
+    "file": "iceSculptures",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:39:15.772Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "158D",
+      "name": "Ice Sculptures",
+      "rating": 1300,
+      "tags": [
+        "*special",
+        "brute force",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/158/D",
+      "file": "iceSculptures",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2195D",
+    "name": "Absolute Cinema",
+    "file": "absoluteCinema",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:47:06.735Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2195D",
+      "name": "Absolute Cinema",
+      "rating": 1300,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2195/D",
+      "file": "absoluteCinema",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1037B",
+    "name": "Reach Median",
+    "file": "reachMedian",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:51:05.869Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1037B",
+      "name": "Reach Median",
+      "rating": 1300,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1037/B",
+      "file": "reachMedian",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1063A",
+    "name": "Oh Those Palindromes",
+    "file": "ohThosePalindromes",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:55:09.019Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1063A",
+      "name": "Oh Those Palindromes",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1063/A",
+      "file": "ohThosePalindromes",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2056B",
+    "name": "Find the Permutation",
+    "file": "findThePermutation",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T10:59:11.103Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2056B",
+      "name": "Find the Permutation",
+      "rating": 1300,
+      "tags": [
+        "brute force",
+        "dfs and similar",
+        "graphs",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2056/B",
+      "file": "findThePermutation",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1249B2",
+    "name": "Books Exchange (hard version)",
+    "file": "booksExchangeHardVersion",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:03:19.206Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1249B2",
+      "name": "Books Exchange (hard version)",
+      "rating": 1300,
+      "tags": [
+        "dfs and similar",
+        "dsu",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1249/B2",
+      "file": "booksExchangeHardVersion",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "227A",
+    "name": "Where do I Turn?",
+    "file": "whereDoITurn",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:07:18.266Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "227A",
+      "name": "Where do I Turn?",
+      "rating": 1300,
+      "tags": [
+        "geometry"
+      ],
+      "url": "https://codeforces.com/problemset/problem/227/A",
+      "file": "whereDoITurn",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "630N",
+    "name": "Forecast",
+    "file": "forecast",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:11:23.418Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "630N",
+      "name": "Forecast",
+      "rating": 1300,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/630/N",
+      "file": "forecast",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "900B",
+    "name": "Position in Fraction",
+    "file": "positionInFraction",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:15:14.414Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "900B",
+      "name": "Position in Fraction",
+      "rating": 1300,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/900/B",
+      "file": "positionInFraction",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "922A",
+    "name": "Cloning Toys",
+    "file": "cloningToys",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:19:30.498Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "922A",
+      "name": "Cloning Toys",
+      "rating": 1300,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/922/A",
+      "file": "cloningToys",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "761B",
+    "name": "Dasha and friends",
+    "file": "dashaAndFriends",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:23:18.497Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "761B",
+      "name": "Dasha and friends",
+      "rating": 1300,
+      "tags": [
+        "brute force",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/761/B",
+      "file": "dashaAndFriends",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "820B",
+    "name": "Mister B and Angle in Polygon",
+    "file": "misterBAndAngleInPolygon",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:27:11.586Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "820B",
+      "name": "Mister B and Angle in Polygon",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "geometry",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/820/B",
+      "file": "misterBAndAngleInPolygon",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "312B",
+    "name": "Archer",
+    "file": "archer",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:30:51.617Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "312B",
+      "name": "Archer",
+      "rating": 1300,
+      "tags": [
+        "math",
+        "probabilities"
+      ],
+      "url": "https://codeforces.com/problemset/problem/312/B",
+      "file": "archer",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1607D",
+    "name": "Blue-Red Permutation",
+    "file": "blueRedPermutation",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:34:44.704Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1607D",
+      "name": "Blue-Red Permutation",
+      "rating": 1300,
+      "tags": [
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1607/D",
+      "file": "blueRedPermutation",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "600B",
+    "name": "Queries about less or equal elements",
+    "file": "queriesAboutLessOrEqualElements",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:38:41.815Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "600B",
+      "name": "Queries about less or equal elements",
+      "rating": 1300,
+      "tags": [
+        "binary search",
+        "data structures",
+        "sortings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/600/B",
+      "file": "queriesAboutLessOrEqualElements",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1157C1",
+    "name": "Increasing Subsequence (easy version)",
+    "file": "increasingSubsequenceEasyVersion",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:42:25.830Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1157C1",
+      "name": "Increasing Subsequence (easy version)",
+      "rating": 1300,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1157/C1",
+      "file": "increasingSubsequenceEasyVersion",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1560D",
+    "name": "Make a Power of Two",
+    "file": "makeAPowerOfTwo",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:46:12.726Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1560D",
+      "name": "Make a Power of Two",
+      "rating": 1300,
+      "tags": [
+        "greedy",
+        "math",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1560/D",
+      "file": "makeAPowerOfTwo",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "318B",
+    "name": "Strings of Power",
+    "file": "stringsOfPower",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:50:28.793Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "318B",
+      "name": "Strings of Power",
+      "rating": 1300,
+      "tags": [
+        "implementation",
+        "strings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/318/B",
+      "file": "stringsOfPower",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2028B",
+    "name": "Alice's Adventures in Permuting",
+    "file": "aliceSAdventuresInPermuting",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:54:14.810Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2028B",
+      "name": "Alice's Adventures in Permuting",
+      "rating": 1400,
+      "tags": [
+        "binary search",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2028/B",
+      "file": "aliceSAdventuresInPermuting",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1263B",
+    "name": "PIN Codes",
+    "file": "pINCodes",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T11:58:14.954Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1263B",
+      "name": "PIN Codes",
+      "rating": 1400,
+      "tags": [
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1263/B",
+      "file": "pINCodes",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2032C",
+    "name": "Trinity",
+    "file": "trinity",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:02:23.051Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2032C",
+      "name": "Trinity",
+      "rating": 1400,
+      "tags": [
+        "binary search",
+        "math",
+        "sortings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2032/C",
+      "file": "trinity",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "289B",
+    "name": "Polo the Penguin and Matrix",
+    "file": "poloThePenguinAndMatrix",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:05:59.922Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "289B",
+      "name": "Polo the Penguin and Matrix",
+      "rating": 1400,
+      "tags": [
+        "brute force",
+        "dp",
+        "implementation",
+        "sortings",
+        "ternary search"
+      ],
+      "url": "https://codeforces.com/problemset/problem/289/B",
+      "file": "poloThePenguinAndMatrix",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1772D",
+    "name": "Absolute Sorting",
+    "file": "absoluteSorting",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:09:35.813Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1772D",
+      "name": "Absolute Sorting",
+      "rating": 1400,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1772/D",
+      "file": "absoluteSorting",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1425F",
+    "name": "Flamingoes of Mystery",
+    "file": "flamingoesOfMystery",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:13:48.023Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1425F",
+      "name": "Flamingoes of Mystery",
+      "rating": 1400,
+      "tags": [
+        "interactive"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1425/F",
+      "file": "flamingoesOfMystery",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "546C",
+    "name": "Soldier and Cards",
+    "file": "soldierAndCards",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:17:28.930Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "546C",
+      "name": "Soldier and Cards",
+      "rating": 1400,
+      "tags": [
+        "brute force",
+        "dfs and similar",
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/546/C",
+      "file": "soldierAndCards",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "975C",
+    "name": "Valhalla Siege",
+    "file": "valhallaSiege",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://codeforces.com/problemset/submit\", waiting until \"commit\"\u001b[22m\n",
+    "enqueuedAt": "2026-10-31T12:21:10.707Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "975C",
+      "name": "Valhalla Siege",
+      "rating": 1400,
+      "tags": [
+        "binary search"
+      ],
+      "url": "https://codeforces.com/problemset/problem/975/C",
+      "file": "valhallaSiege",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PRIMENUMBERS",
+    "name": "Prime factorisation of numbers",
+    "file": "primeFactorisationOfNumbers",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-31T12:32:38.345Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PRIMENUMBERS",
+      "name": "Prime factorisation of numbers",
+      "rating": 1350,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PRIMENUMBERS",
+      "file": "primeFactorisationOfNumbers",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting."
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-RATMAZE",
+    "name": "Rat In Maze",
+    "file": "ratInMaze",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-31T12:34:32.378Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-RATMAZE",
+      "name": "Rat In Maze",
+      "rating": 1350,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RATMAZE",
+      "file": "ratInMaze",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting."
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-COUPSYS",
+    "name": "Coupon System",
+    "file": "couponSystem",
+    "tier": "medium",
+    "initialVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting.",
+    "enqueuedAt": "2026-10-31T12:36:39.565Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-COUPSYS",
+      "name": "Coupon System",
+      "rating": 1220,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COUPSYS",
+      "file": "couponSystem",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "ERROR: CodeChef session unauthenticated: Login modal appeared upon submitting."
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1746C",
+    "name": "Permutation Operations",
+    "file": "permutationOperations",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-10-31T12:45:11.913Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1746C",
+      "name": "Permutation Operations",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1746/C",
+      "file": "permutationOperations",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  }
+]

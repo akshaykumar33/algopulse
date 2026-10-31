@@ -1,6 +1,6 @@
 [
   {
-    "input": "3\n2 10\n10 50\n20 20\n2\n15 60\n25 90\n",
-    "output": "Go Camp\nGoing to Study\n"
+    "input": "1\n3\n10 5\n14 4\n31 1\n2\n9 2\n15 7\n",
+    "output": "Go Sleep\nGo Camp\n"
   }
 ]

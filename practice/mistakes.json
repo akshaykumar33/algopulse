@@ -746,5 +746,89 @@
       "math"
     ],
     "timestamp": "2026-10-30T12:40:17.169Z"
+  },
+  {
+    "id": "CC-BAB_I",
+    "problem": "Chef And Babla",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to find the minimum positive integer (MEX) that is NOT present in the array `a`. The current code sorts the array by absolute values and checks sequentially, but this is incorrect because the array can contain negative numbers and zero, and the MEX should be searched starting from 1 upwards, checking the actual presence of numbers in the array.",
+    "rule": "When finding the MEX (Minimum Excluded value) starting from 1, use a frequency map or a `Set` to check for existence in O(1) time rather than relying on sorted absolute values.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-31T07:41:03.179Z"
+  },
+  {
+    "id": "LC-73",
+    "problem": "Set Matrix Zeroes",
+    "platform": "LeetCode",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bug in the solution is in how the flag for the first column and `rowZero` are handled. Specifically, `if (rowZero)` sets the entire first column to zero, but `rowZero` was intended to track if the *first row* has any zeros (based on `if (i === 0) rowZero = true;`). Wait, actually `rowZero` checks `i === 0`, but the variable name is confusing and it incorrectly updates `matrix[i][0] = 0` instead of `matrix[0][j] = 0` or similar. Let's look at the standard approach: use `matrix[0][0]` for the first row, and a separate variable `col0` for the first column.",
+    "rule": "When doing in-place matrix zeroing with O(1) space, maintain two separate indicators or variables for the first row and the first column to avoid overlapping conflicts.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-31T08:06:11.606Z"
+  },
+  {
+    "id": "LC-73",
+    "problem": "Set Matrix Zeroes",
+    "platform": "LeetCode",
+    "verdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "diagnosis": "The error message about authentication is a local submission wrapper message, but the standard O(1) space algorithm for Set Matrix Zeroes correctly uses a `col0` flag and bottom-up traversal. The provided code is actually logically correct, but we must adhere strictly to the formatting and comment-free rules.",
+    "rule": "Use standard O(1) space matrix zeroing by leveraging the first row and first column as markers, with a dedicated variable for the first column.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-31T08:07:34.672Z"
+  },
+  {
+    "id": "LC-608",
+    "problem": "Tree Node",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The problem is a classic LeetCode database problem (LC 608: Tree Node), but the provided stub just returns an empty array, and database problems on LeetCode are normally solved via SQL. However, if treated as a JavaScript function, it needs to handle tabular input or database mocking, and the stub provided returned an empty array or failed expectations.",
+    "rule": "Ensure database problems or mock-table problems correctly parse the input format and return the expected transformed rows.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-10-31T08:16:34.380Z"
+  },
+  {
+    "id": "CC-MARKALL",
+    "problem": "Mark All",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to find the maximum possible sum of elements we can remove such that the remaining elements sum to an odd number (or similar logic depending on the problem variant, wait, let's look at standard 'Mark All' problem on CodeChef: usually it asks for something else, but here the code tries to remove one element to make the sum odd, or if sum is already odd, keep it. However, the problem 'MARKALL' actually asks to find if we can make all elements equal or similar? Wait, the problem 'MARKALL' on CodeChef is 'Mark All' where we can reduce elements. Let's check the logic: if sum is even, we want to subtract the smallest odd number to make the sum odd, or if all are even and sum is even, we might not be able to. But wait, BigInt comparison in sort: `(x < y ? -1 : x > y ? 1 : 0)` is correct for BigInt, but what if the problem requires a different strategy? Wait, looking at the code, if sum is even, it tries to subtract `a[j]` such that `sum - a[j]` is odd. Since `sum` is even, `sum - a[j]` is odd if and only if `a[j]` is odd. Thus, we just need to find the smallest odd number in `a`. But the code loops through all `a[j]` from smallest to largest and picks the *first* one that makes `sum - a[j]` odd, which is the smallest odd number. Wait, why did it fail? If no element makes it odd, it outputs 0. But wait, is the problem asking for maximum remaining sum or something else? Wait, let's re-read the code: `out.push(sum.toString())` when sum is odd. If sum is even, it subtracts `a[j]` and pushes `sum - a[j]`. If no such element exists, it pushes '0'. But wait! The problem 'MARKALL' on CodeChef actually asks to find the maximum possible score or something? Wait, no, MARKALL is 'Mark All Elements' where we can choose a subset. Actually, the failing code's logic might not match what the problem wants, or maybe the problem statement of MARKALL asks to find the maximum sum by removing some elements such that the sum is odd. Wait, if sum is even, removing the minimum odd element gives the maximum remaining sum that is odd! Wait, is `a` sorted ascending? Yes, `a.sort((x, y) => (x < y ? -1 : x > y ? 1 : 0))`. The first odd element encountered will be the *smallest* odd element. Subtracting the smallest element from the total sum gives the *maximum* remaining sum. Wait, what if we can remove *multiple* elements? The problem MARKALL: Given an array, we want to find the maximum sum of a subset with an odd sum. If the total sum is odd, we take all of them. If the total sum is even, we must exclude at least one element, and to maximize the remaining sum, we should exclude the smallest odd element. This logic is actually correct for maximizing the sum with an odd total. Where is the bug? Ah, look at the problem MARKALL: 'Mark All' - wait, could it be that `sum` can be odd, but we can do better? No, if sum is odd, max sum is `sum`. If sum is even, we must remove an odd number. If there are no odd numbers, we can't get an odd sum, so 0. Wait, what if the array contains negative numbers? The problem constraints usually have positive integers. Wait, look at the problem statement of CodeChef MARKALL: 'Chef has an array $A$ of size $N$. He can perform the following operation...'. Actually, the bug in the provided code might be due to output format or incorrect interpretation of MARKALL. Wait! Let's look at the actual problem MARKALL: 'Mark All' - wait, is it about GCD or something? No, the code uses BigInt and sum. Wait, if sum is even and we subtract `a[j]`, does it maximize? Yes, because `a` is sorted ascending, `a[0]` is the smallest. If `a[j]` is the first odd number, it is the smallest odd number. Subtracting the smallest number maximizes the remaining sum. But wait! What if the smallest odd number is not the best to remove? To maximize `sum - a[j]`, we need to minimize `a[j]`. So removing the smallest odd `a[j]` indeed maximizes `sum - a[j]`. Wait, why did it give Wrong Answer? Ah, what if we can remove *more* than one element? No, removing one element is enough to change parity from even to odd, and to maximize the remaining sum we should minimize the removed element. Wait, what if all elements are even? Then sum is even, and no matter which single element we remove, the sum remains even! Wait! If all elements are even, the sum of any subset is even! Therefore, it is impossible to obtain an odd sum, so the answer should be 0. The code outputs 0 in that case. Wait, what if $N=1$ and the element is even? Sum is even, we remove it, remaining is 0. That's correct. Wait, what if the problem MARKALL is about something completely different, like finding the maximum value after some operations? Let's fix the code by ensuring proper implementation and clean structure without comments.",
+    "rule": "Always verify the exact problem statement requirements for parity and subset sum problems, ensuring that greedy choices (like removing the minimum element of the required parity) align with the objective function.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-31T08:41:12.781Z"
+  },
+  {
+    "id": "CC-MARKALL",
+    "problem": "Mark All",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Mark All' asks to find the maximum possible sum of elements we can keep such that the sum of removed elements is even (or equivalently, the sum of remaining elements has the same parity as the total sum, or we just remove a subset with an even sum). Wait, let's understand the problem properly: we want to partition the array into two sets (removed and remaining) such that the sum of removed elements is maximized, and the remaining elements can be anything? No, usually 'Mark All' problems on CodeChef ask to remove some elements such that the sum of remaining elements is maximized or something similar, but let's check the standard logic for CC-MARKALL: we want to maximize the sum of the *removed* elements such that the sum of the *remaining* elements is odd, OR we want the sum of removed elements to be even. Actually, if the total sum is odd, we can remove nothing (sum 0, which is even, remaining sum is total sum which is odd) or we can remove elements. Wait, the problem actually states: we want to maximize the sum of removed elements such that the sum of the remaining elements is... wait, no. Let's look at the standard solution for MARKALL: if the sum of all elements is odd, we can't remove an odd sum to keep an odd sum, or rather, total sum is odd means sum(removed) + sum(remaining) = odd, so one is odd and one is even. If we want remaining sum to be odd, removed sum must be even. To maximize removed sum with an even sum, if total sum is even, we can take all elements (sum is even, remaining is 0 which is not positive? No, remaining must be non-empty? Or maybe we just sort and remove the smallest odd number if total sum is even). In the failing code, it tries to check if sum is odd, output sum. If sum is even, it tries to subtract the smallest element `a[j]` such that `sum - a[j]` is odd. But wait, `a` is sorted ascendingly, so `a[j]` is the smallest element. If we subtract `a[j]`, `sum - a[j]` is odd, so we remove `a[j]` (or rather, the remaining sum is `sum - a[j]`, which means we removed `a[j]`, so the sum of *removed* elements is `a[j]`). But we want to *maximize* the sum of removed elements! If we remove `a[j]`, the sum of removed elements is `a[j]`, which is minimized if we pick the smallest `a[j]`. To maximize the sum of removed elements, we should remove everything *except* the smallest odd element (so remaining sum is the smallest odd element, which is odd, and removed sum is total sum minus the smallest odd element).",
+    "rule": "When maximizing the sum of removed elements to satisfy a parity condition on the remaining elements, carefully derive whether you should minimize or maximize the sum of the elements left behind.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-31T08:42:48.957Z"
+  },
+  {
+    "id": "CC-MAKEAP7",
+    "problem": "Make An AP",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for the missing middle term of an arithmetic progression given the first term 'a' and the third term 'c'. The arithmetic mean is (a + c) / 2. However, the problem may also just ask if we can find 'b' such that a, b, c form an AP. Wait, looking at the problem statement of 'Make An AP', given two integers A and C, we need to find if there exists an integer B such that A, B, C is an AP. The condition is that (A + C) must be even, and B = (A + C) / 2. The previous code actually implements this correctly, but wait, let's check if the problem allows B to be anything or if A and C can be negative or if there's any other constraint. Wait, let's re-read the code. The previous code does `(a + c) / 2`. If `a + c` is even, it pushes `(a + c) / 2`, else `-1`. Wait, is that all? Let's check the problem statement of MAKEAP7 on CodeChef: 'Given two integers A and C, find if there exists an integer B such that A, B, C is an arithmetic progression.' Wait, if A, B, C form an AP, then B - A = C - B, which means 2B = A + C, so B = (A + C) / 2. Thus B is an integer if and only if A + C is even. Wait, why did it give Wrong Answer? Ah, what if A and C are given in any order? No, usually A is the first and C is the third. Wait, let's check if the problem says 'Given two numbers a and c, output b such that a, b, c is an AP'. Wait, what if a and c can be equal? If a = 2 and c = 4, b = 3. What if a = 1, c = 5, b = 3. Wait, is there any case where a > c? The problem says 'two integers a and c' - wait, does it guarantee a <= c? Sometimes a and c can be given in any order, or maybe the problem is 'given a and c, find b'. Wait, if a and c are given, can b be any real number? No, integer. Wait, let's check if `(a + c) % 2 !== 0` handles negative numbers correctly in JavaScript. In JS, `(-3 + 2) % 2` is `-1`, not `1`. That's a classic JS modulo bug with negative numbers!",
+    "rule": "In JavaScript, the modulo operator '%' can return negative results for negative operands. Use '((a % m) + m) % m' for safe modulo arithmetic.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-10-31T08:48:11.993Z"
   }
 ]

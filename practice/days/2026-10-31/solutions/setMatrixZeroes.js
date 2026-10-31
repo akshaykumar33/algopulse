@@ -1,33 +1,23 @@
 var setZeroes = function(matrix) {
   let m = matrix.length;
   let n = matrix[0].length;
-  let rowZero = false;
+  let col0 = 1;
   for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
+    if (matrix[i][0] === 0) col0 = 0;
+    for (let j = 1; j < n; j++) {
       if (matrix[i][j] === 0) {
-        if (i === 0) {
-          rowZero = true;
-        } else {
-          matrix[i][0] = 0;
-        }
+        matrix[i][0] = 0;
         matrix[0][j] = 0;
       }
     }
   }
-  for (let i = 1; i < m; i++) {
-    for (let j = 1; j < n; j++) {
+  for (let i = m - 1; i >= 0; i--) {
+    for (let j = n - 1; j >= 1; j--) {
       if (matrix[i][0] === 0 || matrix[0][j] === 0) {
         matrix[i][j] = 0;
       }
     }
-  }
-  if (matrix[0][0] === 0) {
-    for (let j = 0; j < n; j++) {
-      matrix[0][j] = 0;
-    }
-  }
-  if (rowZero) {
-    for (let i = 0; i < m; i++) {
+    if (col0 === 0) {
       matrix[i][0] = 0;
     }
   }
@@ -50,8 +40,6 @@ if (require.main === module) {
         }
       }
     }
-  } catch (err) {
-    console.error('Local runner error:', err.message);
-  }
+  } catch (err) {}
 }
 module.exports = solve;
