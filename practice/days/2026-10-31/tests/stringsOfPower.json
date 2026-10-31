@@ -1,0 +1,10 @@
+[
+  {
+    "input": "heavymetal\n",
+    "output": "1\n"
+  },
+  {
+    "input": "heavyheavymetalmetal\n",
+    "output": "4\n"
+  }
+]
