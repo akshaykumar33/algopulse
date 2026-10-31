@@ -131,6 +131,9 @@ function dfsIterative(start, adj, n) {
 | [Rudolf and the Ball Game](https://codeforces.com/problemset/problem/1941/D) | `Codeforces` | `1200` | `rudolfAndTheBallGame.js` | Key algorithmic application from Day 2026-10-29. |
 | [Vertical Paths](https://codeforces.com/problemset/problem/1675/D) | `Codeforces` | `1300` | `verticalPaths.js` | Key algorithmic application from Day 2026-10-29. |
 | [Vasya and Isolated Vertices](https://codeforces.com/problemset/problem/1065/B) | `Codeforces` | `1300` | `vasyaAndIsolatedVertices.js` | Key algorithmic application from Day 2026-10-29. |
+| [Find the Permutation](https://codeforces.com/problemset/problem/2056/B) | `Codeforces` | `1300` | `findThePermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Books Exchange (hard version)](https://codeforces.com/problemset/problem/1249/B2) | `Codeforces` | `1300` | `booksExchangeHardVersion.js` | Key algorithmic application from Day 2026-10-31. |
+| [Soldier and Cards](https://codeforces.com/problemset/problem/546/C) | `Codeforces` | `1400` | `soldierAndCards.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

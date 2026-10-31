@@ -271,6 +271,22 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Birthday](https://codeforces.com/problemset/problem/1068/A) | `Codeforces` | `1400` | `birthday.js` | Key algorithmic application from Day 2026-10-30. |
 | [Good Pair Queries](https://codeforces.com/problemset/problem/2248/D) | `Codeforces` | `1400` | `goodPairQueries.js` | Key algorithmic application from Day 2026-10-30. |
 | [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
+| [Ela's Fitness and the Luxury Number](https://codeforces.com/problemset/problem/1737/B) | `Codeforces` | `1300` | `elaSFitnessAndTheLuxuryNumber.js` | Key algorithmic application from Day 2026-10-31. |
+| [Subset Multiplication](https://codeforces.com/problemset/problem/2124/C) | `Codeforces` | `1300` | `subsetMultiplication.js` | Key algorithmic application from Day 2026-10-31. |
+| [Permutation Operations](https://codeforces.com/problemset/problem/1746/C) | `Codeforces` | `1300` | `permutationOperations.js` | Key algorithmic application from Day 2026-10-31. |
+| [Absolute Cinema](https://codeforces.com/problemset/problem/2195/D) | `Codeforces` | `1300` | `absoluteCinema.js` | Key algorithmic application from Day 2026-10-31. |
+| [Books Exchange (hard version)](https://codeforces.com/problemset/problem/1249/B2) | `Codeforces` | `1300` | `booksExchangeHardVersion.js` | Key algorithmic application from Day 2026-10-31. |
+| [Where do I Turn?](https://codeforces.com/problemset/problem/227/A) | `Codeforces` | `1300` | `whereDoITurn.js` | Key algorithmic application from Day 2026-10-31. |
+| [Forecast](https://codeforces.com/problemset/problem/630/N) | `Codeforces` | `1300` | `forecast.js` | Key algorithmic application from Day 2026-10-31. |
+| [Position in Fraction](https://codeforces.com/problemset/problem/900/B) | `Codeforces` | `1300` | `positionInFraction.js` | Key algorithmic application from Day 2026-10-31. |
+| [Dasha and friends](https://codeforces.com/problemset/problem/761/B) | `Codeforces` | `1300` | `dashaAndFriends.js` | Key algorithmic application from Day 2026-10-31. |
+| [Mister B and Angle in Polygon](https://codeforces.com/problemset/problem/820/B) | `Codeforces` | `1300` | `misterBAndAngleInPolygon.js` | Key algorithmic application from Day 2026-10-31. |
+| [Archer](https://codeforces.com/problemset/problem/312/B) | `Codeforces` | `1300` | `archer.js` | Key algorithmic application from Day 2026-10-31. |
+| [Blue-Red Permutation](https://codeforces.com/problemset/problem/1607/D) | `Codeforces` | `1300` | `blueRedPermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Make a Power of Two](https://codeforces.com/problemset/problem/1560/D) | `Codeforces` | `1300` | `makeAPowerOfTwo.js` | Key algorithmic application from Day 2026-10-31. |
+| [Alice's Adventures in Permuting](https://codeforces.com/problemset/problem/2028/B) | `Codeforces` | `1400` | `aliceSAdventuresInPermuting.js` | Key algorithmic application from Day 2026-10-31. |
+| [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
+| [Absolute Sorting](https://codeforces.com/problemset/problem/1772/D) | `Codeforces` | `1400` | `absoluteSorting.js` | Key algorithmic application from Day 2026-10-31. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -142,6 +142,9 @@ function sieve(maxN) {
 | [Insane Problem](https://codeforces.com/problemset/problem/2044/E) | `Codeforces` | `1300` | `insaneProblem.js` | Key algorithmic application from Day 2026-10-30. |
 | [Ehab and a Special Coloring Problem](https://codeforces.com/problemset/problem/1174/C) | `Codeforces` | `1300` | `ehabAndASpecialColoringProblem.js` | Key algorithmic application from Day 2026-10-30. |
 | [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
+| [Subset Multiplication](https://codeforces.com/problemset/problem/2124/C) | `Codeforces` | `1300` | `subsetMultiplication.js` | Key algorithmic application from Day 2026-10-31. |
+| [Ice Sculptures](https://codeforces.com/problemset/problem/158/D) | `Codeforces` | `1300` | `iceSculptures.js` | Key algorithmic application from Day 2026-10-31. |
+| [Position in Fraction](https://codeforces.com/problemset/problem/900/B) | `Codeforces` | `1300` | `positionInFraction.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

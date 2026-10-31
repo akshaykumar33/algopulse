@@ -129,6 +129,13 @@ function lowerBound(arr, target) {
 | [Insane Problem](https://codeforces.com/problemset/problem/2044/E) | `Codeforces` | `1300` | `insaneProblem.js` | Key algorithmic application from Day 2026-10-30. |
 | [Box Fitting](https://codeforces.com/problemset/problem/1498/B) | `Codeforces` | `1300` | `boxFitting.js` | Key algorithmic application from Day 2026-10-30. |
 | [Dress'em in Vests!](https://codeforces.com/problemset/problem/161/A) | `Codeforces` | `1300` | `dressEmInVests.js` | Key algorithmic application from Day 2026-10-30. |
+| [Ela's Fitness and the Luxury Number](https://codeforces.com/problemset/problem/1737/B) | `Codeforces` | `1300` | `elaSFitnessAndTheLuxuryNumber.js` | Key algorithmic application from Day 2026-10-31. |
+| [Funky Numbers](https://codeforces.com/problemset/problem/192/A) | `Codeforces` | `1300` | `funkyNumbers.js` | Key algorithmic application from Day 2026-10-31. |
+| [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
+| [Alice's Adventures in Permuting](https://codeforces.com/problemset/problem/2028/B) | `Codeforces` | `1400` | `aliceSAdventuresInPermuting.js` | Key algorithmic application from Day 2026-10-31. |
+| [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
+| [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
+| [Valhalla Siege](https://codeforces.com/problemset/problem/975/C) | `Codeforces` | `1400` | `valhallaSiege.js` | Key algorithmic application from Day 2026-10-31. |
 
 ---
 

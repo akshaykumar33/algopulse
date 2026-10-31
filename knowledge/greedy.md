@@ -301,6 +301,15 @@ for (const x of arr) {
 | [Universal Solution](https://codeforces.com/problemset/problem/1380/B) | `Codeforces` | `1400` | `universalSolution.js` | Key algorithmic application from Day 2026-10-30. |
 | [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
 | [Find B](https://codeforces.com/problemset/problem/1923/C) | `Codeforces` | `1400` | `findB.js` | Key algorithmic application from Day 2026-10-30. |
+| [Subset Multiplication](https://codeforces.com/problemset/problem/2124/C) | `Codeforces` | `1300` | `subsetMultiplication.js` | Key algorithmic application from Day 2026-10-31. |
+| [Students in Railway Carriage](https://codeforces.com/problemset/problem/962/B) | `Codeforces` | `1300` | `studentsInRailwayCarriage.js` | Key algorithmic application from Day 2026-10-31. |
+| [Garbage Disposal](https://codeforces.com/problemset/problem/1070/D) | `Codeforces` | `1300` | `garbageDisposal.js` | Key algorithmic application from Day 2026-10-31. |
+| [Permutation Operations](https://codeforces.com/problemset/problem/1746/C) | `Codeforces` | `1300` | `permutationOperations.js` | Key algorithmic application from Day 2026-10-31. |
+| [Reach Median](https://codeforces.com/problemset/problem/1037/B) | `Codeforces` | `1300` | `reachMedian.js` | Key algorithmic application from Day 2026-10-31. |
+| [Blue-Red Permutation](https://codeforces.com/problemset/problem/1607/D) | `Codeforces` | `1300` | `blueRedPermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Increasing Subsequence (easy version)](https://codeforces.com/problemset/problem/1157/C1) | `Codeforces` | `1300` | `increasingSubsequenceEasyVersion.js` | Key algorithmic application from Day 2026-10-31. |
+| [Make a Power of Two](https://codeforces.com/problemset/problem/1560/D) | `Codeforces` | `1300` | `makeAPowerOfTwo.js` | Key algorithmic application from Day 2026-10-31. |
+| [PIN Codes](https://codeforces.com/problemset/problem/1263/B) | `Codeforces` | `1400` | `pINCodes.js` | Key algorithmic application from Day 2026-10-31. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

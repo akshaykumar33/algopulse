@@ -180,6 +180,12 @@ function backtrack(index, currentSum, target, arr) {
 | [Dress'em in Vests!](https://codeforces.com/problemset/problem/161/A) | `Codeforces` | `1300` | `dressEmInVests.js` | Key algorithmic application from Day 2026-10-30. |
 | [Mike and strings](https://codeforces.com/problemset/problem/798/B) | `Codeforces` | `1300` | `mikeAndStrings.js` | Key algorithmic application from Day 2026-10-30. |
 | [Composite Coloring](https://codeforces.com/problemset/problem/1332/B) | `Codeforces` | `1400` | `compositeColoring.js` | Key algorithmic application from Day 2026-10-30. |
+| [Funky Numbers](https://codeforces.com/problemset/problem/192/A) | `Codeforces` | `1300` | `funkyNumbers.js` | Key algorithmic application from Day 2026-10-31. |
+| [Ice Sculptures](https://codeforces.com/problemset/problem/158/D) | `Codeforces` | `1300` | `iceSculptures.js` | Key algorithmic application from Day 2026-10-31. |
+| [Find the Permutation](https://codeforces.com/problemset/problem/2056/B) | `Codeforces` | `1300` | `findThePermutation.js` | Key algorithmic application from Day 2026-10-31. |
+| [Dasha and friends](https://codeforces.com/problemset/problem/761/B) | `Codeforces` | `1300` | `dashaAndFriends.js` | Key algorithmic application from Day 2026-10-31. |
+| [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
+| [Soldier and Cards](https://codeforces.com/problemset/problem/546/C) | `Codeforces` | `1400` | `soldierAndCards.js` | Key algorithmic application from Day 2026-10-31. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
