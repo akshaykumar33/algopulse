@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"horse\"\n\"ros\"",
+    "output": "3"
+  },
+  {
+    "input": "\"intention\"\n\"execution\"",
+    "output": "5"
+  }
+]
