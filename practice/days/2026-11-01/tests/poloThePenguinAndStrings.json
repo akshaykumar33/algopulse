@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4 3\n",
+    "output": "abac\n"
+  },
+  {
+    "input": "5 1\n",
+    "output": "-1\n"
+  }
+]
