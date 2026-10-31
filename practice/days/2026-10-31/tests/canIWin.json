@@ -1,0 +1,14 @@
+[
+  {
+    "input": "10\n11",
+    "output": "false"
+  },
+  {
+    "input": "10\n0",
+    "output": "true"
+  },
+  {
+    "input": "10\n1",
+    "output": "true"
+  }
+]
