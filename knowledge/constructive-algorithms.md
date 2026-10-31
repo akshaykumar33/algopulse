@@ -206,6 +206,11 @@ function constructMatrix(n, m) {
 | [Oh Those Palindromes](https://codeforces.com/problemset/problem/1063/A) | `Codeforces` | `1300` | `ohThosePalindromes.js` | Key algorithmic application from Day 2026-10-31. |
 | [Mister B and Angle in Polygon](https://codeforces.com/problemset/problem/820/B) | `Codeforces` | `1300` | `misterBAndAngleInPolygon.js` | Key algorithmic application from Day 2026-10-31. |
 | [Absolute Sorting](https://codeforces.com/problemset/problem/1772/D) | `Codeforces` | `1400` | `absoluteSorting.js` | Key algorithmic application from Day 2026-10-31. |
+| [Lucky Permutation Triple](https://codeforces.com/problemset/problem/303/A) | `Codeforces` | `1300` | `luckyPermutationTriple.js` | Key algorithmic application from Day 2026-11-01. |
+| [Labs](https://codeforces.com/problemset/problem/1236/C) | `Codeforces` | `1300` | `labs.js` | Key algorithmic application from Day 2026-11-01. |
+| [SUMdamental Decomposition](https://codeforces.com/problemset/problem/2108/B) | `Codeforces` | `1300` | `sUMdamentalDecomposition.js` | Key algorithmic application from Day 2026-11-01. |
+| [Remove the Ends](https://codeforces.com/problemset/problem/2064/C) | `Codeforces` | `1300` | `removeTheEnds.js` | Key algorithmic application from Day 2026-11-01. |
+| [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 
 ---
 

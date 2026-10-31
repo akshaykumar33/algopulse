@@ -159,6 +159,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
 | [Trinity](https://codeforces.com/problemset/problem/2032/C) | `Codeforces` | `1400` | `trinity.js` | Key algorithmic application from Day 2026-10-31. |
 | [Polo the Penguin and Matrix](https://codeforces.com/problemset/problem/289/B) | `Codeforces` | `1400` | `poloThePenguinAndMatrix.js` | Key algorithmic application from Day 2026-10-31. |
+| [Masha and a Beautiful Tree](https://codeforces.com/problemset/problem/1741/D) | `Codeforces` | `1300` | `mashaAndABeautifulTree.js` | Key algorithmic application from Day 2026-11-01. |
+| [Make It Permutation](https://codeforces.com/problemset/problem/1810/C) | `Codeforces` | `1300` | `makeItPermutation.js` | Key algorithmic application from Day 2026-11-01. |
+| [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Tape](https://codeforces.com/problemset/problem/1110/B) | `Codeforces` | `1400` | `tape.js` | Key algorithmic application from Day 2026-11-01. |
+| [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
