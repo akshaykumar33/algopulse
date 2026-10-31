@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[<>]()\n",
+    "output": "0\n"
+  },
+  {
+    "input": "[{>]()\n",
+    "output": "1\n"
+  },
+  {
+    "input": "}{()\n",
+    "output": "Impossible\n"
+  }
+]
