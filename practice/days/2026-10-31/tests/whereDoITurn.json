@@ -1,0 +1,14 @@
+[
+  {
+    "input": "0 0\n1 1\n1 2\n",
+    "output": "LEFT\n"
+  },
+  {
+    "input": "0 0\n1 1\n2 1\n",
+    "output": "RIGHT\n"
+  },
+  {
+    "input": "0 0\n1 1\n2 2\n",
+    "output": "TOWARDS\n"
+  }
+]

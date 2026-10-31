@@ -1,0 +1,10 @@
+[
+  {
+    "input": "5 1\nAndreev 1 200\nBorisov 1 500\nVasiliev 1 300\nGavrilov 1 500\nDanilov 1 500",
+    "output": "?"
+  },
+  {
+    "input": "6 2\nAndreev 1 200\nBorisov 2 500\nVasiliev 1 300\nGavrilov 2 400\nDanilov 1 500\nEgorov 2 300",
+    "output": "Danilov Vasiliev\nBorisov Gavrilov"
+  }
+]
