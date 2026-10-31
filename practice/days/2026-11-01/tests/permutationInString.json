@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"ab\", \"eidbaooo\"]\n",
+    "output": "true\n"
+  },
+  {
+    "input": "[\"ab\", \"eidboaoo\"]\n",
+    "output": "false\n"
+  }
+]

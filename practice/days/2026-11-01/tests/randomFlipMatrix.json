@@ -1,0 +1,7 @@
+[
+  {
+    "input": "[[\"Solution\",\"flip\",\"reset\",\"flip\"], [[1,1],[],[],[]]]",
+    "output": "[null,[0,0],null,[0,0]]"
+  }
+]
+

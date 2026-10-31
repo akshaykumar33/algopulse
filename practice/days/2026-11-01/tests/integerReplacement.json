@@ -1,0 +1,14 @@
+[
+  {
+    "input": "8\n",
+    "output": "3\n"
+  },
+  {
+    "input": "7\n",
+    "output": "4\n"
+  },
+  {
+    "input": "4\n",
+    "output": "2\n"
+  }
+]

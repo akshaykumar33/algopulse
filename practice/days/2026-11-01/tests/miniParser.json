@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"324\"",
+    "output": "{\"val\":324,\"list\":null}"
+  },
+  {
+    "input": "\"[123,[400,[700]]]\"",
+    "output": "{\"val\":null,\"list\":[{\"val\":123,\"list\":null},{\"val\":null,\"list\":[{\"val\":400,\"list\":null},{\"val\":null,\"list\":[{\"val\":700,\"list\":null}]}]}]}"
+  }
+]
