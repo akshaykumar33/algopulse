@@ -8,27 +8,15 @@ function solve() {
   const out = [];
   for (let tc = 0; tc < t; tc++) {
     const n = parseInt(tokens[ptr++], 10);
-    let s = tokens[ptr++];
-    let arr = s.split('');
-    for (let i = 0; i < n - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-      }
-    }
-    for (let i = n - 2; i >= 0; i--) {
-      if (arr[i] > arr[i + 1]) {
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-      }
-    }
-    for (let i = 0; i < n - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+    const s = tokens[ptr++];
+    const arr = s.split('');
+    const half = Math.floor(n / 2);
+    for (let i = 0; i < half; i++) {
+      const opp = n - 1 - i;
+      if (arr[i] > arr[opp]) {
+        const tmp = arr[i];
+        arr[i] = arr[opp];
+        arr[opp] = tmp;
       }
     }
     let ok = true;
@@ -38,11 +26,7 @@ function solve() {
         break;
       }
     }
-    if (ok) {
-      out.push('YES');
-    } else {
-      out.push('NO');
-    }
+    out.push(ok ? 'YES' : 'NO');
   }
   console.log(out.join('\n'));
 }

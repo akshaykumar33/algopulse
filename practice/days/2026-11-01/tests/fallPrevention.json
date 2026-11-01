@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\n3\n1 2 3\n3\n3 2 1\n",
-    "output": "YES\nNO\n"
+    "input": "4\n4\n1 0 2 -1\n3\n1 -2 -2\n5\n2 -1 -2 1 0\n4\n0 -1 -1 3\n",
+    "output": "YES\nNO\nYES\nNO\n"
   }
 ]

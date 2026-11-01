@@ -20,6 +20,13 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
    - **Submissions Source:** Platform submissions (`npm run submit`) source code directly from `practice/days/<date>/solutions/`, NEVER from `contests/`.
    - **Zero Repetition / Deduplication:** Always verify whether a problem has already been solved before writing files. Never create redundant duplicates.
    - **Continuous Knowledge Base Sync:** The knowledge base (`knowledge/<tag>.md`) must ALWAYS be updated with key takeaways and synchronized via `node src/cli/knowledge --sync`, with zero duplicate entries in any tag catalog.
+9. **Strictly Node.js (JavaScript) Only — Zero Other Languages & Zero Database/SQL Problems (MANDATORY RULE):**
+   - Every single solution submitted to any platform (Codeforces, LeetCode, CodeChef) MUST be pure algorithmic Node.js (JavaScript).
+   - NEVER ingest, select, or solve Database/SQL, Pandas, Shell/Bash, or non-algorithmic problems (e.g. LeetCode Database problems like LC-585). LeetCode questions must strictly belong to the Algorithms category.
+   - On Codeforces: ALWAYS select compiler `Node.js` (ID 55), NEVER standalone `JavaScript V8 (d8)`, Python, or C++.
+   - On CodeChef: ALWAYS select `Node.js` (JavaScript).
+   - On LeetCode: ALWAYS submit pure algorithmic JavaScript (Node.js).
+   - Zero tolerance for submission errors: every solution must be derived with LGM rigor, proven mathematically, and dual-oracle verified before live upload.
 
 
 ---

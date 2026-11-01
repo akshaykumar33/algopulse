@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 function solve() {
   const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
   if (!tokens || tokens.length === 0 || tokens[0] === '') return;
@@ -8,26 +9,27 @@ function solve() {
   for (let tc = 0; tc < t; tc++) {
     const n = parseInt(tokens[ptr++], 10);
     const m = parseInt(tokens[ptr++], 10);
-    const req = new Array(105).fill(0);
-    const have = new Array(105).fill(0);
+    const soint = new Array(105).fill(0);
+    const sofloat = new Array(105).fill(0);
     for (let i = 0; i < n; i++) {
+      const c = parseInt(tokens[ptr++], 10);
       const l = parseInt(tokens[ptr++], 10);
-      const a = parseInt(tokens[ptr++], 10);
-      req[l] += a;
+      soint[l] += c;
     }
     for (let i = 0; i < m; i++) {
+      const c = parseInt(tokens[ptr++], 10);
       const l = parseInt(tokens[ptr++], 10);
-      const a = parseInt(tokens[ptr++], 10);
-      have[l] += a;
+      sofloat[l] += c;
     }
     let ans = 0;
-    for (let i = 1; i <= 100; i++) {
-      if (req[i] > have[i]) {
-        ans += req[i] - have[i];
+    for (let l = 1; l <= 100; l++) {
+      if (sofloat[l] > soint[l]) {
+        ans += sofloat[l] - soint[l];
       }
     }
     out.push(ans);
   }
   console.log(out.join('\n'));
 }
+
 solve();

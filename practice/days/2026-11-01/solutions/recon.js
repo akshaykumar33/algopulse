@@ -6,14 +6,17 @@ function solve() {
   let ptr = 0;
   const t = parseInt(tokens[ptr++], 10);
   const out = [];
-  for (let i = 0; i < t; i++) {
+  for (let tc = 0; tc < t; tc++) {
     const s = tokens[ptr++];
-    const n = s.length;
-    let ans = 0;
-    for (let j = 0; j < n; j++) {
-      ans += s.charCodeAt(j) - 96;
+    let sum = 0;
+    for (let i = 0; i < s.length; i++) {
+      sum += s.charCodeAt(i);
     }
-    out.push(ans);
+    let p = 1;
+    while (p * 2 <= sum) {
+      p *= 2;
+    }
+    out.push(sum - p);
   }
   console.log(out.join('\n'));
 }

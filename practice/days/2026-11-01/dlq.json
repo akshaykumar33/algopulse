@@ -78,30 +78,6 @@
   },
   {
     "platform": "CodeChef",
-    "id": "CC-ICODER3",
-    "name": "Aqualoo Plants",
-    "file": "aqualooPlants",
-    "tier": "medium",
-    "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-01T06:26:11.592Z",
-    "attempts": 1,
-    "status": "HALTED_UNRESOLVED",
-    "problem": {
-      "platform": "CodeChef",
-      "id": "CC-ICODER3",
-      "name": "Aqualoo Plants",
-      "rating": 1350,
-      "tags": [
-        "codechef"
-      ],
-      "url": "https://www.codechef.com/problems/ICODER3",
-      "file": "aqualooPlants",
-      "template": "templates/codechef.js"
-    },
-    "finalVerdict": "Wrong Answer"
-  },
-  {
-    "platform": "CodeChef",
     "id": "CC-SWAPCW",
     "name": "Swapping Chefs Way",
     "file": "swappingChefsWay",
@@ -171,30 +147,6 @@
       "template": "templates/codechef.js"
     },
     "finalVerdict": "Wrong Answer"
-  },
-  {
-    "platform": "LeetCode",
-    "id": "LC-585",
-    "name": "Investments in 2016",
-    "file": "investmentsIn2016",
-    "tier": "medium",
-    "initialVerdict": "Runtime Error",
-    "enqueuedAt": "2026-11-01T06:32:32.366Z",
-    "attempts": 1,
-    "status": "HALTED_UNRESOLVED",
-    "problem": {
-      "platform": "LeetCode",
-      "id": "LC-585",
-      "name": "Investments in 2016",
-      "rating": "Medium",
-      "tags": [
-        "algorithms"
-      ],
-      "url": "https://leetcode.com/problems/investments-in-2016/",
-      "file": "investmentsIn2016",
-      "template": "templates/leetcode.js"
-    },
-    "finalVerdict": "Runtime Error"
   },
   {
     "platform": "Codeforces",
@@ -1087,5 +1039,51 @@
     "resolved": true,
     "finalVerdict": "Accepted",
     "resolvedAt": "2026-11-01T08:36:34.806Z"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-585",
+    "name": "Investments in 2016",
+    "file": "investmentsIn2016",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-01T08:39:39.962Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-585",
+      "name": "Investments in 2016",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/investments-in-2016/",
+      "file": "investmentsIn2016",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ICODER3",
+    "name": "Aqualoo Plants",
+    "file": "aqualooPlants",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-01T08:39:40.030Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ICODER3",
+      "name": "Aqualoo Plants",
+      "rating": 1350,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ICODER3",
+      "file": "aqualooPlants",
+      "template": "templates/codechef.js"
+    }
   }
 ]
