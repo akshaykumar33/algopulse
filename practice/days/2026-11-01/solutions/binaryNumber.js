@@ -1,25 +1,23 @@
 const fs = require('fs');
 
 function solve() {
-    const input = fs.readFileSync(0, 'utf-8').trim();
-    if (!input) return;
-    let s = input;
+    const s = fs.readFileSync(0, 'utf-8').trim();
+    if (!s) return;
     let steps = 0;
-    while (s !== '1') {
-        if (s[s.length - 1] === '0') {
-            s = s.slice(0, -1);
+    let carry = 0;
+    let i = s.length - 1;
+    while (i > 0) {
+        let bit = parseInt(s[i]) + carry;
+        if (bit === 1) {
+            carry = 1;
+            steps += 2;
         } else {
-            let idx = s.length - 1;
-            while (idx >= 0 && s[idx] === '1') {
-                idx--;
-            }
-            if (idx < 0) {
-                s = '1' + '0'.repeat(s.length);
-            } else {
-                s = s.slice(0, idx) + '1' + '0'.repeat(s.length - 1 - idx);
-            }
+            steps += 1;
         }
-        steps++;
+        i--;
+    }
+    if (carry === 1) {
+        steps += 1;
     }
     console.log(steps);
 }

@@ -1,20 +1,35 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  let ptr = 0;
-  const n = parseInt(tokens[ptr++], 10);
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) {
+      pos++;
+    }
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const n = nextInt();
+  if (n === null) return;
+
   const m = new Int32Array(n);
   const maxSal = new Int32Array(n);
   let globalMax = 0;
 
   for (let i = 0; i < n; i++) {
-    const count = parseInt(tokens[ptr++], 10);
+    const count = nextInt();
     m[i] = count;
     let localMax = 0;
     for (let j = 0; j < count; j++) {
-      const sal = parseInt(tokens[ptr++], 10);
+      const sal = nextInt();
       if (sal > localMax) localMax = sal;
     }
     maxSal[i] = localMax;
@@ -24,12 +39,10 @@ function solve() {
   let totalCost = 0n;
   const gMax = BigInt(globalMax);
   for (let i = 0; i < n; i++) {
-    const diff = gMax - BigInt(maxSal[i]);
-    totalCost += diff * BigInt(m[i]);
+    totalCost += (gMax - BigInt(maxSal[i])) * BigInt(m[i]);
   }
 
   console.log(totalCost.toString());
 }
 
 solve();
-

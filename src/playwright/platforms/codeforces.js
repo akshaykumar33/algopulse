@@ -5,6 +5,7 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 const { PLATFORMS } = require('../config');
 
 /**
@@ -47,6 +48,49 @@ async function checkAuth(page) {
   return { authenticated: false };
 }
 
+function pollCodeforcesVerdictViaAPI(handle, problemCode, submitTimestamp = 0) {
+  return new Promise((resolve) => {
+    const url = `https://codeforces.com/api/user.status?handle=${encodeURIComponent(handle)}&from=1&count=6`;
+    const req = https.get(url, { timeout: 6000, headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+      let data = '';
+      res.on('data', (c) => (data += c));
+      res.on('end', () => {
+        try {
+          const j = JSON.parse(data);
+          if (j.status === 'OK' && Array.isArray(j.result)) {
+            for (const r of j.result) {
+              const pCode = `${r.problem.contestId}${r.problem.index}`.toLowerCase();
+              if (pCode === problemCode.toLowerCase()) {
+                if (submitTimestamp && r.creationTimeSeconds < submitTimestamp - 20) {
+                  continue;
+                }
+                if (!r.verdict || /running|judging|in queue|testing/i.test(r.verdict)) {
+                  return resolve(null);
+                }
+                let v = r.verdict;
+                if (r.verdict === 'OK') v = 'Accepted';
+                else if (r.verdict === 'WRONG_ANSWER') v = `Wrong answer on test ${r.passedTestCount + 1}`;
+                else if (r.verdict === 'TIME_LIMIT_EXCEEDED') v = `Time limit exceeded on test ${r.passedTestCount + 1}`;
+                else if (r.verdict === 'MEMORY_LIMIT_EXCEEDED') v = `Memory limit exceeded on test ${r.passedTestCount + 1}`;
+                else if (r.verdict === 'COMPILATION_ERROR') v = 'Compilation error';
+                return resolve({
+                  submissionId: r.id,
+                  verdict: v,
+                  time: `${r.timeConsumedMillis} ms`,
+                  memory: `${Math.round(r.memoryConsumedBytes / 1024)} KB`,
+                });
+              }
+            }
+          }
+        } catch {}
+        resolve(null);
+      });
+    });
+    req.on('error', () => resolve(null));
+    req.on('timeout', () => { req.destroy(); resolve(null); });
+  });
+}
+
 /**
  * Submits solution code to Codeforces and waits for verdict
  */
@@ -59,12 +103,14 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
   const { contestId, index } = parsed;
   const problemCode = `${contestId}${index}`;
 
-  console.log(`    [Codeforces] Navigating to submit page for ${problemCode} ...`);
+  console.log(`    [Codeforces] Preparing submit page for ${problemCode} ...`);
   page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
-  try {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  } catch {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 60000 });
+  if (!page.url().includes('problemset/submit')) {
+    try {
+      await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 20000 });
+    } catch {
+      await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 15000 });
+    }
   }
 
   // 1. Verify Authentication
@@ -78,25 +124,28 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
 
   // 2. Fill problem code
   const codeInput = await page.waitForSelector('input[name="submittedProblemCode"]', { timeout: 25000 });
+  await codeInput.fill('');
   await codeInput.fill(problemCode);
 
-  // 3. Select Node.js Compiler
-  const select = await page.$('select[name="programTypeId"]');
-  if (select) {
+  // 3. Select language (JavaScript V8 or Node.js)
+  const langSelect = await page.$('select[name="programTypeId"]');
+  if (langSelect) {
     const options = await page.$$eval('select[name="programTypeId"] option', (opts) =>
       opts.map((o) => ({ value: o.value, text: o.textContent.trim() }))
     );
-    const nodeOption =
-      options.find((o) => /node\.?js/i.test(o.text)) || options.find((o) => /javascript/i.test(o.text));
-    if (nodeOption) {
-      await select.selectOption(nodeOption.value);
+    const jsOpt =
+      options.find((o) => /Node/i.test(o.text)) ||
+      options.find((o) => /JavaScript/i.test(o.text) && !/V8/i.test(o.text)) ||
+      options.find((o) => /JavaScript/i.test(o.text));
+    if (jsOpt) {
+      console.log(`    [Codeforces] Selected compiler: ${jsOpt.text} (ID: ${jsOpt.value})`);
+      await page.selectOption('select[name="programTypeId"]', jsOpt.value);
     }
   }
 
-  // 4. Attach sanitized source file or code
-  const fileInput = await page.$('input[name="sourceFile"]');
-  if (fileInput) {
-    const tempFile = path.join(os.tmpdir(), `${problem.file || 'solution'}.js`);
+  // 4. Set source code (file upload preferred)
+  if (filePath && fs.existsSync(filePath)) {
+    const tempFile = path.join(os.tmpdir(), `cf_${problemCode}_${Date.now()}.js`);
     fs.writeFileSync(tempFile, code, 'utf-8');
     console.log(`    [Codeforces] Uploading sanitized source file ...`);
     await page.setInputFiles('input[name="sourceFile"]', tempFile);
@@ -106,17 +155,13 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
 
   // 5. Submit solution
   console.log(`    [Codeforces] Submitting solution ...`);
+  const submitTimestamp = Math.floor(Date.now() / 1000);
   await Promise.all([
-    page.waitForNavigation({ waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}),
+    page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),
     page.click('input.submit[type="submit"], input[value="Submit"]'),
   ]);
 
-  // 6. Monitor Verdict on status page
-  const statusUrl = 'https://codeforces.com/problemset/status?my=on';
-  if (!page.url().includes('status?my')) {
-    await page.goto(statusUrl, { waitUntil: 'domcontentloaded', timeout }).catch(() => {});
-  }
-
+  // 6. Monitor Verdict via API
   console.log(`    [Codeforces] Waiting for judge verdict ...`);
   const startTime = Date.now();
   let verdict = 'Pending';
@@ -124,46 +169,21 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
   let timeConsumed = null;
   let memoryConsumed = null;
 
+  // Short pause for judge queue
+  await new Promise((r) => setTimeout(r, 4000));
+
   while (Date.now() - startTime < timeout) {
-    try {
-    const rows = await page.$$('.status-frame-datatable tr[data-submission-id]');
-    let matchedRow = null;
-    for (const r of rows) {
-      const cells = await r.$$('td');
-      if (cells.length >= 4) {
-        const probText = (await cells[3].textContent()).trim();
-        const isMatch =
-          probText.toLowerCase().includes(problemCode.toLowerCase()) ||
-          (problem.name && probText.toLowerCase().includes(problem.name.toLowerCase()));
-        if (isMatch) {
-          matchedRow = r;
-          break;
-        }
+    if (auth.handle && auth.handle !== 'authenticated') {
+      const apiResult = await pollCodeforcesVerdictViaAPI(auth.handle, problemCode, submitTimestamp);
+      if (apiResult) {
+        verdict = apiResult.verdict;
+        submissionId = apiResult.submissionId;
+        timeConsumed = apiResult.time;
+        memoryConsumed = apiResult.memory;
+        break;
       }
     }
-
-    if (matchedRow) {
-      submissionId = await matchedRow.getAttribute('data-submission-id');
-      const cells = await matchedRow.$$('td');
-      if (cells.length >= 6) {
-        const rawVerdict = (await cells[5].textContent()).trim();
-        timeConsumed = cells.length >= 7 ? (await cells[6].textContent()).trim() : null;
-        memoryConsumed = cells.length >= 8 ? (await cells[7].textContent()).trim() : null;
-
-        // Check if finished evaluating
-        const isEvaluating =
-          /in queue|running|judging/i.test(rawVerdict) || rawVerdict === '' || /^\s*$/.test(rawVerdict);
-        if (!isEvaluating) {
-          verdict = rawVerdict;
-          break;
-        }
-      }
-    }
-
-        } catch {}
-    await page.waitForTimeout(2500);
-    // Reload status page to refresh verdict
-    await page.goto(statusUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});
+    await new Promise((r) => setTimeout(r, 2500));
   }
 
   return {
@@ -182,4 +202,3 @@ module.exports = {
   submitCodeforces,
   parseCodeforcesId,
 };
-

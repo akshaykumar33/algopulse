@@ -1,6 +1,14 @@
 [
   {
-    "input": "3\n1 2\n3 4\n5 6 7\n",
-    "output": "18\n"
+    "input": "4\n1 2 3\n3 2 1\n3 2 2 3\n",
+    "output": "12\n"
+  },
+  {
+    "input": "3\n1 2\n3 2\n1 3 2\n",
+    "output": "11\n"
+  },
+  {
+    "input": "2\n1\n1\n1 1\n",
+    "output": "4\n"
   }
 ]

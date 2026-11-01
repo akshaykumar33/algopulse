@@ -1,8 +1,8 @@
 const fs = require('fs');
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  const s = tokens[0];
+  const input = fs.readFileSync(0, 'utf-8').trim();
+  if (!input) return;
+  const s = input.split(/\s+/)[0];
   const stack = [];
   const match = { '}': '{', ']': '[', ')': '(', '>': '<' };
   const open = { '{': true, '[': true, '(': true, '<': true };

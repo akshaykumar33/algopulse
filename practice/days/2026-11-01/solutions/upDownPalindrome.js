@@ -18,10 +18,18 @@ function solve() {
             else c1++;
         }
 
-        if (c0 % 2 !== 0 && c1 % 2 !== 0) {
-            out.push("NO");
+        if (n % 2 === 1) {
+            if ((c0 % 2 === 1 && c1 % 2 === 0) || (c0 % 2 === 0 && c1 % 2 === 1)) {
+                out.push("YES");
+            } else {
+                out.push("NO");
+            }
         } else {
-            out.push("YES");
+            if (c0 % 2 === 0 && c1 % 2 === 0) {
+                out.push("YES");
+            } else {
+                out.push("NO");
+            }
         }
     }
     console.log(out.join('\n'));

@@ -71,9 +71,9 @@ function solve() {
 
     const out = [];
     if (!ok) {
-        out.push("NO");
+        out.push('NO');
     } else {
-        out.push("YES");
+        out.push('YES');
         for (let i = 0; i < m; i++) {
             out.push(a[i].join(' '));
         }

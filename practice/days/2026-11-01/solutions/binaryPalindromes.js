@@ -9,27 +9,25 @@ function solve() {
 
     for (let qi = 0; qi < q; qi++) {
         const n = parseInt(tokens[ptr++], 10);
-        const lens = new Array(n);
-        let zeros = 0;
-        let ones = 0;
-        let hasOddLength = false;
+        let oddCount = 0;
+        let totalZeros = 0;
+        let totalOnes = 0;
 
         for (let i = 0; i < n; i++) {
             const s = tokens[ptr++];
-            lens[i] = s.length;
-            if (lens[i] % 2 === 1) {
-                hasOddLength = true;
+            if (s.length % 2 === 1) {
+                oddCount++;
             }
             for (let j = 0; j < s.length; j++) {
-                if (s[j] === '0') zeros++;
-                else ones++;
+                if (s[j] === '0') totalZeros++;
+                else totalOnes++;
             }
         }
 
-        if (hasOddLength) {
+        if (oddCount > 0) {
             out.push(n);
         } else {
-            if (zeros % 2 === 0 && ones % 2 === 0) {
+            if (totalZeros % 2 === 0 && totalOnes % 2 === 0) {
                 out.push(n);
             } else {
                 out.push(n - 1);
