@@ -1,39 +1,42 @@
 const fs = require('fs');
 
-function gcd(a, b) {
-  while (b) {
-    const t = b;
-    b = a % b;
-    a = t;
-  }
-  return a;
+function extgcd(a, b) {
+  if (b === 0) return [1, 0, a];
+  const [x1, y1, g] = extgcd(b, a % b);
+  return [y1, x1 - Math.floor(a / b) * y1, g];
+}
+
+function mergeCongruence(r1, m1, r2, m2) {
+  const [x0, y0, g] = extgcd(m1, m2);
+  if ((r2 - r1) % g !== 0) return null;
+  const mod2 = m2 / g;
+  let factor = ((r2 - r1) / g) % mod2;
+  let x = (x0 % mod2 * factor) % mod2;
+  if (x < 0) x += mod2;
+  const newM = (m1 / g) * m2;
+  const newR = (r1 + m1 * x) % newM;
+  return [newR, newM];
 }
 
 function hasSolution(resSets) {
-  const chosen = new Array(resSets.length);
-  function backtrack(idx) {
+  function backtrack(idx, curR, curM) {
     if (idx === resSets.length) return true;
     const { L, set } = resSets[idx];
     for (let s = 0; s < set.length; s++) {
       const r = set[s];
-      let ok = true;
-      for (let prev = 0; prev < idx; prev++) {
-        const prevL = resSets[prev].L;
-        const prevR = chosen[prev];
-        const g = gcd(L, prevL);
-        if (r % g !== prevR % g) {
-          ok = false;
-          break;
-        }
+      let merged;
+      if (idx === 0) {
+        merged = [r, L];
+      } else {
+        merged = mergeCongruence(curR, curM, r, L);
       }
-      if (ok) {
-        chosen[idx] = r;
-        if (backtrack(idx + 1)) return true;
+      if (merged !== null) {
+        if (backtrack(idx + 1, merged[0], merged[1])) return true;
       }
     }
     return false;
   }
-  return backtrack(0);
+  return backtrack(0, 0, 1);
 }
 
 function solve() {
@@ -67,14 +70,12 @@ function solve() {
     const candCells = [];
     const seen = new Set();
     for (let i = 0; i < tap0.L; i++) {
-      const r = r0 + tap0.dr[i];
-      const c = c0 + tap0.dc[i];
-      if (r >= 0 && r < R && c >= 0 && c < C) {
-        const cell = r * C + c;
-        if (!seen.has(cell)) {
-          seen.add(cell);
-          candCells.push(cell);
-        }
+      const r = ((r0 + tap0.dr[i]) % R + R) % R;
+      const c = ((c0 + tap0.dc[i]) % C + C) % C;
+      const cell = r * C + c;
+      if (!seen.has(cell)) {
+        seen.add(cell);
+        candCells.push(cell);
       }
     }
 
@@ -89,8 +90,8 @@ function solve() {
         const cB = tap.B % C;
         const set = [];
         for (let i = 0; i < tap.L; i++) {
-          const r = rB + tap.dr[i];
-          const c = cB + tap.dc[i];
+          const r = ((rB + tap.dr[i]) % R + R) % R;
+          const c = ((cB + tap.dc[i]) % C + C) % C;
           if (r * C + c === P) {
             set.push(i);
           }

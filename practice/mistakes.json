@@ -1582,5 +1582,32 @@
       "greedy"
     ],
     "timestamp": "2026-11-01T08:35:50.765Z"
+  },
+  {
+    "id": "CC-ICODER3",
+    "problem": "Aqualoo Plants",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Aqualoo Plants' is a Chinese Remainder Theorem (or system of congruences) style problem where each tap specifies that the chosen plant index satisfies $i \\equiv P - B_k \\pmod{L_k}$ or similar modular constraints. The naive backtracking function checks pairwise GCD conditions which is insufficient for systems of congruences, and it also misses that $i$ must be chosen within the valid grid bounds and tap offsets such that all taps can simultaneously water the target cell.",
+    "rule": "For problems involving simultaneous modular constraints (like Chinese Remainder Theorem or systems of linear congruences), pairwise GCD checks between choices are insufficient; we must solve the system properly or check all combinations if the search space is small, but ensure the modular arithmetic accurately reflects the problem statement.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-01T09:17:16.686Z"
+  },
+  {
+    "id": "2275D",
+    "problem": "Precision Alignment",
+    "platform": "Codeforces",
+    "verdict": "RUNTIME_ERROR",
+    "diagnosis": "The binary search range and condition were incorrect for the problem logic, or buffer indexing went out of bounds when tokens were exhausted.",
+    "rule": "Always check bounds for token reading and ensure binary search bounds match the exact problem constraints.",
+    "tags": [
+      "binary search",
+      "brute force",
+      "greedy",
+      "implementation"
+    ],
+    "timestamp": "2026-11-01T09:50:18.275Z"
   }
 ]
