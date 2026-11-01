@@ -21,7 +21,6 @@ function solve() {
         ans++;
         let cur = p[idx];
         let page = (cur - removed - 1n) / k;
-        let start = page * k + 1n + removed;
         let end = (page + 1n) * k + removed;
 
         let cnt = 0;

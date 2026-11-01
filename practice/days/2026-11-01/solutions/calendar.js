@@ -23,14 +23,11 @@ function dateToDays(y, m, d) {
 
 function solve() {
     const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-    if (input.length < 2 || input[0] === '') return;
-    
-    const [y1, m1, d1] = input[0].split(':').map(Number);
-    const [y2, m2, d2] = input[1].split(':').map(Number);
-
-    const t1 = dateToDays(y1, m1, d1);
-    const t2 = dateToDays(y2, m2, d2);
-
+    if (input.length < 2) return;
+    const p1 = input[0].split(':').map(Number);
+    const p2 = input[1].split(':').map(Number);
+    const t1 = dateToDays(p1[0], p1[1], p1[2]);
+    const t2 = dateToDays(p2[0], p2[1], p2[2]);
     console.log(Math.abs(t1 - t2));
 }
 

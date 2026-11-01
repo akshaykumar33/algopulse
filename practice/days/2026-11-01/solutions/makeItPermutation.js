@@ -12,11 +12,11 @@ function solve() {
     const c = BigInt(tokens[ptr++]);
     const d = BigInt(tokens[ptr++]);
 
-    const arr = new Int32Array(n);
+    const arr = [];
     for (let i = 0; i < n; i++) {
-      arr[i] = parseInt(tokens[ptr++], 10);
+      arr.push(parseInt(tokens[ptr++], 10));
     }
-    arr.sort();
+    arr.sort((a, b) => a - b);
 
     const unique = [];
     for (let i = 0; i < n; i++) {

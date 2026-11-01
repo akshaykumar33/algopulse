@@ -1,17 +1,30 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
+  const input = fs.readFileSync(0, 'utf-8');
+  let pos = 0;
+  function nextInt() {
+    while (pos < input.length && input.charCodeAt(pos) <= 32) {
+      pos++;
+    }
+    if (pos >= input.length) return null;
+    let res = 0;
+    while (pos < input.length && input.charCodeAt(pos) > 32) {
+      res = res * 10 + (input.charCodeAt(pos) - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const t = nextInt();
+  if (t === null) return;
   const out = [];
 
   for (let tc = 0; tc < t; tc++) {
-    const m = parseInt(tokens[ptr++], 10);
+    const m = nextInt();
     const arr = new Int32Array(m);
     for (let i = 0; i < m; i++) {
-      arr[i] = parseInt(tokens[ptr++], 10);
+      arr[i] = nextInt();
     }
 
     function check(l, r) {
@@ -41,4 +54,3 @@ function solve() {
 }
 
 solve();
-

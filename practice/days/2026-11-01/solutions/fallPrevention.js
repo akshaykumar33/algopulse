@@ -12,11 +12,16 @@ function solve() {
             a.push(parseInt(tokens[ptr++], 10));
         }
         let ok = true;
-        for (let j = 0; j < n - 1; j++) {
-            if (a[j] > a[j + 1]) {
-                ok = false;
-                break;
+        for (let j = 0; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+                if (a[j] > a[k]) {
+                    if ((a[j] + a[k]) % 2 === 0) {
+                        ok = false;
+                        break;
+                    }
+                }
             }
+            if (!ok) break;
         }
         if (ok) {
             out.push("YES");

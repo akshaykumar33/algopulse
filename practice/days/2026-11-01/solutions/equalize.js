@@ -12,7 +12,7 @@ function solve() {
         if (a[i] === b[i]) {
             i++;
         } else {
-            if (i + 1 < n && a[i + 1] !== b[i + 1] && a[i] !== a[i + 1]) {
+            if (i + 1 < n && a[i + 1] !== b[i + 1] && a[i] === b[i + 1] && a[i + 1] === b[i]) {
                 cost += 1;
                 i += 2;
             } else {

@@ -17,25 +17,24 @@ function solve() {
     }
     a.sort((x, y) => (x < y ? -1 : x > y ? 1 : 0));
 
-    let remK = k;
-    let ans = a[0];
+    let low = a[0];
+    let high = a[n - 1] + k;
+    let ans = high;
 
-    for (let i = 1; i < n; i++) {
-      const diff = a[i] - a[i - 1];
-      const count = BigInt(i);
-      const needed = count * diff;
-
-      if (remK < needed) {
-        ans = a[i - 1] + remK / count;
-        remK = 0n;
-        break;
+    while (low <= high) {
+      const mid = (low + high) / 2n;
+      let req = 0n;
+      for (let i = 0; i < n; i++) {
+        if (a[i] < mid) {
+          req += (mid - a[i]);
+        }
       }
-      remK -= needed;
-      ans = a[i];
-    }
-
-    if (remK > 0n) {
-      ans += remK / BigInt(n);
+      if (req <= k) {
+        ans = mid;
+        low = mid + 1n;
+      } else {
+        high = mid - 1n;
+      }
     }
 
     out.push(ans.toString());

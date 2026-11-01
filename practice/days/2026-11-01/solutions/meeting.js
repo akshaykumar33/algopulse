@@ -35,7 +35,8 @@ function solve() {
 
   let cold = 0;
   for (let i = 0; i < pts.length; i++) {
-    const [px, py] = pts[i];
+    const px = pts[i][0];
+    const py = pts[i][1];
     let warm = false;
     for (let j = 0; j < heaters.length; j++) {
       const h = heaters[j];
