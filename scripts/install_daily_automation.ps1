@@ -5,6 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $taskName = 'AlgoPulse Daily Autonomous Engine'
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 
 if ($Remove) {
     Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
@@ -14,7 +15,7 @@ if ($Remove) {
 
 $at = [datetime]::ParseExact($Time, 'HH:mm', $null)
 $script = Join-Path $PSScriptRoot 'run_daily_automation.ps1'
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$script`""
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$script`"" -WorkingDirectory $repoRoot
 
 $triggerDaily = New-ScheduledTaskTrigger -Daily -At $at
 $triggerLogon = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
