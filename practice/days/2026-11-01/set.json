@@ -724,16 +724,12 @@
       "template": "templates/leetcode.js"
     },
     {
+      "id": "LC-452",
+      "name": "Minimum Number of Arrows to Burst Balloons",
+      "file": "minimumNumberOfArrowsToBurstBalloons",
       "platform": "LeetCode",
-      "id": "LC-585",
-      "name": "Investments in 2016",
-      "rating": "Medium",
-      "tags": [
-        "algorithms"
-      ],
-      "url": "https://leetcode.com/problems/investments-in-2016/",
-      "file": "investmentsIn2016",
-      "template": "templates/leetcode.js"
+      "difficulty": "Medium",
+      "tag": "greedy"
     },
     {
       "platform": "LeetCode",
@@ -1181,8 +1177,8 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-FIRSTNDLAST",
-      "name": "First and last occurrence of a given number",
+      "id": "CC-FIRSTANDLAST",
+      "name": "First and Last",
       "rating": 1250,
       "tags": [
         "codechef"

@@ -1,6 +1,6 @@
 [
   {
-    "input": "3\n3\ncab\n4\ndcba\n2\nab\n",
+    "input": "3\n4\ndcba\n5\nedcba\n3\nabc\n",
     "output": "YES\nYES\nYES\n"
   }
 ]

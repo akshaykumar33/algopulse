@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\nab\nabc\n",
-    "output": "3\n6\n"
+    "input": "3\naranya\nreverse\ngear\n",
+    "output": "124\n252\n159\n"
   }
 ]

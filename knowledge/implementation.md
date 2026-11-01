@@ -1427,6 +1427,7 @@ function solve() {
 | [Valid Expression](https://www.codechef.com/problems/EVALMAS) | `CodeChef` | `1354` | `validExpression.js` | Key algorithmic application from Day 2026-11-01. |
 | [Discrepancies in the Voters List](https://www.codechef.com/problems/VOTERS) | `CodeChef` | `1400` | `discrepanciesInTheVotersList.js` | Key algorithmic application from Day 2026-11-01. |
 | [Eidi Gift](https://www.codechef.com/problems/EID2) | `CodeChef` | `1378` | `eidiGift.js` | Key algorithmic application from Day 2026-11-01. |
+| [Minimum Number of Arrows to Burst Balloons](undefined) | `LeetCode` | `undefined` | `minimumNumberOfArrowsToBurstBalloons.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
