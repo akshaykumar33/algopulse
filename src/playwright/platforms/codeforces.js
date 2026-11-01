@@ -105,12 +105,10 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
 
   console.log(`    [Codeforces] Preparing submit page for ${problemCode} ...`);
   page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
-  if (!page.url().includes('problemset/submit')) {
-    try {
-      await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 20000 });
-    } catch {
-      await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 15000 });
-    }
+  try {
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 35000 });
+  } catch {
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 25000 }).catch(() => {});
   }
 
   // 1. Verify Authentication

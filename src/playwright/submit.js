@@ -456,7 +456,9 @@ function mirrorSolutionsByPlatform(problems, dayDir, date) {
 /**
  * Submits a single problem using the provided browser and context setup
  */
-async function submitSingleProblem(prob, { dayDir, browser, persistentContext, isPersistentMode }) {
+async function submitSingleProblem(prob, options = {}) {
+  const { dayDir, isPersistentMode, useCdp, cdpPort } = options;
+  let { browser, persistentContext } = options;
   const solPath = findSolutionFile(prob, dayDir);
   if (!solPath) {
     console.warn(`    ✗ Missing solution code for ${prob.file}. Skipping.`);
@@ -497,7 +499,36 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
         }
       } catch {}
     }
-    page = await persistentContext.newPage();
+    try {
+      const isAlive = browser && browser.isConnected() && persistentContext;
+      if (!isAlive && (options.useCdp || options.isPersistentMode)) {
+        browser = await ensureCDPChrome({ port: options.cdpPort || 9222 });
+        persistentContext = browser.contexts()[0] || (await browser.newContext());
+        options.browser = browser;
+        options.persistentContext = persistentContext;
+      }
+    } catch {}
+
+    let openPages = [];
+    try {
+      openPages = persistentContext ? persistentContext.pages().filter(p => !p.isClosed()) : [];
+    } catch {}
+
+    if (openPages.length > 0) {
+      page = openPages[0];
+    } else {
+      try {
+        page = await persistentContext.newPage();
+      } catch {
+        browser = await ensureCDPChrome({ port: options.cdpPort || 9222 });
+        persistentContext = browser.contexts()[0] || (await browser.newContext());
+        options.browser = browser;
+        options.persistentContext = persistentContext;
+        const recheckPages = persistentContext.pages().filter(p => !p.isClosed());
+        page = recheckPages.length > 0 ? recheckPages[0] : (await persistentContext.newPage());
+      }
+    }
+    await page.bringToFront().catch(() => {});
   } else {
     if (!fs.existsSync(platConfig.authFile)) {
       const ok = await ensurePlatformAuth(platKey, { isPersistentMode });
@@ -552,7 +583,7 @@ async function submitSingleProblem(prob, { dayDir, browser, persistentContext, i
     };
   } finally {
     if (context) await context.close().catch(() => {});
-    else if (page) { await Promise.race([page.close({ runBeforeUnload: false }), new Promise((r) => setTimeout(r, 2000))]).catch(() => {}); }
+    else if (page && !isPersistentMode) { await Promise.race([page.close({ runBeforeUnload: false }), new Promise((r) => setTimeout(r, 2000))]).catch(() => {}); }
   }
 }
 
@@ -1366,6 +1397,8 @@ async function main() {
     browser,
     persistentContext,
     isPersistentMode,
+    useCdp,
+    cdpPort,
     baseCooldownMs,
     isFast,
     noFix,

@@ -1413,7 +1413,7 @@ function solve() {
 | [Santa and Chocolates](https://www.codechef.com/problems/SANTACHOC) | `CodeChef` | `1285` | `santaAndChocolates.js` | Key algorithmic application from Day 2026-11-01. |
 | [Funny Hand](https://www.codechef.com/problems/FUNHAND) | `CodeChef` | `1306` | `funnyHand.js` | Key algorithmic application from Day 2026-11-01. |
 | [Collisions](https://www.codechef.com/problems/LCOLLIS) | `CodeChef` | `1352` | `collisions.js` | Key algorithmic application from Day 2026-11-01. |
-| [Chef and Linear Chess](https://www.codechef.com/problems/LINCHESS) | `CodeChef` | `1200` | `chefAndLinearChess.js` | Key algorithmic application from Day 2026-11-01. |
+| [Racing Horses](https://www.codechef.com/problems/HORSES) | `CodeChef` | `1210` | `racingHorses.js` | Key algorithmic application from Day 2026-11-01. |
 | [Fall Prevention](https://www.codechef.com/problems/FALLPR) | `CodeChef` | `1297` | `fallPrevention.js` | Key algorithmic application from Day 2026-11-01. |
 | [Bigger is Better](https://www.codechef.com/problems/BIGNAME) | `CodeChef` | `1227` | `biggerIsBetter.js` | Key algorithmic application from Day 2026-11-01. |
 | [Make Equal](https://www.codechef.com/problems/MKEQ) | `CodeChef` | `1373` | `makeEqual.js` | Key algorithmic application from Day 2026-11-01. |

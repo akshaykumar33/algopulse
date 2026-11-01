@@ -10,50 +10,67 @@ function solve() {
   for (let tc = 0; tc < t; tc++) {
     const n = parseInt(tokens[ptr++], 10);
     const k = parseInt(tokens[ptr++], 10);
-    const arr = [];
+    const arr = new Array(n);
     for (let i = 0; i < n; i++) {
-      arr.push(parseInt(tokens[ptr++], 10));
+      arr[i] = BigInt(tokens[ptr++]);
     }
 
     if (k >= 3) {
-      out.push(0);
+      out.push('0');
       continue;
     }
 
-    arr.sort((a, b) => a - b);
+    arr.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     let ans = arr[0];
     for (let i = 0; i < n - 1; i++) {
-      ans = Math.min(ans, arr[i + 1] - arr[i]);
+      const d = arr[i + 1] - arr[i];
+      if (d < ans) ans = d;
     }
 
-    if (k === 1) {
-      out.push(ans);
+    if (k === 1 || ans === 0n) {
+      out.push(ans.toString());
       continue;
     }
 
-    for (let i = 0; i < n; i++) {
+    let foundZero = false;
+    for (let i = 0; i < n && !foundZero; i++) {
+      const ai = arr[i];
       for (let j = 0; j < i; j++) {
-        const diff = arr[i] - arr[j];
-        ans = Math.min(ans, diff);
-        
-        let l = 0, r = n - 1;
+        const diff = ai - arr[j];
+        if (diff < ans) ans = diff;
+        if (ans === 0n) {
+          foundZero = true;
+          break;
+        }
+
+        let l = 0, r = n - 1, pos = n;
         while (l <= r) {
           const mid = (l + r) >> 1;
-          if (arr[mid] === diff) {
-            ans = 0;
-            break;
-          } else if (arr[mid] < diff) {
-            ans = Math.min(ans, diff - arr[mid]);
-            l = mid + 1;
-          } else {
-            ans = Math.min(ans, arr[mid] - diff);
+          if (arr[mid] >= diff) {
+            pos = mid;
             r = mid - 1;
+          } else {
+            l = mid + 1;
           }
+        }
+
+        if (pos < n) {
+          const sub = arr[pos] - diff;
+          if (sub < ans) ans = sub;
+        }
+        if (pos > 0) {
+          const sub = diff - arr[pos - 1];
+          if (sub < ans) ans = sub;
+        }
+
+        if (ans === 0n) {
+          foundZero = true;
+          break;
         }
       }
     }
 
-    out.push(ans);
+    out.push(ans.toString());
   }
 
   console.log(out.join('\n'));

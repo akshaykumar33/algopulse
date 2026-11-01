@@ -33,7 +33,7 @@ async function checkAuth(page) {
 /**
  * Submits solution code to CodeChef and waits for verdict
  */
-async function submitCodeChef(page, problem, code, { timeout = 60000 } = {}) {
+async function submitCodeChef(page, problem, code, { timeout = 85000 } = {}) {
   const problemUrl = problem.url || `https://www.codechef.com/problems/${problem.id.replace(/^CC-/, '')}`;
 
   console.log(`    [CodeChef] Navigating to ${problem.name || problem.id} ...`);

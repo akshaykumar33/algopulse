@@ -330,6 +330,7 @@ for (const x of arr) {
 | [Tape](https://codeforces.com/problemset/problem/1110/B) | `Codeforces` | `1400` | `tape.js` | Key algorithmic application from Day 2026-11-01. |
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Binary Palindromes](https://codeforces.com/problemset/problem/1251/B) | `Codeforces` | `1400` | `binaryPalindromes.js` | Key algorithmic application from Day 2026-11-01. |
+| [Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C) | `Codeforces` | `1200` | `alternatingSubsequence.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

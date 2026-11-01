@@ -56,7 +56,11 @@ async function checkAuth(page) {
  */
 async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) {
   const code = prepareLeetCodeCode(rawCode);
-  const problemUrl = problem.url;
+  let problemUrl = problem.url;
+  if (!problemUrl && problem.name) {
+    const slug = problem.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    problemUrl = 'https://leetcode.com/problems/' + slug + '/';
+  }
 
   if (!problemUrl) {
     throw new Error(`LeetCode problem missing URL: ${JSON.stringify(problem)}`);

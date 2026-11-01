@@ -115,17 +115,15 @@
     },
     {
       "platform": "Codeforces",
-      "id": "2275D",
-      "name": "Precision Alignment",
-      "rating": 1300,
+      "id": "1352C",
+      "name": "K-th Not Divisible by n",
+      "rating": 1200,
       "tags": [
-        "binary search",
-        "brute force",
-        "greedy",
-        "implementation"
+        "math",
+        "binary search"
       ],
-      "url": "https://codeforces.com/problemset/problem/2275/D",
-      "file": "precisionAlignment",
+      "url": "https://codeforces.com/problemset/problem/1352/C",
+      "file": "kThNotDivisibleByN",
       "template": "templates/codeforces.js"
     },
     {
@@ -233,18 +231,16 @@
     },
     {
       "platform": "Codeforces",
-      "id": "2108B",
-      "name": "SUMdamental Decomposition",
-      "rating": 1300,
+      "id": "1343C",
+      "name": "Alternating Subsequence",
+      "rating": 1200,
       "tags": [
-        "bitmasks",
-        "constructive algorithms",
+        "dp",
         "greedy",
-        "implementation",
-        "math"
+        "two pointers"
       ],
-      "url": "https://codeforces.com/problemset/problem/2108/B",
-      "file": "sUMdamentalDecomposition",
+      "url": "https://codeforces.com/problemset/problem/1343/C",
+      "file": "alternatingSubsequence",
       "template": "templates/codeforces.js"
     },
     {
@@ -290,16 +286,16 @@
     },
     {
       "platform": "Codeforces",
-      "id": "1807E",
-      "name": "Interview",
-      "rating": 1300,
+      "id": "489B",
+      "name": "BerSU Ball",
+      "rating": 1200,
       "tags": [
-        "binary search",
-        "implementation",
-        "interactive"
+        "greedy",
+        "two pointers",
+        "sortings"
       ],
-      "url": "https://codeforces.com/problemset/problem/1807/E",
-      "file": "interview",
+      "url": "https://codeforces.com/problemset/problem/489/B",
+      "file": "berSUBall",
       "template": "templates/codeforces.js"
     },
     {
@@ -729,7 +725,8 @@
       "file": "minimumNumberOfArrowsToBurstBalloons",
       "platform": "LeetCode",
       "difficulty": "Medium",
-      "tag": "greedy"
+      "tag": "greedy",
+      "url": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
     },
     {
       "platform": "LeetCode",
@@ -1057,14 +1054,14 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-LINCHESS",
-      "name": "Chef and Linear Chess",
-      "rating": 1200,
+      "id": "CC-HORSES",
+      "name": "Racing Horses",
+      "rating": 1210,
       "tags": [
         "codechef"
       ],
-      "url": "https://www.codechef.com/problems/LINCHESS",
-      "file": "chefAndLinearChess",
+      "url": "https://www.codechef.com/problems/HORSES",
+      "file": "racingHorses",
       "template": "templates/codechef.js"
     },
     {
@@ -1183,7 +1180,7 @@
       "tags": [
         "codechef"
       ],
-      "url": "https://www.codechef.com/problems/FIRSTNDLAST",
+      "url": "https://www.codechef.com/problems/FIRSTANDLAST",
       "file": "firstAndLastOccurrenceOfAGivenNumber",
       "template": "templates/codechef.js"
     },

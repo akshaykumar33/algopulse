@@ -291,6 +291,7 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [SUMdamental Decomposition](https://codeforces.com/problemset/problem/2108/B) | `Codeforces` | `1300` | `sUMdamentalDecomposition.js` | Key algorithmic application from Day 2026-11-01. |
 | [And It's Non-Zero](https://codeforces.com/problemset/problem/1615/B) | `Codeforces` | `1300` | `andItSNonZero.js` | Key algorithmic application from Day 2026-11-01. |
 | [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
+| [K-th Not Divisible by n](https://codeforces.com/problemset/problem/1352/C) | `Codeforces` | `1200` | `kThNotDivisibleByN.js` | Key algorithmic application from Day 2026-11-01. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

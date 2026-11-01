@@ -21,7 +21,7 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 | 6 | `Codeforces` | [x] | [44C — Holidays](https://codeforces.com/problemset/problem/44/C) | 1300 | `holidays.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/holidays.md) |
 | 7 | `Codeforces` | [x] | [1090A — Company Merging](https://codeforces.com/problemset/problem/1090/A) | 1300 | `companyMerging.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/companyMerging.md) |
 | 8 | `Codeforces` | [x] | [57A — Square Earth?](https://codeforces.com/problemset/problem/57/A) | 1300 | `squareEarth.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/squareEarth.md) |
-| 9 | `Codeforces` | [x] | [2275D — Precision Alignment](https://codeforces.com/problemset/problem/2275/D) | 1300 | `precisionAlignment.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/precisionAlignment.md) |
+| 9 | `Codeforces` | [x] | [1352C — K-th Not Divisible by n](https://codeforces.com/problemset/problem/1352/C) | 1200 | `kThNotDivisibleByN.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/kThNotDivisibleByN.md) |
 | 10 | `Codeforces` | [x] | [1236C — Labs](https://codeforces.com/problemset/problem/1236/C) | 1300 | `labs.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/labs.md) |
 | 11 | `Codeforces` | [x] | [1943A — MEX Game 1](https://codeforces.com/problemset/problem/1943/A) | 1300 | `mEXGame1.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/mEXGame1.md) |
 | 12 | `Codeforces` | [x] | [144B — Meeting](https://codeforces.com/problemset/problem/144/B) | 1300 | `meeting.js` | `templates/codeforces.js` | [View Docs & Diagrams](explanations/meeting.md) |
@@ -96,7 +96,7 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 | 81 | `CodeChef` | [x] | [CC-TIDRICE — Popular Rice Recipe](https://www.codechef.com/problems/TIDRICE) | 1247 | `popularRiceRecipe.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/popularRiceRecipe.md) |
 | 82 | `CodeChef` | [x] | [CC-FUNHAND — Funny Hand](https://www.codechef.com/problems/FUNHAND) | 1306 | `funnyHand.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/funnyHand.md) |
 | 83 | `CodeChef` | [x] | [CC-LCOLLIS — Collisions](https://www.codechef.com/problems/LCOLLIS) | 1352 | `collisions.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/collisions.md) |
-| 84 | `CodeChef` | [x] | [CC-LINCHESS — Chef and Linear Chess](https://www.codechef.com/problems/LINCHESS) | 1200 | `chefAndLinearChess.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/chefAndLinearChess.md) |
+| 84 | `CodeChef` | [x] | [CC-HORSES — Racing Horses](https://www.codechef.com/problems/HORSES) | 1210 | `racingHorses.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/racingHorses.md) |
 | 85 | `CodeChef` | [x] | [CC-FALLPR — Fall Prevention](https://www.codechef.com/problems/FALLPR) | 1297 | `fallPrevention.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/fallPrevention.md) |
 | 86 | `CodeChef` | [x] | [CC-BIGNAME — Bigger is Better](https://www.codechef.com/problems/BIGNAME) | 1227 | `biggerIsBetter.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/biggerIsBetter.md) |
 | 87 | `CodeChef` | [x] | [CC-ARAN05 — Recon](https://www.codechef.com/problems/ARAN05) | 1400 | `recon.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/recon.md) |
