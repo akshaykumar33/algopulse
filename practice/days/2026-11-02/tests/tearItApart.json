@@ -1,0 +1,7 @@
+[
+  {
+    "input": "5\nabacaba\ncodeforces\noooooooo\nabcdef\nmewheniseearulhiiarul\n",
+    "output": "1\n3\n0\n2\n4\n"
+  }
+]
+
