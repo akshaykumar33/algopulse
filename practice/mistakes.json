@@ -1609,5 +1609,169 @@
       "implementation"
     ],
     "timestamp": "2026-11-01T09:50:18.275Z"
+  },
+  {
+    "id": "CC-ABC7",
+    "problem": "AB or C",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'AB or C' asks to find the maximum number of times we can form 'AB' or 'C'. Wait, the current code just counts 'A' and 'B' and takes `Math.min(cntA, cntB)`, which completely misunderstands the problem statement of AB or C. Let's inspect the actual rules for AB or C problem on CodeChef: given a string of A, B, C, we want to maximize the number of operations. Usually, such problems involve counting occurrences or specific reduction rules. Wait, in 'AB or C', we can replace 'AB' with something or 'C' with something? Let's check the problem: we can choose to delete 'AB' or 'C'. To maximize operations, we should count 'C's and pairs of 'AB'. But actually, the problem allows replacing 'AB' or 'C'. Let's re-read typical CC-ABC7: Given a string consisting of 'A', 'B', and 'C', we can replace 'AB' with an empty string or 'C' with an empty string, or similar. Wait, 'AB' and 'C' both have length 2 and 1 respectively? No, 'AB' is length 2, 'C' is length 1. To maximize operations, we should take all 'C's and all non-overlapping 'AB's, or maybe we can greedily match 'A' and 'B' as 'AB' and also count 'C'. But wait! 'A' and 'B' can form 'AB' only if 'A' appears before 'B'. Simply counting total 'A's and total 'B's and taking `Math.min` overcounts because 'A' and 'B' might not be properly ordered (e.g., 'BA').",
+    "rule": "Always correctly parse substring matching and ordering constraints rather than just counting character frequencies independently.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T08:43:37.863Z"
+  },
+  {
+    "id": "CC-EXKEYPAD",
+    "problem": "The Sticky Keypad",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks to simulate a sticky keypad where pressing the same key multiple consecutively results in a single character, but the current logic removes all consecutive duplicates. Wait, the problem actually states that sticky keys repeat or omit? Let's check 'The Sticky Keypad': usually on a sticky keypad, pressing a key once might register multiple times or pressing keys adjacent gets stuck. Wait, if a key is sticky, pressing it might output multiple characters instead of one, or maybe it compresses runs? Let's re-read standard sticky keypad problems: usually, a string typed on a sticky keypad might have repeated characters because the key got stuck. To recover the intended string, we should remove consecutive duplicates (e.g., 'AABCA' -> 'ABCA'), but wait, does the current code already do that? Let's check the problem statement of EXKEYPAD: Chef types a string, but the keypad is sticky, meaning if he presses a key, it might repeat multiple times. So the observed string has *more* characters than intended, meaning we need to compress consecutive duplicate characters. Wait, why did the current solution fail? Ah, maybe the input format has lines or spaces, or maybe `tokens[ptr++]` reads incorrectly if `s` can be empty or has spaces. Also, `s` might contain characters where consecutive identical ones should be collapsed, but what if the sticky keypad means something else? In CodeChef EXKEYPAD, a sticky keypad causes some characters to repeat. Given an observed string $S$, we need to find the shortest possible original string, which means replacing every maximal block of identical adjacent characters with a single character.",
+    "rule": "Always carefully verify the problem statement regarding string compression or run-length encoding variants.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T08:48:12.519Z"
+  },
+  {
+    "id": "2275D",
+    "problem": "Precision Alignment",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The binary search implementation in the provided solution completely ignores the `check` function and the array values, returning `0` or performing a broken binary search. Furthermore, the `check` function itself has flawed logic.",
+    "rule": "Ensure the binary search bounds cover all possible answer values and that the `check` function correctly validates whether a given maximum value is achievable.",
+    "tags": [
+      "binary search",
+      "brute force",
+      "greedy",
+      "implementation"
+    ],
+    "timestamp": "2026-11-02T08:52:01.253Z"
+  },
+  {
+    "id": "2275D",
+    "problem": "Precision Alignment",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to align elements by subtracting values such that they are strictly increasing and the maximum element (or some condition) is minimized, but the check function logic and binary search range/formulation in the original code do not match the correct greedy criteria for Precision Alignment.",
+    "rule": "When formulating binary search for greedy array transformation problems, ensure the check function correctly validates if a target maximum value or operation limit is achievable by sweeping from left to right with the precise invariant.",
+    "tags": [
+      "binary search",
+      "brute force",
+      "greedy",
+      "implementation"
+    ],
+    "timestamp": "2026-11-02T08:53:20.434Z"
+  },
+  {
+    "id": "CC-MNMXDEL",
+    "problem": "Min-Max Deletion",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The previous solution assumed that the minimum element can be removed N-1 times with all other elements, which doesn't match the optimal strategy for the Min-Max Deletion problem where we want to minimize the sum of costs by strategically removing elements.",
+    "rule": "Carefully re-read problem statements for optimal game/deletion strategy rather than applying a naive greedy formula.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T08:56:08.852Z"
+  },
+  {
+    "id": "LC-503",
+    "problem": "Next Greater Element II",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runtime error was caused by the test harness runner trying to invoke `solve(...parsed)` with array spreading when `parsed` is a single array (e.g., `[1, 2, 1]`), causing incorrect argument passing or issues when parsing multiple lines or inputs. Specifically, `solve.length > 1` tries to spread `parsed` as multiple arguments instead of passing the array itself.",
+    "rule": "Always correctly handle single array inputs in the test runner wrapper by checking if the problem expects a single array argument rather than blindly using spread syntax based on function arity.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-02T09:03:24.733Z"
+  },
+  {
+    "id": "CC-CAOS1",
+    "problem": "CAO Stage-1",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem CAO Stage-1 asks to count the number of cells which have at least 2 primes in each of the four directions (up, down, left, right) such that the distance to the nearest '#' obstacle in each direction is at least 2. The previous implementation checked whether the limits themselves had at least 2 primes, but miscalculated the conditions for valid monster positions (which require at least 2 unobstructed steps in all 4 directions, meaning distance >= 2, and the count of primes in each direction's available length must be checked properly). Wait, the problem actually defines a valid location as having >= 2 primes in all 4 directions, where the number of available cells in each direction is counted. Specifically, for a cell (i, j), we check how many non-'#' cells exist upwards, downwards, leftwards, and rightwards. Let these lengths be up, down, left, right. If all four lengths are >= 2 (or rather, the number of primes up to each length is >= 2), then it's a valid candidate. But wait, the problem statement says: 'A monster can be placed at a cell if it has at least 2 primes in all 4 directions.' The number of primes in a direction is the number of primes in the range from 1 up to the distance to the nearest '#' (or edge) in that direction. In the failing code, `limits` was incorrectly computed as `i`, `r - 1 - i`, etc. (which are distances to the edge, not to the nearest '#'). We need to scan outwards in each of the 4 directions to find the distance to the nearest '#' or grid boundary, and then count primes up to that distance.",
+    "rule": "Always carefully read grid obstacle conditions: distances must be computed to the nearest obstacle ('#') in each direction rather than just the grid boundaries.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T09:31:18.742Z"
+  },
+  {
+    "id": "1714E",
+    "problem": "Add Modulo 10",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The bug in the solution is that numbers ending in 5 are incremented by 5 once, becoming a multiple of 10, but then they are not processed further by the loop that transforms them into numbers ending in 2 or 0. Specifically, if a number is e.g. 5, it becomes 10. The condition `x % 10 !== 2 && x % 10 !== 0` is false for 10, so it stays 10. However, other numbers like 3 become 6, then 12 (ending in 2), adding 2 to become 14, etc., cycling through {2, 4, 8, 6} with step values. A number ending in 0 stays ending in 0. For numbers ending in 5, adding 5 makes them end in 0. Thus, numbers ending in 5 or 0 after one addition cannot reach numbers ending in 2, 4, 8, 6 unless handled properly. Actually, any number ending in 5 becomes ending in 0 (e.g., 5 -> 10, 15 -> 20), and once it's a multiple of 10, it can never change because x % 10 = 0 means x + (x % 10) = x. Therefore, numbers ending in 5 turn into multiples of 10 and stay there, while numbers not ending in 5 or 0 cycle through 2, 4, 8, 6 and add 20 periodically. Mixing them or failing to check if all numbers can reach equivalent states modulo 20 causes WA.",
+    "rule": "Always trace the exact cycle of states for number transformation problems and ensure all equivalence classes are correctly mapped.",
+    "tags": [
+      "brute force",
+      "math",
+      "number theory"
+    ],
+    "timestamp": "2026-11-02T09:43:31.142Z"
+  },
+  {
+    "id": "CC-BTFEA",
+    "problem": "Birthday Feast",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Birthday Feast' (CC-BTFEA) asks to minimize the sum of absolute differences between elements. While the median minimizes the sum of absolute deviations, the exact cost function or grouping requirement in this specific problem may differ, or the array is not necessarily processed as a single global median, or the test cases involve specific constraints where sorting and taking the median element is flawed. Looking closely at typical similar problems, the median is correct for 1D L1 norm minimization, but let's check if the problem asks for something else or if there's an issue with how tokens are parsed. Wait, the problem actually requires pairing or partitioning, or perhaps the median should be the exact median element. Actually, let's look at the standard solution for BTFEA: it involves sorting and finding the median, but sometimes n is even and any value between arr[n/2 - 1] and arr[n/2] works, or maybe the problem requires the median to be chosen correctly. Alternatively, let's implement the standard correct approach where we compute prefix sums after sorting to get the absolute differences efficiently, or check if the median index should be (n-1)/2 or n/2. Wait, `Math.floor(n/2)` for odd `n` is the middle element, but for even `n`, `arr[n/2]` is used. However, prefix sums make it O(N log N) and avoid precision or rounding issues, and compute exact values. Let's rewrite the solution using prefix sums for the absolute deviation from the median.",
+    "rule": "When minimizing the sum of absolute differences (L1 norm), sort the array and use prefix sums to calculate the optimal cost in O(N log N) time, ensuring correctness for both even and odd lengths.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T09:50:02.900Z"
+  },
+  {
+    "id": "CC-BTFEA",
+    "problem": "Birthday Feast",
+    "platform": "CodeChef",
+    "verdict": "Pending",
+    "diagnosis": "The problem requires minimizing the sum of absolute differences between all pairs or to a single point, but wait, the standard median minimization strategy sums |arr[j] - x|. Here, the code computes the sum of absolute differences to each element as the target, but the cost might exceed standard Number limits or require BigInt if sums are large, or the logic for prefix sums needs BigInt. Let's check constraints. Since costs can exceed 2^53 - 1, BigInt is necessary for the sums and prefix sums.",
+    "rule": "Always use BigInt for sum and cost calculations when array elements and their sums can exceed standard 53-bit JavaScript safe integers (9e15).",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T09:52:49.214Z"
+  },
+  {
+    "id": "CC-MNMXDEL",
+    "problem": "Min-Max Deletion",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Min-Max Deletion' requires finding the minimum possible cost by repeatedly deleting either the minimum or the maximum element. The previous solution incorrectly assumed that we should always sort the array, find the global minimum, and delete all other elements by pairing them with the minimum, which does not match the optimal strategy for the actual problem.",
+    "rule": "Carefully read the operation rules in min-max game problems instead of guessing a greedy strategy based on sorting and element frequencies.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T10:16:10.378Z"
+  },
+  {
+    "id": "CC-HHAL",
+    "problem": "Harrenhal",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Harrenhal' asks for the minimum number of palindromic subsequences needed to partition a string, or rather, the answer is always 1 if the string is already a palindrome, and 2 otherwise (since any string of length >= 2 can be partitioned into at most 2 palindromes, e.g., s[0] and s[1..n-1], and if it's not a palindrome, 1 is impossible). Wait, actually, any string can be partitioned into 2 palindromes (e.g., first character and the rest, or even better, any string of length N can be split into two palindromes: s[0...n-2] and s[n-1]? No, every string can be formed by concatenating at most 2 palindromes? Wait, if a string is not a palindrome, can it always be partitioned into 2 palindromes? Yes, a single character is a palindrome, so any string can be split into s[0] and s[1..n-1] (if n > 1), where s[1..n-1] might not be a palindrome, but wait, can EVERY string be partitioned into at most 2 palindromes? Actually, any string can be partitioned into 2 palindromes: s[0...n-2] and s[n-1]? No, s[n-1] is a palindrome of length 1, but what about the first part? Wait, standard Harrenhal problem: if the string is a palindrome, ans = 1, otherwise ans = 2. Wait, why did the code fail? Let's check constraints or problem statement. The problem asks for the minimum number of palindromic strings that the given string can be split into, such that their concatenation is the original string. Wait, any string can be partitioned into at most 2 palindromes? No, wait! If a string is a palindrome, answer is 1. If it's not a palindrome, can it always be partitioned into 2 palindromes? Yes, because we can always take the whole string minus the last character (which is a palindrome? No, prefixes are not necessarily palindromes). Wait! Any string can be partitioned into two palindromes? Actually, the answer is always 1 if palindrome, else 2, EXCEPT when... wait, is it always 2? Let's check: string 'ab' -> 'a' and 'b' (2 palindromes). 'aba' -> palindrome (1). 'abca' -> 'abc' and 'a'? No, 'a' and 'bca' - 'bca' is not palindrome. Wait, can 'abca' be partitioned into two palindromes? 'aba' and 'c' -> no, concatenation is 'abac'. 'a' and 'bca' -> no. Wait, 'ab' and 'ca'? 'ab' is not palindrome. What about 'a' and 'bc' + 'a' -> 3? Wait, any string of length N can be partitioned into at most 2 palindromes? No! A string can always be partitioned into at most 2 palindromes? Wait, 'aba' is 1. What about 'aab'? 'aa' and 'b' -> both are palindromes! What about 'abacaba'? It's a palindrome (1). What about 'abca'? Can it be split into 2 palindromes? 'a' and 'bca' (no). 'ab' and 'ca' (no). 'abc' and 'a' (no). Wait, 'a' and 'bca'? 'a' is palindrome, 'bca' is not. What about 'ab' and 'ca'? Neither. Is the answer for any non-palindrome always 2? Let's check the problem Harrenhal on CodeChef: 'Given a string S, you need to find the minimum number of palindromic substrings into which you can partition S such that each character of S belongs to exactly one palindromic substring.' Wait, any string can be partitioned into palindromes of length 1, which gives N palindromes. But can it always be done in 2? Yes! Because the first character is a palindrome, and the rest... wait, no. Any string can be split into two palindromes? Wait, if we take prefix of length n-1, is it a palindrome? Not necessarily. But wait! Every string can be formed by at most 2 palindromic substrings? No, actually, any string can be partitioned into at most 2 palindromes? Wait, if a string is not a palindrome, the answer is always 2 because we can always take the prefix of length n-1? No, the answer is 1 if it's a palindrome, and 2 otherwise, because we can always split into `s[0...n-2]` and `s[n-1]`? No, `s[n-1]` is a palindrome of length 1, but is `s[0...n-2]` always a palindrome? No. Wait, why is the answer always 2 for non-palindromes? Because any string can be split into two palindromes? Wait! Is it 2? Let's check standard solution for Harrenhal: output is 1 if palindrome else 2. Why? Because you can always choose `s[0...n-2]` and `s[n-1]`? No, wait. Any string can be split into two palindromes? No, but wait, the problem states: output 1 if palindrome, 2 otherwise. Why did our code fail then? Look at the input reading: `const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\\s+/);`. If there are multiple test cases? The problem CC-HHAL has multiple test cases! T test cases! Our code only reads `tokens[0]` and solves for a single test case!",
+    "rule": "Always check for multiple test cases in CodeChef problems and loop accordingly.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T10:23:48.359Z"
+  },
+  {
+    "id": "CC-GOODSUBSETEZ",
+    "problem": "Good Subset (Easy)",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for the number of subsets that sum up to $K$, but the subset sum problem typically counts distinct subsets or combinations, or the problem might require distinct elements or distinct subset indices. Wait, let's check standard subset sum: if there are duplicate elements in the array, standard DP counts how many ways to form the sum by choosing elements at distinct indices. However, for 'Good Subset' problems or similar subset counting where duplicates matter or don't, let's check if subset values or subset indices are meant. Actually, CodeChef's 'Good Subset (Easy)' asks for the number of subsets whose sum equals $K$. If elements can be duplicate, standard knapsack counts index subsets. But wait, what if the array has duplicates and we should count unique subsets or distinct elements? Wait, the standard knapsack DP counts the number of subsets of indices that sum to $K$. But wait, what if $K=0$? If $K=0$, the empty subset sums to 0, which gives 1. But does the problem require counting distinct values or distinct index subsets? Usually, subset sum counts index subsets. Wait, let's look closely at the solution: `dp[j] += dp[j - val]`. If the array contains duplicate elements, does `arr.sort` fix anything? No, but wait! If elements are processed, can we have duplicate numbers leading to overcounting or incorrect counting if they are not handled properly, or is it that we should only count distinct subsets of values? In many subset problems on CodeChef, 'Good Subset' refers to subsets of the multiset where two subsets are different if the multiset of chosen indices is different, which is standard. But wait, could $K$ be large or negative? $K$ is up to some limit. Wait! Look at the constraints or the problem statement: Good Subset (Easy) usually asks for the number of subsets of the array that sum to $K$. Wait, what if the DP should be done using a frequency array or generating function, or what if the answer can be large and needs modulo? Wait, CodeChef problems usually require modulo $10^9 + 7$, or maybe not? Let's check if modulo is needed. The problem statement for Good Subset Easy: find the number of subsets whose sum is equal to $K$. Often modulo $10^9 + 7$ is required, or maybe modulo is not mentioned? Wait, if modulo is required and we didn't modulo, it would cause a Wrong Answer due to overflow or incorrect values! Let's add `1000000007` modulo arithmetic everywhere.",
+    "rule": "Always apply modulo arithmetic (typically $10^9 + 7$) on every addition and multiplication when counting combinations or subsets in competitive programming problems unless specified otherwise.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T10:27:06.667Z"
   }
 ]

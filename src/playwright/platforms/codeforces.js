@@ -38,7 +38,7 @@ async function checkAuth(page) {
   }
 
   const selector = '#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"], a[href*="/logout"]';
-  const el = await page.waitForSelector(selector, { timeout: 6000 }).catch(() => null);
+  const el = await page.waitForSelector(selector, { timeout: 25000 }).catch(() => null);
   if (el) {
     const headerProfile = await page.$('#header a[href*="/profile/"], .lang-chooser a[href*="/profile/"]');
     const handle = headerProfile ? await headerProfile.textContent() : null;
