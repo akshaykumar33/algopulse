@@ -145,6 +145,12 @@ function sieve(maxN) {
 | [Subset Multiplication](https://codeforces.com/problemset/problem/2124/C) | `Codeforces` | `1300` | `subsetMultiplication.js` | Key algorithmic application from Day 2026-10-31. |
 | [Ice Sculptures](https://codeforces.com/problemset/problem/158/D) | `Codeforces` | `1300` | `iceSculptures.js` | Key algorithmic application from Day 2026-10-31. |
 | [Position in Fraction](https://codeforces.com/problemset/problem/900/B) | `Codeforces` | `1300` | `positionInFraction.js` | Key algorithmic application from Day 2026-10-31. |
+| [Secret message](https://codeforces.com/problemset/problem/2194/C) | `Codeforces` | `1300` | `secretMessage.js` | Key algorithmic application from Day 2026-11-02. |
+| [Prime Permutation](https://codeforces.com/problemset/problem/123/A) | `Codeforces` | `1300` | `primePermutation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Number into Sequence](https://codeforces.com/problemset/problem/1454/D) | `Codeforces` | `1300` | `numberIntoSequence.js` | Key algorithmic application from Day 2026-11-02. |
+| [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
+| [Add Modulo 10](https://codeforces.com/problemset/problem/1714/E) | `Codeforces` | `1400` | `addModulo10.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
 
 ---
 

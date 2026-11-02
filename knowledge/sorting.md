@@ -164,6 +164,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Tape](https://codeforces.com/problemset/problem/1110/B) | `Codeforces` | `1400` | `tape.js` | Key algorithmic application from Day 2026-11-01. |
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
+| [Semifinals](https://codeforces.com/problemset/problem/378/B) | `Codeforces` | `1300` | `semifinals.js` | Key algorithmic application from Day 2026-11-02. |
+| [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -144,6 +144,11 @@ function isPalindrome(s) {
 | [Equalize](https://codeforces.com/problemset/problem/1037/C) | `Codeforces` | `1300` | `equalize.js` | Key algorithmic application from Day 2026-11-01. |
 | [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
 | [Binary Palindromes](https://codeforces.com/problemset/problem/1251/B) | `Codeforces` | `1400` | `binaryPalindromes.js` | Key algorithmic application from Day 2026-11-01. |
+| [Prime Permutation](https://codeforces.com/problemset/problem/123/A) | `Codeforces` | `1300` | `primePermutation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Tear It Apart](https://codeforces.com/problemset/problem/1821/C) | `Codeforces` | `1300` | `tearItApart.js` | Key algorithmic application from Day 2026-11-02. |
+| [Plus from Picture](https://codeforces.com/problemset/problem/1182/B) | `Codeforces` | `1300` | `plusFromPicture.js` | Key algorithmic application from Day 2026-11-02. |
+| [Reverse String](https://codeforces.com/problemset/problem/1553/B) | `Codeforces` | `1300` | `reverseString.js` | Key algorithmic application from Day 2026-11-02. |
+| [Common Divisors](https://codeforces.com/problemset/problem/182/D) | `Codeforces` | `1400` | `commonDivisors.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

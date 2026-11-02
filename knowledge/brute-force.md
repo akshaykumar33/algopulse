@@ -195,6 +195,16 @@ function backtrack(index, currentSum, target, arr) {
 | [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Secret message](https://codeforces.com/problemset/problem/2194/C) | `Codeforces` | `1300` | `secretMessage.js` | Key algorithmic application from Day 2026-11-02. |
+| [Cubes for Masha](https://codeforces.com/problemset/problem/887/B) | `Codeforces` | `1300` | `cubesForMasha.js` | Key algorithmic application from Day 2026-11-02. |
+| [T-Shirt Hunt](https://codeforces.com/problemset/problem/807/B) | `Codeforces` | `1300` | `tShirtHunt.js` | Key algorithmic application from Day 2026-11-02. |
+| [Counting Rhombi](https://codeforces.com/problemset/problem/189/B) | `Codeforces` | `1300` | `countingRhombi.js` | Key algorithmic application from Day 2026-11-02. |
+| [Tear It Apart](https://codeforces.com/problemset/problem/1821/C) | `Codeforces` | `1300` | `tearItApart.js` | Key algorithmic application from Day 2026-11-02. |
+| [Reverse String](https://codeforces.com/problemset/problem/1553/B) | `Codeforces` | `1300` | `reverseString.js` | Key algorithmic application from Day 2026-11-02. |
+| [Intense Heat](https://codeforces.com/problemset/problem/1003/C) | `Codeforces` | `1300` | `intenseHeat.js` | Key algorithmic application from Day 2026-11-02. |
+| [Add Modulo 10](https://codeforces.com/problemset/problem/1714/E) | `Codeforces` | `1400` | `addModulo10.js` | Key algorithmic application from Day 2026-11-02. |
+| [Common Divisors](https://codeforces.com/problemset/problem/182/D) | `Codeforces` | `1400` | `commonDivisors.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -138,6 +138,7 @@ function dfsIterative(start, adj, n) {
 | [Square Earth?](https://codeforces.com/problemset/problem/57/A) | `Codeforces` | `1300` | `squareEarth.js` | Key algorithmic application from Day 2026-11-01. |
 | [Friends](https://codeforces.com/problemset/problem/94/B) | `Codeforces` | `1300` | `friends.js` | Key algorithmic application from Day 2026-11-01. |
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Plus from Picture](https://codeforces.com/problemset/problem/1182/B) | `Codeforces` | `1300` | `plusFromPicture.js` | Key algorithmic application from Day 2026-11-02. |
 
 ---
 

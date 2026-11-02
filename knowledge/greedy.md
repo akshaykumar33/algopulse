@@ -331,6 +331,18 @@ for (const x of arr) {
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Binary Palindromes](https://codeforces.com/problemset/problem/1251/B) | `Codeforces` | `1400` | `binaryPalindromes.js` | Key algorithmic application from Day 2026-11-01. |
 | [Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C) | `Codeforces` | `1200` | `alternatingSubsequence.js` | Key algorithmic application from Day 2026-11-01. |
+| [Array and Operations](https://codeforces.com/problemset/problem/1618/D) | `Codeforces` | `1300` | `arrayAndOperations.js` | Key algorithmic application from Day 2026-11-02. |
+| [Seating Arrangement (Easy Version)](https://codeforces.com/problemset/problem/2232/C1) | `Codeforces` | `1300` | `seatingArrangementEasyVersion.js` | Key algorithmic application from Day 2026-11-02. |
+| [Accordion](https://codeforces.com/problemset/problem/1101/B) | `Codeforces` | `1300` | `accordion.js` | Key algorithmic application from Day 2026-11-02. |
+| [Playing Cubes](https://codeforces.com/problemset/problem/257/B) | `Codeforces` | `1300` | `playingCubes.js` | Key algorithmic application from Day 2026-11-02. |
+| [Blackslex and Penguin Civilization](https://codeforces.com/problemset/problem/2179/D) | `Codeforces` | `1300` | `blackslexAndPenguinCivilization.js` | Key algorithmic application from Day 2026-11-02. |
+| [Packets](https://codeforces.com/problemset/problem/1037/A) | `Codeforces` | `1300` | `packets.js` | Key algorithmic application from Day 2026-11-02. |
+| [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
+| [Incremental Stay](https://codeforces.com/problemset/problem/2151/C) | `Codeforces` | `1400` | `incrementalStay.js` | Key algorithmic application from Day 2026-11-02. |
+| [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
+| [Quasi Binary](https://codeforces.com/problemset/problem/538/B) | `Codeforces` | `1400` | `quasiBinary.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

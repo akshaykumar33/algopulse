@@ -140,6 +140,9 @@ function lowerBound(arr, target) {
 | [Interview](https://codeforces.com/problemset/problem/1807/E) | `Codeforces` | `1300` | `interview.js` | Key algorithmic application from Day 2026-11-01. |
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 | [K-th Not Divisible by n](https://codeforces.com/problemset/problem/1352/C) | `Codeforces` | `1200` | `kThNotDivisibleByN.js` | Key algorithmic application from Day 2026-11-01. |
+| [Seating Arrangement (Easy Version)](https://codeforces.com/problemset/problem/2232/C1) | `Codeforces` | `1300` | `seatingArrangementEasyVersion.js` | Key algorithmic application from Day 2026-11-02. |
+| [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
+| [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
 
 ---
 

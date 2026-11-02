@@ -292,6 +292,21 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [And It's Non-Zero](https://codeforces.com/problemset/problem/1615/B) | `Codeforces` | `1300` | `andItSNonZero.js` | Key algorithmic application from Day 2026-11-01. |
 | [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
 | [K-th Not Divisible by n](https://codeforces.com/problemset/problem/1352/C) | `Codeforces` | `1200` | `kThNotDivisibleByN.js` | Key algorithmic application from Day 2026-11-01. |
+| [Secret message](https://codeforces.com/problemset/problem/2194/C) | `Codeforces` | `1300` | `secretMessage.js` | Key algorithmic application from Day 2026-11-02. |
+| [Array and Operations](https://codeforces.com/problemset/problem/1618/D) | `Codeforces` | `1300` | `arrayAndOperations.js` | Key algorithmic application from Day 2026-11-02. |
+| [Progress Bar](https://codeforces.com/problemset/problem/71/B) | `Codeforces` | `1300` | `progressBar.js` | Key algorithmic application from Day 2026-11-02. |
+| [Counting Rhombi](https://codeforces.com/problemset/problem/189/B) | `Codeforces` | `1300` | `countingRhombi.js` | Key algorithmic application from Day 2026-11-02. |
+| [Blackslex and Penguin Civilization](https://codeforces.com/problemset/problem/2179/D) | `Codeforces` | `1300` | `blackslexAndPenguinCivilization.js` | Key algorithmic application from Day 2026-11-02. |
+| [Number into Sequence](https://codeforces.com/problemset/problem/1454/D) | `Codeforces` | `1300` | `numberIntoSequence.js` | Key algorithmic application from Day 2026-11-02. |
+| [Tear It Apart](https://codeforces.com/problemset/problem/1821/C) | `Codeforces` | `1300` | `tearItApart.js` | Key algorithmic application from Day 2026-11-02. |
+| [Packets](https://codeforces.com/problemset/problem/1037/A) | `Codeforces` | `1300` | `packets.js` | Key algorithmic application from Day 2026-11-02. |
+| [Intense Heat](https://codeforces.com/problemset/problem/1003/C) | `Codeforces` | `1300` | `intenseHeat.js` | Key algorithmic application from Day 2026-11-02. |
+| [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
+| [Incremental Stay](https://codeforces.com/problemset/problem/2151/C) | `Codeforces` | `1400` | `incrementalStay.js` | Key algorithmic application from Day 2026-11-02. |
+| [Add Modulo 10](https://codeforces.com/problemset/problem/1714/E) | `Codeforces` | `1400` | `addModulo10.js` | Key algorithmic application from Day 2026-11-02. |
+| [Common Divisors](https://codeforces.com/problemset/problem/182/D) | `Codeforces` | `1400` | `commonDivisors.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
+| [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
