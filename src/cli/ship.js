@@ -218,7 +218,7 @@ async function main() {
     }
     if (prMerged) continue;
 
-    runSh(`git checkout -b ${b.branch}`);
+    runSh(`git checkout -B ${b.branch}`);
 
     for (const f of b.files) {
       runSh(`git add "${f}"`);
