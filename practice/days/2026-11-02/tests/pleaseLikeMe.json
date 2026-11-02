@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n5 1 5 1\n10 2 2 2\n",
+    "output": "ALIVE AND KICKING\nDEAD AND ROTTING\n"
+  }
+]
+
