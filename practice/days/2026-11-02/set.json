@@ -924,14 +924,16 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-ABC7",
-      "name": "AB or C",
-      "rating": 1373,
+      "id": "CC-PENALTY",
+      "name": "Penalty Shots",
+      "rating": 925,
       "tags": [
-        "codechef"
+        "codechef",
+        "math",
+        "implementation"
       ],
-      "url": "https://www.codechef.com/problems/ABC7",
-      "file": "aBOrC",
+      "url": "https://www.codechef.com/problems/PENALTY",
+      "file": "penaltyShots",
       "template": "templates/codechef.js"
     },
     {
@@ -972,14 +974,16 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-MNMXDEL",
-      "name": "Min-Max Deletion",
-      "rating": 1411,
+      "id": "CC-KTTABLE",
+      "name": "Kitchen Timetable",
+      "rating": 950,
       "tags": [
-        "codechef"
+        "codechef",
+        "implementation",
+        "arrays"
       ],
-      "url": "https://www.codechef.com/problems/MNMXDEL",
-      "file": "minMaxDeletion",
+      "url": "https://www.codechef.com/problems/KTTABLE",
+      "file": "kitchenTimetable",
       "template": "templates/codechef.js"
     },
     {
@@ -1008,14 +1012,16 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-GOODRANK2",
-      "name": "Good Ranking (Pair)",
-      "rating": 1439,
+      "id": "CC-CCOOK",
+      "name": "Chef and Cook-Off",
+      "rating": 961,
       "tags": [
-        "codechef"
+        "codechef",
+        "implementation",
+        "strings"
       ],
-      "url": "https://www.codechef.com/problems/GOODRANK2",
-      "file": "goodRankingPair",
+      "url": "https://www.codechef.com/problems/CCOOK",
+      "file": "chefAndCookOff",
       "template": "templates/codechef.js"
     },
     {
@@ -1104,14 +1110,16 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-MATNEARESTO",
-      "name": "Distance to Nearest 0",
-      "rating": 1450,
+      "id": "CC-THREEQ",
+      "name": "The Old Saint And Three Questions",
+      "rating": 954,
       "tags": [
-        "codechef"
+        "codechef",
+        "implementation",
+        "math"
       ],
-      "url": "https://www.codechef.com/problems/MATNEARESTO",
-      "file": "distanceToNearest0",
+      "url": "https://www.codechef.com/problems/THREEQ",
+      "file": "theOldSaintAndThreeQuestions",
       "template": "templates/codechef.js"
     },
     {
@@ -1212,14 +1220,17 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-BTFEA",
-      "name": "Birthday Feast",
-      "rating": 1450,
+      "id": "CC-CIELRCPT",
+      "name": "Ciel and Receipt",
+      "rating": 936,
       "tags": [
-        "codechef"
+        "codechef",
+        "greedy",
+        "bitmasks",
+        "math"
       ],
-      "url": "https://www.codechef.com/problems/BTFEA",
-      "file": "birthdayFeast",
+      "url": "https://www.codechef.com/problems/CIELRCPT",
+      "file": "cielAndReceipt",
       "template": "templates/codechef.js"
     },
     {

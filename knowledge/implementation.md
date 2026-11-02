@@ -1511,6 +1511,10 @@ function solve() {
 | [Maxim and Dividers](https://www.codechef.com/problems/MAANDI) | `CodeChef` | `1466` | `maximAndDividers.js` | Key algorithmic application from Day 2026-11-02. |
 | [Binary Base Basics](https://www.codechef.com/problems/BINBASBASIC) | `CodeChef` | `1447` | `binaryBaseBasics.js` | Key algorithmic application from Day 2026-11-02. |
 | [Take Not Less](https://www.codechef.com/problems/TAKENOTLESS) | `CodeChef` | `1432` | `takeNotLess.js` | Key algorithmic application from Day 2026-11-02. |
+| [Penalty Shots](https://www.codechef.com/problems/PENALTY) | `CodeChef` | `925` | `penaltyShots.js` | Key algorithmic application from Day 2026-11-02. |
+| [Kitchen Timetable](https://www.codechef.com/problems/KTTABLE) | `CodeChef` | `950` | `kitchenTimetable.js` | Key algorithmic application from Day 2026-11-02. |
+| [The Old Saint And Three Questions](https://www.codechef.com/problems/THREEQ) | `CodeChef` | `954` | `theOldSaintAndThreeQuestions.js` | Key algorithmic application from Day 2026-11-02. |
+| [Ciel and Receipt](https://www.codechef.com/problems/CIELRCPT) | `CodeChef` | `936` | `cielAndReceipt.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
