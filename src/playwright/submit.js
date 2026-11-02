@@ -509,23 +509,27 @@ async function submitSingleProblem(prob, options = {}) {
       }
     } catch {}
 
-    let openPages = [];
-    try {
-      openPages = persistentContext ? persistentContext.pages().filter(p => !p.isClosed()) : [];
-    } catch {}
-
-    if (openPages.length > 0) {
-      page = openPages[0];
+    if (options.workerPage && !options.workerPage.isClosed()) {
+      page = options.workerPage;
     } else {
+      let openPages = [];
       try {
-        page = await persistentContext.newPage();
-      } catch {
-        browser = await ensureCDPChrome({ port: options.cdpPort || 9222 });
-        persistentContext = browser.contexts()[0] || (await browser.newContext());
-        options.browser = browser;
-        options.persistentContext = persistentContext;
-        const recheckPages = persistentContext.pages().filter(p => !p.isClosed());
-        page = recheckPages.length > 0 ? recheckPages[0] : (await persistentContext.newPage());
+        openPages = persistentContext ? persistentContext.pages().filter(p => !p.isClosed()) : [];
+      } catch {}
+
+      if (openPages.length > 0) {
+        page = openPages[0];
+      } else {
+        try {
+          page = await persistentContext.newPage();
+        } catch {
+          browser = await ensureCDPChrome({ port: options.cdpPort || 9222 });
+          persistentContext = browser.contexts()[0] || (await browser.newContext());
+          options.browser = browser;
+          options.persistentContext = persistentContext;
+          const recheckPages = persistentContext.pages().filter(p => !p.isClosed());
+          page = recheckPages.length > 0 ? recheckPages[0] : (await persistentContext.newPage());
+        }
       }
     }
     await page.bringToFront().catch(() => {});
@@ -1034,7 +1038,15 @@ async function processPlatformQueue(platKey, queue, options) {
   const platConfig = PLATFORMS[platKey];
   const tag = `[${platConfig?.name || platKey}]`;
 
-  const isAuthed = await ensurePlatformAuth(platKey, options);
+  let workerPage = null;
+  if (options.persistentContext) {
+    try {
+      workerPage = await options.persistentContext.newPage();
+    } catch {}
+  }
+  const workerOpts = { ...options, workerPage };
+
+  const isAuthed = await ensurePlatformAuth(platKey, workerOpts);
   if (!isAuthed) {
     console.warn(`    ✗ Skipping ${queue.length} problems for ${tag} due to missing authentication.`);
     return queue.map((p) => ({
@@ -1058,7 +1070,7 @@ async function processPlatformQueue(platKey, queue, options) {
     await waitIfPaused(tag);
     const tier = getProblemDifficultyTier(prob);
     console.log(`\n${tag} (${idx + 1}/${queue.length}) [Difficulty: ${tier.toUpperCase()}] Processing: ${prob.name} (${prob.id}) ...`);
-    const res = await submitWithAutoFix(prob, options);
+    const res = await submitWithAutoFix(prob, workerOpts);
     queueResults.push(res);
 
     if (options.submissionsLogPath) {
@@ -1133,7 +1145,7 @@ async function processPlatformQueue(platKey, queue, options) {
       );
 
       console.log(`\n${tag} [DLQ-RETRY ${dIdx + 1}/${dlq.length}] Diagnosing & resolving: ${prob.name} (${prob.id}) ...`);
-      const retryRes = await submitWithAutoFix(prob, options);
+      const retryRes = await submitWithAutoFix(prob, workerOpts);
 
       // Update in queue results
       const existIdx = queueResults.findIndex((r) => r.id === prob.id || r.file === prob.file);
