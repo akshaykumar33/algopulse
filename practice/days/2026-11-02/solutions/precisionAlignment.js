@@ -1,53 +1,81 @@
 const fs = require('fs');
 
 function solve() {
-    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-    let ptr = 0;
-    const t = parseInt(tokens[ptr++], 10);
-    const out = [];
-    
-    for (let i = 0; i < t; i++) {
-        const n = parseInt(tokens[ptr++], 10);
-        const a = [];
-        for (let j = 0; j < n; j++) {
-            a.push(parseInt(tokens[ptr++], 10));
-        }
-        a.sort((x, y) => x - y);
-        
-        let low = 0;
-        let high = 2e9;
-        let ans = high;
-        
-        const check = (m) => {
-            let cur = -1;
-            for (let j = 0; j < n; j++) {
-                if (a[j] <= cur) {
-                    cur = Math.max(cur, a[j]);
-                } else {
-                    let target = a[j] - m;
-                    if (target > cur + 1) {
-                        cur = target;
-                    } else {
-                        cur = cur + 1;
-                    }
-                }
-            }
-            return true;
-        };
-        
-        while (low <= high) {
-            let mid = Math.floor((low + high) / 2);
-            if (mid >= 0) {
-                ans = mid;
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        out.push(ans);
+  const input = fs.readFileSync(0, 'utf-8');
+  let pos = 0;
+  const len = input.length;
+
+  function nextToken() {
+    while (pos < len && input.charCodeAt(pos) <= 32) pos++;
+    if (pos >= len) return null;
+    const start = pos;
+    while (pos < len && input.charCodeAt(pos) > 32) pos++;
+    return input.slice(start, pos);
+  }
+
+  const tStr = nextToken();
+  if (!tStr) return;
+  const t = parseInt(tStr, 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const n = parseInt(nextToken(), 10);
+    const k = BigInt(nextToken());
+
+    const S = new Array(n);
+    const E = new Array(n);
+    const dead = new Array(n);
+
+    let lo = null;
+    let cap = null;
+
+    for (let i = 0; i < n; i++) {
+      const a = BigInt(nextToken());
+      const b = BigInt(nextToken());
+      const c = BigInt(nextToken());
+      const s = a + b + c;
+      S[i] = s;
+      const isDead = (a === b && b === c);
+      dead[i] = isDead;
+      let e = 0n;
+      if (a <= b && b <= c) {
+        const d1 = b - a;
+        const d2 = c - b;
+        e = (d1 < d2 ? d1 : d2) + 1n;
+      }
+      E[i] = e;
+
+      if (lo === null || s < lo) lo = s;
+      if (isDead) {
+        if (cap === null || s < cap) cap = s;
+      }
     }
-    console.log(out.join('\n'));
+
+    let hi = lo + k;
+    if (cap !== null && cap < hi) hi = cap;
+    hi += 1n;
+
+    function isOk(m) {
+      let total = 0n;
+      for (let i = 0; i < n; i++) {
+        if (S[i] >= m) continue;
+        if (dead[i]) return false;
+        total += (m - S[i]) + 2n * E[i];
+        if (total > k) return false;
+      }
+      return true;
+    }
+
+    while (hi - lo > 1n) {
+      const mid = (hi + lo) / 2n;
+      if (isOk(mid)) lo = mid;
+      else hi = mid;
+    }
+
+    out.push(lo.toString());
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

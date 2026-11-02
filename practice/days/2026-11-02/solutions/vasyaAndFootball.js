@@ -23,7 +23,7 @@ function solve() {
         const time = parseInt(tokens[ptr++], 10);
         const team = tokens[ptr++];
         const player = parseInt(tokens[ptr++], 10);
-        const card = tokens[ptr++];
+        const card = tokens[ptr++].toUpperCase();
         
         const tName = team === 'h' ? home : away;
         const yArr = team === 'h' ? yellow.h : yellow.a;
@@ -43,7 +43,9 @@ function solve() {
         }
     }
     
-    console.log(out.join('\n'));
+    if (out.length > 0) {
+        console.log(out.join('\n'));
+    }
 }
 
 solve();

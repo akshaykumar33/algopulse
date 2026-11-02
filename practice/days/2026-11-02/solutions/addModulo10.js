@@ -17,9 +17,6 @@ function solve() {
             let x = parseInt(tokens[ptr++], 10);
             if (x % 10 === 5) {
                 x += 5;
-                hasEnding5 = true;
-            } else if (x % 10 !== 0) {
-                hasNonEnding5 = true;
             }
             while (x % 10 !== 2 && x % 10 !== 0) {
                 x += x % 10;
@@ -27,31 +24,20 @@ function solve() {
             arr[i] = x;
         }
 
-        if (hasEnding5 && hasNonEnding5) {
-            out.push('No');
-            continue;
-        }
-
-        if (hasEnding5) {
-            let base = arr[0];
-            let ok = true;
-            for (let i = 1; i < n; i++) {
-                if (arr[i] !== base) {
+        let ok = true;
+        for (let i = 0; i < n; i++) {
+            if (arr[i] % 10 === 0) {
+                if (arr[i] !== arr[0]) {
                     ok = false;
-                    break;
                 }
-            }
-            out.push(ok ? 'Yes' : 'No');
-        } else {
-            let ok = true;
-            for (let i = 1; i < n; i++) {
+            } else {
                 if (Math.abs(arr[i] - arr[0]) % 20 !== 0) {
                     ok = false;
-                    break;
                 }
             }
-            out.push(ok ? 'Yes' : 'No');
         }
+
+        out.push(ok ? 'Yes' : 'No');
     }
     console.log(out.join('\n'));
 }

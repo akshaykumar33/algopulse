@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\n3\n1 2 3\n4\n1 2 3 10\n",
-    "output": "3\n3\n"
+    "input": "6\n5 2 2\nEIAIE\n20 5 5\nAEIEEEEIEAAEIEEEEIEA\n8 2 4\nAAAAAIEE\n8 4 2\nAIEAEAAI\n8 3 3\nAIEAEAAI\n4 2 2\nIAEE\n",
+    "output": "4\n20\n7\n7\n7\n4\n"
   }
 ]
