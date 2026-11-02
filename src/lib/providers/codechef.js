@@ -62,7 +62,22 @@ async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRati
     [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
   }
 
-  return candidates.slice(0, count).map(({ submissions, ...rest }) => rest);
+  const verified = [];
+  for (const cand of candidates) {
+    if (verified.length >= count) break;
+    const pCode = cand.id.replace(/^CC-/, '');
+    try {
+      const details = await fetchJson(`https://www.codechef.com/api/contests/PRACTICE/problems/${pCode}`);
+      const langs = details.languages_supported || '';
+      if (langs && !/NODEJS/i.test(langs)) {
+        console.warn(`[codechef-provider] Skipping ${cand.id} (${cand.name}) - does not support Node.js (${langs}).`);
+        continue;
+      }
+    } catch {}
+    verified.push(cand);
+  }
+
+  return verified.map(({ submissions, ...rest }) => rest);
 }
 
 module.exports = {

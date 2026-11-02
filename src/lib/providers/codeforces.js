@@ -55,7 +55,7 @@ async function fetchCodeforcesProblems({ handle, usedIds, rootFiles, targets, po
         solved: solvedCount.get(id) || 0,
       };
     })
-    .filter((p) => !exclude.has(p.id) && !rootFiles.has(p.file));
+    .filter((p) => !exclude.has(p.id) && !rootFiles.has(p.file) && !p.tags.includes('interactive'));
 
   const chosen = [];
   for (const t of targets) {

@@ -35,7 +35,7 @@ async function fetchLeetCodeGraphQL({ difficulty = 'Medium', limit = 100, skip =
   const reqBody = JSON.stringify({
     query,
     variables: {
-      categorySlug: '',
+      categorySlug: 'algorithms',
       limit,
       skip,
       filters: { difficulty: diffUpper },
