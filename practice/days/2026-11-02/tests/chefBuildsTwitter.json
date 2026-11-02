@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\n3\n1 2 3\n3\n3 2 1\n",
-    "output": "6\n6\n"
+    "input": "1\n[\"Twitter\", \"postTweet\", \"postTweet\", \"follow\", \"getNewsFeed\", \"unfollow\", \"getNewsFeed\", \"getNewsFeed\"]\n[[], [1,101], [2,102], [1,2], [1], [1,2], [1], [2]]\n",
+    "output": "None None None None [102, 101] None [101] [102]\n"
   }
 ]

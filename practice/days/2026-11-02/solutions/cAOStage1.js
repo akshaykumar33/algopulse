@@ -16,46 +16,21 @@ function solve() {
     }
 
     let ans = 0;
-    for (let i = 2; i < r - 2; i++) {
-      for (let j = 2; j < c - 2; j++) {
-        if (grid[i][j] === '#') continue;
-        let ok = true;
-        for (let len = 1; len <= 2; len++) {
-          if (
-            grid[i - len][j] === '#' ||
-            grid[i + len][j] === '#' ||
-            grid[i][j - len] === '#' ||
-            grid[i][j + len] === '#'
-          ) {
-            ok = false;
-            break;
-          }
-        }
-        if (ok) {
-          let primeCount = 0;
-          const limits = [
-            i,
-            r - 1 - i,
-            j,
-            c - 1 - j
-          ];
-          for (const m of limits) {
-            let primes = 0;
-            for (let p = 2; p <= m; p++) {
-              let isPrime = true;
-              for (let d = 2; d * d <= p; d++) {
-                if (p % d === 0) {
-                  isPrime = false;
-                  break;
-                }
-              }
-              if (isPrime) primes++;
-            }
-            if (primes >= 2) primeCount++;
-          }
-          if (primeCount >= 4) {
-            ans++;
-          }
+    for (let i = 0; i < r; i++) {
+      for (let j = 0; j < c; j++) {
+        if (grid[i][j] !== '^') continue;
+
+        let up = 0;
+        for (let ni = i - 1; ni >= 0 && grid[ni][j] === '^'; ni--) up++;
+        let down = 0;
+        for (let ni = i + 1; ni < r && grid[ni][j] === '^'; ni++) down++;
+        let left = 0;
+        for (let nj = j - 1; nj >= 0 && grid[i][nj] === '^'; nj--) left++;
+        let right = 0;
+        for (let nj = j + 1; nj < c && grid[i][nj] === '^'; nj++) right++;
+
+        if (up >= 2 && down >= 2 && left >= 2 && right >= 2) {
+          ans++;
         }
       }
     }

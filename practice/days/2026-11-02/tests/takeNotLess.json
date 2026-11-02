@@ -1,26 +1,6 @@
 [
   {
     "input": "4\n2\n1 1\n2\n1 2\n4\n1 1 2 2\n4\n1 2 2 3\n",
-    "output": "YES\nNO\nYES\nNO\n"
-  },
-  {
-    "input": "1\n6\n7 7 1 1 4 4\n",
-    "output": "YES\n"
-  },
-  {
-    "input": "1\n3\n1 1 1\n",
-    "output": "NO\n"
-  },
-  {
-    "input": "1\n4\n1 2 3 4\n",
-    "output": "NO\n"
-  },
-  {
-    "input": "1\n2\n1000000000 1000000000\n",
-    "output": "YES\n"
-  },
-  {
-    "input": "1\n5\n1 1 2 2 3\n",
-    "output": "NO\n"
+    "output": "Zenyk\nMarichka\nZenyk\nMarichka\n"
   }
 ]
