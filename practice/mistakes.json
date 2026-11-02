@@ -1773,5 +1773,17 @@
       "codechef"
     ],
     "timestamp": "2026-11-02T10:27:06.667Z"
+  },
+  {
+    "id": "CC-MATNEARESTO",
+    "problem": "Distance to Nearest 0",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bug lies in how the input grid rows are parsed. The code assumes each row is either a single token of length `m` or split across multiple tokens depending on conditions that do not reliably match how competitive programming platforms format grid inputs (often each character or each row is a separate token, or separated by spaces). Specifically, `let rowStr = tokens[ptr++];` assumes each row is a single string token, but if the grid elements are space-separated integers, `rowStr` will just be the first element, and the `else` branch incorrectly consumes more tokens from `ptr` per character improperly. Standard input for such matrices usually has each row as a single string of length `m`, or `m` separate tokens per row.",
+    "rule": "When reading grid inputs where rows might be provided as continuous strings or space-separated characters, ensure robust parsing by checking token lengths or consuming exactly `m` tokens per row if they are space-separated.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-02T13:14:02.954Z"
   }
 ]

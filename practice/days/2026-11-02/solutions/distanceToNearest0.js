@@ -17,27 +17,13 @@ function solve() {
 
         for (let i = 0; i < n; i++) {
             dist[i] = new Int32Array(m).fill(-1);
-            let rowStr = tokens[ptr++];
-            if (rowStr.length === m && (rowStr.includes('0') || rowStr.includes('1'))) {
-                for (let j = 0; j < m; j++) {
-                    if (rowStr.charCodeAt(j) === 48) {
-                        dist[i][j] = 0;
-                        qR[tail] = i;
-                        qC[tail] = j;
-                        tail++;
-                    }
-                }
-            } else {
-                let j = 0;
-                while (j < m) {
-                    if (parseInt(rowStr, 10) === 0) {
-                        dist[i][j] = 0;
-                        qR[tail] = i;
-                        qC[tail] = j;
-                        tail++;
-                    }
-                    j++;
-                    if (j < m) rowStr = tokens[ptr++];
+            const rowStr = tokens[ptr++];
+            for (let j = 0; j < m; j++) {
+                if (rowStr.charCodeAt(j) === 48) {
+                    dist[i][j] = 0;
+                    qR[tail] = i;
+                    qC[tail] = j;
+                    tail++;
                 }
             }
         }
