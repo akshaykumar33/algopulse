@@ -491,11 +491,14 @@ async function submitSingleProblem(prob, options = {}) {
   let page = null;
 
   if (isPersistentMode) {
-    if (platKey !== 'codeforces' && fs.existsSync(platConfig.authFile)) {
+    if (fs.existsSync(platConfig.authFile)) {
       try {
         const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
         if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
-          await persistentContext.addCookies(authData.cookies);
+          const validCookies = platKey === 'codeforces'
+            ? authData.cookies.filter(c => c.domain && c.domain.includes('codeforces'))
+            : authData.cookies;
+          await persistentContext.addCookies(validCookies);
         }
       } catch {}
     }
