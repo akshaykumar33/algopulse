@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"aba\",\"cdc\",\"eae\"]",
+    "output": "3"
+  },
+  {
+    "input": "[\"aaa\",\"aaa\",\"aa\"]",
+    "output": "-1"
+  }
+]
