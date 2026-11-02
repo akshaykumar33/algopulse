@@ -1,41 +1,32 @@
-function Node(val, next, random) {
-    this.val = val;
-    this.next = next;
-    this.random = random;
-}
-
 var copyRandomList = function(head) {
     if (!head) return null;
+    const Ctor = typeof _Node !== 'undefined' ? _Node : (typeof Node !== 'undefined' ? Node : function(val, next, random) {
+        this.val = val;
+        this.next = next || null;
+        this.random = random || null;
+    });
+    const map = new Map();
     let cur = head;
     while (cur) {
-        let next = cur.next;
-        cur.next = new Node(cur.val, next, null);
-        cur = next;
-    }
-    cur = head;
-    while (cur) {
-        if (cur.random) {
-            cur.next.random = cur.random.next;
-        }
-        cur = cur.next.next;
-    }
-    let dummy = new Node(0, null, null);
-    let tail = dummy;
-    cur = head;
-    while (cur) {
-        let copy = cur.next;
-        cur.next = copy.next;
-        tail.next = copy;
-        tail = copy;
+        map.set(cur, new Ctor(cur.val));
         cur = cur.next;
     }
-    return dummy.next;
+    cur = head;
+    while (cur) {
+        const copy = map.get(cur);
+        copy.next = map.get(cur.next) || null;
+        copy.random = map.get(cur.random) || null;
+        cur = cur.next;
+    }
+    return map.get(head);
 };
 
-var solve = typeof copyRandomList !== 'undefined' ? copyRandomList : null;
-
-// ---------------- LOCAL TEST HARNESS ----------------
 if (require.main === module) {
+  function Node(val, next, random) {
+    this.val = val;
+    this.next = next || null;
+    this.random = random || null;
+  }
   const fs = require('fs');
   try {
     const raw = fs.readFileSync(0, 'utf-8').trim();
@@ -47,7 +38,7 @@ if (require.main === module) {
           const map = new Map();
           let head = null, tail = null;
           for (let i = 0; i < parsed.length; i++) {
-            const node = new Node(parsed[i][0], null, null);
+            const node = new Node(parsed[i][0]);
             map.set(i, node);
             if (!head) head = node;
             else tail.next = node;
@@ -61,30 +52,25 @@ if (require.main === module) {
             cur = cur.next;
             i++;
           }
-          let res = solve(head);
-          let out = [];
-          let nodeMap = new Map();
-          cur = res;
-          i = 0;
-          while (cur) {
-            nodeMap.set(cur, i);
-            cur = cur.next;
-            i++;
+          const copied = copyRandomList(head);
+          const res = [];
+          const copyMap = new Map();
+          let c = copied, idx = 0;
+          while (c) {
+            copyMap.set(c, idx++);
+            c = c.next;
           }
-          cur = res;
-          while (cur) {
-            let rIndex = cur.random ? nodeMap.get(cur.random) : null;
-            out.push([cur.val, rIndex]);
-            cur = cur.next;
+          c = copied;
+          while (c) {
+            res.push([c.val, c.random ? copyMap.get(c.random) : null]);
+            c = c.next;
           }
-          console.log(JSON.stringify(out));
-        } catch (e) {
-          console.log(e.message);
+          console.log(JSON.stringify(res));
+        } catch {
+          console.log(JSON.stringify(copyRandomList(line)));
         }
       }
     }
-  } catch (err) {
-    console.error('Local runner error:', err.message);
-  }
+  } catch (err) {}
 }
-module.exports = solve;
+module.exports = copyRandomList;

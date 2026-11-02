@@ -1,40 +1,38 @@
 const fs = require('fs');
+
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  const n = parseInt(tokens[0], 10);
-  let c3 = Math.floor(n / 3);
-  let c2 = Math.floor((n % 3) / 2);
-  let c1 = n % 3 % 2;
-  let ans = 0;
-  while (c3 > 0 || c2 > 0 || c1 > 0) {
-    ans++;
-    let rem = 3;
-    if (c3 > 0) {
-      c3--;
-      rem -= 3;
-    } else if (c2 > 0) {
-      c2--;
-      rem -= 2;
-    } else if (c1 > 0) {
-      c1--;
-      rem -= 1;
+  const token = fs.readFileSync(0, 'utf-8').trim();
+  if (!token) return;
+  const n = parseInt(token, 10);
+
+  function getMinAB(remA, remB) {
+    let best = Infinity;
+    const maxP1 = Math.ceil(remB / 2);
+    for (let p1 = 0; p1 <= maxP1; p1++) {
+      const needB = Math.max(0, remB - 2 * p1);
+      const p2 = needB;
+      const gotA = p1 + 2 * p2;
+      const needA = Math.max(0, remA - gotA);
+      const p3 = Math.ceil(needA / 3);
+      const cost = p1 + p2 + p3;
+      if (cost < best) best = cost;
     }
-    while (true) {
-      if (rem >= 3 && c3 > 0) {
-        c3--;
-        rem -= 3;
-      } else if (rem >= 2 && c2 > 0) {
-        c2--;
-        rem -= 2;
-      } else if (rem >= 1 && c1 > 0) {
-        c1--;
-        rem -= 1;
-      } else {
-        break;
-      }
+    return best;
+  }
+
+  let ans = Infinity;
+  for (let x = 0; 2 * x <= n; x++) {
+    const remC = n - 2 * x;
+    for (let y = 0; y <= remC; y++) {
+      const z = remC - y;
+      const remB = Math.max(0, n - y);
+      const remA = Math.max(0, n - z);
+      const total = x + y + z + getMinAB(remA, remB);
+      if (total < ans) ans = total;
     }
   }
+
   console.log(ans);
 }
+
 solve();
