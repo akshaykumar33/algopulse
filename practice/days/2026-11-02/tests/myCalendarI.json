@@ -1,0 +1,7 @@
+[
+  {
+    "input": "[[\"MyCalendar\", \"book\", \"book\", \"book\"], [[], [10, 20], [15, 25], [20, 30]]]",
+    "output": "[null,true,false,true]"
+  }
+]
+
