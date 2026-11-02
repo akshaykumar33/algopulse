@@ -144,6 +144,7 @@ class MinHeap {
 | [Queries about less or equal elements](https://codeforces.com/problemset/problem/600/B) | `Codeforces` | `1300` | `queriesAboutLessOrEqualElements.js` | Key algorithmic application from Day 2026-10-31. |
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 | [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
+| [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
 
 ---
 

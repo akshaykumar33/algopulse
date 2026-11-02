@@ -129,6 +129,8 @@ function missingNumber(nums) {
 | [Box Fitting](https://codeforces.com/problemset/problem/1498/B) | `Codeforces` | `1300` | `boxFitting.js` | Key algorithmic application from Day 2026-10-30. |
 | [SUMdamental Decomposition](https://codeforces.com/problemset/problem/2108/B) | `Codeforces` | `1300` | `sUMdamentalDecomposition.js` | Key algorithmic application from Day 2026-11-01. |
 | [And It's Non-Zero](https://codeforces.com/problemset/problem/1615/B) | `Codeforces` | `1300` | `andItSNonZero.js` | Key algorithmic application from Day 2026-11-01. |
+| [Secret message](https://codeforces.com/problemset/problem/2194/C) | `Codeforces` | `1300` | `secretMessage.js` | Key algorithmic application from Day 2026-11-02. |
+| [Blackslex and Penguin Civilization](https://codeforces.com/problemset/problem/2179/D) | `Codeforces` | `1300` | `blackslexAndPenguinCivilization.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

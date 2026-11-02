@@ -211,6 +211,11 @@ function constructMatrix(n, m) {
 | [SUMdamental Decomposition](https://codeforces.com/problemset/problem/2108/B) | `Codeforces` | `1300` | `sUMdamentalDecomposition.js` | Key algorithmic application from Day 2026-11-01. |
 | [Remove the Ends](https://codeforces.com/problemset/problem/2064/C) | `Codeforces` | `1300` | `removeTheEnds.js` | Key algorithmic application from Day 2026-11-01. |
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
+| [Blackslex and Penguin Civilization](https://codeforces.com/problemset/problem/2179/D) | `Codeforces` | `1300` | `blackslexAndPenguinCivilization.js` | Key algorithmic application from Day 2026-11-02. |
+| [Number into Sequence](https://codeforces.com/problemset/problem/1454/D) | `Codeforces` | `1300` | `numberIntoSequence.js` | Key algorithmic application from Day 2026-11-02. |
+| [Packets](https://codeforces.com/problemset/problem/1037/A) | `Codeforces` | `1300` | `packets.js` | Key algorithmic application from Day 2026-11-02. |
+| [Vika and Squares](https://codeforces.com/problemset/problem/610/B) | `Codeforces` | `1300` | `vikaAndSquares.js` | Key algorithmic application from Day 2026-11-02. |
+| [Quasi Binary](https://codeforces.com/problemset/problem/538/B) | `Codeforces` | `1400` | `quasiBinary.js` | Key algorithmic application from Day 2026-11-02. |
 
 ---
 
