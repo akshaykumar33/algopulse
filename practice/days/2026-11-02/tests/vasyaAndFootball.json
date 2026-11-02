@@ -1,0 +1,6 @@
+[
+  {
+    "input": "Real\nAtletico\n5\n20\nh 4 Y\n30\na 2 Y\n50\nh 4 Y\n60\na 2 R\n70\na 2 Y\n",
+    "output": "Real 4 50\nAtletico 2 60\n"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "abacaba\nabac\n",
+    "output": "0\n"
+  },
+  {
+    "input": "abaaba\naba\n",
+    "output": "1\n"
+  }
+]
