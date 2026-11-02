@@ -20,6 +20,7 @@ const fetchJson = (url) =>
 
 async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRating = 800, endRating = 1200, poolSize = 100 }) {
   const exclude = new Set(usedIds);
+  const rootSet = rootFiles instanceof Set ? rootFiles : new Set(rootFiles || []);
   const pool = [];
   const maxPages = 10;
 
@@ -35,7 +36,7 @@ async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRati
         if (rating <= 0) continue;
         const id = `CC-${p.code}`;
         const file = toFileName(p.name);
-        if (exclude.has(id) || rootFiles.has(file)) continue;
+        if (exclude.has(id) || rootSet.has(file)) continue;
 
         pool.push({
           platform: 'CodeChef',
@@ -68,6 +69,10 @@ async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRati
     const pCode = cand.id.replace(/^CC-/, '');
     try {
       const details = await fetchJson(`https://www.codechef.com/api/contests/PRACTICE/problems/${pCode}`);
+      if (details.body && (details.body.includes('This is an example') || details.body.includes('example problem statement'))) {
+        console.warn(`[codechef-provider] Skipping ${cand.id} (${cand.name}) - placeholder template statement.`);
+        continue;
+      }
       const langs = details.languages_supported || '';
       if (langs && !/NODEJS/i.test(langs)) {
         console.warn(`[codechef-provider] Skipping ${cand.id} (${cand.name}) - does not support Node.js (${langs}).`);

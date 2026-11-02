@@ -307,6 +307,9 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Common Divisors](https://codeforces.com/problemset/problem/182/D) | `Codeforces` | `1400` | `commonDivisors.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Penalty Shots](https://www.codechef.com/problems/PENALTY) | `CodeChef` | `925` | `penaltyShots.js` | Key algorithmic application from Day 2026-11-02. |
+| [The Old Saint And Three Questions](https://www.codechef.com/problems/THREEQ) | `CodeChef` | `954` | `theOldSaintAndThreeQuestions.js` | Key algorithmic application from Day 2026-11-02. |
+| [Ciel and Receipt](https://www.codechef.com/problems/CIELRCPT) | `CodeChef` | `936` | `cielAndReceipt.js` | Key algorithmic application from Day 2026-11-02. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
