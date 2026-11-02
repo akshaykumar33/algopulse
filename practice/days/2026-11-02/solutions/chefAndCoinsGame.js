@@ -9,9 +9,9 @@ function solve() {
     for (let i = 0; i < t; i++) {
         const n = parseInt(tokens[ptr++], 10);
         if (n % 6 === 0) {
-            out.push("Chef");
-        } else {
             out.push("Misha");
+        } else {
+            out.push("Chef");
         }
     }
     console.log(out.join('\n'));

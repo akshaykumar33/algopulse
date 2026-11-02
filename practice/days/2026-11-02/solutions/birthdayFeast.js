@@ -11,14 +11,23 @@ function solve() {
         const n = parseInt(tokens[ptr++], 10);
         const arr = [];
         for (let j = 0; j < n; j++) {
-            arr.push(parseInt(tokens[ptr++], 10));
+            arr.push(BigInt(tokens[ptr++]));
         }
-        arr.sort((a, b) => a - b);
-        let ans = 0;
+        arr.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        const pref = new Array(n + 1).fill(0n);
         for (let j = 0; j < n; j++) {
-            ans += Math.abs(arr[j] - arr[Math.floor(n / 2)]);
+            pref[j + 1] = pref[j] + arr[j];
         }
-        out.push(ans);
+        let ans = -1n;
+        for (let j = 0; j < n; j++) {
+            const leftSum = arr[j] * BigInt(j) - pref[j];
+            const rightSum = (pref[n] - pref[j + 1]) - arr[j] * BigInt(n - j - 1);
+            const cost = leftSum + rightSum;
+            if (ans === -1n || cost < ans) {
+                ans = cost;
+            }
+        }
+        out.push(ans.toString());
     }
     console.log(out.join('\n'));
 }

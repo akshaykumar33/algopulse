@@ -11,13 +11,14 @@ function solve() {
 
   for (let tc = 0; tc < t; tc++) {
     const n = parseInt(tokens[ptr++], 10);
-    let minVal = Infinity;
+    let mn = null;
     for (let i = 0; i < n; i++) {
-      const v = parseInt(tokens[ptr++], 10);
-      if (v < minVal) minVal = v;
+      const val = parseInt(tokens[ptr++], 10);
+      if (mn === null || val < mn) {
+        mn = val;
+      }
     }
-
-    const ans = BigInt(n - 1) * BigInt(minVal);
+    let ans = BigInt(n - 1) * BigInt(mn);
     out.push(ans.toString());
   }
 
@@ -25,4 +26,3 @@ function solve() {
 }
 
 solve();
-
