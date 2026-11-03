@@ -143,6 +143,10 @@ function lowerBound(arr, target) {
 | [Seating Arrangement (Easy Version)](https://codeforces.com/problemset/problem/2232/C1) | `Codeforces` | `1300` | `seatingArrangementEasyVersion.js` | Key algorithmic application from Day 2026-11-02. |
 | [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
 | [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
+| [Wrong Binary Search](https://codeforces.com/problemset/problem/2146/C) | `Codeforces` | `1300` | `wrongBinarySearch.js` | Key algorithmic application from Day 2026-11-03. |
+| [The Cunning Seller (hard version)](https://codeforces.com/problemset/problem/2132/C2) | `Codeforces` | `1400` | `theCunningSellerHardVersion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
+| [Jumping Through Segments](https://codeforces.com/problemset/problem/1907/D) | `Codeforces` | `1400` | `jumpingThroughSegments.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

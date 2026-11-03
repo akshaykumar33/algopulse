@@ -139,6 +139,10 @@ function dfsIterative(start, adj, n) {
 | [Friends](https://codeforces.com/problemset/problem/94/B) | `Codeforces` | `1300` | `friends.js` | Key algorithmic application from Day 2026-11-01. |
 | [Mocha and Diana (Easy Version)](https://codeforces.com/problemset/problem/1559/D1) | `Codeforces` | `1400` | `mochaAndDianaEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Plus from Picture](https://codeforces.com/problemset/problem/1182/B) | `Codeforces` | `1300` | `plusFromPicture.js` | Key algorithmic application from Day 2026-11-02. |
+| [Arrow Path](https://codeforces.com/problemset/problem/1948/C) | `Codeforces` | `1300` | `arrowPath.js` | Key algorithmic application from Day 2026-11-03. |
+| [Dividing the numbers](https://codeforces.com/problemset/problem/899/C) | `Codeforces` | `1300` | `dividingTheNumbers.js` | Key algorithmic application from Day 2026-11-03. |
+| [Road Construction](https://codeforces.com/problemset/problem/330/B) | `Codeforces` | `1300` | `roadConstruction.js` | Key algorithmic application from Day 2026-11-03. |
+| [Divide by three, multiply by two](https://codeforces.com/problemset/problem/977/D) | `Codeforces` | `1400` | `divideByThreeMultiplyByTwo.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

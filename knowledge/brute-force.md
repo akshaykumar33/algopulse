@@ -205,6 +205,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Add Modulo 10](https://codeforces.com/problemset/problem/1714/E) | `Codeforces` | `1400` | `addModulo10.js` | Key algorithmic application from Day 2026-11-02. |
 | [Common Divisors](https://codeforces.com/problemset/problem/182/D) | `Codeforces` | `1400` | `commonDivisors.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Nice Garland](https://codeforces.com/problemset/problem/1108/C) | `Codeforces` | `1300` | `niceGarland.js` | Key algorithmic application from Day 2026-11-03. |
+| [Arrow Path](https://codeforces.com/problemset/problem/1948/C) | `Codeforces` | `1300` | `arrowPath.js` | Key algorithmic application from Day 2026-11-03. |
+| [3SUM Closure](https://codeforces.com/problemset/problem/1698/C) | `Codeforces` | `1300` | `p3SUMClosure.js` | Key algorithmic application from Day 2026-11-03. |
+| [Make it Increasing](https://codeforces.com/problemset/problem/1667/A) | `Codeforces` | `1300` | `makeItIncreasing.js` | Key algorithmic application from Day 2026-11-03. |
+| [Broken Clock](https://codeforces.com/problemset/problem/722/A) | `Codeforces` | `1300` | `brokenClock.js` | Key algorithmic application from Day 2026-11-03. |
+| [Art Union](https://codeforces.com/problemset/problem/416/B) | `Codeforces` | `1300` | `artUnion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Cutting Banner](https://codeforces.com/problemset/problem/538/A) | `Codeforces` | `1400` | `cuttingBanner.js` | Key algorithmic application from Day 2026-11-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

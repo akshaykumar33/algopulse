@@ -89,6 +89,8 @@ function determineWinner(a, b, c) {
 | [MEX Game 1](https://codeforces.com/problemset/problem/1943/A) | `Codeforces` | `1300` | `mEXGame1.js` | Key algorithmic application from Day 2026-11-01. |
 | [Game with Marbles (Easy Version)](https://codeforces.com/problemset/problem/1914/E1) | `Codeforces` | `1400` | `gameWithMarblesEasyVersion.js` | Key algorithmic application from Day 2026-11-01. |
 | [Playing Cubes](https://codeforces.com/problemset/problem/257/B) | `Codeforces` | `1300` | `playingCubes.js` | Key algorithmic application from Day 2026-11-02. |
+| [Catching the Krug](https://codeforces.com/problemset/problem/2152/B) | `Codeforces` | `1300` | `catchingTheKrug.js` | Key algorithmic application from Day 2026-11-03. |
+| [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

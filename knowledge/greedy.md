@@ -344,6 +344,18 @@ for (const x of arr) {
 | [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
 | [Ciel and Receipt](https://www.codechef.com/problems/CIELRCPT) | `CodeChef` | `936` | `cielAndReceipt.js` | Key algorithmic application from Day 2026-11-02. |
+| [Nice Garland](https://codeforces.com/problemset/problem/1108/C) | `Codeforces` | `1300` | `niceGarland.js` | Key algorithmic application from Day 2026-11-03. |
+| [Leha and Function](https://codeforces.com/problemset/problem/840/A) | `Codeforces` | `1300` | `lehaAndFunction.js` | Key algorithmic application from Day 2026-11-03. |
+| [Make it Increasing](https://codeforces.com/problemset/problem/1667/A) | `Codeforces` | `1300` | `makeItIncreasing.js` | Key algorithmic application from Day 2026-11-03. |
+| [Come Be My Friend, Don't Be So Scared (Easy Version)](https://codeforces.com/problemset/problem/2261/D1) | `Codeforces` | `1300` | `comeBeMyFriendDonTBeSoScaredEasyVersion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Maximize the Score](https://codeforces.com/problemset/problem/2248/C) | `Codeforces` | `1300` | `maximizeTheScore.js` | Key algorithmic application from Day 2026-11-03. |
+| [Sasha and Magnetic Machines](https://codeforces.com/problemset/problem/1113/B) | `Codeforces` | `1300` | `sashaAndMagneticMachines.js` | Key algorithmic application from Day 2026-11-03. |
+| [Odd Process](https://codeforces.com/problemset/problem/2176/C) | `Codeforces` | `1300` | `oddProcess.js` | Key algorithmic application from Day 2026-11-03. |
+| [Replacement](https://codeforces.com/problemset/problem/135/A) | `Codeforces` | `1300` | `replacement.js` | Key algorithmic application from Day 2026-11-03. |
+| [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
+| [The Cunning Seller (hard version)](https://codeforces.com/problemset/problem/2132/C2) | `Codeforces` | `1400` | `theCunningSellerHardVersion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
+| [Triple Removal](https://codeforces.com/problemset/problem/2152/C) | `Codeforces` | `1400` | `tripleRemoval.js` | Key algorithmic application from Day 2026-11-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

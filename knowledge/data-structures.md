@@ -145,6 +145,10 @@ class MinHeap {
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 | [Replace To Make Regular Bracket Sequence](https://codeforces.com/problemset/problem/612/C) | `Codeforces` | `1400` | `replaceToMakeRegularBracketSequence.js` | Key algorithmic application from Day 2026-11-01. |
 | [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
+| [3SUM Closure](https://codeforces.com/problemset/problem/1698/C) | `Codeforces` | `1300` | `p3SUMClosure.js` | Key algorithmic application from Day 2026-11-03. |
+| [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
+| [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
+| [Triple Removal](https://codeforces.com/problemset/problem/2152/C) | `Codeforces` | `1400` | `tripleRemoval.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 
