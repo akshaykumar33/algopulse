@@ -1,0 +1,14 @@
+[
+  {
+    "input": "CODEFORCES\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "CODEFORCESisgreat\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "C_O_D_E_F_O_R_C_E_S\n",
+    "output": "NO\n"
+  }
+]
