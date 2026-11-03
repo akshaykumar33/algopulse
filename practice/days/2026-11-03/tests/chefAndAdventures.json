@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5 5 2 2\n5 5 3 3\n1 1 2 2\n",
+    "output": "Pezzie\nChefir\nPezzie\n"
+  }
+]
