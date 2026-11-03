@@ -1,22 +1,22 @@
 [
   {
     "input": "1\n",
-    "output": "aa\nbb\ncc\ndd\n"
+    "output": "a\na\nb\nb\n"
   },
   {
     "input": "2\n",
-    "output": "ab\nab\nba\nba\n"
+    "output": "aa\ncf\ncf\nii\n"
   },
   {
     "input": "3\n",
-    "output": "aba\naba\nbab\nbab\n"
+    "output": "abb\nadd\nffh\niih\n"
   },
   {
     "input": "4\n",
-    "output": "abab\nabab\nbaba\nbaba\n"
+    "output": "aabb\ncddf\ncggf\niijj\n"
   },
   {
     "input": "5\n",
-    "output": "ababa\nababa\nbabab\nbabab\n"
+    "output": "abbcc\naddee\nffggh\niijjh\n"
   }
 ]

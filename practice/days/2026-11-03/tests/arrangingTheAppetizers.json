@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\nabcd\nba\n",
-    "output": "acbd\nba\n"
+    "input": "2\n2 chef\n4 enjoyourapplepie\n",
+    "output": "cehf\neayejpuinpopolre\n"
   }
 ]
