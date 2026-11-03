@@ -1,0 +1,700 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHEFADV",
+    "name": "Chef and Adventures",
+    "file": "chefAndAdventures",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T10:05:29.780Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHEFADV",
+      "name": "Chef and Adventures",
+      "rating": 1462,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFADV",
+      "file": "chefAndAdventures",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2152B",
+    "name": "Catching the Krug",
+    "file": "catchingTheKrug",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:09:33.946Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2152B",
+      "name": "Catching the Krug",
+      "rating": 1300,
+      "tags": [
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2152/B",
+      "file": "catchingTheKrug",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-HUNGALGO",
+    "name": "Chef Learning Hungarian Algorithm",
+    "file": "chefLearningHungarianAlgorithm",
+    "tier": "medium",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-11-03T10:16:46.138Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-HUNGALGO",
+      "name": "Chef Learning Hungarian Algorithm",
+      "rating": 1439,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/HUNGALGO",
+      "file": "chefLearningHungarianAlgorithm",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Time Limit Exceeded"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "40A",
+    "name": "Find Color",
+    "file": "findColor",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:17:54.101Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "40A",
+      "name": "Find Color",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "geometry",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/40/A",
+      "file": "findColor",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2146C",
+    "name": "Wrong Binary Search",
+    "file": "wrongBinarySearch",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:20:11.357Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2146C",
+      "name": "Wrong Binary Search",
+      "rating": 1300,
+      "tags": [
+        "binary search",
+        "constructive algorithms"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2146/C",
+      "file": "wrongBinarySearch",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-AFLMON",
+    "name": "Power Badges",
+    "file": "powerBadges",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T10:21:27.905Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-AFLMON",
+      "name": "Power Badges",
+      "rating": 1442,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/AFLMON",
+      "file": "powerBadges",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1948C",
+    "name": "Arrow Path",
+    "file": "arrowPath",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-03T10:22:22.574Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1948C",
+      "name": "Arrow Path",
+      "rating": 1300,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "shortest paths"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1948/C",
+      "file": "arrowPath",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-03T11:32:08.085Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1698C",
+    "name": "3SUM Closure",
+    "file": "p3SUMClosure",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-03T10:27:05.148Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1698C",
+      "name": "3SUM Closure",
+      "rating": 1300,
+      "tags": [
+        "brute force",
+        "data structures"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1698/C",
+      "file": "p3SUMClosure",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-03T11:34:02.021Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1667A",
+    "name": "Make it Increasing",
+    "file": "makeItIncreasing",
+    "tier": "medium",
+    "initialVerdict": "Time limit exceeded on test 4",
+    "enqueuedAt": "2026-11-03T10:29:15.912Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1667A",
+      "name": "Make it Increasing",
+      "rating": 1300,
+      "tags": [
+        "brute force",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1667/A",
+      "file": "makeItIncreasing",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MKGPLNKS",
+    "name": "Magical Planks",
+    "file": "magicalPlanks",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T10:35:15.647Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MKGPLNKS",
+      "name": "Magical Planks",
+      "rating": 1467,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MKGPLNKS",
+      "file": "magicalPlanks",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2073L",
+    "name": "Boarding Queue",
+    "file": "boardingQueue",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:35:45.563Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2073L",
+      "name": "Boarding Queue",
+      "rating": 1300,
+      "tags": [],
+      "url": "https://codeforces.com/problemset/problem/2073/L",
+      "file": "boardingQueue",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2261D1",
+    "name": "Come Be My Friend, Don't Be So Scared (Easy Version)",
+    "file": "comeBeMyFriendDonTBeSoScaredEasyVersion",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-03T10:37:45.322Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2261D1",
+      "name": "Come Be My Friend, Don't Be So Scared (Easy Version)",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2261/D1",
+      "file": "comeBeMyFriendDonTBeSoScaredEasyVersion",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-03T11:39:57.838Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2248C",
+    "name": "Maximize the Score",
+    "file": "maximizeTheScore",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:42:24.929Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2248C",
+      "name": "Maximize the Score",
+      "rating": 1300,
+      "tags": [
+        "dp",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2248/C",
+      "file": "maximizeTheScore",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2176C",
+    "name": "Odd Process",
+    "file": "oddProcess",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-03T10:46:45.688Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2176C",
+      "name": "Odd Process",
+      "rating": 1300,
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2176/C",
+      "file": "oddProcess",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Wrong answer on test 1"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-TOTSCR",
+    "name": "Total Score",
+    "file": "totalScore",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T10:49:44.107Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-TOTSCR",
+      "name": "Total Score",
+      "rating": 1448,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TOTSCR",
+      "file": "totalScore",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1401C",
+    "name": "Mere Array",
+    "file": "mereArray",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-03T10:51:58.187Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1401C",
+      "name": "Mere Array",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1401/C",
+      "file": "mereArray",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-03T11:47:06.997Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "85A",
+    "name": "Domino",
+    "file": "domino",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T10:54:26.377Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "85A",
+      "name": "Domino",
+      "rating": 1300,
+      "tags": [
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/85/A",
+      "file": "domino",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-TRIANGCL",
+    "name": "Triangle Classification",
+    "file": "triangleClassification",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T10:55:53.883Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-TRIANGCL",
+      "name": "Triangle Classification",
+      "rating": 1462,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TRIANGCL",
+      "file": "triangleClassification",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-KNIGHTMV",
+    "name": "Correctness of Knight Move",
+    "file": "correctnessOfKnightMove",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:01:23.223Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-KNIGHTMV",
+      "name": "Correctness of Knight Move",
+      "rating": 1482,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/KNIGHTMV",
+      "file": "correctnessOfKnightMove",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "413B",
+    "name": "Spyke Chatting",
+    "file": "spykeChatting",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T11:01:32.393Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "413B",
+      "name": "Spyke Chatting",
+      "rating": 1300,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/413/B",
+      "file": "spykeChatting",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-HELPVOLD",
+    "name": "Help Voldemort",
+    "file": "helpVoldemort",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:05:58.942Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-HELPVOLD",
+      "name": "Help Voldemort",
+      "rating": 1302,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/HELPVOLD",
+      "file": "helpVoldemort",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-UNQEQ",
+    "name": "Balanced and Unique Arrays",
+    "file": "balancedAndUniqueArrays",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:07:52.045Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-UNQEQ",
+      "name": "Balanced and Unique Arrays",
+      "rating": 1431,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/UNQEQ",
+      "file": "balancedAndUniqueArrays",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2132C2",
+    "name": "The Cunning Seller (hard version)",
+    "file": "theCunningSellerHardVersion",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T11:09:53.158Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2132C2",
+      "name": "The Cunning Seller (hard version)",
+      "rating": 1400,
+      "tags": [
+        "binary search",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2132/C2",
+      "file": "theCunningSellerHardVersion",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CORTSENT",
+    "name": "Correct Sentence",
+    "file": "correctSentence",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:15:10.232Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CORTSENT",
+      "name": "Correct Sentence",
+      "rating": 1485,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CORTSENT",
+      "file": "correctSentence",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-ARRANGE",
+    "name": "Arranging the Appetizers",
+    "file": "arrangingTheAppetizers",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:17:54.029Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-ARRANGE",
+      "name": "Arranging the Appetizers",
+      "rating": 1462,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ARRANGE",
+      "file": "arrangingTheAppetizers",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2152C",
+    "name": "Triple Removal",
+    "file": "tripleRemoval",
+    "tier": "medium",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-03T11:21:55.019Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2152C",
+      "name": "Triple Removal",
+      "rating": 1400,
+      "tags": [
+        "data structures",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2152/C",
+      "file": "tripleRemoval",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SUPVIL",
+    "name": "Superheroes and villains",
+    "file": "superheroesAndVillains",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:30:56.442Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SUPVIL",
+      "name": "Superheroes and villains",
+      "rating": 1446,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUPVIL",
+      "file": "superheroesAndVillains",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-N1VALUES",
+    "name": "Exactly N plus 1 Values",
+    "file": "exactlyNPlus1Values",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-03T11:33:45.855Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-N1VALUES",
+      "name": "Exactly N plus 1 Values",
+      "rating": 1495,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/N1VALUES",
+      "file": "exactlyNPlus1Values",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]
