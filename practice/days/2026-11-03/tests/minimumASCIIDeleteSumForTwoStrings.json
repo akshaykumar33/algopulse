@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"sea\"\n\"eat\"",
+    "output": "231"
+  },
+  {
+    "input": "\"delete\"\n\"leet\"",
+    "output": "403"
+  }
+]
