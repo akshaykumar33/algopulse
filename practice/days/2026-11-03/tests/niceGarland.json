@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\nBRG\n",
+    "output": "0\nBRG\n"
+  },
+  {
+    "input": "5\nRRRRR\n",
+    "output": "3\nRGBRG\n"
+  }
+]

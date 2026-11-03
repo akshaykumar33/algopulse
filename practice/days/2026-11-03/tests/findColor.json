@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1 1\n",
+    "output": "black\n"
+  },
+  {
+    "input": "1 2\n",
+    "output": "white\n"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n2\n><\n><\n4\n>><<\n>><<\n6\n>><>><\n><><><\n2\n>>\n><\n",
+    "output": "YES\nNO\nYES\nYES\n"
+  }
+]
