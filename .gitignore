@@ -1,6 +1,7 @@
 # Active / Transient Output
 output.txt
 input.txt
+scratch/
 
 # Large test cases, logs, and fixtures
 *.log

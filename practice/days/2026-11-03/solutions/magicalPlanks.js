@@ -6,26 +6,21 @@ function solve() {
     let ptr = 0;
     const t = parseInt(tokens[ptr++], 10);
     const out = [];
-    for (let i = 0; i < t; i++) {
+
+    for (let tc = 0; tc < t; tc++) {
         const n = parseInt(tokens[ptr++], 10);
         const s = tokens[ptr++];
-        let blocks = [];
+        let countB = 0;
+        let countW = 0;
         for (let j = 0; j < n; j++) {
             if (j === 0 || s[j] !== s[j - 1]) {
-                blocks.push(s[j]);
+                if (s[j] === 'B') countB++;
+                else countW++;
             }
         }
-        let countA = 0;
-        let countB = 0;
-        for (let j = 0; j < blocks.length; j++) {
-            if (blocks[j] === 'A') {
-                countA++;
-            } else {
-                countB++;
-            }
-        }
-        out.push(Math.min(countA, countB));
+        out.push(Math.min(countB, countW));
     }
+
     console.log(out.join('\n'));
 }
 

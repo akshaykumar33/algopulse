@@ -1,64 +1,59 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  let ptr = 0;
-  const n = parseInt(tokens[ptr++], 10);
-  const grid = [];
-  for (let i = 0; i < n; i++) {
-    const row = [];
-    for (let j = 0; j < n; j++) {
-      row.push(parseInt(tokens[ptr++], 10));
-    }
-    grid.push(row);
-  }
+    const buf = fs.readFileSync(0);
+    let pos = 0;
 
-  for (let i = 0; i < n; i++) {
-    let minVal = Infinity;
-    for (let j = 0; j < n; j++) {
-      if (grid[i][j] < minVal) {
-        minVal = grid[i][j];
-      }
+    function nextInt() {
+        while (pos < buf.length && buf[pos] <= 32) pos++;
+        if (pos >= buf.length) return null;
+        let res = 0;
+        while (pos < buf.length && buf[pos] > 32) {
+            res = res * 10 + (buf[pos] - 48);
+            pos++;
+        }
+        return res;
     }
-    for (let j = 0; j < n; j++) {
-      grid[i][j] -= minVal;
-    }
-  }
 
-  for (let j = 0; j < n; j++) {
-    let minVal = Infinity;
-    for (let i = 0; i < n; i++) {
-      if (grid[i][j] < minVal) {
-        minVal = grid[i][j];
-      }
-    }
-    for (let i = 0; i < n; i++) {
-      grid[i][j] -= minVal;
-    }
-  }
+    const t = nextInt();
+    if (t === null) return;
+    const out = [];
 
-  let zerosRow = new Array(n).fill(false);
-  let zerosCol = new Array(n).fill(false);
+    for (let tc = 0; tc < t; tc++) {
+        const n = nextInt();
+        const rowHasZero = new Uint8Array(n);
+        const colHasZero = new Uint8Array(n);
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (grid[i][j] === 0) {
-        zerosRow[i] = true;
-        zerosCol[j] = true;
-      }
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                const val = nextInt();
+                if (val === 0) {
+                    rowHasZero[i] = 1;
+                    colHasZero[j] = 1;
+                }
+            }
+        }
+
+        let ok = true;
+        for (let i = 0; i < n; i++) {
+            if (!rowHasZero[i]) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            for (let j = 0; j < n; j++) {
+                if (!colHasZero[j]) {
+                    ok = false;
+                    break;
+                }
+            }
+        }
+
+        out.push(ok ? 'YES' : 'NO');
     }
-  }
 
-  let ok = true;
-  for (let i = 0; i < n; i++) {
-    if (!zerosRow[i] || !zerosCol[i]) {
-      ok = false;
-      break;
-    }
-  }
-
-  console.log(ok ? 'YES' : 'NO');
+    console.log(out.join('\n'));
 }
 
 solve();

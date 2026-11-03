@@ -7,41 +7,23 @@ function solve() {
     const x = parseInt(tokens[ptr++], 10);
     const y = parseInt(tokens[ptr++], 10);
 
-    if (x === 0 || y === 0) {
-        console.log('black');
-        return;
-    }
-
     const r2 = x * x + y * y;
-    const r = Math.sqrt(r2);
-    const r_floor = Math.floor(r);
-
-    if (Math.abs(r - r_floor) < 1e-9) {
+    const rInt = Math.round(Math.sqrt(r2));
+    if (rInt * rInt === r2 || x === 0 || y === 0) {
         console.log('black');
         return;
     }
 
-    const ring = r_floor;
-    let isBlack = false;
-    if (ring % 2 === 1) {
-        if ((x > 0 && y > 0) || (x < 0 && y < 0)) {
-            isBlack = true;
-        } else {
-            isBlack = false;
-        }
+    const r = Math.floor(Math.sqrt(r2));
+    const prod = x * y;
+    let isBlack;
+    if (r % 2 === 0) {
+        isBlack = prod > 0;
     } else {
-        if ((x > 0 && y > 0) || (x < 0 && y < 0)) {
-            isBlack = false;
-        } else {
-            isBlack = true;
-        }
+        isBlack = prod < 0;
     }
 
-    if (isBlack) {
-        console.log('black');
-    } else {
-        console.log('white');
-    }
+    console.log(isBlack ? 'black' : 'white');
 }
 
 solve();

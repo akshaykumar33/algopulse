@@ -6,23 +6,24 @@ function solve() {
     let ptr = 0;
     const t = parseInt(tokens[ptr++], 10);
     const out = [];
-    
-    for (let i = 0; i < t; i++) {
+
+    for (let tc = 0; tc < t; tc++) {
+        const k = parseInt(tokens[ptr++], 10);
         const s = tokens[ptr++];
-        const n = s.length;
-        const m = 1 << n;
-        const arr = new Array(m);
-        for (let j = 0; j < m; j++) {
+        const n = 1 << k;
+        const arr = new Array(n);
+
+        for (let j = 0; j < n; j++) {
             let rev = 0;
-            for (let k = 0; k < n; k++) {
-                if ((j & (1 << k)) !== 0) {
-                    rev |= (1 << (n - 1 - k));
-                }
+            for (let b = 0; b < k; b++) {
+                rev = (rev << 1) | ((j >> b) & 1);
             }
             arr[rev] = s[j];
         }
+
         out.push(arr.join(''));
     }
+
     console.log(out.join('\n'));
 }
 

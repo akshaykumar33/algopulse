@@ -1785,5 +1785,241 @@
       "codechef"
     ],
     "timestamp": "2026-11-02T13:14:02.954Z"
+  },
+  {
+    "id": "CC-CHEFADV",
+    "problem": "Chef and Adventures",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The condition for reaching (n, m) allows taking either 1 step of size (x, y) initially or multiple steps. Specifically, Chef can reach (n, m) from (1, 1) if (n - 1) % x == 0 and (m - 1) % y == 0 with (n - 1) >= 0 and (m - 1) >= 0, OR if he can make the first jump of 1 and then subsequent jumps, which means (n - 2) >= 0 and (m - 2) >= 0 with (n - 2) % x == 0 and (m - 2) % y == 0. The current logic checks (n - 1) >= x and (m - 1) >= y, which is equivalent to checking if we can reduce by x and y once and then check divisibility, but fails if n=2, m=2 when x=1, y=1 because n-1=1 which is not >= x if x=2, etc. Wait, the problem states Chef can start at (1,1) and make jumps of (x,y). Alternatively, he can start at (2,1) or (1,2) and make jumps of (x,y). So the valid conditions are: 1) (n-1)%x == 0 and (m-1)%y == 0 (with n>=1, m>=1), OR 2) n >= 2, m >= 1 and (n-2)%x == 0 and (m-1)%y == 0, OR 3) n >= 1, m >= 2 and (n-1)%x == 0 and (m-2)%y == 0.",
+    "rule": "Carefully enumerate all valid starting states and transitions when simulating reachability problems with fixed step sizes.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T10:03:46.352Z"
+  },
+  {
+    "id": "2152B",
+    "problem": "Catching the Krug",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The game logic for catching the Krug was incorrectly modeled. The condition and distance calculation for the pursuer and Krug assume a grid escape strategy that doesn't match the optimal play or game mechanics of 'Catching the Krug'. Specifically, the relative positions of the two players (r1, c1 and r2, c2) on an n x m grid dictate whether the Krug can escape to a boundary or if the pursuer can cut it off, requiring a simpler or different Manhattan/Chebyshev distance analysis.",
+    "rule": "Carefully analyze grid game problems for reachability and optimal moves; often the answer depends on the distance between the two pieces relative to the board dimensions and who can reach the boundaries first.",
+    "tags": [
+      "games"
+    ],
+    "timestamp": "2026-11-03T10:05:55.063Z"
+  },
+  {
+    "id": "2152B",
+    "problem": "Catching the Krug",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem 'Catching the Krug' requires finding the maximum number of steps the second player can survive. The current logic incorrectly treats the grid boundaries and distances independently based on simple inequalities, whereas the optimal escape strategy for the second player depends on moving to the corner or edge farthest from the first player, bounded by the grid dimensions.",
+    "rule": "Carefully model game theory problems by considering the relative positions of all entities and the exact minimax distance to the boundary, rather than independent coordinate checks.",
+    "tags": [
+      "games"
+    ],
+    "timestamp": "2026-11-03T10:08:16.966Z"
+  },
+  {
+    "id": "CC-HUNGALGO",
+    "problem": "Chef Learning Hungarian Algorithm",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The solution used split(/\\s+/) on the entire input string, which consumes excessive memory and time when the input is large, leading to TLE.",
+    "rule": "For parsing large input efficiently in Node.js, avoid split(/\\s+/) on huge strings; instead, use a regex exec loop or custom scanner to read tokens lazily.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T10:13:44.069Z"
+  },
+  {
+    "id": "CC-HUNGALGO",
+    "problem": "Chef Learning Hungarian Algorithm",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The solution is actually logically correct for the problem requirements (checking if the reduced matrix has a cover of zeros of size n), but uses console.log directly inside which is fine here since it is only printed once. Wait, the TLE might be due to inefficient reading or standard I/O overhead. However, let's optimize output and ensure everything is clean and fast.",
+    "rule": "Always buffer stdout and use fast I/O when dealing with potentially large inputs in Node.js.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T10:15:14.924Z"
+  },
+  {
+    "id": "40A",
+    "problem": "Find Color",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The bug lies in checking if the point lies on a circle boundary (where r is an integer). Using `Math.sqrt` and `Math.abs(r - r_floor) < 1e-9` is prone to floating-point precision issues. Instead, one should check if $x^2 + y^2$ is an exact square using integer arithmetic (`Math.round(r) * Math.round(r) === r2`), and points on the axes are strictly black according to the problem statement, which the current code handles, but float inaccuracies can fail on boundary cases.",
+    "rule": "Avoid floating-point square roots for geometric boundary checks when working with integer coordinates; use integer squares instead.",
+    "tags": [
+      "constructive algorithms",
+      "geometry",
+      "implementation",
+      "math"
+    ],
+    "timestamp": "2026-11-03T10:16:27.549Z"
+  },
+  {
+    "id": "CC-TRIANGCL",
+    "problem": "Triangle Classification",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem 'Triangle Classification' typically gives side lengths (or coordinates) and expects classification. However, depending on the exact problem statement (often sides given in any order or needing geometric distance if coordinates, or if it's side lengths, wait, standard triangle classification from sides: if a, b, c are side lengths, triangle inequality is a+b>c. The code checks sides[0] + sides[1] <= sides[2] as 'Not Triangle', which is correct for degenerate/impossible triangles. But wait, what if the inputs are coordinates of 3 points or side lengths? Let's check CC-TRIANGCL: usually it gives 3 side lengths. Wait, let's re-read the code: `let a = parseInt(tokens[ptr++], 10);` 3 integers. Wait, are they side lengths? If they are side lengths, could they be floating point or integers? The code uses parseInt. Wait, what if the output strings differ from standard? E.g., 'Right', 'Acute', 'Obtuse', 'Not a triangle'? Let's check CodeChef TRIANGCL problem statement: usually it gives side lengths and asks if it's valid, and if so, acute, obtuse, or right. Wait, is it side lengths or coordinates? Wait, the problem CC-TRIANGCL: 'Given three integers A, B, C representing the side lengths of a triangle...' Wait, if sides are equal, or maybe the problem requires checking if it's a valid triangle first. Wait! Look at the problem name: Triangle Classification. In some versions, the output format expects specific strings or the order of sides could be anything. Wait, let's check if `sides[0] + sides[1] < sides[2]` or `<=`. `<=` is correct for degenerate. But what if the problem expects specific casing or exact wording like 'Acute Triangle', 'Right Triangle', 'Obtuse Triangle', 'Not Triangle'? Wait, let's check if the problem gives side lengths or angles or vertices. Wait, standard CodeChef TRIANGCL: 'Write a program to classify a triangle as Acute, Obtuse or Right angled, or Not a triangle.' The exact output strings: 'Acute Triangle', 'Obtuse Triangle', 'Right Triangle', 'Not Triangle'. Wait, what if the sides can be zero or negative? Or what if BigInt is needed because of squaring large numbers? Side lengths up to what value? If A, B, C can be up to 10^9, then $s1 = a^2$ can be $10^{18}$, which exceeds safe integer in JavaScript (max safe integer is $9 \times 10^{15}$). Squaring numbers up to $10^9$ gives $10^{18}$, causing precision loss with standard Number type! We must use BigInt for squaring side lengths up to $10^9$.",
+    "rule": "When dealing with geometric problems involving squared coordinates or side lengths up to 10^9, always use BigInt to prevent precision loss and overflow during multiplication.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T10:54:28.345Z"
+  },
+  {
+    "id": "CC-KNIGHTMV",
+    "problem": "Correctness of Knight Move",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem input can contain trailing spaces or carriage returns, and test cases might not be strictly limited to 't' lines due to blank lines or extra whitespaces. Also, the regex and string parsing might be too strict or mishandle input formatting.",
+    "rule": "Always carefully clean input lines and ensure robust parsing for string-based chess coordinates, handling any potential whitespace variations correctly.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T10:58:33.597Z"
+  },
+  {
+    "id": "CC-KNIGHTMV",
+    "problem": "Correctness of Knight Move",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem input can have trailing spaces, carriage returns, or empty lines that interfere with line counting and parsing. Specifically, when reading lines using split(/\\r?\\n/), extra empty lines at the end or whitespace padding can cause test cases to be misaligned or skipped if using a strict loop limit 'i <= t'.",
+    "rule": "Always trim input strings and filter out completely empty lines before processing test cases, ensuring robust handling of arbitrary whitespace and newline formats.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T11:00:01.900Z"
+  },
+  {
+    "id": "2152C",
+    "problem": "Triple Removal",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem 'Triple Removal' (Codeforces 2152C) requires counting minimum operations to make the subarray sum to 0 modulo 3 or something similar, but the greedy logic used in the solution for matching counts of elements (0, 1, 2) to form valid triples is flawed. Specifically, any valid triple in a balanced ternary or similar problem must follow specific subset conditions, and simple frequency checking does not correctly determine if operations are possible.",
+    "rule": "Always carefully model the exact conditions for multiset reduction problems rather than guessing greedy formulas on frequency counts.",
+    "tags": [
+      "data structures",
+      "greedy",
+      "math"
+    ],
+    "timestamp": "2026-11-03T11:19:11.006Z"
+  },
+  {
+    "id": "2152C",
+    "problem": "Triple Removal",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem 'Triple Removal' (Codeforces 2152C) asks for the minimum operations to make the subarray equal or similar under certain rules, but the current logic for checking if a range can be cleared or transformed uses an incorrect greedy condition for counts of 0s, 1s, and 2s.",
+    "rule": "Carefully verify the problem constraints and invariants for greedy reductions. When elements can be removed or replaced in triples, the necessary and sufficient conditions usually involve modulo constraints and upper bounds on individual frequencies.",
+    "tags": [
+      "data structures",
+      "greedy",
+      "math"
+    ],
+    "timestamp": "2026-11-03T11:20:42.297Z"
+  },
+  {
+    "id": "CC-SUPVIL",
+    "problem": "Superheroes and villains",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem SUPVIL checks names ending with 'man', 'woman', or 'girl' as superheroes, and others as villains. The termination condition in the problem statement checks if superheroes reach 3 more (or 2 more depending on the problem variant) or if villains reach 3 more. Specifically, CodeChef SUPVIL states: 'SUPERHERO' if superheroes count >= villains count + 3, and 'VILLAIN' if villains count >= superheroes count + 3. The current code uses supCnt >= vilCnt + 2 for superheroes, which is incorrect.",
+    "rule": "Carefully verify the exact threshold conditions specified in the problem statement (e.g., +3 instead of +2).",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T11:27:52.780Z"
+  },
+  {
+    "id": "CC-SUPVIL",
+    "problem": "Superheroes and villains",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem states that names ending with 'man' (excluding 'woman'), 'woman', or 'girl' are superheroes. The current code checks 'man' first, but if a name ends with 'woman', it checks `name.slice(len - 3) === 'man'` and then tries to exclude 'woman', but the condition `!(len >= 5 && name.slice(len - 5) === 'woman')` is followed by another `if (len >= 5 && name.slice(len - 5) === 'woman') isSup = true;`, which correctly handles it, but there might be edge cases with input parsing or output formatting when the game finishes early.",
+    "rule": "Carefully implement suffix checks with proper precedence or mutually exclusive conditions to avoid overlapping substring matches.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T11:29:35.315Z"
+  },
+  {
+    "id": "2176C",
+    "problem": "Odd Process",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to maximize the number of odd elements we can obtain or involves a specific game/process with odd and even numbers, but the current solution simply counts the odd numbers and outputs that count, completely ignoring the problem statement and constraints.",
+    "rule": "Always read and implement the actual problem logic rather than returning a trivial placeholder metric like just counting a subset of elements.",
+    "tags": [
+      "greedy",
+      "sortings"
+    ],
+    "timestamp": "2026-11-03T11:44:02.058Z"
+  },
+  {
+    "id": "CC-KNIGHTMV",
+    "problem": "Correctness of Knight Move",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem input may contain strings that are improperly formatted or invalid according to the problem statement, but the regex check alone is insufficient if test cases do not match the expected count format or if extra lines exist. Also, the problem asks for three possible outputs: 'Yes', 'No', and 'Error'. The regex correctly identifies well-formed move strings like 'e2-e4', but the prompt requires handling invalid strings as 'Error', valid knight moves as 'Yes', and valid chess moves that are not knight moves as 'No'. Wait, the current solution outputs 'Error' for regex mismatch, and 'Yes' or 'No' for valid moves. However, input parsing might fail if `t` is not the first line or if inputs have irregular whitespace. Let's make sure we read line-by-line correctly, using `trim()` on each line without filtering out empty lines if they are part of test cases, but here `lines` filtering might skip empty lines that were actually supposed to be processed or `t` might be misread if there are leading empty lines. Actually, `input.trim().split(/\r?\n/)` is safer.",
+    "rule": "Always trim the entire input first, and split by lines carefully handling potential empty lines or trailing spaces in competitive programming platforms.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T11:48:43.323Z"
+  },
+  {
+    "id": "CC-KNIGHTMV",
+    "problem": "Correctness of Knight Move",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem input may contain blank lines, extra whitespaces, or unexpected test case counts, and standard chess move validation requires checking format strictly. Furthermore, using `lines[i].trim()` can sometimes leave empty strings if there are trailing newlines or blank lines in the input file.",
+    "rule": "Always filter out empty lines when reading input lines in competitive programming problems with potential trailing whitespaces or blank lines.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T11:50:21.877Z"
+  },
+  {
+    "id": "CC-ARRANGE",
+    "problem": "Arranging the Appetizers",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bit-reversal permutation logic in the solution is inverted or incorrectly mapping the indices. For a string of length $2^n$ where $n$ is the number of bits, bit-reversal sorting typically places the character at index $j$ into the position given by the bit-reversal of $j$. The current code computes 'rev' as the bit-reversal of $j$ and assigns `arr[rev] = s[j]`, but the problem requires arranging the appetizers such that the original string at index $j$ goes to the bit-reversed index or vice-versa depending on the problem statement. Specifically, the bit reversal of an index $j$ (represented as an $n$-bit binary number) is obtained by reversing its bits. In the problem 'Arranging the Appetizers', the appetizers are rearranged by bit-reversal order, meaning the element at index $j$ in the input goes to position `rev(j)` in the output, or the element that ends up at index $j$ comes from `rev(j)`. Wait, `arr[rev] = s[j]` means the $j$-th character of the input goes to the `rev`-th position of the output. Let's check standard bit-reversal: if we reverse the bits of $j$ to get `rev`, then `arr[rev] = s[j]` actually means output index `rev` gets input character $j$. But standard bit-reversal permutation places input index $j$ at output index `rev(j)` or vice versa. Let's verify: `arr[j] = s[rev]` or `arr[rev] = s[j]`. Actually, if we iterate $j$ from $0$ to $2^n-1$, compute the bit-reversed index of $j$, say `rev`, and set `arr[j] = s[rev]` or `arr[rev] = s[j]`. The problem statement says the appetizers are arranged by reversing the binary representation of their indices.",
+    "rule": "Carefully verify the mapping direction in permutation problems like bit-reversal: determine whether input index $j$ maps to output index $\text{rev}(j)$ or vice versa.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T12:00:54.360Z"
+  },
+  {
+    "id": "CC-ARRANGE",
+    "problem": "Arranging the Appetizers",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bit-reversal permutation mapping was incorrectly mapping the source string characters to the reversed indices instead of placing the character at index j into the bit-reversed position rev, or vice versa. The problem asks for the standard bit-reversal permutation where the character at original index j moves to the bit-reversed index rev, which means arr[rev] = s[j] is actually correct for some formulations, but the bit length n needs to be integer and the bit-reversal should correctly mirror the standard FFT-style bit reversal permutation.",
+    "rule": "For bit-reversal permutation problems, carefully verify whether the input index j maps to the bit-reversed position rev or vice versa, and ensure proper bit-width handling.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T12:02:43.807Z"
+  },
+  {
+    "id": "CC-SUPVIL",
+    "problem": "Superheroes and villains",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem checks if a name ends with 'man' (excluding 'woman'), 'woman', or 'girl'. In the current solution, checking `name.endsWith('man') && !name.endsWith('woman')` is correct for 'man', but the order and condition evaluation might miss cases or the problem might require checking names that end with 'man' specifically without 'woman' using exact suffix matching. Also, the problem rules specify that the game terminates as soon as a condition (`supCnt >= vilCnt + 3` or `vilCnt >= supCnt + 3`) is met, but we must ensure we read all inputs or handle the loop correctly. Wait, the condition for superhero is ending with 'man' (but not 'woman'), 'woman', or 'girl'. Let's check the suffix logic: `name.endsWith('man') && !name.endsWith('woman') || name.endsWith('woman') || name.endsWith('girl')`, which simplifies to `name.endsWith('man') || name.endsWith('girl')` if 'woman' ends with 'man'. But 'woman' ends with 'man'! So `name.endsWith('man')` is true for 'woman'. Therefore, `name.endsWith('man') && !name.endsWith('woman')` correctly isolates 'man' not ending in 'woman'. However, if the input tokens parsing has issues or if the game shouldn't break early and process all names instead? Wait, the problem states that the game continues until one side has 3 more than the other, and we output the result at that moment or 'DRAW' if all names are processed.",
+    "rule": "Carefully implement suffix exclusion rules (e.g., 'man' vs 'woman') and ensure game simulation stops at the exact moment a threshold is crossed.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-03T12:06:06.149Z"
   }
 ]

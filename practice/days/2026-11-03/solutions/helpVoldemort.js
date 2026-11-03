@@ -5,14 +5,14 @@ function solve() {
     if (!tokens || tokens.length === 0 || tokens[0] === '') return;
     let ptr = 0;
     const n = parseInt(tokens[ptr++], 10);
-    const arr = [];
+    const arr = new Float64Array(n);
     for (let i = 0; i < n; i++) {
-        arr.push(parseInt(tokens[ptr++], 10));
+        arr[i] = Number(tokens[ptr++]);
     }
-    arr.sort((a, b) => a - b);
+    arr.sort();
     let ans = 0;
-    for (let i = 0; i < Math.floor(n / 2); i++) {
-        ans += 2 * arr[i] * arr[n - 1 - i];
+    for (let i = 0; i < n - 1; i++) {
+        ans += arr[i] * arr[i + 1];
     }
     console.log(ans);
 }
