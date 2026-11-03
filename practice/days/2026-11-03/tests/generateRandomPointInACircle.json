@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[[\"Solution\",\"randPoint\",\"randPoint\",\"randPoint\"],[[1.0,0.0,0.0],[],[],[]]]\n",
+    "output": "[null,true,true,true]\n"
+  }
+]
