@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1\nblack black black black black black\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "1\nred green blue yellow orange pink\n",
+    "output": "NO\n"
+  }
+]

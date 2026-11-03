@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n2\n3\n360\n",
+    "output": "y y y\ny y y\ny y n\n"
+  }
+]

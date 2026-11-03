@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\na1-b3\na1-c3\na9-b3\na1-b3-c5\n",
+    "output": "Yes\nNo\nError\nError\n"
+  }
+]
