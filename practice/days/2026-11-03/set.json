@@ -1212,6 +1212,42 @@
       "url": "https://www.codechef.com/problems/N1VALUES",
       "file": "exactlyNPlus1Values",
       "template": "templates/codechef.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-926",
+      "name": "Flip String to Monotone Increasing",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/flip-string-to-monotone-increasing/",
+      "file": "flipStringToMonotoneIncreasing",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1744",
+      "name": "Can You Eat Your Favorite Candy on Your Favorite Day?",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/",
+      "file": "canYouEatYourFavoriteCandyOnYourFavoriteDay",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2007",
+      "name": "Find Original Array From Doubled Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-original-array-from-doubled-array/",
+      "file": "findOriginalArrayFromDoubledArray",
+      "template": "templates/leetcode.js"
     }
   ]
 }

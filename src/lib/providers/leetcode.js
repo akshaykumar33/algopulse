@@ -82,7 +82,7 @@ async function fetchLeetCodeProblems({ usedIds, rootFiles, count = 10, difficult
   const pageSize = 100;
   const pagesToFetch = Math.ceil(Math.max(count * 2, poolSize) / pageSize);
 
-  for (let page = 0; page < Math.min(pagesToFetch, 4); page++) {
+  for (let page = 0; page < Math.min(pagesToFetch, 20); page++) {
     try {
       const res = await fetchLeetCodeGraphQL({
         difficulty: diffNormalized,
