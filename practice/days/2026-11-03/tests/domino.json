@@ -1,0 +1,22 @@
+[
+  {
+    "input": "1\n",
+    "output": "aa\nbb\ncc\ndd\n"
+  },
+  {
+    "input": "2\n",
+    "output": "ab\nab\nba\nba\n"
+  },
+  {
+    "input": "3\n",
+    "output": "aba\naba\nbab\nbab\n"
+  },
+  {
+    "input": "4\n",
+    "output": "abab\nabab\nbaba\nbaba\n"
+  },
+  {
+    "input": "5\n",
+    "output": "ababa\nababa\nbabab\nbabab\n"
+  }
+]
