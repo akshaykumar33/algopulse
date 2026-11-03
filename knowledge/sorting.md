@@ -166,6 +166,13 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Array Game](https://codeforces.com/problemset/problem/1904/C) | `Codeforces` | `1400` | `arrayGame.js` | Key algorithmic application from Day 2026-11-01. |
 | [Semifinals](https://codeforces.com/problemset/problem/378/B) | `Codeforces` | `1300` | `semifinals.js` | Key algorithmic application from Day 2026-11-02. |
 | [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
+| [Leha and Function](https://codeforces.com/problemset/problem/840/A) | `Codeforces` | `1300` | `lehaAndFunction.js` | Key algorithmic application from Day 2026-11-03. |
+| [Odd Process](https://codeforces.com/problemset/problem/2176/C) | `Codeforces` | `1300` | `oddProcess.js` | Key algorithmic application from Day 2026-11-03. |
+| [Mere Array](https://codeforces.com/problemset/problem/1401/C) | `Codeforces` | `1300` | `mereArray.js` | Key algorithmic application from Day 2026-11-03. |
+| [MUH and Important Things](https://codeforces.com/problemset/problem/471/B) | `Codeforces` | `1300` | `mUHAndImportantThings.js` | Key algorithmic application from Day 2026-11-03. |
+| [Replacement](https://codeforces.com/problemset/problem/135/A) | `Codeforces` | `1300` | `replacement.js` | Key algorithmic application from Day 2026-11-03. |
+| [Divide by three, multiply by two](https://codeforces.com/problemset/problem/977/D) | `Codeforces` | `1400` | `divideByThreeMultiplyByTwo.js` | Key algorithmic application from Day 2026-11-03. |
+| [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -118,6 +118,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Seating Arrangement (Easy Version)](https://codeforces.com/problemset/problem/2232/C1) | `Codeforces` | `1300` | `seatingArrangementEasyVersion.js` | Key algorithmic application from Day 2026-11-02. |
 | [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

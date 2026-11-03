@@ -216,6 +216,15 @@ function constructMatrix(n, m) {
 | [Packets](https://codeforces.com/problemset/problem/1037/A) | `Codeforces` | `1300` | `packets.js` | Key algorithmic application from Day 2026-11-02. |
 | [Vika and Squares](https://codeforces.com/problemset/problem/610/B) | `Codeforces` | `1300` | `vikaAndSquares.js` | Key algorithmic application from Day 2026-11-02. |
 | [Quasi Binary](https://codeforces.com/problemset/problem/538/B) | `Codeforces` | `1400` | `quasiBinary.js` | Key algorithmic application from Day 2026-11-02. |
+| [Find Color](https://codeforces.com/problemset/problem/40/A) | `Codeforces` | `1300` | `findColor.js` | Key algorithmic application from Day 2026-11-03. |
+| [Wrong Binary Search](https://codeforces.com/problemset/problem/2146/C) | `Codeforces` | `1300` | `wrongBinarySearch.js` | Key algorithmic application from Day 2026-11-03. |
+| [Arrow Path](https://codeforces.com/problemset/problem/1948/C) | `Codeforces` | `1300` | `arrowPath.js` | Key algorithmic application from Day 2026-11-03. |
+| [Come Be My Friend, Don't Be So Scared (Easy Version)](https://codeforces.com/problemset/problem/2261/D1) | `Codeforces` | `1300` | `comeBeMyFriendDonTBeSoScaredEasyVersion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Dividing the numbers](https://codeforces.com/problemset/problem/899/C) | `Codeforces` | `1300` | `dividingTheNumbers.js` | Key algorithmic application from Day 2026-11-03. |
+| [Mere Array](https://codeforces.com/problemset/problem/1401/C) | `Codeforces` | `1300` | `mereArray.js` | Key algorithmic application from Day 2026-11-03. |
+| [Domino](https://codeforces.com/problemset/problem/85/A) | `Codeforces` | `1300` | `domino.js` | Key algorithmic application from Day 2026-11-03. |
+| [Road Construction](https://codeforces.com/problemset/problem/330/B) | `Codeforces` | `1300` | `roadConstruction.js` | Key algorithmic application from Day 2026-11-03. |
+| [Jumping Through Segments](https://codeforces.com/problemset/problem/1907/D) | `Codeforces` | `1400` | `jumpingThroughSegments.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

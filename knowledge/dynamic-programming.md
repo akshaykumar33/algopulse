@@ -135,6 +135,10 @@ dp.fill(-1); // Memoization sentinel
 | [Reverse String](https://codeforces.com/problemset/problem/1553/B) | `Codeforces` | `1300` | `reverseString.js` | Key algorithmic application from Day 2026-11-02. |
 | [Quasi Binary](https://codeforces.com/problemset/problem/538/B) | `Codeforces` | `1400` | `quasiBinary.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
+| [Arrow Path](https://codeforces.com/problemset/problem/1948/C) | `Codeforces` | `1300` | `arrowPath.js` | Key algorithmic application from Day 2026-11-03. |
+| [Maximize the Score](https://codeforces.com/problemset/problem/2248/C) | `Codeforces` | `1300` | `maximizeTheScore.js` | Key algorithmic application from Day 2026-11-03. |
+| [Art Union](https://codeforces.com/problemset/problem/416/B) | `Codeforces` | `1300` | `artUnion.js` | Key algorithmic application from Day 2026-11-03. |
+| [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 

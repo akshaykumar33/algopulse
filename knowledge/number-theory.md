@@ -151,6 +151,10 @@ function sieve(maxN) {
 | [Array and GCD](https://codeforces.com/problemset/problem/2104/D) | `Codeforces` | `1400` | `arrayAndGCD.js` | Key algorithmic application from Day 2026-11-02. |
 | [Add Modulo 10](https://codeforces.com/problemset/problem/1714/E) | `Codeforces` | `1400` | `addModulo10.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bash's Big Day](https://codeforces.com/problemset/problem/757/B) | `Codeforces` | `1400` | `bashSBigDay.js` | Key algorithmic application from Day 2026-11-02. |
+| [Leha and Function](https://codeforces.com/problemset/problem/840/A) | `Codeforces` | `1300` | `lehaAndFunction.js` | Key algorithmic application from Day 2026-11-03. |
+| [Sasha and Magnetic Machines](https://codeforces.com/problemset/problem/1113/B) | `Codeforces` | `1300` | `sashaAndMagneticMachines.js` | Key algorithmic application from Day 2026-11-03. |
+| [Mere Array](https://codeforces.com/problemset/problem/1401/C) | `Codeforces` | `1300` | `mereArray.js` | Key algorithmic application from Day 2026-11-03. |
+| [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
 
 ---
 
