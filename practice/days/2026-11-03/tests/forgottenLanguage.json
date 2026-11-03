@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n3 2\nvegetable potato tomato\n2 cabbage bean\n3 tomato mango potato\n",
+    "output": "NO YES YES\n"
+  }
+]

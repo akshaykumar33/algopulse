@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n2\nBegin on Road A\nRight on Road B\n",
+    "output": "Begin on Road B\nLeft on Road A\n"
+  }
+]

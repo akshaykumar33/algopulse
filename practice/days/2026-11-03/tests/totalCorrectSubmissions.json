@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n2\nA 1\nB 2\nC 3\nA 4\nB 5\nC 6\n",
+    "output": "5 7 9\n"
+  }
+]
