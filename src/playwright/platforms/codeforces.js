@@ -105,10 +105,11 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
 
   console.log(`    [Codeforces] Preparing submit page for ${problemCode} ...`);
   page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
+  const contestSubmitUrl = `https://codeforces.com/contest/${contestId}/submit`;
   try {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 35000 });
+    await page.goto(contestSubmitUrl, { waitUntil: 'domcontentloaded', timeout: 35000 });
   } catch {
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'commit', timeout: 25000 }).catch(() => {});
+    await page.goto(contestSubmitUrl, { waitUntil: 'commit', timeout: 25000 }).catch(() => {});
   }
 
   // 1. Verify Authentication
@@ -120,10 +121,15 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
   }
   console.log(`    [Codeforces] Logged in as: ${auth.handle}`);
 
-  // 2. Fill problem code
-  const codeInput = await page.waitForSelector('input[name="submittedProblemCode"]', { timeout: 25000 });
-  await codeInput.fill('');
-  await codeInput.fill(problemCode);
+  // 2. Select / Fill problem code
+  const select = await page.$('select[name="submittedProblemIndex"]');
+  if (select) {
+    await page.selectOption('select[name="submittedProblemIndex"]', index);
+  } else {
+    const codeInput = await page.waitForSelector('input[name="submittedProblemCode"]', { timeout: 25000 });
+    await codeInput.fill('');
+    await codeInput.fill(problemCode);
+  }
 
   // 3. Select language (JavaScript V8 or Node.js)
   const langSelect = await page.$('select[name="programTypeId"]');

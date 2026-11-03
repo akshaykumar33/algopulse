@@ -1,43 +1,30 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
-  const out = [];
-  
-  for (let i = 0; i < t; i++) {
-    const n = parseInt(tokens[ptr++], 10);
-    if (n % 4 !== 0) {
-      out.push('NO');
-    } else {
-      out.push('YES');
-      const a = [];
-      const b = [];
-      let left = 1;
-      let right = n;
-      let turn = 0;
-      
-      for (let j = 0; j < n / 2; j++) {
-        if (turn === 0) {
-          a.push(left);
-          a.push(right);
+    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+    let ptr = 0;
+    const t = parseInt(tokens[ptr++], 10);
+    const out = [];
+
+    for (let tc = 0; tc < t; tc++) {
+        const n = parseInt(tokens[ptr++], 10);
+        if (n % 4 !== 0) {
+            out.push('NO');
         } else {
-          b.push(left);
-          b.push(right);
+            out.push('YES');
+            const m = n / 4;
+            const a = [];
+            const b = [];
+            for (let i = 1; i <= m; i++) a.push(i);
+            for (let i = 3 * m + 1; i <= n; i++) a.push(i);
+            for (let i = m + 1; i <= 3 * m; i++) b.push(i);
+            out.push(a.join(' '));
+            out.push(b.join(' '));
         }
-        left++;
-        right--;
-        turn = 1 - turn;
-      }
-      
-      out.push(a.join(' '));
-      out.push(b.join(' '));
     }
-  }
-  
-  console.log(out.join('\n'));
+
+    console.log(out.join('\n'));
 }
 
 solve();

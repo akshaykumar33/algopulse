@@ -6,37 +6,32 @@ function solve() {
     let ptr = 0;
     const t = parseInt(tokens[ptr++], 10);
     const out = [];
-    
-    for (let i = 0; i < t; i++) {
+
+    for (let tc = 0; tc < t; tc++) {
         const k = parseInt(tokens[ptr++], 10);
         let ok = true;
         for (let j = 0; j < k; j++) {
             const s = tokens[ptr++];
-            if (!ok) continue;
-            let hasA = false;
-            let hasB = false;
+            let isLang1 = true;
+            let isLang2 = true;
             for (let c = 0; c < s.length; c++) {
                 const ch = s.charCodeAt(c);
                 if (ch >= 97 && ch <= 109) {
-                    hasA = true;
-                } else if (ch >= 110 && ch <= 122) {
-                    hasB = true;
+                    isLang2 = false;
+                } else if (ch >= 78 && ch <= 90) {
+                    isLang1 = false;
                 } else {
-                    hasA = false;
-                    hasB = false;
-                    break;
+                    isLang1 = false;
+                    isLang2 = false;
                 }
             }
-            if ((hasA && hasB) || (!hasA && !hasB)) {
+            if (!isLang1 && !isLang2) {
                 ok = false;
             }
         }
-        if (ok) {
-            out.push("YES");
-        } else {
-            out.push("NO");
-        }
+        out.push(ok ? 'YES' : 'NO');
     }
+
     console.log(out.join('\n'));
 }
 

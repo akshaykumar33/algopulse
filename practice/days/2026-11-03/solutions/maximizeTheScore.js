@@ -1,47 +1,64 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8');
-  const tokens = input.trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  const buf = fs.readFileSync(0);
+  let pos = 0;
 
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) {
+      pos++;
+    }
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const t = nextInt();
+  if (t === null) return;
+
   const out = [];
 
-  for (let i = 0; i < t; i++) {
-    const n = parseInt(tokens[ptr++], 10);
-    const k = parseInt(tokens[ptr++], 10);
-    const arr = [];
-    for (let j = 0; j < n; j++) {
-      arr.push(parseInt(tokens[ptr++], 10));
-    }
+  for (let tc = 0; tc < t; tc++) {
+    const n = nextInt();
+    const len = 2 * n;
+    const a = new Int32Array(len);
+    const occ = new Int32Array(n + 1);
+    occ.fill(-1);
+    const lp = new Int32Array(len);
 
-    let maxScore = 0;
-
-    if (k === 1) {
-      for (let j = 0; j < n; j++) {
-        maxScore = Math.max(maxScore, arr[j]);
-      }
-    } else if (k >= n) {
-      for (let j = 0; j < n; j++) {
-        maxScore = Math.max(maxScore, arr[j]);
-      }
-    } else {
-      let currentSum = 0;
-      for (let j = 0; j < k; j++) {
-        currentSum += arr[j];
-      }
-      maxScore = currentSum;
-
-      for (let j = k; j < n; j++) {
-        currentSum = currentSum - arr[j - k] + arr[j];
-        maxScore = Math.max(maxScore, currentSum);
+    for (let i = 0; i < len; i++) {
+      const val = nextInt();
+      a[i] = val;
+      if (occ[val] !== -1) {
+        lp[i] = occ[val];
+      } else {
+        occ[val] = i;
+        lp[i] = -1;
       }
     }
 
-    out.push(maxScore);
+    const dp = new Float64Array(len);
+    dp[0] = 1;
+    for (let i = 1; i < len; i++) {
+      let best = dp[i - 1] + 1;
+      const l = lp[i];
+      if (l !== -1) {
+        const segLen = i - l + 1;
+        const cand = (l === 0 ? 0 : dp[l - 1]) + segLen * segLen;
+        if (cand > best) {
+          best = cand;
+        }
+      }
+      dp[i] = best;
+    }
+
+    out.push(dp[len - 1]);
   }
+
   console.log(out.join('\n'));
 }
 

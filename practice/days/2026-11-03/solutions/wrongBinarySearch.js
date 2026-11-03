@@ -6,38 +6,51 @@ function solve() {
     let ptr = 0;
     const t = parseInt(tokens[ptr++], 10);
     const out = [];
-    
+
     for (let tc = 0; tc < t; tc++) {
         const n = parseInt(tokens[ptr++], 10);
         const s = tokens[ptr++];
-        
-        const p = new Array(n + 1);
-        let l = 1, r = n;
+
+        let hasLen1 = false;
+        let curLen = 0;
         for (let i = 0; i < n; i++) {
             if (s[i] === '0') {
-                p[i + 1] = l++;
+                curLen++;
             } else {
-                p[i + 1] = r--;
+                if (curLen === 1) {
+                    hasLen1 = true;
+                    break;
+                }
+                curLen = 0;
             }
         }
-        
-        let ok = true;
-        l = 1;
-        r = n;
-        for (let i = 0; i < n; i++) {
-            const mid = Math.floor((l + r) / 2);
-            if (s[i] === '0') {
-                if (p[mid] === l + (s[i] === '0' ? 0 : 0)) { }
-                r = mid - 1;
+        if (curLen === 1) hasLen1 = true;
+
+        if (hasLen1) {
+            out.push('NO');
+            continue;
+        }
+
+        out.push('YES');
+        const p = new Int32Array(n);
+        let i = 0;
+        while (i < n) {
+            if (s[i] === '1') {
+                p[i] = i + 1;
+                i++;
             } else {
-                l = mid + 1;
+                let j = i;
+                while (j < n && s[j] === '0') j++;
+                for (let k = i; k < j - 1; k++) {
+                    p[k] = k + 2;
+                }
+                p[j - 1] = i + 1;
+                i = j;
             }
         }
-        
-        const ans = [];
-        for (let i = 1; i <= n; i++) ans.push(p[i]);
-        out.push(ans.join(' '));
+        out.push(p.join(' '));
     }
+
     console.log(out.join('\n'));
 }
 
