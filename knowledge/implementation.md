@@ -1584,6 +1584,9 @@ function solve() {
 | [Chef and Cube](https://www.codechef.com/problems/CHCUBE) | `CodeChef` | `1320` | `chefAndCube.js` | Key algorithmic application from Day 2026-11-03. |
 | [Superheroes and villains](https://www.codechef.com/problems/SUPVIL) | `CodeChef` | `1446` | `superheroesAndVillains.js` | Key algorithmic application from Day 2026-11-03. |
 | [Exactly N plus 1 Values](https://www.codechef.com/problems/N1VALUES) | `CodeChef` | `1495` | `exactlyNPlus1Values.js` | Key algorithmic application from Day 2026-11-03. |
+| [Flip String to Monotone Increasing](https://leetcode.com/problems/flip-string-to-monotone-increasing/) | `LeetCode` | `Medium` | `flipStringToMonotoneIncreasing.js` | Key algorithmic application from Day 2026-11-03. |
+| [Can You Eat Your Favorite Candy on Your Favorite Day?](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/) | `LeetCode` | `Medium` | `canYouEatYourFavoriteCandyOnYourFavoriteDay.js` | Key algorithmic application from Day 2026-11-03. |
+| [Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array/) | `LeetCode` | `Medium` | `findOriginalArrayFromDoubledArray.js` | Key algorithmic application from Day 2026-11-03. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
