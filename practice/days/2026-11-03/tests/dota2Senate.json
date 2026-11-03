@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"RD\"",
+    "output": "\"Radiant\""
+  },
+  {
+    "input": "\"RDD\"",
+    "output": "\"Dire\""
+  }
+]

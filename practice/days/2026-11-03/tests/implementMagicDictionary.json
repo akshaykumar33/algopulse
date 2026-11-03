@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"MagicDictionary\", \"buildDict\", \"search\", \"search\", \"search\", \"search\"]\n[[], [[\"hello\", \"leetcode\"]], [\"hello\"], [\"hhllo\"], [\"hell\"], [\"leetcoded\"]]",
+    "output": "[null,null,false,true,false,false]"
+  }
+]
