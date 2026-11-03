@@ -1,6 +1,6 @@
 [
   {
-    "input": "3\n5\nABABA\n6\nAABBAA\n4\nAAAA\n",
-    "output": "2\n1\n0\n"
+    "input": "3\n6\nBBWWWB\n3\nBBB\n4\nBWBW\n",
+    "output": "1\n0\n2\n"
   }
 ]

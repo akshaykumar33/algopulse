@@ -1,6 +1,6 @@
 [
   {
-    "input": "3\n5 5 2 2\n5 5 3 3\n1 1 2 2\n",
-    "output": "Pezzie\nChefir\nPezzie\n"
+    "input": "5\n2 2 1 2\n11 10 5 9\n11 11 5 9\n1 1 1 1\n3 3 2 2\n",
+    "output": "Chefirnemo\nChefirnemo\nPofik\nChefirnemo\nChefirnemo\n"
   }
 ]

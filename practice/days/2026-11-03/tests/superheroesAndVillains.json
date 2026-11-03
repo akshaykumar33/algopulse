@@ -1,6 +1,6 @@
 [
   {
-    "input": "4\nBatman\nJoker\nSuperman\nLexLuthor\n",
-    "output": "DRAW\n"
+    "input": "3\n2\nkittywoman\nwingman\n6\nhacker\nbeautywoman\nblackjack\nnoname\nwatersnake\nstrongman\n4\nfamousman\nredsnake\ntallwoman\ntinythief\n",
+    "output": "superheroes\nvillains\ndraw\n"
   }
 ]
