@@ -2021,5 +2021,29 @@
       "codechef"
     ],
     "timestamp": "2026-11-03T12:06:06.149Z"
+  },
+  {
+    "id": "CC-TRMAG",
+    "problem": "BIT Magazine",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem statement and math for TRMAG were incorrectly interpreted in the submitted code. The problem asks for expected value calculations involving magazine pages and torn leaves, but the current code uses an incorrect formula for expected values and doesn't parse the input format correctly.",
+    "rule": "Carefully re-read the problem statement to ensure the mathematical formula matches the problem description, especially for probability and expected value problems.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-04T09:59:37.443Z"
+  },
+  {
+    "id": "CC-TRMAG",
+    "problem": "BIT Magazine",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The previous code incorrectly interpreted the problem statement and the formula for calculating the required magazine pages. It assumed a simple linear sequence of pages and missing values without correctly parsing the problem structure or page ranges.",
+    "rule": "Carefully re-read the problem statement to ensure the mathematical model matches the actual constraints and definitions given in the problem.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-04T10:01:14.802Z"
   }
 ]
