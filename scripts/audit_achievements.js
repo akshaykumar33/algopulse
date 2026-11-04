@@ -44,7 +44,28 @@ try {
   console.log('   - Bronze : 10 co-authored merged PRs');
   console.log('   - Silver : 24 co-authored merged PRs');
   console.log('   - Gold   : 48 co-authored merged PRs');
+
+  console.log('\n3. GALAXY BRAIN:');
+  try {
+    const gbQuery = 'query($owner: String!, $name: String!) { repository(owner: $owner, name: $name) { discussions(first: 100) { nodes { author { login } answer { author { login } isAnswer } isAnswered } } } }';
+    const gbOut = execSync(`gh api graphql -F owner=akshaykumar33 -F name=algopulse -f query="${gbQuery}"`, { encoding: 'utf-8' });
+    const gbNodes = JSON.parse(gbOut).data.repository.discussions.nodes;
+    let accepted = 0;
+    for (const d of gbNodes) {
+      if (d.isAnswered && d.answer && d.answer.isAnswer) {
+        if (d.author.login !== 'akshaykumar33' && d.answer.author.login === 'akshaykumar33') {
+          accepted++;
+        }
+      }
+    }
+    console.log(`   - Status : ${accepted}/32 Peer-Accepted Answers`);
+    console.log(`   - Base   : 2 accepted [${accepted >= 2 ? 'UNLOCKED' : (2 - accepted) + ' needed'}]`);
+    console.log(`   - Bronze : 8 accepted [${accepted >= 8 ? 'UNLOCKED' : (8 - accepted) + ' needed'}]`);
+    console.log(`   - Silver : 16 accepted [${accepted >= 16 ? 'UNLOCKED' : (16 - accepted) + ' needed'}]`);
+    console.log(`   - Gold   : 32 accepted [${accepted >= 32 ? 'UNLOCKED' : (32 - accepted) + ' needed'}]`);
+  } catch (err) {
+    console.log('   - Could not query discussions:', err.message);
+  }
 } catch (e) {
   console.error('Audit error:', e.message);
 }
-
