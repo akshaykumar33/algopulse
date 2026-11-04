@@ -1,0 +1,15 @@
+[
+  {
+    "input": "[\"xx\",\"yy\"]\n",
+    "output": "1\n"
+  },
+  {
+    "input": "[\"xy\",\"yx\"]\n",
+    "output": "2\n"
+  },
+  {
+    "input": "[\"xx\",\"xy\"]\n",
+    "output": "-1\n"
+  }
+]
+

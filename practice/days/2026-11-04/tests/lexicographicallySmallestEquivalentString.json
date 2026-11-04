@@ -1,0 +1,15 @@
+[
+  {
+    "input": "[\"parker\",\"morris\",\"parser\"]\n",
+    "output": "\"makkek\"\n"
+  },
+  {
+    "input": "[\"hello\",\"world\",\"hold\"]\n",
+    "output": "\"hdld\"\n"
+  },
+  {
+    "input": "[\"leetcode\",\"programs\",\"sourcecode\"]\n",
+    "output": "\"aauaaaaada\"\n"
+  }
+]
+

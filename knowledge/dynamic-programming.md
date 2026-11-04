@@ -139,6 +139,11 @@ dp.fill(-1); // Memoization sentinel
 | [Maximize the Score](https://codeforces.com/problemset/problem/2248/C) | `Codeforces` | `1300` | `maximizeTheScore.js` | Key algorithmic application from Day 2026-11-03. |
 | [Art Union](https://codeforces.com/problemset/problem/416/B) | `Codeforces` | `1300` | `artUnion.js` | Key algorithmic application from Day 2026-11-03. |
 | [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
+| [Make Nonzero Sum (easy version)](https://codeforces.com/problemset/problem/1753/A1) | `Codeforces` | `1300` | `makeNonzeroSumEasyVersion.js` | Key algorithmic application from Day 2026-11-04. |
+| [Range Operation](https://codeforces.com/problemset/problem/2169/C) | `Codeforces` | `1300` | `rangeOperation.js` | Key algorithmic application from Day 2026-11-04. |
+| [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
+| [Letter](https://codeforces.com/problemset/problem/180/C) | `Codeforces` | `1400` | `letter.js` | Key algorithmic application from Day 2026-11-04. |
+| [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
 
 ---
 

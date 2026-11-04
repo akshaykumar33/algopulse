@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\ntom marvoloriddle\n2\nlord\nvoldemort\ncheap up\n1\nheapcup\nbruce wayne\n2\nbat\nman\n",
+    "output": "YES\nYES\nNO\n"
+  }
+]
+

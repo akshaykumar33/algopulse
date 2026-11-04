@@ -133,6 +133,7 @@ function missingNumber(nums) {
 | [Blackslex and Penguin Civilization](https://codeforces.com/problemset/problem/2179/D) | `Codeforces` | `1300` | `blackslexAndPenguinCivilization.js` | Key algorithmic application from Day 2026-11-02. |
 | [Ciel and Receipt](https://www.codechef.com/problems/CIELRCPT) | `CodeChef` | `936` | `cielAndReceipt.js` | Key algorithmic application from Day 2026-11-02. |
 | [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
+| [Maximize XOR, Minimize Operations](https://codeforces.com/problemset/problem/2260/C) | `Codeforces` | `1300` | `maximizeXORMinimizeOperations.js` | Key algorithmic application from Day 2026-11-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

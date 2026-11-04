@@ -321,6 +321,18 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [The Cunning Seller (hard version)](https://codeforces.com/problemset/problem/2132/C2) | `Codeforces` | `1400` | `theCunningSellerHardVersion.js` | Key algorithmic application from Day 2026-11-03. |
 | [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
 | [Triple Removal](https://codeforces.com/problemset/problem/2152/C) | `Codeforces` | `1400` | `tripleRemoval.js` | Key algorithmic application from Day 2026-11-03. |
+| [Manhattan Permutations](https://codeforces.com/problemset/problem/1978/C) | `Codeforces` | `1300` | `manhattanPermutations.js` | Key algorithmic application from Day 2026-11-04. |
+| [Strongly Composite](https://codeforces.com/problemset/problem/1823/C) | `Codeforces` | `1300` | `stronglyComposite.js` | Key algorithmic application from Day 2026-11-04. |
+| [Arrange the Numbers in a Circle](https://codeforces.com/problemset/problem/2230/C) | `Codeforces` | `1300` | `arrangeTheNumbersInACircle.js` | Key algorithmic application from Day 2026-11-04. |
+| [Range Operation](https://codeforces.com/problemset/problem/2169/C) | `Codeforces` | `1300` | `rangeOperation.js` | Key algorithmic application from Day 2026-11-04. |
+| [Cost of the Array](https://codeforces.com/problemset/problem/2059/B) | `Codeforces` | `1300` | `costOfTheArray.js` | Key algorithmic application from Day 2026-11-04. |
+| [Alarm Clocks Everywhere](https://codeforces.com/problemset/problem/1155/C) | `Codeforces` | `1300` | `alarmClocksEverywhere.js` | Key algorithmic application from Day 2026-11-04. |
+| [Number of Pairs](https://codeforces.com/problemset/problem/1538/C) | `Codeforces` | `1300` | `numberOfPairs.js` | Key algorithmic application from Day 2026-11-04. |
+| [K-th Beautiful String](https://codeforces.com/problemset/problem/1328/B) | `Codeforces` | `1300` | `kThBeautifulString.js` | Key algorithmic application from Day 2026-11-04. |
+| [2-3-numbers](https://codeforces.com/problemset/problem/926/A) | `Codeforces` | `1300` | `p23Numbers.js` | Key algorithmic application from Day 2026-11-04. |
+| [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
+| [Sakurako's Box](https://codeforces.com/problemset/problem/2008/F) | `Codeforces` | `1400` | `sakurakoSBox.js` | Key algorithmic application from Day 2026-11-04. |
+| [Limit](https://codeforces.com/problemset/problem/197/B) | `Codeforces` | `1400` | `limit.js` | Key algorithmic application from Day 2026-11-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"(abcd)\"\n",
+    "output": "\"dcba\"\n"
+  },
+  {
+    "input": "\"(u(love)i)\"\n",
+    "output": "\"iloveu\"\n"
+  },
+  {
+    "input": "\"(ed(et(oc))el)\"\n",
+    "output": "\"leetcode\"\n"
+  }
+]
+

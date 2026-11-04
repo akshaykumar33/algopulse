@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\na.ba\ncb.bc\na.b\n",
+    "output": "abba\ncbabc\n-1\n"
+  }
+]
+

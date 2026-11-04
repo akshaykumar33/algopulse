@@ -1,0 +1,15 @@
+[
+  {
+    "input": "[\"x\",\"y\"]\n",
+    "output": "true\n"
+  },
+  {
+    "input": "[\"abdef\",\"fecab\"]\n",
+    "output": "true\n"
+  },
+  {
+    "input": "[\"ulacfd\",\"jizalu\"]\n",
+    "output": "true\n"
+  }
+]
+

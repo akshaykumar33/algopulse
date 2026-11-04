@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n4\nab\nbc\nbc\nab\n3\nxxx\nyyy\nyyy\n",
+    "output": "Draw\nyyy\n"
+  }
+]
+

@@ -356,6 +356,24 @@ for (const x of arr) {
 | [The Cunning Seller (hard version)](https://codeforces.com/problemset/problem/2132/C2) | `Codeforces` | `1400` | `theCunningSellerHardVersion.js` | Key algorithmic application from Day 2026-11-03. |
 | [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
 | [Triple Removal](https://codeforces.com/problemset/problem/2152/C) | `Codeforces` | `1400` | `tripleRemoval.js` | Key algorithmic application from Day 2026-11-03. |
+| [Manhattan Permutations](https://codeforces.com/problemset/problem/1978/C) | `Codeforces` | `1300` | `manhattanPermutations.js` | Key algorithmic application from Day 2026-11-04. |
+| [Strongly Composite](https://codeforces.com/problemset/problem/1823/C) | `Codeforces` | `1300` | `stronglyComposite.js` | Key algorithmic application from Day 2026-11-04. |
+| [Complete the Word](https://codeforces.com/problemset/problem/716/B) | `Codeforces` | `1300` | `completeTheWord.js` | Key algorithmic application from Day 2026-11-04. |
+| [Madoka and Formal Statement](https://codeforces.com/problemset/problem/1717/C) | `Codeforces` | `1300` | `madokaAndFormalStatement.js` | Key algorithmic application from Day 2026-11-04. |
+| [Maximize XOR, Minimize Operations](https://codeforces.com/problemset/problem/2260/C) | `Codeforces` | `1300` | `maximizeXORMinimizeOperations.js` | Key algorithmic application from Day 2026-11-04. |
+| [Good String](https://codeforces.com/problemset/problem/1165/C) | `Codeforces` | `1300` | `goodString.js` | Key algorithmic application from Day 2026-11-04. |
+| [Brutality](https://codeforces.com/problemset/problem/1107/C) | `Codeforces` | `1300` | `brutality.js` | Key algorithmic application from Day 2026-11-04. |
+| [Make Nonzero Sum (easy version)](https://codeforces.com/problemset/problem/1753/A1) | `Codeforces` | `1300` | `makeNonzeroSumEasyVersion.js` | Key algorithmic application from Day 2026-11-04. |
+| [Alyona and a Narrow Fridge](https://codeforces.com/problemset/problem/1119/B) | `Codeforces` | `1300` | `alyonaAndANarrowFridge.js` | Key algorithmic application from Day 2026-11-04. |
+| [Range Operation](https://codeforces.com/problemset/problem/2169/C) | `Codeforces` | `1300` | `rangeOperation.js` | Key algorithmic application from Day 2026-11-04. |
+| [Cost of the Array](https://codeforces.com/problemset/problem/2059/B) | `Codeforces` | `1300` | `costOfTheArray.js` | Key algorithmic application from Day 2026-11-04. |
+| [Bear and String Distance](https://codeforces.com/problemset/problem/628/C) | `Codeforces` | `1300` | `bearAndStringDistance.js` | Key algorithmic application from Day 2026-11-04. |
+| [Problems for Round](https://codeforces.com/problemset/problem/673/B) | `Codeforces` | `1300` | `problemsForRound.js` | Key algorithmic application from Day 2026-11-04. |
+| [Portal](https://codeforces.com/problemset/problem/2200/D) | `Codeforces` | `1300` | `portal.js` | Key algorithmic application from Day 2026-11-04. |
+| [Array Recoloring](https://codeforces.com/problemset/problem/2075/B) | `Codeforces` | `1300` | `arrayRecoloring.js` | Key algorithmic application from Day 2026-11-04. |
+| [Snow Footprints](https://codeforces.com/problemset/problem/298/A) | `Codeforces` | `1300` | `snowFootprints.js` | Key algorithmic application from Day 2026-11-04. |
+| [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
+| [Double Matrix](https://codeforces.com/problemset/problem/1162/B) | `Codeforces` | `1400` | `doubleMatrix.js` | Key algorithmic application from Day 2026-11-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

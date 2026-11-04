@@ -212,6 +212,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Broken Clock](https://codeforces.com/problemset/problem/722/A) | `Codeforces` | `1300` | `brokenClock.js` | Key algorithmic application from Day 2026-11-03. |
 | [Art Union](https://codeforces.com/problemset/problem/416/B) | `Codeforces` | `1300` | `artUnion.js` | Key algorithmic application from Day 2026-11-03. |
 | [Cutting Banner](https://codeforces.com/problemset/problem/538/A) | `Codeforces` | `1400` | `cuttingBanner.js` | Key algorithmic application from Day 2026-11-03. |
+| [Cost of the Array](https://codeforces.com/problemset/problem/2059/B) | `Codeforces` | `1300` | `costOfTheArray.js` | Key algorithmic application from Day 2026-11-04. |
+| [Seat Arrangements](https://codeforces.com/problemset/problem/919/C) | `Codeforces` | `1300` | `seatArrangements.js` | Key algorithmic application from Day 2026-11-04. |
+| [K-th Beautiful String](https://codeforces.com/problemset/problem/1328/B) | `Codeforces` | `1300` | `kThBeautifulString.js` | Key algorithmic application from Day 2026-11-04. |
+| [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
+| [Double Matrix](https://codeforces.com/problemset/problem/1162/B) | `Codeforces` | `1400` | `doubleMatrix.js` | Key algorithmic application from Day 2026-11-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
