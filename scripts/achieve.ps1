@@ -59,6 +59,9 @@ try {
     Write-Host "  [ACTIVE] Quickdraw: Merge within 5 minutes of opening PR." -ForegroundColor Cyan
     Write-Host "  [ACTIVE] YOLO: Direct merge via 'gh pr merge --merge'." -ForegroundColor Cyan
 
+    Write-Host "`nGalaxy Brain Status (Q&A Discussions):" -ForegroundColor White
+    node (Join-Path $PSScriptRoot 'galaxy_brain.js') next --compact
+
 } catch {
     Write-Host "[WARN] Could not reach GitHub API: $_" -ForegroundColor Red
 }
