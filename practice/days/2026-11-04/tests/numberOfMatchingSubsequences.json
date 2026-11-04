@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"abcde\",[\"a\",\"bb\",\"acd\",\"ace\"]]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"dsahjpjauf\",[\"ahjpjau\",\"ja\",\"ahbwzgqnuk\",\"tnmlanowax\"]]\n",
+    "output": "2\n"
+  }
+]

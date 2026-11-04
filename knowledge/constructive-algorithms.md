@@ -225,6 +225,12 @@ function constructMatrix(n, m) {
 | [Domino](https://codeforces.com/problemset/problem/85/A) | `Codeforces` | `1300` | `domino.js` | Key algorithmic application from Day 2026-11-03. |
 | [Road Construction](https://codeforces.com/problemset/problem/330/B) | `Codeforces` | `1300` | `roadConstruction.js` | Key algorithmic application from Day 2026-11-03. |
 | [Jumping Through Segments](https://codeforces.com/problemset/problem/1907/D) | `Codeforces` | `1400` | `jumpingThroughSegments.js` | Key algorithmic application from Day 2026-11-03. |
+| [Manhattan Permutations](https://codeforces.com/problemset/problem/1978/C) | `Codeforces` | `1300` | `manhattanPermutations.js` | Key algorithmic application from Day 2026-11-04. |
+| [Arrange the Numbers in a Circle](https://codeforces.com/problemset/problem/2230/C) | `Codeforces` | `1300` | `arrangeTheNumbersInACircle.js` | Key algorithmic application from Day 2026-11-04. |
+| [Make Nonzero Sum (easy version)](https://codeforces.com/problemset/problem/1753/A1) | `Codeforces` | `1300` | `makeNonzeroSumEasyVersion.js` | Key algorithmic application from Day 2026-11-04. |
+| [Cost of the Array](https://codeforces.com/problemset/problem/2059/B) | `Codeforces` | `1300` | `costOfTheArray.js` | Key algorithmic application from Day 2026-11-04. |
+| [Array Recoloring](https://codeforces.com/problemset/problem/2075/B) | `Codeforces` | `1300` | `arrayRecoloring.js` | Key algorithmic application from Day 2026-11-04. |
+| [Alternating Path](https://codeforces.com/problemset/problem/2204/D) | `Codeforces` | `1400` | `alternatingPath.js` | Key algorithmic application from Day 2026-11-04. |
 
 ---
 

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"&amp; is an HTML entity but &ambassador; is not.\"\n",
+    "output": "\"& is an HTML entity but &ambassador; is not.\"\n"
+  },
+  {
+    "input": "\"and I quote: &quot;...&quot;\"\n",
+    "output": "\"and I quote: \\\"...\\\"\"\n"
+  }
+]

@@ -173,6 +173,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Replacement](https://codeforces.com/problemset/problem/135/A) | `Codeforces` | `1300` | `replacement.js` | Key algorithmic application from Day 2026-11-03. |
 | [Divide by three, multiply by two](https://codeforces.com/problemset/problem/977/D) | `Codeforces` | `1400` | `divideByThreeMultiplyByTwo.js` | Key algorithmic application from Day 2026-11-03. |
 | [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
+| [Brutality](https://codeforces.com/problemset/problem/1107/C) | `Codeforces` | `1300` | `brutality.js` | Key algorithmic application from Day 2026-11-04. |
+| [Alyona and a Narrow Fridge](https://codeforces.com/problemset/problem/1119/B) | `Codeforces` | `1300` | `alyonaAndANarrowFridge.js` | Key algorithmic application from Day 2026-11-04. |
+| [1709](https://codeforces.com/problemset/problem/2121/D) | `Codeforces` | `1300` | `p1709.js` | Key algorithmic application from Day 2026-11-04. |
+| [Portal](https://codeforces.com/problemset/problem/2200/D) | `Codeforces` | `1300` | `portal.js` | Key algorithmic application from Day 2026-11-04. |
+| [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
+| [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

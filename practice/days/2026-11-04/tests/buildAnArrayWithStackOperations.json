@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[[1,3],3]\n",
+    "output": "[\"Push\",\"Push\",\"Pop\",\"Push\"]\n"
+  },
+  {
+    "input": "[[1,2,3],3]\n",
+    "output": "[\"Push\",\"Push\",\"Push\"]\n"
+  },
+  {
+    "input": "[[1,2],4]\n",
+    "output": "[\"Push\",\"Push\"]\n"
+  }
+]

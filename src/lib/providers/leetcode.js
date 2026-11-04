@@ -76,13 +76,14 @@ async function fetchLeetCodeGraphQL({ difficulty = 'Medium', limit = 100, skip =
 
 async function fetchLeetCodeProblems({ usedIds, rootFiles, count = 10, difficulty = 'Medium', poolSize = 200 }) {
   const exclude = new Set(usedIds);
+  const rootSet = rootFiles instanceof Set ? rootFiles : new Set(rootFiles || []);
   const diffNormalized = difficulty.toLowerCase() === 'easy' ? 'Easy' : difficulty.toLowerCase() === 'hard' ? 'Hard' : 'Medium';
-  const allQuestions = [];
-
+  const pool = [];
   const pageSize = 100;
-  const pagesToFetch = Math.ceil(Math.max(count * 2, poolSize) / pageSize);
+  const maxPages = 40;
+  const targetPoolSize = Math.max(count * 2, poolSize);
 
-  for (let page = 0; page < Math.min(pagesToFetch, 20); page++) {
+  for (let page = 0; page < maxPages; page++) {
     try {
       const res = await fetchLeetCodeGraphQL({
         difficulty: diffNormalized,
@@ -90,31 +91,33 @@ async function fetchLeetCodeProblems({ usedIds, rootFiles, count = 10, difficult
         skip: page * pageSize,
       });
       const questions = res.data?.problemsetQuestionList?.questions || [];
-      allQuestions.push(...questions);
-      if (questions.length < pageSize) break;
+      if (!questions.length) break;
+
+      for (const q of questions) {
+        if (q.isPaidOnly) continue;
+        const id = `LC-${q.frontendQuestionId}`;
+        const title = q.title;
+        const file = toFileName(title);
+        if (exclude.has(id) || rootSet.has(file)) continue;
+
+        pool.push({
+          platform: 'LeetCode',
+          id,
+          name: title,
+          rating: q.difficulty || diffNormalized,
+          tags: ['algorithms'],
+          url: `https://leetcode.com/problems/${q.titleSlug}/`,
+          file,
+          template: 'templates/leetcode.js',
+        });
+      }
+
+      if (pool.length >= targetPoolSize || questions.length < pageSize) break;
     } catch (err) {
       console.warn(`[leetcode-provider] Page ${page} fetch warning: ${err.message}`);
       break;
     }
   }
-
-  const pool = allQuestions
-    .filter((q) => !q.isPaidOnly)
-    .map((q) => {
-      const id = `LC-${q.frontendQuestionId}`;
-      const title = q.title;
-      return {
-        platform: 'LeetCode',
-        id,
-        name: title,
-        rating: q.difficulty || diffNormalized,
-        tags: ['algorithms'],
-        url: `https://leetcode.com/problems/${q.titleSlug}/`,
-        file: toFileName(title),
-        template: 'templates/leetcode.js',
-      };
-    })
-    .filter((p) => !exclude.has(p.id) && !rootFiles.has(p.file));
 
   // Fisher-Yates shuffle
   const candidates = [...pool];

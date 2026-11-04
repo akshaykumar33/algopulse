@@ -147,6 +147,11 @@ function lowerBound(arr, target) {
 | [The Cunning Seller (hard version)](https://codeforces.com/problemset/problem/2132/C2) | `Codeforces` | `1400` | `theCunningSellerHardVersion.js` | Key algorithmic application from Day 2026-11-03. |
 | [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
 | [Jumping Through Segments](https://codeforces.com/problemset/problem/1907/D) | `Codeforces` | `1400` | `jumpingThroughSegments.js` | Key algorithmic application from Day 2026-11-03. |
+| [Alyona and a Narrow Fridge](https://codeforces.com/problemset/problem/1119/B) | `Codeforces` | `1300` | `alyonaAndANarrowFridge.js` | Key algorithmic application from Day 2026-11-04. |
+| [Number of Pairs](https://codeforces.com/problemset/problem/1538/C) | `Codeforces` | `1300` | `numberOfPairs.js` | Key algorithmic application from Day 2026-11-04. |
+| [K-th Beautiful String](https://codeforces.com/problemset/problem/1328/B) | `Codeforces` | `1300` | `kThBeautifulString.js` | Key algorithmic application from Day 2026-11-04. |
+| [Steps](https://codeforces.com/problemset/problem/152/B) | `Codeforces` | `1300` | `steps.js` | Key algorithmic application from Day 2026-11-04. |
+| [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
 
 ---
 

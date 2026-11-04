@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"QWER\"\n",
+    "output": "0\n"
+  },
+  {
+    "input": "\"QQWE\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"QQQW\"\n",
+    "output": "2\n"
+  }
+]

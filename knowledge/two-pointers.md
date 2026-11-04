@@ -119,6 +119,11 @@ for (let right = 0; right < arr.length; right++) {
 | [MEX Count](https://codeforces.com/problemset/problem/2123/E) | `Codeforces` | `1400` | `mEXCount.js` | Key algorithmic application from Day 2026-11-02. |
 | [Bridge Renovation](https://codeforces.com/problemset/problem/2038/L) | `Codeforces` | `1400` | `bridgeRenovation.js` | Key algorithmic application from Day 2026-11-02. |
 | [Pair of Topics](https://codeforces.com/problemset/problem/1324/D) | `Codeforces` | `1400` | `pairOfTopics.js` | Key algorithmic application from Day 2026-11-03. |
+| [Complete the Word](https://codeforces.com/problemset/problem/716/B) | `Codeforces` | `1300` | `completeTheWord.js` | Key algorithmic application from Day 2026-11-04. |
+| [Brutality](https://codeforces.com/problemset/problem/1107/C) | `Codeforces` | `1300` | `brutality.js` | Key algorithmic application from Day 2026-11-04. |
+| [Range Operation](https://codeforces.com/problemset/problem/2169/C) | `Codeforces` | `1300` | `rangeOperation.js` | Key algorithmic application from Day 2026-11-04. |
+| [Number of Pairs](https://codeforces.com/problemset/problem/1538/C) | `Codeforces` | `1300` | `numberOfPairs.js` | Key algorithmic application from Day 2026-11-04. |
+| [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
 
 ---
 

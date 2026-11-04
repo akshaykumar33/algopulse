@@ -1,0 +1,14 @@
+[
+  {
+    "input": "4 26\nbear\n",
+    "output": "zgar\n"
+  },
+  {
+    "input": "2 7\naf\n",
+    "output": "hf\n"
+  },
+  {
+    "input": "3 1000\nhey\n",
+    "output": "-1\n"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5\nABCDE\nEBCDA\n0 10 20 30 40 50\n4\nCHEF\nQUIZ\n4 3 2 1 0\n8\nABBABAAB\nABABABAB\n100 100 100 100 100 100 100 100 100\n",
+    "output": "30\n4\n100\n"
+  }
+]
