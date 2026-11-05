@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-29",
+  "day": 5,
+  "status": "IN_PROGRESS",
+  "finished": false,
+  "totalProblems": 30,
+  "solutionsCount": 30,
+  "testsCount": 30,
+  "explanationsCount": 30,
+  "verifiedCount": 30,
+  "submittedCount": 0,
+  "acceptedCount": 0,
+  "dlqCount": 0,
+  "percentVerified": 100,
+  "percentSubmitted": 0,
+  "percentAccepted": 0,
+  "byPlatform": {
+    "codeforces": {
+      "name": "Codeforces",
+      "total": 10,
+      "solutions": 10,
+      "verified": 10,
+      "submitted": 0,
+      "accepted": 0
+    },
+    "leetcode": {
+      "name": "LeetCode",
+      "total": 10,
+      "solutions": 10,
+      "verified": 10,
+      "submitted": 0,
+      "accepted": 0
+    },
+    "codechef": {
+      "name": "CodeChef",
+      "total": 10,
+      "solutions": 10,
+      "verified": 10,
+      "submitted": 0,
+      "accepted": 0
+    }
+  },
+  "updatedAt": "2026-11-05T04:09:30.077Z"
+}
