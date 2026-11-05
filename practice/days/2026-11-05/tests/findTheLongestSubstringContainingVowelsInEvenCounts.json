@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"eleetminicoworoep\"",
+    "output": "13"
+  },
+  {
+    "input": "\"leetcodeisgreat\"",
+    "output": "5"
+  },
+  {
+    "input": "\"bcbcbc\"",
+    "output": "6"
+  }
+]
