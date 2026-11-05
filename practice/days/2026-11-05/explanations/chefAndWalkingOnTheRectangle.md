@@ -1,72 +1,18 @@
-# Chef and Walking on the rectangle  (CodeChef CC-CHRECT)
+# Chef and Walking on the Rectangle (CC-CHRECT)
 
-## 1. Problem Overview
-- **Platform:** CodeChef
-- **Problem ID:** [CC-CHRECT](https://www.codechef.com/problems/CHRECT)
-- **Difficulty / Rating:** 1435
-- **Tags:** codechef
-- **Solution File:** `chefAndWalkingOnTheRectangle.js`
-- **Starter Template:** `templates/codechef.js`
+## Problem Overview
+Chef moves from $(1, 1)$ to $(N, M)$ on an $N \times M$ grid using only Right and Down moves, exactly $K$ times. On each journey, he places a stone on all cells visited except the start $(1, 1)$ and destination $(N, M)$. We want to minimize the maximum number of stones in any intermediate cell.
 
----
+## Key Insight & Invariants
+- If the grid has dimensions $1 \times 1, 1 \times 2,$ or $2 \times 1$, there are no intermediate cells at all, so the answer is $0$.
+- If $N = 1$ and $M > 2$ (or $M = 1$ and $N > 2$), there is strictly one path through the grid, which visits all intermediate cells. Every single journey of the $K$ journeys must pass through these cells, so the answer is $K$.
+- For any $N \ge 2$ and $M \ge 2$:
+  - Every path must begin by stepping on either $(1, 2)$ or $(2, 1)$.
+  - By the Pigeonhole Principle, at least one of these two cells will be visited $\lceil K / 2 \rceil$ times.
+  - Furthermore, two completely node-disjoint paths exist (one hugging the top-right border, one hugging the bottom-left border).
+  - Distributing the $K$ paths equally across these two disjoint routes ensures no intermediate cell is visited more than $\lceil K / 2 \rceil$ times.
+  - Thus, the exact answer is $\lfloor (K + 1) / 2 \rfloor$.
 
-## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
-
----
-
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/chefAndWalkingOnTheRectangle.js
-```
+## Complexity
+- **Time Complexity:** $O(1)$ per testcase.
+- **Space Complexity:** $O(1)$.

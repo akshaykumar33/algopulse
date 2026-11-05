@@ -1,89 +1,60 @@
 const fs = require('fs');
 
 function solve() {
-    const buffer = fs.readFileSync(0);
-    let offset = 0;
+  const content = fs.readFileSync(0, 'utf-8');
+  const lines = content.trim().split(/\r?\n/);
+  let lineIdx = 0;
+  while (lineIdx < lines.length && lines[lineIdx].trim() === '') lineIdx++;
+  if (lineIdx >= lines.length) return;
+  const t = parseInt(lines[lineIdx++].trim(), 10);
+  const out = [];
 
-    function readInt() {
-        while (offset < buffer.length && buffer[offset] <= 32) {
-            offset++;
+  for (let tc = 0; tc < t; tc++) {
+    while (lineIdx < lines.length && lines[lineIdx].trim() === '') lineIdx++;
+    if (lineIdx >= lines.length) break;
+    const n = parseInt(lines[lineIdx++].trim(), 10);
+    const adj = Array.from({ length: n + 1 }, () => []);
+    for (let i = 1; i <= n; i++) {
+      while (lineIdx < lines.length && lines[lineIdx].trim() === '') lineIdx++;
+      const parts = lines[lineIdx++].trim().split(/\s+/);
+      for (let j = 0; j < parts.length; j++) {
+        if (parts[j] !== '') {
+          const v = parseInt(parts[j], 10);
+          adj[i].push(v);
         }
-        if (offset >= buffer.length) return null;
-        let res = 0;
-        while (offset < buffer.length && buffer[offset] > 32) {
-            res = res * 10 + (buffer[offset] - 48);
-            offset++;
-        }
-        return res;
+      }
     }
 
-    const tVal = readInt();
-    if (tVal === null) return;
-    const out = [];
+    let bestId = 1;
+    let minSum = Infinity;
 
-    for (let t = 0; t < tVal; t++) {
-        const n = readInt();
-        const m = readInt();
-        const adj = Array.from({ length: n + 1 }, () => []);
-        for (let i = 0; i < m; i++) {
-            const u = readInt();
-            const v = readInt();
-            adj[u].push(v);
-            adj[v].push(u);
+    for (let i = 1; i <= n; i++) {
+      const dist = new Int32Array(n + 1).fill(-1);
+      dist[i] = 0;
+      const q = [i];
+      let head = 0;
+      let sum = 0;
+      while (head < q.length) {
+        const u = q[head++];
+        sum += dist[u];
+        for (let j = 0; j < adj[u].length; j++) {
+          const v = adj[u][j];
+          if (dist[v] === -1) {
+            dist[v] = dist[u] + 1;
+            q.push(v);
+          }
         }
-
-        const vis = new Uint8Array(n + 1);
-        let bestId = 1;
-        let maxPop = -1;
-        let minDegreeSum = Infinity;
-
-        for (let i = 1; i <= n; i++) {
-            if (vis[i]) continue;
-            const comp = [];
-            const q = [i];
-            vis[i] = 1;
-            let head = 0;
-            while (head < q.length) {
-                const u = q[head++];
-                comp.push(u);
-                for (const v of adj[u]) {
-                    if (!vis[v]) {
-                        vis[v] = 1;
-                        q.push(v);
-                    }
-                }
-            }
-
-            const size = comp.length;
-            let degSum = 0;
-            for (const u of comp) {
-                degSum += adj[u].length;
-            }
-
-            const pop = degSum / size;
-            if (pop > maxPop || (pop === maxPop && degSum < minDegreeSum)) {
-                maxPop = pop;
-                minDegreeSum = degSum;
-                let minId = Infinity;
-                for (const u of comp) {
-                    if (u < minId) minId = u;
-                }
-                bestId = minId;
-            } else if (pop === maxPop && degSum === minDegreeSum) {
-                let minId = Infinity;
-                for (const u of comp) {
-                    if (u < minId) minId = u;
-                }
-                if (minId < bestId) {
-                    bestId = minId;
-                }
-            }
-        }
-
-        out.push(bestId + ' ' + maxPop.toFixed(2));
+      }
+      if (sum < minSum) {
+        minSum = sum;
+        bestId = i;
+      }
     }
 
-    console.log(out.join('\n'));
+    out.push(bestId + ' ' + (minSum / n).toFixed(6));
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

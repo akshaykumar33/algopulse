@@ -6,28 +6,32 @@ function solve() {
   let ptr = 0;
   const t = parseInt(tokens[ptr++], 10);
   const out = [];
-  for (let tc = 0; tc < t; tc++) {
+
+  for (let c = 0; c < t; c++) {
     const n = parseInt(tokens[ptr++], 10);
-    const matrix = [];
+    const grid = [];
     for (let i = 0; i < n; i++) {
-      const row = [];
+      const row = new Int32Array(n);
       for (let j = 0; j < n; j++) {
-        row.push(parseInt(tokens[ptr++], 10));
+        row[j] = parseInt(tokens[ptr++], 10);
       }
-      matrix.push(row);
+      grid.push(row);
     }
-    let ans = 0;
-    let transposed = false;
-    for (let i = n - 1; i >= 1; i--) {
-      const expected = (transposed ? 1 : i + 1);
-      const actual = matrix[0][i] / (i + 1);
-      if (Math.abs(actual - expected) < 1e-9) {
-        ans++;
-        transposed = !transposed;
+
+    let ops = 0;
+    let inverted = false;
+
+    for (let L = n; L >= 2; L--) {
+      const val = inverted ? grid[L - 1][0] : grid[0][L - 1];
+      if (val !== L) {
+        ops++;
+        inverted = !inverted;
       }
     }
-    out.push(ans);
+
+    out.push(ops);
   }
+
   console.log(out.join('\n'));
 }
 

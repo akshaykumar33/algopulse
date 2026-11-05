@@ -15,38 +15,29 @@ function solve() {
         }
 
         let ok = true;
-        if (arr[0] !== 1 || arr[n - 1] !== 1) {
-            ok = false;
-        } else {
-            let l = 0, r = n - 1;
-            let cur = 1;
-            while (l <= r) {
-                if (arr[l] !== arr[r] || arr[l] !== cur) {
+        for (let j = 0; j < Math.floor(n / 2); j++) {
+            if (arr[j] !== arr[n - 1 - j]) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            let expected = 1;
+            let has7 = false;
+            for (let j = 0; j <= Math.floor(n / 2); j++) {
+                let val = arr[j];
+                if (val === 7) has7 = true;
+                if (val !== expected && val !== expected + 1) {
                     ok = false;
                     break;
                 }
-                if (arr[l] === 7) {
-                    break;
-                }
-                if (arr[l + 1] === arr[l]) {
-                    l++;
-                    r--;
-                } else if (arr[l + 1] === arr[l] + 1) {
-                    cur++;
-                    l++;
-                    r--;
-                } else {
-                    ok = false;
-                    break;
+                if (val === expected + 1) {
+                    expected++;
                 }
             }
-            if (ok) {
-                for (let j = l; j <= r; j++) {
-                    if (arr[j] !== 7) {
-                        ok = false;
-                        break;
-                    }
-                }
+            if (!has7 || expected !== 7) {
+                ok = false;
             }
         }
 

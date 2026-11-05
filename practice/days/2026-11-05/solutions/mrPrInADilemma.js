@@ -1,25 +1,37 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+  const t = nextInt();
+  if (t === null) return;
   const out = [];
   for (let i = 0; i < t; i++) {
-    const a = parseInt(tokens[ptr++], 10);
-    const b = parseInt(tokens[ptr++], 10);
-    const c = parseInt(tokens[ptr++], 10);
-    const d = parseInt(tokens[ptr++], 10);
+    const a = nextInt();
+    const b = nextInt();
+    const c = nextInt();
+    const d = nextInt();
     if (a === b) {
-      out.push(c === d ? "YES" : "NO");
+      out.push('YES');
+    } else if (c === d) {
+      out.push('NO');
     } else {
       const diff = Math.abs(a - b);
       const cdiff = Math.abs(c - d);
-      if (cdiff % diff === 0) {
-        out.push("YES");
+      if (diff % cdiff === 0) {
+        out.push('YES');
       } else {
-        out.push("NO");
+        out.push('NO');
       }
     }
   }
