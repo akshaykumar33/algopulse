@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n4\nabab\na\n3\nabc\nd\n",
+    "output": "8\n0\n"
+  }
+]

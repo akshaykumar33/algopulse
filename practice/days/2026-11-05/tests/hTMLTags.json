@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n</a3>\n</>\n</a#b>\n</ab>\n",
+    "output": "Success\nError\nError\nSuccess\n"
+  }
+]
