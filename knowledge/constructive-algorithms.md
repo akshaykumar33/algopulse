@@ -231,6 +231,13 @@ function constructMatrix(n, m) {
 | [Cost of the Array](https://codeforces.com/problemset/problem/2059/B) | `Codeforces` | `1300` | `costOfTheArray.js` | Key algorithmic application from Day 2026-11-04. |
 | [Array Recoloring](https://codeforces.com/problemset/problem/2075/B) | `Codeforces` | `1300` | `arrayRecoloring.js` | Key algorithmic application from Day 2026-11-04. |
 | [Alternating Path](https://codeforces.com/problemset/problem/2204/D) | `Codeforces` | `1400` | `alternatingPath.js` | Key algorithmic application from Day 2026-11-04. |
+| [Painting Pebbles](https://codeforces.com/problemset/problem/509/B) | `Codeforces` | `1300` | `paintingPebbles.js` | Key algorithmic application from Day 2026-11-05. |
+| [Zhily and Bracket Swapping](https://codeforces.com/problemset/problem/2223/A) | `Codeforces` | `1300` | `zhilyAndBracketSwapping.js` | Key algorithmic application from Day 2026-11-05. |
+| [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
+| [Ice and Fire](https://codeforces.com/problemset/problem/1774/C) | `Codeforces` | `1300` | `iceAndFire.js` | Key algorithmic application from Day 2026-11-05. |
+| [Difference Row](https://codeforces.com/problemset/problem/347/A) | `Codeforces` | `1300` | `differenceRow.js` | Key algorithmic application from Day 2026-11-05. |
+| [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
+| [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

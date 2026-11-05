@@ -144,6 +144,13 @@ dp.fill(-1); // Memoization sentinel
 | [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
 | [Letter](https://codeforces.com/problemset/problem/180/C) | `Codeforces` | `1400` | `letter.js` | Key algorithmic application from Day 2026-11-04. |
 | [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
+| [Triple Operations](https://codeforces.com/problemset/problem/1999/E) | `Codeforces` | `1300` | `tripleOperations.js` | Key algorithmic application from Day 2026-11-05. |
+| [Cut Ribbon](https://codeforces.com/problemset/problem/189/A) | `Codeforces` | `1300` | `cutRibbon.js` | Key algorithmic application from Day 2026-11-05. |
+| [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
+| [Ice and Fire](https://codeforces.com/problemset/problem/1774/C) | `Codeforces` | `1300` | `iceAndFire.js` | Key algorithmic application from Day 2026-11-05. |
+| [Hamiltonian Wall](https://codeforces.com/problemset/problem/1766/C) | `Codeforces` | `1300` | `hamiltonianWall.js` | Key algorithmic application from Day 2026-11-05. |
+| [Basketball Exercise](https://codeforces.com/problemset/problem/1195/C) | `Codeforces` | `1400` | `basketballExercise.js` | Key algorithmic application from Day 2026-11-05. |
+| [Bouncing Ball](https://codeforces.com/problemset/problem/1415/C) | `Codeforces` | `1400` | `bouncingBall.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

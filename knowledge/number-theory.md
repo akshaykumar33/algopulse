@@ -158,6 +158,9 @@ function sieve(maxN) {
 | [Strongly Composite](https://codeforces.com/problemset/problem/1823/C) | `Codeforces` | `1300` | `stronglyComposite.js` | Key algorithmic application from Day 2026-11-04. |
 | [Alarm Clocks Everywhere](https://codeforces.com/problemset/problem/1155/C) | `Codeforces` | `1300` | `alarmClocksEverywhere.js` | Key algorithmic application from Day 2026-11-04. |
 | [Sakurako's Box](https://codeforces.com/problemset/problem/2008/F) | `Codeforces` | `1400` | `sakurakoSBox.js` | Key algorithmic application from Day 2026-11-04. |
+| [Interesting Ratio](https://codeforces.com/problemset/problem/2091/E) | `Codeforces` | `1300` | `interestingRatio.js` | Key algorithmic application from Day 2026-11-05. |
+| [Bear and Poker](https://codeforces.com/problemset/problem/573/A) | `Codeforces` | `1300` | `bearAndPoker.js` | Key algorithmic application from Day 2026-11-05. |
+| [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

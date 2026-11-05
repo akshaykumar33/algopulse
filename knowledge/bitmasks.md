@@ -134,6 +134,9 @@ function missingNumber(nums) {
 | [Ciel and Receipt](https://www.codechef.com/problems/CIELRCPT) | `CodeChef` | `936` | `cielAndReceipt.js` | Key algorithmic application from Day 2026-11-02. |
 | [Jellyfish and Green Apple](https://codeforces.com/problemset/problem/1875/C) | `Codeforces` | `1400` | `jellyfishAndGreenApple.js` | Key algorithmic application from Day 2026-11-03. |
 | [Maximize XOR, Minimize Operations](https://codeforces.com/problemset/problem/2260/C) | `Codeforces` | `1300` | `maximizeXORMinimizeOperations.js` | Key algorithmic application from Day 2026-11-04. |
+| [Vlad and Division](https://codeforces.com/problemset/problem/1926/D) | `Codeforces` | `1300` | `vladAndDivision.js` | Key algorithmic application from Day 2026-11-05. |
+| [Maximal AND](https://codeforces.com/problemset/problem/1669/H) | `Codeforces` | `1300` | `maximalAND.js` | Key algorithmic application from Day 2026-11-05. |
+| [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

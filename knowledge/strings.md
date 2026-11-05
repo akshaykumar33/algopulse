@@ -152,6 +152,7 @@ function isPalindrome(s) {
 | [Chef and Cook-Off](https://www.codechef.com/problems/CCOOK) | `CodeChef` | `961` | `chefAndCookOff.js` | Key algorithmic application from Day 2026-11-02. |
 | [Many Equal Substrings](https://codeforces.com/problemset/problem/1029/A) | `Codeforces` | `1300` | `manyEqualSubstrings.js` | Key algorithmic application from Day 2026-11-04. |
 | [Bear and String Distance](https://codeforces.com/problemset/problem/628/C) | `Codeforces` | `1300` | `bearAndStringDistance.js` | Key algorithmic application from Day 2026-11-04. |
+| [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
