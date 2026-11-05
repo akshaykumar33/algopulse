@@ -23,6 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync, spawn } = require('child_process');
+const { localToday, getDayStatus, updateDayStatus, isDayFinished } = require('../lib/dayStatus');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const DAYS_DIR = path.join(REPO, 'practice', 'days');
@@ -198,6 +199,10 @@ async function runAutonomousCycle(targetDate) {
   console.log(`[7/7] ${C.bold}Auditing GitHub achievements & pairing metrics ...${C.reset}`);
   runCmd('powershell', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'scripts/achieve.ps1'], { stdio: 'inherit' });
 
+  // Step 8: Update Day Status & README badges
+  console.log(`[8/8] ${C.bold}Updating and recording finished day status ...${C.reset}`);
+  updateDayStatus(targetDate, { forceFinished: true });
+
   return true;
 }
 
@@ -210,7 +215,21 @@ async function main() {
 
   let daysCompleted = 0;
   const existing = getExistingDays();
-  let curDate = customDate || (existing.length > 0 ? existing[existing.length - 1] : new Date().toISOString().slice(0, 10));
+  const today = localToday();
+  const prevDate = existing.length > 0 ? existing[existing.length - 1] : null;
+
+  if (prevDate && prevDate < today) {
+    const prevStatus = getDayStatus(prevDate);
+    if (prevStatus.finished) {
+      console.log(`  ${C.green}✓ Previous day (${prevDate}, Day ${prevStatus.day}) is 100% FINISHED (${prevStatus.verifiedCount}/${prevStatus.totalProblems} verified, ${prevStatus.submittedCount} submitted).${C.reset}`);
+    } else {
+      console.log(`  ${C.yellow}⚠️  Previous day (${prevDate}, Day ${prevStatus.day}) is INCOMPLETE (${prevStatus.verifiedCount}/${prevStatus.totalProblems} verified).${C.reset}`);
+    }
+  }
+
+  // Always start from current date (today) unless a custom date was explicitly specified
+  let curDate = customDate || today;
+  console.log(`  Target Date: ${C.bold}${C.yellow}${curDate}${C.reset} ${curDate === today ? '(Current Calendar Date)' : '(Custom Specified Date)'}\n`);
 
   while (daysCompleted < maxDays) {
     console.log(`\n${C.bold}=========================================================================${C.reset}`);

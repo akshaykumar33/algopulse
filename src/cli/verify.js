@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { localToday, updateDayStatus } = require('../lib/dayStatus');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const ROOT = path.join(REPO, 'practice');
@@ -15,7 +16,8 @@ const flag = (name) => {
 
 const filterPlatform = flag('--platform');
 const days = fs.readdirSync(DAYS).filter((d) => fs.existsSync(path.join(DAYS, d, 'set.json'))).sort();
-const date = args.find((a) => !a.startsWith('--')) || days[days.length - 1];
+const today = localToday();
+const date = args.find((a) => !a.startsWith('--')) || (fs.existsSync(path.join(DAYS, today)) ? today : days[days.length - 1]);
 const dir = path.join(DAYS, date);
 
 if (!fs.existsSync(path.join(dir, 'set.json'))) {
@@ -104,4 +106,5 @@ if (readmeChanged && readmeLines) {
   console.log(`[verify] Automatically updated completed remarks in ${path.relative(REPO, readmePath)}`);
 }
 
+try { updateDayStatus(date); } catch {}
 process.exit(failed ? 1 : 0);

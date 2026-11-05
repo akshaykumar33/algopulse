@@ -10,6 +10,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { computeProgress, problemLevel } = require('./progression');
 const { scanStatement } = require('./injection');
+const { getDayStatus, updateDayStatus, isDayFinished, resolveTargetDate, listDaysWithStatus } = require('./dayStatus');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');
@@ -316,4 +317,9 @@ module.exports = {
   runScript,
   runSamples,
   runCustom,
+  getDayStatus,
+  updateDayStatus,
+  isDayFinished,
+  resolveTargetDate,
+  listDaysWithStatus,
 };

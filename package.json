@@ -59,7 +59,9 @@
     "test:unit": "node --test \"src/**/*.test.js\"",
     "test:ui": "node apps/visualizer/test/ui.e2e.mjs",
     "autonomous": "node src/cli/autonomous.js",
-    "autonomous:fast": "node src/cli/autonomous.js --fast"
+    "autonomous:fast": "node src/cli/autonomous.js --fast",
+    "status": "node src/cli/dayStatus.js",
+    "status:day": "node src/cli/dayStatus.js"
   },
   "keywords": [
     "competitive-programming",

@@ -15,12 +15,16 @@ $ErrorActionPreference = 'Continue'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location $repoRoot
 
+if (-not $Date) {
+    $Date = Get-Date -Format "yyyy-MM-dd"
+}
+
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 $logDir = Join-Path $repoRoot "logs"
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir | Out-Null }
 $runLog = Join-Path $logDir ("automation_" + (Get-Date -Format "yyyyMMdd_HHmmss") + ".log")
 
-Write-Output "[$timestamp] Starting AlgoPulse Autonomous CP Pipeline..." | Tee-Object -FilePath $runLog -Append
+Write-Output "[$timestamp] Starting AlgoPulse Autonomous CP Pipeline for Target Date: $Date..." | Tee-Object -FilePath $runLog -Append
 
 # 1. Ensure Chrome CDP (Port 9222) is active
 Write-Output "Checking Chrome CDP on port 9222..." | Tee-Object -FilePath $runLog -Append
