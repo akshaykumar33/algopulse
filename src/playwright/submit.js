@@ -15,6 +15,7 @@ const ccEngine = require('./platforms/codechef');
 const { authenticatePlatform } = require('./auth');
 const { sanitizeCodeForSubmission } = require('./sanitize');
 const { syncSessionsFromEnv } = require('./envAuth');
+const { localToday, updateDayStatus } = require('../lib/dayStatus');
 
 const PAUSE_FILE = path.join(REPO_ROOT, 'practice', '.pause');
 
