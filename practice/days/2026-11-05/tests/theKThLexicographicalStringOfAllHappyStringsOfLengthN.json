@@ -1,0 +1,14 @@
+[
+  {
+    "input": "1\n3",
+    "output": "\"c\""
+  },
+  {
+    "input": "1\n4",
+    "output": "\"\""
+  },
+  {
+    "input": "3\n9",
+    "output": "\"cab\""
+  }
+]
