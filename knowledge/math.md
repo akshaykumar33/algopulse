@@ -333,6 +333,16 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
 | [Sakurako's Box](https://codeforces.com/problemset/problem/2008/F) | `Codeforces` | `1400` | `sakurakoSBox.js` | Key algorithmic application from Day 2026-11-04. |
 | [Limit](https://codeforces.com/problemset/problem/197/B) | `Codeforces` | `1400` | `limit.js` | Key algorithmic application from Day 2026-11-04. |
+| [Interesting Ratio](https://codeforces.com/problemset/problem/2091/E) | `Codeforces` | `1300` | `interestingRatio.js` | Key algorithmic application from Day 2026-11-05. |
+| [Triple Operations](https://codeforces.com/problemset/problem/1999/E) | `Codeforces` | `1300` | `tripleOperations.js` | Key algorithmic application from Day 2026-11-05. |
+| [Strong Vertices](https://codeforces.com/problemset/problem/1857/D) | `Codeforces` | `1300` | `strongVertices.js` | Key algorithmic application from Day 2026-11-05. |
+| [Okabe and Banana Trees](https://codeforces.com/problemset/problem/821/B) | `Codeforces` | `1300` | `okabeAndBananaTrees.js` | Key algorithmic application from Day 2026-11-05. |
+| [Maximal AND](https://codeforces.com/problemset/problem/1669/H) | `Codeforces` | `1300` | `maximalAND.js` | Key algorithmic application from Day 2026-11-05. |
+| [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
+| [Bear and Poker](https://codeforces.com/problemset/problem/573/A) | `Codeforces` | `1300` | `bearAndPoker.js` | Key algorithmic application from Day 2026-11-05. |
+| [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
+| [Arranging The Sheep](https://codeforces.com/problemset/problem/1520/E) | `Codeforces` | `1400` | `arrangingTheSheep.js` | Key algorithmic application from Day 2026-11-05. |
+| [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

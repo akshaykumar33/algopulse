@@ -144,6 +144,7 @@ function dfsIterative(start, adj, n) {
 | [Road Construction](https://codeforces.com/problemset/problem/330/B) | `Codeforces` | `1300` | `roadConstruction.js` | Key algorithmic application from Day 2026-11-03. |
 | [Divide by three, multiply by two](https://codeforces.com/problemset/problem/977/D) | `Codeforces` | `1400` | `divideByThreeMultiplyByTwo.js` | Key algorithmic application from Day 2026-11-03. |
 | [Alternating Path](https://codeforces.com/problemset/problem/2204/D) | `Codeforces` | `1400` | `alternatingPath.js` | Key algorithmic application from Day 2026-11-04. |
+| [Strong Vertices](https://codeforces.com/problemset/problem/1857/D) | `Codeforces` | `1300` | `strongVertices.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

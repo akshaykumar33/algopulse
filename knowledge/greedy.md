@@ -374,6 +374,20 @@ for (const x of arr) {
 | [Snow Footprints](https://codeforces.com/problemset/problem/298/A) | `Codeforces` | `1300` | `snowFootprints.js` | Key algorithmic application from Day 2026-11-04. |
 | [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
 | [Double Matrix](https://codeforces.com/problemset/problem/1162/B) | `Codeforces` | `1400` | `doubleMatrix.js` | Key algorithmic application from Day 2026-11-04. |
+| [Painting Pebbles](https://codeforces.com/problemset/problem/509/B) | `Codeforces` | `1300` | `paintingPebbles.js` | Key algorithmic application from Day 2026-11-05. |
+| [Equal Multisets (Easy Version)](https://codeforces.com/problemset/problem/2211/C1) | `Codeforces` | `1300` | `equalMultisetsEasyVersion.js` | Key algorithmic application from Day 2026-11-05. |
+| [Vlad and Division](https://codeforces.com/problemset/problem/1926/D) | `Codeforces` | `1300` | `vladAndDivision.js` | Key algorithmic application from Day 2026-11-05. |
+| [Zhily and Bracket Swapping](https://codeforces.com/problemset/problem/2223/A) | `Codeforces` | `1300` | `zhilyAndBracketSwapping.js` | Key algorithmic application from Day 2026-11-05. |
+| [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
+| [Lucky Tickets](https://codeforces.com/problemset/problem/43/C) | `Codeforces` | `1300` | `luckyTickets.js` | Key algorithmic application from Day 2026-11-05. |
+| [Maximal AND](https://codeforces.com/problemset/problem/1669/H) | `Codeforces` | `1300` | `maximalAND.js` | Key algorithmic application from Day 2026-11-05. |
+| [Ice and Fire](https://codeforces.com/problemset/problem/1774/C) | `Codeforces` | `1300` | `iceAndFire.js` | Key algorithmic application from Day 2026-11-05. |
+| [Company Income Growth](https://codeforces.com/problemset/problem/39/B) | `Codeforces` | `1300` | `companyIncomeGrowth.js` | Key algorithmic application from Day 2026-11-05. |
+| [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
+| [Arranging The Sheep](https://codeforces.com/problemset/problem/1520/E) | `Codeforces` | `1400` | `arrangingTheSheep.js` | Key algorithmic application from Day 2026-11-05. |
+| [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
+| [Exams](https://codeforces.com/problemset/problem/479/C) | `Codeforces` | `1400` | `exams.js` | Key algorithmic application from Day 2026-11-05. |
+| [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

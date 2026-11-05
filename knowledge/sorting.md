@@ -179,6 +179,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Portal](https://codeforces.com/problemset/problem/2200/D) | `Codeforces` | `1300` | `portal.js` | Key algorithmic application from Day 2026-11-04. |
 | [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
 | [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
+| [The Bento Box Adventure](https://codeforces.com/problemset/problem/2041/A) | `Codeforces` | `1300` | `theBentoBoxAdventure.js` | Key algorithmic application from Day 2026-11-05. |
+| [Strong Vertices](https://codeforces.com/problemset/problem/1857/D) | `Codeforces` | `1300` | `strongVertices.js` | Key algorithmic application from Day 2026-11-05. |
+| [Difference Row](https://codeforces.com/problemset/problem/347/A) | `Codeforces` | `1300` | `differenceRow.js` | Key algorithmic application from Day 2026-11-05. |
+| [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
+| [Exams](https://codeforces.com/problemset/problem/479/C) | `Codeforces` | `1400` | `exams.js` | Key algorithmic application from Day 2026-11-05. |
+| [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

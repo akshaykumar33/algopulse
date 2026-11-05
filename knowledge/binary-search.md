@@ -152,6 +152,10 @@ function lowerBound(arr, target) {
 | [K-th Beautiful String](https://codeforces.com/problemset/problem/1328/B) | `Codeforces` | `1300` | `kThBeautifulString.js` | Key algorithmic application from Day 2026-11-04. |
 | [Steps](https://codeforces.com/problemset/problem/152/B) | `Codeforces` | `1300` | `steps.js` | Key algorithmic application from Day 2026-11-04. |
 | [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
+| [Equal Multisets (Easy Version)](https://codeforces.com/problemset/problem/2211/C1) | `Codeforces` | `1300` | `equalMultisetsEasyVersion.js` | Key algorithmic application from Day 2026-11-05. |
+| [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
+| [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
+| [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

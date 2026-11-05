@@ -153,6 +153,7 @@ class MinHeap {
 | [Number of Pairs](https://codeforces.com/problemset/problem/1538/C) | `Codeforces` | `1300` | `numberOfPairs.js` | Key algorithmic application from Day 2026-11-04. |
 | [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
 | [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
+| [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

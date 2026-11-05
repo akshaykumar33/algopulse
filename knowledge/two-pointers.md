@@ -124,6 +124,11 @@ for (let right = 0; right < arr.length; right++) {
 | [Range Operation](https://codeforces.com/problemset/problem/2169/C) | `Codeforces` | `1300` | `rangeOperation.js` | Key algorithmic application from Day 2026-11-04. |
 | [Number of Pairs](https://codeforces.com/problemset/problem/1538/C) | `Codeforces` | `1300` | `numberOfPairs.js` | Key algorithmic application from Day 2026-11-04. |
 | [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
+| [Equal Multisets (Easy Version)](https://codeforces.com/problemset/problem/2211/C1) | `Codeforces` | `1300` | `equalMultisetsEasyVersion.js` | Key algorithmic application from Day 2026-11-05. |
+| [Interesting Ratio](https://codeforces.com/problemset/problem/2091/E) | `Codeforces` | `1300` | `interestingRatio.js` | Key algorithmic application from Day 2026-11-05. |
+| [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
+| [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
+| [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
 
 ---
 

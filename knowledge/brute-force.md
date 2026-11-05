@@ -217,6 +217,15 @@ function backtrack(index, currentSum, target, arr) {
 | [K-th Beautiful String](https://codeforces.com/problemset/problem/1328/B) | `Codeforces` | `1300` | `kThBeautifulString.js` | Key algorithmic application from Day 2026-11-04. |
 | [Create The Teams](https://codeforces.com/problemset/problem/1380/C) | `Codeforces` | `1400` | `createTheTeams.js` | Key algorithmic application from Day 2026-11-04. |
 | [Double Matrix](https://codeforces.com/problemset/problem/1162/B) | `Codeforces` | `1400` | `doubleMatrix.js` | Key algorithmic application from Day 2026-11-04. |
+| [Equal Multisets (Easy Version)](https://codeforces.com/problemset/problem/2211/C1) | `Codeforces` | `1300` | `equalMultisetsEasyVersion.js` | Key algorithmic application from Day 2026-11-05. |
+| [Interesting Ratio](https://codeforces.com/problemset/problem/2091/E) | `Codeforces` | `1300` | `interestingRatio.js` | Key algorithmic application from Day 2026-11-05. |
+| [Cut Ribbon](https://codeforces.com/problemset/problem/189/A) | `Codeforces` | `1300` | `cutRibbon.js` | Key algorithmic application from Day 2026-11-05. |
+| [Broken checker](https://codeforces.com/problemset/problem/171/D) | `Codeforces` | `1300` | `brokenChecker.js` | Key algorithmic application from Day 2026-11-05. |
+| [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
+| [Okabe and Banana Trees](https://codeforces.com/problemset/problem/821/B) | `Codeforces` | `1300` | `okabeAndBananaTrees.js` | Key algorithmic application from Day 2026-11-05. |
+| [Economy Game](https://codeforces.com/problemset/problem/681/B) | `Codeforces` | `1300` | `economyGame.js` | Key algorithmic application from Day 2026-11-05. |
+| [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
+| [Bouncing Ball](https://codeforces.com/problemset/problem/1415/C) | `Codeforces` | `1400` | `bouncingBall.js` | Key algorithmic application from Day 2026-11-05. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
