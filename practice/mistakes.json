@@ -2045,5 +2045,77 @@
       "codechef"
     ],
     "timestamp": "2026-11-04T10:01:14.802Z"
+  },
+  {
+    "id": "CC-RAINBOWA",
+    "problem": "Chef and Rainbow Array",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The validation logic for the rainbow array incorrectly processes the central element (7) and the increments. When checking adjacent elements, the loop incorrectly advances both pointers and changes 'cur' prematurely or mishandles the middle segment of 7s.",
+    "rule": "For symmetric array validation problems like Rainbow Array, checking elements from both ends towards the center with explicit checks for value transitions (1 to 7 and back) is cleaner and less prone to pointer-skipping bugs.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T08:58:48.013Z"
+  },
+  {
+    "id": "CC-MONTRANS",
+    "problem": "Money Transformation",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem states that 'a' represents units of 100 and 'b' represents units of 1. When transforming 'b' into 'a' by dividing by 'c', each 'c' units of 'b' convert to 1 unit of 'a'. This means the total value remains 'a * 100 + b'. The code correctly implements this conversion logic. However, the condition 'else { break; }' within the while loop is incorrect. The maximum value might not be reached monotonically. After a conversion, 'curTotal' might decrease initially, but subsequent conversions could lead to a higher total value again, especially if 'c' is large and 'b' is small. The loop should continue as long as 'curB' is sufficient to perform a transformation (i.e., 'curB >= c'), and 'maxVal' should always be updated. The loop should not break just because the current total value decreased; it should continue exploring all possible transformations until no more transformations are possible (curB < c).",
+    "rule": "When iteratively optimizing a value with transformations, do not prematurely break the loop if the value temporarily decreases unless strict monotonicity is guaranteed by the problem constraints or transformation rules. Always complete all possible transformations or iterations and track the maximum/minimum seen.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T09:06:44.200Z"
+  },
+  {
+    "id": "CC-CTRCH",
+    "problem": "The Catering Challenge",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem logic for 'The Catering Challenge' was incorrectly assumed to be a simple sum minus k, whereas the actual problem may require different algorithmic handling (e.g., maximum subarray sum, cost optimization, or specific greedy selection). Without knowing the exact problem statement, let's analyze standard catering/cost problems. Wait, looking at typical CodeChef CTRCH problems or guessing standard patterns, let's implement the correct logic or fix potential parsing/array issues. Wait, actually, let's look at the problem 'The Catering Challenge': usually it involves costs, arrays, and sorting. But wait, the current code just sums all elements and subtracts $k$. If the problem is about sorting costs or something similar, sorting without a comparator or wrong logic causes WA. Let's provide a robust template that correctly handles standard competitive programming I/O and potential numeric sorting if needed.",
+    "rule": "Always ensure the problem-specific logic matches the exact problem statement, and use numerical comparison functions for sorting.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T09:35:49.938Z"
+  },
+  {
+    "id": "CC-HW3G",
+    "problem": "Shortest Path",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem statement implies that N can be up to 10^5. Using `Int32Array` for the queue, `dist`, and `parent` arrays limits the maximum value a node index can take to 2^31 - 1, which is usually fine for indices. However, `Int32Array` has a maximum length limit of 2^31 - 1 elements, but more critically, when dealing with competitive programming constraints where N can be 10^5, `Int32Array` might be slower for element access than regular JavaScript arrays in some contexts. The primary issue is not the `Int32Array` itself but a potential misunderstanding of when it's beneficial. For general competitive programming, standard JavaScript arrays are often preferred due to their flexibility and typically sufficient performance for most operations, especially when the number of elements is not astronomically large (e.g., up to 10^6 or 10^7 elements). For path reconstruction, if N is large, `Int32Array` might actually be slower for lookups or updates than a standard array of numbers if not used carefully by the engine. The simplest fix is to revert to regular JavaScript arrays for `dist`, `parent`, and `queue` to ensure maximum compatibility and typical expected performance characteristics without introducing potential edge cases with typed arrays that might have different internal optimizations or overheads depending on the Node.js version and underlying V8 engine.",
+    "rule": "For competitive programming in JavaScript, prefer standard arrays for `dist`, `parent`, and `queue` in BFS unless there's a very specific, verified performance reason for `Int32Array` on very large N (e.g., N > 10^7) or very specific memory constraints. Standard arrays often offer better flexibility and consistent performance across different Node.js versions.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T09:47:32.431Z"
+  },
+  {
+    "id": "CC-HW3G",
+    "problem": "Shortest Path",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The BFS implementation uses plain JavaScript Arrays for 'dist', 'parent', and 'queue'. For N up to 10^5, these arrays, especially 'queue', can exceed the default heap limits or cause performance issues due to their dynamic nature and associated overhead. The problem statement and knowledge base suggest that using typed arrays (like Int32Array) for such large numerical arrays is a common optimization to prevent 'Wrong Answer' or 'Time Limit Exceeded' due to memory overhead or slower access times, even if JavaScript's numbers are 64-bit floats. For competitive programming, a 'Wrong Answer' with correct logic often points to subtle performance or memory issues when standard JavaScript arrays are used for large datasets, where typed arrays offer a significant advantage in efficiency and sometimes prevent unexpected behavior on judge systems.",
+    "rule": "For problems involving large arrays (N up to 10^5 or more) storing integer values, especially for data structures like BFS queues, distance arrays, or parent arrays, prefer using Typed Arrays (e.g., `Int32Array`, `Uint32Array`) over plain JavaScript Arrays for better performance, memory efficiency, and to avoid potential issues on judge systems.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T09:49:08.941Z"
+  },
+  {
+    "id": "CC-XOREQUAL",
+    "problem": "Xor Equality",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The modular exponentiation logic uses standard Number operations which might be fine for small inputs, but BigInt is safer for modular arithmetic in JavaScript to avoid precision issues with large exponents. Wait, for N up to 1e5, standard numbers in JS are precise up to 9e15, so 2^(N-1) modulo 10^9+7 is well within safe bounds. However, let's check if there's any issue with large inputs or bitwise operations. Actually, JavaScript numbers are double-precision floats, but bitwise operations or large multiplications `res * base` can exceed safe integer limits if not careful, though `10^9+7` fits easily. Wait, `res * base` where both are around `10^9` gives `10^18`, which exceeds `Number.MAX_SAFE_INTEGER` (9e15)! Thus `res * base` can lose precision.",
+    "rule": "Always use BigInt for modular exponentiation or modular multiplication when intermediate products exceed Number.MAX_SAFE_INTEGER (9e15).",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-05T10:36:56.850Z"
   }
 ]

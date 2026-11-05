@@ -1,26 +1,26 @@
 {
   "date": "2026-11-05",
   "day": 42,
-  "status": "IN_PROGRESS",
-  "finished": false,
+  "status": "FINISHED",
+  "finished": true,
   "totalProblems": 99,
   "solutionsCount": 99,
   "testsCount": 99,
   "explanationsCount": 99,
   "verifiedCount": 99,
-  "submittedCount": 0,
-  "acceptedCount": 0,
-  "dlqCount": 0,
+  "submittedCount": 99,
+  "acceptedCount": 66,
+  "dlqCount": 44,
   "percentVerified": 100,
-  "percentSubmitted": 0,
-  "percentAccepted": 0,
+  "percentSubmitted": 100,
+  "percentAccepted": 67,
   "byPlatform": {
     "codeforces": {
       "name": "Codeforces",
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
+      "submitted": 33,
       "accepted": 0
     },
     "leetcode": {
@@ -28,17 +28,17 @@
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
-      "accepted": 0
+      "submitted": 33,
+      "accepted": 33
     },
     "codechef": {
       "name": "CodeChef",
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
-      "accepted": 0
+      "submitted": 33,
+      "accepted": 33
     }
   },
-  "updatedAt": "2026-11-05T07:28:19.356Z"
+  "updatedAt": "2026-11-05T11:48:34.542Z"
 }

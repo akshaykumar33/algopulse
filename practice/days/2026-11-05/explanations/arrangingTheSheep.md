@@ -14,3 +14,4 @@ This is minimized when $x$ is the median of the sequence $y$, namely $x = y_{\lf
 ## Complexity
 - Time Complexity: $O(n)$ per test case.
 - Space Complexity: $O(n)$ to store sheep positions.
+

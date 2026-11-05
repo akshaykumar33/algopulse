@@ -1,12 +1,27 @@
 var numberOfSetsOfKNonOverlappingLineSegments = function(n, k) {
-    const MOD = 1000000007;
-    const total = n + k - 1;
-    const m = 2 * k;
-    let c = 1;
-    for (let i = 0; i < m; i++) {
-        c = Number((BigInt(c) * BigInt(total - i)) / BigInt(i + 1));
+  let mod = 1000000007n;
+  let N = BigInt(n + k - 1);
+  let M = BigInt(2 * k);
+  if (M > N) return 0;
+  if (M > N - M) M = N - M;
+  let num = 1n;
+  let den = 1n;
+  for (let i = 0n; i < M; i++) {
+    num = (num * (N - i)) % mod;
+    den = (den * (i + 1n)) % mod;
+  }
+  let power = function(base, exp) {
+    let res = 1n;
+    base = base % mod;
+    while (exp > 0n) {
+      if (exp % 2n === 1n) res = (res * base) % mod;
+      base = (base * base) % mod;
+      exp = exp / 2n;
     }
-    return Number(BigInt(c) % BigInt(MOD));
+    return res;
+  };
+  let invDen = power(den, mod - 2n);
+  return Number((num * invDen) % mod);
 };
 var solve = typeof numberOfSetsOfKNonOverlappingLineSegments !== 'undefined' ? numberOfSetsOfKNonOverlappingLineSegments : null;
 

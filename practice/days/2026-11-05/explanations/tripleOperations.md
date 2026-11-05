@@ -16,3 +16,4 @@ We precompute prefix sums of costs up to $2 \times 10^5$ to answer each query in
 - Precomputation: $O(\text{MAX})$ where $\text{MAX} = 200,000$.
 - Per Query: $O(1)$ time.
 - Space Complexity: $O(\text{MAX})$.
+
