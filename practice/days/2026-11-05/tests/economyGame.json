@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1234567\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "1\n",
+    "output": "NO\n"
+  }
+]
