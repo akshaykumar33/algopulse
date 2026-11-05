@@ -40,7 +40,7 @@ async function fetchCodeforcesProblems({ handle, usedIds, rootFiles, targets, po
   }
 
   const pool = problems
-    .filter((p) => p.type === 'PROGRAMMING' && p.rating)
+    .filter((p) => p.type === 'PROGRAMMING' && p.rating && !(p.tags || []).includes('*special') && p.contestId !== 1001 && p.contestId !== 1002 && p.contestId <= 2100)
     .map((p) => {
       const id = `${p.contestId}${p.index}`;
       return {

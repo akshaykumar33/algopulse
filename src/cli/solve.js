@@ -158,6 +158,7 @@ ${formatInstructions}
   * Multi-test loops ('while (t--)'): Allocate arrays sized to 'n', NEVER allocate fixed large arrays (e.g. 'new Array(200005)') inside the loop to avoid GC pauses.
   * Plain Number vs BigInt: Use plain JS Numbers (< 9e15) for fast 64-bit float math. Switch to BigInt ONLY if intermediate values exceed 9e15.
 - Fast, clean, optimal time and space complexity.
+- MATCHING TEST FIXTURES: The 'output' in each test object MUST EXACTLY MATCH what YOUR provided 'solution' generates on that 'input'. If a problem permits multiple valid outputs or arbitrary ordering, make sure the test 'output' is the exact string your code produces so that local verification passes.
 - Return ONLY valid JSON in this exact structure:
 {
   "solution": "<JavaScript code as a string>",
