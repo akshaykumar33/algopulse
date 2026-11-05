@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n2 2\nRG\nGR\n3 3\nRGR\nGRG\nRGR\n",
+    "output": "0\n0"
+  }
+]

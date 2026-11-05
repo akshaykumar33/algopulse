@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n4\nBegin on Road A\nRight on Road B\nRight on Road C\nLeft on Road D\n6\nBegin on Old Madras Road\nLeft on Domlur Flyover\nLeft on 100 Feet Road\nRight on Sarjapur Road\nRight on Hosur Road\nRight on Ganapathi Temple Road",
+    "output": "Begin on Road D\nRight on Road C\nLeft on Road B\nLeft on Road A\n\nBegin on Ganapathi Temple Road\nLeft on Hosur Road\nLeft on Sarjapur Road\nLeft on 100 Feet Road\nRight on Domlur Flyover\nRight on Old Madras Road"
+  }
+]
