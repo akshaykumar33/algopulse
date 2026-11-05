@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync, execSync } = require('child_process');
+const { localToday, updateDayStatus } = require('../lib/dayStatus');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const ROOT = path.join(REPO, 'practice');
@@ -48,7 +49,8 @@ async function main() {
     process.exit(1);
   }
 
-  const date = flag('--date') || days[days.length - 1];
+  const today = localToday();
+  const date = flag('--date') || (fs.existsSync(path.join(DAYS, today)) ? today : days[days.length - 1]);
   const autoMerge = !args.includes('--no-merge');
   const dayDir = path.join(DAYS, date);
   const setPath = path.join(dayDir, 'set.json');
@@ -265,6 +267,7 @@ async function main() {
     runSh('git pull --ff-only origin main');
   }
 
+  try { updateDayStatus(date); } catch {}
   console.log(`\n[ship] Day ${set.day} (${date}) ship workflow completed successfully!`);
 }
 

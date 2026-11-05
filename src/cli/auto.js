@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
+const { localToday, getDayStatus, updateDayStatus } = require('../lib/dayStatus');
 
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const DAYS_DIR = path.join(REPO_ROOT, 'practice', 'days');

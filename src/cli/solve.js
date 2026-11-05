@@ -9,6 +9,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const ai = require('../ai');
 const rag = require('../ai/rag');
+const { localToday } = require('../lib/dayStatus');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const ROOT = path.join(REPO, 'practice');
@@ -249,7 +250,8 @@ async function main() {
     process.exit(1);
   }
 
-  const date = flag('--date') || days[days.length - 1];
+  const today = localToday();
+  const date = flag('--date') || (fs.existsSync(path.join(DAYS, today)) ? today : days[days.length - 1]);
   const force = args.includes('--force');
   const filterPlatform = flag('--platform');
   const filterProblem = flag('--problem');

@@ -1203,7 +1203,8 @@ async function main() {
     process.exit(1);
   }
 
-  const date = flag('--date') || days[days.length - 1];
+  const today = localToday();
+  const date = flag('--date') || (fs.existsSync(path.join(PRACTICE_DAYS_DIR, today)) ? today : days[days.length - 1]);
   const dayDir = path.join(PRACTICE_DAYS_DIR, date);
   const setPath = path.join(dayDir, 'set.json');
 

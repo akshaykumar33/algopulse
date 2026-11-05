@@ -3,6 +3,7 @@ const path = require('path');
 const { detectParadigm, generateParadigmFlowchart, generateSequenceWalkthrough } = require('../lib/visualizer');
 const ai = require('../ai');
 const { generateExplanation } = require('../ai/prompts');
+const { localToday } = require('../lib/dayStatus');
 
 const REPO = path.resolve(__dirname, '..', '..');
 const ROOT = path.join(REPO, 'practice');
@@ -116,7 +117,8 @@ async function main() {
     process.exit(1);
   }
 
-  const date = flag('--date') || days[days.length - 1];
+  const today = localToday();
+  const date = flag('--date') || (fs.existsSync(path.join(DAYS, today)) ? today : days[days.length - 1]);
   const positionals = getPositionalArgs();
   const targetProblem = positionals[0] || null;
 
