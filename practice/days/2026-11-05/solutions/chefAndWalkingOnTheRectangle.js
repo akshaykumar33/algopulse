@@ -1,32 +1,34 @@
 const fs = require('fs');
 
 function solve() {
-    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-    let ptr = 0;
-    const t = parseInt(tokens[ptr++], 10);
-    const out = [];
-    for (let i = 0; i < t; i++) {
-        const n = parseInt(tokens[ptr++], 10);
-        const m = parseInt(tokens[ptr++], 10);
-        const k = parseInt(tokens[ptr++], 10);
-        if (n === 1 && m === 1) {
-            out.push(0);
-        } else if (n === 1 || m === 1) {
-            if (k >= 2) {
-                out.push(Math.floor(k / 2));
-            } else {
-                out.push(0);
-            }
-        } else {
-            if (k % 2 === 0) {
-                out.push(k);
-            } else {
-                out.push(k - 1);
-            }
-        }
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
     }
-    console.log(out.join('\n'));
+    return res;
+  }
+  const t = nextInt();
+  if (t === null) return;
+  const out = [];
+  for (let i = 0; i < t; i++) {
+    const n = nextInt();
+    const m = nextInt();
+    const k = nextInt();
+    if ((n === 1 && m <= 2) || (m === 1 && n <= 2)) {
+      out.push(0);
+    } else if (n === 1 || m === 1) {
+      out.push(k);
+    } else {
+      out.push(Math.floor((k + 1) / 2));
+    }
+  }
+  console.log(out.join('\n'));
 }
 
 solve();

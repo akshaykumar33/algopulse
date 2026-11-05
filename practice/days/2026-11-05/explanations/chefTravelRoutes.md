@@ -1,72 +1,22 @@
-# Chef Travel Routes (CodeChef CC-TRAVELER)
+# Chef Travel Routes (CC-TRAVELER)
 
-## 1. Problem Overview
-- **Platform:** CodeChef
-- **Problem ID:** [CC-TRAVELER](https://www.codechef.com/problems/TRAVELER)
-- **Difficulty / Rating:** 1478
-- **Tags:** codechef
-- **Solution File:** `chefTravelRoutes.js`
-- **Starter Template:** `templates/codechef.js`
+## Problem Overview
+Chef is planning travel routes in a directed graph of $N \le 50$ cities connected by $M$ directed roads with positive lengths. For each planned route of $K$ cities:
+1. Every city name in the route must exist among the given $N$ cities.
+2. Chef hates visiting any city more than once: all $K$ cities must be distinct.
+3. If $K > 1$, there must exist a valid directed road connecting consecutive cities $C_i \to C_{i+1}$.
 
----
+If valid, we output the total distance along the route (or 0 if $K=1$). If any condition fails, output `ERROR`.
 
-## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
+## Key Insight & Invariants
+- Use a `Set` for $O(1)$ city existence lookup.
+- Use a `Map` keyed by `C1 + '#' + C2` to store edge weights for directed roads.
+- For each query route:
+  - Check that all cities exist in the city set.
+  - Check that all $K$ cities are mutually distinct via a visited set.
+  - If valid so far, traverse consecutive pairs $(C_i, C_{i+1})$: if any edge is missing from the road map, return `ERROR`.
+  - Otherwise, accumulate edge lengths and print the total.
 
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
-
----
-
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/chefTravelRoutes.js
-```
+## Complexity
+- **Time Complexity:** $O(N + M + T \cdot K)$ where $N \le 50, M \le 2500, T \le 50, K \le 50$. Total operations $\approx 5000$, well under 1ms.
+- **Space Complexity:** $O(N + M)$ for graph representation and city dictionary.

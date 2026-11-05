@@ -1,6 +1,6 @@
 [
   {
-    "input": "4\n1 2 1\n2 3 2\n3 4 3\n2\n1 4\n2 3\n",
-    "output": "6\n2\n"
+    "input": "5\nDonetsk Kiev New-York Miami Hollywood\n9\nDonetsk Kiev 560\nKiev New-York 7507\nNew-York Miami 1764\nMiami Hollywood 28\nHollywood Miami 30\nMiami New-York 1764\nKiev Donetsk 550\nHollywood New-York 1736\nNew-York Hollywood 1738\n13\n5 Donetsk Kiev New-York Miami Hollywood\n5 Hollywood Miami New-York Kiev Donetsk\n3 Donetsk Kiev Donetsk\n2 Kyiv New-York\n3 New-York Hollywood Miami\n2 New-York Miami\n3 Hollywood New-York Miami\n4 Donetsk Kiev Miami Hollywood\n2 Donetsk Hollywood\n1 Donetsk\n2 Mumbai Deli\n6 Donetsk Kiev New-York Miami Hollywood New-York\n2 Miami Miami",
+    "output": "9859\nERROR\nERROR\nERROR\n1768\n1764\n3500\nERROR\nERROR\n0\nERROR\nERROR\nERROR"
   }
 ]

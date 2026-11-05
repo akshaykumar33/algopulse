@@ -1,49 +1,69 @@
 const fs = require('fs');
 
 function solve() {
-    const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-    if (!tokens || tokens.length === 0 || tokens[0] === '') return;
-    let ptr = 0;
-    
-    const n = parseInt(tokens[ptr++], 10);
-    const adj = Array.from({ length: n + 1 }, () => []);
-    
-    for (let i = 0; i < n - 1; i++) {
-        const u = parseInt(tokens[ptr++], 10);
-        const v = parseInt(tokens[ptr++], 10);
-        const w = parseInt(tokens[ptr++], 10);
-        adj[u].push({ to: v, weight: w });
-        adj[v].push({ to: u, weight: w });
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  let ptr = 0;
+
+  const n = parseInt(tokens[ptr++], 10);
+  const citySet = new Set();
+  for (let i = 0; i < n; i++) {
+    citySet.add(tokens[ptr++]);
+  }
+
+  const m = parseInt(tokens[ptr++], 10);
+  const roads = new Map();
+  for (let i = 0; i < m; i++) {
+    const c1 = tokens[ptr++];
+    const c2 = tokens[ptr++];
+    const d = parseInt(tokens[ptr++], 10);
+    roads.set(c1 + '#' + c2, d);
+  }
+
+  const t = parseInt(tokens[ptr++], 10);
+  const out = [];
+
+  for (let tc = 0; tc < t; tc++) {
+    const k = parseInt(tokens[ptr++], 10);
+    const route = [];
+    for (let i = 0; i < k; i++) {
+      route.push(tokens[ptr++]);
     }
-    
-    const q = parseInt(tokens[ptr++], 10);
-    const out = [];
-    
-    for (let i = 0; i < q; i++) {
-        const start = parseInt(tokens[ptr++], 10);
-        const end = parseInt(tokens[ptr++], 10);
-        
-        const dist = new Array(n + 1).fill(-1);
-        const queue = [start];
-        dist[start] = 0;
-        let head = 0;
-        
-        while (head < queue.length) {
-            const curr = queue[head++];
-            if (curr === end) break;
-            
-            for (const edge of adj[curr]) {
-                if (dist[edge.to] === -1) {
-                    dist[edge.to] = dist[curr] + edge.weight;
-                    queue.push(edge.to);
-                }
-            }
-        }
-        
-        out.push(dist[end]);
+
+    const seen = new Set();
+    let ok = true;
+    for (let i = 0; i < k; i++) {
+      const city = route[i];
+      if (!citySet.has(city) || seen.has(city)) {
+        ok = false;
+        break;
+      }
+      seen.add(city);
     }
-    
-    console.log(out.join('\n'));
+
+    if (!ok) {
+      out.push('ERROR');
+      continue;
+    }
+
+    let total = 0;
+    for (let i = 0; i < k - 1; i++) {
+      const key = route[i] + '#' + route[i + 1];
+      if (!roads.has(key)) {
+        ok = false;
+        break;
+      }
+      total += roads.get(key);
+    }
+
+    if (ok) {
+      out.push(total);
+    } else {
+      out.push('ERROR');
+    }
+  }
+
+  console.log(out.join('\n'));
 }
 
 solve();

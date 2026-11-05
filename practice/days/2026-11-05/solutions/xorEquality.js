@@ -5,23 +5,22 @@ function solve() {
   if (!tokens || tokens.length === 0 || tokens[0] === '') return;
   let ptr = 0;
   const t = parseInt(tokens[ptr++], 10);
-  const MOD = 1000000007;
+  const MOD = 1000000007n;
   const out = [];
   
   for (let i = 0; i < t; i++) {
-    const n = parseInt(tokens[ptr++], 10);
-    let base = 2;
-    let exp = n - 1;
-    let res = 1;
-    base = base % MOD;
-    while (exp > 0) {
-      if (exp % 2 === 1) {
+    const n = BigInt(tokens[ptr++]);
+    let base = 2n;
+    let exp = n - 1n;
+    let res = 1n;
+    while (exp > 0n) {
+      if (exp % 2n === 1n) {
         res = (res * base) % MOD;
       }
       base = (base * base) % MOD;
-      exp = Math.floor(exp / 2);
+      exp /= 2n;
     }
-    out.push(res);
+    out.push(res.toString());
   }
   console.log(out.join('\n'));
 }

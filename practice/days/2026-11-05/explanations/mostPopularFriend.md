@@ -1,72 +1,14 @@
-# Most Popular Friend (CodeChef CC-LOKBIL)
+# Most Popular Friend (CC-LOKBIL)
 
-## 1. Problem Overview
-- **Platform:** CodeChef
-- **Problem ID:** [CC-LOKBIL](https://www.codechef.com/problems/LOKBIL)
-- **Difficulty / Rating:** 1431
-- **Tags:** codechef
-- **Solution File:** `mostPopularFriend.js`
-- **Starter Template:** `templates/codechef.js`
+## Problem Overview
+Given $T$ friend groups (graphs) with $N \le 100$ people. In each group, the $i$-th line gives the space-separated friend list of user $i$. The distance between users is the shortest path length in the friend graph (with self-distance $0$). A friend's notoriety is their average distance to all friends in the group. We must find the friend with minimum notoriety (with ties broken by smallest user ID) and their average distance formatted to 6 decimal places.
 
----
+## Key Insight & Invariants
+- Since $N \le 100$, we can run unweighted Breadth-First Search (BFS) from every node $i \in [1..N]$ to compute shortest path distances to all reachable nodes in $O(N + M)$ time.
+- Accumulate the sum of distances $\sum_{j=1}^N \text{dist}[i][j]$.
+- Find $i$ minimizing this sum. The average distance is $\frac{\sum \text{dist}[i][j]}{N}$.
+- Formatting with `.toFixed(6)` provides the required 6 digits of decimal precision.
 
-## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
-
----
-
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/mostPopularFriend.js
-```
+## Complexity
+- **Time Complexity:** $O(N \cdot (N + M))$ per testcase, running in $< 5$ms for $N \le 100$.
+- **Space Complexity:** $O(N + M)$ for adjacency list and BFS queue.
