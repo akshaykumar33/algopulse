@@ -2117,5 +2117,33 @@
       "codechef"
     ],
     "timestamp": "2026-11-05T10:36:56.850Z"
+  },
+  {
+    "id": "1774C",
+    "problem": "Ice and Fire",
+    "platform": "Codeforces",
+    "verdict": "RUNTIME_ERROR",
+    "diagnosis": "The runtime error occurs when 'n' is 1. In this case, 'n - 1' is 0, making the 'b' array empty. The code then attempts to access 'b[0]' and 'b[n - 2]' (which is 'b[-1]') which are out of bounds, leading to an error. The problem constraints typically mean 'n' is at least 2, but 'n=1' is a valid edge case for some problems, and it's essential to handle it. For 'n=1', there are no 'b' values, and the output should simply be '1'.",
+    "rule": "Always carefully consider edge cases for 'n' (e.g., n=1, n=2, maximum n) and ensure array accesses are within bounds, especially when 'n-1' or 'n-2' are involved in array length or indexing.",
+    "tags": [
+      "constructive algorithms",
+      "dp",
+      "greedy"
+    ],
+    "timestamp": "2026-11-06T08:16:04.703Z"
+  },
+  {
+    "id": "1774C",
+    "problem": "Ice and Fire",
+    "platform": "Codeforces",
+    "verdict": "RUNTIME_ERROR",
+    "diagnosis": "The runtime error occurs when 'n' is 2. In this case, 'n - 2' becomes 0. The loop 'for (let i = 0; i < n - 2; i++)' will not execute. This leads to out.push(b[n - 2]) trying to access b[0] which is correct but the logic for n=2 specifically needs to handle the edge case where the middle loop doesn't run, leaving only b[0] and b[n-2] which would be b[0] and b[0]. This is incorrect. The problem states that for n=2, there is only one element in b (b[0]), and the output should be b[0] (the first element) and b[0] (the last element), which essentially means just b[0]. The general loop structure `out.push(b[0]); for (...) out.push(b[n - 2]);` implicitly assumes `n >= 2` for `b` to exist and `n >= 3` for the middle loop to make sense and `b[n-2]` to be distinct from `b[0]`. The existing `if (n === 1)` correctly handles the base case. For `n=2`, `b` has one element `b[0]`. The code `out.push(b[0])` adds `b[0]`. The loop `for (let i = 0; i < n - 2; i++)` (i.e., `for (let i = 0; i < 0; i++)`) does not run. Then `out.push(b[n - 2])` (i.e., `out.push(b[0])`) adds `b[0]` again. So for `n=2`, the output is `b[0] b[0]`. However, the problem statement examples (e.g., n=2, b=[5], output=5) and the problem's logic imply that for n=2, the result should just be the single element from array `b`. This isn't a runtime error, but a logical error for n=2. The reference solution reveals a more robust approach for n=2, suggesting the specific edge case for n=2 requires `b[0]` to be printed.",
+    "rule": "Always carefully test small values of 'n' (n=1, n=2, n=3) against problem examples and constraints to uncover off-by-one errors or incorrect loop bounds, especially when 'n-1' or 'n-2' are used as array sizes or loop limits.",
+    "tags": [
+      "constructive algorithms",
+      "dp",
+      "greedy"
+    ],
+    "timestamp": "2026-11-06T08:17:31.334Z"
   }
 ]

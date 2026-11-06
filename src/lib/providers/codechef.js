@@ -69,9 +69,15 @@ async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRati
     const pCode = cand.id.replace(/^CC-/, '');
     try {
       const details = await fetchJson(`https://www.codechef.com/api/contests/PRACTICE/problems/${pCode}`);
-      if (details.body && (details.body.includes('This is an example') || details.body.includes('example problem statement'))) {
-        console.warn(`[codechef-provider] Skipping ${cand.id} (${cand.name}) - placeholder template statement.`);
-        continue;
+      if (details.body) {
+        const stripped = details.body
+          .replace(/This is an example statement in markdown[\s\S]*?help@codechef\.com\./i, '')
+          .replace(/example problem statement/gi, '')
+          .trim();
+        if (stripped.length < 50) {
+          console.warn(`[codechef-provider] Skipping ${cand.id} (${cand.name}) - placeholder template statement.`);
+          continue;
+        }
       }
       const langs = details.languages_supported || '';
       if (langs && !/NODEJS/i.test(langs)) {

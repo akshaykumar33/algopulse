@@ -117,26 +117,41 @@ function syncSessionsFromEnv() {
   // 3. Codeforces
   const cfSession = env.CODEFORCES_SESSION || process.env.CODEFORCES_SESSION;
   if (cfSession && cfSession.trim()) {
-    let cookieName = getExistingCookieName(PLATFORMS.codeforces.authFile, /39af5|39ce7/i, '39af5');
-    let cookieValue = cfSession.trim();
-    if (cfSession.includes('=')) {
-      const parts = cfSession.split('=');
-      cookieName = parts[0].trim();
-      cookieValue = parts.slice(1).join('=').trim();
-    }
-    if (cookieValue) {
-      updateAuthFile(PLATFORMS.codeforces.authFile, [
-        {
+    const pairs = cfSession.split(';').map((s) => s.trim()).filter(Boolean);
+    const newCookies = [];
+    for (const pair of pairs) {
+      if (pair.includes('=')) {
+        const eqIdx = pair.indexOf('=');
+        const k = pair.slice(0, eqIdx).trim();
+        const v = pair.slice(eqIdx + 1).trim();
+        if (k && v) {
+          newCookies.push({
+            name: k,
+            value: v,
+            domain: '.codeforces.com',
+            path: '/',
+            expires: 2000000000,
+            httpOnly: true,
+            secure: true,
+            sameSite: 'Lax',
+          });
+        }
+      } else {
+        let cookieName = getExistingCookieName(PLATFORMS.codeforces.authFile, /39af5|39ce7/i, '39af5');
+        newCookies.push({
           name: cookieName,
-          value: cookieValue,
+          value: pair,
           domain: '.codeforces.com',
           path: '/',
           expires: 2000000000,
           httpOnly: true,
           secure: true,
           sameSite: 'Lax',
-        },
-      ]);
+        });
+      }
+    }
+    if (newCookies.length > 0) {
+      updateAuthFile(PLATFORMS.codeforces.authFile, newCookies);
       results.codeforces = true;
     }
   }
