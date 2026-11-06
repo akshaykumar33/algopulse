@@ -1,0 +1,26 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "513B1",
+    "name": "Permutations",
+    "file": "permutations",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-06T04:39:00.461Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "513B1",
+      "name": "Permutations",
+      "rating": 1400,
+      "tags": [
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/513/B1",
+      "file": "permutations",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+  }
+]
