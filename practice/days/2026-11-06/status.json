@@ -1,19 +1,44 @@
 {
   "date": "2026-11-06",
-  "day": null,
-  "status": "NOT_INITIALIZED",
-  "finished": false,
-  "totalProblems": 0,
-  "solutionsCount": 0,
-  "testsCount": 0,
-  "explanationsCount": 0,
-  "verifiedCount": 0,
-  "submittedCount": 0,
-  "acceptedCount": 0,
+  "day": 43,
+  "status": "FINISHED",
+  "finished": true,
+  "totalProblems": 99,
+  "solutionsCount": 99,
+  "testsCount": 99,
+  "explanationsCount": 99,
+  "verifiedCount": 99,
+  "submittedCount": 99,
+  "acceptedCount": 99,
   "dlqCount": 0,
-  "percentVerified": 0,
-  "percentSubmitted": 0,
-  "percentAccepted": 0,
-  "reason": "No set.json found",
-  "updatedAt": "2026-11-06T17:08:13.241Z"
+  "percentVerified": 100,
+  "percentSubmitted": 100,
+  "percentAccepted": 100,
+  "byPlatform": {
+    "codeforces": {
+      "name": "Codeforces",
+      "total": 33,
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 33
+    },
+    "leetcode": {
+      "name": "LeetCode",
+      "total": 33,
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 33
+    },
+    "codechef": {
+      "name": "CodeChef",
+      "total": 33,
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 33
+    }
+  },
+  "updatedAt": "2026-11-06T19:10:00.000Z"
 }

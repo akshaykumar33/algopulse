@@ -2145,5 +2145,17 @@
       "greedy"
     ],
     "timestamp": "2026-11-06T08:17:31.334Z"
+  },
+  {
+    "id": "1046C",
+    "problem": "Space Formula",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem states that 'd' is 1-indexed for your team's position, but the code uses 'd' directly as a 0-indexed array index after subtracting 1. This means the code correctly identifies your team's score, s[d], and combines it with pts[0]. However, when calculating the rank, it only iterates from i = 0 to d-1. It completely misses considering teams at indices d+1 through n-1. These teams can also potentially beat your combined score using available points from pts, affecting your rank. The points array 'pts' represents points available to other teams. The crucial insight is that other teams will try to maximize their score to beat yours. The problem implies that the points from `pts` can be distributed to any of the `n-1` other teams. Since `pts` is already sorted in descending order, other teams will pick the largest available point values to maximize their chances of beating your score. The current greedy logic only compares `s[i]` for `i < d` with `pts[ptIdx]`, which is incorrect because `pts` points can be assigned to `s[i]` for `i > d` as well. The correct approach is to consider all `n-1` other teams, and for each team, add the largest available `pts` value to maximize their score. Then, count how many of these optimized scores exceed `myTotal`.",
+    "rule": "When a problem involves pairing elements or distributing resources (like points in `pts`) among other participants to determine a rank or outcome, ensure all relevant participants are considered. If resources are limited and sorted (like `pts`), assume optimal greedy usage by opponents to maximize their scores against yours, considering all possible opponents, not just a subset.",
+    "tags": [
+      "greedy"
+    ],
+    "timestamp": "2026-11-06T18:37:26.924Z"
   }
 ]

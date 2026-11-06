@@ -6,7 +6,7 @@ function solve() {
   
   let ptr = 0;
   const n = parseInt(input[ptr++], 10);
-  const d = parseInt(input[ptr++], 10) - 1;
+  const d = parseInt(input[ptr++], 10);
   
   const s = new Int32Array(n);
   for (let i = 0; i < n; i++) {
@@ -18,19 +18,33 @@ function solve() {
     pts[i] = parseInt(input[ptr++], 10);
   }
   
-  const myTotal = s[d] + pts[0];
-  let ptIdx = 1;
-  let rank = 1;
+  const myTotal = s[d - 1] + pts[0];
   
-  for (let i = 0; i < d; i++) {
-    if (s[i] + pts[ptIdx] >= myTotal) {
-      ptIdx++;
-      rank++;
+  function canBeat(k) {
+    if (k === 0) return true;
+    for (let j = 0; j < k; j++) {
+      if (s[d - 1 - k + j] + pts[n - 1 - j] > myTotal) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  let low = 0;
+  let high = d - 1;
+  let bestK = 0;
+  
+  while (low <= high) {
+    const mid = (low + high) >> 1;
+    if (canBeat(mid)) {
+      bestK = mid;
+      low = mid + 1;
+    } else {
+      high = mid - 1;
     }
   }
   
-  console.log(rank);
+  console.log(d - bestK);
 }
 
 solve();
-

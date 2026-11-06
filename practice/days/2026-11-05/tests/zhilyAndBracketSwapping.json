@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\n2\n()\n4\n()()\n",
-    "output": "1\n2"
+    "input": "7\n2\n()\n()\n4\n))(( \n(())\n4\n((((\n))))\n4\n()()\n(())\n6\n(((())\n()()))\n8\n()()()()\n(((())))\n4\n((((\n((((\n",
+    "output": "YES\nNO\nNO\nYES\nYES\nYES\nNO\n"
   }
 ]

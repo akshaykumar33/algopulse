@@ -165,6 +165,23 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
     page.click('input.submit[type="submit"], input[value="Submit"]'),
   ]);
 
+  const submitError = await page.$eval('.error, .for-field-error', (el) => el.innerText.trim()).catch(() => '');
+  if (submitError && submitError.includes('You have submitted exactly the same code before')) {
+    console.log(`    [Codeforces] Duplicate submission detected on page. Fetching previous verdict from API...`);
+    const apiResult = await pollCodeforcesVerdictViaAPI(auth.handle, problemCode, 0);
+    if (apiResult) {
+      return {
+        platform: 'Codeforces',
+        problemId: problemCode,
+        submissionId: apiResult.submissionId,
+        verdict: apiResult.verdict,
+        time: apiResult.time,
+        memory: apiResult.memory,
+        submissionUrl: `https://codeforces.com/contest/${contestId}/submission/${apiResult.submissionId}`,
+      };
+    }
+  }
+
   // 6. Monitor Verdict via API
   console.log(`    [Codeforces] Waiting for judge verdict ...`);
   const startTime = Date.now();

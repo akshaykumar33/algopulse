@@ -502,7 +502,7 @@ async function submitSingleProblem(prob, options = {}) {
       }
     } catch {}
 
-    if (persistentContext && !options.useCdp && fs.existsSync(platConfig.authFile)) {
+    if (persistentContext && fs.existsSync(platConfig.authFile)) {
       try {
         const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
         if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
@@ -1411,7 +1411,7 @@ async function main() {
     browser = await launchBrowser({ headless: isHeadless });
   }
 
-  if (persistentContext && !useCdp) {
+  if (persistentContext) {
     for (const [pk, pCfg] of Object.entries(PLATFORMS)) {
       if (fs.existsSync(pCfg.authFile)) {
         try {

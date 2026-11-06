@@ -9,11 +9,11 @@
   "explanationsCount": 99,
   "verifiedCount": 99,
   "submittedCount": 99,
-  "acceptedCount": 66,
-  "dlqCount": 44,
+  "acceptedCount": 99,
+  "dlqCount": 0,
   "percentVerified": 100,
   "percentSubmitted": 100,
-  "percentAccepted": 67,
+  "percentAccepted": 100,
   "byPlatform": {
     "codeforces": {
       "name": "Codeforces",
@@ -21,7 +21,7 @@
       "solutions": 33,
       "verified": 33,
       "submitted": 33,
-      "accepted": 0
+      "accepted": 33
     },
     "leetcode": {
       "name": "LeetCode",
@@ -40,5 +40,5 @@
       "accepted": 33
     }
   },
-  "updatedAt": "2026-11-05T11:48:34.542Z"
+  "updatedAt": "2026-11-06T19:10:00.000Z"
 }

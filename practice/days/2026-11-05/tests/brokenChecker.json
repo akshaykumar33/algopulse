@@ -2,5 +2,13 @@
   {
     "input": "1\n",
     "output": "2\n"
+  },
+  {
+    "input": "2\n",
+    "output": "3\n"
+  },
+  {
+    "input": "3\n",
+    "output": "1\n"
   }
 ]
