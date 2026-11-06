@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"abcd\"\n2",
+    "output": "\"abcd\""
+  },
+  {
+    "input": "\"deeedbbcccbdaa\"\n3",
+    "output": "\"aa\""
+  },
+  {
+    "input": "\"pbbcggttciiippooaais\"\n2",
+    "output": "\"ps\""
+  }
+]
+

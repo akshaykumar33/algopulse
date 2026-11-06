@@ -1,0 +1,7 @@
+[
+  {
+    "input": "[\"SeatManager\",\"reserve\",\"reserve\",\"unreserve\",\"reserve\",\"reserve\",\"reserve\",\"reserve\",\"unreserve\"]\n[[5],[],[],[2],[],[],[],[],[5]]",
+    "output": "[null,1,2,null,2,3,4,5,null]"
+  }
+]
+
