@@ -238,6 +238,12 @@ function constructMatrix(n, m) {
 | [Difference Row](https://codeforces.com/problemset/problem/347/A) | `Codeforces` | `1300` | `differenceRow.js` | Key algorithmic application from Day 2026-11-05. |
 | [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
 | [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
+| [Matching Arrays](https://codeforces.com/problemset/problem/1896/C) | `Codeforces` | `1400` | `matchingArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Element Extermination](https://codeforces.com/problemset/problem/1375/C) | `Codeforces` | `1400` | `elementExtermination.js` | Key algorithmic application from Day 2026-11-06. |
+| [Theofanis' Nightmare](https://codeforces.com/problemset/problem/1903/C) | `Codeforces` | `1400` | `theofanisNightmare.js` | Key algorithmic application from Day 2026-11-06. |
+| [Phoenix and Towers](https://codeforces.com/problemset/problem/1515/C) | `Codeforces` | `1400` | `phoenixAndTowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bracket Coloring](https://codeforces.com/problemset/problem/1837/D) | `Codeforces` | `1400` | `bracketColoring.js` | Key algorithmic application from Day 2026-11-06. |
+| [Farewell Party](https://codeforces.com/problemset/problem/1081/B) | `Codeforces` | `1500` | `farewellParty.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

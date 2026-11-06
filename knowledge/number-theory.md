@@ -161,6 +161,12 @@ function sieve(maxN) {
 | [Interesting Ratio](https://codeforces.com/problemset/problem/2091/E) | `Codeforces` | `1300` | `interestingRatio.js` | Key algorithmic application from Day 2026-11-05. |
 | [Bear and Poker](https://codeforces.com/problemset/problem/573/A) | `Codeforces` | `1300` | `bearAndPoker.js` | Key algorithmic application from Day 2026-11-05. |
 | [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
+| [Reverse Card (Easy Version)](https://codeforces.com/problemset/problem/1967/B1) | `Codeforces` | `1400` | `reverseCardEasyVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Add to Neighbour and Remove](https://codeforces.com/problemset/problem/1462/D) | `Codeforces` | `1400` | `addToNeighbourAndRemove.js` | Key algorithmic application from Day 2026-11-06. |
+| [k-th divisor](https://codeforces.com/problemset/problem/762/A) | `Codeforces` | `1400` | `kThDivisor.js` | Key algorithmic application from Day 2026-11-06. |
+| [Zero Quantity Maximization](https://codeforces.com/problemset/problem/1133/D) | `Codeforces` | `1500` | `zeroQuantityMaximization.js` | Key algorithmic application from Day 2026-11-06. |
+| [Vasya and Petya's Game](https://codeforces.com/problemset/problem/576/A) | `Codeforces` | `1500` | `vasyaAndPetyaSGame.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

@@ -129,6 +129,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
 | [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
 | [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
+| [Approximating a Constant Range](https://codeforces.com/problemset/problem/602/B) | `Codeforces` | `1400` | `approximatingAConstantRange.js` | Key algorithmic application from Day 2026-11-06. |
+| [Sakurako's Field Trip](https://codeforces.com/problemset/problem/2033/C) | `Codeforces` | `1400` | `sakurakoSFieldTrip.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

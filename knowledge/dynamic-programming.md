@@ -151,6 +151,11 @@ dp.fill(-1); // Memoization sentinel
 | [Hamiltonian Wall](https://codeforces.com/problemset/problem/1766/C) | `Codeforces` | `1300` | `hamiltonianWall.js` | Key algorithmic application from Day 2026-11-05. |
 | [Basketball Exercise](https://codeforces.com/problemset/problem/1195/C) | `Codeforces` | `1400` | `basketballExercise.js` | Key algorithmic application from Day 2026-11-05. |
 | [Bouncing Ball](https://codeforces.com/problemset/problem/1415/C) | `Codeforces` | `1400` | `bouncingBall.js` | Key algorithmic application from Day 2026-11-05. |
+| [Approximating a Constant Range](https://codeforces.com/problemset/problem/602/B) | `Codeforces` | `1400` | `approximatingAConstantRange.js` | Key algorithmic application from Day 2026-11-06. |
+| [Copil Copac Draws Trees](https://codeforces.com/problemset/problem/1830/A) | `Codeforces` | `1400` | `copilCopacDrawsTrees.js` | Key algorithmic application from Day 2026-11-06. |
+| [Sakurako's Field Trip](https://codeforces.com/problemset/problem/2033/C) | `Codeforces` | `1400` | `sakurakoSFieldTrip.js` | Key algorithmic application from Day 2026-11-06. |
+| [Serval and Toxel's Arrays](https://codeforces.com/problemset/problem/1789/C) | `Codeforces` | `1500` | `servalAndToxelSArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

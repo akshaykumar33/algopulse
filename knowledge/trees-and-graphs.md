@@ -145,6 +145,11 @@ function dfsIterative(start, adj, n) {
 | [Divide by three, multiply by two](https://codeforces.com/problemset/problem/977/D) | `Codeforces` | `1400` | `divideByThreeMultiplyByTwo.js` | Key algorithmic application from Day 2026-11-03. |
 | [Alternating Path](https://codeforces.com/problemset/problem/2204/D) | `Codeforces` | `1400` | `alternatingPath.js` | Key algorithmic application from Day 2026-11-04. |
 | [Strong Vertices](https://codeforces.com/problemset/problem/1857/D) | `Codeforces` | `1300` | `strongVertices.js` | Key algorithmic application from Day 2026-11-05. |
+| [Copil Copac Draws Trees](https://codeforces.com/problemset/problem/1830/A) | `Codeforces` | `1400` | `copilCopacDrawsTrees.js` | Key algorithmic application from Day 2026-11-06. |
+| [Where is the Pizza?](https://codeforces.com/problemset/problem/1670/C) | `Codeforces` | `1400` | `whereIsThePizza.js` | Key algorithmic application from Day 2026-11-06. |
+| [Anonymous Informant](https://codeforces.com/problemset/problem/1893/A) | `Codeforces` | `1400` | `anonymousInformant.js` | Key algorithmic application from Day 2026-11-06. |
+| [Serial Time!](https://codeforces.com/problemset/problem/60/B) | `Codeforces` | `1400` | `serialTime.js` | Key algorithmic application from Day 2026-11-06. |
+| [Secret Passwords](https://codeforces.com/problemset/problem/1263/D) | `Codeforces` | `1500` | `secretPasswords.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

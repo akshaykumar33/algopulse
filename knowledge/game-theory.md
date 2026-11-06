@@ -92,6 +92,7 @@ function determineWinner(a, b, c) {
 | [Catching the Krug](https://codeforces.com/problemset/problem/2152/B) | `Codeforces` | `1300` | `catchingTheKrug.js` | Key algorithmic application from Day 2026-11-03. |
 | [Game on Permutation](https://codeforces.com/problemset/problem/1860/C) | `Codeforces` | `1400` | `gameOnPermutation.js` | Key algorithmic application from Day 2026-11-03. |
 | [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
+| [Game with Marbles (Hard Version)](https://codeforces.com/problemset/problem/1914/E2) | `Codeforces` | `1400` | `gameWithMarblesHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

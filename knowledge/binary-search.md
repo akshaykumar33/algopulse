@@ -156,6 +156,10 @@ function lowerBound(arr, target) {
 | [Coloring Game](https://codeforces.com/problemset/problem/2112/C) | `Codeforces` | `1300` | `coloringGame.js` | Key algorithmic application from Day 2026-11-05. |
 | [Brand New Tatar TV Show](https://codeforces.com/problemset/problem/2236/D) | `Codeforces` | `1300` | `brandNewTatarTVShow.js` | Key algorithmic application from Day 2026-11-05. |
 | [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
+| [Matching Arrays](https://codeforces.com/problemset/problem/1896/C) | `Codeforces` | `1400` | `matchingArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Accidental Victory](https://codeforces.com/problemset/problem/1490/E) | `Codeforces` | `1400` | `accidentalVictory.js` | Key algorithmic application from Day 2026-11-06. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Sagheer and Nubian Market](https://codeforces.com/problemset/problem/812/C) | `Codeforces` | `1500` | `sagheerAndNubianMarket.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 
