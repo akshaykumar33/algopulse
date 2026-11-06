@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"(name)is(age)yearsold\"\n[[\"name\",\"bob\"],[\"age\",\"two\"]]",
+    "output": "\"bobistwoyearsold\""
+  },
+  {
+    "input": "\"hi(name)\"\n[[\"a\",\"b\"]]",
+    "output": "\"hi?\""
+  },
+  {
+    "input": "\"(a)(a)(a)aaa\"\n[[\"a\",\"yes\"]]",
+    "output": "\"yesyesyesaaa\""
+  }
+]
+
