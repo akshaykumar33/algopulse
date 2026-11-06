@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\n2\nju\n3\naba\n2\naa\n",
+    "expected": "3\n5\n2"
+  }
+]
+

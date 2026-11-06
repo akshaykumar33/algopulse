@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n11 7 2\n10 5 15 2 7 null 18 null null 6 8\n3 2 1\n1 2 3\n",
+    "expected": "2 10\n1"
+  }
+]
+
