@@ -492,17 +492,6 @@ async function submitSingleProblem(prob, options = {}) {
   let page = null;
 
   if (isPersistentMode) {
-    if (fs.existsSync(platConfig.authFile)) {
-      try {
-        const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
-        if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
-          const validCookies = platKey === 'codeforces'
-            ? authData.cookies.filter(c => c.domain && c.domain.includes('codeforces'))
-            : authData.cookies;
-          await persistentContext.addCookies(validCookies);
-        }
-      } catch {}
-    }
     try {
       const isAlive = browser && browser.isConnected() && persistentContext;
       if (!isAlive && (options.useCdp || options.isPersistentMode)) {
@@ -512,6 +501,20 @@ async function submitSingleProblem(prob, options = {}) {
         options.persistentContext = persistentContext;
       }
     } catch {}
+
+    if (persistentContext && !options.useCdp && fs.existsSync(platConfig.authFile)) {
+      try {
+        const authData = JSON.parse(fs.readFileSync(platConfig.authFile, 'utf-8'));
+        if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
+          const validCookies = platKey === 'codeforces'
+            ? authData.cookies.filter(c => c.domain && c.domain.includes('codeforces'))
+            : authData.cookies;
+          await persistentContext.addCookies(validCookies);
+        }
+      } catch (err) {
+        console.warn(`    [submit] Warning: Failed to inject cookies for ${platKey}: ${err.message}`);
+      }
+    }
 
     if (options.workerPage && !options.workerPage.isClosed()) {
       page = options.workerPage;
@@ -1406,6 +1409,22 @@ async function main() {
   } else {
     console.log(`[submit] Launching browser engine ...`);
     browser = await launchBrowser({ headless: isHeadless });
+  }
+
+  if (persistentContext && !useCdp) {
+    for (const [pk, pCfg] of Object.entries(PLATFORMS)) {
+      if (fs.existsSync(pCfg.authFile)) {
+        try {
+          const authData = JSON.parse(fs.readFileSync(pCfg.authFile, 'utf-8'));
+          if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
+            const valid = pk === 'codeforces'
+              ? authData.cookies.filter((c) => c.domain && c.domain.includes('codeforces'))
+              : authData.cookies;
+            await persistentContext.addCookies(valid);
+          }
+        } catch {}
+      }
+    }
   }
 
   const workerOptions = {
