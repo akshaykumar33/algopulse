@@ -1,0 +1,11 @@
+[
+  {
+    "input": "[\"cbd\"]\n[\"zaaaz\"]",
+    "output": "[1]"
+  },
+  {
+    "input": "[\"bbb\",\"cc\"]\n[\"a\",\"aa\",\"aaa\",\"aaaa\"]",
+    "output": "[1,2]"
+  }
+]
+

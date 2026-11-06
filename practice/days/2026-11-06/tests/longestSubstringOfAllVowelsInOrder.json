@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"aeiaaioaaaaeiiiiouuuooaauuaeiu\"",
+    "output": "13"
+  },
+  {
+    "input": "\"aeeeiiiioooauuuaeiou\"",
+    "output": "5"
+  },
+  {
+    "input": "\"a\"",
+    "output": "0"
+  }
+]
+

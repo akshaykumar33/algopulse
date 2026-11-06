@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"AAB\"",
+    "output": "8"
+  },
+  {
+    "input": "\"AAABBC\"",
+    "output": "188"
+  },
+  {
+    "input": "\"V\"",
+    "output": "1"
+  }
+]
+
