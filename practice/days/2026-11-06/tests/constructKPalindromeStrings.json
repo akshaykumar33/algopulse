@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"annabelle\"\n2",
+    "output": "true"
+  },
+  {
+    "input": "\"leetcode\"\n3",
+    "output": "false"
+  },
+  {
+    "input": "\"true\"\n4",
+    "output": "true"
+  }
+]
+

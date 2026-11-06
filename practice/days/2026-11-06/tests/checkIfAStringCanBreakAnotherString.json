@@ -1,0 +1,15 @@
+[
+  {
+    "input": "\"abc\"\n\"xya\"",
+    "output": "true"
+  },
+  {
+    "input": "\"abe\"\n\"acd\"",
+    "output": "false"
+  },
+  {
+    "input": "\"leetcodee\"\n\"interview\"",
+    "output": "true"
+  }
+]
+
