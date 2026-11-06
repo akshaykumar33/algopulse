@@ -158,6 +158,10 @@ class MinHeap {
 | [Element Extermination](https://codeforces.com/problemset/problem/1375/C) | `Codeforces` | `1400` | `elementExtermination.js` | Key algorithmic application from Day 2026-11-06. |
 | [Accidental Victory](https://codeforces.com/problemset/problem/1490/E) | `Codeforces` | `1400` | `accidentalVictory.js` | Key algorithmic application from Day 2026-11-06. |
 | [Phoenix and Towers](https://codeforces.com/problemset/problem/1515/C) | `Codeforces` | `1400` | `phoenixAndTowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Robert Hood and Mrs Hood](https://codeforces.com/problemset/problem/2014/D) | `Codeforces` | `1400` | `robertHoodAndMrsHood.js` | Key algorithmic application from Day 2026-11-06. |
+| [T-shirt buying](https://codeforces.com/problemset/problem/799/B) | `Codeforces` | `1400` | `tShirtBuying.js` | Key algorithmic application from Day 2026-11-06. |
+| [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
+| [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

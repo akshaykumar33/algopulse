@@ -156,6 +156,12 @@ dp.fill(-1); // Memoization sentinel
 | [Sakurako's Field Trip](https://codeforces.com/problemset/problem/2033/C) | `Codeforces` | `1400` | `sakurakoSFieldTrip.js` | Key algorithmic application from Day 2026-11-06. |
 | [Serval and Toxel's Arrays](https://codeforces.com/problemset/problem/1789/C) | `Codeforces` | `1500` | `servalAndToxelSArrays.js` | Key algorithmic application from Day 2026-11-06. |
 | [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
+| [Hossam and Friends](https://codeforces.com/problemset/problem/1771/B) | `Codeforces` | `1400` | `hossamAndFriends.js` | Key algorithmic application from Day 2026-11-06. |
+| [Increase Subarray Sums](https://codeforces.com/problemset/problem/1644/C) | `Codeforces` | `1400` | `increaseSubarraySums.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cut 'em all!](https://codeforces.com/problemset/problem/982/C) | `Codeforces` | `1500` | `cutEmAll.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Fair Nut and String](https://codeforces.com/problemset/problem/1084/C) | `Codeforces` | `1500` | `theFairNutAndString.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bewitching Stargazer](https://codeforces.com/problemset/problem/2053/C) | `Codeforces` | `1500` | `bewitchingStargazer.js` | Key algorithmic application from Day 2026-11-06. |
+| [Mortal Kombat Tower](https://codeforces.com/problemset/problem/1418/C) | `Codeforces` | `1500` | `mortalKombatTower.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

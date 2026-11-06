@@ -403,6 +403,24 @@ for (const x of arr) {
 | [Add to Neighbour and Remove](https://codeforces.com/problemset/problem/1462/D) | `Codeforces` | `1400` | `addToNeighbourAndRemove.js` | Key algorithmic application from Day 2026-11-06. |
 | [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
 | [Treasure](https://codeforces.com/problemset/problem/494/A) | `Codeforces` | `1500` | `treasure.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
+| [Space Formula](https://codeforces.com/problemset/problem/1046/C) | `Codeforces` | `1400` | `spaceFormula.js` | Key algorithmic application from Day 2026-11-06. |
+| [Banknotes](https://codeforces.com/problemset/problem/1606/C) | `Codeforces` | `1400` | `banknotes.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bricks and Bags](https://codeforces.com/problemset/problem/1740/C) | `Codeforces` | `1400` | `bricksAndBags.js` | Key algorithmic application from Day 2026-11-06. |
+| [Almost All Multiples](https://codeforces.com/problemset/problem/1758/C) | `Codeforces` | `1400` | `almostAllMultiples.js` | Key algorithmic application from Day 2026-11-06. |
+| [Robert Hood and Mrs Hood](https://codeforces.com/problemset/problem/2014/D) | `Codeforces` | `1400` | `robertHoodAndMrsHood.js` | Key algorithmic application from Day 2026-11-06. |
+| [More Cowbell](https://codeforces.com/problemset/problem/604/B) | `Codeforces` | `1400` | `moreCowbell.js` | Key algorithmic application from Day 2026-11-06. |
+| [Arena of Greed](https://codeforces.com/problemset/problem/1425/A) | `Codeforces` | `1400` | `arenaOfGreed.js` | Key algorithmic application from Day 2026-11-06. |
+| [Increase Subarray Sums](https://codeforces.com/problemset/problem/1644/C) | `Codeforces` | `1400` | `increaseSubarraySums.js` | Key algorithmic application from Day 2026-11-06. |
+| [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
+| [LIS or Reverse LIS?](https://codeforces.com/problemset/problem/1682/C) | `Codeforces` | `1400` | `lISOrReverseLIS.js` | Key algorithmic application from Day 2026-11-06. |
+| [LuoTianyi and the Show](https://codeforces.com/problemset/problem/1824/A) | `Codeforces` | `1400` | `luoTianyiAndTheShow.js` | Key algorithmic application from Day 2026-11-06. |
+| [Equalize Them All](https://codeforces.com/problemset/problem/1144/D) | `Codeforces` | `1400` | `equalizeThemAll.js` | Key algorithmic application from Day 2026-11-06. |
+| [Fishingprince Plays With Array](https://codeforces.com/problemset/problem/1696/C) | `Codeforces` | `1400` | `fishingprincePlaysWithArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cut 'em all!](https://codeforces.com/problemset/problem/982/C) | `Codeforces` | `1500` | `cutEmAll.js` | Key algorithmic application from Day 2026-11-06. |
+| [Mortal Kombat Tower](https://codeforces.com/problemset/problem/1418/C) | `Codeforces` | `1500` | `mortalKombatTower.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

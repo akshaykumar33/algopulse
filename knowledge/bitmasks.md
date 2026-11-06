@@ -138,6 +138,7 @@ function missingNumber(nums) {
 | [Maximal AND](https://codeforces.com/problemset/problem/1669/H) | `Codeforces` | `1300` | `maximalAND.js` | Key algorithmic application from Day 2026-11-05. |
 | [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
 | [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bewitching Stargazer](https://codeforces.com/problemset/problem/2053/C) | `Codeforces` | `1500` | `bewitchingStargazer.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

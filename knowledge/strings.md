@@ -154,6 +154,7 @@ function isPalindrome(s) {
 | [Bear and String Distance](https://codeforces.com/problemset/problem/628/C) | `Codeforces` | `1300` | `bearAndStringDistance.js` | Key algorithmic application from Day 2026-11-04. |
 | [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
 | [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
+| [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

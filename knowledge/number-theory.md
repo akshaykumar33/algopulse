@@ -167,6 +167,10 @@ function sieve(maxN) {
 | [k-th divisor](https://codeforces.com/problemset/problem/762/A) | `Codeforces` | `1400` | `kThDivisor.js` | Key algorithmic application from Day 2026-11-06. |
 | [Zero Quantity Maximization](https://codeforces.com/problemset/problem/1133/D) | `Codeforces` | `1500` | `zeroQuantityMaximization.js` | Key algorithmic application from Day 2026-11-06. |
 | [Vasya and Petya's Game](https://codeforces.com/problemset/problem/576/A) | `Codeforces` | `1500` | `vasyaAndPetyaSGame.js` | Key algorithmic application from Day 2026-11-06. |
+| [Banknotes](https://codeforces.com/problemset/problem/1606/C) | `Codeforces` | `1400` | `banknotes.js` | Key algorithmic application from Day 2026-11-06. |
+| [Almost All Multiples](https://codeforces.com/problemset/problem/1758/C) | `Codeforces` | `1400` | `almostAllMultiples.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cows and Primitive Roots](https://codeforces.com/problemset/problem/284/A) | `Codeforces` | `1400` | `cowsAndPrimitiveRoots.js` | Key algorithmic application from Day 2026-11-06. |
+| [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

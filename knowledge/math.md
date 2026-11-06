@@ -356,6 +356,18 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Serval and Toxel's Arrays](https://codeforces.com/problemset/problem/1789/C) | `Codeforces` | `1500` | `servalAndToxelSArrays.js` | Key algorithmic application from Day 2026-11-06. |
 | [Zero Quantity Maximization](https://codeforces.com/problemset/problem/1133/D) | `Codeforces` | `1500` | `zeroQuantityMaximization.js` | Key algorithmic application from Day 2026-11-06. |
 | [Vasya and Petya's Game](https://codeforces.com/problemset/problem/576/A) | `Codeforces` | `1500` | `vasyaAndPetyaSGame.js` | Key algorithmic application from Day 2026-11-06. |
+| [Om Nom and Spiders](https://codeforces.com/problemset/problem/436/B) | `Codeforces` | `1400` | `omNomAndSpiders.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
+| [Optimal Currency Exchange](https://codeforces.com/problemset/problem/1214/A) | `Codeforces` | `1400` | `optimalCurrencyExchange.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cows and Primitive Roots](https://codeforces.com/problemset/problem/284/A) | `Codeforces` | `1400` | `cowsAndPrimitiveRoots.js` | Key algorithmic application from Day 2026-11-06. |
+| [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [LIS or Reverse LIS?](https://codeforces.com/problemset/problem/1682/C) | `Codeforces` | `1400` | `lISOrReverseLIS.js` | Key algorithmic application from Day 2026-11-06. |
+| [Fishingprince Plays With Array](https://codeforces.com/problemset/problem/1696/C) | `Codeforces` | `1400` | `fishingprincePlaysWithArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Fair Nut and String](https://codeforces.com/problemset/problem/1084/C) | `Codeforces` | `1500` | `theFairNutAndString.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bewitching Stargazer](https://codeforces.com/problemset/problem/2053/C) | `Codeforces` | `1500` | `bewitchingStargazer.js` | Key algorithmic application from Day 2026-11-06. |
+| [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
+| [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Colors](https://codeforces.com/problemset/problem/2075/C) | `Codeforces` | `1500` | `twoColors.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

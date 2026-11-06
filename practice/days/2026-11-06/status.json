@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-06",
+  "day": null,
+  "status": "NOT_INITIALIZED",
+  "finished": false,
+  "totalProblems": 0,
+  "solutionsCount": 0,
+  "testsCount": 0,
+  "explanationsCount": 0,
+  "verifiedCount": 0,
+  "submittedCount": 0,
+  "acceptedCount": 0,
+  "dlqCount": 0,
+  "percentVerified": 0,
+  "percentSubmitted": 0,
+  "percentAccepted": 0,
+  "reason": "No set.json found",
+  "updatedAt": "2026-11-06T17:08:13.241Z"
+}
