@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\n1 11\n1 2\n74120341 829182732\n",
+    "expected": "Odd\nEven\nImpossible"
+  }
+]
+
