@@ -150,6 +150,9 @@ function dfsIterative(start, adj, n) {
 | [Anonymous Informant](https://codeforces.com/problemset/problem/1893/A) | `Codeforces` | `1400` | `anonymousInformant.js` | Key algorithmic application from Day 2026-11-06. |
 | [Serial Time!](https://codeforces.com/problemset/problem/60/B) | `Codeforces` | `1400` | `serialTime.js` | Key algorithmic application from Day 2026-11-06. |
 | [Secret Passwords](https://codeforces.com/problemset/problem/1263/D) | `Codeforces` | `1500` | `secretPasswords.js` | Key algorithmic application from Day 2026-11-06. |
+| [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cut 'em all!](https://codeforces.com/problemset/problem/982/C) | `Codeforces` | `1500` | `cutEmAll.js` | Key algorithmic application from Day 2026-11-06. |
+| [Mortal Kombat Tower](https://codeforces.com/problemset/problem/1418/C) | `Codeforces` | `1500` | `mortalKombatTower.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

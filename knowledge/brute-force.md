@@ -229,6 +229,14 @@ function backtrack(index, currentSum, target, arr) {
 | [Reverse Card (Easy Version)](https://codeforces.com/problemset/problem/1967/B1) | `Codeforces` | `1400` | `reverseCardEasyVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Anonymous Informant](https://codeforces.com/problemset/problem/1893/A) | `Codeforces` | `1400` | `anonymousInformant.js` | Key algorithmic application from Day 2026-11-06. |
 | [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
+| [Robert Hood and Mrs Hood](https://codeforces.com/problemset/problem/2014/D) | `Codeforces` | `1400` | `robertHoodAndMrsHood.js` | Key algorithmic application from Day 2026-11-06. |
+| [Three Sons](https://codeforces.com/problemset/problem/120/D) | `Codeforces` | `1400` | `threeSons.js` | Key algorithmic application from Day 2026-11-06. |
+| [Optimal Currency Exchange](https://codeforces.com/problemset/problem/1214/A) | `Codeforces` | `1400` | `optimalCurrencyExchange.js` | Key algorithmic application from Day 2026-11-06. |
+| [Maximum Crossings (Easy Version)](https://codeforces.com/problemset/problem/1676/H1) | `Codeforces` | `1400` | `maximumCrossingsEasyVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Increase Subarray Sums](https://codeforces.com/problemset/problem/1644/C) | `Codeforces` | `1400` | `increaseSubarraySums.js` | Key algorithmic application from Day 2026-11-06. |
+| [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

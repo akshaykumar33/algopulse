@@ -160,6 +160,12 @@ function lowerBound(arr, target) {
 | [Accidental Victory](https://codeforces.com/problemset/problem/1490/E) | `Codeforces` | `1400` | `accidentalVictory.js` | Key algorithmic application from Day 2026-11-06. |
 | [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
 | [Sagheer and Nubian Market](https://codeforces.com/problemset/problem/812/C) | `Codeforces` | `1500` | `sagheerAndNubianMarket.js` | Key algorithmic application from Day 2026-11-06. |
+| [Hossam and Friends](https://codeforces.com/problemset/problem/1771/B) | `Codeforces` | `1400` | `hossamAndFriends.js` | Key algorithmic application from Day 2026-11-06. |
+| [More Cowbell](https://codeforces.com/problemset/problem/604/B) | `Codeforces` | `1400` | `moreCowbell.js` | Key algorithmic application from Day 2026-11-06. |
+| [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Doctor Meets Vader (Easy)](https://codeforces.com/problemset/problem/1184/B1) | `Codeforces` | `1400` | `theDoctorMeetsVaderEasy.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Colors](https://codeforces.com/problemset/problem/2075/C) | `Codeforces` | `1500` | `twoColors.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

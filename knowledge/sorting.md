@@ -189,6 +189,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Game with Marbles (Hard Version)](https://codeforces.com/problemset/problem/1914/E2) | `Codeforces` | `1400` | `gameWithMarblesHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Views Matter](https://codeforces.com/problemset/problem/1061/B) | `Codeforces` | `1400` | `viewsMatter.js` | Key algorithmic application from Day 2026-11-06. |
 | [Sagheer and Nubian Market](https://codeforces.com/problemset/problem/812/C) | `Codeforces` | `1500` | `sagheerAndNubianMarket.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bricks and Bags](https://codeforces.com/problemset/problem/1740/C) | `Codeforces` | `1400` | `bricksAndBags.js` | Key algorithmic application from Day 2026-11-06. |
+| [Robert Hood and Mrs Hood](https://codeforces.com/problemset/problem/2014/D) | `Codeforces` | `1400` | `robertHoodAndMrsHood.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Doctor Meets Vader (Easy)](https://codeforces.com/problemset/problem/1184/B1) | `Codeforces` | `1400` | `theDoctorMeetsVaderEasy.js` | Key algorithmic application from Day 2026-11-06. |
+| [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

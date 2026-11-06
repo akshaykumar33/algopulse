@@ -131,6 +131,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
 | [Approximating a Constant Range](https://codeforces.com/problemset/problem/602/B) | `Codeforces` | `1400` | `approximatingAConstantRange.js` | Key algorithmic application from Day 2026-11-06. |
 | [Sakurako's Field Trip](https://codeforces.com/problemset/problem/2033/C) | `Codeforces` | `1400` | `sakurakoSFieldTrip.js` | Key algorithmic application from Day 2026-11-06. |
+| [Hossam and Friends](https://codeforces.com/problemset/problem/1771/B) | `Codeforces` | `1400` | `hossamAndFriends.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
+| [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 

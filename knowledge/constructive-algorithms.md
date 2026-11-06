@@ -244,6 +244,16 @@ function constructMatrix(n, m) {
 | [Phoenix and Towers](https://codeforces.com/problemset/problem/1515/C) | `Codeforces` | `1400` | `phoenixAndTowers.js` | Key algorithmic application from Day 2026-11-06. |
 | [Bracket Coloring](https://codeforces.com/problemset/problem/1837/D) | `Codeforces` | `1400` | `bracketColoring.js` | Key algorithmic application from Day 2026-11-06. |
 | [Farewell Party](https://codeforces.com/problemset/problem/1081/B) | `Codeforces` | `1500` | `farewellParty.js` | Key algorithmic application from Day 2026-11-06. |
+| [Hossam and Friends](https://codeforces.com/problemset/problem/1771/B) | `Codeforces` | `1400` | `hossamAndFriends.js` | Key algorithmic application from Day 2026-11-06. |
+| [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bricks and Bags](https://codeforces.com/problemset/problem/1740/C) | `Codeforces` | `1400` | `bricksAndBags.js` | Key algorithmic application from Day 2026-11-06. |
+| [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
+| [LIS or Reverse LIS?](https://codeforces.com/problemset/problem/1682/C) | `Codeforces` | `1400` | `lISOrReverseLIS.js` | Key algorithmic application from Day 2026-11-06. |
+| [Equalize Them All](https://codeforces.com/problemset/problem/1144/D) | `Codeforces` | `1400` | `equalizeThemAll.js` | Key algorithmic application from Day 2026-11-06. |
+| [Fishingprince Plays With Array](https://codeforces.com/problemset/problem/1696/C) | `Codeforces` | `1400` | `fishingprincePlaysWithArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 
