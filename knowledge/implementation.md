@@ -1735,6 +1735,50 @@ function solve() {
 | [Cache Hits](https://www.codechef.com/problems/CACHEHIT) | `CodeChef` | `1320` | `cacheHits.js` | Key algorithmic application from Day 2026-11-05. |
 | [Mr Pr in a Dilemma ](https://www.codechef.com/problems/ICM2008) | `CodeChef` | `1441` | `mrPrInADilemma.js` | Key algorithmic application from Day 2026-11-05. |
 | [Chef and Walking on the rectangle ](https://www.codechef.com/problems/CHRECT) | `CodeChef` | `1435` | `chefAndWalkingOnTheRectangle.js` | Key algorithmic application from Day 2026-11-05. |
+| [Approximating a Constant Range](https://codeforces.com/problemset/problem/602/B) | `Codeforces` | `1400` | `approximatingAConstantRange.js` | Key algorithmic application from Day 2026-11-06. |
+| [Gena's Code](https://codeforces.com/problemset/problem/614/B) | `Codeforces` | `1400` | `genaSCode.js` | Key algorithmic application from Day 2026-11-06. |
+| [Where is the Pizza?](https://codeforces.com/problemset/problem/1670/C) | `Codeforces` | `1400` | `whereIsThePizza.js` | Key algorithmic application from Day 2026-11-06. |
+| [Views Matter](https://codeforces.com/problemset/problem/1061/B) | `Codeforces` | `1400` | `viewsMatter.js` | Key algorithmic application from Day 2026-11-06. |
+| [Anonymous Informant](https://codeforces.com/problemset/problem/1893/A) | `Codeforces` | `1400` | `anonymousInformant.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cracking the Code](https://codeforces.com/problemset/problem/630/L) | `Codeforces` | `1400` | `crackingTheCode.js` | Key algorithmic application from Day 2026-11-06. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum number of steps](https://codeforces.com/problemset/problem/804/B) | `Codeforces` | `1400` | `minimumNumberOfSteps.js` | Key algorithmic application from Day 2026-11-06. |
+| [Farewell Party](https://codeforces.com/problemset/problem/1081/B) | `Codeforces` | `1500` | `farewellParty.js` | Key algorithmic application from Day 2026-11-06. |
+| [Serval and Toxel's Arrays](https://codeforces.com/problemset/problem/1789/C) | `Codeforces` | `1500` | `servalAndToxelSArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
+| [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) | `LeetCode` | `Medium` | `handOfStraights.js` | Key algorithmic application from Day 2026-11-06. |
+| [Number of Ways to Split a String](https://leetcode.com/problems/number-of-ways-to-split-a-string/) | `LeetCode` | `Medium` | `numberOfWaysToSplitAString.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Number of Flips to Make the Binary String Alternating](https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/) | `LeetCode` | `Medium` | `minimumNumberOfFlipsToMakeTheBinaryStringAlternating.js` | Key algorithmic application from Day 2026-11-06. |
+| [Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/) | `LeetCode` | `Medium` | `numberOfSubarraysWithBoundedMaximum.js` | Key algorithmic application from Day 2026-11-06. |
+| [Soup Servings](https://leetcode.com/problems/soup-servings/) | `LeetCode` | `Medium` | `soupServings.js` | Key algorithmic application from Day 2026-11-06. |
+| [Partition Array into Disjoint Intervals](https://leetcode.com/problems/partition-array-into-disjoint-intervals/) | `LeetCode` | `Medium` | `partitionArrayIntoDisjointIntervals.js` | Key algorithmic application from Day 2026-11-06. |
+| [Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum/) | `LeetCode` | `Medium` | `partitionArrayForMaximumSum.js` | Key algorithmic application from Day 2026-11-06. |
+| [Decrease Elements To Make Array Zigzag](https://leetcode.com/problems/decrease-elements-to-make-array-zigzag/) | `LeetCode` | `Medium` | `decreaseElementsToMakeArrayZigzag.js` | Key algorithmic application from Day 2026-11-06. |
+| [Smallest String With Swaps](https://leetcode.com/problems/smallest-string-with-swaps/) | `LeetCode` | `Medium` | `smallestStringWithSwaps.js` | Key algorithmic application from Day 2026-11-06. |
+| [Smallest Integer Divisible by K](https://leetcode.com/problems/smallest-integer-divisible-by-k/) | `LeetCode` | `Medium` | `smallestIntegerDivisibleByK.js` | Key algorithmic application from Day 2026-11-06. |
+| [Eliminate Maximum Number of Monsters](https://leetcode.com/problems/eliminate-maximum-number-of-monsters/) | `LeetCode` | `Medium` | `eliminateMaximumNumberOfMonsters.js` | Key algorithmic application from Day 2026-11-06. |
+| [Smallest String With A Given Numeric Value](https://leetcode.com/problems/smallest-string-with-a-given-numeric-value/) | `LeetCode` | `Medium` | `smallestStringWithAGivenNumericValue.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Moves to Make Array Complementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary/) | `LeetCode` | `Medium` | `minimumMovesToMakeArrayComplementary.js` | Key algorithmic application from Day 2026-11-06. |
+| [Best Sightseeing Pair](https://leetcode.com/problems/best-sightseeing-pair/) | `LeetCode` | `Medium` | `bestSightseeingPair.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Length of String After Deleting Similar Ends](https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/) | `LeetCode` | `Medium` | `minimumLengthOfStringAfterDeletingSimilarEnds.js` | Key algorithmic application from Day 2026-11-06. |
+| [Get Equal Substrings Within Budget](https://leetcode.com/problems/get-equal-substrings-within-budget/) | `LeetCode` | `Medium` | `getEqualSubstringsWithinBudget.js` | Key algorithmic application from Day 2026-11-06. |
+| [String Without AAA or BBB](https://leetcode.com/problems/string-without-aaa-or-bbb/) | `LeetCode` | `Medium` | `stringWithoutAAAOrBBB.js` | Key algorithmic application from Day 2026-11-06. |
+| [Maximum XOR for Each Query](https://leetcode.com/problems/maximum-xor-for-each-query/) | `LeetCode` | `Medium` | `maximumXORForEachQuery.js` | Key algorithmic application from Day 2026-11-06. |
+| [Array With Elements Not Equal to Average of Neighbors](https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/) | `LeetCode` | `Medium` | `arrayWithElementsNotEqualToAverageOfNeighbors.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Number of Swaps to Make the String Balanced](https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/) | `LeetCode` | `Medium` | `minimumNumberOfSwapsToMakeTheStringBalanced.js` | Key algorithmic application from Day 2026-11-06. |
+| [Count Substrings That Differ by One Character](https://leetcode.com/problems/count-substrings-that-differ-by-one-character/) | `LeetCode` | `Medium` | `countSubstringsThatDifferByOneCharacter.js` | Key algorithmic application from Day 2026-11-06. |
+| [Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii/) | `LeetCode` | `Medium` | `diagonalTraverseII.js` | Key algorithmic application from Day 2026-11-06. |
+| [Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle/) | `LeetCode` | `Medium` | `advantageShuffle.js` | Key algorithmic application from Day 2026-11-06. |
+| [Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/) | `LeetCode` | `Medium` | `lastStoneWeightII.js` | Key algorithmic application from Day 2026-11-06. |
+| [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) | `LeetCode` | `Medium` | `prisonCellsAfterNDays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Maximum Subarray Sum with One Deletion](https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/) | `LeetCode` | `Medium` | `maximumSubarraySumWithOneDeletion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal/) | `LeetCode` | `Medium` | `minimumOperationsToMakeArrayEqual.js` | Key algorithmic application from Day 2026-11-06. |
+| [Vowel Spellchecker](https://leetcode.com/problems/vowel-spellchecker/) | `LeetCode` | `Medium` | `vowelSpellchecker.js` | Key algorithmic application from Day 2026-11-06. |
+| [Jump Game III](https://leetcode.com/problems/jump-game-iii/) | `LeetCode` | `Medium` | `jumpGameIII.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum Time to Collect All Apples in a Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/) | `LeetCode` | `Medium` | `minimumTimeToCollectAllApplesInATree.js` | Key algorithmic application from Day 2026-11-06. |
+| [Number of Restricted Paths From First to Last Node](https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/) | `LeetCode` | `Medium` | `numberOfRestrictedPathsFromFirstToLastNode.js` | Key algorithmic application from Day 2026-11-06. |
+| [Maximum Earnings From Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi/) | `LeetCode` | `Medium` | `maximumEarningsFromTaxi.js` | Key algorithmic application from Day 2026-11-06. |
+| [Find Unique Binary String](https://leetcode.com/problems/find-unique-binary-string/) | `LeetCode` | `Medium` | `findUniqueBinaryString.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

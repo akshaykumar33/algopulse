@@ -388,6 +388,21 @@ for (const x of arr) {
 | [Schedule Management](https://codeforces.com/problemset/problem/1701/C) | `Codeforces` | `1400` | `scheduleManagement.js` | Key algorithmic application from Day 2026-11-05. |
 | [Exams](https://codeforces.com/problemset/problem/479/C) | `Codeforces` | `1400` | `exams.js` | Key algorithmic application from Day 2026-11-05. |
 | [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
+| [Matching Arrays](https://codeforces.com/problemset/problem/1896/C) | `Codeforces` | `1400` | `matchingArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Game with Marbles (Hard Version)](https://codeforces.com/problemset/problem/1914/E2) | `Codeforces` | `1400` | `gameWithMarblesHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Element Extermination](https://codeforces.com/problemset/problem/1375/C) | `Codeforces` | `1400` | `elementExtermination.js` | Key algorithmic application from Day 2026-11-06. |
+| [Theofanis' Nightmare](https://codeforces.com/problemset/problem/1903/C) | `Codeforces` | `1400` | `theofanisNightmare.js` | Key algorithmic application from Day 2026-11-06. |
+| [Views Matter](https://codeforces.com/problemset/problem/1061/B) | `Codeforces` | `1400` | `viewsMatter.js` | Key algorithmic application from Day 2026-11-06. |
+| [Accidental Victory](https://codeforces.com/problemset/problem/1490/E) | `Codeforces` | `1400` | `accidentalVictory.js` | Key algorithmic application from Day 2026-11-06. |
+| [Phoenix and Towers](https://codeforces.com/problemset/problem/1515/C) | `Codeforces` | `1400` | `phoenixAndTowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Jeopardy!](https://codeforces.com/problemset/problem/413/C) | `Codeforces` | `1400` | `jeopardy.js` | Key algorithmic application from Day 2026-11-06. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Bracket Coloring](https://codeforces.com/problemset/problem/1837/D) | `Codeforces` | `1400` | `bracketColoring.js` | Key algorithmic application from Day 2026-11-06. |
+| [Sakurako's Field Trip](https://codeforces.com/problemset/problem/2033/C) | `Codeforces` | `1400` | `sakurakoSFieldTrip.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum number of steps](https://codeforces.com/problemset/problem/804/B) | `Codeforces` | `1400` | `minimumNumberOfSteps.js` | Key algorithmic application from Day 2026-11-06. |
+| [Add to Neighbour and Remove](https://codeforces.com/problemset/problem/1462/D) | `Codeforces` | `1400` | `addToNeighbourAndRemove.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
+| [Treasure](https://codeforces.com/problemset/problem/494/A) | `Codeforces` | `1500` | `treasure.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

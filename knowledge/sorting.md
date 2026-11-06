@@ -185,6 +185,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
 | [Exams](https://codeforces.com/problemset/problem/479/C) | `Codeforces` | `1400` | `exams.js` | Key algorithmic application from Day 2026-11-05. |
 | [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
+| [Matching Arrays](https://codeforces.com/problemset/problem/1896/C) | `Codeforces` | `1400` | `matchingArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Game with Marbles (Hard Version)](https://codeforces.com/problemset/problem/1914/E2) | `Codeforces` | `1400` | `gameWithMarblesHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Views Matter](https://codeforces.com/problemset/problem/1061/B) | `Codeforces` | `1400` | `viewsMatter.js` | Key algorithmic application from Day 2026-11-06. |
+| [Sagheer and Nubian Market](https://codeforces.com/problemset/problem/812/C) | `Codeforces` | `1500` | `sagheerAndNubianMarket.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

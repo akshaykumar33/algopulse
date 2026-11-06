@@ -137,6 +137,7 @@ function missingNumber(nums) {
 | [Vlad and Division](https://codeforces.com/problemset/problem/1926/D) | `Codeforces` | `1300` | `vladAndDivision.js` | Key algorithmic application from Day 2026-11-05. |
 | [Maximal AND](https://codeforces.com/problemset/problem/1669/H) | `Codeforces` | `1300` | `maximalAND.js` | Key algorithmic application from Day 2026-11-05. |
 | [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -343,6 +343,19 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Array Elimination](https://codeforces.com/problemset/problem/1601/A) | `Codeforces` | `1300` | `arrayElimination.js` | Key algorithmic application from Day 2026-11-05. |
 | [Arranging The Sheep](https://codeforces.com/problemset/problem/1520/E) | `Codeforces` | `1400` | `arrangingTheSheep.js` | Key algorithmic application from Day 2026-11-05. |
 | [Zero Remainder Array](https://codeforces.com/problemset/problem/1374/D) | `Codeforces` | `1400` | `zeroRemainderArray.js` | Key algorithmic application from Day 2026-11-05. |
+| [Hopscotch](https://codeforces.com/problemset/problem/141/B) | `Codeforces` | `1400` | `hopscotch.js` | Key algorithmic application from Day 2026-11-06. |
+| [Reverse Card (Easy Version)](https://codeforces.com/problemset/problem/1967/B1) | `Codeforces` | `1400` | `reverseCardEasyVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Gena's Code](https://codeforces.com/problemset/problem/614/B) | `Codeforces` | `1400` | `genaSCode.js` | Key algorithmic application from Day 2026-11-06. |
+| [Where is the Pizza?](https://codeforces.com/problemset/problem/1670/C) | `Codeforces` | `1400` | `whereIsThePizza.js` | Key algorithmic application from Day 2026-11-06. |
+| [Cracking the Code](https://codeforces.com/problemset/problem/630/L) | `Codeforces` | `1400` | `crackingTheCode.js` | Key algorithmic application from Day 2026-11-06. |
+| [Jeopardy!](https://codeforces.com/problemset/problem/413/C) | `Codeforces` | `1400` | `jeopardy.js` | Key algorithmic application from Day 2026-11-06. |
+| [Adding Powers](https://codeforces.com/problemset/problem/1312/C) | `Codeforces` | `1400` | `addingPowers.js` | Key algorithmic application from Day 2026-11-06. |
+| [Minimum number of steps](https://codeforces.com/problemset/problem/804/B) | `Codeforces` | `1400` | `minimumNumberOfSteps.js` | Key algorithmic application from Day 2026-11-06. |
+| [Add to Neighbour and Remove](https://codeforces.com/problemset/problem/1462/D) | `Codeforces` | `1400` | `addToNeighbourAndRemove.js` | Key algorithmic application from Day 2026-11-06. |
+| [k-th divisor](https://codeforces.com/problemset/problem/762/A) | `Codeforces` | `1400` | `kThDivisor.js` | Key algorithmic application from Day 2026-11-06. |
+| [Serval and Toxel's Arrays](https://codeforces.com/problemset/problem/1789/C) | `Codeforces` | `1500` | `servalAndToxelSArrays.js` | Key algorithmic application from Day 2026-11-06. |
+| [Zero Quantity Maximization](https://codeforces.com/problemset/problem/1133/D) | `Codeforces` | `1500` | `zeroQuantityMaximization.js` | Key algorithmic application from Day 2026-11-06. |
+| [Vasya and Petya's Game](https://codeforces.com/problemset/problem/576/A) | `Codeforces` | `1500` | `vasyaAndPetyaSGame.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

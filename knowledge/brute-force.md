@@ -226,6 +226,9 @@ function backtrack(index, currentSum, target, arr) {
 | [Economy Game](https://codeforces.com/problemset/problem/681/B) | `Codeforces` | `1300` | `economyGame.js` | Key algorithmic application from Day 2026-11-05. |
 | [String Modification](https://codeforces.com/problemset/problem/1316/B) | `Codeforces` | `1400` | `stringModification.js` | Key algorithmic application from Day 2026-11-05. |
 | [Bouncing Ball](https://codeforces.com/problemset/problem/1415/C) | `Codeforces` | `1400` | `bouncingBall.js` | Key algorithmic application from Day 2026-11-05. |
+| [Reverse Card (Easy Version)](https://codeforces.com/problemset/problem/1967/B1) | `Codeforces` | `1400` | `reverseCardEasyVersion.js` | Key algorithmic application from Day 2026-11-06. |
+| [Anonymous Informant](https://codeforces.com/problemset/problem/1893/A) | `Codeforces` | `1400` | `anonymousInformant.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Substrings](https://codeforces.com/problemset/problem/550/A) | `Codeforces` | `1500` | `twoSubstrings.js` | Key algorithmic application from Day 2026-11-06. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

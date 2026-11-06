@@ -154,6 +154,10 @@ class MinHeap {
 | [Place for a Selfie](https://codeforces.com/problemset/problem/1805/C) | `Codeforces` | `1400` | `placeForASelfie.js` | Key algorithmic application from Day 2026-11-04. |
 | [2^Sort](https://codeforces.com/problemset/problem/1692/G) | `Codeforces` | `1400` | `p2Sort.js` | Key algorithmic application from Day 2026-11-04. |
 | [Applejack and Storages](https://codeforces.com/problemset/problem/1393/B) | `Codeforces` | `1400` | `applejackAndStorages.js` | Key algorithmic application from Day 2026-11-05. |
+| [Where is the Pizza?](https://codeforces.com/problemset/problem/1670/C) | `Codeforces` | `1400` | `whereIsThePizza.js` | Key algorithmic application from Day 2026-11-06. |
+| [Element Extermination](https://codeforces.com/problemset/problem/1375/C) | `Codeforces` | `1400` | `elementExtermination.js` | Key algorithmic application from Day 2026-11-06. |
+| [Accidental Victory](https://codeforces.com/problemset/problem/1490/E) | `Codeforces` | `1400` | `accidentalVictory.js` | Key algorithmic application from Day 2026-11-06. |
+| [Phoenix and Towers](https://codeforces.com/problemset/problem/1515/C) | `Codeforces` | `1400` | `phoenixAndTowers.js` | Key algorithmic application from Day 2026-11-06. |
 
 ---
 
