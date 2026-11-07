@@ -1,18 +1,4 @@
-# Competitive Programming AI Master Inst10. **Platform Templates for Every Solution (practice, upsolving, virtual contests):**
-   - Start every solution file from its platform template:
-     - `templates/codeforces.js` for Codeforces;
-     - `templates/codechef.js` for CodeChef;
-     - `templates/leetcode.js` for LeetCode (copy only the solution function into the editor);
-     - `templates/cp.js` for AtCoder, CSES and anything else.
-   - Keep the template's I/O helpers (`readLine`, `readInt`, `readIntArray`, `print`, `printAll`) and its `solve()` / multi-test structure. Remove helpers the solution doesn't use.
-   - Strip the template's comments from the solution file (rule 7). Never put problem-specific code in the templates themselves (rule 1).
-   - **I/O exceptions:**
-     - **Interactive problems** must not use the template's `readFileSync(0)`. Use a synchronous `fs.readSync` byte reader with `fs.writeSync` output (reference: `contests/codeforces/2026-11-06/myMindIsGoing.js`).
-     - **Run-twice / communication problems** must not use it either. Use an incremental stdin reader that prints and exits as soon as the input is complete (reference: `contests/codeforces/2026-11-06/theoremOfTwoCans.js`).
-   - Never call `Array.prototype.shift()` on large token queues. It is O(n) and caused an idleness failure. Use an index pointer instead.
-   - Rule 9 still applies: a template is never a way to pass off agent-written code as the user's own in a live rated round.
-
-ructions & Workflow
+# Competitive Programming AI Master Instructions & Workflow
 
 ## Overview
 This repository is dedicated to solving competitive programming (Codeforces, AtCoder, CSES, LeetCode) problems in **JavaScript (Node.js)** with high algorithmic rigor, execution efficiency, and structured repository conventions.
@@ -55,6 +41,19 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
    - **Never publish contest code before the round fully ends.** This repository is **public**. Commit, push and open PRs for files under `contests/` only after the official end of the round, including hacking and system testing.
    - **Never help disguise AI-written code as human-written for a live contest.** Rule 7 and §5 (no comments, human naming) are about code style for practice and upsolving only. They must never be used to evade a contest's AI-detection rules.
    - If submissions are skipped or flagged, never draft an appeal that claims the user wrote AI-generated code.
+10. **Platform Templates for Every Solution (practice, upsolving, virtual contests):**
+   - Start every solution file from its platform template:
+     - `templates/codeforces.js` for Codeforces;
+     - `templates/codechef.js` for CodeChef;
+     - `templates/leetcode.js` for LeetCode (copy only the solution function into the editor);
+     - `templates/cp.js` for AtCoder, CSES and anything else.
+   - Keep the template's I/O helpers (`readLine`, `readInt`, `readIntArray`, `print`, `printAll`) and its `solve()` / multi-test structure. Remove helpers the solution doesn't use.
+   - Strip the template's comments from the solution file (rule 7). Never put problem-specific code in the templates themselves (rule 1).
+   - **I/O exceptions:**
+     - **Interactive problems** must not use the template's `readFileSync(0)`. Use a synchronous `fs.readSync` byte reader with `fs.writeSync` output (reference: `contests/codeforces/2026-11-06/myMindIsGoing.js`).
+     - **Run-twice / communication problems** must not use it either. Use an incremental stdin reader that prints and exits as soon as the input is complete (reference: `contests/codeforces/2026-11-06/theoremOfTwoCans.js`).
+   - Never call `Array.prototype.shift()` on large token queues. It is O(n) and caused an idleness failure. Use an index pointer instead.
+   - Rule 9 still applies: a template is never a way to pass off agent-written code as the user's own in a live rated round.
 
 ---
 
