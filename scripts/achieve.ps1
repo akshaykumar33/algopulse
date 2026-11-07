@@ -19,7 +19,6 @@ if ($globalHook) {
     $hookFile = Join-Path $globalHook 'commit-msg'
     if (Test-Path $hookFile) {
         Write-Host "     Hook script: $hookFile" -ForegroundColor DarkGray
-        Write-Host "     Pairing Identity: Akshaykumarpatil333 (ID: 123820292)" -ForegroundColor DarkGray
     }
 } else {
     Write-Host "[WARN] Global Git Hook NOT configured. Run 'git config --global core.hooksPath C:/Users/AKKIE/.git-hooks'" -ForegroundColor Red
@@ -55,12 +54,9 @@ try {
         Write-Host ("  [BASE]   Pull Shark: In Progress ({0}/16 PRs, Next: Bronze at 16)" -f $totalMerged) -ForegroundColor DarkYellow
     }
 
-    Write-Host "  [GOLD]   Pair Extraordinaire: Active (Gold achieved at 48+ co-authored merged PRs for Akshaykumarpatil333)." -ForegroundColor Yellow
     Write-Host "  [ACTIVE] Quickdraw: Merge within 5 minutes of opening PR." -ForegroundColor Cyan
     Write-Host "  [ACTIVE] YOLO: Direct merge via 'gh pr merge --merge'." -ForegroundColor Cyan
 
-    Write-Host "`nGalaxy Brain Status (Q&A Discussions):" -ForegroundColor White
-    node (Join-Path $PSScriptRoot 'galaxy_brain.js') next --compact
 
 } catch {
     Write-Host "[WARN] Could not reach GitHub API: $_" -ForegroundColor Red

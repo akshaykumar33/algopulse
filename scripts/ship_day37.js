@@ -134,7 +134,7 @@ async function ship() {
     }
 
     // Commit
-    const commitMsg = `${b.title}\n\n${b.body}\n\nCo-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>`;
+    const commitMsg = `${b.title}\n\n${b.body}`;
     fs.writeFileSync('.commit_msg.tmp', commitMsg, 'utf-8');
     runCmd(`git commit -F .commit_msg.tmp`);
     if (fs.existsSync('.commit_msg.tmp')) fs.unlinkSync('.commit_msg.tmp');
