@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[[\"ProductOfNumbers\",\"add\",\"add\",\"add\",\"add\",\"add\",\"getProduct\",\"getProduct\",\"getProduct\",\"add\",\"getProduct\"],[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]]\n",
+    "output": "[null,null,null,null,null,null,20,40,0,null,32]\n"
+  },
+  {
+    "input": "[[\"ProductOfNumbers\",\"add\",\"getProduct\"],[[],[5],[1]]]\n",
+    "output": "[null,null,5]\n"
+  },
+  {
+    "input": "[[\"ProductOfNumbers\",\"add\",\"add\",\"getProduct\"],[[],[0],[7],[2]]]\n",
+    "output": "[null,null,null,0]\n"
+  }
+]

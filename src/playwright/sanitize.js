@@ -164,12 +164,24 @@ function sanitizeCodeForSubmission(code, platform = '') {
     cleaned = cleaned.slice(0, harnessIndex);
   }
 
-  // 2. Remove require.main === module runner blocks and subsequent exports
-  cleaned = cleaned.replace(/if\s*\([^)]*require\.main\s*===\s*module[^)]*\)[\s\S]*$/g, '');
+  const isLeetCode = String(platform || '').toLowerCase().includes('leetcode');
+
+  if (isLeetCode) {
+    // For LeetCode, strip require.main runner blocks and module exports
+    cleaned = cleaned.replace(/if\s*\([^)]*require\.main\s*===\s*module[^)]*\)[\s\S]*$/g, '');
+  } else {
+    // For Codeforces/CodeChef, unwrap solve() from require.main block if present
+    cleaned = cleaned.replace(/if\s*\([^)]*require\.main\s*===\s*module[^)]*\)\s*\{\s*solve\(\);\s*\}/g, 'solve();');
+    cleaned = cleaned.replace(/if\s*\([^)]*require\.main\s*===\s*module[^)]*\)[\s\S]*$/g, '');
+  }
 
   // 3. Remove module.exports
   cleaned = cleaned.replace(/module\.exports\s*=\s*[^;\n]+;?/g, '');
   cleaned = cleaned.replace(/if\s*\(\s*typeof\s+module\s*!==\s*['"]undefined['"]\s*\)[\s\S]*$/g, '');
+
+  if (!isLeetCode && /function\s+solve\s*\(/.test(cleaned) && !/(?:^|\n)\s*solve\s*\(\s*\)\s*;?\s*$/.test(cleaned.trim())) {
+    cleaned += '\n\nsolve();\n';
+  }
 
   // 4. Strip all comments
   cleaned = stripComments(cleaned);

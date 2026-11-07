@@ -291,7 +291,7 @@ async function main() {
     if (res.status === 'solved') {
       console.log(`✓ solved (attempt ${res.attempts})`);
       solved++;
-      await new Promise((r) => setTimeout(r, 1500));
+      await new Promise((r) => setTimeout(r, 3500));
     } else if (res.status === 'skipped') {
       console.log(`- already solved`);
       skipped++;

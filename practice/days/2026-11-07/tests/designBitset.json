@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[[\"Bitset\",\"fix\",\"fix\",\"flip\",\"all\",\"unfix\",\"flip\",\"one\",\"unfix\",\"count\",\"toString\"],[[5],[3],[1],[],[],[0],[],[],[0],[],[]]]",
+    "output": "[null,null,null,null,false,null,null,true,null,2,\"01010\"]"
+  }
+]

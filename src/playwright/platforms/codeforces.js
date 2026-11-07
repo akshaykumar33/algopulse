@@ -112,6 +112,11 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
     await page.goto(contestSubmitUrl, { waitUntil: 'commit', timeout: 25000 }).catch(() => {});
   }
 
+  if (!page.url().includes('/submit')) {
+    console.log(`    [Codeforces] Contest submit page redirected to ${page.url()}, falling back to problemset/submit ...`);
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 35000 }).catch(() => {});
+  }
+
   // 1. Verify Authentication
   const auth = await checkAuth(page);
   if (!auth.authenticated) {

@@ -1,0 +1,26 @@
+[
+  {
+    "input": "\"H..H\"\n",
+    "output": "2\n"
+  },
+  {
+    "input": "\".H.H.\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\".HHH.\"\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "\"H\"\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "\".\"\n",
+    "output": "0\n"
+  },
+  {
+    "input": "\".H\"\n",
+    "output": "1\n"
+  }
+]
