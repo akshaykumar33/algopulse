@@ -409,21 +409,14 @@ Competitive programming solutions must be crafted with high algorithmic precisio
 
 ---
 
-## 13. GitHub Achievements Engine (Pairing, Pull Shark, Quickdraw, YOLO)
+## 13. GitHub Activity & Achievements (Authentic Only)
 
-To systematically maximize GitHub profile achievements and collaboration metrics across all automated workflows:
-1. **Pull Shark (Gold Tier Target 128+ PRs):**
-   - Strictly adhere to the $\le 50$ changed files per PR limit (Rule §9.5).
-   - Group daily problems into cohesive atomic batches (e.g. Codeforces batch, LeetCode batch, CodeChef batch).
-2. **Pair Extraordinaire (Every PR & Commit):**
-   - Every single commit message MUST include the pairing trailer:
-     ```
-     Co-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>
-     ```
-   - Global hook in `C:/Users/AKKIE/.git-hooks/commit-msg` automatically guards this, but agents must also include it explicitly.
-3. **Quickdraw & YOLO:**
-   - Once all test suites and verifiers pass green, open the PR immediately and merge via `gh pr merge <number> --merge`.
-   - Always use a clean merge commit (`--merge`), never squash or rebase, preserving atomic pairing commits.
+Achievements must come as a side effect of real work. GitHub treats manufactured activity as inauthentic, and it can strip badges or restrict the account.
+1. **Pull Shark:** every real change goes through a PR of at most 50 files (Rule §9.5), merged as a merge commit (`gh pr merge <n> --merge`). Never split work, or open PRs, just to raise the count.
+2. **No self-pairing:** never add `Co-authored-by` trailers for the owner's own second account (`Akshaykumarpatil333`). Add a co-author only for a different human who actually worked on the commit, using the name and email the owner provides.
+3. **No manufactured Discussions:** never script or batch-create Q&A discussions, answer your own questions, or accept answers from your own accounts to earn Galaxy Brain. Answer real questions from other people only.
+4. **Quickdraw & YOLO:** these are one-time badges that are already earned. No workflow should exist to chase them.
+5. **No cross-repo activity automation:** never run scripts that push commits, hooks or playbooks across many repositories to generate activity. Any new automation is added only when the owner asks for it.
 
 ---
 
