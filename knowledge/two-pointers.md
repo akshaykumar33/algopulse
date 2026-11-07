@@ -134,6 +134,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Hossam and Friends](https://codeforces.com/problemset/problem/1771/B) | `Codeforces` | `1400` | `hossamAndFriends.js` | Key algorithmic application from Day 2026-11-06. |
 | [The Trail](https://codeforces.com/problemset/problem/2055/C) | `Codeforces` | `1400` | `theTrail.js` | Key algorithmic application from Day 2026-11-06. |
 | [Meximum Array](https://codeforces.com/problemset/problem/1628/A) | `Codeforces` | `1400` | `meximumArray.js` | Key algorithmic application from Day 2026-11-06. |
+| [Dances (Easy version)](https://codeforces.com/problemset/problem/1883/G1) | `Codeforces` | `1400` | `dancesEasyVersion.js` | Key algorithmic application from Day 2026-11-07. |
+| [Swap Adjacent Elements](https://codeforces.com/problemset/problem/920/C) | `Codeforces` | `1400` | `swapAdjacentElements.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 

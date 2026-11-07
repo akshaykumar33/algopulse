@@ -237,6 +237,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Increase Subarray Sums](https://codeforces.com/problemset/problem/1644/C) | `Codeforces` | `1400` | `increaseSubarraySums.js` | Key algorithmic application from Day 2026-11-06. |
 | [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
+| [Chessboard](https://codeforces.com/problemset/problem/961/C) | `Codeforces` | `1400` | `chessboard.js` | Key algorithmic application from Day 2026-11-07. |
+| [Strongly Connected City](https://codeforces.com/problemset/problem/475/B) | `Codeforces` | `1400` | `stronglyConnectedCity.js` | Key algorithmic application from Day 2026-11-07. |
+| [Jeopardy of Dropped Balls](https://codeforces.com/problemset/problem/1575/J) | `Codeforces` | `1500` | `jeopardyOfDroppedBalls.js` | Key algorithmic application from Day 2026-11-07. |
+| [Searching for Graph](https://codeforces.com/problemset/problem/402/C) | `Codeforces` | `1500` | `searchingForGraph.js` | Key algorithmic application from Day 2026-11-07. |
+| [Kolya and Tandem Repeat](https://codeforces.com/problemset/problem/443/B) | `Codeforces` | `1500` | `kolyaAndTandemRepeat.js` | Key algorithmic application from Day 2026-11-07. |
+| [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
+| [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -166,6 +166,9 @@ function lowerBound(arr, target) {
 | [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
 | [The Doctor Meets Vader (Easy)](https://codeforces.com/problemset/problem/1184/B1) | `Codeforces` | `1400` | `theDoctorMeetsVaderEasy.js` | Key algorithmic application from Day 2026-11-06. |
 | [Two Colors](https://codeforces.com/problemset/problem/2075/C) | `Codeforces` | `1500` | `twoColors.js` | Key algorithmic application from Day 2026-11-06. |
+| [Dances (Easy version)](https://codeforces.com/problemset/problem/1883/G1) | `Codeforces` | `1400` | `dancesEasyVersion.js` | Key algorithmic application from Day 2026-11-07. |
+| [Jeopardy of Dropped Balls](https://codeforces.com/problemset/problem/1575/J) | `Codeforces` | `1500` | `jeopardyOfDroppedBalls.js` | Key algorithmic application from Day 2026-11-07. |
+| [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 

@@ -421,6 +421,19 @@ for (const x of arr) {
 | [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Cut 'em all!](https://codeforces.com/problemset/problem/982/C) | `Codeforces` | `1500` | `cutEmAll.js` | Key algorithmic application from Day 2026-11-06. |
 | [Mortal Kombat Tower](https://codeforces.com/problemset/problem/1418/C) | `Codeforces` | `1500` | `mortalKombatTower.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Buttons](https://codeforces.com/problemset/problem/520/B) | `Codeforces` | `1400` | `twoButtons.js` | Key algorithmic application from Day 2026-11-07. |
+| [Dances (Easy version)](https://codeforces.com/problemset/problem/1883/G1) | `Codeforces` | `1400` | `dancesEasyVersion.js` | Key algorithmic application from Day 2026-11-07. |
+| [Petya and Inequiations](https://codeforces.com/problemset/problem/111/A) | `Codeforces` | `1400` | `petyaAndInequiations.js` | Key algorithmic application from Day 2026-11-07. |
+| [Vanya and Exams](https://codeforces.com/problemset/problem/492/C) | `Codeforces` | `1400` | `vanyaAndExams.js` | Key algorithmic application from Day 2026-11-07. |
+| [XOR-distance](https://codeforces.com/problemset/problem/1918/C) | `Codeforces` | `1400` | `xORDistance.js` | Key algorithmic application from Day 2026-11-07. |
+| [Anna and the Valentine's Day Gift](https://codeforces.com/problemset/problem/1931/E) | `Codeforces` | `1400` | `annaAndTheValentineSDayGift.js` | Key algorithmic application from Day 2026-11-07. |
+| [Great Graphs](https://codeforces.com/problemset/problem/1540/A) | `Codeforces` | `1400` | `greatGraphs.js` | Key algorithmic application from Day 2026-11-07. |
+| [Everything Nim](https://codeforces.com/problemset/problem/1965/A) | `Codeforces` | `1400` | `everythingNim.js` | Key algorithmic application from Day 2026-11-07. |
+| [Ticket Hoarding](https://codeforces.com/problemset/problem/1951/C) | `Codeforces` | `1400` | `ticketHoarding.js` | Key algorithmic application from Day 2026-11-07. |
+| [Swap Adjacent Elements](https://codeforces.com/problemset/problem/920/C) | `Codeforces` | `1400` | `swapAdjacentElements.js` | Key algorithmic application from Day 2026-11-07. |
+| [Productive Meeting](https://codeforces.com/problemset/problem/1579/D) | `Codeforces` | `1400` | `productiveMeeting.js` | Key algorithmic application from Day 2026-11-07. |
+| [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
+| [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -95,6 +95,9 @@ function determineWinner(a, b, c) {
 | [Game with Marbles (Hard Version)](https://codeforces.com/problemset/problem/1914/E2) | `Codeforces` | `1400` | `gameWithMarblesHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Bricks and Bags](https://codeforces.com/problemset/problem/1740/C) | `Codeforces` | `1400` | `bricksAndBags.js` | Key algorithmic application from Day 2026-11-06. |
 | [Arena of Greed](https://codeforces.com/problemset/problem/1425/A) | `Codeforces` | `1400` | `arenaOfGreed.js` | Key algorithmic application from Day 2026-11-06. |
+| [Put Knight!](https://codeforces.com/problemset/problem/120/E) | `Codeforces` | `1400` | `putKnight.js` | Key algorithmic application from Day 2026-11-07. |
+| [Anna and the Valentine's Day Gift](https://codeforces.com/problemset/problem/1931/E) | `Codeforces` | `1400` | `annaAndTheValentineSDayGift.js` | Key algorithmic application from Day 2026-11-07. |
+| [Everything Nim](https://codeforces.com/problemset/problem/1965/A) | `Codeforces` | `1400` | `everythingNim.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 
