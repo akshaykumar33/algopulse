@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2 3\n",
+    "output": "Equal\n"
+  },
+  {
+    "input": "3 2\n",
+    "output": "Equal\n"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "\"ca\"\n",
+    "output": "2\n"
+  },
+  {
+    "input": "\"cabaac\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"aabccabba\"\n",
+    "output": "3\n"
+  },
+  {
+    "input": "\"a\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"aa\"\n",
+    "output": "0\n"
+  }
+]

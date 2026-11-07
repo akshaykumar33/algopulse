@@ -1,0 +1,18 @@
+[
+  {
+    "input": "automaton\ntom\n",
+    "output": "automaton\n"
+  },
+  {
+    "input": "array\narary\n",
+    "output": "array\n"
+  },
+  {
+    "input": "both\nhot\n",
+    "output": "both\n"
+  },
+  {
+    "input": "need\ntree\n",
+    "output": "need tree\n"
+  }
+]

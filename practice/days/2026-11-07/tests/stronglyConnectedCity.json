@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3 3\n><>\n^v^\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "4 6\n<><>\nv^v^v^\n",
+    "output": "YES\n"
+  }
+]

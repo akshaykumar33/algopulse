@@ -1,0 +1,42 @@
+[
+  {
+    "input": "[\"alice,20,800,mtv\",\"alice,50,100,beijing\"]",
+    "output": "[\"alice,20,800,mtv\",\"alice,50,100,beijing\"]"
+  },
+  {
+    "input": "[\"alice,20,800,mtv\",\"alice,50,1200,mtv\"]",
+    "output": "[\"alice,50,1200,mtv\"]"
+  },
+  {
+    "input": "[\"alice,20,800,mtv\",\"bob,50,1200,mtv\"]",
+    "output": "[\"bob,50,1200,mtv\"]"
+  },
+  {
+    "input": "[\"alice,50,1200,mtv\",\"alice,20,800,mtv\",\"alice,50,100,beijing\"]",
+    "output": "[\"alice,50,1200,mtv\",\"alice,20,800,mtv\",\"alice,50,100,beijing\"]"
+  },
+  {
+    "input": "[\"bob,689,1910,barcelona\",\"alex,696,122,bangkok\",\"bob,832,1726,barcelona\",\"bob,820,1503,madrid\",\"alex,621,122,bangkok\"]",
+    "output": "[\"bob,689,1910,barcelona\",\"bob,832,1726,barcelona\",\"bob,820,1503,madrid\"]"
+  },
+  {
+    "input": "[\"xnova,261,1697,chicago\",\"bob,20,1000,beijing\",\"xnova,261,1697,chicago\",\"bob,617,1000,beijing\"]",
+    "output": "[\"xnova,261,1697,chicago\",\"xnova,261,1697,chicago\"]"
+  },
+  {
+    "input": "[\"alice,10,100,a\",\"alice,10,101,b\"]",
+    "output": "[\"alice,10,100,a\",\"alice,10,101,b\"]"
+  },
+  {
+    "input": "[\"alice,10,1000,a\",\"alice,10,1000,b\"]",
+    "output": "[\"alice,10,1000,a\",\"alice,10,1000,b\"]"
+  },
+  {
+    "input": "[\"john,30,1200,chicago\",\"john,20,1000,chicago\"]",
+    "output": "[\"john,30,1200,chicago\"]"
+  },
+  {
+    "input": "[\"mary,10,100,london\",\"mary,20,100,london\"]",
+    "output": "[]"
+  }
+]

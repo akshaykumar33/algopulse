@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"cabaa\",\"bcaaa\"]",
+    "output": "\"cbcabaaaaa\""
+  },
+  {
+    "input": "[\"abcabc\",\"abdcaba\"]",
+    "output": "\"abdcabcabcaba\""
+  }
+]
