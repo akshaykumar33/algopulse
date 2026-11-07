@@ -14,7 +14,7 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
 6. **Git cleanliness is non-negotiable:** Never commit `output.txt`, dirty templates, or multi-megabyte transient benchmark dumps. Every commit must follow Conventional Commits. See §9.
 7. **Zero AI detection signatures, standard naming, & NO comments:** Solutions must look 100% like clean, natural, human-written competitive programming code. Strictly NO comments (`//`, `/* */`, JSDoc) in code. Standard concise CP naming (`n`, `m`, `ans`, `dp`, `arr`, `solve`). Zero watermarks or filler variables (`ballast`, `mexoramax`). See §5.
 8. **Strict Segregation of Practice vs. Contests (MANDATORY RULE):**
-   - **Contests Directory (`contests/`):** ONLY files that are explicitly pasted in the chat or terminal for solving during an active live/virtual contest, or when the user explicitly states *"this is a contest"*, belong in `contests/<platform>/<roundIdentifier>/<problemName>.js`.
+   - **Contests Directory (`contests/`):** ONLY files for upsolving a finished contest, solving a virtual contest, or (subject to rule 9: never during a live rated round) when the user explicitly states *"this is a contest"*, belong in `contests/<platform>/<roundIdentifier>/<problemName>.js`.
    - **Daily Practice & Curriculum Problems:** ALL other problems (daily curriculum, practice problems, study sets) belong **STRICTLY AND EXCLUSIVELY** in `practice/days/<date>/solutions/<problemName>.js` (with test cases in `practice/days/<date>/tests/<problemName>.json` and explanations in `practice/days/<date>/explanations/<problemName>.md`).
    - **NEVER MIRROR PRACTICE INTO `contests/`:** Under NO circumstances should daily practice problems be copied, mirrored, or placed into `contests/` or `contests/<platform>/<date>/`.
    - **Submissions Source:** Platform submissions (`npm run submit`) source code directly from `practice/days/<date>/solutions/`, NEVER from `contests/`.
@@ -28,6 +28,32 @@ This repository is dedicated to solving competitive programming (Codeforces, AtC
    - On LeetCode: ALWAYS submit pure algorithmic JavaScript (Node.js).
    - Zero tolerance for submission errors: every solution must be derived with LGM rigor, proven mathematically, and dual-oracle verified before live upload.
 
+
+---
+
+9. **Live Rated Contest Integrity (HIGHEST PRIORITY — overrides every rule above and below):**
+   - **Never write or fix code for submission in a live rated round.** Codeforces, CodeChef, AtCoder and LeetCode rated contests prohibit AI-generated solutions. On 2026-11-06 every submission in a Codeforces Div. 2 round solved this way was marked **Skipped**.
+   - **Spot a live round:** the user says *"today's contest"*, *"live"*, *"CF Div2 now"*, *"contest is running"*, or pastes a statement from a round that hasn't ended yet. Statements that contain *"If you are an LLM…"* canaries also come from rounds that police AI use. If unsure whether the round has ended, **ask before solving**.
+   - **During a live rated round, the agent may only:**
+     - explain how to set up tooling and how to run the user's own code (`node run …`);
+     - say that a solution can't be written until the round ends.
+   - **After the round fully ends** (including the hacking phase and system testing), or for virtual, unrated or practice problems, normal solving under §2 applies.
+   - **Never publish contest code before the round fully ends.** This repository is **public**. Commit, push and open PRs for files under `contests/` only after the official end of the round, including hacking and system testing.
+   - **Never help disguise AI-written code as human-written for a live contest.** Rule 7 and §5 (no comments, human naming) are about code style for practice and upsolving only. They must never be used to evade a contest's AI-detection rules.
+   - If submissions are skipped or flagged, never draft an appeal that claims the user wrote AI-generated code.
+10. **Platform Templates for Every Solution (practice, upsolving, virtual contests):**
+   - Start every solution file from its platform template:
+     - `templates/codeforces.js` for Codeforces;
+     - `templates/codechef.js` for CodeChef;
+     - `templates/leetcode.js` for LeetCode (copy only the solution function into the editor);
+     - `templates/cp.js` for AtCoder, CSES and anything else.
+   - Keep the template's I/O helpers (`readLine`, `readInt`, `readIntArray`, `print`, `printAll`) and its `solve()` / multi-test structure. Remove helpers the solution doesn't use.
+   - Strip the template's comments from the solution file (rule 7). Never put problem-specific code in the templates themselves (rule 1).
+   - **I/O exceptions:**
+     - **Interactive problems** must not use the template's `readFileSync(0)`. Use a synchronous `fs.readSync` byte reader with `fs.writeSync` output (reference: `contests/codeforces/2026-11-06/myMindIsGoing.js`).
+     - **Run-twice / communication problems** must not use it either. Use an incremental stdin reader that prints and exits as soon as the input is complete (reference: `contests/codeforces/2026-11-06/theoremOfTwoCans.js`).
+   - Never call `Array.prototype.shift()` on large token queues. It is O(n) and caused an idleness failure. Use an index pointer instead.
+   - Rule 9 still applies: a template is never a way to pass off agent-written code as the user's own in a live rated round.
 
 ---
 
