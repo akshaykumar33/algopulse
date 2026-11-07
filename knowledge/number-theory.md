@@ -171,6 +171,7 @@ function sieve(maxN) {
 | [Almost All Multiples](https://codeforces.com/problemset/problem/1758/C) | `Codeforces` | `1400` | `almostAllMultiples.js` | Key algorithmic application from Day 2026-11-06. |
 | [Cows and Primitive Roots](https://codeforces.com/problemset/problem/284/A) | `Codeforces` | `1400` | `cowsAndPrimitiveRoots.js` | Key algorithmic application from Day 2026-11-06. |
 | [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
+| [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 

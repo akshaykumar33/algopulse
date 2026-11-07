@@ -153,6 +153,13 @@ function dfsIterative(start, adj, n) {
 | [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Cut 'em all!](https://codeforces.com/problemset/problem/982/C) | `Codeforces` | `1500` | `cutEmAll.js` | Key algorithmic application from Day 2026-11-06. |
 | [Mortal Kombat Tower](https://codeforces.com/problemset/problem/1418/C) | `Codeforces` | `1500` | `mortalKombatTower.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Buttons](https://codeforces.com/problemset/problem/520/B) | `Codeforces` | `1400` | `twoButtons.js` | Key algorithmic application from Day 2026-11-07. |
+| [Great Graphs](https://codeforces.com/problemset/problem/1540/A) | `Codeforces` | `1400` | `greatGraphs.js` | Key algorithmic application from Day 2026-11-07. |
+| [Swap Adjacent Elements](https://codeforces.com/problemset/problem/920/C) | `Codeforces` | `1400` | `swapAdjacentElements.js` | Key algorithmic application from Day 2026-11-07. |
+| [Strongly Connected City](https://codeforces.com/problemset/problem/475/B) | `Codeforces` | `1400` | `stronglyConnectedCity.js` | Key algorithmic application from Day 2026-11-07. |
+| [Productive Meeting](https://codeforces.com/problemset/problem/1579/D) | `Codeforces` | `1400` | `productiveMeeting.js` | Key algorithmic application from Day 2026-11-07. |
+| [Searching for Graph](https://codeforces.com/problemset/problem/402/C) | `Codeforces` | `1500` | `searchingForGraph.js` | Key algorithmic application from Day 2026-11-07. |
+| [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 

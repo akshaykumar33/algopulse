@@ -193,6 +193,15 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Robert Hood and Mrs Hood](https://codeforces.com/problemset/problem/2014/D) | `Codeforces` | `1400` | `robertHoodAndMrsHood.js` | Key algorithmic application from Day 2026-11-06. |
 | [The Doctor Meets Vader (Easy)](https://codeforces.com/problemset/problem/1184/B1) | `Codeforces` | `1400` | `theDoctorMeetsVaderEasy.js` | Key algorithmic application from Day 2026-11-06. |
 | [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
+| [Vanya and Exams](https://codeforces.com/problemset/problem/492/C) | `Codeforces` | `1400` | `vanyaAndExams.js` | Key algorithmic application from Day 2026-11-07. |
+| [Anna and the Valentine's Day Gift](https://codeforces.com/problemset/problem/1931/E) | `Codeforces` | `1400` | `annaAndTheValentineSDayGift.js` | Key algorithmic application from Day 2026-11-07. |
+| [Great Graphs](https://codeforces.com/problemset/problem/1540/A) | `Codeforces` | `1400` | `greatGraphs.js` | Key algorithmic application from Day 2026-11-07. |
+| [Colorful Field](https://codeforces.com/problemset/problem/79/B) | `Codeforces` | `1400` | `colorfulField.js` | Key algorithmic application from Day 2026-11-07. |
+| [Everything Nim](https://codeforces.com/problemset/problem/1965/A) | `Codeforces` | `1400` | `everythingNim.js` | Key algorithmic application from Day 2026-11-07. |
+| [Ticket Hoarding](https://codeforces.com/problemset/problem/1951/C) | `Codeforces` | `1400` | `ticketHoarding.js` | Key algorithmic application from Day 2026-11-07. |
+| [Swap Adjacent Elements](https://codeforces.com/problemset/problem/920/C) | `Codeforces` | `1400` | `swapAdjacentElements.js` | Key algorithmic application from Day 2026-11-07. |
+| [AquaMoon and Strange Sort](https://codeforces.com/problemset/problem/1545/A) | `Codeforces` | `1500` | `aquaMoonAndStrangeSort.js` | Key algorithmic application from Day 2026-11-07. |
+| [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -368,6 +368,20 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
 | [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
 | [Two Colors](https://codeforces.com/problemset/problem/2075/C) | `Codeforces` | `1500` | `twoColors.js` | Key algorithmic application from Day 2026-11-06. |
+| [Two Buttons](https://codeforces.com/problemset/problem/520/B) | `Codeforces` | `1400` | `twoButtons.js` | Key algorithmic application from Day 2026-11-07. |
+| [Bus Video System](https://codeforces.com/problemset/problem/978/E) | `Codeforces` | `1400` | `busVideoSystem.js` | Key algorithmic application from Day 2026-11-07. |
+| [Game With Array](https://codeforces.com/problemset/problem/1355/D) | `Codeforces` | `1400` | `gameWithArray.js` | Key algorithmic application from Day 2026-11-07. |
+| [Put Knight!](https://codeforces.com/problemset/problem/120/E) | `Codeforces` | `1400` | `putKnight.js` | Key algorithmic application from Day 2026-11-07. |
+| [Amr and Pins](https://codeforces.com/problemset/problem/507/B) | `Codeforces` | `1400` | `amrAndPins.js` | Key algorithmic application from Day 2026-11-07. |
+| [XOR-distance](https://codeforces.com/problemset/problem/1918/C) | `Codeforces` | `1400` | `xORDistance.js` | Key algorithmic application from Day 2026-11-07. |
+| [Measuring Lengths in Baden](https://codeforces.com/problemset/problem/125/A) | `Codeforces` | `1400` | `measuringLengthsInBaden.js` | Key algorithmic application from Day 2026-11-07. |
+| [Anna and the Valentine's Day Gift](https://codeforces.com/problemset/problem/1931/E) | `Codeforces` | `1400` | `annaAndTheValentineSDayGift.js` | Key algorithmic application from Day 2026-11-07. |
+| [Everything Nim](https://codeforces.com/problemset/problem/1965/A) | `Codeforces` | `1400` | `everythingNim.js` | Key algorithmic application from Day 2026-11-07. |
+| [Ticket Hoarding](https://codeforces.com/problemset/problem/1951/C) | `Codeforces` | `1400` | `ticketHoarding.js` | Key algorithmic application from Day 2026-11-07. |
+| [Swap Adjacent Elements](https://codeforces.com/problemset/problem/920/C) | `Codeforces` | `1400` | `swapAdjacentElements.js` | Key algorithmic application from Day 2026-11-07. |
+| [Trains](https://codeforces.com/problemset/problem/87/A) | `Codeforces` | `1500` | `trains.js` | Key algorithmic application from Day 2026-11-07. |
+| [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
+| [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

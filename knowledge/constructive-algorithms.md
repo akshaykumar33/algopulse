@@ -254,6 +254,15 @@ function constructMatrix(n, m) {
 | [Fishingprince Plays With Array](https://codeforces.com/problemset/problem/1696/C) | `Codeforces` | `1400` | `fishingprincePlaysWithArray.js` | Key algorithmic application from Day 2026-11-06. |
 | [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
+| [Save the problem!](https://codeforces.com/problemset/problem/865/A) | `Codeforces` | `1400` | `saveTheProblem.js` | Key algorithmic application from Day 2026-11-07. |
+| [Flag Day](https://codeforces.com/problemset/problem/357/B) | `Codeforces` | `1400` | `flagDay.js` | Key algorithmic application from Day 2026-11-07. |
+| [Game With Array](https://codeforces.com/problemset/problem/1355/D) | `Codeforces` | `1400` | `gameWithArray.js` | Key algorithmic application from Day 2026-11-07. |
+| [Maximal Binary Matrix](https://codeforces.com/problemset/problem/803/A) | `Codeforces` | `1400` | `maximalBinaryMatrix.js` | Key algorithmic application from Day 2026-11-07. |
+| [Great Graphs](https://codeforces.com/problemset/problem/1540/A) | `Codeforces` | `1400` | `greatGraphs.js` | Key algorithmic application from Day 2026-11-07. |
+| [Productive Meeting](https://codeforces.com/problemset/problem/1579/D) | `Codeforces` | `1400` | `productiveMeeting.js` | Key algorithmic application from Day 2026-11-07. |
+| [Searching for Graph](https://codeforces.com/problemset/problem/402/C) | `Codeforces` | `1500` | `searchingForGraph.js` | Key algorithmic application from Day 2026-11-07. |
+| [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
+| [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
 
 ---
 
