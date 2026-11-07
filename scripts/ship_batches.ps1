@@ -1,6 +1,5 @@
 # Segregated PR Shipper for Day 34 (2026-10-28)
 # Strict adherence to PR sizing limit: <= 50 files per PR
-# Global co-author hook automatically appends: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>
 
 $ErrorActionPreference = 'Stop'
 

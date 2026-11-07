@@ -8,7 +8,7 @@
  * 2. Solves, verifies, and generates unit tests with zero stubs and zero comments.
  * 3. Produces comprehensive markdown documentation and Mermaid architecture diagrams.
  * 4. Syncs the 14-topic knowledge base catalogs.
- * 5. Partitions changes into strict <= 50 files PR batches with Co-authored-by trailer.
+ * 5. Partitions changes into strict <= 50 files PR batches.
  * 6. Directly auto-merges PRs via merge commit (`gh pr merge --merge`).
  * 7. Dispatches submissions via Chrome CDP (Port 9222) with authentic human pacing.
  * 8. Diagnoses, auto-repairs, and retries any non-accepted verdicts until Accepted.
@@ -173,7 +173,7 @@ async function runAutonomousCycle(targetDate) {
 
     const stagedOutput = runCmd('git', ['diff', '--name-only', '--cached']).stdout;
     if (stagedOutput && stagedOutput.trim().length > 0) {
-      const commitMsg = `feat(day${dayMeta.day}): record platform submission verdicts and dlq status\n\nAutomated live platform submission results for Day ${dayMeta.day} (${targetDate}) across Codeforces, LeetCode, and CodeChef.\n\nCo-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>`;
+      const commitMsg = `feat(day${dayMeta.day}): record platform submission verdicts and dlq status\n\nAutomated live platform submission results for Day ${dayMeta.day} (${targetDate}) across Codeforces, LeetCode, and CodeChef.`;
       const tmpCommit = path.join(REPO, '.commit_msg.tmp');
       fs.writeFileSync(tmpCommit, commitMsg, 'utf-8');
       runCmd('git', ['commit', '-F', tmpCommit]);
@@ -209,7 +209,6 @@ async function runAutonomousCycle(targetDate) {
 async function main() {
   logHeader('ALGOPULSE CONTINUOUS NON-STOP AUTONOMOUS DAEMON');
   console.log(`  Mode: ${C.bold}${C.green}Uninterrupted Autonomous Progression${C.reset}`);
-  console.log(`  Co-Authorship: ${C.cyan}Akshaykumarpatil333 (Enforced on 100% of Commits)${C.reset}`);
   console.log(`  PR Segregation: ${C.cyan}Strictly <= 50 Changed Files per PR${C.reset}`);
   console.log(`  Merging: ${C.cyan}Direct Merge Commit (gh pr merge --merge)${C.reset}\n`);
 

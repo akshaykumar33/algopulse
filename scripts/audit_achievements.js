@@ -26,11 +26,6 @@ try {
     console.log(`  - ${r.name.padEnd(28)} : ${r.mergedPRs} (${r.isPrivate ? 'private' : 'public'})`);
   }
 
-  // Count co-authored PRs across algopulse
-  const coAuthorLog = execSync('git log --grep="Co-authored-by: Akshaykumarpatil333" --oneline', { encoding: 'utf-8' });
-  const coAuthorCommits = coAuthorLog.trim().split('\n').filter(Boolean).length;
-  console.log('\nCo-authored commits in current repo (algopulse):', coAuthorCommits);
-
   // Milestone comparison
   console.log('\n=== ACHIEVEMENT TIERS & YOUR CURRENT STATUS ===');
   console.log('1. PULL SHARK:');

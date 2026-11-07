@@ -238,7 +238,7 @@ async function main() {
       throw new Error(`CRITICAL: Staged count ${stagedCount} exceeds 50!`);
     }
 
-    const commitMsg = `${b.title}\n\n${b.body}\n\nCo-authored-by: Akshaykumarpatil333 <123820292+Akshaykumarpatil333@users.noreply.github.com>`;
+    const commitMsg = `${b.title}\n\n${b.body}`;
     const tmpCommit = path.join(REPO, '.commit_msg.tmp');
     fs.writeFileSync(tmpCommit, commitMsg, 'utf-8');
     run('git', ['commit', '-F', tmpCommit]);
