@@ -1,0 +1,26 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-MINRPC",
+    "name": "Rock-Paper-Scissors",
+    "file": "rockPaperScissors",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-08T14:54:03.770Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MINRPC",
+      "name": "Rock-Paper-Scissors",
+      "rating": 1454,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MINRPC",
+      "file": "rockPaperScissors",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]
