@@ -1,0 +1,1246 @@
+{
+  "date": "2026-11-08",
+  "day": 45,
+  "platforms": [
+    "Codeforces",
+    "LeetCode",
+    "CodeChef"
+  ],
+  "problems": [
+    {
+      "platform": "Codeforces",
+      "id": "108B",
+      "name": "Datatypes",
+      "rating": 1400,
+      "tags": [
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/108/B",
+      "file": "datatypes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "630H",
+      "name": "Benches",
+      "rating": 1400,
+      "tags": [
+        "combinatorics",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/630/H",
+      "file": "benches",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "995B",
+      "name": "Suit and Tie",
+      "rating": 1400,
+      "tags": [
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/995/B",
+      "file": "suitAndTie",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2020C",
+      "name": "Bitwise Balancing",
+      "rating": 1400,
+      "tags": [
+        "bitmasks",
+        "hashing",
+        "implementation",
+        "math",
+        "schedules",
+        "ternary search"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2020/C",
+      "file": "bitwiseBalancing",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1903C",
+      "name": "Theofanis' Nightmare",
+      "rating": 1400,
+      "tags": [
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1903/C",
+      "file": "theofanisNightmare",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1866B",
+      "name": "Battling with Numbers",
+      "rating": 1400,
+      "tags": [
+        "combinatorics",
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1866/B",
+      "file": "battlingWithNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1130C",
+      "name": "Connect",
+      "rating": 1400,
+      "tags": [
+        "brute force",
+        "dfs and similar",
+        "dsu"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1130/C",
+      "file": "connect",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "416A",
+      "name": "Guess a number!",
+      "rating": 1400,
+      "tags": [
+        "greedy",
+        "implementation",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/416/A",
+      "file": "guessANumber",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1833D",
+      "name": "Flipper",
+      "rating": 1400,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1833/D",
+      "file": "flipper",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1363B",
+      "name": "Subsequence Hate",
+      "rating": 1400,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1363/B",
+      "file": "subsequenceHate",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "748C",
+      "name": "Santa Claus and Robot",
+      "rating": 1400,
+      "tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/748/C",
+      "file": "santaClausAndRobot",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "41B",
+      "name": "Martian Dollar",
+      "rating": 1400,
+      "tags": [
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/41/B",
+      "file": "martianDollar",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "550B",
+      "name": "Preparing Olympiad",
+      "rating": 1400,
+      "tags": [
+        "bitmasks",
+        "brute force"
+      ],
+      "url": "https://codeforces.com/problemset/problem/550/B",
+      "file": "preparingOlympiad",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "45I",
+      "name": "TCMCF+++",
+      "rating": 1400,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/45/I",
+      "file": "tCMCFPlusPlusPlus",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "762B",
+      "name": "USB vs. PS/2",
+      "rating": 1400,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/762/B",
+      "file": "uSBVsPS2",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "745B",
+      "name": "Hongcow Solves A Puzzle",
+      "rating": 1400,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/745/B",
+      "file": "hongcowSolvesAPuzzle",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "277A",
+      "name": "Learning Languages",
+      "rating": 1400,
+      "tags": [
+        "dfs and similar",
+        "dsu"
+      ],
+      "url": "https://codeforces.com/problemset/problem/277/A",
+      "file": "learningLanguages",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "141B",
+      "name": "Hopscotch",
+      "rating": 1400,
+      "tags": [
+        "geometry",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/141/B",
+      "file": "hopscotch",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1970C1",
+      "name": "Game on Tree (Easy)",
+      "rating": 1400,
+      "tags": [
+        "games"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1970/C1",
+      "file": "gameOnTreeEasy",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "42A",
+      "name": "Guilty --- to the kitchen!",
+      "rating": 1400,
+      "tags": [
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/42/A",
+      "file": "guiltyToTheKitchen",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1468C",
+      "name": "Berpizza",
+      "rating": 1400,
+      "tags": [
+        "data structures",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1468/C",
+      "file": "berpizza",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "868B",
+      "name": "Race Against Time",
+      "rating": 1400,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/868/B",
+      "file": "raceAgainstTime",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "958A1",
+      "name": "Death Stars (easy)",
+      "rating": 1400,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/958/A1",
+      "file": "deathStarsEasy",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1761C",
+      "name": "Set Construction",
+      "rating": 1400,
+      "tags": [
+        "constructive algorithms",
+        "dfs and similar",
+        "graphs",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1761/C",
+      "file": "setConstruction",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "719B",
+      "name": "Anatoly and Cockroaches",
+      "rating": 1400,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/719/B",
+      "file": "anatolyAndCockroaches",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1791F",
+      "name": "Range Update Point Query",
+      "rating": 1500,
+      "tags": [
+        "binary search",
+        "brute force",
+        "data structures"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1791/F",
+      "file": "rangeUpdatePointQuery",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "940C",
+      "name": "Phone Numbers",
+      "rating": 1500,
+      "tags": [
+        "constructive algorithms",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/940/C",
+      "file": "phoneNumbers",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "821C",
+      "name": "Okabe and Boxes",
+      "rating": 1500,
+      "tags": [
+        "data structures",
+        "greedy",
+        "trees"
+      ],
+      "url": "https://codeforces.com/problemset/problem/821/C",
+      "file": "okabeAndBoxes",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "2050E",
+      "name": "Three Strings",
+      "rating": 1500,
+      "tags": [
+        "dp",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2050/E",
+      "file": "threeStrings",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "496B",
+      "name": "Secret Combination",
+      "rating": 1500,
+      "tags": [
+        "brute force",
+        "constructive algorithms",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/496/B",
+      "file": "secretCombination",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1340A",
+      "name": "Nastya and Strange Generator",
+      "rating": 1500,
+      "tags": [
+        "brute force",
+        "data structures",
+        "greedy",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1340/A",
+      "file": "nastyaAndStrangeGenerator",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "1553D",
+      "name": "Backspace",
+      "rating": 1500,
+      "tags": [
+        "dp",
+        "greedy",
+        "strings",
+        "two pointers"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1553/D",
+      "file": "backspace",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "Codeforces",
+      "id": "584B",
+      "name": "Kolya and Tanya ",
+      "rating": 1500,
+      "tags": [
+        "combinatorics"
+      ],
+      "url": "https://codeforces.com/problemset/problem/584/B",
+      "file": "kolyaAndTanya",
+      "template": "templates/codeforces.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2139",
+      "name": "Minimum Moves to Reach Target Score",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-moves-to-reach-target-score/",
+      "file": "minimumMovesToReachTargetScore",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-781",
+      "name": "Rabbits in Forest",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rabbits-in-forest/",
+      "file": "rabbitsInForest",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-954",
+      "name": "Array of Doubled Pairs",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/array-of-doubled-pairs/",
+      "file": "arrayOfDoubledPairs",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1519",
+      "name": "Number of Nodes in the Sub-Tree With the Same Label",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/",
+      "file": "numberOfNodesInTheSubTreeWithTheSameLabel",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1344",
+      "name": "Angle Between Hands of a Clock",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/angle-between-hands-of-a-clock/",
+      "file": "angleBetweenHandsOfAClock",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1156",
+      "name": "Swap For Longest Repeated Character Substring",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/",
+      "file": "swapForLongestRepeatedCharacterSubstring",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1447",
+      "name": "Simplified Fractions",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/simplified-fractions/",
+      "file": "simplifiedFractions",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1855",
+      "name": "Maximum Distance Between a Pair of Values",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/",
+      "file": "maximumDistanceBetweenAPairOfValues",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1361",
+      "name": "Validate Binary Tree Nodes",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/validate-binary-tree-nodes/",
+      "file": "validateBinaryTreeNodes",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1451",
+      "name": "Rearrange Words in a Sentence",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rearrange-words-in-a-sentence/",
+      "file": "rearrangeWordsInASentence",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1508",
+      "name": "Range Sum of Sorted Subarray Sums",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/",
+      "file": "rangeSumOfSortedSubarraySums",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1024",
+      "name": "Video Stitching",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/video-stitching/",
+      "file": "videoStitching",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-856",
+      "name": "Score of Parentheses",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/score-of-parentheses/",
+      "file": "scoreOfParentheses",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-861",
+      "name": "Score After Flipping Matrix",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/score-after-flipping-matrix/",
+      "file": "scoreAfterFlippingMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1073",
+      "name": "Adding Two Negabinary Numbers",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/adding-two-negabinary-numbers/",
+      "file": "addingTwoNegabinaryNumbers",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2208",
+      "name": "Minimum Operations to Halve Array Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/",
+      "file": "minimumOperationsToHalveArraySum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1017",
+      "name": "Convert to Base -2",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/convert-to-base-2/",
+      "file": "convertToBase2",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1849",
+      "name": "Splitting a String Into Descending Consecutive Values",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values/",
+      "file": "splittingAStringIntoDescendingConsecutiveValues",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1144",
+      "name": "Decrease Elements To Make Array Zigzag",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/decrease-elements-to-make-array-zigzag/",
+      "file": "decreaseElementsToMakeArrayZigzag",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2058",
+      "name": "Find the Minimum and Maximum Number of Nodes Between Critical Points",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points/",
+      "file": "findTheMinimumAndMaximumNumberOfNodesBetweenCriticalPoints",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-809",
+      "name": "Expressive Words",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/expressive-words/",
+      "file": "expressiveWords",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1559",
+      "name": "Detect Cycles in 2D Grid",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/detect-cycles-in-2d-grid/",
+      "file": "detectCyclesIn2DGrid",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1775",
+      "name": "Equal Sum Arrays With Minimum Number of Operations",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/",
+      "file": "equalSumArraysWithMinimumNumberOfOperations",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1110",
+      "name": "Delete Nodes And Return Forest",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/delete-nodes-and-return-forest/",
+      "file": "deleteNodesAndReturnForest",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-823",
+      "name": "Binary Trees With Factors",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-trees-with-factors/",
+      "file": "binaryTreesWithFactors",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1584",
+      "name": "Min Cost to Connect All Points",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+      "file": "minCostToConnectAllPoints",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-893",
+      "name": "Groups of Special-Equivalent Strings",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/groups-of-special-equivalent-strings/",
+      "file": "groupsOfSpecialEquivalentStrings",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1488",
+      "name": "Avoid Flood in The City",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/avoid-flood-in-the-city/",
+      "file": "avoidFloodInTheCity",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1630",
+      "name": "Arithmetic Subarrays",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/arithmetic-subarrays/",
+      "file": "arithmeticSubarrays",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1642",
+      "name": "Furthest Building You Can Reach",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/furthest-building-you-can-reach/",
+      "file": "furthestBuildingYouCanReach",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1297",
+      "name": "Maximum Number of Occurrences of a Substring",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/",
+      "file": "maximumNumberOfOccurrencesOfASubstring",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1333",
+      "name": "Filter Restaurants by Vegan-Friendly, Price and Distance",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/",
+      "file": "filterRestaurantsByVeganFriendlyPriceAndDistance",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1253",
+      "name": "Reconstruct a 2-Row Binary Matrix",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix/",
+      "file": "reconstructA2RowBinaryMatrix",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TRTR3",
+      "name": "Triple Threat",
+      "rating": 1479,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TRTR3",
+      "file": "tripleThreat",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CONSTR",
+      "name": "Construct String",
+      "rating": 1307,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CONSTR",
+      "file": "constructString",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFODD",
+      "name": "Chef Odd",
+      "rating": 1486,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFODD",
+      "file": "chefOdd",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-UNCHANGEDOR",
+      "name": "The Unchanging OR",
+      "rating": 1389,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/UNCHANGEDOR",
+      "file": "theUnchangingOR",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XORRY1",
+      "name": "Xorry 1",
+      "rating": 1472,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XORRY1",
+      "file": "xorry1",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ALRMALRT",
+      "name": "Alarm Alert",
+      "rating": 1311,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ALRMALRT",
+      "file": "alarmAlert",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LTALL",
+      "name": "Light All",
+      "rating": 1379,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LTALL",
+      "file": "lightAll",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LPSS",
+      "name": "Palindromic Score",
+      "rating": 1401,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LPSS",
+      "file": "palindromicScore",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-LEQMAX",
+      "name": "Less than Max",
+      "rating": 1450,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LEQMAX",
+      "file": "lessThanMax",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-GCDSUBARRAYS",
+      "name": "Gcd of Subarrays",
+      "rating": 1498,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GCDSUBARRAYS",
+      "file": "gcdOfSubarrays",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BLREACH",
+      "name": "Unreachable",
+      "rating": 1410,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BLREACH",
+      "file": "unreachable",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ARRHALVES",
+      "name": "Array Halves",
+      "rating": 1407,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ARRHALVES",
+      "file": "arrayHalves",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-PLPROCESS",
+      "name": "Parallel Processing",
+      "rating": 1425,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PLPROCESS",
+      "file": "parallelProcessing",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CAESARLITE",
+      "name": "Caesar Cipher Lite",
+      "rating": 1426,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CAESARLITE",
+      "file": "caesarCipherLite",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-JOGGING",
+      "name": "Jogging",
+      "rating": 1484,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/JOGGING",
+      "file": "jogging",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SPCP3",
+      "name": "Marbles",
+      "rating": 1385,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SPCP3",
+      "file": "marbles",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MINRPC",
+      "name": "Rock-Paper-Scissors",
+      "rating": 1454,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MINRPC",
+      "file": "rockPaperScissors",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MATNEARESTO",
+      "name": "Distance to Nearest 0",
+      "rating": 1450,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MATNEARESTO",
+      "file": "distanceToNearest0",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHOCGM",
+      "name": "Chocolate Game",
+      "rating": 1320,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHOCGM",
+      "file": "chocolateGame",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CONFCAT",
+      "name": "Confusing Concatenations",
+      "rating": 1488,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CONFCAT",
+      "file": "confusingConcatenations",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-STRAME",
+      "name": "String Game ",
+      "rating": 1413,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/STRAME",
+      "file": "stringGame",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FIGBOT",
+      "name": "FightBots",
+      "rating": 1329,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FIGBOT",
+      "file": "fightBots",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-ADJSUMLOST",
+      "name": "Adjacent Sum Array",
+      "rating": 1388,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/ADJSUMLOST",
+      "file": "adjacentSumArray",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-BLDST",
+      "name": "Ball Distribution",
+      "rating": 1442,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BLDST",
+      "file": "ballDistribution",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SUSSTR",
+      "name": "Suspense String",
+      "rating": 1500,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUSSTR",
+      "file": "suspenseString",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-MAKEARRAYODD",
+      "name": "Make Array Odd",
+      "rating": 1445,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEARRAYODD",
+      "file": "makeArrayOdd",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-SMOKE",
+      "name": "Control the Pollution",
+      "rating": 1450,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SMOKE",
+      "file": "controlThePollution",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-CHEFDINE",
+      "name": "Akash and Dinner",
+      "rating": 1438,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFDINE",
+      "file": "akashAndDinner",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-TWOCLOSE",
+      "name": "Not-too-far Replacement",
+      "rating": 1336,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/TWOCLOSE",
+      "file": "notTooFarReplacement",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-XOR_ORDER",
+      "name": "Order by XOR",
+      "rating": 1476,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/XOR_ORDER",
+      "file": "orderByXOR",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-NTRIPLETS",
+      "name": "N Triplets",
+      "rating": 1426,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/NTRIPLETS",
+      "file": "nTriplets",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FIRSTCNT",
+      "name": "First Element Counting",
+      "rating": 1406,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FIRSTCNT",
+      "file": "firstElementCounting",
+      "template": "templates/codechef.js"
+    },
+    {
+      "platform": "CodeChef",
+      "id": "CC-FIZZBUZZ2304",
+      "name": "Playing with OR",
+      "rating": 1365,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/FIZZBUZZ2304",
+      "file": "playingWithOR",
+      "template": "templates/codechef.js"
+    }
+  ]
+}
