@@ -382,6 +382,13 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Trains](https://codeforces.com/problemset/problem/87/A) | `Codeforces` | `1500` | `trains.js` | Key algorithmic application from Day 2026-11-07. |
 | [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
 | [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
+| [Datatypes](https://codeforces.com/problemset/problem/108/B) | `Codeforces` | `1400` | `datatypes.js` | Key algorithmic application from Day 2026-11-08. |
+| [Benches](https://codeforces.com/problemset/problem/630/H) | `Codeforces` | `1400` | `benches.js` | Key algorithmic application from Day 2026-11-08. |
+| [Suit and Tie](https://codeforces.com/problemset/problem/995/B) | `Codeforces` | `1400` | `suitAndTie.js` | Key algorithmic application from Day 2026-11-08. |
+| [Bitwise Balancing](https://codeforces.com/problemset/problem/2020/C) | `Codeforces` | `1400` | `bitwiseBalancing.js` | Key algorithmic application from Day 2026-11-08. |
+| [Battling with Numbers](https://codeforces.com/problemset/problem/1866/B) | `Codeforces` | `1400` | `battlingWithNumbers.js` | Key algorithmic application from Day 2026-11-08. |
+| [Santa Claus and Robot](https://codeforces.com/problemset/problem/748/C) | `Codeforces` | `1400` | `santaClausAndRobot.js` | Key algorithmic application from Day 2026-11-08. |
+| [Kolya and Tanya ](https://codeforces.com/problemset/problem/584/B) | `Codeforces` | `1500` | `kolyaAndTanya.js` | Key algorithmic application from Day 2026-11-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

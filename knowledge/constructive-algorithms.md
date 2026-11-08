@@ -263,6 +263,10 @@ function constructMatrix(n, m) {
 | [Searching for Graph](https://codeforces.com/problemset/problem/402/C) | `Codeforces` | `1500` | `searchingForGraph.js` | Key algorithmic application from Day 2026-11-07. |
 | [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
 | [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
+| [Flipper](https://codeforces.com/problemset/problem/1833/D) | `Codeforces` | `1400` | `flipper.js` | Key algorithmic application from Day 2026-11-08. |
+| [Santa Claus and Robot](https://codeforces.com/problemset/problem/748/C) | `Codeforces` | `1400` | `santaClausAndRobot.js` | Key algorithmic application from Day 2026-11-08. |
+| [Set Construction](https://codeforces.com/problemset/problem/1761/C) | `Codeforces` | `1400` | `setConstruction.js` | Key algorithmic application from Day 2026-11-08. |
+| [Secret Combination](https://codeforces.com/problemset/problem/496/B) | `Codeforces` | `1500` | `secretCombination.js` | Key algorithmic application from Day 2026-11-08. |
 
 ---
 

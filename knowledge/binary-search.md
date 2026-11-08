@@ -169,6 +169,8 @@ function lowerBound(arr, target) {
 | [Dances (Easy version)](https://codeforces.com/problemset/problem/1883/G1) | `Codeforces` | `1400` | `dancesEasyVersion.js` | Key algorithmic application from Day 2026-11-07. |
 | [Jeopardy of Dropped Balls](https://codeforces.com/problemset/problem/1575/J) | `Codeforces` | `1500` | `jeopardyOfDroppedBalls.js` | Key algorithmic application from Day 2026-11-07. |
 | [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
+| [Bitwise Balancing](https://codeforces.com/problemset/problem/2020/C) | `Codeforces` | `1400` | `bitwiseBalancing.js` | Key algorithmic application from Day 2026-11-08. |
+| [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
 
 ---
 
