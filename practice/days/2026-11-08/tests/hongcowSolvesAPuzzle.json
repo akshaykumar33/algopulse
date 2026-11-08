@@ -1,0 +1,14 @@
+[
+  {
+    "input": "2 3\nXXX\nXXX\n",
+    "output": "YES\n"
+  },
+  {
+    "input": "2 2\n.X\nXX\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "5 5\n.....\n..X..\n.....\n.....\n.....\n",
+    "output": "YES\n"
+  }
+]

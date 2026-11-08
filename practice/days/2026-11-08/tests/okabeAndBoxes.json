@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nadd 1\nremove\nadd 2\nadd 3\nremove\nremove\n",
+    "output": "1\n"
+  }
+]

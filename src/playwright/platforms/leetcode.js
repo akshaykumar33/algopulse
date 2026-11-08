@@ -220,6 +220,18 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   // 4. Click Submit button & intercept network submission
   console.log(`    [LeetCode] Submitting solution ...`);
 
+  // Dismiss any popups, streak dialogs, or achievement modals that intercept clicks
+  await page.keyboard.press('Escape').catch(() => {});
+  await page.evaluate(() => {
+    const portal = document.getElementById('headlessui-portal-root');
+    if (portal) portal.remove();
+    document.querySelectorAll('.fixed.inset-0, [role="dialog"]').forEach((el) => {
+      const close = el.querySelector('button, [aria-label="close"], .cursor-pointer');
+      if (close) close.click();
+      else el.remove();
+    });
+  }).catch(() => {});
+  await page.waitForTimeout(300);
 
   let submitBtn = await page.$('button[data-e2e-locator="console-submit-button"]');
   if (!submitBtn) {
@@ -232,7 +244,7 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
 
   const [submitResponse] = await Promise.all([
     page.waitForResponse((res) => res.url().includes('/submit/'), { timeout: 25000 }).catch(() => null),
-    submitBtn.click(),
+    submitBtn.click({ force: true }),
   ]);
 
   if (!submitResponse) {

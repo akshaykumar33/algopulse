@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"aababcaab\",2,3,4]\n",
+    "output": "2\n"
+  },
+  {
+    "input": "[\"aaaa\",1,3,3]\n",
+    "output": "2\n"
+  },
+  {
+    "input": "[\"abcde\",2,3,3]\n",
+    "output": "0\n"
+  }
+]

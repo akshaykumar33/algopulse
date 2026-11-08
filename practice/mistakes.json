@@ -2169,5 +2169,105 @@
       "codechef"
     ],
     "timestamp": "2026-11-07T11:02:46.508Z"
+  },
+  {
+    "id": "CC-SPCP3",
+    "problem": "Marbles",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for 'n choose k' (combinations C(n, k)), which is equivalent to selecting k items from n distinct items. The current solution incorrectly applies the combination formula. The problem statement 'Marbles: You have N marbles, and you want to choose K of them. How many ways can you do that?' implies n and k are directly the N and K from the problem input, not 'N-1' and 'K-1'. The formula for C(n, k) is (n!)/(k!(n-k)!), which is calculated iteratively as (n * (n-1) * ... * (n-k+1)) / (k * (k-1) * ... * 1). The code uses N = n-1 and K = k-1 instead of n and k directly from input. It should be C(n, k), not C(n-1, k-1).",
+    "rule": "Carefully map problem statement variables to formula variables. Do not blindly apply 'n-1' or 'k-1' adjustments unless the problem specifically asks for 'gaps' or 'selections between items'. For direct combinations of N items choosing K, use N and K directly in C(N, K).",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-08T14:46:16.762Z"
+  },
+  {
+    "id": "940C",
+    "problem": "Phone Numbers",
+    "platform": "Codeforces",
+    "verdict": "RUNTIME_ERROR",
+    "diagnosis": "The provided code is for Codeforces problem 898C, \"Phone Numbers\", not 940C. The problem statement for 940C, \"Phone Numbers\", asks to construct the lexicographically smallest string of length L that can be formed using only characters from a given set of K distinct characters, such that it is lexicographically greater than or equal to a given string S of length N. The current code attempts to parse phone numbers and categorize them, which is completely irrelevant to problem 940C. The \"RUNTIME_ERROR\" likely occurs due to incorrect parsing logic attempting to access properties or indices on malformed data, or simply due to invalid input given the problem's actual requirements, leading to unexpected errors like `lines[lineIdx++]` being out of bounds or `parseInt` on non-numeric data.",
+    "rule": "Always verify that the submitted code matches the problem statement it's intended for. A \"RUNTIME_ERROR\" can often indicate that the input format assumptions made by the code do not match the actual input provided, which is a common consequence of solving the wrong problem.",
+    "tags": [
+      "constructive algorithms",
+      "implementation",
+      "strings"
+    ],
+    "timestamp": "2026-11-08T14:46:17.479Z"
+  },
+  {
+    "id": "CC-MINRPC",
+    "problem": "Rock-Paper-Scissors",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for the minimum number of changes to make the string alternate, e.g., 'R P R P ...' or 'P R P R ...'. The current code calculates the minimum changes to make each block of identical characters alternate, e.g., 'RRR' becomes 'R_R' requiring 1 change, effectively changing it to 'RPR'. However, this is not sufficient to make the entire string alternating. For example, 'RRR PPP' would be changed to 'RPR P_P' (total 2 changes) by the current logic, but a better solution is 'R P R P R P' (total 3 changes if original is 'R R R P P P' - no, this is not correct logic). The problem asks for the minimum changes to make the string 'S' alternating. The minimum changes to make 'S' alternating means making S_i != S_{i+1} for all i. The optimal strategy is to count the total changes required to make the string 'R P R P ...' and 'P R P R ...' and take the minimum of these two counts.",
+    "rule": "For problems requiring an alternating pattern, consider the two possible starting patterns (e.g., 'RPRP...' and 'PRPR...') and calculate the cost for each. The minimum of these costs is often the answer. The given solution incorrectly attempts to optimize locally by processing contiguous blocks, which doesn't guarantee a globally alternating string.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-08T14:50:44.764Z"
+  },
+  {
+    "id": "CC-MINRPC",
+    "problem": "Rock-Paper-Scissors",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for the minimum changes to make the string alternate between ANY two distinct characters, not necessarily 'R' and 'P'. The current code only considers 'R P R P ...' and 'P R P R ...' patterns. The characters can be any of 'R', 'P', 'S'. The correct approach is to iterate through all possible starting characters (R, P, S) and their alternating partners, calculate changes for each, and take the minimum.",
+    "rule": "When a problem involves patterns or transformations of characters, do not assume specific characters (e.g., 'R', 'P') unless explicitly stated. Consider all possible characters from the given alphabet (e.g., 'R', 'P', 'S') and their permutations/combinations as potential patterns. For alternating patterns, iterate through all possible first characters and second characters.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-08T14:52:31.536Z"
+  },
+  {
+    "id": "LC-2208",
+    "problem": "Minimum Operations to Halve Array Sum",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runtime error occurs because the MaxHeap constructor is invoked with `Array.from(vals)`, where `vals` is a `Float64Array`. When `Array.from` is called on a typed array, it creates a new standard JavaScript array. The initial heap construction then iterates over this new array. However, the `_up` and `_down` methods of the `MaxHeap` class internally reference `this.h`, which is a standard JavaScript array. If the initial input `nums` contains values that are not integers (e.g., if a previous test case modified values in a way that would lead to floating point numbers being passed in a subsequent test case, though not directly in this specific problem where inputs are integers), or if the problem setter were to provide such an input, the use of `Float64Array` then `Array.from` could lead to precision issues or unexpected behavior if the problem were to require exact integer arithmetic or if the numbers were very large. More directly, the `halveArray` function continuously halves numbers, leading to floating-point values being stored in the heap. The `_up` and `_down` methods perform comparisons (`>`, `<`) directly on these floating-point numbers. While standard JavaScript numbers are 64-bit floats by default, explicitly converting to and from `Float64Array` adds an unnecessary step. The primary issue isn't the `Float64Array` itself, but the target `sum / 2` comparison `target - reduced > 1e-9`. If `target - reduced` becomes very small but still positive, due to floating-point precision, `half` might be re-pushed into the heap multiple times, causing the loop to potentially run for a very large number of iterations (or even infinitely if `reduced` never quite reaches `target` due to precision issues), leading to a TLE which can sometimes manifest as a Runtime Error if memory or execution time limits are severely exceeded before a TLE verdict. A small epsilon check is correct, but the issue is more likely that the MaxHeap itself is not correctly implementing the heap property for values where intermediate `half` calculations could cause subtle issues with how the heap is rebuilt, or simply that the number of operations becomes prohibitively large for certain edge cases when precise floating point values are being compared rather than values that would naturally terminate within integer or fixed-precision bounds. The solution to `halveArray` (LC-2208) expects a standard MaxHeap of numbers. The use of `Float64Array` then `Array.from` is an unnecessary indirection. The MaxHeap should simply store standard JavaScript numbers, which are already 64-bit floats. The `target - reduced > 1e-9` loop condition is standard for floating point comparisons, but the sheer volume of operations on potentially very small numbers and the heap overhead may be the primary TLE/RE cause for large inputs. The `MaxHeap` implementation itself appears correct for generic numbers.",
+    "rule": "Avoid unnecessary type conversions (e.g., `Float64Array` to `Array.from`) if standard JavaScript numbers (which are 64-bit floats) suffice. Ensure heap logic is robust for floating-point numbers if they are to be stored, especially with small epsilon comparisons. For problems involving continuous halving or similar operations, be mindful of the number of operations required to reach the target when numbers become very small; this can lead to TLE/RE. The provided `MaxHeap` code itself is robust, the `Float64Array` conversion was an unnecessary step and the main issue is likely the total operations.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-08T16:17:57.276Z"
+  },
+  {
+    "id": "LC-1488",
+    "problem": "Avoid Flood in The City",
+    "platform": "LeetCode",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bug is in the Disjoint Set Union (DSU) implementation, specifically how the `parent[k] = find(k + 1)` line updates the parent after assigning a dry day. When `find(k + 1)` is called, it correctly finds the representative of the smallest available dry day index greater than `k`. However, `parent[k] = find(k + 1)` only updates the parent of `k` to point directly to the *representative* of the next available dry day, not necessarily to `k+1` itself. This can lead to incorrect path compression or an inability to properly 'mark' a dry day as used by making it point to the next available one. The DSU structure is meant to find the *next available index*, and `find(k)` should return the smallest index `j >= k` such that `dryDays[j]` is available. When `dryDays[k]` is used, its parent should be set to `k+1` to indicate it's no longer available, and future `find` calls starting at `k` should resolve to `k+1` (or its representative). The current `parent[k] = find(k + 1)` is an incorrect update for this purpose. The correct logic for marking `k` as used should be `parent[k] = k + 1` before path compression, effectively linking `k` to the next element in the dryDays array. The `find` operation will then naturally skip `k` on subsequent calls. Alternatively, path compression after `parent[k] = k + 1` should be `parent[k] = find(parent[k])` to ensure `k` points to the representative of its successor, but setting it simply to `k+1` is more direct when representing a 'next available' index.",
+    "rule": "When using DSU to find the 'next available' item in a sorted sequence (like dry days after a certain index), after an item at index `k` is used, its DSU parent should be explicitly set to `k + 1` to correctly mark it as used and ensure subsequent searches for items `>= k` find items `>= k + 1`. Path compression should then correctly propagate this link.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-08T16:44:34.388Z"
+  },
+  {
+    "id": "LC-1488",
+    "problem": "Avoid Flood in The City",
+    "platform": "LeetCode",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bug is in the Disjoint Set Union (DSU) implementation logic, specifically how parent[k] is updated after finding an available dry day. The line `parent[k] = k + 1;` is incorrect. In a DSU for finding the next available slot, when an index `k` is used, its parent should be set to the parent of `k + 1` (or `find(k + 1)`) to effectively skip `k` in future searches for the next available slot. Setting `parent[k] = k + 1` only makes `k+1` the parent of `k`, but does not correctly union `k` with `k+1`'s representative, which means `find(k)` might still return `k+1` in a suboptimal way or not effectively skip over already used dry days if `k+1` itself is used later.",
+    "rule": "When using DSU to find the 'next available' or 'first greater' element, after an element `k` is 'used', its representative should be merged with the representative of `k + 1`. The correct DSU path compression update after using `k` should be `parent[k] = find(k + 1);` to ensure `find(k)` will correctly jump to the next available position.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-08T16:46:18.151Z"
+  },
+  {
+    "id": "2050E",
+    "problem": "Three Strings",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The DP state definition and transitions are incorrect for the problem. The problem asks for the minimum number of changes to make string 'c' equal to a subsequence of 'a' followed by a subsequence of 'b'. The current DP calculates the minimum changes to make a prefix of 'a' and a prefix of 'b' combine to form a prefix of 'c'. This is a fundamental misunderstanding of the problem's string manipulation. The DP should track the minimum changes to form a prefix of 'c' by taking characters from 'a' and 'b' sequentially, rather than using 'a' then 'b'. Specifically, dp[j] should represent the minimum changes to form the first 'j' characters of 'c' using some prefix of 'a' and some prefix of 'b', such that the last character came from 'b'. A separate value (or dp[0] being treated specially) is needed for the case where the last character came from 'a'. The provided solution's DP computes minimum changes to match `c[0...i+j-1]` using `a[0...i-1]` and `b[0...j-1]`, which is not what the problem asks for. The problem implies selecting characters from 'a' and 'b' to form 'c', with 'a' chars appearing before 'b' chars, and finding minimum total mismatches. This means `c` is split into `c_a` and `c_b`, where `c_a` must be a subsequence of `a` and `c_b` must be a subsequence of `b`, and `c_a` followed by `c_b` forms `c`. The current DP formulation does not correctly handle this split and subsequence matching.",
+    "rule": "Carefully read problem statements involving string manipulations and DP. Distinguish between 'subsequence', 'substring', and 'prefix' and how they interact with character selection and concatenation. Ensure DP state definitions and transitions precisely model the problem's objective, especially when combining elements from multiple sources.",
+    "tags": [
+      "dp",
+      "implementation",
+      "strings"
+    ],
+    "timestamp": "2026-11-08T16:56:45.234Z"
   }
 ]

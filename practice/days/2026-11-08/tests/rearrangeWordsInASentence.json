@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"Leetcode is cool\"\n",
+    "output": "\"Is cool leetcode\"\n"
+  },
+  {
+    "input": "\"Keep calm and code on\"\n",
+    "output": "\"On and keep calm code\"\n"
+  },
+  {
+    "input": "\"To be or not to be\"\n",
+    "output": "\"To be or to be not\"\n"
+  }
+]

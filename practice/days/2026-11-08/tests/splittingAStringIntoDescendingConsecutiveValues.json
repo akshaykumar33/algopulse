@@ -1,0 +1,18 @@
+[
+  {
+    "input": "\"1234\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"050043\"\n",
+    "output": "true\n"
+  },
+  {
+    "input": "\"9080701\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"10009998\"\n",
+    "output": "true\n"
+  }
+]

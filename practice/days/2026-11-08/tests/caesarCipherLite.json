@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n3\nABC\nGBY\n4\nPASS\nFAIL\n5\nSEVEN\nEIGHT\n",
+    "output": "2 0 16\n14 0 14 15\n4 10 21 1 2\n"
+  }
+]
