@@ -244,6 +244,12 @@ function backtrack(index, currentSum, target, arr) {
 | [Kolya and Tandem Repeat](https://codeforces.com/problemset/problem/443/B) | `Codeforces` | `1500` | `kolyaAndTandemRepeat.js` | Key algorithmic application from Day 2026-11-07. |
 | [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
 | [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
+| [Flipper](https://codeforces.com/problemset/problem/1833/D) | `Codeforces` | `1400` | `flipper.js` | Key algorithmic application from Day 2026-11-08. |
+| [Martian Dollar](https://codeforces.com/problemset/problem/41/B) | `Codeforces` | `1400` | `martianDollar.js` | Key algorithmic application from Day 2026-11-08. |
+| [Preparing Olympiad](https://codeforces.com/problemset/problem/550/B) | `Codeforces` | `1400` | `preparingOlympiad.js` | Key algorithmic application from Day 2026-11-08. |
+| [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
+| [Secret Combination](https://codeforces.com/problemset/problem/496/B) | `Codeforces` | `1500` | `secretCombination.js` | Key algorithmic application from Day 2026-11-08. |
+| [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

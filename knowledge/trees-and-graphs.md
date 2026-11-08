@@ -160,6 +160,9 @@ function dfsIterative(start, adj, n) {
 | [Productive Meeting](https://codeforces.com/problemset/problem/1579/D) | `Codeforces` | `1400` | `productiveMeeting.js` | Key algorithmic application from Day 2026-11-07. |
 | [Searching for Graph](https://codeforces.com/problemset/problem/402/C) | `Codeforces` | `1500` | `searchingForGraph.js` | Key algorithmic application from Day 2026-11-07. |
 | [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
+| [Learning Languages](https://codeforces.com/problemset/problem/277/A) | `Codeforces` | `1400` | `learningLanguages.js` | Key algorithmic application from Day 2026-11-08. |
+| [Set Construction](https://codeforces.com/problemset/problem/1761/C) | `Codeforces` | `1400` | `setConstruction.js` | Key algorithmic application from Day 2026-11-08. |
+| [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
 
 ---
 

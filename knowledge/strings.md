@@ -157,6 +157,9 @@ function isPalindrome(s) {
 | [Unforgivable Curse (hard version)](https://codeforces.com/problemset/problem/1800/E2) | `Codeforces` | `1500` | `unforgivableCurseHardVersion.js` | Key algorithmic application from Day 2026-11-06. |
 | [Suffix Structures](https://codeforces.com/problemset/problem/448/B) | `Codeforces` | `1400` | `suffixStructures.js` | Key algorithmic application from Day 2026-11-07. |
 | [Kolya and Tandem Repeat](https://codeforces.com/problemset/problem/443/B) | `Codeforces` | `1500` | `kolyaAndTandemRepeat.js` | Key algorithmic application from Day 2026-11-07. |
+| [Subsequence Hate](https://codeforces.com/problemset/problem/1363/B) | `Codeforces` | `1400` | `subsequenceHate.js` | Key algorithmic application from Day 2026-11-08. |
+| [Three Strings](https://codeforces.com/problemset/problem/2050/E) | `Codeforces` | `1500` | `threeStrings.js` | Key algorithmic application from Day 2026-11-08. |
+| [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

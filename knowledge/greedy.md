@@ -434,6 +434,17 @@ for (const x of arr) {
 | [Productive Meeting](https://codeforces.com/problemset/problem/1579/D) | `Codeforces` | `1400` | `productiveMeeting.js` | Key algorithmic application from Day 2026-11-07. |
 | [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
 | [Minimum Ties](https://codeforces.com/problemset/problem/1487/C) | `Codeforces` | `1500` | `minimumTies.js` | Key algorithmic application from Day 2026-11-07. |
+| [Suit and Tie](https://codeforces.com/problemset/problem/995/B) | `Codeforces` | `1400` | `suitAndTie.js` | Key algorithmic application from Day 2026-11-08. |
+| [Guess a number!](https://codeforces.com/problemset/problem/416/A) | `Codeforces` | `1400` | `guessANumber.js` | Key algorithmic application from Day 2026-11-08. |
+| [Flipper](https://codeforces.com/problemset/problem/1833/D) | `Codeforces` | `1400` | `flipper.js` | Key algorithmic application from Day 2026-11-08. |
+| [TCMCF+++](https://codeforces.com/problemset/problem/45/I) | `Codeforces` | `1400` | `tCMCFPlusPlusPlus.js` | Key algorithmic application from Day 2026-11-08. |
+| [USB vs. PS/2](https://codeforces.com/problemset/problem/762/B) | `Codeforces` | `1400` | `uSBVsPS2.js` | Key algorithmic application from Day 2026-11-08. |
+| [Guilty --- to the kitchen!](https://codeforces.com/problemset/problem/42/A) | `Codeforces` | `1400` | `guiltyToTheKitchen.js` | Key algorithmic application from Day 2026-11-08. |
+| [Set Construction](https://codeforces.com/problemset/problem/1761/C) | `Codeforces` | `1400` | `setConstruction.js` | Key algorithmic application from Day 2026-11-08. |
+| [Anatoly and Cockroaches](https://codeforces.com/problemset/problem/719/B) | `Codeforces` | `1400` | `anatolyAndCockroaches.js` | Key algorithmic application from Day 2026-11-08. |
+| [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
+| [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
+| [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

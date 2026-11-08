@@ -141,6 +141,8 @@ function missingNumber(nums) {
 | [Bewitching Stargazer](https://codeforces.com/problemset/problem/2053/C) | `Codeforces` | `1500` | `bewitchingStargazer.js` | Key algorithmic application from Day 2026-11-06. |
 | [Chessboard](https://codeforces.com/problemset/problem/961/C) | `Codeforces` | `1400` | `chessboard.js` | Key algorithmic application from Day 2026-11-07. |
 | [XOR-distance](https://codeforces.com/problemset/problem/1918/C) | `Codeforces` | `1400` | `xORDistance.js` | Key algorithmic application from Day 2026-11-07. |
+| [Bitwise Balancing](https://codeforces.com/problemset/problem/2020/C) | `Codeforces` | `1400` | `bitwiseBalancing.js` | Key algorithmic application from Day 2026-11-08. |
+| [Preparing Olympiad](https://codeforces.com/problemset/problem/550/B) | `Codeforces` | `1400` | `preparingOlympiad.js` | Key algorithmic application from Day 2026-11-08. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

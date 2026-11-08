@@ -162,6 +162,10 @@ class MinHeap {
 | [T-shirt buying](https://codeforces.com/problemset/problem/799/B) | `Codeforces` | `1400` | `tShirtBuying.js` | Key algorithmic application from Day 2026-11-06. |
 | [Wonderful Coloring - 2](https://codeforces.com/problemset/problem/1551/B2) | `Codeforces` | `1400` | `wonderfulColoring2.js` | Key algorithmic application from Day 2026-11-06. |
 | [Friends and Gifts](https://codeforces.com/problemset/problem/1283/C) | `Codeforces` | `1500` | `friendsAndGifts.js` | Key algorithmic application from Day 2026-11-06. |
+| [Berpizza](https://codeforces.com/problemset/problem/1468/C) | `Codeforces` | `1400` | `berpizza.js` | Key algorithmic application from Day 2026-11-08. |
+| [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
+| [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
+| [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
 
 ---
 
