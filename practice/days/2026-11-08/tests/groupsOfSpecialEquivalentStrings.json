@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"abcd\",\"cdab\",\"cbad\",\"xyzz\",\"zzxy\",\"zzyx\"]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"abc\",\"acb\",\"bac\",\"bca\",\"cab\",\"cba\"]\n",
+    "output": "3\n"
+  }
+]

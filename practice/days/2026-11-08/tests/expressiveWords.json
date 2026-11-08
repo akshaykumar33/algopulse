@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"heeellooo\",[\"hello\",\"hi\",\"helo\"]]\n",
+    "output": "1\n"
+  },
+  {
+    "input": "[\"zzzzzyyyyy\",[\"zzyy\",\"zy\",\"zyy\"]]\n",
+    "output": "3\n"
+  }
+]

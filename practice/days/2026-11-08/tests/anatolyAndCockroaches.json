@@ -1,0 +1,14 @@
+[
+  {
+    "input": "5\nrbbrr\n",
+    "output": "1\n"
+  },
+  {
+    "input": "5\nbbbbb\n",
+    "output": "2\n"
+  },
+  {
+    "input": "3\nrbr\n",
+    "output": "0\n"
+  }
+]

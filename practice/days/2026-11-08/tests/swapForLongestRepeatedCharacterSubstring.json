@@ -1,0 +1,18 @@
+[
+  {
+    "input": "\"ababa\"\n",
+    "output": "3\n"
+  },
+  {
+    "input": "\"aaabaaa\"\n",
+    "output": "6\n"
+  },
+  {
+    "input": "\"aaabbaaa\"\n",
+    "output": "4\n"
+  },
+  {
+    "input": "\"aaaaa\"\n",
+    "output": "5\n"
+  }
+]

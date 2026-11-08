@@ -1,0 +1,14 @@
+[
+  {
+    "input": "3 3\nayy\n",
+    "output": "yaa\n"
+  },
+  {
+    "input": "3 4\nabc\n",
+    "output": "abca\n"
+  },
+  {
+    "input": "4 2\nbcad\n",
+    "output": "bd\n"
+  }
+]

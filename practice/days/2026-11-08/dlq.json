@@ -1,26 +1,151 @@
 [
   {
-    "platform": "CodeChef",
-    "id": "CC-MINRPC",
-    "name": "Rock-Paper-Scissors",
-    "file": "rockPaperScissors",
-    "tier": "hard",
-    "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-08T14:54:03.770Z",
+    "platform": "Codeforces",
+    "id": "108B",
+    "name": "Datatypes",
+    "file": "datatypes",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-08T15:48:06.481Z",
     "attempts": 1,
     "status": "HALTED_UNRESOLVED",
     "problem": {
-      "platform": "CodeChef",
-      "id": "CC-MINRPC",
-      "name": "Rock-Paper-Scissors",
-      "rating": 1454,
+      "platform": "Codeforces",
+      "id": "108B",
+      "name": "Datatypes",
+      "rating": 1400,
       "tags": [
-        "codechef"
+        "math",
+        "sortings"
       ],
-      "url": "https://www.codechef.com/problems/MINRPC",
-      "file": "rockPaperScissors",
-      "template": "templates/codechef.js"
+      "url": "https://codeforces.com/problemset/problem/108/B",
+      "file": "datatypes",
+      "template": "templates/codeforces.js"
     },
-    "finalVerdict": "Wrong Answer"
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-781",
+    "name": "Rabbits in Forest",
+    "file": "rabbitsInForest",
+    "tier": "medium",
+    "initialVerdict": "ERROR: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+    "enqueuedAt": "2026-11-08T15:48:25.943Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-781",
+      "name": "Rabbits in Forest",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/rabbits-in-forest/",
+      "file": "rabbitsInForest",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-08T16:58:55.211Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-954",
+    "name": "Array of Doubled Pairs",
+    "file": "arrayOfDoubledPairs",
+    "tier": "medium",
+    "initialVerdict": "ERROR: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div aria-hidden=\"true\" class=\"fixed bg-gray-8 opacity-60 inset-0\"></div> from <div id=\"headlessui-portal-root\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "enqueuedAt": "2026-11-08T15:50:56.748Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-954",
+      "name": "Array of Doubled Pairs",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/array-of-doubled-pairs/",
+      "file": "arrayOfDoubledPairs",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-08T17:00:19.273Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1488",
+    "name": "Avoid Flood in The City",
+    "file": "avoidFloodInTheCity",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-08T16:47:49.202Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1488",
+      "name": "Avoid Flood in The City",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/avoid-flood-in-the-city/",
+      "file": "avoidFloodInTheCity",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-08T17:03:28.791Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2050E",
+    "name": "Three Strings",
+    "file": "threeStrings",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-08T16:58:29.448Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2050E",
+      "name": "Three Strings",
+      "rating": 1500,
+      "tags": [
+        "dp",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2050/E",
+      "file": "threeStrings",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2208",
+    "name": "Minimum Operations to Halve Array Sum",
+    "file": "minimumOperationsToHalveArraySum",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-08T17:18:24.487Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2208",
+      "name": "Minimum Operations to Halve Array Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/",
+      "file": "minimumOperationsToHalveArraySum",
+      "template": "templates/leetcode.js"
+    }
   }
 ]
