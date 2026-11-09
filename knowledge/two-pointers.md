@@ -139,6 +139,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Guess a number!](https://codeforces.com/problemset/problem/416/A) | `Codeforces` | `1400` | `guessANumber.js` | Key algorithmic application from Day 2026-11-08. |
 | [USB vs. PS/2](https://codeforces.com/problemset/problem/762/B) | `Codeforces` | `1400` | `uSBVsPS2.js` | Key algorithmic application from Day 2026-11-08. |
 | [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
+| [Fighting Tournament](https://codeforces.com/problemset/problem/1719/C) | `Codeforces` | `1400` | `fightingTournament.js` | Key algorithmic application from Day 2026-11-09. |
+| [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
 
 ---
 

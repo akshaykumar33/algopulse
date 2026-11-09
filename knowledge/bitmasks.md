@@ -143,6 +143,8 @@ function missingNumber(nums) {
 | [XOR-distance](https://codeforces.com/problemset/problem/1918/C) | `Codeforces` | `1400` | `xORDistance.js` | Key algorithmic application from Day 2026-11-07. |
 | [Bitwise Balancing](https://codeforces.com/problemset/problem/2020/C) | `Codeforces` | `1400` | `bitwiseBalancing.js` | Key algorithmic application from Day 2026-11-08. |
 | [Preparing Olympiad](https://codeforces.com/problemset/problem/550/B) | `Codeforces` | `1400` | `preparingOlympiad.js` | Key algorithmic application from Day 2026-11-08. |
+| [Alya and Permutation](https://codeforces.com/problemset/problem/2035/C) | `Codeforces` | `1400` | `alyaAndPermutation.js` | Key algorithmic application from Day 2026-11-09. |
+| [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

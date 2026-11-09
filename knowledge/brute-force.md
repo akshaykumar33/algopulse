@@ -250,6 +250,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
 | [Secret Combination](https://codeforces.com/problemset/problem/496/B) | `Codeforces` | `1500` | `secretCombination.js` | Key algorithmic application from Day 2026-11-08. |
 | [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
+| [Accounting](https://codeforces.com/problemset/problem/30/A) | `Codeforces` | `1400` | `accounting.js` | Key algorithmic application from Day 2026-11-09. |
+| [Han Solo and Lazer Gun](https://codeforces.com/problemset/problem/514/B) | `Codeforces` | `1400` | `hanSoloAndLazerGun.js` | Key algorithmic application from Day 2026-11-09. |
+| [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
+| [Xenia and Spies](https://codeforces.com/problemset/problem/342/B) | `Codeforces` | `1500` | `xeniaAndSpies.js` | Key algorithmic application from Day 2026-11-09. |
+| [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

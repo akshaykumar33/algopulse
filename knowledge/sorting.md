@@ -204,6 +204,9 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Search in Parallel](https://codeforces.com/problemset/problem/1814/C) | `Codeforces` | `1500` | `searchInParallel.js` | Key algorithmic application from Day 2026-11-07. |
 | [Datatypes](https://codeforces.com/problemset/problem/108/B) | `Codeforces` | `1400` | `datatypes.js` | Key algorithmic application from Day 2026-11-08. |
 | [USB vs. PS/2](https://codeforces.com/problemset/problem/762/B) | `Codeforces` | `1400` | `uSBVsPS2.js` | Key algorithmic application from Day 2026-11-08. |
+| [DIY](https://codeforces.com/problemset/problem/2038/C) | `Codeforces` | `1400` | `dIY.js` | Key algorithmic application from Day 2026-11-09. |
+| [The Delivery Dilemma](https://codeforces.com/problemset/problem/1443/C) | `Codeforces` | `1400` | `theDeliveryDilemma.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chess Cheater](https://codeforces.com/problemset/problem/1427/B) | `Codeforces` | `1400` | `chessCheater.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

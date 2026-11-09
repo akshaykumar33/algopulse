@@ -160,6 +160,8 @@ function isPalindrome(s) {
 | [Subsequence Hate](https://codeforces.com/problemset/problem/1363/B) | `Codeforces` | `1400` | `subsequenceHate.js` | Key algorithmic application from Day 2026-11-08. |
 | [Three Strings](https://codeforces.com/problemset/problem/2050/E) | `Codeforces` | `1500` | `threeStrings.js` | Key algorithmic application from Day 2026-11-08. |
 | [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
+| [Tanya and Postcard](https://codeforces.com/problemset/problem/518/B) | `Codeforces` | `1400` | `tanyaAndPostcard.js` | Key algorithmic application from Day 2026-11-09. |
+| [String Equality](https://codeforces.com/problemset/problem/1451/C) | `Codeforces` | `1400` | `stringEquality.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
