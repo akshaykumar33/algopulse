@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"BCD\", [\"BCC\",\"CDE\",\"CEA\",\"FFF\"]]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"AAAA\", [\"AAB\",\"AAC\",\"BCD\",\"BBE\",\"DEF\"]]\n",
+    "output": "false"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "1189C",
+    "name": "Candies!",
+    "file": "candies",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-09T18:33:25.290Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1189C",
+      "name": "Candies!",
+      "rating": 1400,
+      "tags": [
+        "data structures",
+        "dp",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1189/C",
+      "file": "candies",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+  },
+  {
+    "platform": "Codeforces",
+    "id": "417C",
+    "name": "Football",
+    "file": "football",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-09T18:36:39.011Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "417C",
+      "name": "Football",
+      "rating": 1400,
+      "tags": [
+        "constructive algorithms",
+        "graphs",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/417/C",
+      "file": "football",
+      "template": "templates/codeforces.js"
+    }
+  }
+]

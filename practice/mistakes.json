@@ -2181,5 +2181,19 @@
       "codechef"
     ],
     "timestamp": "2026-11-09T14:30:27.570Z"
+  },
+  {
+    "id": "417C",
+    "problem": "Football",
+    "platform": "Codeforces",
+    "verdict": "RUNTIME_ERROR",
+    "diagnosis": "The provided code implements a solution for Codeforces problem 1774C (Ice and Fire), not 417C (Football). The problem description clearly states the ID is 417C. The input parsing (reading 't', then 'n', 'a', 'b' arrays) and the logic (calculating maximum score from 'a' and 'b') are entirely unrelated to problem 417C. Problem 417C is about constructing a schedule for a football tournament, while the given code solves a simple maximum calculation problem. The Runtime Error likely occurred because the judge input format for problem 417C does not match the code's expected input format, leading to `parseInt` on non-numeric strings or `split` on undefined values, which can cause various runtime issues like trying to access properties of `null` or `undefined` or incorrect array indexing, or trying to map `Number` on non-numeric parts.",
+    "rule": "Always verify that the problem ID, name, and problem description used to derive the solution logic precisely match the problem for which the code is submitted. Mismatched problems lead to incorrect input parsing and completely wrong algorithmic approaches, almost certainly resulting in various judge verdicts.",
+    "tags": [
+      "constructive algorithms",
+      "graphs",
+      "implementation"
+    ],
+    "timestamp": "2026-11-09T18:40:02.634Z"
   }
 ]

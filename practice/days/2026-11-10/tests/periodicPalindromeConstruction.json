@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n3 1\n2 2\n3 3\n4 4\n6 3\n",
+    "output": "impossible\nimpossible\naba\nabba\nabaaba"
+  }
+]

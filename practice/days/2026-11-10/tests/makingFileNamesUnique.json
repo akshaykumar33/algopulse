@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"pes\",\"fifa\",\"gta\",\"pes(2019)\"]\n",
+    "output": "[\"pes\",\"fifa\",\"gta\",\"pes(2019)\"]\n"
+  },
+  {
+    "input": "[\"gta\",\"gta(1)\",\"gta\",\"avalon\"]\n",
+    "output": "[\"gta\",\"gta(1)\",\"gta(2)\",\"avalon\"]\n"
+  },
+  {
+    "input": "[\"onepiece\",\"onepiece(1)\",\"onepiece(2)\",\"onepiece(3)\",\"onepiece\"]\n",
+    "output": "[\"onepiece\",\"onepiece(1)\",\"onepiece(2)\",\"onepiece(3)\",\"onepiece(4)\"]\n"
+  }
+]

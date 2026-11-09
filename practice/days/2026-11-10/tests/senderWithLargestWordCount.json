@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[[\"Hello userTwooo\",\"Hi userThree\",\"Wonderful day Alice\",\"Nice day userThree\"],[\"Alice\",\"userTwo\",\"userThree\",\"Alice\"]]\n",
+    "output": "\"Alice\"\n"
+  },
+  {
+    "input": "[[\"How is leetcode for everyone\",\"Leetcode is useful for practice\"],[\"Bob\",\"Charlie\"]]\n",
+    "output": "\"Charlie\"\n"
+  }
+]
