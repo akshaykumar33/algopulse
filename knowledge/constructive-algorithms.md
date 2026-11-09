@@ -275,6 +275,12 @@ function constructMatrix(n, m) {
 | [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
 | [Knowledge Cards](https://codeforces.com/problemset/problem/1740/D) | `Codeforces` | `1500` | `knowledgeCards.js` | Key algorithmic application from Day 2026-11-09. |
 | [Rings](https://codeforces.com/problemset/problem/1562/C) | `Codeforces` | `1500` | `rings.js` | Key algorithmic application from Day 2026-11-09. |
+| [Phoenix and Beauty](https://codeforces.com/problemset/problem/1348/B) | `Codeforces` | `1400` | `phoenixAndBeauty.js` | Key algorithmic application from Day 2026-11-10. |
+| [Factory](https://codeforces.com/problemset/problem/485/A) | `Codeforces` | `1400` | `factory.js` | Key algorithmic application from Day 2026-11-10. |
+| [Sea and Islands](https://codeforces.com/problemset/problem/544/B) | `Codeforces` | `1400` | `seaAndIslands.js` | Key algorithmic application from Day 2026-11-10. |
+| [Этажи](https://codeforces.com/problemset/problem/649/B) | `Codeforces` | `1400` | `problem.js` | Key algorithmic application from Day 2026-11-10. |
+| [Fillomino 2](https://codeforces.com/problemset/problem/1517/C) | `Codeforces` | `1400` | `fillomino2.js` | Key algorithmic application from Day 2026-11-10. |
+| [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 

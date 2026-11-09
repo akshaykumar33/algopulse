@@ -169,6 +169,10 @@ dp.fill(-1); // Memoization sentinel
 | [Qpwoeirut And The City](https://codeforces.com/problemset/problem/1706/C) | `Codeforces` | `1400` | `qpwoeirutAndTheCity.js` | Key algorithmic application from Day 2026-11-09. |
 | [String Equality](https://codeforces.com/problemset/problem/1451/C) | `Codeforces` | `1400` | `stringEquality.js` | Key algorithmic application from Day 2026-11-09. |
 | [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
+| [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
+| [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Remove One Element](https://codeforces.com/problemset/problem/1272/D) | `Codeforces` | `1500` | `removeOneElement.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 

@@ -457,6 +457,17 @@ for (const x of arr) {
 | [Xenia and Spies](https://codeforces.com/problemset/problem/342/B) | `Codeforces` | `1500` | `xeniaAndSpies.js` | Key algorithmic application from Day 2026-11-09. |
 | [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
 | [Graph Composition](https://codeforces.com/problemset/problem/2060/E) | `Codeforces` | `1500` | `graphComposition.js` | Key algorithmic application from Day 2026-11-09. |
+| [Regular Bracket Sequence](https://codeforces.com/problemset/problem/26/B) | `Codeforces` | `1400` | `regularBracketSequence.js` | Key algorithmic application from Day 2026-11-10. |
+| [Phoenix and Beauty](https://codeforces.com/problemset/problem/1348/B) | `Codeforces` | `1400` | `phoenixAndBeauty.js` | Key algorithmic application from Day 2026-11-10. |
+| [Fox and Box Accumulation](https://codeforces.com/problemset/problem/388/A) | `Codeforces` | `1400` | `foxAndBoxAccumulation.js` | Key algorithmic application from Day 2026-11-10. |
+| [Drazil and Factorial](https://codeforces.com/problemset/problem/515/C) | `Codeforces` | `1400` | `drazilAndFactorial.js` | Key algorithmic application from Day 2026-11-10. |
+| [Web of Lies](https://codeforces.com/problemset/problem/1548/A) | `Codeforces` | `1400` | `webOfLies.js` | Key algorithmic application from Day 2026-11-10. |
+| [Fillomino 2](https://codeforces.com/problemset/problem/1517/C) | `Codeforces` | `1400` | `fillomino2.js` | Key algorithmic application from Day 2026-11-10. |
+| [Easy Assembly](https://codeforces.com/problemset/problem/1773/E) | `Codeforces` | `1400` | `easyAssembly.js` | Key algorithmic application from Day 2026-11-10. |
+| [Permutation Counting](https://codeforces.com/problemset/problem/1967/A) | `Codeforces` | `1400` | `permutationCounting.js` | Key algorithmic application from Day 2026-11-10. |
+| [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
+| [Workout plan](https://codeforces.com/problemset/problem/1218/F) | `Codeforces` | `1500` | `workoutPlan.js` | Key algorithmic application from Day 2026-11-10. |
+| [Ticks](https://codeforces.com/problemset/problem/1579/C) | `Codeforces` | `1500` | `ticks.js` | Key algorithmic application from Day 2026-11-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

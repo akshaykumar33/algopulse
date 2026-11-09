@@ -145,6 +145,7 @@ function missingNumber(nums) {
 | [Preparing Olympiad](https://codeforces.com/problemset/problem/550/B) | `Codeforces` | `1400` | `preparingOlympiad.js` | Key algorithmic application from Day 2026-11-08. |
 | [Alya and Permutation](https://codeforces.com/problemset/problem/2035/C) | `Codeforces` | `1400` | `alyaAndPermutation.js` | Key algorithmic application from Day 2026-11-09. |
 | [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

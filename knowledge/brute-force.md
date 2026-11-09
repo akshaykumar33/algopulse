@@ -255,6 +255,11 @@ function backtrack(index, currentSum, target, arr) {
 | [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
 | [Xenia and Spies](https://codeforces.com/problemset/problem/342/B) | `Codeforces` | `1500` | `xeniaAndSpies.js` | Key algorithmic application from Day 2026-11-09. |
 | [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
+| [Binary Blocks](https://codeforces.com/problemset/problem/838/A) | `Codeforces` | `1400` | `binaryBlocks.js` | Key algorithmic application from Day 2026-11-10. |
+| [Two Tables](https://codeforces.com/problemset/problem/228/B) | `Codeforces` | `1400` | `twoTables.js` | Key algorithmic application from Day 2026-11-10. |
+| [Web of Lies](https://codeforces.com/problemset/problem/1548/A) | `Codeforces` | `1400` | `webOfLies.js` | Key algorithmic application from Day 2026-11-10. |
+| [Balls Game](https://codeforces.com/problemset/problem/430/B) | `Codeforces` | `1400` | `ballsGame.js` | Key algorithmic application from Day 2026-11-10. |
+| [Remove One Element](https://codeforces.com/problemset/problem/1272/D) | `Codeforces` | `1500` | `removeOneElement.js` | Key algorithmic application from Day 2026-11-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

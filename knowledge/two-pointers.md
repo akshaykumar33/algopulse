@@ -141,6 +141,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
 | [Fighting Tournament](https://codeforces.com/problemset/problem/1719/C) | `Codeforces` | `1400` | `fightingTournament.js` | Key algorithmic application from Day 2026-11-09. |
 | [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
+| [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
+| [Balls Game](https://codeforces.com/problemset/problem/430/B) | `Codeforces` | `1400` | `ballsGame.js` | Key algorithmic application from Day 2026-11-10. |
+| [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 
