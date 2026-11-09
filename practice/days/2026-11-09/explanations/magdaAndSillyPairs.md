@@ -4,69 +4,29 @@
 - **Platform:** CodeChef
 - **Problem ID:** [CC-SILLYPRS](https://www.codechef.com/problems/SILLYPRS)
 - **Difficulty / Rating:** 1507
-- **Tags:** codechef
+- **Tags:** math, greedy, parity
 - **Solution File:** `magdaAndSillyPairs.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
+Chefs have heights $A_1, \dots, A_N$ and chefettes have heights $B_1, \dots, B_N$.
+When paired, child height is $\lfloor (A_i + B_j) / 2 \rfloor$.
+Notice:
+$$\lfloor (A_i + B_j) / 2 \rfloor = \frac{A_i + B_j - [A_i \not\equiv B_j \pmod 2]}{2}$$
+Sum of all children heights across all $N$ pairs is:
+$$\sum \lfloor (A_i + B_j) / 2 \rfloor = \frac{\sum A_i + \sum B_j - (\text{number of mismatched parity pairs})}{2}$$
+The sum $\sum A_i + \sum B_j$ is invariant under any pairing.
+To maximize the children sum, we must minimize the number of pairs with mismatched parities.
+Let $e_A, o_A$ be the counts of even and odd numbers in $A$, and $e_B, o_B$ in $B$.
+We can form $\min(e_A, e_B)$ even-even pairs and $\min(o_A, o_B)$ odd-odd pairs.
+The remaining $|e_A - e_B|$ elements cannot avoid being paired across different parities.
+Thus, the minimum number of mismatched pairs is exactly $|e_A - e_B|$.
+The maximum possible sum is:
+$$\frac{\sum A_i + \sum B_j - |e_A - e_B|}{2}$$
 
 ---
 
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/magdaAndSillyPairs.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N)$ single pass over arrays $A$ and $B$.
+- **Space Complexity:** $O(1)$ auxiliary space.

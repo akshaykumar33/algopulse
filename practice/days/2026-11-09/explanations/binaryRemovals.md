@@ -4,69 +4,24 @@
 - **Platform:** CodeChef
 - **Problem ID:** [CC-BINREM](https://www.codechef.com/problems/BINREM)
 - **Difficulty / Rating:** 1572
-- **Tags:** codechef
+- **Tags:** strings, inversions, greedy
 - **Solution File:** `binaryRemovals.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
+In each operation, we may delete any subsequence of $S$ whose number of inversions is $\le X$ and is a multiple of $K$.
+Any monotonic string (such as a string consisting solely of `'0'`s or solely of `'1'`s) has 0 inversions.
+Since 0 is always $\le X$ and $0 \equiv 0 \pmod K$, a subsequence of all `'1'`s can always be deleted in 1 operation with 0 inversions.
+Then, all remaining characters are `'0'`, which can be deleted in a second operation with 0 inversions.
+Therefore, the answer is always at most 2.
+Can the entire string be deleted in 1 operation?
+The only way to delete the entire string in 1 operation is if the whole string $S$ itself has its total inversion count $\le X$ and $\equiv 0 \pmod K$.
+We compute the inversion count of $S$ in $O(N)$ time by maintaining a running count of `'1'`s and adding it to total inversions whenever `'0'` is encountered.
+If $\text{invs} \le X$ and $\text{invs} \pmod K == 0$, output 1; otherwise, output 2.
 
 ---
 
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
-
----
-
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/binaryRemovals.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N)$ linear scan per testcase.
+- **Space Complexity:** $O(1)$ auxiliary space.

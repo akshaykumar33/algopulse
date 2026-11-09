@@ -11,40 +11,35 @@
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
+We are given an array of 2N integers with elements in [0, N]. We want to partition into two multisets A and B of size N each such that MEX(A) = MEX(B) = M.
+For MEX to equal M, every integer x in [0, M - 1] must appear at least once in both A and B, which requires freq[x] >= 2 in the original array. Furthermore, M must not appear in A and must not appear in B, which requires freq[M] = 0 in the original array. If any integer x < M has freq[x] == 1, it can only go to one set, capping that set MEX at x while the other set has MEX > x, making equal MEX impossible. Therefore, the condition for YES is: scanning x = 0, 1, 2, ..., if the first non-satisfying frequency has freq[x] == 0, we can achieve MEX = x and answer is YES; if freq[x] == 1, no equal MEX is possible and answer is NO.
 
 ```mermaid
 flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
+    A[Start: Read Input Stream] --> B[Parse Problem Parameters]
+    B --> C{Verify Feasibility & Edge Constraints}
+    C -- Impossible Case --> D[Output -1 / NO]
+    C -- Feasible Case --> E[Apply Optimal Mathematical / Greedy Strategy]
+    E --> F[Buffer Optimal Formatted Result]
+    D --> F
 ```
 
 ---
 
 ## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
+Tracing state transitions across the operational pipeline:
 
 ```mermaid
 sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
+    participant In as Input Stream
+    participant Engine as Algorithmic Solver
+    participant Invariant as State & Invariant Check
     participant Out as Output Buffer
 
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
+    In->>Engine: Stream Testcase Data
+    Engine->>Invariant: Validate Parity / Frequency / Boundary Bounds
+    Invariant-->>Engine: State Invariant Verified
+    Engine->>Out: Append Verified Answer
 ```
 
 ---
@@ -53,16 +48,16 @@ sequenceDiagram
 
 | Dimension | Bound | Proof & Rationale |
 |---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
+| **Time Complexity** | $O(N)$$ | Optimal linear or sub-linear execution per testcase. |
+| **Space Complexity** | $O(N)$$ | Minimal auxiliary storage allocated. |
+| **Recursion Depth** | $O(1)$ | Fully iterative structure preventing stack overflow. |
 
 ---
 
 ## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
+- **Minimum bounds:** $N = 1, N = 2$, minimal values, zero elements.
+- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$, $10^{20000}$).
+- **Numeric safety:** Plain JS safe integers up to $2^{53} - 1$, and `BigInt` for arbitrarily large values.
 
 ---
 

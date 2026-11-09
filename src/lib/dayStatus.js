@@ -216,7 +216,7 @@ function getDayStatus(date) {
   const submissionsProcessed = totalProblems > 0 && submittedCount >= totalProblems;
 
   const isFinished = Boolean(
-    (storedStatus && storedStatus.finished) ||
+    (storedStatus && storedStatus.finished && (solutionsCount >= totalProblems || totalProblems === 0)) ||
     (allSolutions && allVerified && (submissionsProcessed || submittedCount > 0))
   );
 

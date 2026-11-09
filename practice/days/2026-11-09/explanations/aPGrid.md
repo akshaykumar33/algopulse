@@ -4,69 +4,32 @@
 - **Platform:** CodeChef
 - **Problem ID:** [CC-APGRID](https://www.codechef.com/problems/APGRID)
 - **Difficulty / Rating:** 1562
-- **Tags:** codechef
+- **Tags:** constructive algorithms, math, arithmetic progression
 - **Solution File:** `aPGrid.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
+We must construct an $N \times M$ matrix of positive integers such that:
+- Each row $i$ is an AP with common difference $d_i > 0$.
+- Each column $j$ is an AP with common difference $c_j > 0$.
+- All $N$ row common differences and all $M$ column common differences are pairwise distinct.
+- The maximum element of the matrix is minimized.
 
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
+Notice that if every entry is defined multiplicatively as:
+$$A[i][j] = (2i + 1) \cdot (j + 1) \quad (0 \le i < N, 0 \le j < M)$$
+Then:
+- Row $i$ has difference $A[i][j+1] - A[i][j] = 2i + 1$. Thus, the row differences are all the odd integers $\{1, 3, 5, \dots, 2N - 1\}$.
+- Column $j$ has difference $A[i+1][j] - A[i][j] = 2(j + 1)$. Thus, the column differences are all the even integers $\{2, 4, 6, \dots, 2M\}$.
+Because odd numbers and even numbers are disjoint, no row difference can ever equal any column difference! Furthermore, within rows and within columns, differences are strictly increasing, so all $N + M$ differences are pairwise distinct.
+All entries are strictly positive integers.
+When $N \le M$, this yields maximum element $(2N - 1) \cdot M$.
+When $N > M$, we swap the parity roles to maintain the minimal maximum element:
+$$A[i][j] = (i + 1) \cdot (2j + 1)$$
+yielding row differences $2(i + 1)$ (even) and column differences $2j + 1$ (odd), with maximum element $N \cdot (2M - 1)$.
 
 ---
 
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/aPGrid.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N \cdot M)$ to generate the matrix entries.
+- **Space Complexity:** $O(M)$ buffer for each printed line.

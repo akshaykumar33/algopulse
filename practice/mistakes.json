@@ -2169,5 +2169,17 @@
       "codechef"
     ],
     "timestamp": "2026-11-07T11:02:46.508Z"
+  },
+  {
+    "id": "CC-ARRREM",
+    "problem": "Array Removal",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The core issue is that the problem asks to find a subset of numbers such that their bitwise OR is equal to (2^k)-1 for some k, and we want to minimize the number of removed elements. The current solution iterates through possible values of 'k' from 1 to 31 (representing the maximum bit possibly set), then for each 'k', it finds the smallest prefix of the sorted array whose bitwise OR equals (2^k)-1. This is incorrect. The crucial flaw is that we don't necessarily need to pick a contiguous prefix of the sorted array. We need to find *any* subset of numbers from the original array. By sorting the array and only considering `arr[idx] < limit` and accumulating `curOr` from a prefix, the algorithm essentially assumes that if a number is `limit` or greater, it cannot contribute to `curOr` being `target`. However, a number `arr[j]` where `arr[j] >= limit` might still be useful if `limit` is merely `1 << x` but `arr[j]` has bits set within `target = (1 << x) - 1`. The goal is to make the OR of selected elements equal to some `(1 << k) - 1`. The problem reduces to finding the smallest `k` such that we can achieve `(1 << k) - 1` by ORing some subset of elements, and for that `k`, determining how many elements need to be removed. The optimal strategy is to iterate through all possible `k` values (up to 30, since `arr[i]` is up to 10^9), and for each `k`, count how many elements `arr[i]` have a bit set that is greater than or equal to `k`. These are the elements that *must* be removed to achieve `(1 << k) - 1`. All other elements (those less than `(1 << k)`) can be potentially included. We need to find the minimum removals among all `k`. The current approach of using `idx` and `curOr` on a prefix is a greedy heuristic that doesn't guarantee correctness because it restricts the elements considered for `curOr` to be less than `limit`, and also assumes contiguous selection which is not a constraint.",
+    "rule": "When a problem requires selecting a subset of elements to satisfy a bitwise OR condition, and sorting is involved, be careful not to inadvertently impose contiguity or range restrictions (e.g., `arr[idx] < limit`) if the problem statement does not explicitly require them. For bitwise OR problems with a target like `(1 << k) - 1`, iterate over possible `k` values and for each `k`, identify elements that violate the condition (i.e., have bits set beyond `k-1`) as candidates for removal.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-09T14:30:27.570Z"
   }
 ]

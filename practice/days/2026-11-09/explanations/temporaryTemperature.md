@@ -4,69 +4,27 @@
 - **Platform:** CodeChef
 - **Problem ID:** [CC-TMPTMP](https://www.codechef.com/problems/TMPTMP)
 - **Difficulty / Rating:** 1516
-- **Tags:** codechef
+- **Tags:** binary search, greedy, intervals
 - **Solution File:** `temporaryTemperature.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
+We are given an array $A$ and allowed at most $K$ temperature changes.
+If step $i$ is performed at temperature $B_i$, the unsavoriness is $\max_{i=1}^N |A_i - B_i|$.
+We want to minimize the unsavoriness.
+Let the maximum allowed difference be $M$. Then each $B_i$ must lie in $[A_i - M, A_i + M]$.
+To keep the temperature constant across a contiguous segment of steps, the intersection of their intervals $[A_i - M, A_i + M]$ must be non-empty.
+We can partition the array into the minimum number of contiguous segments such that within each segment, all intervals intersect.
+This can be validated greedily:
+Start with $[L, R] = [A_0 - M, A_0 + M]$.
+For each subsequent element $A_i$, update $L = \max(L, A_i - M)$ and $R = \min(R, A_i + M)$.
+If $L > R$, the intersection is empty, so a temperature change is required; increment changes and reset $[L, R] = [A_i - M, A_i + M]$.
+If the required number of changes is $\le K$, then $M$ is feasible.
+Since feasibility is monotonic with respect to $M$, we binary search for the minimum $M \in [0, 10^9]$.
 
 ---
 
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/temporaryTemperature.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N \log(\max A))$ per test case.
+- **Space Complexity:** $O(N)$ to store array $A$.
