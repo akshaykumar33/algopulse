@@ -389,6 +389,20 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Battling with Numbers](https://codeforces.com/problemset/problem/1866/B) | `Codeforces` | `1400` | `battlingWithNumbers.js` | Key algorithmic application from Day 2026-11-08. |
 | [Santa Claus and Robot](https://codeforces.com/problemset/problem/748/C) | `Codeforces` | `1400` | `santaClausAndRobot.js` | Key algorithmic application from Day 2026-11-08. |
 | [Kolya and Tanya ](https://codeforces.com/problemset/problem/584/B) | `Codeforces` | `1500` | `kolyaAndTanya.js` | Key algorithmic application from Day 2026-11-08. |
+| [Accounting](https://codeforces.com/problemset/problem/30/A) | `Codeforces` | `1400` | `accounting.js` | Key algorithmic application from Day 2026-11-09. |
+| [Han Solo and Lazer Gun](https://codeforces.com/problemset/problem/514/B) | `Codeforces` | `1400` | `hanSoloAndLazerGun.js` | Key algorithmic application from Day 2026-11-09. |
+| [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
+| [Orac and Models](https://codeforces.com/problemset/problem/1350/B) | `Codeforces` | `1400` | `oracAndModels.js` | Key algorithmic application from Day 2026-11-09. |
+| [The World is a Theatre](https://codeforces.com/problemset/problem/131/C) | `Codeforces` | `1400` | `theWorldIsATheatre.js` | Key algorithmic application from Day 2026-11-09. |
+| [Satyam and Counting](https://codeforces.com/problemset/problem/2009/D) | `Codeforces` | `1400` | `satyamAndCounting.js` | Key algorithmic application from Day 2026-11-09. |
+| [Gourmet Cat](https://codeforces.com/problemset/problem/1154/C) | `Codeforces` | `1400` | `gourmetCat.js` | Key algorithmic application from Day 2026-11-09. |
+| [DIY](https://codeforces.com/problemset/problem/2038/C) | `Codeforces` | `1400` | `dIY.js` | Key algorithmic application from Day 2026-11-09. |
+| [No Prime Differences](https://codeforces.com/problemset/problem/1838/C) | `Codeforces` | `1400` | `noPrimeDifferences.js` | Key algorithmic application from Day 2026-11-09. |
+| [Mishka and trip](https://codeforces.com/problemset/problem/703/B) | `Codeforces` | `1400` | `mishkaAndTrip.js` | Key algorithmic application from Day 2026-11-09. |
+| [Alya and Permutation](https://codeforces.com/problemset/problem/2035/C) | `Codeforces` | `1400` | `alyaAndPermutation.js` | Key algorithmic application from Day 2026-11-09. |
+| [Win or Freeze](https://codeforces.com/problemset/problem/150/A) | `Codeforces` | `1400` | `winOrFreeze.js` | Key algorithmic application from Day 2026-11-09. |
+| [XOR and OR](https://codeforces.com/problemset/problem/282/C) | `Codeforces` | `1500` | `xORAndOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Rings](https://codeforces.com/problemset/problem/1562/C) | `Codeforces` | `1500` | `rings.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

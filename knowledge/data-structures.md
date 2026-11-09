@@ -166,6 +166,14 @@ class MinHeap {
 | [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
 | [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
 | [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
+| [Han Solo and Lazer Gun](https://codeforces.com/problemset/problem/514/B) | `Codeforces` | `1400` | `hanSoloAndLazerGun.js` | Key algorithmic application from Day 2026-11-09. |
+| [Fighting Tournament](https://codeforces.com/problemset/problem/1719/C) | `Codeforces` | `1400` | `fightingTournament.js` | Key algorithmic application from Day 2026-11-09. |
+| [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sonya and Queries](https://codeforces.com/problemset/problem/713/A) | `Codeforces` | `1400` | `sonyaAndQueries.js` | Key algorithmic application from Day 2026-11-09. |
+| [DIY](https://codeforces.com/problemset/problem/2038/C) | `Codeforces` | `1400` | `dIY.js` | Key algorithmic application from Day 2026-11-09. |
+| [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
+| [Knowledge Cards](https://codeforces.com/problemset/problem/1740/D) | `Codeforces` | `1500` | `knowledgeCards.js` | Key algorithmic application from Day 2026-11-09. |
+| [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
 
 ---
 

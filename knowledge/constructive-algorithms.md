@@ -267,6 +267,14 @@ function constructMatrix(n, m) {
 | [Santa Claus and Robot](https://codeforces.com/problemset/problem/748/C) | `Codeforces` | `1400` | `santaClausAndRobot.js` | Key algorithmic application from Day 2026-11-08. |
 | [Set Construction](https://codeforces.com/problemset/problem/1761/C) | `Codeforces` | `1400` | `setConstruction.js` | Key algorithmic application from Day 2026-11-08. |
 | [Secret Combination](https://codeforces.com/problemset/problem/496/B) | `Codeforces` | `1500` | `secretCombination.js` | Key algorithmic application from Day 2026-11-08. |
+| [Grid game](https://codeforces.com/problemset/problem/1103/A) | `Codeforces` | `1400` | `gridGame.js` | Key algorithmic application from Day 2026-11-09. |
+| [Ingenuity-2](https://codeforces.com/problemset/problem/1974/D) | `Codeforces` | `1400` | `ingenuity2.js` | Key algorithmic application from Day 2026-11-09. |
+| [No Prime Differences](https://codeforces.com/problemset/problem/1838/C) | `Codeforces` | `1400` | `noPrimeDifferences.js` | Key algorithmic application from Day 2026-11-09. |
+| [Alya and Permutation](https://codeforces.com/problemset/problem/2035/C) | `Codeforces` | `1400` | `alyaAndPermutation.js` | Key algorithmic application from Day 2026-11-09. |
+| [XOR and OR](https://codeforces.com/problemset/problem/282/C) | `Codeforces` | `1500` | `xORAndOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Knowledge Cards](https://codeforces.com/problemset/problem/1740/D) | `Codeforces` | `1500` | `knowledgeCards.js` | Key algorithmic application from Day 2026-11-09. |
+| [Rings](https://codeforces.com/problemset/problem/1562/C) | `Codeforces` | `1500` | `rings.js` | Key algorithmic application from Day 2026-11-09. |
 
 ---
 

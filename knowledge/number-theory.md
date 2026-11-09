@@ -173,6 +173,10 @@ function sieve(maxN) {
 | [Power Sequence](https://codeforces.com/problemset/problem/1397/B) | `Codeforces` | `1500` | `powerSequence.js` | Key algorithmic application from Day 2026-11-06. |
 | [Dubious Cyrpto](https://codeforces.com/problemset/problem/1379/B) | `Codeforces` | `1500` | `dubiousCyrpto.js` | Key algorithmic application from Day 2026-11-07. |
 | [Battling with Numbers](https://codeforces.com/problemset/problem/1866/B) | `Codeforces` | `1400` | `battlingWithNumbers.js` | Key algorithmic application from Day 2026-11-08. |
+| [Orac and Models](https://codeforces.com/problemset/problem/1350/B) | `Codeforces` | `1400` | `oracAndModels.js` | Key algorithmic application from Day 2026-11-09. |
+| [No Prime Differences](https://codeforces.com/problemset/problem/1838/C) | `Codeforces` | `1400` | `noPrimeDifferences.js` | Key algorithmic application from Day 2026-11-09. |
+| [Win or Freeze](https://codeforces.com/problemset/problem/150/A) | `Codeforces` | `1400` | `winOrFreeze.js` | Key algorithmic application from Day 2026-11-09. |
+| [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
 
 ---
 

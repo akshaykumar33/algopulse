@@ -1992,6 +1992,81 @@ function solve() {
 | [N Triplets](https://www.codechef.com/problems/NTRIPLETS) | `CodeChef` | `1426` | `nTriplets.js` | Key algorithmic application from Day 2026-11-08. |
 | [First Element Counting](https://www.codechef.com/problems/FIRSTCNT) | `CodeChef` | `1406` | `firstElementCounting.js` | Key algorithmic application from Day 2026-11-08. |
 | [Playing with OR](https://www.codechef.com/problems/FIZZBUZZ2304) | `CodeChef` | `1365` | `playingWithOR.js` | Key algorithmic application from Day 2026-11-08. |
+| [Grid game](https://codeforces.com/problemset/problem/1103/A) | `Codeforces` | `1400` | `gridGame.js` | Key algorithmic application from Day 2026-11-09. |
+| [Han Solo and Lazer Gun](https://codeforces.com/problemset/problem/514/B) | `Codeforces` | `1400` | `hanSoloAndLazerGun.js` | Key algorithmic application from Day 2026-11-09. |
+| [Tanya and Postcard](https://codeforces.com/problemset/problem/518/B) | `Codeforces` | `1400` | `tanyaAndPostcard.js` | Key algorithmic application from Day 2026-11-09. |
+| [Ingenuity-2](https://codeforces.com/problemset/problem/1974/D) | `Codeforces` | `1400` | `ingenuity2.js` | Key algorithmic application from Day 2026-11-09. |
+| [Fighting Tournament](https://codeforces.com/problemset/problem/1719/C) | `Codeforces` | `1400` | `fightingTournament.js` | Key algorithmic application from Day 2026-11-09. |
+| [Om Nom and Dark Park](https://codeforces.com/problemset/problem/526/B) | `Codeforces` | `1400` | `omNomAndDarkPark.js` | Key algorithmic application from Day 2026-11-09. |
+| [LR-remainders](https://codeforces.com/problemset/problem/1932/C) | `Codeforces` | `1400` | `lRRemainders.js` | Key algorithmic application from Day 2026-11-09. |
+| [Gourmet Cat](https://codeforces.com/problemset/problem/1154/C) | `Codeforces` | `1400` | `gourmetCat.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sonya and Queries](https://codeforces.com/problemset/problem/713/A) | `Codeforces` | `1400` | `sonyaAndQueries.js` | Key algorithmic application from Day 2026-11-09. |
+| [Qpwoeirut And The City](https://codeforces.com/problemset/problem/1706/C) | `Codeforces` | `1400` | `qpwoeirutAndTheCity.js` | Key algorithmic application from Day 2026-11-09. |
+| [Mishka and trip](https://codeforces.com/problemset/problem/703/B) | `Codeforces` | `1400` | `mishkaAndTrip.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chess Cheater](https://codeforces.com/problemset/problem/1427/B) | `Codeforces` | `1400` | `chessCheater.js` | Key algorithmic application from Day 2026-11-09. |
+| [String Equality](https://codeforces.com/problemset/problem/1451/C) | `Codeforces` | `1400` | `stringEquality.js` | Key algorithmic application from Day 2026-11-09. |
+| [XOR and OR](https://codeforces.com/problemset/problem/282/C) | `Codeforces` | `1500` | `xORAndOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Xenia and Spies](https://codeforces.com/problemset/problem/342/B) | `Codeforces` | `1500` | `xeniaAndSpies.js` | Key algorithmic application from Day 2026-11-09. |
+| [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
+| [Find Missing Observations](https://leetcode.com/problems/find-missing-observations/) | `LeetCode` | `Medium` | `findMissingObservations.js` | Key algorithmic application from Day 2026-11-09. |
+| [Stone Game IX](https://leetcode.com/problems/stone-game-ix/) | `LeetCode` | `Medium` | `stoneGameIX.js` | Key algorithmic application from Day 2026-11-09. |
+| [The Time When the Network Becomes Idle](https://leetcode.com/problems/the-time-when-the-network-becomes-idle/) | `LeetCode` | `Medium` | `theTimeWhenTheNetworkBecomesIdle.js` | Key algorithmic application from Day 2026-11-09. |
+| [Count Words Obtained After Adding a Letter](https://leetcode.com/problems/count-words-obtained-after-adding-a-letter/) | `LeetCode` | `Medium` | `countWordsObtainedAfterAddingALetter.js` | Key algorithmic application from Day 2026-11-09. |
+| [Count Artifacts That Can Be Extracted](https://leetcode.com/problems/count-artifacts-that-can-be-extracted/) | `LeetCode` | `Medium` | `countArtifactsThatCanBeExtracted.js` | Key algorithmic application from Day 2026-11-09. |
+| [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences/) | `LeetCode` | `Medium` | `validateStackSequences.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sum of Even Numbers After Queries](https://leetcode.com/problems/sum-of-even-numbers-after-queries/) | `LeetCode` | `Medium` | `sumOfEvenNumbersAfterQueries.js` | Key algorithmic application from Day 2026-11-09. |
+| [Removing Stars From a String](https://leetcode.com/problems/removing-stars-from-a-string/) | `LeetCode` | `Medium` | `removingStarsFromAString.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum Split of Positive Even Integers](https://leetcode.com/problems/maximum-split-of-positive-even-integers/) | `LeetCode` | `Medium` | `maximumSplitOfPositiveEvenIntegers.js` | Key algorithmic application from Day 2026-11-09. |
+| [Bitwise XOR of All Pairings](https://leetcode.com/problems/bitwise-xor-of-all-pairings/) | `LeetCode` | `Medium` | `bitwiseXOROfAllPairings.js` | Key algorithmic application from Day 2026-11-09. |
+| [Tweet Counts Per Frequency](https://leetcode.com/problems/tweet-counts-per-frequency/) | `LeetCode` | `Medium` | `tweetCountsPerFrequency.js` | Key algorithmic application from Day 2026-11-09. |
+| [Minimum Number of Operations to Reinitialize a Permutation](https://leetcode.com/problems/minimum-number-of-operations-to-reinitialize-a-permutation/) | `LeetCode` | `Medium` | `minimumNumberOfOperationsToReinitializeAPermutation.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum Average Pass Ratio](https://leetcode.com/problems/maximum-average-pass-ratio/) | `LeetCode` | `Medium` | `maximumAveragePassRatio.js` | Key algorithmic application from Day 2026-11-09. |
+| [Step-By-Step Directions From a Binary Tree Node to Another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/) | `LeetCode` | `Medium` | `stepByStepDirectionsFromABinaryTreeNodeToAnother.js` | Key algorithmic application from Day 2026-11-09. |
+| [Minimum Number of Frogs Croaking](https://leetcode.com/problems/minimum-number-of-frogs-croaking/) | `LeetCode` | `Medium` | `minimumNumberOfFrogsCroaking.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/maximum-alternating-subsequence-sum/) | `LeetCode` | `Medium` | `maximumAlternatingSubsequenceSum.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sum of Subarray Ranges](https://leetcode.com/problems/sum-of-subarray-ranges/) | `LeetCode` | `Medium` | `sumOfSubarrayRanges.js` | Key algorithmic application from Day 2026-11-09. |
+| [Delete Leaves With a Given Value](https://leetcode.com/problems/delete-leaves-with-a-given-value/) | `LeetCode` | `Medium` | `deleteLeavesWithAGivenValue.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum Rows Covered by Columns](https://leetcode.com/problems/maximum-rows-covered-by-columns/) | `LeetCode` | `Medium` | `maximumRowsCoveredByColumns.js` | Key algorithmic application from Day 2026-11-09. |
+| [Design Underground System](https://leetcode.com/problems/design-underground-system/) | `LeetCode` | `Medium` | `designUndergroundSystem.js` | Key algorithmic application from Day 2026-11-09. |
+| [Longest Binary Subsequence Less Than or Equal to K](https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k/) | `LeetCode` | `Medium` | `longestBinarySubsequenceLessThanOrEqualToK.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum XOR After Operations ](https://leetcode.com/problems/maximum-xor-after-operations/) | `LeetCode` | `Medium` | `maximumXORAfterOperations.js` | Key algorithmic application from Day 2026-11-09. |
+| [Throne Inheritance](https://leetcode.com/problems/throne-inheritance/) | `LeetCode` | `Medium` | `throneInheritance.js` | Key algorithmic application from Day 2026-11-09. |
+| [Maximum Value at a Given Index in a Bounded Array](https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/) | `LeetCode` | `Medium` | `maximumValueAtAGivenIndexInABoundedArray.js` | Key algorithmic application from Day 2026-11-09. |
+| [Construct String With Repeat Limit](https://leetcode.com/problems/construct-string-with-repeat-limit/) | `LeetCode` | `Medium` | `constructStringWithRepeatLimit.js` | Key algorithmic application from Day 2026-11-09. |
+| [K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar/) | `LeetCode` | `Medium` | `kThSymbolInGrammar.js` | Key algorithmic application from Day 2026-11-09. |
+| [Reduce to One](https://www.codechef.com/problems/REDONE) | `CodeChef` | `1507` | `reduceToOne.js` | Key algorithmic application from Day 2026-11-09. |
+| [Flip the String](https://www.codechef.com/problems/FLIP) | `CodeChef` | `1538` | `flipTheString.js` | Key algorithmic application from Day 2026-11-09. |
+| [Minimum Distinct ](https://www.codechef.com/problems/MINDIS6) | `CodeChef` | `1586` | `minimumDistinct.js` | Key algorithmic application from Day 2026-11-09. |
+| [Temporary Temperature](https://www.codechef.com/problems/TMPTMP) | `CodeChef` | `1516` | `temporaryTemperature.js` | Key algorithmic application from Day 2026-11-09. |
+| [Dish Of Life](https://www.codechef.com/problems/DISHLIFE) | `CodeChef` | `1543` | `dishOfLife.js` | Key algorithmic application from Day 2026-11-09. |
+| [Square Digit Squares](https://www.codechef.com/problems/SDSQUARE) | `CodeChef` | `1521` | `squareDigitSquares.js` | Key algorithmic application from Day 2026-11-09. |
+| [Minion AND Range](https://www.codechef.com/problems/MINIAND) | `CodeChef` | `1567` | `minionANDRange.js` | Key algorithmic application from Day 2026-11-09. |
+| [Magda and Silly Pairs](https://www.codechef.com/problems/SILLYPRS) | `CodeChef` | `1507` | `magdaAndSillyPairs.js` | Key algorithmic application from Day 2026-11-09. |
+| [Binary Removals](https://www.codechef.com/problems/BINREM) | `CodeChef` | `1572` | `binaryRemovals.js` | Key algorithmic application from Day 2026-11-09. |
+| [GCD and LCM](https://www.codechef.com/problems/GCDLM) | `CodeChef` | `1419` | `gCDAndLCM.js` | Key algorithmic application from Day 2026-11-09. |
+| [Black And White Cells](https://www.codechef.com/problems/BWCELL) | `CodeChef` | `1515` | `blackAndWhiteCells.js` | Key algorithmic application from Day 2026-11-09. |
+| [Split The String](https://www.codechef.com/problems/SPLSTR) | `CodeChef` | `1567` | `splitTheString.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chef and Happiness](https://www.codechef.com/problems/CHHAPPY) | `CodeChef` | `1594` | `chefAndHappiness.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chef And Binary Operation](https://www.codechef.com/problems/BINOP) | `CodeChef` | `1544` | `chefAndBinaryOperation.js` | Key algorithmic application from Day 2026-11-09. |
+| [AP Grid](https://www.codechef.com/problems/APGRID) | `CodeChef` | `1562` | `aPGrid.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chef Teams](https://www.codechef.com/problems/CTEAMS) | `CodeChef` | `1577` | `chefTeams.js` | Key algorithmic application from Day 2026-11-09. |
+| [Fast Food](https://www.codechef.com/problems/FASTFOOD) | `CodeChef` | `1530` | `fastFood.js` | Key algorithmic application from Day 2026-11-09. |
+| [Equal MEX](https://www.codechef.com/problems/EQUALMEX) | `CodeChef` | `1598` | `equalMEX.js` | Key algorithmic application from Day 2026-11-09. |
+| [Andrew and the Meatballs again](https://www.codechef.com/problems/AMMEAT2) | `CodeChef` | `1597` | `andrewAndTheMeatballsAgain.js` | Key algorithmic application from Day 2026-11-09. |
+| [Counting Optimal Arrays](https://www.codechef.com/problems/CNTARR7) | `CodeChef` | `1588` | `countingOptimalArrays.js` | Key algorithmic application from Day 2026-11-09. |
+| [Largest K](https://www.codechef.com/problems/LARGESTK) | `CodeChef` | `1547` | `largestK.js` | Key algorithmic application from Day 2026-11-09. |
+| [Small, Smaller, Smallest](https://www.codechef.com/problems/BSHORT) | `CodeChef` | `1403` | `smallSmallerSmallest.js` | Key algorithmic application from Day 2026-11-09. |
+| [Non-Primes 101](https://www.codechef.com/problems/NONPRIME101) | `CodeChef` | `1516` | `nonPrimes101.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sum of numbers](https://www.codechef.com/problems/NUMSUM) | `CodeChef` | `1510` | `sumOfNumbers.js` | Key algorithmic application from Day 2026-11-09. |
+| [Sereja and ASum](https://www.codechef.com/problems/LFEB14B) | `CodeChef` | `1559` | `serejaAndASum.js` | Key algorithmic application from Day 2026-11-09. |
+| [Equal by XORing](https://www.codechef.com/problems/EQBYXOR) | `CodeChef` | `1507` | `equalByXORing.js` | Key algorithmic application from Day 2026-11-09. |
+| [Nice Array](https://www.codechef.com/problems/NICEARRAY) | `CodeChef` | `1546` | `niceArray.js` | Key algorithmic application from Day 2026-11-09. |
+| [Good Binary Strings](https://www.codechef.com/problems/GOODBINSTR) | `CodeChef` | `1573` | `goodBinaryStrings.js` | Key algorithmic application from Day 2026-11-09. |
+| [Binary Conversion](https://www.codechef.com/problems/CONVERT) | `CodeChef` | `1557` | `binaryConversion.js` | Key algorithmic application from Day 2026-11-09. |
+| [Adjacency Hatred](https://www.codechef.com/problems/ADJHATE) | `CodeChef` | `1510` | `adjacencyHatred.js` | Key algorithmic application from Day 2026-11-09. |
+| [Array Removal](https://www.codechef.com/problems/ARRREM) | `CodeChef` | `1550` | `arrayRemoval.js` | Key algorithmic application from Day 2026-11-09. |
+| [Remember the recipe](https://www.codechef.com/problems/TWSTR) | `CodeChef` | `1529` | `rememberTheRecipe.js` | Key algorithmic application from Day 2026-11-09. |
+| [Greedy LIS Algorithm](https://www.codechef.com/problems/GREEDYLIS) | `CodeChef` | `1559` | `greedyLISAlgorithm.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

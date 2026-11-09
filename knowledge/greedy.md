@@ -445,6 +445,18 @@ for (const x of arr) {
 | [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
 | [Nastya and Strange Generator](https://codeforces.com/problemset/problem/1340/A) | `Codeforces` | `1500` | `nastyaAndStrangeGenerator.js` | Key algorithmic application from Day 2026-11-08. |
 | [Backspace](https://codeforces.com/problemset/problem/1553/D) | `Codeforces` | `1500` | `backspace.js` | Key algorithmic application from Day 2026-11-08. |
+| [Design Tutorial: Make It Nondeterministic](https://codeforces.com/problemset/problem/472/C) | `Codeforces` | `1400` | `designTutorialMakeItNondeterministic.js` | Key algorithmic application from Day 2026-11-09. |
+| [Tanya and Postcard](https://codeforces.com/problemset/problem/518/B) | `Codeforces` | `1400` | `tanyaAndPostcard.js` | Key algorithmic application from Day 2026-11-09. |
+| [Ingenuity-2](https://codeforces.com/problemset/problem/1974/D) | `Codeforces` | `1400` | `ingenuity2.js` | Key algorithmic application from Day 2026-11-09. |
+| [Om Nom and Dark Park](https://codeforces.com/problemset/problem/526/B) | `Codeforces` | `1400` | `omNomAndDarkPark.js` | Key algorithmic application from Day 2026-11-09. |
+| [DIY](https://codeforces.com/problemset/problem/2038/C) | `Codeforces` | `1400` | `dIY.js` | Key algorithmic application from Day 2026-11-09. |
+| [Qpwoeirut And The City](https://codeforces.com/problemset/problem/1706/C) | `Codeforces` | `1400` | `qpwoeirutAndTheCity.js` | Key algorithmic application from Day 2026-11-09. |
+| [The Delivery Dilemma](https://codeforces.com/problemset/problem/1443/C) | `Codeforces` | `1400` | `theDeliveryDilemma.js` | Key algorithmic application from Day 2026-11-09. |
+| [Chess Cheater](https://codeforces.com/problemset/problem/1427/B) | `Codeforces` | `1400` | `chessCheater.js` | Key algorithmic application from Day 2026-11-09. |
+| [String Equality](https://codeforces.com/problemset/problem/1451/C) | `Codeforces` | `1400` | `stringEquality.js` | Key algorithmic application from Day 2026-11-09. |
+| [Xenia and Spies](https://codeforces.com/problemset/problem/342/B) | `Codeforces` | `1500` | `xeniaAndSpies.js` | Key algorithmic application from Day 2026-11-09. |
+| [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
+| [Graph Composition](https://codeforces.com/problemset/problem/2060/E) | `Codeforces` | `1500` | `graphComposition.js` | Key algorithmic application from Day 2026-11-09. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

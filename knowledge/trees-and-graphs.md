@@ -163,6 +163,10 @@ function dfsIterative(start, adj, n) {
 | [Learning Languages](https://codeforces.com/problemset/problem/277/A) | `Codeforces` | `1400` | `learningLanguages.js` | Key algorithmic application from Day 2026-11-08. |
 | [Set Construction](https://codeforces.com/problemset/problem/1761/C) | `Codeforces` | `1400` | `setConstruction.js` | Key algorithmic application from Day 2026-11-08. |
 | [Okabe and Boxes](https://codeforces.com/problemset/problem/821/C) | `Codeforces` | `1500` | `okabeAndBoxes.js` | Key algorithmic application from Day 2026-11-08. |
+| [Mr. Kitayuta's Colorful Graph](https://codeforces.com/problemset/problem/505/B) | `Codeforces` | `1400` | `mrKitayutaSColorfulGraph.js` | Key algorithmic application from Day 2026-11-09. |
+| [Om Nom and Dark Park](https://codeforces.com/problemset/problem/526/B) | `Codeforces` | `1400` | `omNomAndDarkPark.js` | Key algorithmic application from Day 2026-11-09. |
+| [Graph Composition](https://codeforces.com/problemset/problem/2060/E) | `Codeforces` | `1500` | `graphComposition.js` | Key algorithmic application from Day 2026-11-09. |
+| [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
 
 ---
 
