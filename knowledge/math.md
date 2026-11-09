@@ -403,6 +403,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Win or Freeze](https://codeforces.com/problemset/problem/150/A) | `Codeforces` | `1400` | `winOrFreeze.js` | Key algorithmic application from Day 2026-11-09. |
 | [XOR and OR](https://codeforces.com/problemset/problem/282/C) | `Codeforces` | `1500` | `xORAndOR.js` | Key algorithmic application from Day 2026-11-09. |
 | [Rings](https://codeforces.com/problemset/problem/1562/C) | `Codeforces` | `1500` | `rings.js` | Key algorithmic application from Day 2026-11-09. |
+| [Factory](https://codeforces.com/problemset/problem/485/A) | `Codeforces` | `1400` | `factory.js` | Key algorithmic application from Day 2026-11-10. |
+| [Drazil and Factorial](https://codeforces.com/problemset/problem/515/C) | `Codeforces` | `1400` | `drazilAndFactorial.js` | Key algorithmic application from Day 2026-11-10. |
+| [Flying Saucer Segments](https://codeforces.com/problemset/problem/226/A) | `Codeforces` | `1400` | `flyingSaucerSegments.js` | Key algorithmic application from Day 2026-11-10. |
+| [Hyperspace Jump (easy)](https://codeforces.com/problemset/problem/958/D1) | `Codeforces` | `1400` | `hyperspaceJumpEasy.js` | Key algorithmic application from Day 2026-11-10. |
+| [Permutation Counting](https://codeforces.com/problemset/problem/1967/A) | `Codeforces` | `1400` | `permutationCounting.js` | Key algorithmic application from Day 2026-11-10. |
+| [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

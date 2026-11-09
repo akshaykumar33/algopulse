@@ -173,6 +173,10 @@ function lowerBound(arr, target) {
 | [Range Update Point Query](https://codeforces.com/problemset/problem/1791/F) | `Codeforces` | `1500` | `rangeUpdatePointQuery.js` | Key algorithmic application from Day 2026-11-08. |
 | [Fighting Tournament](https://codeforces.com/problemset/problem/1719/C) | `Codeforces` | `1400` | `fightingTournament.js` | Key algorithmic application from Day 2026-11-09. |
 | [The Delivery Dilemma](https://codeforces.com/problemset/problem/1443/C) | `Codeforces` | `1400` | `theDeliveryDilemma.js` | Key algorithmic application from Day 2026-11-09. |
+| [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
+| [Permutation Counting](https://codeforces.com/problemset/problem/1967/A) | `Codeforces` | `1400` | `permutationCounting.js` | Key algorithmic application from Day 2026-11-10. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 

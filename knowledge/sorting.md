@@ -207,6 +207,14 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [DIY](https://codeforces.com/problemset/problem/2038/C) | `Codeforces` | `1400` | `dIY.js` | Key algorithmic application from Day 2026-11-09. |
 | [The Delivery Dilemma](https://codeforces.com/problemset/problem/1443/C) | `Codeforces` | `1400` | `theDeliveryDilemma.js` | Key algorithmic application from Day 2026-11-09. |
 | [Chess Cheater](https://codeforces.com/problemset/problem/1427/B) | `Codeforces` | `1400` | `chessCheater.js` | Key algorithmic application from Day 2026-11-09. |
+| [Phoenix and Beauty](https://codeforces.com/problemset/problem/1348/B) | `Codeforces` | `1400` | `phoenixAndBeauty.js` | Key algorithmic application from Day 2026-11-10. |
+| [Fox and Box Accumulation](https://codeforces.com/problemset/problem/388/A) | `Codeforces` | `1400` | `foxAndBoxAccumulation.js` | Key algorithmic application from Day 2026-11-10. |
+| [Drazil and Factorial](https://codeforces.com/problemset/problem/515/C) | `Codeforces` | `1400` | `drazilAndFactorial.js` | Key algorithmic application from Day 2026-11-10. |
+| [Easy Assembly](https://codeforces.com/problemset/problem/1773/E) | `Codeforces` | `1400` | `easyAssembly.js` | Key algorithmic application from Day 2026-11-10. |
+| [Permutation Counting](https://codeforces.com/problemset/problem/1967/A) | `Codeforces` | `1400` | `permutationCounting.js` | Key algorithmic application from Day 2026-11-10. |
+| [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
+| [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
+| [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

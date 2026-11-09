@@ -174,6 +174,11 @@ class MinHeap {
 | [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
 | [Knowledge Cards](https://codeforces.com/problemset/problem/1740/D) | `Codeforces` | `1500` | `knowledgeCards.js` | Key algorithmic application from Day 2026-11-09. |
 | [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
+| [Phoenix and Beauty](https://codeforces.com/problemset/problem/1348/B) | `Codeforces` | `1400` | `phoenixAndBeauty.js` | Key algorithmic application from Day 2026-11-10. |
+| [NEKO's Maze Game](https://codeforces.com/problemset/problem/1292/A) | `Codeforces` | `1400` | `nEKOSMazeGame.js` | Key algorithmic application from Day 2026-11-10. |
+| [Greg and Array](https://codeforces.com/problemset/problem/295/A) | `Codeforces` | `1400` | `gregAndArray.js` | Key algorithmic application from Day 2026-11-10. |
+| [Workout plan](https://codeforces.com/problemset/problem/1218/F) | `Codeforces` | `1500` | `workoutPlan.js` | Key algorithmic application from Day 2026-11-10. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 

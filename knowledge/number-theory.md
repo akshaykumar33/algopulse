@@ -177,6 +177,8 @@ function sieve(maxN) {
 | [No Prime Differences](https://codeforces.com/problemset/problem/1838/C) | `Codeforces` | `1400` | `noPrimeDifferences.js` | Key algorithmic application from Day 2026-11-09. |
 | [Win or Freeze](https://codeforces.com/problemset/problem/150/A) | `Codeforces` | `1400` | `winOrFreeze.js` | Key algorithmic application from Day 2026-11-09. |
 | [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
+| [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
+| [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 

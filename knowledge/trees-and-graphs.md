@@ -167,6 +167,11 @@ function dfsIterative(start, adj, n) {
 | [Om Nom and Dark Park](https://codeforces.com/problemset/problem/526/B) | `Codeforces` | `1400` | `omNomAndDarkPark.js` | Key algorithmic application from Day 2026-11-09. |
 | [Graph Composition](https://codeforces.com/problemset/problem/2060/E) | `Codeforces` | `1500` | `graphComposition.js` | Key algorithmic application from Day 2026-11-09. |
 | [Lorenzo Von Matterhorn](https://codeforces.com/problemset/problem/696/A) | `Codeforces` | `1500` | `lorenzoVonMatterhorn.js` | Key algorithmic application from Day 2026-11-09. |
+| [Dorm Water Supply](https://codeforces.com/problemset/problem/107/A) | `Codeforces` | `1400` | `dormWaterSupply.js` | Key algorithmic application from Day 2026-11-10. |
+| [Send the Fool Further! (easy)](https://codeforces.com/problemset/problem/802/J1) | `Codeforces` | `1400` | `sendTheFoolFurtherEasy.js` | Key algorithmic application from Day 2026-11-10. |
+| [Web of Lies](https://codeforces.com/problemset/problem/1548/A) | `Codeforces` | `1400` | `webOfLies.js` | Key algorithmic application from Day 2026-11-10. |
+| [Fillomino 2](https://codeforces.com/problemset/problem/1517/C) | `Codeforces` | `1400` | `fillomino2.js` | Key algorithmic application from Day 2026-11-10. |
+| [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
 
 ---
 
