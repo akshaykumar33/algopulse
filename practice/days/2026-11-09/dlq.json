@@ -8,7 +8,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T13:58:44.486Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1103A",
@@ -21,7 +21,9 @@
       "url": "https://codeforces.com/problemset/problem/1103/A",
       "file": "gridGame",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:10:33.711Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -32,7 +34,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:01:51.100Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "472C",
@@ -44,7 +46,9 @@
       "url": "https://codeforces.com/problemset/problem/472/C",
       "file": "designTutorialMakeItNondeterministic",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:11:54.897Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -55,7 +59,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:04:41.575Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "514B",
@@ -71,7 +75,9 @@
       "url": "https://codeforces.com/problemset/problem/514/B",
       "file": "hanSoloAndLazerGun",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:12:45.292Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -82,7 +88,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:07:30.040Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "518B",
@@ -96,7 +102,8 @@
       "url": "https://codeforces.com/problemset/problem/518/B",
       "file": "tanyaAndPostcard",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Pending"
   },
   {
     "platform": "Codeforces",
@@ -107,7 +114,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:10:13.403Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1974D",
@@ -121,7 +128,8 @@
       "url": "https://codeforces.com/problemset/problem/1974/D",
       "file": "ingenuity2",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Wrong answer on test 1"
   },
   {
     "platform": "Codeforces",
@@ -132,7 +140,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:13:19.920Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1719C",
@@ -147,7 +155,9 @@
       "url": "https://codeforces.com/problemset/problem/1719/C",
       "file": "fightingTournament",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:18:09.133Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -158,7 +168,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:16:20.558Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "505B",
@@ -173,7 +183,9 @@
       "url": "https://codeforces.com/problemset/problem/505/B",
       "file": "mrKitayutaSColorfulGraph",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:19:22.264Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -184,7 +196,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:19:10.005Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "526B",
@@ -198,7 +210,9 @@
       "url": "https://codeforces.com/problemset/problem/526/B",
       "file": "omNomAndDarkPark",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:20:49.460Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -209,7 +223,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:22:05.500Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1932C",
@@ -225,7 +239,9 @@
       "url": "https://codeforces.com/problemset/problem/1932/C",
       "file": "lRRemainders",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:21:47.250Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -236,7 +252,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:24:53.974Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1350B",
@@ -250,7 +266,9 @@
       "url": "https://codeforces.com/problemset/problem/1350/B",
       "file": "oracAndModels",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:22:43.576Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -261,7 +279,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:27:46.501Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "131C",
@@ -274,7 +292,9 @@
       "url": "https://codeforces.com/problemset/problem/131/C",
       "file": "theWorldIsATheatre",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:23:32.386Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -285,7 +305,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:30:34.014Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "2009D",
@@ -298,7 +318,9 @@
       "url": "https://codeforces.com/problemset/problem/2009/D",
       "file": "satyamAndCounting",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:24:19.968Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -309,7 +331,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:33:40.706Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1154C",
@@ -322,7 +344,9 @@
       "url": "https://codeforces.com/problemset/problem/1154/C",
       "file": "gourmetCat",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:25:41.795Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -333,7 +357,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:36:38.229Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "713A",
@@ -346,33 +370,9 @@
       "url": "https://codeforces.com/problemset/problem/713/A",
       "file": "sonyaAndQueries",
       "template": "templates/codeforces.js"
-    }
-  },
-  {
-    "platform": "Codeforces",
-    "id": "2038C",
-    "name": "DIY",
-    "file": "dIY",
-    "tier": "medium",
-    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
-    "enqueuedAt": "2026-11-09T14:39:30.760Z",
-    "attempts": 1,
-    "status": "PENDING_RETRY",
-    "problem": {
-      "platform": "Codeforces",
-      "id": "2038C",
-      "name": "DIY",
-      "rating": 1400,
-      "tags": [
-        "data structures",
-        "geometry",
-        "greedy",
-        "sortings"
-      ],
-      "url": "https://codeforces.com/problemset/problem/2038/C",
-      "file": "dIY",
-      "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:26:29.137Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -383,7 +383,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:42:26.324Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1706C",
@@ -398,7 +398,9 @@
       "url": "https://codeforces.com/problemset/problem/1706/C",
       "file": "qpwoeirutAndTheCity",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:28:16.522Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -409,7 +411,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:45:17.837Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1838C",
@@ -423,7 +425,8 @@
       "url": "https://codeforces.com/problemset/problem/1838/C",
       "file": "noPrimeDifferences",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Pending"
   },
   {
     "platform": "Codeforces",
@@ -434,7 +437,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:48:07.412Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "703B",
@@ -447,7 +450,9 @@
       "url": "https://codeforces.com/problemset/problem/703/B",
       "file": "mishkaAndTrip",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:30:31.632Z",
+    "finalVerdict": "Accepted"
   },
   {
     "platform": "Codeforces",
@@ -458,7 +463,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T14:51:11.077Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1443C",
@@ -472,6 +477,36 @@
       "url": "https://codeforces.com/problemset/problem/1443/C",
       "file": "theDeliveryDilemma",
       "template": "templates/codeforces.js"
-    }
+    },
+    "resolvedAt": "2026-11-09T15:31:26.003Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "2038C",
+    "name": "DIY",
+    "file": "dIY",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-09T15:49:24.404Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "2038C",
+      "name": "DIY",
+      "rating": 1400,
+      "tags": [
+        "data structures",
+        "geometry",
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2038/C",
+      "file": "dIY",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-09T15:50:21.520Z",
+    "finalVerdict": "Accepted"
   }
 ]

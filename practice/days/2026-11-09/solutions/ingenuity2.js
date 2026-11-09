@@ -30,7 +30,7 @@ function solve() {
     const cE = idxE.length;
 
     if (Math.abs(cN - cS) % 2 !== 0 || Math.abs(cW - cE) % 2 !== 0) {
-      out.push('-1');
+      out.push('NO');
       continue;
     }
 
@@ -68,7 +68,7 @@ function solve() {
       out.push(res.join(''));
     } else {
       if (minNS + minWE === 1) {
-        out.push('-1');
+        out.push('NO');
         continue;
       }
       if (minNS >= 1 && minWE >= 1) {
