@@ -1,72 +1,24 @@
-# Minimum Distinct  (CodeChef CC-MINDIS6)
+# Minimum Distinct (CodeChef CC-MINDIS6)
 
 ## 1. Problem Overview
 - **Platform:** CodeChef
 - **Problem ID:** [CC-MINDIS6](https://www.codechef.com/problems/MINDIS6)
 - **Difficulty / Rating:** 1586
-- **Tags:** codechef
+- **Tags:** greedy, sorting, frequency map
 - **Solution File:** `minimumDistinct.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
-
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
+In one operation, we can pick $1 \le i < j \le N$ and set $A_j = A_i$.
+Because $i < j$, the first element $A_1$ can never be overwritten by any operation. Thus, $A_1$ must always remain in the final array.
+For any value $x \ne A_1$, we can completely eliminate $x$ by choosing $i = 1$ and overwriting every occurrence of $x$ using $A_1$.
+To eliminate value $x$ entirely from the array, exactly $\text{freq}[x]$ operations are needed.
+To minimize the count of distinct elements within $K$ operations, it is optimal to greedily eliminate values with the smallest frequencies first.
+We count frequencies of all distinct elements, collect the frequencies of all elements $x \ne A_1$, sort them in ascending order, and greedily subtract from $K$ while $K \ge \text{freq}[x]$, decrementing the distinct count by 1 each time.
 
 ---
 
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
-
----
-
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/minimumDistinct.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N \log N)$ to sort distinct frequencies.
+- **Space Complexity:** $O(N)$ for the frequency map and list.

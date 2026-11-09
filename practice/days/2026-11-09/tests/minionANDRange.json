@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n5\n1 3 2 4 5\n3\n1 2\n1 5\n3 4\n",
+    "output": "ODD\nEVEN\nEVEN\n"
+  }
+]

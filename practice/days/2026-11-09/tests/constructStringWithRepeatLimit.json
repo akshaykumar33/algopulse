@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"cczazcc\", 3]\n",
+    "output": "\"zzcccac\""
+  },
+  {
+    "input": "[\"aababab\", 2]\n",
+    "output": "\"bbabaa\""
+  }
+]

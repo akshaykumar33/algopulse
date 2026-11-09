@@ -1,0 +1,14 @@
+[
+  {
+    "input": "AbC\nDCbA\n",
+    "output": "3 0\n"
+  },
+  {
+    "input": "ABC\nabC\n",
+    "output": "1 2\n"
+  },
+  {
+    "input": "AbC\nDCBA\n",
+    "output": "2 1\n"
+  }
+]

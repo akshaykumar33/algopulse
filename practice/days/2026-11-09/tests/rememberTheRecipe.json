@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\nflour-with-eggs 100\nchicken-ham -10\nflour-without-eggs 200\nfish-with-pepper 1100\n6\nf\nflour-with\nflour-with-\nc\nfl\nchik\n",
+    "output": "fish-with-pepper\nflour-without-eggs\nflour-with-eggs\nchicken-ham\nflour-without-eggs\nNO\n"
+  }
+]

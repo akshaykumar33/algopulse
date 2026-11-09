@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6\n6\nNENSNE\n3\nWWW\n6\nNESSWS\n2\nSN\n2\nWE\n4\nSSNN\n",
+    "output": "RRRRHH\nNO\nRRRRRH\nNO\nNO\nRHRH\n"
+  }
+]

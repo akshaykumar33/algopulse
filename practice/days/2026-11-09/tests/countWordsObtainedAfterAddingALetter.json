@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[[\"ant\",\"act\",\"tack\"],[\"tack\",\"act\",\"acti\"]]",
+    "output": "2"
+  },
+  {
+    "input": "[[\"ab\",\"a\"],[\"abc\",\"abcd\"]]",
+    "output": "1"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "input": "[\"aba\", \"baba\"]\n",
+    "output": "6"
+  },
+  {
+    "input": "[\"ab\", \"bb\"]\n",
+    "output": "3"
+  },
+  {
+    "input": "[\"a\", \"a\"]\n",
+    "output": "0"
+  },
+  {
+    "input": "[\"abe\", \"bbc\"]\n",
+    "output": "10"
+  }
+]

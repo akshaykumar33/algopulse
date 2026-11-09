@@ -4,69 +4,29 @@
 - **Platform:** CodeChef
 - **Problem ID:** [CC-CTEAMS](https://www.codechef.com/problems/CTEAMS)
 - **Difficulty / Rating:** 1577
-- **Tags:** codechef
+- **Tags:** data structures, heap, priority queue, running median
 - **Solution File:** `chefTeams.js`
-- **Starter Template:** `templates/codechef.js`
 
 ---
 
 ## 2. Core Intuition & Mathematical Rationale
-### Key Observations
-1. **Mathematical Invariant:** Identify the quantity conserved or strictly monotonic across operations.
-2. **Algorithmic Strategy:** Why greedy choice property holds, or why dynamic programming / two-pointers is optimal.
-3. **Optimality Trade-off:** Explain why alternative approaches (e.g. pure brute force) exceed time or memory limits.
+Chefs arrive one by one. After the $k$-th chef arrives, they are partitioned by age:
+- The young team gets the $\lceil k / 2 \rceil = \lfloor (k + 1) / 2 \rfloor$ youngest chefs.
+- The old team gets the $\lfloor k / 2 \rfloor$ oldest chefs.
+We need to report $| \sum_{i \in \text{young}} R_i - \sum_{j \in \text{old}} R_j |$ dynamically after each chef arrives.
 
-```mermaid
-flowchart TD
-    A[Start: Stream Input Instance] --> B{Validate Base Cases}
-    B -- Degenerate Case --> C[Direct O 1 Resolution]
-    B -- General Case --> D[Execute Primary Algorithm Strategy]
-    D --> E[Update State & Invariant Tracking]
-    E --> F[Output Verified Optimal Result]
-```
-
----
-
-## 3. Visual Step-by-Step Walkthrough
-### State Progression Matrix
-Tracing state transitions on a representative sample input:
-
-```mermaid
-sequenceDiagram
-    participant In as Input Data
-    participant Engine as Algorithmic Engine
-    participant State as State Tracker / Invariant
-    participant Out as Output Buffer
-
-    In->>Engine: Send Input Stream
-    Engine->>State: Initialize Boundary Pointers / Accumulators
-    loop Transition Steps
-        Engine->>State: Evaluate Feasibility & Optimal Pick
-        State-->>Engine: Updated Invariant Value
-    end
-    Engine->>Out: Append Result
-```
+This is the classic dynamic median maintenance problem, solvable via two heaps:
+1. `young`: A Max-Heap by age, storing chefs in the young team. Target size is $\lfloor (k + 1) / 2 \rfloor$.
+2. `old`: A Min-Heap by age, storing chefs in the old team. Target size is $\lfloor k / 2 \rfloor$.
+Along with the heaps, we maintain `youngSum` and `oldSum`.
+For each new chef $(A, R)$:
+- If $A \le \text{max age in young}$ (or young is empty), insert into `young` and add $R$ to `youngSum`.
+- Else, insert into `old` and add $R$ to `oldSum`.
+- Rebalance the heaps so `young.size()` equals $\lfloor (k + 1) / 2 \rfloor$.
+- Append $|\text{youngSum} - \text{oldSum}|$ to the output buffer.
 
 ---
 
-## 4. Algorithmic Complexity
-
-| Dimension | Bound | Proof & Rationale |
-|---|:---:|---|
-| **Time Complexity** | $O(N)$ or $O(1)$ | Each element is processed in constant time per step. |
-| **Space Complexity** | $O(1)$ auxiliary | No unnecessary memory allocated within the execution loop. |
-| **Recursion Depth** | $O(1)$ | Fully iterative loop avoiding stack overflow. |
-
----
-
-## 5. Edge Cases & Boundary Conditions
-- **Minimum bounds:** Single elements, zero-values, minimal constraints.
-- **Maximum bounds:** Large scale arrays ($N = 2 \cdot 10^5$), large values ($10^9$).
-- **Numeric safety:** Plain JS safe integers up to $2^{53}-1 \approx 9 \times 10^{15}$.
-
----
-
-## 6. Idiomatic Implementation
-```javascript
-// Reference: solutions/chefTeams.js
-```
+## 3. Algorithmic Complexity
+- **Time Complexity:** $O(N \log N)$ total time for $N$ chef arrivals.
+- **Space Complexity:** $O(N)$ for the two binary heaps.

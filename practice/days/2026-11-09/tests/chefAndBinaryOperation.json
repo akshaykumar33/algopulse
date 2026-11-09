@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n101\n010\n1111\n1010\n",
+    "output": "Lucky Chef\n2\nUnlucky Chef\n"
+  }
+]

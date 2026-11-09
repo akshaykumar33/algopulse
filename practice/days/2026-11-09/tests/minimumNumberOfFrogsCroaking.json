@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"croakcroak\"\n",
+    "output": "1"
+  },
+  {
+    "input": "\"crcoakroak\"\n",
+    "output": "2"
+  },
+  {
+    "input": "\"croakcrook\"\n",
+    "output": "-1"
+  }
+]

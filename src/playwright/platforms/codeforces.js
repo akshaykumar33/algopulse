@@ -105,16 +105,17 @@ async function submitCodeforces(page, problem, code, { filePath, timeout = 45000
 
   console.log(`    [Codeforces] Preparing submit page for ${problemCode} ...`);
   page.on('dialog', (dialog) => dialog.accept().catch(() => {}));
-  const contestSubmitUrl = `https://codeforces.com/contest/${contestId}/submit`;
+  const isProblemset = (problem.url && problem.url.includes('/problemset/')) || !contestId;
+  const targetSubmitUrl = isProblemset ? 'https://codeforces.com/problemset/submit' : `https://codeforces.com/contest/${contestId}/submit`;
   try {
-    await page.goto(contestSubmitUrl, { waitUntil: 'domcontentloaded', timeout: 35000 });
+    await page.goto(targetSubmitUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
   } catch {
-    await page.goto(contestSubmitUrl, { waitUntil: 'commit', timeout: 25000 }).catch(() => {});
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 25000 }).catch(() => {});
   }
 
   if (!page.url().includes('/submit')) {
-    console.log(`    [Codeforces] Contest submit page redirected to ${page.url()}, falling back to problemset/submit ...`);
-    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 35000 }).catch(() => {});
+    console.log(`    [Codeforces] Submit page redirected to ${page.url()}, falling back to problemset/submit ...`);
+    await page.goto('https://codeforces.com/problemset/submit', { waitUntil: 'domcontentloaded', timeout: 25000 }).catch(() => {});
   }
 
   // 1. Verify Authentication
