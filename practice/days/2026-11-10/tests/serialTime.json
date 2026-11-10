@@ -1,0 +1,14 @@
+[
+  {
+    "input": "1 1 1\n.\n\n1 1\n",
+    "output": "1\n"
+  },
+  {
+    "input": "2 1 1\n.\n\n#\n\n1 1\n",
+    "output": "1\n"
+  },
+  {
+    "input": "2 2 2\n.#\n##\n\n..\n..\n\n1 1\n",
+    "output": "5\n"
+  }
+]

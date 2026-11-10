@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"AAABABB\"\n",
+    "output": "true\n"
+  },
+  {
+    "input": "\"AA\"\n",
+    "output": "false\n"
+  },
+  {
+    "input": "\"ABBBBBBBAAA\"\n",
+    "output": "false\n"
+  }
+]

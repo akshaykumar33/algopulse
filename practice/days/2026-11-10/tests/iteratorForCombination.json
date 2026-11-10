@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"CombinationIterator\",\"next\",\"hasNext\",\"next\",\"hasNext\",\"next\",\"hasNext\"]\n[[\"abc\",2],[],[],[],[],[],[]]\n",
+    "output": "[null,\"ab\",true,\"ac\",true,\"bc\",false]\n"
+  }
+]

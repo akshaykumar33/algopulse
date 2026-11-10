@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\na\nabcdfdcecba\nabbaxyzyx\ncodeforces\nacbba\n",
+    "output": "a\nabcdfdcba\nxyzyx\nc\nabba\n"
+  }
+]

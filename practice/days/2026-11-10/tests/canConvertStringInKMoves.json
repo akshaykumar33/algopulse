@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"input\", \"ouput\", 9]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"string\", \"target\", 5]\n",
+    "output": "false"
+  },
+  {
+    "input": "[\"aab\", \"bbb\", 27]\n",
+    "output": "true"
+  }
+]
