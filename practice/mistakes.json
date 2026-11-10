@@ -2195,5 +2195,41 @@
       "implementation"
     ],
     "timestamp": "2026-11-09T18:40:02.634Z"
+  },
+  {
+    "id": "649B",
+    "problem": "Этажи",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem statement defines floors in a circular building. The current solution incorrectly calculates travel cost between floors, especially when moving between different 'entrances' (blocks of floors served by a single elevator system). The costs for going 'down' to entrance 1 and 'up' from entrance 1 are only partially considered. The crucial missing piece is the cost of moving from the target floor's entrance (fb) down to entrance 1, or from the source floor's entrance (fa) up to entrance 1. Also, the minimum cost for traveling between entrances (dent) does not consider the cost of traveling within the same entrance to get to floor 1, nor the cost of traveling between entrances using the 'circular' property correctly. The floor calculation logic for 'rem' and 'f' also needs to be precise with 1-based indexing for floors within an entrance.",
+    "rule": "Carefully re-read problem constraints and definitions, especially for circular structures or unusual indexing schemes. Ensure all possible paths and costs are considered for minimization problems, especially when multiple travel methods (stairs, elevators) or structural layouts (circular buildings, blocks of floors) are involved.",
+    "tags": [
+      "constructive algorithms"
+    ],
+    "timestamp": "2026-11-10T04:10:56.253Z"
+  },
+  {
+    "id": "LC-1514",
+    "problem": "Path with Maximum Probability",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runtime error occurs due to potential floating point precision issues when comparing probabilities, leading to cycles in the priority queue if probabilities are close but not strictly equal. While Dijkstra's typically works with exact values, floating point arithmetic might cause issues where a 'less probable' path (due to precision) is processed, then a 'more probable' path to the same node is found, added, and processed, but then another 'less probable' path for the same node is added due to a tiny precision difference. The main issue is that `if (p < prob[u]) continue;` is insufficient for ensuring monotonic processing with floating-point numbers in all edge cases, especially when considering `end_node` might be visited multiple times with very slightly different probabilities due to precision. The solution should return the maximum probability recorded for `end_node` after the algorithm finishes, not necessarily the first time it is popped from the PQ, because later paths might yield a higher (more precise) probability.",
+    "rule": "When using Dijkstra-like algorithms with floating-point edge weights for problems seeking maximum values, do not immediately return upon reaching the target node. Instead, let the algorithm explore all paths to ensure the globally maximum value is found, especially with precision-sensitive comparisons. The `if (p < prob[u]) continue;` check needs to be robust, and it's safer to let the algorithm run to completion or to only `continue` if `p < prob[u] - EPSILON` for some small epsilon to account for precision.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-10T04:12:40.493Z"
+  },
+  {
+    "id": "LC-1514",
+    "problem": "Path with Maximum Probability",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runtime error occurs because the MaxHeap implementation has a bug. In the `pop` method, after removing the top element and replacing it with the last element, the `data[0]` is assigned the `last` element. If `this.data.length` becomes 0 after `pop`, accessing `this.data[0]` in subsequent calls will lead to an out-of-bounds error or unexpected behavior, especially if `last` was the only element. The fix is to ensure that `this.data[0] = last;` only executes if there are still elements left in the heap after popping and moving `last` to `data[0]`.",
+    "rule": "When implementing data structures like heaps or queues, always handle edge cases where the structure becomes empty or has only one element, especially after operations like `pop` or `dequeue`, to prevent out-of-bounds access or logical errors.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-10T04:13:19.147Z"
   }
 ]
