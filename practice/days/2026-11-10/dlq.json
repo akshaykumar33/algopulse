@@ -8,7 +8,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T18:33:25.290Z",
     "attempts": 1,
-    "status": "HALTED_UNRESOLVED",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1189C",
@@ -24,7 +24,8 @@
       "file": "candies",
       "template": "templates/codeforces.js"
     },
-    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-10T04:29:03.662Z"
   },
   {
     "platform": "Codeforces",
@@ -35,7 +36,7 @@
     "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
     "enqueuedAt": "2026-11-09T18:36:39.011Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "RESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "417C",
@@ -49,6 +50,87 @@
       "url": "https://codeforces.com/problemset/problem/417/C",
       "file": "football",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-10T04:29:03.662Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "295A",
+    "name": "Greg and Array",
+    "file": "gregAndArray",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-10T04:14:35.368Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "295A",
+      "name": "Greg and Array",
+      "rating": 1400,
+      "tags": [
+        "data structures",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/295/A",
+      "file": "gregAndArray",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-10T04:29:03.662Z"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1514",
+    "name": "Path with Maximum Probability",
+    "file": "pathWithMaximumProbability",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-10T04:15:37.065Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1514",
+      "name": "Path with Maximum Probability",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/path-with-maximum-probability/",
+      "file": "pathWithMaximumProbability",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-10T04:29:03.662Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1851E",
+    "name": "Nastya and Potions",
+    "file": "nastyaAndPotions",
+    "tier": "hard",
+    "initialVerdict": "RUNTIME_ERROR",
+    "enqueuedAt": "2026-11-10T04:23:02.868Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1851E",
+      "name": "Nastya and Potions",
+      "rating": 1500,
+      "tags": [
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1851/E",
+      "file": "nastyaAndPotions",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-10T04:28:09.279Z",
+    "finalVerdict": "Accepted"
   }
 ]
