@@ -479,6 +479,23 @@ for (const x of arr) {
 | [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
 | [Binary String Minimizing](https://codeforces.com/problemset/problem/1256/D) | `Codeforces` | `1500` | `binaryStringMinimizing.js` | Key algorithmic application from Day 2026-11-11. |
 | [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
+| [Little Elephant and Sorting](https://codeforces.com/problemset/problem/205/B) | `Codeforces` | `1400` | `littleElephantAndSorting.js` | Key algorithmic application from Day 2026-11-12. |
+| [Iva & Pav](https://codeforces.com/problemset/problem/1878/E) | `Codeforces` | `1400` | `ivaPav.js` | Key algorithmic application from Day 2026-11-12. |
+| [Mishap in Club](https://codeforces.com/problemset/problem/245/E) | `Codeforces` | `1400` | `mishapInClub.js` | Key algorithmic application from Day 2026-11-12. |
+| [Zero-One (Easy Version)](https://codeforces.com/problemset/problem/1733/D1) | `Codeforces` | `1400` | `zeroOneEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Epic Transformation](https://codeforces.com/problemset/problem/1506/D) | `Codeforces` | `1400` | `epicTransformation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Maximum Median](https://codeforces.com/problemset/problem/1201/C) | `Codeforces` | `1400` | `maximumMedian.js` | Key algorithmic application from Day 2026-11-12. |
+| [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [File List](https://codeforces.com/problemset/problem/174/B) | `Codeforces` | `1400` | `fileList.js` | Key algorithmic application from Day 2026-11-12. |
+| [Banana](https://codeforces.com/problemset/problem/335/A) | `Codeforces` | `1400` | `banana.js` | Key algorithmic application from Day 2026-11-12. |
+| [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
+| [Draw!](https://codeforces.com/problemset/problem/1131/B) | `Codeforces` | `1400` | `draw.js` | Key algorithmic application from Day 2026-11-12. |
+| [Two-Colored Dominoes](https://codeforces.com/problemset/problem/1863/D) | `Codeforces` | `1400` | `twoColoredDominoes.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
+| [Gas Pipeline](https://codeforces.com/problemset/problem/1207/C) | `Codeforces` | `1500` | `gasPipeline.js` | Key algorithmic application from Day 2026-11-12. |
+| [Two Semiknights Meet](https://codeforces.com/problemset/problem/362/A) | `Codeforces` | `1500` | `twoSemiknightsMeet.js` | Key algorithmic application from Day 2026-11-12. |
+| [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
+| [Lawnmower](https://codeforces.com/problemset/problem/115/B) | `Codeforces` | `1500` | `lawnmower.js` | Key algorithmic application from Day 2026-11-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

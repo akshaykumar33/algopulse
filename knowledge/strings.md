@@ -164,6 +164,8 @@ function isPalindrome(s) {
 | [String Equality](https://codeforces.com/problemset/problem/1451/C) | `Codeforces` | `1400` | `stringEquality.js` | Key algorithmic application from Day 2026-11-09. |
 | [Hyperspace Jump (easy)](https://codeforces.com/problemset/problem/958/D1) | `Codeforces` | `1400` | `hyperspaceJumpEasy.js` | Key algorithmic application from Day 2026-11-10. |
 | [Prefix-Suffix Palindrome (Easy version)](https://codeforces.com/problemset/problem/1326/D1) | `Codeforces` | `1500` | `prefixSuffixPalindromeEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
+| [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

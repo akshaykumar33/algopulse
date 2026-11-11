@@ -265,6 +265,14 @@ function backtrack(index, currentSum, target, arr) {
 | [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
 | [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
 | [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
+| [Make It Round](https://codeforces.com/problemset/problem/1759/D) | `Codeforces` | `1400` | `makeItRound.js` | Key algorithmic application from Day 2026-11-12. |
+| [Little Elephant and Sorting](https://codeforces.com/problemset/problem/205/B) | `Codeforces` | `1400` | `littleElephantAndSorting.js` | Key algorithmic application from Day 2026-11-12. |
+| [A Compatible Pair](https://codeforces.com/problemset/problem/934/A) | `Codeforces` | `1400` | `aCompatiblePair.js` | Key algorithmic application from Day 2026-11-12. |
+| [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Blinds](https://codeforces.com/problemset/problem/38/C) | `Codeforces` | `1400` | `blinds.js` | Key algorithmic application from Day 2026-11-12. |
+| [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
+| [Hyperset](https://codeforces.com/problemset/problem/1287/B) | `Codeforces` | `1500` | `hyperset.js` | Key algorithmic application from Day 2026-11-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -144,6 +144,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
 | [Balls Game](https://codeforces.com/problemset/problem/430/B) | `Codeforces` | `1400` | `ballsGame.js` | Key algorithmic application from Day 2026-11-10. |
 | [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
+| [Klever Permutation](https://codeforces.com/problemset/problem/1927/E) | `Codeforces` | `1400` | `kleverPermutation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
+| [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 

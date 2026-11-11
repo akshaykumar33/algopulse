@@ -180,6 +180,10 @@ dp.fill(-1); // Memoization sentinel
 | [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
 | [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
 | [Mirror Swaps](https://www.codechef.com) | `CodeChef` | `-` | `mirrorSwaps.js` | Each mirror pair $(i, N+1-i)$ is a binary state; edges $(i,i+1)$ and its mirror depend only on pairs $i, i+1$ (centre edges are swap-invariant), so a 2-state chain DP on (max sum, min swaps) lexicographically. |
+| [File List](https://codeforces.com/problemset/problem/174/B) | `Codeforces` | `1400` | `fileList.js` | Key algorithmic application from Day 2026-11-12. |
+| [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
+| [Gas Pipeline](https://codeforces.com/problemset/problem/1207/C) | `Codeforces` | `1500` | `gasPipeline.js` | Key algorithmic application from Day 2026-11-12. |
+| [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 
