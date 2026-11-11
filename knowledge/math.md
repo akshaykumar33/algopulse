@@ -426,6 +426,10 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
 | [Ball in Berland](https://codeforces.com/problemset/problem/1475/C) | `Codeforces` | `1400` | `ballInBerland.js` | Key algorithmic application from Day 2026-11-11. |
 | [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [Chase Possible](https://www.codechef.com) | `CodeChef` | `-` | `chasePossible.js` | Max runs is $6B$ (6 per ball); answer is Yes iff $6B \ge R$. Upper-bound feasibility check. |
+| [Shopping 2](https://www.codechef.com) | `CodeChef` | `-` | `shopping2.js` | Enumerate the 3 shop choices: $\min(\sum A + D, \sum B + D, \sum \min(A_i,B_i) + 2D)$. |
+| [Rotational 4](https://www.codechef.com) | `CodeChef` | `-` | `rotational4.js` | Divisibility by 4 depends only on the last two digits; each cyclic shift ends with an adjacent cyclic pair $(S_j, S_{j+1 \bmod N})$, so count pairs with $10a+b \equiv 0 \pmod 4$ in $O(N)$. |
+| [Stone Moving](https://www.codechef.com) | `CodeChef` | `-` | `stoneMoving.js` | Simulate with a difference array: pile $i$ gets $+1$ from each earlier pile whose range covers it; $X_i=\min(A_i+\text{recv}_i, N-i)$, add $+1$ on $[i+1, i+X_i]$. Answer up to $N^2/2 \approx 2\cdot10^{10}$ fits in Number. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
