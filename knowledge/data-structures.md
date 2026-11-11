@@ -183,6 +183,12 @@ class MinHeap {
 | [Beautiful Triple Pairs](https://codeforces.com/problemset/problem/1974/C) | `Codeforces` | `1400` | `beautifulTriplePairs.js` | Key algorithmic application from Day 2026-11-11. |
 | [Weird Sum](https://codeforces.com/problemset/problem/1648/A) | `Codeforces` | `1400` | `weirdSum.js` | Key algorithmic application from Day 2026-11-11. |
 | [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
+| [Skier](https://codeforces.com/problemset/problem/1351/C) | `Codeforces` | `1400` | `skier.js` | Key algorithmic application from Day 2026-11-12. |
+| [Iva & Pav](https://codeforces.com/problemset/problem/1878/E) | `Codeforces` | `1400` | `ivaPav.js` | Key algorithmic application from Day 2026-11-12. |
+| [Epic Transformation](https://codeforces.com/problemset/problem/1506/D) | `Codeforces` | `1400` | `epicTransformation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Watchmen](https://codeforces.com/problemset/problem/650/A) | `Codeforces` | `1400` | `watchmen.js` | Key algorithmic application from Day 2026-11-12. |
+| [Hyperset](https://codeforces.com/problemset/problem/1287/B) | `Codeforces` | `1500` | `hyperset.js` | Key algorithmic application from Day 2026-11-12. |
+| [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 

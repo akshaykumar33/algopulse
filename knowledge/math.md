@@ -430,6 +430,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Shopping 2](https://www.codechef.com) | `CodeChef` | `-` | `shopping2.js` | Enumerate the 3 shop choices: $\min(\sum A + D, \sum B + D, \sum \min(A_i,B_i) + 2D)$. |
 | [Rotational 4](https://www.codechef.com) | `CodeChef` | `-` | `rotational4.js` | Divisibility by 4 depends only on the last two digits; each cyclic shift ends with an adjacent cyclic pair $(S_j, S_{j+1 \bmod N})$, so count pairs with $10a+b \equiv 0 \pmod 4$ in $O(N)$. |
 | [Stone Moving](https://www.codechef.com) | `CodeChef` | `-` | `stoneMoving.js` | Simulate with a difference array: pile $i$ gets $+1$ from each earlier pile whose range covers it; $X_i=\min(A_i+\text{recv}_i, N-i)$, add $+1$ on $[i+1, i+X_i]$. Answer up to $N^2/2 \approx 2\cdot10^{10}$ fits in Number. |
+| [Zero-One (Easy Version)](https://codeforces.com/problemset/problem/1733/D1) | `Codeforces` | `1400` | `zeroOneEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Maximum Median](https://codeforces.com/problemset/problem/1201/C) | `Codeforces` | `1400` | `maximumMedian.js` | Key algorithmic application from Day 2026-11-12. |
+| [Klever Permutation](https://codeforces.com/problemset/problem/1927/E) | `Codeforces` | `1400` | `kleverPermutation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Watchmen](https://codeforces.com/problemset/problem/650/A) | `Codeforces` | `1400` | `watchmen.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
+| [Two Semiknights Meet](https://codeforces.com/problemset/problem/362/A) | `Codeforces` | `1500` | `twoSemiknightsMeet.js` | Key algorithmic application from Day 2026-11-12. |
+| [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
+| [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

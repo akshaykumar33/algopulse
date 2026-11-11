@@ -287,6 +287,16 @@ function constructMatrix(n, m) {
 | [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
 | [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
 | [Mahmoud and Ehab and the wrong algorithm](https://codeforces.com/problemset/problem/959/C) | `Codeforces` | `1500` | `mahmoudAndEhabAndTheWrongAlgorithm.js` | Key algorithmic application from Day 2026-11-11. |
+| [Vlad and a Pair of Numbers](https://codeforces.com/problemset/problem/1790/E) | `Codeforces` | `1400` | `vladAndAPairOfNumbers.js` | Key algorithmic application from Day 2026-11-12. |
+| [Zero-One (Easy Version)](https://codeforces.com/problemset/problem/1733/D1) | `Codeforces` | `1400` | `zeroOneEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Epic Transformation](https://codeforces.com/problemset/problem/1506/D) | `Codeforces` | `1400` | `epicTransformation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Klever Permutation](https://codeforces.com/problemset/problem/1927/E) | `Codeforces` | `1400` | `kleverPermutation.js` | Key algorithmic application from Day 2026-11-12. |
+| [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sonya and Robots](https://codeforces.com/problemset/problem/1004/C) | `Codeforces` | `1400` | `sonyaAndRobots.js` | Key algorithmic application from Day 2026-11-12. |
+| [Banana](https://codeforces.com/problemset/problem/335/A) | `Codeforces` | `1400` | `banana.js` | Key algorithmic application from Day 2026-11-12. |
+| [Two-Colored Dominoes](https://codeforces.com/problemset/problem/1863/D) | `Codeforces` | `1400` | `twoColoredDominoes.js` | Key algorithmic application from Day 2026-11-12. |
+| [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
+| [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 

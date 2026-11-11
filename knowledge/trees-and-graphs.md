@@ -178,6 +178,8 @@ function dfsIterative(start, adj, n) {
 | [Mahmoud and Ehab and the wrong algorithm](https://codeforces.com/problemset/problem/959/C) | `Codeforces` | `1500` | `mahmoudAndEhabAndTheWrongAlgorithm.js` | Key algorithmic application from Day 2026-11-11. |
 | [Weird Counting I](https://www.codechef.com) | `CodeChef` | `-` | `weirdCountingI.js` | Functional graph: op makes $A_i$ a fixed point. Node $j$ can be fixed iff some ancestor stays unfixed; leaves never, tree/attached nodes freely, pure cycles of length $L$ give $2^L-1$. Answer $=2^{#	ext{free}}prod(2^L-1)$. Avoid per-cycle modular inverses (TLE risk). |
 | [Weird Counting II](https://www.codechef.com) | `CodeChef` | `-` | `weirdCountingII.js` | Pointer jumping $A_i gets A_{A_i}$ on a functional graph: pure cycle of length $L$ gives $(L+1)^{L-1}$ states; a tree node at depth $d$ above a cycle of length $L$ independently picks among $d-1+L$ targets. Pattern found by brute force, verified on random graphs. |
+| [Ring road](https://codeforces.com/problemset/problem/24/A) | `Codeforces` | `1400` | `ringRoad.js` | Key algorithmic application from Day 2026-11-12. |
+| [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 

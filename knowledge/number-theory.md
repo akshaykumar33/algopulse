@@ -183,6 +183,8 @@ function sieve(maxN) {
 | [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
 | [New Year and the Sphere Transmission](https://codeforces.com/problemset/problem/1091/C) | `Codeforces` | `1400` | `newYearAndTheSphereTransmission.js` | Key algorithmic application from Day 2026-11-11. |
 | [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Make It Round](https://codeforces.com/problemset/problem/1759/D) | `Codeforces` | `1400` | `makeItRound.js` | Key algorithmic application from Day 2026-11-12. |
+| [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
 
 ---
 

@@ -151,6 +151,9 @@ function missingNumber(nums) {
 | [Powers Of Two](https://codeforces.com/problemset/problem/1095/C) | `Codeforces` | `1400` | `powersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
 | [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
 | [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
+| [Vlad and a Pair of Numbers](https://codeforces.com/problemset/problem/1790/E) | `Codeforces` | `1400` | `vladAndAPairOfNumbers.js` | Key algorithmic application from Day 2026-11-12. |
+| [Iva & Pav](https://codeforces.com/problemset/problem/1878/E) | `Codeforces` | `1400` | `ivaPav.js` | Key algorithmic application from Day 2026-11-12. |
+| [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
