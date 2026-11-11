@@ -1,0 +1,25 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-DYNAMO",
+    "name": "Chef and Dynamo",
+    "file": "chefAndDynamo",
+    "tier": "hard",
+    "initialVerdict": "ERROR: page.waitForTimeout: Target page, context or browser has been closed",
+    "enqueuedAt": "2026-11-11T19:49:16.213Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DYNAMO",
+      "name": "Chef and Dynamo",
+      "rating": 1541,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DYNAMO",
+      "file": "chefAndDynamo",
+      "template": "templates/codechef.js"
+    }
+  }
+]
