@@ -1,0 +1,22 @@
+[
+  {
+    "input": "1\n",
+    "output": "5"
+  },
+  {
+    "input": "2\n",
+    "output": "15"
+  },
+  {
+    "input": "33\n",
+    "output": "66045"
+  },
+  {
+    "input": "3\n",
+    "output": "35"
+  },
+  {
+    "input": "50\n",
+    "output": "316251"
+  }
+]

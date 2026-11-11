@@ -1,0 +1,30 @@
+[
+  {
+    "input": "[\"abdcdbc\",\"ac\"]\n",
+    "output": "4"
+  },
+  {
+    "input": "[\"aabb\",\"ab\"]\n",
+    "output": "6"
+  },
+  {
+    "input": "[\"aaa\",\"aa\"]\n",
+    "output": "6"
+  },
+  {
+    "input": "[\"bbb\",\"aa\"]\n",
+    "output": "0"
+  },
+  {
+    "input": "[\"ab\",\"aa\"]\n",
+    "output": "1"
+  },
+  {
+    "input": "[\"xyz\",\"ab\"]\n",
+    "output": "0"
+  },
+  {
+    "input": "[\"a\",\"ab\"]\n",
+    "output": "1"
+  }
+]
