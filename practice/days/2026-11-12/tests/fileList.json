@@ -1,0 +1,46 @@
+[
+  {
+    "input": "read.meexample.txtb.cpp\n",
+    "output": "YES\nread.m\neexample.t\nxtb.cpp\n"
+  },
+  {
+    "input": "version.infontldrcontestdata.zip\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "a.b\n",
+    "output": "YES\na.b\n"
+  },
+  {
+    "input": "a..b\n",
+    "output": "NO\n"
+  },
+  {
+    "input": ".ab\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "ab.\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "abcdefghi.txt\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "a.abcd\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "a.bcdefghijk.m\n",
+    "output": "YES\na.bc\ndefghijk.m\n"
+  },
+  {
+    "input": "a.bcdefghijkl.m\n",
+    "output": "YES\na.bcd\nefghijkl.m\n"
+  },
+  {
+    "input": "a.bcdefghijklm.n\n",
+    "output": "NO\n"
+  }
+]

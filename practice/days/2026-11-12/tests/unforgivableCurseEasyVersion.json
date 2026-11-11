@@ -1,0 +1,10 @@
+[
+  {
+    "input": "7\n6 3\ntalant\natltna\n7 3\nabacaba\naaaabbc\n12 3\nabracadabraa\navadakedavra\n5 3\naccio\ncicao\n5 3\nlumos\nmolus\n4 3\nuwjt\ntwju\n4 3\nkvpx\nvxpk\n",
+    "output": "YES\nYES\nNO\nYES\nNO\nYES\nNO\n"
+  },
+  {
+    "input": "7\n1 3\na\na\n1 3\na\nb\n2 3\nab\nba\n3 3\nabc\ncba\n3 3\nabc\nabc\n5 3\naabcc\nccbaa\n5 3\naabcc\nccaba\n",
+    "output": "YES\nNO\nNO\nNO\nYES\nYES\nNO\n"
+  }
+]
