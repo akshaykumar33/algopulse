@@ -1,0 +1,30 @@
+[
+  {
+    "input": "3 3\nSET\nETS\nTSE\n",
+    "output": "1\n"
+  },
+  {
+    "input": "3 4\nSETE\nETSE\nTSES\n",
+    "output": "0\n"
+  },
+  {
+    "input": "5 4\nSETT\nTEST\nEEET\nESTE\nSTES\n",
+    "output": "2\n"
+  },
+  {
+    "input": "1 1\nS\n",
+    "output": "0\n"
+  },
+  {
+    "input": "3 1\nS\nE\nT\n",
+    "output": "1\n"
+  },
+  {
+    "input": "3 30\nSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\nTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT\n",
+    "output": "1\n"
+  },
+  {
+    "input": "4 16\nSSSSSSSSSSSSSSSS\nSSSSSSSSSSSSSSSE\nSSSSSSSSSSSSSSST\nEEEEEEEEEEEEEEEE\n",
+    "output": "1\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "3\n4 6\n..LR..\nULRU..\nDLRDUU\n..LRDD\n5 4\n.LR.\n.UU.\nUDDU\nD..D\nLR..\n2 2\n..\n..",
+    "output": "..WB..\nWWBB..\nBBWWWB\n..BWBW\n-1\n..\n..\n"
+  },
+  {
+    "input": "2\n2 2\nUU\nDD\n2 2\nLR\nLR\n",
+    "output": "WB\nBW\nWB\nBW\n"
+  },
+  {
+    "input": "2\n2 2\nU.\nD.\n2 2\nLR\n..\n",
+    "output": "-1\n-1\n"
+  }
+]
