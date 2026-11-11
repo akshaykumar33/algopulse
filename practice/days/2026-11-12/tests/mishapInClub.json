@@ -1,0 +1,22 @@
+[
+  {
+    "input": "+-+-+\n",
+    "output": "1\n"
+  },
+  {
+    "input": "---\n",
+    "output": "3\n"
+  },
+  {
+    "input": "+\n",
+    "output": "1\n"
+  },
+  {
+    "input": "-\n",
+    "output": "1\n"
+  },
+  {
+    "input": "++----++\n",
+    "output": "4\n"
+  }
+]
