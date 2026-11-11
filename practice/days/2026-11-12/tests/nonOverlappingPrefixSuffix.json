@@ -1,0 +1,30 @@
+[
+  {
+    "input": "abcdabc\n",
+    "output": "3\n"
+  },
+  {
+    "input": "aaaaa\n",
+    "output": "2\n"
+  },
+  {
+    "input": "ababa\n",
+    "output": "1\n"
+  },
+  {
+    "input": "a\n",
+    "output": "0\n"
+  },
+  {
+    "input": "aa\n",
+    "output": "1\n"
+  },
+  {
+    "input": "ababab\n",
+    "output": "2\n"
+  },
+  {
+    "input": "abcde\n",
+    "output": "0\n"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\nakramkeeanany\naka\nsupahotboy\nbohoty\ndaehabshatorawy\nbadawy\n",
+    "output": "aaakaeekmnnry\nabohotypsu\naabadawyehhorst\n"
+  },
+  {
+    "input": "6\na\na\naaa\na\naaab\naa\nbaab\naba\nbbab\nbab\ncccba\ncb\n",
+    "output": "a\naaa\naaab\nabab\nbabb\nacbcc\n"
+  }
+]
