@@ -1,0 +1,26 @@
+[
+  {
+    "input": "\"YYNY\"\n",
+    "output": "2\n"
+  },
+  {
+    "input": "\"NNNNN\"\n",
+    "output": "0\n"
+  },
+  {
+    "input": "\"YYYY\"\n",
+    "output": "4\n"
+  },
+  {
+    "input": "\"YNYN\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"Y\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"N\"\n",
+    "output": "0\n"
+  }
+]

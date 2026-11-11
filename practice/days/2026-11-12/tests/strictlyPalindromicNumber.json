@@ -1,0 +1,22 @@
+[
+  {
+    "input": "9\n",
+    "output": "false\n"
+  },
+  {
+    "input": "4\n",
+    "output": "false\n"
+  },
+  {
+    "input": "5\n",
+    "output": "false\n"
+  },
+  {
+    "input": "7\n",
+    "output": "false\n"
+  },
+  {
+    "input": "100000\n",
+    "output": "false\n"
+  }
+]
