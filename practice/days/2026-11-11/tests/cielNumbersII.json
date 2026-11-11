@@ -1,0 +1,14 @@
+[
+  {
+    "input": "6\nmilk 58\nCiel's Drink 80\nThe curry 2nd edition 888888\nrice omelet 85855\nunagi 1\n   The first    and last letters can be a space    358\n",
+    "output": "3\n"
+  },
+  {
+    "input": "5\n8 8\na b 358\nspaced   85\n999 8853\nonly three 3\n",
+    "output": "4\n"
+  },
+  {
+    "input": "3\na 53\nb 35\nc 8533\n",
+    "output": "0\n"
+  }
+]

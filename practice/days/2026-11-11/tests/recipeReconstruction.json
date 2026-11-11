@@ -1,0 +1,10 @@
+[
+  {
+    "input": "5\n?\n??\nab?\na?c\naba\n",
+    "output": "26\n26\n1\n0\n1\n"
+  },
+  {
+    "input": "4\n??????????\n?????\na\nab\n",
+    "output": "1881367\n17576\n1\n0\n"
+  }
+]

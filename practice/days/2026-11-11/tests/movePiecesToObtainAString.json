@@ -1,0 +1,30 @@
+[
+  {
+    "input": "[\"_L__R__R_\",\"L______RR\"]\n",
+    "output": "true\n"
+  },
+  {
+    "input": "[\"R_L_\",\"__LR\"]\n",
+    "output": "false\n"
+  },
+  {
+    "input": "[\"_R\",\"R_\"]\n",
+    "output": "false\n"
+  },
+  {
+    "input": "[\"___\",\"___\"]\n",
+    "output": "true\n"
+  },
+  {
+    "input": "[\"L_\",\"LL\"]\n",
+    "output": "false\n"
+  },
+  {
+    "input": "[\"L_\",\"_L\"]\n",
+    "output": "false\n"
+  },
+  {
+    "input": "[\"__L_R_\",\"L____R\"]\n",
+    "output": "true\n"
+  }
+]

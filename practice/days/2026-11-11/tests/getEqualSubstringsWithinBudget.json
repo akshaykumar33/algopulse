@@ -1,0 +1,30 @@
+[
+  {
+    "input": "[\"abcd\",\"bcdf\",3]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"abcd\",\"cdef\",3]\n",
+    "output": "1\n"
+  },
+  {
+    "input": "[\"abcd\",\"acde\",0]\n",
+    "output": "1\n"
+  },
+  {
+    "input": "[\"a\",\"z\",0]\n",
+    "output": "0\n"
+  },
+  {
+    "input": "[\"a\",\"a\",0]\n",
+    "output": "1\n"
+  },
+  {
+    "input": "[\"abc\",\"bcd\",10]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"krrgw\",\"zjxss\",19]\n",
+    "output": "2\n"
+  }
+]

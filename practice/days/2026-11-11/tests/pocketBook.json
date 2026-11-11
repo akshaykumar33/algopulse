@@ -1,0 +1,18 @@
+[
+  {
+    "input": "2 3\nAAB\nBAA\n",
+    "output": "4\n"
+  },
+  {
+    "input": "4 5\nABABA\nBCGDG\nAAAAA\nYABSA\n",
+    "output": "216\n"
+  },
+  {
+    "input": "1 4\nABCD\n",
+    "output": "1\n"
+  },
+  {
+    "input": "3 2\nAA\nBA\nAB\n",
+    "output": "4\n"
+  }
+]

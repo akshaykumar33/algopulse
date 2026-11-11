@@ -1,0 +1,26 @@
+[
+  {
+    "input": "[\"FindElements\",\"find\",\"find\"]\n[[[-1,null,-1]],[1],[2]]\n",
+    "output": "[null,false,true]\n"
+  },
+  {
+    "input": "[\"FindElements\",\"find\",\"find\",\"find\"]\n[[[-1,-1,-1,-1,-1]],[1],[3],[5]]\n",
+    "output": "[null,true,true,false]\n"
+  },
+  {
+    "input": "[\"FindElements\",\"find\",\"find\",\"find\",\"find\"]\n[[[-1,null,-1,-1,null,-1]],[2],[3],[4],[5]]\n",
+    "output": "[null,true,false,false,true]\n"
+  },
+  {
+    "input": "[\"FindElements\",\"find\",\"find\"]\n[[[-1]],[0],[1]]\n",
+    "output": "[null,true,false]\n"
+  },
+  {
+    "input": "[\"FindElements\",\"find\",\"find\",\"find\",\"find\",\"find\"]\n[[[-1,null,-1,null,-1,null,-1]],[0],[2],[6],[14],[13]]\n",
+    "output": "[null,true,true,true,true,false]\n"
+  },
+  {
+    "input": "[\"FindElements\",\"find\",\"find\",\"find\"]\n[[[-1,-1,-1,-1,-1,-1,-1]],[0],[6],[7]]\n",
+    "output": "[null,true,true,false]\n"
+  }
+]

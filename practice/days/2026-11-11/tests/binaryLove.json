@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4\n3\n000\n3\n010\n4\n0001\n4\n0101\n",
+    "output": "Bob\nAlice\nBob\nAlice\n"
+  },
+  {
+    "input": "6\n1\n0\n2\n01\n2\n10\n3\n101\n6\n001100\n6\n000111\n",
+    "output": "Bob\nBob\nBob\nAlice\nAlice\nBob\n"
+  }
+]
