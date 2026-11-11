@@ -1,0 +1,30 @@
+[
+  {
+    "input": "[\"aabaaaacaabc\",2]\n",
+    "output": "8\n"
+  },
+  {
+    "input": "[\"a\",1]\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "[\"abcabc\",0]\n",
+    "output": "0\n"
+  },
+  {
+    "input": "[\"abc\",1]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"aaabbc\",1]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"aaaaaaabc\",1]\n",
+    "output": "3\n"
+  },
+  {
+    "input": "[\"abcaaaaaa\",1]\n",
+    "output": "3\n"
+  }
+]
