@@ -1,0 +1,26 @@
+[
+  {
+    "input": "[\"0110\",3]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"0110\",4]\n",
+    "output": "false"
+  },
+  {
+    "input": "[\"1\",1]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"0\",1]\n",
+    "output": "false"
+  },
+  {
+    "input": "[\"11110100110\",7]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"01101011100\",1000000000]\n",
+    "output": "false"
+  }
+]
