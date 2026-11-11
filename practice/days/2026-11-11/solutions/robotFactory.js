@@ -79,7 +79,7 @@ function solve() {
   }
 
   rooms.sort((a, b) => b - a);
-  console.log(rooms.join(' '));
+  console.log(rooms.join(' ') + ' ');
 }
 
 solve();
