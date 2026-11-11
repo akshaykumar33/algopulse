@@ -215,6 +215,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
 | [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
 | [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
+| [Tea Party](https://codeforces.com/problemset/problem/808/C) | `Codeforces` | `1400` | `teaParty.js` | Key algorithmic application from Day 2026-11-11. |
+| [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
+| [Weird Sum](https://codeforces.com/problemset/problem/1648/A) | `Codeforces` | `1400` | `weirdSum.js` | Key algorithmic application from Day 2026-11-11. |
+| [Sports Betting](https://codeforces.com/problemset/problem/2097/A) | `Codeforces` | `1400` | `sportsBetting.js` | Key algorithmic application from Day 2026-11-11. |
+| [Wooden Toy Festival](https://codeforces.com/problemset/problem/1840/D) | `Codeforces` | `1400` | `woodenToyFestival.js` | Key algorithmic application from Day 2026-11-11. |
+| [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

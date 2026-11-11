@@ -468,6 +468,17 @@ for (const x of arr) {
 | [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
 | [Workout plan](https://codeforces.com/problemset/problem/1218/F) | `Codeforces` | `1500` | `workoutPlan.js` | Key algorithmic application from Day 2026-11-10. |
 | [Ticks](https://codeforces.com/problemset/problem/1579/C) | `Codeforces` | `1500` | `ticks.js` | Key algorithmic application from Day 2026-11-10. |
+| [Given Length and Sum of Digits...](https://codeforces.com/problemset/problem/489/C) | `Codeforces` | `1400` | `givenLengthAndSumOfDigits.js` | Key algorithmic application from Day 2026-11-11. |
+| [Tea Party](https://codeforces.com/problemset/problem/808/C) | `Codeforces` | `1400` | `teaParty.js` | Key algorithmic application from Day 2026-11-11. |
+| [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
+| [Johnny and Another Rating Drop](https://codeforces.com/problemset/problem/1362/C) | `Codeforces` | `1400` | `johnnyAndAnotherRatingDrop.js` | Key algorithmic application from Day 2026-11-11. |
+| [Valera and Fruits](https://codeforces.com/problemset/problem/441/B) | `Codeforces` | `1400` | `valeraAndFruits.js` | Key algorithmic application from Day 2026-11-11. |
+| [Powers Of Two](https://codeforces.com/problemset/problem/1095/C) | `Codeforces` | `1400` | `powersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [Wooden Toy Festival](https://codeforces.com/problemset/problem/1840/D) | `Codeforces` | `1400` | `woodenToyFestival.js` | Key algorithmic application from Day 2026-11-11. |
+| [Woodcutters](https://codeforces.com/problemset/problem/545/C) | `Codeforces` | `1500` | `woodcutters.js` | Key algorithmic application from Day 2026-11-11. |
+| [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
+| [Binary String Minimizing](https://codeforces.com/problemset/problem/1256/D) | `Codeforces` | `1500` | `binaryStringMinimizing.js` | Key algorithmic application from Day 2026-11-11. |
+| [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

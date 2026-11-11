@@ -173,6 +173,12 @@ dp.fill(-1); // Memoization sentinel
 | [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 | [Remove One Element](https://codeforces.com/problemset/problem/1272/D) | `Codeforces` | `1500` | `removeOneElement.js` | Key algorithmic application from Day 2026-11-10. |
+| [Given Length and Sum of Digits...](https://codeforces.com/problemset/problem/489/C) | `Codeforces` | `1400` | `givenLengthAndSumOfDigits.js` | Key algorithmic application from Day 2026-11-11. |
+| [Mashmokh and ACM](https://codeforces.com/problemset/problem/414/B) | `Codeforces` | `1400` | `mashmokhAndACM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Woodcutters](https://codeforces.com/problemset/problem/545/C) | `Codeforces` | `1500` | `woodcutters.js` | Key algorithmic application from Day 2026-11-11. |
+| [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
+| [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 

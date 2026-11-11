@@ -411,6 +411,21 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 | [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
+| [Binary Strings are Fun](https://codeforces.com/problemset/problem/1762/C) | `Codeforces` | `1400` | `binaryStringsAreFun.js` | Key algorithmic application from Day 2026-11-11. |
+| [Mashmokh and ACM](https://codeforces.com/problemset/problem/414/B) | `Codeforces` | `1400` | `mashmokhAndACM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Inscribed Figures](https://codeforces.com/problemset/problem/1156/A) | `Codeforces` | `1400` | `inscribedFigures.js` | Key algorithmic application from Day 2026-11-11. |
+| [Dreamoon Likes Permutations](https://codeforces.com/problemset/problem/1330/B) | `Codeforces` | `1400` | `dreamoonLikesPermutations.js` | Key algorithmic application from Day 2026-11-11. |
+| [National Project](https://codeforces.com/problemset/problem/1303/B) | `Codeforces` | `1400` | `nationalProject.js` | Key algorithmic application from Day 2026-11-11. |
+| [Gabriel and Caterpillar](https://codeforces.com/problemset/problem/652/A) | `Codeforces` | `1400` | `gabrielAndCaterpillar.js` | Key algorithmic application from Day 2026-11-11. |
+| [Johnny and Another Rating Drop](https://codeforces.com/problemset/problem/1362/C) | `Codeforces` | `1400` | `johnnyAndAnotherRatingDrop.js` | Key algorithmic application from Day 2026-11-11. |
+| [Beautiful Triple Pairs](https://codeforces.com/problemset/problem/1974/C) | `Codeforces` | `1400` | `beautifulTriplePairs.js` | Key algorithmic application from Day 2026-11-11. |
+| [Pocket Book](https://codeforces.com/problemset/problem/152/C) | `Codeforces` | `1400` | `pocketBook.js` | Key algorithmic application from Day 2026-11-11. |
+| [Weird Sum](https://codeforces.com/problemset/problem/1648/A) | `Codeforces` | `1400` | `weirdSum.js` | Key algorithmic application from Day 2026-11-11. |
+| [Sports Betting](https://codeforces.com/problemset/problem/2097/A) | `Codeforces` | `1400` | `sportsBetting.js` | Key algorithmic application from Day 2026-11-11. |
+| [New Year and the Sphere Transmission](https://codeforces.com/problemset/problem/1091/C) | `Codeforces` | `1400` | `newYearAndTheSphereTransmission.js` | Key algorithmic application from Day 2026-11-11. |
+| [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Ball in Berland](https://codeforces.com/problemset/problem/1475/C) | `Codeforces` | `1400` | `ballInBerland.js` | Key algorithmic application from Day 2026-11-11. |
+| [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -179,6 +179,10 @@ class MinHeap {
 | [Greg and Array](https://codeforces.com/problemset/problem/295/A) | `Codeforces` | `1400` | `gregAndArray.js` | Key algorithmic application from Day 2026-11-10. |
 | [Workout plan](https://codeforces.com/problemset/problem/1218/F) | `Codeforces` | `1500` | `workoutPlan.js` | Key algorithmic application from Day 2026-11-10. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
+| [Beautiful Triple Pairs](https://codeforces.com/problemset/problem/1974/C) | `Codeforces` | `1400` | `beautifulTriplePairs.js` | Key algorithmic application from Day 2026-11-11. |
+| [Weird Sum](https://codeforces.com/problemset/problem/1648/A) | `Codeforces` | `1400` | `weirdSum.js` | Key algorithmic application from Day 2026-11-11. |
+| [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 

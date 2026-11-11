@@ -260,6 +260,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Web of Lies](https://codeforces.com/problemset/problem/1548/A) | `Codeforces` | `1400` | `webOfLies.js` | Key algorithmic application from Day 2026-11-10. |
 | [Balls Game](https://codeforces.com/problemset/problem/430/B) | `Codeforces` | `1400` | `ballsGame.js` | Key algorithmic application from Day 2026-11-10. |
 | [Remove One Element](https://codeforces.com/problemset/problem/1272/D) | `Codeforces` | `1500` | `removeOneElement.js` | Key algorithmic application from Day 2026-11-10. |
+| [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
+| [Sports Betting](https://codeforces.com/problemset/problem/2097/A) | `Codeforces` | `1400` | `sportsBetting.js` | Key algorithmic application from Day 2026-11-11. |
+| [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
