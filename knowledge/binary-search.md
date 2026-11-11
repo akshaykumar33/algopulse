@@ -177,6 +177,7 @@ function lowerBound(arr, target) {
 | [Permutation Counting](https://codeforces.com/problemset/problem/1967/A) | `Codeforces` | `1400` | `permutationCounting.js` | Key algorithmic application from Day 2026-11-10. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
 | [Close Tuples (easy version)](https://codeforces.com/problemset/problem/1462/E1) | `Codeforces` | `1500` | `closeTuplesEasyVersion.js` | Key algorithmic application from Day 2026-11-10. |
+| [Wooden Toy Festival](https://codeforces.com/problemset/problem/1840/D) | `Codeforces` | `1400` | `woodenToyFestival.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 

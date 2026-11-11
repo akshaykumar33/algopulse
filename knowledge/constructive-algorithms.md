@@ -281,6 +281,12 @@ function constructMatrix(n, m) {
 | [Этажи](https://codeforces.com/problemset/problem/649/B) | `Codeforces` | `1400` | `problem.js` | Key algorithmic application from Day 2026-11-10. |
 | [Fillomino 2](https://codeforces.com/problemset/problem/1517/C) | `Codeforces` | `1400` | `fillomino2.js` | Key algorithmic application from Day 2026-11-10. |
 | [Breach of Faith](https://codeforces.com/problemset/problem/2077/A) | `Codeforces` | `1500` | `breachOfFaith.js` | Key algorithmic application from Day 2026-11-10. |
+| [Tea Party](https://codeforces.com/problemset/problem/808/C) | `Codeforces` | `1400` | `teaParty.js` | Key algorithmic application from Day 2026-11-11. |
+| [Weird Sum](https://codeforces.com/problemset/problem/1648/A) | `Codeforces` | `1400` | `weirdSum.js` | Key algorithmic application from Day 2026-11-11. |
+| [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
+| [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [Make Nonzero Sum (hard version)](https://codeforces.com/problemset/problem/1753/A2) | `Codeforces` | `1500` | `makeNonzeroSumHardVersion.js` | Key algorithmic application from Day 2026-11-11. |
+| [Mahmoud and Ehab and the wrong algorithm](https://codeforces.com/problemset/problem/959/C) | `Codeforces` | `1500` | `mahmoudAndEhabAndTheWrongAlgorithm.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 

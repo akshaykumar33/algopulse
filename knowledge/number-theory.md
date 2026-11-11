@@ -179,6 +179,10 @@ function sieve(maxN) {
 | [Diluc and Kaeya](https://codeforces.com/problemset/problem/1536/C) | `Codeforces` | `1500` | `dilucAndKaeya.js` | Key algorithmic application from Day 2026-11-09. |
 | [Complex Market Analysis](https://codeforces.com/problemset/problem/1609/C) | `Codeforces` | `1400` | `complexMarketAnalysis.js` | Key algorithmic application from Day 2026-11-10. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Mashmokh and ACM](https://codeforces.com/problemset/problem/414/B) | `Codeforces` | `1400` | `mashmokhAndACM.js` | Key algorithmic application from Day 2026-11-11. |
+| [Berland Regional](https://codeforces.com/problemset/problem/1519/C) | `Codeforces` | `1400` | `berlandRegional.js` | Key algorithmic application from Day 2026-11-11. |
+| [New Year and the Sphere Transmission](https://codeforces.com/problemset/problem/1091/C) | `Codeforces` | `1400` | `newYearAndTheSphereTransmission.js` | Key algorithmic application from Day 2026-11-11. |
+| [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 

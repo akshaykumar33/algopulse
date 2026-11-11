@@ -146,6 +146,11 @@ function missingNumber(nums) {
 | [Alya and Permutation](https://codeforces.com/problemset/problem/2035/C) | `Codeforces` | `1400` | `alyaAndPermutation.js` | Key algorithmic application from Day 2026-11-09. |
 | [Even-Odd XOR](https://codeforces.com/problemset/problem/1722/G) | `Codeforces` | `1500` | `evenOddXOR.js` | Key algorithmic application from Day 2026-11-09. |
 | [Vlad and an Odd Ordering](https://codeforces.com/problemset/problem/1926/E) | `Codeforces` | `1500` | `vladAndAnOddOrdering.js` | Key algorithmic application from Day 2026-11-10. |
+| [Robot Factory](https://codeforces.com/problemset/problem/1600/J) | `Codeforces` | `1400` | `robotFactory.js` | Key algorithmic application from Day 2026-11-11. |
+| [Johnny and Another Rating Drop](https://codeforces.com/problemset/problem/1362/C) | `Codeforces` | `1400` | `johnnyAndAnotherRatingDrop.js` | Key algorithmic application from Day 2026-11-11. |
+| [Powers Of Two](https://codeforces.com/problemset/problem/1095/C) | `Codeforces` | `1400` | `powersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [Factorials and Powers of Two](https://codeforces.com/problemset/problem/1646/C) | `Codeforces` | `1500` | `factorialsAndPowersOfTwo.js` | Key algorithmic application from Day 2026-11-11. |
+| [a-Good String](https://codeforces.com/problemset/problem/1385/D) | `Codeforces` | `1500` | `aGoodString.js` | Key algorithmic application from Day 2026-11-11. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

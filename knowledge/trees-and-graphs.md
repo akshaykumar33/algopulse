@@ -172,6 +172,10 @@ function dfsIterative(start, adj, n) {
 | [Web of Lies](https://codeforces.com/problemset/problem/1548/A) | `Codeforces` | `1400` | `webOfLies.js` | Key algorithmic application from Day 2026-11-10. |
 | [Fillomino 2](https://codeforces.com/problemset/problem/1517/C) | `Codeforces` | `1400` | `fillomino2.js` | Key algorithmic application from Day 2026-11-10. |
 | [Nastya and Potions](https://codeforces.com/problemset/problem/1851/E) | `Codeforces` | `1500` | `nastyaAndPotions.js` | Key algorithmic application from Day 2026-11-10. |
+| [Robot Factory](https://codeforces.com/problemset/problem/1600/J) | `Codeforces` | `1400` | `robotFactory.js` | Key algorithmic application from Day 2026-11-11. |
+| [Ball in Berland](https://codeforces.com/problemset/problem/1475/C) | `Codeforces` | `1400` | `ballInBerland.js` | Key algorithmic application from Day 2026-11-11. |
+| [Misha and Forest](https://codeforces.com/problemset/problem/501/C) | `Codeforces` | `1500` | `mishaAndForest.js` | Key algorithmic application from Day 2026-11-11. |
+| [Mahmoud and Ehab and the wrong algorithm](https://codeforces.com/problemset/problem/959/C) | `Codeforces` | `1500` | `mahmoudAndEhabAndTheWrongAlgorithm.js` | Key algorithmic application from Day 2026-11-11. |
 
 ---
 
