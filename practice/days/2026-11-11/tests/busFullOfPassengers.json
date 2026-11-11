@@ -1,0 +1,14 @@
+[
+  {
+    "input": "2\n2 1 4\n+ 1\n+ 2\n- 1\n- 2\n3 2 6\n+ 2\n+ 1\n- 1\n+ 3\n- 3\n- 2\n",
+    "output": "Inconsistent\nConsistent\n"
+  },
+  {
+    "input": "2\n100 10 5\n+ 1\n+ 2\n- 3\n+ 3\n- 2\n6 4 4\n+ 3\n+ 2\n+ 1\n+ 4\n",
+    "output": "Inconsistent\nConsistent\n"
+  },
+  {
+    "input": "2\n1 1 2\n- 1\n+ 1\n2 1 4\n+ 1\n- 1\n+ 2\n- 2\n",
+    "output": "Inconsistent\nConsistent\n"
+  }
+]

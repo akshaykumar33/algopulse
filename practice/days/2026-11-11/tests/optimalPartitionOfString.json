@@ -1,0 +1,22 @@
+[
+  {
+    "input": "\"abacaba\"\n",
+    "output": "4\n"
+  },
+  {
+    "input": "\"ssssss\"\n",
+    "output": "6\n"
+  },
+  {
+    "input": "\"a\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"abcdefghijklmnopqrstuvwxyz\"\n",
+    "output": "1\n"
+  },
+  {
+    "input": "\"ababab\"\n",
+    "output": "3\n"
+  }
+]

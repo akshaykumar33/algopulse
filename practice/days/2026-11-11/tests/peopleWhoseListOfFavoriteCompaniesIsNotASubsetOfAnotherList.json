@@ -1,0 +1,22 @@
+[
+  {
+    "input": "[[\"leetcode\",\"google\",\"facebook\"],[\"google\",\"microsoft\"],[\"google\",\"facebook\"],[\"google\"],[\"amazon\"]]\n",
+    "output": "[0,1,4]\n"
+  },
+  {
+    "input": "[[\"leetcode\",\"google\",\"facebook\"],[\"leetcode\",\"amazon\"],[\"facebook\",\"google\"]]\n",
+    "output": "[0,1]\n"
+  },
+  {
+    "input": "[[\"leetcode\"],[\"google\"],[\"facebook\"],[\"amazon\"]]\n",
+    "output": "[0,1,2,3]\n"
+  },
+  {
+    "input": "[[\"a\"]]\n",
+    "output": "[0]\n"
+  },
+  {
+    "input": "[[\"a\",\"b\",\"c\"],[\"a\",\"b\"],[\"a\"],[\"d\"]]\n",
+    "output": "[0,3]\n"
+  }
+]

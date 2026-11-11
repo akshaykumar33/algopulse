@@ -1,0 +1,22 @@
+[
+  {
+    "input": "[[4,2,3,0,3,1,2], 5]\n",
+    "output": "true"
+  },
+  {
+    "input": "[[4,2,3,0,3,1,2], 0]\n",
+    "output": "true"
+  },
+  {
+    "input": "[[3,0,2,1,2], 2]\n",
+    "output": "false"
+  },
+  {
+    "input": "[[0], 0]\n",
+    "output": "true"
+  },
+  {
+    "input": "[[1,1,1,1,0], 0]\n",
+    "output": "true"
+  }
+]

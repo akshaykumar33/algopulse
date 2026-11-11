@@ -1,0 +1,38 @@
+[
+  {
+    "input": "2 15\n",
+    "output": "69 96\n"
+  },
+  {
+    "input": "3 0\n",
+    "output": "-1 -1\n"
+  },
+  {
+    "input": "1 0\n",
+    "output": "0 0\n"
+  },
+  {
+    "input": "1 9\n",
+    "output": "9 9\n"
+  },
+  {
+    "input": "1 10\n",
+    "output": "-1 -1\n"
+  },
+  {
+    "input": "2 1\n",
+    "output": "10 10\n"
+  },
+  {
+    "input": "4 2\n",
+    "output": "1001 2000\n"
+  },
+  {
+    "input": "3 27\n",
+    "output": "999 999\n"
+  },
+  {
+    "input": "3 28\n",
+    "output": "-1 -1\n"
+  }
+]

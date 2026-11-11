@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"FindSumPairs\",\"count\",\"add\",\"count\",\"count\",\"add\",\"add\",\"count\"]\n[[[1,1,2,2,2,3],[1,4,5,2,5,4]],[7],[3,2],[8],[4],[0,1],[1,1],[7]]\n",
+    "output": "[null,8,null,2,1,null,null,11]"
+  },
+  {
+    "input": "[\"FindSumPairs\",\"count\",\"add\",\"count\",\"add\",\"count\",\"count\"]\n[[[5],[5]],[10],[0,5],[10],[0,1],[11],[16]]\n",
+    "output": "[null,1,null,0,null,0,1]"
+  }
+]
