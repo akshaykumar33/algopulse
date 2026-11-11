@@ -1,0 +1,30 @@
+[
+  {
+    "input": "banana\n4\n",
+    "output": "2\naabn\n"
+  },
+  {
+    "input": "banana\n3\n",
+    "output": "3\nabn\n"
+  },
+  {
+    "input": "banana\n2\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "a\n5\n",
+    "output": "1\naaaaa\n"
+  },
+  {
+    "input": "abcde\n5\n",
+    "output": "1\nabcde\n"
+  },
+  {
+    "input": "aaaaabbbbb\n3\n",
+    "output": "5\naba\n"
+  },
+  {
+    "input": "zz\n1\n",
+    "output": "2\nz\n"
+  }
+]
