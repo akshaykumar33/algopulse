@@ -2231,5 +2231,35 @@
       "algorithms"
     ],
     "timestamp": "2026-11-10T04:13:19.147Z"
+  },
+  {
+    "id": "1389C",
+    "problem": "Good String",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to find the minimum number of characters to delete to make the remaining string 'good'. A string is 'good' if it has even length and all characters at odd positions are equal to the first character, and all characters at even positions are equal to the second character. The current solution attempts a greedy approach that is fundamentally flawed. It tries to build a 'good string' by keeping characters such that 'res[i]' is different from 'res[i-1]' if 'i' is odd, which is not what a 'good string' means. A 'good string' must alternate specific characters (e.g., 'ababab' or 'cdcdcd'). The problem actually requires finding the best pair of two characters (say, 'x' and 'y') and then forming the longest possible alternating sequence of 'x' and 'y' from the original string. The greedy approach of `res.length % 2 === 0` then `res.push(ch)` is not correct for this problem. The correct approach is to iterate through all possible pairs of characters (0-9, or 'a'-'z' if the problem implies letters, but since it's a digit string example, 0-9 is enough), and for each pair (x, y), count the maximum length of an alternating sequence 'xyxyxy...' that can be formed. The maximum such length over all pairs, or simply the maximum count of any single character (for good strings of type 'aaaaaa'), gives the length of the longest good string. The answer is the original length minus this maximum length.",
+    "rule": "When a problem defines a specific pattern for a 'good string' or object, a direct greedy approach trying to build *any* good string might fail. Instead, consider systematically trying all valid patterns/building blocks (e.g., all pairs of alternating characters, or all possible single repeating characters) and finding the optimal one.",
+    "tags": [
+      "brute force",
+      "dp",
+      "greedy",
+      "two pointers"
+    ],
+    "timestamp": "2026-11-13T03:36:15.384Z"
+  },
+  {
+    "id": "1389C",
+    "problem": "Good String",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to find the longest 'good' substring by deleting characters. A 'good' string is defined as one where all characters are the same, or characters alternate between two distinct digits (e.g., '121212', '50505'). The current solution correctly finds the longest string of identical characters (handled by `maxLen = Math.max(...counts)`). However, for alternating strings, it only considers patterns like `i, j, i, j, ...`. If the `currentLen` ends up odd, it incorrectly decrements it by one (`currentLen--`). This implicitly assumes that for an odd-length alternating string (e.g., '121'), the last character `1` must be removed to make it `12`, resulting in an even length. This is wrong. For an odd-length alternating string like '121', its length is valid. The length calculation for alternating patterns should not be forced to be even. The `currentLen % 2 !== 0` check and decrement should be removed.",
+    "rule": "When calculating lengths of substrings or sequences, carefully re-read the problem definition for valid lengths. Do not introduce arbitrary constraints like forcing even lengths unless explicitly stated or logically derived from the problem's criteria. Test simple edge cases mentally (e.g., '1', '12', '121', '1212').",
+    "tags": [
+      "brute force",
+      "dp",
+      "greedy",
+      "two pointers"
+    ],
+    "timestamp": "2026-11-13T03:37:40.020Z"
   }
 ]
