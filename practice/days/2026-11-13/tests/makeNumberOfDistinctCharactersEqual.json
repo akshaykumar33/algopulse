@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"ac\",\"b\"]\n",
+    "output": "false"
+  },
+  {
+    "input": "[\"abcc\",\"aab\"]\n",
+    "output": "true"
+  },
+  {
+    "input": "[\"abcde\",\"fghij\"]\n",
+    "output": "true"
+  }
+]
