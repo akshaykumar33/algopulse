@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1\n",
+    "output": "true"
+  },
+  {
+    "input": "10\n",
+    "output": "false"
+  }
+]

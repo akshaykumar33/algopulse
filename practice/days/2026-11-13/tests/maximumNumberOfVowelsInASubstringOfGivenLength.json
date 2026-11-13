@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abciiidef\"\n3\n",
+    "output": "3\n"
+  },
+  {
+    "input": "\"aeiou\"\n2\n",
+    "output": "2\n"
+  },
+  {
+    "input": "\"leetcode\"\n3\n",
+    "output": "2\n"
+  }
+]
