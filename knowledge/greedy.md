@@ -496,6 +496,18 @@ for (const x of arr) {
 | [Two Semiknights Meet](https://codeforces.com/problemset/problem/362/A) | `Codeforces` | `1500` | `twoSemiknightsMeet.js` | Key algorithmic application from Day 2026-11-12. |
 | [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
 | [Lawnmower](https://codeforces.com/problemset/problem/115/B) | `Codeforces` | `1500` | `lawnmower.js` | Key algorithmic application from Day 2026-11-12. |
+| [Killjoy](https://codeforces.com/problemset/problem/1419/C) | `Codeforces` | `1500` | `killjoy.js` | Key algorithmic application from Day 2026-11-13. |
+| [The Child and Set](https://codeforces.com/problemset/problem/437/B) | `Codeforces` | `1500` | `theChildAndSet.js` | Key algorithmic application from Day 2026-11-13. |
+| [Bishwock](https://codeforces.com/problemset/problem/991/D) | `Codeforces` | `1500` | `bishwock.js` | Key algorithmic application from Day 2026-11-13. |
+| [Pull Your Luck](https://codeforces.com/problemset/problem/1804/C) | `Codeforces` | `1500` | `pullYourLuck.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ramesses and Corner Inversion](https://codeforces.com/problemset/problem/1119/C) | `Codeforces` | `1500` | `ramessesAndCornerInversion.js` | Key algorithmic application from Day 2026-11-13. |
+| [Mad MAD Sum](https://codeforces.com/problemset/problem/1990/C) | `Codeforces` | `1500` | `madMADSum.js` | Key algorithmic application from Day 2026-11-13. |
+| [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
+| [Maximum Sum on Even Positions](https://codeforces.com/problemset/problem/1373/D) | `Codeforces` | `1600` | `maximumSumOnEvenPositions.js` | Key algorithmic application from Day 2026-11-13. |
+| [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
+| [Coins and Queries](https://codeforces.com/problemset/problem/1003/D) | `Codeforces` | `1600` | `coinsAndQueries.js` | Key algorithmic application from Day 2026-11-13. |
+| [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

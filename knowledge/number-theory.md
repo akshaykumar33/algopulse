@@ -185,6 +185,10 @@ function sieve(maxN) {
 | [Fadi and LCM](https://codeforces.com/problemset/problem/1285/C) | `Codeforces` | `1400` | `fadiAndLCM.js` | Key algorithmic application from Day 2026-11-11. |
 | [Make It Round](https://codeforces.com/problemset/problem/1759/D) | `Codeforces` | `1400` | `makeItRound.js` | Key algorithmic application from Day 2026-11-12. |
 | [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
+| [Tile Painting](https://codeforces.com/problemset/problem/1242/A) | `Codeforces` | `1500` | `tilePainting.js` | Key algorithmic application from Day 2026-11-13. |
+| [Pull Your Luck](https://codeforces.com/problemset/problem/1804/C) | `Codeforces` | `1500` | `pullYourLuck.js` | Key algorithmic application from Day 2026-11-13. |
+| [Effects of Anti Pimples](https://codeforces.com/problemset/problem/1876/B) | `Codeforces` | `1500` | `effectsOfAntiPimples.js` | Key algorithmic application from Day 2026-11-13. |
+| [Division](https://codeforces.com/problemset/problem/1444/A) | `Codeforces` | `1500` | `division.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 

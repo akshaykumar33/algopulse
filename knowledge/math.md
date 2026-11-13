@@ -438,6 +438,17 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Two Semiknights Meet](https://codeforces.com/problemset/problem/362/A) | `Codeforces` | `1500` | `twoSemiknightsMeet.js` | Key algorithmic application from Day 2026-11-12. |
 | [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
 | [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
+| [Killjoy](https://codeforces.com/problemset/problem/1419/C) | `Codeforces` | `1500` | `killjoy.js` | Key algorithmic application from Day 2026-11-13. |
+| [Edgy Trees](https://codeforces.com/problemset/problem/1139/C) | `Codeforces` | `1500` | `edgyTrees.js` | Key algorithmic application from Day 2026-11-13. |
+| [Tile Painting](https://codeforces.com/problemset/problem/1242/A) | `Codeforces` | `1500` | `tilePainting.js` | Key algorithmic application from Day 2026-11-13. |
+| [Pull Your Luck](https://codeforces.com/problemset/problem/1804/C) | `Codeforces` | `1500` | `pullYourLuck.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ramesses and Corner Inversion](https://codeforces.com/problemset/problem/1119/C) | `Codeforces` | `1500` | `ramessesAndCornerInversion.js` | Key algorithmic application from Day 2026-11-13. |
+| [Effects of Anti Pimples](https://codeforces.com/problemset/problem/1876/B) | `Codeforces` | `1500` | `effectsOfAntiPimples.js` | Key algorithmic application from Day 2026-11-13. |
+| [Power of Points](https://codeforces.com/problemset/problem/1857/E) | `Codeforces` | `1500` | `powerOfPoints.js` | Key algorithmic application from Day 2026-11-13. |
+| [Mad MAD Sum](https://codeforces.com/problemset/problem/1990/C) | `Codeforces` | `1500` | `madMADSum.js` | Key algorithmic application from Day 2026-11-13. |
+| [No More Inversions](https://codeforces.com/problemset/problem/1473/C) | `Codeforces` | `1500` | `noMoreInversions.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
+| [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

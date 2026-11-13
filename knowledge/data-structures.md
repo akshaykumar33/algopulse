@@ -189,6 +189,8 @@ class MinHeap {
 | [Watchmen](https://codeforces.com/problemset/problem/650/A) | `Codeforces` | `1400` | `watchmen.js` | Key algorithmic application from Day 2026-11-12. |
 | [Hyperset](https://codeforces.com/problemset/problem/1287/B) | `Codeforces` | `1500` | `hyperset.js` | Key algorithmic application from Day 2026-11-12. |
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
+| [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
+| [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 

@@ -273,6 +273,15 @@ function backtrack(index, currentSum, target, arr) {
 | [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
 | [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
 | [Hyperset](https://codeforces.com/problemset/problem/1287/B) | `Codeforces` | `1500` | `hyperset.js` | Key algorithmic application from Day 2026-11-12. |
+| [Pull Your Luck](https://codeforces.com/problemset/problem/1804/C) | `Codeforces` | `1500` | `pullYourLuck.js` | Key algorithmic application from Day 2026-11-13. |
+| [Jury Size](https://codeforces.com/problemset/problem/254/B) | `Codeforces` | `1500` | `jurySize.js` | Key algorithmic application from Day 2026-11-13. |
+| [Bear and Three Musketeers](https://codeforces.com/problemset/problem/574/B) | `Codeforces` | `1500` | `bearAndThreeMusketeers.js` | Key algorithmic application from Day 2026-11-13. |
+| [Mad MAD Sum](https://codeforces.com/problemset/problem/1990/C) | `Codeforces` | `1500` | `madMADSum.js` | Key algorithmic application from Day 2026-11-13. |
+| [Division](https://codeforces.com/problemset/problem/1444/A) | `Codeforces` | `1500` | `division.js` | Key algorithmic application from Day 2026-11-13. |
+| [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
+| [The Humanoid](https://codeforces.com/problemset/problem/1759/E) | `Codeforces` | `1500` | `theHumanoid.js` | Key algorithmic application from Day 2026-11-13. |
+| [Bargaining Table](https://codeforces.com/problemset/problem/22/B) | `Codeforces` | `1500` | `bargainingTable.js` | Key algorithmic application from Day 2026-11-13. |
+| [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
