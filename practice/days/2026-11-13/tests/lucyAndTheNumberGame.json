@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2\n5\nKouta 1\nYuka 1\nMayu 3\nLucy 2\nNana 5\n2\nLucy 2\nNana 2",
+    "output": "Lucy\nNobody wins."
+  },
+  {
+    "input": "1\n3\nAlice 10\nBob 20\nCharlie 10",
+    "output": "Bob"
+  }
+]

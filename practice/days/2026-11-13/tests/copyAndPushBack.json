@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n1\na\n2\naa\n3\naab",
+    "output": "YES\nYES\nYES"
+  },
+  {
+    "input": "3\n4\nabcd\n6\naabaab\n5\naabba",
+    "output": "NO\nYES\nNO"
+  }
+]
