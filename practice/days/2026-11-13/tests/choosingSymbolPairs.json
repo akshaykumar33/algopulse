@@ -1,0 +1,10 @@
+[
+  {
+    "input": "great10\n",
+    "output": "7"
+  },
+  {
+    "input": "aaaaaaaaaa\n",
+    "output": "100"
+  }
+]

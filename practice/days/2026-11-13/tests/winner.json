@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\nmike 3\nandrew 5\nmike 2",
+    "output": "andrew"
+  },
+  {
+    "input": "3\nandrew 3\nandrew 2\nmike 5",
+    "output": "andrew"
+  }
+]
