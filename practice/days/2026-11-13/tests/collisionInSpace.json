@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n0 0 R\n2\n1 -2 U\n2 2 D\n1 1 U\n1\n1 0 U\n0 0 R\n1\n3 0 L",
+    "output": "2.0\nSAFE\n1.5"
+  },
+  {
+    "input": "1\n5 5 D\n1\n5 0 U",
+    "output": "2.5"
+  }
+]

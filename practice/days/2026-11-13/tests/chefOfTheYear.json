@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4 5\nRamanujan India\nTorricelli Italy\nGauss Germany\nLagrange Italy\nRamanujan\nTorricelli\nTorricelli\nRamanujan\nLagrange",
+    "output": "Italy\nRamanujan"
+  },
+  {
+    "input": "2 2\nNewton England\nEuclid Greece\nNewton\nEuclid",
+    "output": "England\nEuclid"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4\nhelowrd 0\nbackground 0\nabcdefghijklmnopqrstuvwxyz 0\nb 1",
+    "output": "abcfgij\nefhijlmpqs\nNOPE\na"
+  },
+  {
+    "input": "1\nab 1",
+    "output": "ac"
+  }
+]
