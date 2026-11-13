@@ -184,6 +184,14 @@ dp.fill(-1); // Memoization sentinel
 | [Vampiric Powers, anyone?](https://codeforces.com/problemset/problem/1847/C) | `Codeforces` | `1400` | `vampiricPowersAnyone.js` | Key algorithmic application from Day 2026-11-12. |
 | [Gas Pipeline](https://codeforces.com/problemset/problem/1207/C) | `Codeforces` | `1500` | `gasPipeline.js` | Key algorithmic application from Day 2026-11-12. |
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
+| [Bishwock](https://codeforces.com/problemset/problem/991/D) | `Codeforces` | `1500` | `bishwock.js` | Key algorithmic application from Day 2026-11-13. |
+| [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
+| [The Humanoid](https://codeforces.com/problemset/problem/1759/E) | `Codeforces` | `1500` | `theHumanoid.js` | Key algorithmic application from Day 2026-11-13. |
+| [Bargaining Table](https://codeforces.com/problemset/problem/22/B) | `Codeforces` | `1500` | `bargainingTable.js` | Key algorithmic application from Day 2026-11-13. |
+| [Longtail Hedgehog](https://codeforces.com/problemset/problem/615/B) | `Codeforces` | `1600` | `longtailHedgehog.js` | Key algorithmic application from Day 2026-11-13. |
+| [Maximum Sum on Even Positions](https://codeforces.com/problemset/problem/1373/D) | `Codeforces` | `1600` | `maximumSumOnEvenPositions.js` | Key algorithmic application from Day 2026-11-13. |
+| [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
+| [Add One](https://codeforces.com/problemset/problem/1513/C) | `Codeforces` | `1600` | `addOne.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 

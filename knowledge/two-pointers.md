@@ -147,6 +147,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Klever Permutation](https://codeforces.com/problemset/problem/1927/E) | `Codeforces` | `1400` | `kleverPermutation.js` | Key algorithmic application from Day 2026-11-12. |
 | [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
+| [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 

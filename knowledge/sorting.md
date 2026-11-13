@@ -224,6 +224,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Maximum Median](https://codeforces.com/problemset/problem/1201/C) | `Codeforces` | `1400` | `maximumMedian.js` | Key algorithmic application from Day 2026-11-12. |
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 | [Lawnmower](https://codeforces.com/problemset/problem/115/B) | `Codeforces` | `1500` | `lawnmower.js` | Key algorithmic application from Day 2026-11-12. |
+| [The Child and Set](https://codeforces.com/problemset/problem/437/B) | `Codeforces` | `1500` | `theChildAndSet.js` | Key algorithmic application from Day 2026-11-13. |
+| [Effects of Anti Pimples](https://codeforces.com/problemset/problem/1876/B) | `Codeforces` | `1500` | `effectsOfAntiPimples.js` | Key algorithmic application from Day 2026-11-13. |
+| [Power of Points](https://codeforces.com/problemset/problem/1857/E) | `Codeforces` | `1500` | `powerOfPoints.js` | Key algorithmic application from Day 2026-11-13. |
+| [The Humanoid](https://codeforces.com/problemset/problem/1759/E) | `Codeforces` | `1500` | `theHumanoid.js` | Key algorithmic application from Day 2026-11-13. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

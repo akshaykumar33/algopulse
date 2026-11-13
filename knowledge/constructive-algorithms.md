@@ -297,6 +297,13 @@ function constructMatrix(n, m) {
 | [Two-Colored Dominoes](https://codeforces.com/problemset/problem/1863/D) | `Codeforces` | `1400` | `twoColoredDominoes.js` | Key algorithmic application from Day 2026-11-12. |
 | [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
 | [Meaningless Operations](https://codeforces.com/problemset/problem/1110/C) | `Codeforces` | `1500` | `meaninglessOperations.js` | Key algorithmic application from Day 2026-11-12. |
+| [Even Picture](https://codeforces.com/problemset/problem/1368/C) | `Codeforces` | `1500` | `evenPicture.js` | Key algorithmic application from Day 2026-11-13. |
+| [Tile Painting](https://codeforces.com/problemset/problem/1242/A) | `Codeforces` | `1500` | `tilePainting.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ramesses and Corner Inversion](https://codeforces.com/problemset/problem/1119/C) | `Codeforces` | `1500` | `ramessesAndCornerInversion.js` | Key algorithmic application from Day 2026-11-13. |
+| [No More Inversions](https://codeforces.com/problemset/problem/1473/C) | `Codeforces` | `1500` | `noMoreInversions.js` | Key algorithmic application from Day 2026-11-13. |
+| [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
+| [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
+| [Add One](https://codeforces.com/problemset/problem/1513/C) | `Codeforces` | `1600` | `addOne.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 

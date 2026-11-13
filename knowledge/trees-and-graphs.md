@@ -180,6 +180,10 @@ function dfsIterative(start, adj, n) {
 | [Weird Counting II](https://www.codechef.com) | `CodeChef` | `-` | `weirdCountingII.js` | Pointer jumping $A_i gets A_{A_i}$ on a functional graph: pure cycle of length $L$ gives $(L+1)^{L-1}$ states; a tree node at depth $d$ above a cycle of length $L$ independently picks among $d-1+L$ targets. Pattern found by brute force, verified on random graphs. |
 | [Ring road](https://codeforces.com/problemset/problem/24/A) | `Codeforces` | `1400` | `ringRoad.js` | Key algorithmic application from Day 2026-11-12. |
 | [Unforgivable Curse (easy version)](https://codeforces.com/problemset/problem/1800/E1) | `Codeforces` | `1400` | `unforgivableCurseEasyVersion.js` | Key algorithmic application from Day 2026-11-12. |
+| [Edgy Trees](https://codeforces.com/problemset/problem/1139/C) | `Codeforces` | `1500` | `edgyTrees.js` | Key algorithmic application from Day 2026-11-13. |
+| [Brain Network (medium)](https://codeforces.com/problemset/problem/690/C2) | `Codeforces` | `1500` | `brainNetworkMedium.js` | Key algorithmic application from Day 2026-11-13. |
+| [Bear and Three Musketeers](https://codeforces.com/problemset/problem/574/B) | `Codeforces` | `1500` | `bearAndThreeMusketeers.js` | Key algorithmic application from Day 2026-11-13. |
+| [Longtail Hedgehog](https://codeforces.com/problemset/problem/615/B) | `Codeforces` | `1600` | `longtailHedgehog.js` | Key algorithmic application from Day 2026-11-13. |
 
 ---
 
