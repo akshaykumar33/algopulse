@@ -1,0 +1,18 @@
+[
+  {
+    "input": "00\n00\n",
+    "output": "1"
+  },
+  {
+    "input": "00X00X0XXX0\n0XXX0X00X00\n",
+    "output": "4"
+  },
+  {
+    "input": "0X0X0\n0X0X0\n",
+    "output": "0"
+  },
+  {
+    "input": "0XXX0\n00000\n",
+    "output": "2"
+  }
+]
