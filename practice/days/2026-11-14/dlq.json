@@ -1,0 +1,51 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-CLMBSTRS",
+    "name": "Climbing Stairs",
+    "file": "climbingStairs",
+    "tier": "hard",
+    "initialVerdict": "ERROR: page.waitForTimeout: Target page, context or browser has been closed",
+    "enqueuedAt": "2026-11-14T03:53:36.464Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CLMBSTRS",
+      "name": "Climbing Stairs",
+      "rating": 1508,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CLMBSTRS",
+      "file": "climbingStairs",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1278B",
+    "name": "A and B",
+    "file": "aAndB",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-14T03:53:36.483Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1278B",
+      "name": "A and B",
+      "rating": 1500,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1278/B",
+      "file": "aAndB",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+  }
+]
