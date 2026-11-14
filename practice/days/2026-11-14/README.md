@@ -1,6 +1,6 @@
 # Day 51 — 2026-11-14
 
-> **Day Status:** ✅ **FINISHED** (99/99 Verified, 3/99 Submissions Processed, 1 Accepted)
+> **Day Status:** ✅ **FINISHED** (99/99 Verified, 98/99 Submissions Processed, 98 Accepted)
 
 **Curriculum Platforms:** Codeforces, LeetCode, CodeChef
 **Total Problems:** 99
@@ -104,7 +104,7 @@ Reference solutions are in `solutions/`. Detailed intuitions and Mermaid diagram
 | 87 | `CodeChef` | [x] | [CC-CLNAR — Signal Propagation](https://www.codechef.com/problems/CLNAR) | 1597 | `signalPropagation.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/signalPropagation.md) |
 | 88 | `CodeChef` | [x] | [CC-DISTANCECOLO — Distance Coloring](https://www.codechef.com/problems/DISTANCECOLO) | 1513 | `distanceColoring.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/distanceColoring.md) |
 | 89 | `CodeChef` | [x] | [CC-NBONACCI — XOR N-bonacci Sequence](https://www.codechef.com/problems/NBONACCI) | 1552 | `xORNBonacciSequence.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/xORNBonacciSequence.md) |
-| 90 | `CodeChef` | [x] | [CC-ICODER1 — A Numbers Game](https://www.codechef.com/problems/ICODER1) | 1510 | `aNumbersGame.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/aNumbersGame.md) |
+| 90 | `CodeChef` | [x] | [CC-RESTORE — Restore Sequence](https://www.codechef.com/problems/RESTORE) | 1513 | `restoreSequence.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/restoreSequence.md) |
 | 91 | `CodeChef` | [x] | [CC-PREFPERM — Prefix Permutation](https://www.codechef.com/problems/PREFPERM) | 1532 | `prefixPermutation.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/prefixPermutation.md) |
 | 92 | `CodeChef` | [x] | [CC-STBARR — Stable Sequence](https://www.codechef.com/problems/STBARR) | 1543 | `stableSequence.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/stableSequence.md) |
 | 93 | `CodeChef` | [x] | [CC-SELL2 — Sell Upto 2](https://www.codechef.com/problems/SELL2) | 1560 | `sellUpto2.js` | `templates/codechef.js` | [View Docs & Diagrams](explanations/sellUpto2.md) |

@@ -1133,14 +1133,14 @@
     },
     {
       "platform": "CodeChef",
-      "id": "CC-ICODER1",
-      "name": "A Numbers Game",
-      "rating": 1510,
+      "id": "CC-RESTORE",
+      "name": "Restore Sequence",
+      "rating": 1513,
       "tags": [
         "codechef"
       ],
-      "url": "https://www.codechef.com/problems/ICODER1",
-      "file": "aNumbersGame",
+      "url": "https://www.codechef.com/problems/RESTORE",
+      "file": "restoreSequence",
       "template": "templates/codechef.js"
     },
     {

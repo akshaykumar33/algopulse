@@ -72,29 +72,5 @@
     },
     "resolvedAt": "2026-11-14T04:36:23.668Z",
     "finalVerdict": "Correct Answer"
-  },
-  {
-    "platform": "CodeChef",
-    "id": "CC-ICODER1",
-    "name": "A Numbers Game",
-    "file": "aNumbersGame",
-    "tier": "hard",
-    "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-14T04:31:01.602Z",
-    "attempts": 1,
-    "status": "HALTED_UNRESOLVED",
-    "problem": {
-      "platform": "CodeChef",
-      "id": "CC-ICODER1",
-      "name": "A Numbers Game",
-      "rating": 1510,
-      "tags": [
-        "codechef"
-      ],
-      "url": "https://www.codechef.com/problems/ICODER1",
-      "file": "aNumbersGame",
-      "template": "templates/codechef.js"
-    },
-    "finalVerdict": "Wrong Answer"
   }
 ]
