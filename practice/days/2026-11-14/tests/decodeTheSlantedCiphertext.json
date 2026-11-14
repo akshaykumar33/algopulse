@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"ch   ie   pr\"\n3\n",
+    "output": "\"cipher\""
+  },
+  {
+    "input": "\"iveo    eed   l te   olc\"\n4\n",
+    "output": "\"i love leetcode\""
+  },
+  {
+    "input": "\"coding\"\n1\n",
+    "output": "\"coding\""
+  }
+]
