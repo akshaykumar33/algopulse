@@ -449,6 +449,20 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [No More Inversions](https://codeforces.com/problemset/problem/1473/C) | `Codeforces` | `1500` | `noMoreInversions.js` | Key algorithmic application from Day 2026-11-13. |
 | [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 | [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
+| [Vasya and Multisets](https://codeforces.com/problemset/problem/1051/C) | `Codeforces` | `1500` | `vasyaAndMultisets.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Walkway](https://codeforces.com/problemset/problem/1858/B) | `Codeforces` | `1500` | `theWalkway.js` | Key algorithmic application from Day 2026-11-14. |
+| [Playoff](https://codeforces.com/problemset/problem/1767/D) | `Codeforces` | `1500` | `playoff.js` | Key algorithmic application from Day 2026-11-14. |
+| [Magic Odd Square](https://codeforces.com/problemset/problem/710/C) | `Codeforces` | `1500` | `magicOddSquare.js` | Key algorithmic application from Day 2026-11-14. |
+| [Plus and Multiply](https://codeforces.com/problemset/problem/1542/B) | `Codeforces` | `1500` | `plusAndMultiply.js` | Key algorithmic application from Day 2026-11-14. |
+| [Living Sequence](https://codeforces.com/problemset/problem/1811/E) | `Codeforces` | `1500` | `livingSequence.js` | Key algorithmic application from Day 2026-11-14. |
+| [Running for Gold](https://codeforces.com/problemset/problem/1552/B) | `Codeforces` | `1500` | `runningForGold.js` | Key algorithmic application from Day 2026-11-14. |
+| [Anu Has a Function](https://codeforces.com/problemset/problem/1299/A) | `Codeforces` | `1500` | `anuHasAFunction.js` | Key algorithmic application from Day 2026-11-14. |
+| [Vasya and Robot](https://codeforces.com/problemset/problem/354/A) | `Codeforces` | `1500` | `vasyaAndRobot.js` | Key algorithmic application from Day 2026-11-14. |
+| [Milena and Admirer](https://codeforces.com/problemset/problem/1898/B) | `Codeforces` | `1500` | `milenaAndAdmirer.js` | Key algorithmic application from Day 2026-11-14. |
+| [Jury Meeting](https://codeforces.com/problemset/problem/1569/C) | `Codeforces` | `1500` | `juryMeeting.js` | Key algorithmic application from Day 2026-11-14. |
+| [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
+| [Constellation](https://codeforces.com/problemset/problem/618/C) | `Codeforces` | `1600` | `constellation.js` | Key algorithmic application from Day 2026-11-14. |
+| [Modular Equations](https://codeforces.com/problemset/problem/495/B) | `Codeforces` | `1600` | `modularEquations.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -304,6 +304,11 @@ function constructMatrix(n, m) {
 | [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 | [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
 | [Add One](https://codeforces.com/problemset/problem/1513/C) | `Codeforces` | `1600` | `addOne.js` | Key algorithmic application from Day 2026-11-13. |
+| [Playoff](https://codeforces.com/problemset/problem/1767/D) | `Codeforces` | `1500` | `playoff.js` | Key algorithmic application from Day 2026-11-14. |
+| [Qualification Rounds](https://codeforces.com/problemset/problem/868/C) | `Codeforces` | `1500` | `qualificationRounds.js` | Key algorithmic application from Day 2026-11-14. |
+| [Magic Odd Square](https://codeforces.com/problemset/problem/710/C) | `Codeforces` | `1500` | `magicOddSquare.js` | Key algorithmic application from Day 2026-11-14. |
+| [Plus and Multiply](https://codeforces.com/problemset/problem/1542/B) | `Codeforces` | `1500` | `plusAndMultiply.js` | Key algorithmic application from Day 2026-11-14. |
+| [Beautiful Sets of Points](https://codeforces.com/problemset/problem/268/C) | `Codeforces` | `1500` | `beautifulSetsOfPoints.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

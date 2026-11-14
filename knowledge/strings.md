@@ -168,6 +168,8 @@ function isPalindrome(s) {
 | [Sum of Substrings](https://codeforces.com/problemset/problem/1691/C) | `Codeforces` | `1400` | `sumOfSubstrings.js` | Key algorithmic application from Day 2026-11-12. |
 | [Choosing Symbol Pairs](https://codeforces.com/problemset/problem/50/B) | `Codeforces` | `1500` | `choosingSymbolPairs.js` | Key algorithmic application from Day 2026-11-13. |
 | [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
+| [Santa Claus and Keyboard Check](https://codeforces.com/problemset/problem/748/B) | `Codeforces` | `1500` | `santaClausAndKeyboardCheck.js` | Key algorithmic application from Day 2026-11-14. |
+| [Lucky Transformation](https://codeforces.com/problemset/problem/121/B) | `Codeforces` | `1500` | `luckyTransformation.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -192,6 +192,13 @@ dp.fill(-1); // Memoization sentinel
 | [Maximum Sum on Even Positions](https://codeforces.com/problemset/problem/1373/D) | `Codeforces` | `1600` | `maximumSumOnEvenPositions.js` | Key algorithmic application from Day 2026-11-13. |
 | [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
 | [Add One](https://codeforces.com/problemset/problem/1513/C) | `Codeforces` | `1600` | `addOne.js` | Key algorithmic application from Day 2026-11-13. |
+| [Vasya and Multisets](https://codeforces.com/problemset/problem/1051/C) | `Codeforces` | `1500` | `vasyaAndMultisets.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Walkway](https://codeforces.com/problemset/problem/1858/B) | `Codeforces` | `1500` | `theWalkway.js` | Key algorithmic application from Day 2026-11-14. |
+| [Playoff](https://codeforces.com/problemset/problem/1767/D) | `Codeforces` | `1500` | `playoff.js` | Key algorithmic application from Day 2026-11-14. |
+| [Qualification Rounds](https://codeforces.com/problemset/problem/868/C) | `Codeforces` | `1500` | `qualificationRounds.js` | Key algorithmic application from Day 2026-11-14. |
+| [Living Sequence](https://codeforces.com/problemset/problem/1811/E) | `Codeforces` | `1500` | `livingSequence.js` | Key algorithmic application from Day 2026-11-14. |
+| [New Year and Domino](https://codeforces.com/problemset/problem/611/C) | `Codeforces` | `1500` | `newYearAndDomino.js` | Key algorithmic application from Day 2026-11-14. |
+| [Good Sequences](https://codeforces.com/problemset/problem/264/B) | `Codeforces` | `1500` | `goodSequences.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 
