@@ -195,6 +195,11 @@ class MinHeap {
 | [Tea Tasting](https://codeforces.com/problemset/problem/1795/C) | `Codeforces` | `1500` | `teaTasting.js` | Key algorithmic application from Day 2026-11-14. |
 | [Glass Carving](https://codeforces.com/problemset/problem/527/C) | `Codeforces` | `1500` | `glassCarving.js` | Key algorithmic application from Day 2026-11-14. |
 | [Oh Sweet Beaverette](https://codeforces.com/problemset/problem/331/A2) | `Codeforces` | `1500` | `ohSweetBeaverette.js` | Key algorithmic application from Day 2026-11-14. |
+| [Cat Party (Easy Edition)](https://codeforces.com/problemset/problem/1163/B1) | `Codeforces` | `1500` | `catPartyEasyEdition.js` | Key algorithmic application from Day 2026-11-14. |
+| [Equalize the Array](https://codeforces.com/problemset/problem/1490/F) | `Codeforces` | `1500` | `equalizeTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Morning Star](https://codeforces.com/problemset/problem/1850/G) | `Codeforces` | `1500` | `theMorningStar.js` | Key algorithmic application from Day 2026-11-14. |
+| [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

@@ -289,6 +289,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Vasya and Robot](https://codeforces.com/problemset/problem/354/A) | `Codeforces` | `1500` | `vasyaAndRobot.js` | Key algorithmic application from Day 2026-11-14. |
 | [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
 | [Luba And The Ticket](https://codeforces.com/problemset/problem/845/B) | `Codeforces` | `1600` | `lubaAndTheTicket.js` | Key algorithmic application from Day 2026-11-14. |
+| [Cow and Message](https://codeforces.com/problemset/problem/1307/C) | `Codeforces` | `1500` | `cowAndMessage.js` | Key algorithmic application from Day 2026-11-14. |
+| [Curriculum Vitae](https://codeforces.com/problemset/problem/846/A) | `Codeforces` | `1500` | `curriculumVitae.js` | Key algorithmic application from Day 2026-11-14. |
+| [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -2261,5 +2261,31 @@
       "two pointers"
     ],
     "timestamp": "2026-11-13T03:37:40.020Z"
+  },
+  {
+    "id": "1278B",
+    "problem": "A and B",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to find the minimum number of moves to make the counts of 'a' and 'b' characters equal, or rather, to make their total values equal by applying operations. The provided code attempts to solve a completely different problem: minimizing the cost to move characters 'a' to a contiguous block and 'b' to another contiguous block, which is a variation of the minimum moves to make an array elements arithmetic progression problem. The original problem 1278B 'A and B' is a simple mathematical problem that asks for the minimum number of steps 'k' such that the sum of integers from 1 to 'k' (i.e., k*(k+1)/2) has the same parity as the absolute difference between 'a' and 'b', and is greater than or equal to this absolute difference. The difference 'abs(a-b)' must be an even number if k*(k+1)/2 is even, or odd if k*(k+1)/2 is odd. This is equivalent to saying 'abs(a-b)' and 'k*(k+1)/2' must have the same parity.",
+    "rule": "Always carefully read and understand the problem statement. Do not assume the problem is a variation of a known problem without confirming the objective. The problem 1278B 'A and B' is a math/greedy problem about sums and parities, not array manipulation.",
+    "tags": [
+      "greedy",
+      "math"
+    ],
+    "timestamp": "2026-11-14T03:56:09.929Z"
+  },
+  {
+    "id": "1278B",
+    "problem": "A and B",
+    "platform": "Codeforces",
+    "verdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "diagnosis": "The problem description indicates a submission failure due to an authentication error, not a bug in the code's logic, I/O, or algorithm. The provided competitive programming context clearly describes an \"ERROR: Not authenticated on Codeforces. Please run 'npm run submit:auth -- --platform codeforces' to log in first.\" verdict. This is an environment/tooling issue, not a code issue. The request asks to fix an algorithmic, mathematical, or I/O bug, but based on the provided error, there is no such bug in the code itself. The code correctly implements the logic for the problem \"A and B\". The problem asks for the minimum `k` such that `sum(1 to k)` is greater than or equal to `diff = |a - b|`, and `(sum(1 to k) - diff)` is an even number. This is exactly what the `while` loop checks: `sum >= diff` and `(sum - diff) % 2 === 0`.",
+    "rule": "Authentication errors are external to the code's logic and indicate a problem with the submission environment or user credentials. When an authentication error is reported, the solution code itself is not at fault and should not be altered for that specific error. Review the submission process and authentication steps.",
+    "tags": [
+      "greedy",
+      "math"
+    ],
+    "timestamp": "2026-11-14T03:59:15.234Z"
   }
 ]

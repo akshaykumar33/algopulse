@@ -199,6 +199,14 @@ dp.fill(-1); // Memoization sentinel
 | [Living Sequence](https://codeforces.com/problemset/problem/1811/E) | `Codeforces` | `1500` | `livingSequence.js` | Key algorithmic application from Day 2026-11-14. |
 | [New Year and Domino](https://codeforces.com/problemset/problem/611/C) | `Codeforces` | `1500` | `newYearAndDomino.js` | Key algorithmic application from Day 2026-11-14. |
 | [Good Sequences](https://codeforces.com/problemset/problem/264/B) | `Codeforces` | `1500` | `goodSequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Tenzing and Balls](https://codeforces.com/problemset/problem/1842/C) | `Codeforces` | `1500` | `tenzingAndBalls.js` | Key algorithmic application from Day 2026-11-14. |
+| [Cow and Message](https://codeforces.com/problemset/problem/1307/C) | `Codeforces` | `1500` | `cowAndMessage.js` | Key algorithmic application from Day 2026-11-14. |
+| [Colorful Bricks](https://codeforces.com/problemset/problem/1081/C) | `Codeforces` | `1500` | `colorfulBricks.js` | Key algorithmic application from Day 2026-11-14. |
+| [Kyoya and Colored Balls](https://codeforces.com/problemset/problem/553/A) | `Codeforces` | `1500` | `kyoyaAndColoredBalls.js` | Key algorithmic application from Day 2026-11-14. |
+| [Boredom](https://codeforces.com/problemset/problem/455/A) | `Codeforces` | `1500` | `boredom.js` | Key algorithmic application from Day 2026-11-14. |
+| [Elimination](https://codeforces.com/problemset/problem/417/A) | `Codeforces` | `1500` | `elimination.js` | Key algorithmic application from Day 2026-11-14. |
+| [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
+| [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

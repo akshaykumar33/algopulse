@@ -149,6 +149,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 | [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 | [Convenient For Everybody](https://codeforces.com/problemset/problem/939/C) | `Codeforces` | `1600` | `convenientForEverybody.js` | Key algorithmic application from Day 2026-11-14. |
+| [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

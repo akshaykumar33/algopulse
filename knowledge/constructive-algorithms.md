@@ -309,6 +309,11 @@ function constructMatrix(n, m) {
 | [Magic Odd Square](https://codeforces.com/problemset/problem/710/C) | `Codeforces` | `1500` | `magicOddSquare.js` | Key algorithmic application from Day 2026-11-14. |
 | [Plus and Multiply](https://codeforces.com/problemset/problem/1542/B) | `Codeforces` | `1500` | `plusAndMultiply.js` | Key algorithmic application from Day 2026-11-14. |
 | [Beautiful Sets of Points](https://codeforces.com/problemset/problem/268/C) | `Codeforces` | `1500` | `beautifulSetsOfPoints.js` | Key algorithmic application from Day 2026-11-14. |
+| [Ela and Crickets](https://codeforces.com/problemset/problem/1737/C) | `Codeforces` | `1500` | `elaAndCrickets.js` | Key algorithmic application from Day 2026-11-14. |
+| [Smaller](https://codeforces.com/problemset/problem/1742/F) | `Codeforces` | `1500` | `smaller.js` | Key algorithmic application from Day 2026-11-14. |
+| [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
+| [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

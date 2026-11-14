@@ -195,6 +195,8 @@ function sieve(maxN) {
 | [Good Sequences](https://codeforces.com/problemset/problem/264/B) | `Codeforces` | `1500` | `goodSequences.js` | Key algorithmic application from Day 2026-11-14. |
 | [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
 | [Modular Equations](https://codeforces.com/problemset/problem/495/B) | `Codeforces` | `1600` | `modularEquations.js` | Key algorithmic application from Day 2026-11-14. |
+| [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
+| [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 
