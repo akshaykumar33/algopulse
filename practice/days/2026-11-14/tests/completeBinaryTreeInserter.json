@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"CBTInserter\",\"insert\",\"insert\",\"get_root\"]\n[[[1,2]],[3],[4],[]]\n",
+    "output": "[null,1,2,[1,2,3,4]]"
+  }
+]

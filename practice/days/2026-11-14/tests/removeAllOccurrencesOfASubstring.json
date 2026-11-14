@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"daabcbaabcbc\"\n\"abc\"\n",
+    "output": "\"dab\""
+  },
+  {
+    "input": "\"axxxxyyyyb\"\n\"xy\"\n",
+    "output": "\"ab\""
+  }
+]

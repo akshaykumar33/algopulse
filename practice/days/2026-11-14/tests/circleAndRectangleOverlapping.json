@@ -1,0 +1,14 @@
+[
+  {
+    "input": "1\n0\n0\n1\n-1\n3\n1\n",
+    "output": "true"
+  },
+  {
+    "input": "1\n1\n1\n1\n-3\n2\n-1\n",
+    "output": "false"
+  },
+  {
+    "input": "1\n0\n0\n-1\n0\n0\n1\n",
+    "output": "true"
+  }
+]
