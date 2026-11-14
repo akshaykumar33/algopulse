@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1\n2\n",
+    "output": "\"bab\""
+  },
+  {
+    "input": "4\n1\n",
+    "output": "\"aabaa\""
+  }
+]

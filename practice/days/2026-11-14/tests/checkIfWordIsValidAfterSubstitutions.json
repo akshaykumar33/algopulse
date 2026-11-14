@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aabcbc\"\n",
+    "output": "true"
+  },
+  {
+    "input": "\"abcabcababcc\"\n",
+    "output": "true"
+  },
+  {
+    "input": "\"abccba\"\n",
+    "output": "false"
+  }
+]
