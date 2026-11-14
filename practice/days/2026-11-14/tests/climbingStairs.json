@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n1 1\n7 4\n",
+    "output": "CORRECT\nINCORRECT"
+  }
+]
