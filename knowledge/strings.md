@@ -170,6 +170,11 @@ function isPalindrome(s) {
 | [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
 | [Santa Claus and Keyboard Check](https://codeforces.com/problemset/problem/748/B) | `Codeforces` | `1500` | `santaClausAndKeyboardCheck.js` | Key algorithmic application from Day 2026-11-14. |
 | [Lucky Transformation](https://codeforces.com/problemset/problem/121/B) | `Codeforces` | `1500` | `luckyTransformation.js` | Key algorithmic application from Day 2026-11-14. |
+| [Cow and Message](https://codeforces.com/problemset/problem/1307/C) | `Codeforces` | `1500` | `cowAndMessage.js` | Key algorithmic application from Day 2026-11-14. |
+| [Smaller](https://codeforces.com/problemset/problem/1742/F) | `Codeforces` | `1500` | `smaller.js` | Key algorithmic application from Day 2026-11-14. |
+| [Split a Number](https://codeforces.com/problemset/problem/1181/B) | `Codeforces` | `1500` | `splitANumber.js` | Key algorithmic application from Day 2026-11-14. |
+| [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

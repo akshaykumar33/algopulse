@@ -232,6 +232,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Running for Gold](https://codeforces.com/problemset/problem/1552/B) | `Codeforces` | `1500` | `runningForGold.js` | Key algorithmic application from Day 2026-11-14. |
 | [Oh Sweet Beaverette](https://codeforces.com/problemset/problem/331/A2) | `Codeforces` | `1500` | `ohSweetBeaverette.js` | Key algorithmic application from Day 2026-11-14. |
 | [Fox And Names](https://codeforces.com/problemset/problem/510/C) | `Codeforces` | `1600` | `foxAndNames.js` | Key algorithmic application from Day 2026-11-14. |
+| [Equalize the Array](https://codeforces.com/problemset/problem/1490/F) | `Codeforces` | `1500` | `equalizeTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Division and Union](https://codeforces.com/problemset/problem/1101/C) | `Codeforces` | `1500` | `divisionAndUnion.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Morning Star](https://codeforces.com/problemset/problem/1850/G) | `Codeforces` | `1500` | `theMorningStar.js` | Key algorithmic application from Day 2026-11-14. |
+| [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

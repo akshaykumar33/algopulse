@@ -519,6 +519,15 @@ for (const x of arr) {
 | [Milena and Admirer](https://codeforces.com/problemset/problem/1898/B) | `Codeforces` | `1500` | `milenaAndAdmirer.js` | Key algorithmic application from Day 2026-11-14. |
 | [Andryusha and Colored Balloons](https://codeforces.com/problemset/problem/780/C) | `Codeforces` | `1600` | `andryushaAndColoredBalloons.js` | Key algorithmic application from Day 2026-11-14. |
 | [Luba And The Ticket](https://codeforces.com/problemset/problem/845/B) | `Codeforces` | `1600` | `lubaAndTheTicket.js` | Key algorithmic application from Day 2026-11-14. |
+| [Palindromic Paths](https://codeforces.com/problemset/problem/1366/C) | `Codeforces` | `1500` | `palindromicPaths.js` | Key algorithmic application from Day 2026-11-14. |
+| [Smaller](https://codeforces.com/problemset/problem/1742/F) | `Codeforces` | `1500` | `smaller.js` | Key algorithmic application from Day 2026-11-14. |
+| [Split a Number](https://codeforces.com/problemset/problem/1181/B) | `Codeforces` | `1500` | `splitANumber.js` | Key algorithmic application from Day 2026-11-14. |
+| [Equalize the Array](https://codeforces.com/problemset/problem/1490/F) | `Codeforces` | `1500` | `equalizeTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Beautiful Regional Contest](https://codeforces.com/problemset/problem/1264/A) | `Codeforces` | `1500` | `beautifulRegionalContest.js` | Key algorithmic application from Day 2026-11-14. |
+| [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
+| [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
+| [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

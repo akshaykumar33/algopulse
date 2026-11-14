@@ -101,6 +101,7 @@ function determineWinner(a, b, c) {
 | [Game on Tree (Easy)](https://codeforces.com/problemset/problem/1970/C1) | `Codeforces` | `1400` | `gameOnTreeEasy.js` | Key algorithmic application from Day 2026-11-08. |
 | [Win or Freeze](https://codeforces.com/problemset/problem/150/A) | `Codeforces` | `1400` | `winOrFreeze.js` | Key algorithmic application from Day 2026-11-09. |
 | [A Compatible Pair](https://codeforces.com/problemset/problem/934/A) | `Codeforces` | `1400` | `aCompatiblePair.js` | Key algorithmic application from Day 2026-11-12. |
+| [Ela and Crickets](https://codeforces.com/problemset/problem/1737/C) | `Codeforces` | `1500` | `elaAndCrickets.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

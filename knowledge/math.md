@@ -463,6 +463,19 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
 | [Constellation](https://codeforces.com/problemset/problem/618/C) | `Codeforces` | `1600` | `constellation.js` | Key algorithmic application from Day 2026-11-14. |
 | [Modular Equations](https://codeforces.com/problemset/problem/495/B) | `Codeforces` | `1600` | `modularEquations.js` | Key algorithmic application from Day 2026-11-14. |
+| [Palindromic Paths](https://codeforces.com/problemset/problem/1366/C) | `Codeforces` | `1500` | `palindromicPaths.js` | Key algorithmic application from Day 2026-11-14. |
+| [Binary Search](https://codeforces.com/problemset/problem/1436/C) | `Codeforces` | `1500` | `binarySearch.js` | Key algorithmic application from Day 2026-11-14. |
+| [Ela and Crickets](https://codeforces.com/problemset/problem/1737/C) | `Codeforces` | `1500` | `elaAndCrickets.js` | Key algorithmic application from Day 2026-11-14. |
+| [Cow and Message](https://codeforces.com/problemset/problem/1307/C) | `Codeforces` | `1500` | `cowAndMessage.js` | Key algorithmic application from Day 2026-11-14. |
+| [Colorful Bricks](https://codeforces.com/problemset/problem/1081/C) | `Codeforces` | `1500` | `colorfulBricks.js` | Key algorithmic application from Day 2026-11-14. |
+| [Kyoya and Colored Balls](https://codeforces.com/problemset/problem/553/A) | `Codeforces` | `1500` | `kyoyaAndColoredBalls.js` | Key algorithmic application from Day 2026-11-14. |
+| [Equalize the Array](https://codeforces.com/problemset/problem/1490/F) | `Codeforces` | `1500` | `equalizeTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Inna and Huge Candy Matrix](https://codeforces.com/problemset/problem/400/C) | `Codeforces` | `1500` | `innaAndHugeCandyMatrix.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Morning Star](https://codeforces.com/problemset/problem/1850/G) | `Codeforces` | `1500` | `theMorningStar.js` | Key algorithmic application from Day 2026-11-14. |
+| [Diagonal Walking v.2](https://codeforces.com/problemset/problem/1036/B) | `Codeforces` | `1600` | `diagonalWalkingV2.js` | Key algorithmic application from Day 2026-11-14. |
+| [Fifa and Fafa](https://codeforces.com/problemset/problem/935/C) | `Codeforces` | `1600` | `fifaAndFafa.js` | Key algorithmic application from Day 2026-11-14. |
+| [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
