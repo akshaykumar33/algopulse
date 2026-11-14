@@ -508,6 +508,17 @@ for (const x of arr) {
 | [New Year Book Reading](https://codeforces.com/problemset/problem/500/C) | `Codeforces` | `1600` | `newYearBookReading.js` | Key algorithmic application from Day 2026-11-13. |
 | [Coins and Queries](https://codeforces.com/problemset/problem/1003/D) | `Codeforces` | `1600` | `coinsAndQueries.js` | Key algorithmic application from Day 2026-11-13. |
 | [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
+| [Minimize the error](https://codeforces.com/problemset/problem/960/B) | `Codeforces` | `1500` | `minimizeTheError.js` | Key algorithmic application from Day 2026-11-14. |
+| [Vasya and Multisets](https://codeforces.com/problemset/problem/1051/C) | `Codeforces` | `1500` | `vasyaAndMultisets.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Walkway](https://codeforces.com/problemset/problem/1858/B) | `Codeforces` | `1500` | `theWalkway.js` | Key algorithmic application from Day 2026-11-14. |
+| [Playoff](https://codeforces.com/problemset/problem/1767/D) | `Codeforces` | `1500` | `playoff.js` | Key algorithmic application from Day 2026-11-14. |
+| [Walking Robot](https://codeforces.com/problemset/problem/1154/D) | `Codeforces` | `1500` | `walkingRobot.js` | Key algorithmic application from Day 2026-11-14. |
+| [Running for Gold](https://codeforces.com/problemset/problem/1552/B) | `Codeforces` | `1500` | `runningForGold.js` | Key algorithmic application from Day 2026-11-14. |
+| [Anu Has a Function](https://codeforces.com/problemset/problem/1299/A) | `Codeforces` | `1500` | `anuHasAFunction.js` | Key algorithmic application from Day 2026-11-14. |
+| [Vasya and Robot](https://codeforces.com/problemset/problem/354/A) | `Codeforces` | `1500` | `vasyaAndRobot.js` | Key algorithmic application from Day 2026-11-14. |
+| [Milena and Admirer](https://codeforces.com/problemset/problem/1898/B) | `Codeforces` | `1500` | `milenaAndAdmirer.js` | Key algorithmic application from Day 2026-11-14. |
+| [Andryusha and Colored Balloons](https://codeforces.com/problemset/problem/780/C) | `Codeforces` | `1600` | `andryushaAndColoredBalloons.js` | Key algorithmic application from Day 2026-11-14. |
+| [Luba And The Ticket](https://codeforces.com/problemset/problem/845/B) | `Codeforces` | `1600` | `lubaAndTheTicket.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

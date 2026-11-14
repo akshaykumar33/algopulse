@@ -189,6 +189,12 @@ function sieve(maxN) {
 | [Pull Your Luck](https://codeforces.com/problemset/problem/1804/C) | `Codeforces` | `1500` | `pullYourLuck.js` | Key algorithmic application from Day 2026-11-13. |
 | [Effects of Anti Pimples](https://codeforces.com/problemset/problem/1876/B) | `Codeforces` | `1500` | `effectsOfAntiPimples.js` | Key algorithmic application from Day 2026-11-13. |
 | [Division](https://codeforces.com/problemset/problem/1444/A) | `Codeforces` | `1500` | `division.js` | Key algorithmic application from Day 2026-11-13. |
+| [The Walkway](https://codeforces.com/problemset/problem/1858/B) | `Codeforces` | `1500` | `theWalkway.js` | Key algorithmic application from Day 2026-11-14. |
+| [Plus and Multiply](https://codeforces.com/problemset/problem/1542/B) | `Codeforces` | `1500` | `plusAndMultiply.js` | Key algorithmic application from Day 2026-11-14. |
+| [Living Sequence](https://codeforces.com/problemset/problem/1811/E) | `Codeforces` | `1500` | `livingSequence.js` | Key algorithmic application from Day 2026-11-14. |
+| [Good Sequences](https://codeforces.com/problemset/problem/264/B) | `Codeforces` | `1500` | `goodSequences.js` | Key algorithmic application from Day 2026-11-14. |
+| [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
+| [Modular Equations](https://codeforces.com/problemset/problem/495/B) | `Codeforces` | `1600` | `modularEquations.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

@@ -282,6 +282,13 @@ function backtrack(index, currentSum, target, arr) {
 | [The Humanoid](https://codeforces.com/problemset/problem/1759/E) | `Codeforces` | `1500` | `theHumanoid.js` | Key algorithmic application from Day 2026-11-13. |
 | [Bargaining Table](https://codeforces.com/problemset/problem/22/B) | `Codeforces` | `1500` | `bargainingTable.js` | Key algorithmic application from Day 2026-11-13. |
 | [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
+| [Vasya and Multisets](https://codeforces.com/problemset/problem/1051/C) | `Codeforces` | `1500` | `vasyaAndMultisets.js` | Key algorithmic application from Day 2026-11-14. |
+| [The Walkway](https://codeforces.com/problemset/problem/1858/B) | `Codeforces` | `1500` | `theWalkway.js` | Key algorithmic application from Day 2026-11-14. |
+| [Qualification Rounds](https://codeforces.com/problemset/problem/868/C) | `Codeforces` | `1500` | `qualificationRounds.js` | Key algorithmic application from Day 2026-11-14. |
+| [Anu Has a Function](https://codeforces.com/problemset/problem/1299/A) | `Codeforces` | `1500` | `anuHasAFunction.js` | Key algorithmic application from Day 2026-11-14. |
+| [Vasya and Robot](https://codeforces.com/problemset/problem/354/A) | `Codeforces` | `1500` | `vasyaAndRobot.js` | Key algorithmic application from Day 2026-11-14. |
+| [Good Triples](https://codeforces.com/problemset/problem/1907/E) | `Codeforces` | `1600` | `goodTriples.js` | Key algorithmic application from Day 2026-11-14. |
+| [Luba And The Ticket](https://codeforces.com/problemset/problem/845/B) | `Codeforces` | `1600` | `lubaAndTheTicket.js` | Key algorithmic application from Day 2026-11-14. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

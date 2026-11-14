@@ -191,6 +191,10 @@ class MinHeap {
 | [Air Conditioners](https://codeforces.com/problemset/problem/1547/E) | `Codeforces` | `1500` | `airConditioners.js` | Key algorithmic application from Day 2026-11-12. |
 | [Alternating String](https://codeforces.com/problemset/problem/2008/E) | `Codeforces` | `1500` | `alternatingString.js` | Key algorithmic application from Day 2026-11-13. |
 | [Zero-Sum Prefixes](https://codeforces.com/problemset/problem/1748/C) | `Codeforces` | `1600` | `zeroSumPrefixes.js` | Key algorithmic application from Day 2026-11-13. |
+| [Minimize the error](https://codeforces.com/problemset/problem/960/B) | `Codeforces` | `1500` | `minimizeTheError.js` | Key algorithmic application from Day 2026-11-14. |
+| [Tea Tasting](https://codeforces.com/problemset/problem/1795/C) | `Codeforces` | `1500` | `teaTasting.js` | Key algorithmic application from Day 2026-11-14. |
+| [Glass Carving](https://codeforces.com/problemset/problem/527/C) | `Codeforces` | `1500` | `glassCarving.js` | Key algorithmic application from Day 2026-11-14. |
+| [Oh Sweet Beaverette](https://codeforces.com/problemset/problem/331/A2) | `Codeforces` | `1500` | `ohSweetBeaverette.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

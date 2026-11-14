@@ -182,6 +182,10 @@ function lowerBound(arr, target) {
 | [Maximum Median](https://codeforces.com/problemset/problem/1201/C) | `Codeforces` | `1400` | `maximumMedian.js` | Key algorithmic application from Day 2026-11-12. |
 | [Banana](https://codeforces.com/problemset/problem/335/A) | `Codeforces` | `1400` | `banana.js` | Key algorithmic application from Day 2026-11-12. |
 | [Price Maximization](https://codeforces.com/problemset/problem/1690/E) | `Codeforces` | `1500` | `priceMaximization.js` | Key algorithmic application from Day 2026-11-12. |
+| [Tea Tasting](https://codeforces.com/problemset/problem/1795/C) | `Codeforces` | `1500` | `teaTasting.js` | Key algorithmic application from Day 2026-11-14. |
+| [Living Sequence](https://codeforces.com/problemset/problem/1811/E) | `Codeforces` | `1500` | `livingSequence.js` | Key algorithmic application from Day 2026-11-14. |
+| [Glass Carving](https://codeforces.com/problemset/problem/527/C) | `Codeforces` | `1500` | `glassCarving.js` | Key algorithmic application from Day 2026-11-14. |
+| [Convenient For Everybody](https://codeforces.com/problemset/problem/939/C) | `Codeforces` | `1600` | `convenientForEverybody.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 

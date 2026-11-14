@@ -184,6 +184,11 @@ function dfsIterative(start, adj, n) {
 | [Brain Network (medium)](https://codeforces.com/problemset/problem/690/C2) | `Codeforces` | `1500` | `brainNetworkMedium.js` | Key algorithmic application from Day 2026-11-13. |
 | [Bear and Three Musketeers](https://codeforces.com/problemset/problem/574/B) | `Codeforces` | `1500` | `bearAndThreeMusketeers.js` | Key algorithmic application from Day 2026-11-13. |
 | [Longtail Hedgehog](https://codeforces.com/problemset/problem/615/B) | `Codeforces` | `1600` | `longtailHedgehog.js` | Key algorithmic application from Day 2026-11-13. |
+| [Running for Gold](https://codeforces.com/problemset/problem/1552/B) | `Codeforces` | `1500` | `runningForGold.js` | Key algorithmic application from Day 2026-11-14. |
+| [Kefa and Park](https://codeforces.com/problemset/problem/580/C) | `Codeforces` | `1500` | `kefaAndPark.js` | Key algorithmic application from Day 2026-11-14. |
+| [Fox And Names](https://codeforces.com/problemset/problem/510/C) | `Codeforces` | `1600` | `foxAndNames.js` | Key algorithmic application from Day 2026-11-14. |
+| [Andryusha and Colored Balloons](https://codeforces.com/problemset/problem/780/C) | `Codeforces` | `1600` | `andryushaAndColoredBalloons.js` | Key algorithmic application from Day 2026-11-14. |
+| [Kuro and Walking Route](https://codeforces.com/problemset/problem/979/C) | `Codeforces` | `1600` | `kuroAndWalkingRoute.js` | Key algorithmic application from Day 2026-11-14. |
 
 ---
 
