@@ -1,0 +1,14 @@
+[
+  {
+    "input": "aaabb\n",
+    "output": "6"
+  },
+  {
+    "input": "usaco\n",
+    "output": "1"
+  },
+  {
+    "input": "lol\n",
+    "output": "2"
+  }
+]
