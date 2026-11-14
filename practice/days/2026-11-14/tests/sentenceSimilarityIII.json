@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"My name is Haley\"\n\"My Haley\"\n",
+    "output": "true"
+  },
+  {
+    "input": "\"of\"\n\"A lot of words\"\n",
+    "output": "false"
+  },
+  {
+    "input": "\"Eating right now\"\n\"Eating\"\n",
+    "output": "true"
+  }
+]
