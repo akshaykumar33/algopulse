@@ -707,6 +707,18 @@ function getNumericTier(num) {
  * - Hard:   ~2.3 - 3.0 mins (140s - 180s) + jitter (+/- 10s)
  */
 function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = process.argv.slice(2)) {
+  const isTurbo = cliArgs.includes('--turbo') || cliArgs.includes('--instant');
+  if (isTurbo) {
+    const i = cliArgs.indexOf('--cooldown');
+    if (i !== -1) return resolveCooldownMs(cliArgs);
+    return 3000;
+  }
+
+  const i = cliArgs.indexOf('--cooldown');
+  if (i !== -1) {
+    return resolveCooldownMs(cliArgs);
+  }
+
   const isFast = cliArgs.includes('--fast') || cliArgs.includes('--quick');
   if (isFast) {
     const minSec = 45;
@@ -714,11 +726,6 @@ function calculateDifficultyCooldown(currProblem, nextProblem = null, cliArgs = 
     const baseSec = minSec + Math.floor(Math.random() * (maxSec - minSec + 1));
     const jitter = Math.floor(Math.random() * 11) - 5;
     return Math.max(40, baseSec + jitter) * 1000;
-  }
-
-  const i = cliArgs.indexOf('--cooldown');
-  if (i !== -1) {
-    return resolveCooldownMs(cliArgs);
   }
 
   const targetProb = nextProblem || currProblem;
@@ -1143,9 +1150,12 @@ async function processPlatformQueue(platKey, queue, options) {
     for (const [dIdx, item] of dlq.entries()) {
       await waitIfPaused(tag);
       const prob = item.problem;
-      const debugPauseMs = options.isFast
-        ? (30000 + Math.floor(Math.random() * 15000))
-        : Math.min(180000, Math.max(60000, Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.75)));
+      const isTurbo = process.argv.includes('--turbo') || process.argv.includes('--instant');
+      const debugPauseMs = isTurbo
+        ? Math.min(resolveCooldownMs(process.argv.slice(2)), 3000)
+        : options.isFast
+          ? (30000 + Math.floor(Math.random() * 15000))
+          : Math.min(180000, Math.max(60000, Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.75)));
       await sleepWithCountdown(
         debugPauseMs,
         `${tag} [DLQ] Realistic debugging & reasoning pause for ${prob.name} (${prob.id})`
@@ -1531,9 +1541,12 @@ async function main() {
 
         for (const [dIdx, item] of dlq.entries()) {
           const prob = item.problem;
-          const debugPauseMs = isFast
-            ? (30000 + Math.floor(Math.random() * 15000))
-            : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
+          const isTurbo = process.argv.includes('--turbo') || process.argv.includes('--instant');
+          const debugPauseMs = isTurbo
+            ? Math.min(resolveCooldownMs(process.argv.slice(2)), 3000)
+            : isFast
+              ? (30000 + Math.floor(Math.random() * 15000))
+              : Math.round(calculateDifficultyCooldown(prob, null, process.argv.slice(2)) * 0.7);
           await sleepWithCountdown(debugPauseMs, `[DLQ] Realistic debugging pause for ${prob.name} (${prob.id})`);
 
           console.log(`\n[DLQ-RETRY ${dIdx + 1}/${dlq.length}] Diagnosing & resolving: ${prob.name} (${prob.id}) ...`);

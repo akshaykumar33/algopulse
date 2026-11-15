@@ -301,6 +301,14 @@ function backtrack(index, currentSum, target, arr) {
 | [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
 | [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
 | [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
+| [Fire Again](https://codeforces.com/problemset/problem/35/C) | `Codeforces` | `1500` | `fireAgain.js` | Key algorithmic application from Day 2026-11-15. |
+| [Representative Edges](https://codeforces.com/problemset/problem/1616/C) | `Codeforces` | `1500` | `representativeEdges.js` | Key algorithmic application from Day 2026-11-15. |
+| [BerOS File Suggestion](https://codeforces.com/problemset/problem/1070/H) | `Codeforces` | `1500` | `berOSFileSuggestion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dasha and Password](https://codeforces.com/problemset/problem/761/C) | `Codeforces` | `1500` | `dashaAndPassword.js` | Key algorithmic application from Day 2026-11-15. |
+| [Marvolo Gaunt's Ring](https://codeforces.com/problemset/problem/855/B) | `Codeforces` | `1500` | `marvoloGauntSRing.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dima and Text Messages](https://codeforces.com/problemset/problem/358/B) | `Codeforces` | `1500` | `dimaAndTextMessages.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

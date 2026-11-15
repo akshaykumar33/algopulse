@@ -2287,5 +2287,18 @@
       "math"
     ],
     "timestamp": "2026-11-14T03:59:15.234Z"
+  },
+  {
+    "id": "18A",
+    "problem": "Triangle",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The provided code implements a dynamic programming solution for finding the minimum path sum in a triangle, which is a common problem but completely unrelated to the given Codeforces problem 18A, 'Triangle'. The Codeforces problem asks to determine if three given points can form a right-angled triangle, and if not, whether a right-angled triangle can be formed by moving exactly one of the points by one unit in any cardinal direction. The current code's logic is entirely incorrect for the problem statement.",
+    "rule": "Always carefully read and understand the problem statement, especially the input format and the exact question being asked. Do not assume a problem based on a keyword in its title if it's not a standard, immediately recognizable problem. The solution must directly address the specific requirements of the problem.",
+    "tags": [
+      "brute force",
+      "geometry"
+    ],
+    "timestamp": "2026-11-15T06:27:33.502Z"
   }
 ]

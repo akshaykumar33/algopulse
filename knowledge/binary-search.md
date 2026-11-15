@@ -191,6 +191,10 @@ function lowerBound(arr, target) {
 | [Motarack's Birthday](https://codeforces.com/problemset/problem/1301/B) | `Codeforces` | `1500` | `motarackSBirthday.js` | Key algorithmic application from Day 2026-11-15. |
 | [Interesting Function](https://codeforces.com/problemset/problem/1538/F) | `Codeforces` | `1500` | `interestingFunction.js` | Key algorithmic application from Day 2026-11-15. |
 | [Frodo and pillows](https://codeforces.com/problemset/problem/760/B) | `Codeforces` | `1500` | `frodoAndPillows.js` | Key algorithmic application from Day 2026-11-15. |
+| [Discrete Acceleration](https://codeforces.com/problemset/problem/1408/C) | `Codeforces` | `1500` | `discreteAcceleration.js` | Key algorithmic application from Day 2026-11-15. |
+| [Little Elephant and Interval](https://codeforces.com/problemset/problem/204/A) | `Codeforces` | `1500` | `littleElephantAndInterval.js` | Key algorithmic application from Day 2026-11-15. |
+| [Little Elephant and Cards](https://codeforces.com/problemset/problem/204/B) | `Codeforces` | `1500` | `littleElephantAndCards.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 
