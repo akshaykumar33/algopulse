@@ -314,6 +314,12 @@ function constructMatrix(n, m) {
 | [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
 | [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
 | [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [And Matching](https://codeforces.com/problemset/problem/1630/A) | `Codeforces` | `1500` | `andMatching.js` | Key algorithmic application from Day 2026-11-15. |
+| [Omkar and Baseball](https://codeforces.com/problemset/problem/1372/C) | `Codeforces` | `1500` | `omkarAndBaseball.js` | Key algorithmic application from Day 2026-11-15. |
+| [Green and Black Tea](https://codeforces.com/problemset/problem/746/D) | `Codeforces` | `1500` | `greenAndBlackTea.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sorting Railway Cars](https://codeforces.com/problemset/problem/605/A) | `Codeforces` | `1600` | `sortingRailwayCars.js` | Key algorithmic application from Day 2026-11-15. |
+| [Nene's Magical Matrix](https://codeforces.com/problemset/problem/1956/C) | `Codeforces` | `1600` | `neneSMagicalMatrix.js` | Key algorithmic application from Day 2026-11-15. |
+| [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

@@ -293,6 +293,14 @@ function backtrack(index, currentSum, target, arr) {
 | [Curriculum Vitae](https://codeforces.com/problemset/problem/846/A) | `Codeforces` | `1500` | `curriculumVitae.js` | Key algorithmic application from Day 2026-11-14. |
 | [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
 | [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
+| [Potions (Easy Version)](https://codeforces.com/problemset/problem/1526/C1) | `Codeforces` | `1500` | `potionsEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Fault-tolerant Network](https://codeforces.com/problemset/problem/1651/C) | `Codeforces` | `1500` | `faultTolerantNetwork.js` | Key algorithmic application from Day 2026-11-15. |
+| [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Coach](https://codeforces.com/problemset/problem/300/B) | `Codeforces` | `1500` | `coach.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Product Strikes Back](https://codeforces.com/problemset/problem/1660/D) | `Codeforces` | `1600` | `maximumProductStrikesBack.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
+| [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

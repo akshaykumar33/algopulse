@@ -198,6 +198,8 @@ function sieve(maxN) {
 | [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
 | [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
 | [Restore Sequence](https://www.codechef.com/problems/RESTORE) | `CodeChef` | `1513` | `restoreSequence.js` | Constructive sequence recovery mapping maximal divisibility indices via distinct precomputed primes. |
+| [Interesting Function](https://codeforces.com/problemset/problem/1538/F) | `Codeforces` | `1500` | `interestingFunction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dora and C++](https://codeforces.com/problemset/problem/2007/C) | `Codeforces` | `1500` | `doraAndCPlusPlus.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

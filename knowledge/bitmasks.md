@@ -157,6 +157,7 @@ function missingNumber(nums) {
 | [The Child and Set](https://codeforces.com/problemset/problem/437/B) | `Codeforces` | `1500` | `theChildAndSet.js` | Key algorithmic application from Day 2026-11-13. |
 | [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 | [Qualification Rounds](https://codeforces.com/problemset/problem/868/C) | `Codeforces` | `1500` | `qualificationRounds.js` | Key algorithmic application from Day 2026-11-14. |
+| [And Matching](https://codeforces.com/problemset/problem/1630/A) | `Codeforces` | `1500` | `andMatching.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
