@@ -200,6 +200,10 @@ class MinHeap {
 | [The Morning Star](https://codeforces.com/problemset/problem/1850/G) | `Codeforces` | `1500` | `theMorningStar.js` | Key algorithmic application from Day 2026-11-14. |
 | [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 | [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Potions (Easy Version)](https://codeforces.com/problemset/problem/1526/C1) | `Codeforces` | `1500` | `potionsEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Fault-tolerant Network](https://codeforces.com/problemset/problem/1651/C) | `Codeforces` | `1500` | `faultTolerantNetwork.js` | Key algorithmic application from Day 2026-11-15. |
+| [Valeriy and Deque](https://codeforces.com/problemset/problem/1179/A) | `Codeforces` | `1500` | `valeriyAndDeque.js` | Key algorithmic application from Day 2026-11-15. |
+| [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

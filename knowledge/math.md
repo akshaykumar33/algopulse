@@ -476,6 +476,18 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Diagonal Walking v.2](https://codeforces.com/problemset/problem/1036/B) | `Codeforces` | `1600` | `diagonalWalkingV2.js` | Key algorithmic application from Day 2026-11-14. |
 | [Fifa and Fafa](https://codeforces.com/problemset/problem/935/C) | `Codeforces` | `1600` | `fifaAndFafa.js` | Key algorithmic application from Day 2026-11-14. |
 | [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
+| [Zero Array](https://codeforces.com/problemset/problem/1201/B) | `Codeforces` | `1500` | `zeroArray.js` | Key algorithmic application from Day 2026-11-15. |
+| [Interesting Function](https://codeforces.com/problemset/problem/1538/F) | `Codeforces` | `1500` | `interestingFunction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dora and C++](https://codeforces.com/problemset/problem/2007/C) | `Codeforces` | `1500` | `doraAndCPlusPlus.js` | Key algorithmic application from Day 2026-11-15. |
+| [Do you want a date?](https://codeforces.com/problemset/problem/809/A) | `Codeforces` | `1500` | `doYouWantADate.js` | Key algorithmic application from Day 2026-11-15. |
+| [Load Balancing](https://codeforces.com/problemset/problem/609/C) | `Codeforces` | `1500` | `loadBalancing.js` | Key algorithmic application from Day 2026-11-15. |
+| [Even Number Addicts](https://codeforces.com/problemset/problem/1738/C) | `Codeforces` | `1500` | `evenNumberAddicts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Omkar and Baseball](https://codeforces.com/problemset/problem/1372/C) | `Codeforces` | `1500` | `omkarAndBaseball.js` | Key algorithmic application from Day 2026-11-15. |
+| [Green and Black Tea](https://codeforces.com/problemset/problem/746/D) | `Codeforces` | `1500` | `greenAndBlackTea.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Product Strikes Back](https://codeforces.com/problemset/problem/1660/D) | `Codeforces` | `1600` | `maximumProductStrikesBack.js` | Key algorithmic application from Day 2026-11-15. |
+| [Nene's Magical Matrix](https://codeforces.com/problemset/problem/1956/C) | `Codeforces` | `1600` | `neneSMagicalMatrix.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

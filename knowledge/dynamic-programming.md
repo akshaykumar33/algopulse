@@ -207,6 +207,11 @@ dp.fill(-1); // Memoization sentinel
 | [Elimination](https://codeforces.com/problemset/problem/417/A) | `Codeforces` | `1500` | `elimination.js` | Key algorithmic application from Day 2026-11-14. |
 | [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
 | [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
+| [Interesting Function](https://codeforces.com/problemset/problem/1538/F) | `Codeforces` | `1500` | `interestingFunction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Potions (Easy Version)](https://codeforces.com/problemset/problem/1526/C1) | `Codeforces` | `1500` | `potionsEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Even Number Addicts](https://codeforces.com/problemset/problem/1738/C) | `Codeforces` | `1500` | `evenNumberAddicts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

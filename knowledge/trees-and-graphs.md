@@ -191,6 +191,7 @@ function dfsIterative(start, adj, n) {
 | [Kuro and Walking Route](https://codeforces.com/problemset/problem/979/C) | `Codeforces` | `1600` | `kuroAndWalkingRoute.js` | Key algorithmic application from Day 2026-11-14. |
 | [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
 | [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Coach](https://codeforces.com/problemset/problem/300/B) | `Codeforces` | `1500` | `coach.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

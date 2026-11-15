@@ -188,6 +188,9 @@ function lowerBound(arr, target) {
 | [Convenient For Everybody](https://codeforces.com/problemset/problem/939/C) | `Codeforces` | `1600` | `convenientForEverybody.js` | Key algorithmic application from Day 2026-11-14. |
 | [Equalize the Array](https://codeforces.com/problemset/problem/1490/F) | `Codeforces` | `1500` | `equalizeTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 | [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
+| [Motarack's Birthday](https://codeforces.com/problemset/problem/1301/B) | `Codeforces` | `1500` | `motarackSBirthday.js` | Key algorithmic application from Day 2026-11-15. |
+| [Interesting Function](https://codeforces.com/problemset/problem/1538/F) | `Codeforces` | `1500` | `interestingFunction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Frodo and pillows](https://codeforces.com/problemset/problem/760/B) | `Codeforces` | `1500` | `frodoAndPillows.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

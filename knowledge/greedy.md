@@ -528,6 +528,20 @@ for (const x of arr) {
 | [Multiples of Length](https://codeforces.com/problemset/problem/1396/A) | `Codeforces` | `1600` | `multiplesOfLength.js` | Key algorithmic application from Day 2026-11-14. |
 | [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
 | [Color Stripe](https://codeforces.com/problemset/problem/219/C) | `Codeforces` | `1600` | `colorStripe.js` | Key algorithmic application from Day 2026-11-14. |
+| [Zero Array](https://codeforces.com/problemset/problem/1201/B) | `Codeforces` | `1500` | `zeroArray.js` | Key algorithmic application from Day 2026-11-15. |
+| [Nick and Array](https://codeforces.com/problemset/problem/1180/B) | `Codeforces` | `1500` | `nickAndArray.js` | Key algorithmic application from Day 2026-11-15. |
+| [Motarack's Birthday](https://codeforces.com/problemset/problem/1301/B) | `Codeforces` | `1500` | `motarackSBirthday.js` | Key algorithmic application from Day 2026-11-15. |
+| [Planning](https://codeforces.com/problemset/problem/853/A) | `Codeforces` | `1500` | `planning.js` | Key algorithmic application from Day 2026-11-15. |
+| [Potions (Easy Version)](https://codeforces.com/problemset/problem/1526/C1) | `Codeforces` | `1500` | `potionsEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Frodo and pillows](https://codeforces.com/problemset/problem/760/B) | `Codeforces` | `1500` | `frodoAndPillows.js` | Key algorithmic application from Day 2026-11-15. |
+| [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Even Number Addicts](https://codeforces.com/problemset/problem/1738/C) | `Codeforces` | `1500` | `evenNumberAddicts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Green and Black Tea](https://codeforces.com/problemset/problem/746/D) | `Codeforces` | `1500` | `greenAndBlackTea.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sorting Railway Cars](https://codeforces.com/problemset/problem/605/A) | `Codeforces` | `1600` | `sortingRailwayCars.js` | Key algorithmic application from Day 2026-11-15. |
+| [Nene's Magical Matrix](https://codeforces.com/problemset/problem/1956/C) | `Codeforces` | `1600` | `neneSMagicalMatrix.js` | Key algorithmic application from Day 2026-11-15. |
+| [Vasya and Arrays](https://codeforces.com/problemset/problem/1036/D) | `Codeforces` | `1600` | `vasyaAndArrays.js` | Key algorithmic application from Day 2026-11-15. |
+| [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
+| [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

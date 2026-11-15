@@ -150,6 +150,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Ordered Permutations](https://codeforces.com/problemset/problem/2040/C) | `Codeforces` | `1600` | `orderedPermutations.js` | Key algorithmic application from Day 2026-11-13. |
 | [Convenient For Everybody](https://codeforces.com/problemset/problem/939/C) | `Codeforces` | `1600` | `convenientForEverybody.js` | Key algorithmic application from Day 2026-11-14. |
 | [Lonely Numbers](https://codeforces.com/problemset/problem/1423/K) | `Codeforces` | `1600` | `lonelyNumbers.js` | Key algorithmic application from Day 2026-11-14. |
+| [Maximum Product Strikes Back](https://codeforces.com/problemset/problem/1660/D) | `Codeforces` | `1600` | `maximumProductStrikesBack.js` | Key algorithmic application from Day 2026-11-15. |
+| [Vasya and Arrays](https://codeforces.com/problemset/problem/1036/D) | `Codeforces` | `1600` | `vasyaAndArrays.js` | Key algorithmic application from Day 2026-11-15. |
+| [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 
