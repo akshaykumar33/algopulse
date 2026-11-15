@@ -1,0 +1,14 @@
+[
+  {
+    "input": "8 3\nNO NO YES YES YES NO\n",
+    "output": "Aa Ab Aa Ab Ae Af Ag Af"
+  },
+  {
+    "input": "9 8\nYES NO\n",
+    "output": "Aa Ab Ac Ad Ae Af Ag Ah Ab"
+  },
+  {
+    "input": "3 2\nNO NO\n",
+    "output": "Aa Aa Aa"
+  }
+]
