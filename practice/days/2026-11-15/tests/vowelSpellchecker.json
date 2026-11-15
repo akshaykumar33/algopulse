@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"KiTe\",\"kite\",\"hare\",\"Hare\"]\n[\"kite\",\"Kite\",\"KiTe\",\"Hare\",\"HARE\",\"Hear\",\"hear\",\"keti\",\"keet\",\"keto\"]\n",
+    "output": "[\"kite\",\"KiTe\",\"KiTe\",\"Hare\",\"hare\",\"\",\"\",\"KiTe\",\"\",\"KiTe\"]"
+  },
+  {
+    "input": "[\"yellow\"]\n[\"YellOw\"]\n",
+    "output": "[\"yellow\"]"
+  }
+]
