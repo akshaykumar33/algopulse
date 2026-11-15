@@ -1,0 +1,22 @@
+[
+  {
+    "input": "3 4\nAAAA\nABCA\nAAAA\n",
+    "output": "Yes"
+  },
+  {
+    "input": "3 4\nAAAA\nABCA\nAADA\n",
+    "output": "No"
+  },
+  {
+    "input": "4 4\nYYYR\nBYBY\nBBBY\nBBBY\n",
+    "output": "Yes"
+  },
+  {
+    "input": "7 6\nAAAAAB\nABBBAB\nABAAAB\nABABBB\nABAAAB\nABBBAB\nAAAAAB\n",
+    "output": "Yes"
+  },
+  {
+    "input": "2 13\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\n",
+    "output": "No"
+  }
+]
