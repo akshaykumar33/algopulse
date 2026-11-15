@@ -1,0 +1,10 @@
+[
+  {
+    "input": "bb??x???\naab\n",
+    "output": "2"
+  },
+  {
+    "input": "ab?c\nacb\n",
+    "output": "2"
+  }
+]

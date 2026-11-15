@@ -1,0 +1,14 @@
+[
+  {
+    "input": "4\na**d\n2\nabcd\nacbd\n",
+    "output": "2"
+  },
+  {
+    "input": "5\nlo*er\n2\nlover\nloser\n",
+    "output": "0"
+  },
+  {
+    "input": "3\na*a\n2\naaa\naba\n",
+    "output": "1"
+  }
+]
