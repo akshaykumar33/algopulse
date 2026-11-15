@@ -212,6 +212,16 @@ dp.fill(-1); // Memoization sentinel
 | [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
 | [Even Number Addicts](https://codeforces.com/problemset/problem/1738/C) | `Codeforces` | `1500` | `evenNumberAddicts.js` | Key algorithmic application from Day 2026-11-15. |
 | [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Discrete Acceleration](https://codeforces.com/problemset/problem/1408/C) | `Codeforces` | `1500` | `discreteAcceleration.js` | Key algorithmic application from Day 2026-11-15. |
+| [Little Elephant and Interval](https://codeforces.com/problemset/problem/204/A) | `Codeforces` | `1500` | `littleElephantAndInterval.js` | Key algorithmic application from Day 2026-11-15. |
+| [Ayoub and Lost Array](https://codeforces.com/problemset/problem/1105/C) | `Codeforces` | `1500` | `ayoubAndLostArray.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dasha and Password](https://codeforces.com/problemset/problem/761/C) | `Codeforces` | `1500` | `dashaAndPassword.js` | Key algorithmic application from Day 2026-11-15. |
+| [Marvolo Gaunt's Ring](https://codeforces.com/problemset/problem/855/B) | `Codeforces` | `1500` | `marvoloGauntSRing.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Arpa's weak amphitheater and Mehrdad's valuable Hoses](https://codeforces.com/problemset/problem/741/B) | `Codeforces` | `1600` | `arpaSWeakAmphitheaterAndMehrdadSValuableHoses.js` | Key algorithmic application from Day 2026-11-15. |
+| [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
+| [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

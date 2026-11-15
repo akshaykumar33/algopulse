@@ -105,10 +105,11 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
     ];
 
     for (const b of buttons) {
-      const text = (await b.textContent()).trim();
-      if (knownLanguages.includes(text)) {
+      const text = ((await b.innerText().catch(() => '')) || (await b.textContent().catch(() => ''))).trim();
+      const match = knownLanguages.find((l) => l.toLowerCase() === text.toLowerCase());
+      if (match) {
         langBtn = b;
-        currentLang = text;
+        currentLang = match;
         break;
       }
     }
@@ -118,15 +119,22 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       await langBtn.click();
       await page.waitForTimeout(600);
 
-      const switched = await page.evaluate((target) => {
-        const els = Array.from(document.querySelectorAll('.group.cursor-pointer, [data-state="open"] div'));
-        const el = els.find((e) => e.innerText && e.innerText.trim() === target);
-        if (el) {
-          el.click();
-          return true;
-        }
-        return false;
-      }, targetLang);
+      let switched = false;
+      const targetOption = await page.$(`text="${targetLang}"`);
+      if (targetOption) {
+        await targetOption.click();
+        switched = true;
+      } else {
+        switched = await page.evaluate((target) => {
+          const els = Array.from(document.querySelectorAll('div, li, button, [role="option"]'));
+          const el = els.find((e) => e.innerText && e.innerText.trim() === target);
+          if (el) {
+            el.click();
+            return true;
+          }
+          return false;
+        }, targetLang);
+      }
 
       if (switched) {
         await page.waitForTimeout(1000);
@@ -278,6 +286,15 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       verdict = checkRes.status_msg || 'Accepted';
       runtime = checkRes.status_runtime || checkRes.display_runtime || null;
       memory = checkRes.status_memory || null;
+      if (verdict !== 'Accepted') {
+        console.log('    [LeetCode] Judge error detail:', JSON.stringify({
+          status_msg: checkRes.status_msg,
+          runtime_error: checkRes.runtime_error,
+          full_runtime_error: checkRes.full_runtime_error,
+          compile_error: checkRes.compile_error,
+          last_testcase: checkRes.last_testcase
+        }, null, 2));
+      }
       break;
     }
   }

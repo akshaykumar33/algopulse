@@ -153,6 +153,7 @@ for (let right = 0; right < arr.length; right++) {
 | [Maximum Product Strikes Back](https://codeforces.com/problemset/problem/1660/D) | `Codeforces` | `1600` | `maximumProductStrikesBack.js` | Key algorithmic application from Day 2026-11-15. |
 | [Vasya and Arrays](https://codeforces.com/problemset/problem/1036/D) | `Codeforces` | `1600` | `vasyaAndArrays.js` | Key algorithmic application from Day 2026-11-15. |
 | [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
+| [Discrete Acceleration](https://codeforces.com/problemset/problem/1408/C) | `Codeforces` | `1500` | `discreteAcceleration.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

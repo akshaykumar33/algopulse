@@ -488,6 +488,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Nene's Magical Matrix](https://codeforces.com/problemset/problem/1956/C) | `Codeforces` | `1600` | `neneSMagicalMatrix.js` | Key algorithmic application from Day 2026-11-15. |
 | [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
 | [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
+| [Binary String Reconstruction](https://codeforces.com/problemset/problem/1352/F) | `Codeforces` | `1500` | `binaryStringReconstruction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Discrete Acceleration](https://codeforces.com/problemset/problem/1408/C) | `Codeforces` | `1500` | `discreteAcceleration.js` | Key algorithmic application from Day 2026-11-15. |
+| [Little Elephant and Interval](https://codeforces.com/problemset/problem/204/A) | `Codeforces` | `1500` | `littleElephantAndInterval.js` | Key algorithmic application from Day 2026-11-15. |
+| [Expected Median](https://codeforces.com/problemset/problem/1999/F) | `Codeforces` | `1500` | `expectedMedian.js` | Key algorithmic application from Day 2026-11-15. |
+| [Representative Edges](https://codeforces.com/problemset/problem/1616/C) | `Codeforces` | `1500` | `representativeEdges.js` | Key algorithmic application from Day 2026-11-15. |
+| [Ayoub and Lost Array](https://codeforces.com/problemset/problem/1105/C) | `Codeforces` | `1500` | `ayoubAndLostArray.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Orac and LCM](https://codeforces.com/problemset/problem/1349/A) | `Codeforces` | `1600` | `oracAndLCM.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

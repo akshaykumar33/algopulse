@@ -175,6 +175,9 @@ function isPalindrome(s) {
 | [Split a Number](https://codeforces.com/problemset/problem/1181/B) | `Codeforces` | `1500` | `splitANumber.js` | Key algorithmic application from Day 2026-11-14. |
 | [Codeforces Subsequences](https://codeforces.com/problemset/problem/1368/B) | `Codeforces` | `1500` | `codeforcesSubsequences.js` | Key algorithmic application from Day 2026-11-14. |
 | [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
+| [Field of Wonders](https://codeforces.com/problemset/problem/883/E) | `Codeforces` | `1500` | `fieldOfWonders.js` | Key algorithmic application from Day 2026-11-15. |
+| [Anagram Search](https://codeforces.com/problemset/problem/144/C) | `Codeforces` | `1500` | `anagramSearch.js` | Key algorithmic application from Day 2026-11-15. |
+| [Dima and Text Messages](https://codeforces.com/problemset/problem/358/B) | `Codeforces` | `1500` | `dimaAndTextMessages.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

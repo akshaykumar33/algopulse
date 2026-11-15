@@ -238,6 +238,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Constructing the Array](https://codeforces.com/problemset/problem/1353/D) | `Codeforces` | `1600` | `constructingTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 | [History](https://codeforces.com/problemset/problem/137/C) | `Codeforces` | `1500` | `history.js` | Key algorithmic application from Day 2026-11-15. |
 | [Do you want a date?](https://codeforces.com/problemset/problem/809/A) | `Codeforces` | `1500` | `doYouWantADate.js` | Key algorithmic application from Day 2026-11-15. |
+| [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -542,6 +542,12 @@ for (const x of arr) {
 | [Vasya and Arrays](https://codeforces.com/problemset/problem/1036/D) | `Codeforces` | `1600` | `vasyaAndArrays.js` | Key algorithmic application from Day 2026-11-15. |
 | [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
 | [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
+| [Pearls in a Row](https://codeforces.com/problemset/problem/620/C) | `Codeforces` | `1500` | `pearlsInARow.js` | Key algorithmic application from Day 2026-11-15. |
+| [Bear and Different Names](https://codeforces.com/problemset/problem/771/B) | `Codeforces` | `1500` | `bearAndDifferentNames.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
+| [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -320,6 +320,10 @@ function constructMatrix(n, m) {
 | [Sorting Railway Cars](https://codeforces.com/problemset/problem/605/A) | `Codeforces` | `1600` | `sortingRailwayCars.js` | Key algorithmic application from Day 2026-11-15. |
 | [Nene's Magical Matrix](https://codeforces.com/problemset/problem/1956/C) | `Codeforces` | `1600` | `neneSMagicalMatrix.js` | Key algorithmic application from Day 2026-11-15. |
 | [Insert a Progression](https://codeforces.com/problemset/problem/1671/D) | `Codeforces` | `1600` | `insertAProgression.js` | Key algorithmic application from Day 2026-11-15. |
+| [Binary String Reconstruction](https://codeforces.com/problemset/problem/1352/F) | `Codeforces` | `1500` | `binaryStringReconstruction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Bear and Different Names](https://codeforces.com/problemset/problem/771/B) | `Codeforces` | `1500` | `bearAndDifferentNames.js` | Key algorithmic application from Day 2026-11-15. |
+| [Code For 1](https://codeforces.com/problemset/problem/768/B) | `Codeforces` | `1600` | `codeFor1.js` | Key algorithmic application from Day 2026-11-15. |
+| [Marlin](https://codeforces.com/problemset/problem/980/B) | `Codeforces` | `1600` | `marlin.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

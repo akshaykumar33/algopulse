@@ -22,38 +22,46 @@ async function fetchCodeChefProblems({ usedIds, rootFiles, count = 10, startRati
   const exclude = new Set(usedIds);
   const rootSet = rootFiles instanceof Set ? rootFiles : new Set(rootFiles || []);
   const pool = [];
-  const maxPages = 10;
+  const maxPages = 15;
+  let currentStart = startRating;
+  let currentEnd = endRating;
 
-  for (let page = 0; page < maxPages; page++) {
-    const url = `https://www.codechef.com/api/list/problems?page=${page}&limit=50&sort_by=difficulty_rating&sort_order=asc&start_rating=${startRating}&end_rating=${endRating}`;
-    try {
-      const json = await fetchJson(url);
-      const items = json.data || [];
-      if (!items.length) break;
+  while (pool.length < count && currentEnd <= 2500) {
+    for (let page = 0; page < maxPages; page++) {
+      const url = `https://www.codechef.com/api/list/problems?page=${page}&limit=50&sort_by=difficulty_rating&sort_order=asc&start_rating=${currentStart}&end_rating=${currentEnd}`;
+      try {
+        const json = await fetchJson(url);
+        const items = json.data || [];
+        if (!items.length) break;
 
-      for (const p of items) {
-        const rating = parseInt(p.difficulty_rating, 10);
-        if (rating <= 0) continue;
-        const id = `CC-${p.code}`;
-        const file = toFileName(p.name);
-        if (exclude.has(id) || rootSet.has(file)) continue;
+        for (const p of items) {
+          const rating = parseInt(p.difficulty_rating, 10);
+          if (rating <= 0) continue;
+          const id = `CC-${p.code}`;
+          const file = toFileName(p.name);
+          if (exclude.has(id) || rootSet.has(file)) continue;
+          exclude.add(id);
 
-        pool.push({
-          platform: 'CodeChef',
-          id,
-          name: p.name,
-          rating,
-          tags: ['codechef'],
-          url: `https://www.codechef.com/problems/${p.code}`,
-          file,
-          template: 'templates/codechef.js',
-          submissions: parseInt(p.successful_submissions, 10) || 0,
-        });
+          pool.push({
+            platform: 'CodeChef',
+            id,
+            name: p.name,
+            rating,
+            tags: ['codechef'],
+            url: `https://www.codechef.com/problems/${p.code}`,
+            file,
+            template: 'templates/codechef.js',
+            submissions: parseInt(p.successful_submissions, 10) || 0,
+          });
+        }
+
+        if (pool.length >= poolSize) break;
+      } catch {
+        break;
       }
-
-      if (pool.length >= poolSize) break;
-    } catch {
-      break;
+    }
+    if (pool.length < count) {
+      currentEnd += 150;
     }
   }
 

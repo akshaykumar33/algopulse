@@ -192,6 +192,12 @@ function dfsIterative(start, adj, n) {
 | [Parsa's Humongous Tree](https://codeforces.com/problemset/problem/1528/A) | `Codeforces` | `1600` | `parsaSHumongousTree.js` | Key algorithmic application from Day 2026-11-14. |
 | [Queries for the Array](https://codeforces.com/problemset/problem/1861/C) | `Codeforces` | `1600` | `queriesForTheArray.js` | Key algorithmic application from Day 2026-11-14. |
 | [Coach](https://codeforces.com/problemset/problem/300/B) | `Codeforces` | `1500` | `coach.js` | Key algorithmic application from Day 2026-11-15. |
+| [Binary String Reconstruction](https://codeforces.com/problemset/problem/1352/F) | `Codeforces` | `1500` | `binaryStringReconstruction.js` | Key algorithmic application from Day 2026-11-15. |
+| [Fire Again](https://codeforces.com/problemset/problem/35/C) | `Codeforces` | `1500` | `fireAgain.js` | Key algorithmic application from Day 2026-11-15. |
+| [Fox And Two Dots](https://codeforces.com/problemset/problem/510/B) | `Codeforces` | `1500` | `foxAndTwoDots.js` | Key algorithmic application from Day 2026-11-15. |
+| [Peculiar apple-tree](https://codeforces.com/problemset/problem/930/A) | `Codeforces` | `1500` | `peculiarAppleTree.js` | Key algorithmic application from Day 2026-11-15. |
+| [Arpa's weak amphitheater and Mehrdad's valuable Hoses](https://codeforces.com/problemset/problem/741/B) | `Codeforces` | `1600` | `arpaSWeakAmphitheaterAndMehrdadSValuableHoses.js` | Key algorithmic application from Day 2026-11-15. |
+| [Code For 1](https://codeforces.com/problemset/problem/768/B) | `Codeforces` | `1600` | `codeFor1.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 

@@ -204,6 +204,10 @@ class MinHeap {
 | [Fault-tolerant Network](https://codeforces.com/problemset/problem/1651/C) | `Codeforces` | `1500` | `faultTolerantNetwork.js` | Key algorithmic application from Day 2026-11-15. |
 | [Valeriy and Deque](https://codeforces.com/problemset/problem/1179/A) | `Codeforces` | `1500` | `valeriyAndDeque.js` | Key algorithmic application from Day 2026-11-15. |
 | [Skyscrapers (easy version)](https://codeforces.com/problemset/problem/1313/C1) | `Codeforces` | `1500` | `skyscrapersEasyVersion.js` | Key algorithmic application from Day 2026-11-15. |
+| [Little Elephant and Cards](https://codeforces.com/problemset/problem/204/B) | `Codeforces` | `1500` | `littleElephantAndCards.js` | Key algorithmic application from Day 2026-11-15. |
+| [Marvolo Gaunt's Ring](https://codeforces.com/problemset/problem/855/B) | `Codeforces` | `1500` | `marvoloGauntSRing.js` | Key algorithmic application from Day 2026-11-15. |
+| [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Orac and LCM](https://codeforces.com/problemset/problem/1349/A) | `Codeforces` | `1600` | `oracAndLCM.js` | Key algorithmic application from Day 2026-11-15. |
 
 ---
 
