@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\ntest\ncontests\ntest.\n.test\n6\nts\n.\nst.\n.test\ncontes.\nst\n",
+    "output": "1 contests\n2 test.\n1 test.\n1 .test\n0 -\n4 test"
+  }
+]
