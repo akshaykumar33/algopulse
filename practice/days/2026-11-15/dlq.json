@@ -1,0 +1,27 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "18A",
+    "name": "Triangle",
+    "file": "triangle",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-15T06:28:52.864Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "18A",
+      "name": "Triangle",
+      "rating": 1500,
+      "tags": [
+        "brute force",
+        "geometry"
+      ],
+      "url": "https://codeforces.com/problemset/problem/18/A",
+      "file": "triangle",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+  }
+]
