@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"b\"\n",
+    "output": "2"
+  },
+  {
+    "input": "\"aaa\"\n",
+    "output": "6"
+  },
+  {
+    "input": "\"abc\"\n",
+    "output": "0"
+  }
+]
