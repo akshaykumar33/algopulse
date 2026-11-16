@@ -1,0 +1,12 @@
+[
+  {
+    "input": "12",
+    "output": "aaaaabbcc",
+    "expected": "aaaaabbcc"
+  },
+  {
+    "input": "0",
+    "output": "a",
+    "expected": "a"
+  }
+]

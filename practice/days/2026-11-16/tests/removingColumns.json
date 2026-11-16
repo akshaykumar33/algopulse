@@ -1,0 +1,17 @@
+[
+  {
+    "input": "1 10\ncodeforces",
+    "output": "0",
+    "expected": "0"
+  },
+  {
+    "input": "4 4\ncase\ncare\ntest\ncode",
+    "output": "2",
+    "expected": "2"
+  },
+  {
+    "input": "5 4\ncode\nforc\nesco\ndefo\nrces",
+    "output": "4",
+    "expected": "4"
+  }
+]

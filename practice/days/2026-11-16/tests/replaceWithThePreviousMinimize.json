@@ -1,0 +1,7 @@
+[
+  {
+    "input": "5\n3 2\ncba\n4 5\nabcz\n4 1\ncdef\n1 4\nm\n5 19\nacica",
+    "output": "aaa\naaaw\nbdef\ni\naaaaa",
+    "expected": "aaa\naaaw\nbdef\ni\naaaaa"
+  }
+]
