@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\nTTSTTTS\n1\nT\n2\n",
+    "expected": "0\n132\n",
+    "output": "0\n132\n"
+  }
+]

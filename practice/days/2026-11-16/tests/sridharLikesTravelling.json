@@ -1,0 +1,7 @@
+[
+  {
+    "input": "1\n3\ndelhi bengaluru 10$\nbengaluru hyderabad 55$\n",
+    "output": "delhi bengaluru 10$\nbengaluru hyderabad 55$\n65$",
+    "expected": "delhi bengaluru 10$\nbengaluru hyderabad 55$\n65$"
+  }
+]
