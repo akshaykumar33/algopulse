@@ -220,12 +220,12 @@ async function submitCodeChef(page, problem, code, { timeout = 85000 } = {}) {
 
       // If still evaluating, wait
       if (/(Running|Evaluating|Compiling|Testing|Waiting|Queued|In Queue)/i.test(fullText) &&
-          !/(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i.test(fullText)) {
+          !/(Correct Answer|Wrong Answer|Time Limit Exceeded|Run ?Time Error|Compilation Error|Partially Accepted)/i.test(fullText)) {
         return null;
       }
 
       const match = fullText.match(
-        /(Correct Answer|Wrong Answer|Time Limit Exceeded|Runtime Error|Compilation Error|Partially Accepted)/i
+        /(Correct Answer|Wrong Answer|Time Limit Exceeded|Run ?Time Error|Compilation Error|Partially Accepted)/i
       );
 
       if (match) {
