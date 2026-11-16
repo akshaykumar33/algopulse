@@ -222,6 +222,9 @@ dp.fill(-1); // Memoization sentinel
 | [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
 | [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
+| [Cinema Cashier](https://codeforces.com/problemset/problem/10/B) | `Codeforces` | `1500` | `cinemaCashier.js` | Key algorithmic application from Day 2026-11-16. |
+| [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
+| [Almost Identity Permutations](https://codeforces.com/problemset/problem/888/D) | `Codeforces` | `1600` | `almostIdentityPermutations.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 

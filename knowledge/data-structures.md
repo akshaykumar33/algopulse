@@ -208,6 +208,10 @@ class MinHeap {
 | [Marvolo Gaunt's Ring](https://codeforces.com/problemset/problem/855/B) | `Codeforces` | `1500` | `marvoloGauntSRing.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
 | [Orac and LCM](https://codeforces.com/problemset/problem/1349/A) | `Codeforces` | `1600` | `oracAndLCM.js` | Key algorithmic application from Day 2026-11-15. |
+| [Knight Tournament](https://codeforces.com/problemset/problem/356/A) | `Codeforces` | `1500` | `knightTournament.js` | Key algorithmic application from Day 2026-11-16. |
+| [Integers Shop](https://codeforces.com/problemset/problem/1621/B) | `Codeforces` | `1500` | `integersShop.js` | Key algorithmic application from Day 2026-11-16. |
+| [In Love](https://codeforces.com/problemset/problem/1883/D) | `Codeforces` | `1500` | `inLove.js` | Key algorithmic application from Day 2026-11-16. |
+| [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 

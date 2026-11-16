@@ -195,6 +195,10 @@ function lowerBound(arr, target) {
 | [Little Elephant and Interval](https://codeforces.com/problemset/problem/204/A) | `Codeforces` | `1500` | `littleElephantAndInterval.js` | Key algorithmic application from Day 2026-11-15. |
 | [Little Elephant and Cards](https://codeforces.com/problemset/problem/204/B) | `Codeforces` | `1500` | `littleElephantAndCards.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
+| [Magic Powder - 2](https://codeforces.com/problemset/problem/670/D2) | `Codeforces` | `1500` | `magicPowder2.js` | Key algorithmic application from Day 2026-11-16. |
+| [Cellular Network](https://codeforces.com/problemset/problem/702/C) | `Codeforces` | `1500` | `cellularNetwork.js` | Key algorithmic application from Day 2026-11-16. |
+| [Good Numbers (hard version)](https://codeforces.com/problemset/problem/1249/C2) | `Codeforces` | `1500` | `goodNumbersHardVersion.js` | Key algorithmic application from Day 2026-11-16. |
+| [Three-level Laser](https://codeforces.com/problemset/problem/924/B) | `Codeforces` | `1600` | `threeLevelLaser.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 

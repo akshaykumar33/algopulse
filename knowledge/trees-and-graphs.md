@@ -198,6 +198,9 @@ function dfsIterative(start, adj, n) {
 | [Peculiar apple-tree](https://codeforces.com/problemset/problem/930/A) | `Codeforces` | `1500` | `peculiarAppleTree.js` | Key algorithmic application from Day 2026-11-15. |
 | [Arpa's weak amphitheater and Mehrdad's valuable Hoses](https://codeforces.com/problemset/problem/741/B) | `Codeforces` | `1600` | `arpaSWeakAmphitheaterAndMehrdadSValuableHoses.js` | Key algorithmic application from Day 2026-11-15. |
 | [Code For 1](https://codeforces.com/problemset/problem/768/B) | `Codeforces` | `1600` | `codeFor1.js` | Key algorithmic application from Day 2026-11-15. |
+| [Valera and Tubes ](https://codeforces.com/problemset/problem/441/C) | `Codeforces` | `1500` | `valeraAndTubes.js` | Key algorithmic application from Day 2026-11-16. |
+| [Weights Assignment For Tree Edges](https://codeforces.com/problemset/problem/1611/D) | `Codeforces` | `1500` | `weightsAssignmentForTreeEdges.js` | Key algorithmic application from Day 2026-11-16. |
+| [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 
