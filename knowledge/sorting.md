@@ -240,6 +240,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Do you want a date?](https://codeforces.com/problemset/problem/809/A) | `Codeforces` | `1500` | `doYouWantADate.js` | Key algorithmic application from Day 2026-11-15. |
 | [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
+| [Interesting Story](https://codeforces.com/problemset/problem/1551/C) | `Codeforces` | `1500` | `interestingStory.js` | Key algorithmic application from Day 2026-11-16. |
+| [Boxers](https://codeforces.com/problemset/problem/1203/E) | `Codeforces` | `1500` | `boxers.js` | Key algorithmic application from Day 2026-11-16. |
+| [Multitasking](https://codeforces.com/problemset/problem/384/B) | `Codeforces` | `1500` | `multitasking.js` | Key algorithmic application from Day 2026-11-16. |
+| [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
+| [Day at the Beach](https://codeforces.com/problemset/problem/599/C) | `Codeforces` | `1600` | `dayAtTheBeach.js` | Key algorithmic application from Day 2026-11-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

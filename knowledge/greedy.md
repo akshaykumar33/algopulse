@@ -548,6 +548,20 @@ for (const x of arr) {
 | [Restaurant](https://codeforces.com/problemset/problem/597/B) | `Codeforces` | `1600` | `restaurant.js` | Key algorithmic application from Day 2026-11-15. |
 | [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sequence and Swaps](https://codeforces.com/problemset/problem/1455/D) | `Codeforces` | `1600` | `sequenceAndSwaps.js` | Key algorithmic application from Day 2026-11-15. |
+| [Powered Addition](https://codeforces.com/problemset/problem/1338/A) | `Codeforces` | `1500` | `poweredAddition.js` | Key algorithmic application from Day 2026-11-16. |
+| [Inna and Nine](https://codeforces.com/problemset/problem/374/B) | `Codeforces` | `1500` | `innaAndNine.js` | Key algorithmic application from Day 2026-11-16. |
+| [Interesting Story](https://codeforces.com/problemset/problem/1551/C) | `Codeforces` | `1500` | `interestingStory.js` | Key algorithmic application from Day 2026-11-16. |
+| [Replace With the Previous, Minimize](https://codeforces.com/problemset/problem/1675/E) | `Codeforces` | `1500` | `replaceWithThePreviousMinimize.js` | Key algorithmic application from Day 2026-11-16. |
+| [Boxers](https://codeforces.com/problemset/problem/1203/E) | `Codeforces` | `1500` | `boxers.js` | Key algorithmic application from Day 2026-11-16. |
+| [Newspaper Headline](https://codeforces.com/problemset/problem/91/A) | `Codeforces` | `1500` | `newspaperHeadline.js` | Key algorithmic application from Day 2026-11-16. |
+| [Integers Shop](https://codeforces.com/problemset/problem/1621/B) | `Codeforces` | `1500` | `integersShop.js` | Key algorithmic application from Day 2026-11-16. |
+| [Good Numbers (hard version)](https://codeforces.com/problemset/problem/1249/C2) | `Codeforces` | `1500` | `goodNumbersHardVersion.js` | Key algorithmic application from Day 2026-11-16. |
+| [Multitasking](https://codeforces.com/problemset/problem/384/B) | `Codeforces` | `1500` | `multitasking.js` | Key algorithmic application from Day 2026-11-16. |
+| [Sum on Subarrays](https://codeforces.com/problemset/problem/1809/C) | `Codeforces` | `1500` | `sumOnSubarrays.js` | Key algorithmic application from Day 2026-11-16. |
+| [In Love](https://codeforces.com/problemset/problem/1883/D) | `Codeforces` | `1500` | `inLove.js` | Key algorithmic application from Day 2026-11-16. |
+| [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
+| [Three-level Laser](https://codeforces.com/problemset/problem/924/B) | `Codeforces` | `1600` | `threeLevelLaser.js` | Key algorithmic application from Day 2026-11-16. |
+| [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

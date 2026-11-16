@@ -154,6 +154,9 @@ for (let right = 0; right < arr.length; right++) {
 | [Vasya and Arrays](https://codeforces.com/problemset/problem/1036/D) | `Codeforces` | `1600` | `vasyaAndArrays.js` | Key algorithmic application from Day 2026-11-15. |
 | [Maximum Sum of Products](https://codeforces.com/problemset/problem/1519/D) | `Codeforces` | `1600` | `maximumSumOfProducts.js` | Key algorithmic application from Day 2026-11-15. |
 | [Discrete Acceleration](https://codeforces.com/problemset/problem/1408/C) | `Codeforces` | `1500` | `discreteAcceleration.js` | Key algorithmic application from Day 2026-11-15. |
+| [Cellular Network](https://codeforces.com/problemset/problem/702/C) | `Codeforces` | `1500` | `cellularNetwork.js` | Key algorithmic application from Day 2026-11-16. |
+| [Multitasking](https://codeforces.com/problemset/problem/384/B) | `Codeforces` | `1500` | `multitasking.js` | Key algorithmic application from Day 2026-11-16. |
+| [Three-level Laser](https://codeforces.com/problemset/problem/924/B) | `Codeforces` | `1600` | `threeLevelLaser.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 

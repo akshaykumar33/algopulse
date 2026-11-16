@@ -309,6 +309,8 @@ function backtrack(index, currentSum, target, arr) {
 | [Dima and Text Messages](https://codeforces.com/problemset/problem/358/B) | `Codeforces` | `1500` | `dimaAndTextMessages.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
 | [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
+| [Removing Columns](https://codeforces.com/problemset/problem/496/C) | `Codeforces` | `1500` | `removingColumns.js` | Key algorithmic application from Day 2026-11-16. |
+| [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

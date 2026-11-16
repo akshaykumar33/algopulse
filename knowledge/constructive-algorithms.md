@@ -324,6 +324,13 @@ function constructMatrix(n, m) {
 | [Bear and Different Names](https://codeforces.com/problemset/problem/771/B) | `Codeforces` | `1500` | `bearAndDifferentNames.js` | Key algorithmic application from Day 2026-11-15. |
 | [Code For 1](https://codeforces.com/problemset/problem/768/B) | `Codeforces` | `1600` | `codeFor1.js` | Key algorithmic application from Day 2026-11-15. |
 | [Marlin](https://codeforces.com/problemset/problem/980/B) | `Codeforces` | `1600` | `marlin.js` | Key algorithmic application from Day 2026-11-15. |
+| [Restoring the Permutation](https://codeforces.com/problemset/problem/1506/E) | `Codeforces` | `1500` | `restoringThePermutation.js` | Key algorithmic application from Day 2026-11-16. |
+| [Valera and Tubes ](https://codeforces.com/problemset/problem/441/C) | `Codeforces` | `1500` | `valeraAndTubes.js` | Key algorithmic application from Day 2026-11-16. |
+| [Removing Columns](https://codeforces.com/problemset/problem/496/C) | `Codeforces` | `1500` | `removingColumns.js` | Key algorithmic application from Day 2026-11-16. |
+| [Sum on Subarrays](https://codeforces.com/problemset/problem/1809/C) | `Codeforces` | `1500` | `sumOnSubarrays.js` | Key algorithmic application from Day 2026-11-16. |
+| [Weights Assignment For Tree Edges](https://codeforces.com/problemset/problem/1611/D) | `Codeforces` | `1500` | `weightsAssignmentForTreeEdges.js` | Key algorithmic application from Day 2026-11-16. |
+| [From Y to Y](https://codeforces.com/problemset/problem/848/A) | `Codeforces` | `1600` | `fromYToY.js` | Key algorithmic application from Day 2026-11-16. |
+| [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
 
 ---
 

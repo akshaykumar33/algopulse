@@ -178,6 +178,10 @@ function isPalindrome(s) {
 | [Field of Wonders](https://codeforces.com/problemset/problem/883/E) | `Codeforces` | `1500` | `fieldOfWonders.js` | Key algorithmic application from Day 2026-11-15. |
 | [Anagram Search](https://codeforces.com/problemset/problem/144/C) | `Codeforces` | `1500` | `anagramSearch.js` | Key algorithmic application from Day 2026-11-15. |
 | [Dima and Text Messages](https://codeforces.com/problemset/problem/358/B) | `Codeforces` | `1500` | `dimaAndTextMessages.js` | Key algorithmic application from Day 2026-11-15. |
+| [Interesting Story](https://codeforces.com/problemset/problem/1551/C) | `Codeforces` | `1500` | `interestingStory.js` | Key algorithmic application from Day 2026-11-16. |
+| [Replace With the Previous, Minimize](https://codeforces.com/problemset/problem/1675/E) | `Codeforces` | `1500` | `replaceWithThePreviousMinimize.js` | Key algorithmic application from Day 2026-11-16. |
+| [Newspaper Headline](https://codeforces.com/problemset/problem/91/A) | `Codeforces` | `1500` | `newspaperHeadline.js` | Key algorithmic application from Day 2026-11-16. |
+| [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

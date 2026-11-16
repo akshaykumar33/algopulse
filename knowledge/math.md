@@ -496,6 +496,13 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Ayoub and Lost Array](https://codeforces.com/problemset/problem/1105/C) | `Codeforces` | `1500` | `ayoubAndLostArray.js` | Key algorithmic application from Day 2026-11-15. |
 | [Sums on Segments](https://codeforces.com/problemset/problem/2043/C) | `Codeforces` | `1600` | `sumsOnSegments.js` | Key algorithmic application from Day 2026-11-15. |
 | [Orac and LCM](https://codeforces.com/problemset/problem/1349/A) | `Codeforces` | `1600` | `oracAndLCM.js` | Key algorithmic application from Day 2026-11-15. |
+| [Powered Addition](https://codeforces.com/problemset/problem/1338/A) | `Codeforces` | `1500` | `poweredAddition.js` | Key algorithmic application from Day 2026-11-16. |
+| [Inna and Nine](https://codeforces.com/problemset/problem/374/B) | `Codeforces` | `1500` | `innaAndNine.js` | Key algorithmic application from Day 2026-11-16. |
+| [Music](https://codeforces.com/problemset/problem/569/A) | `Codeforces` | `1500` | `music.js` | Key algorithmic application from Day 2026-11-16. |
+| [Good Numbers (hard version)](https://codeforces.com/problemset/problem/1249/C2) | `Codeforces` | `1500` | `goodNumbersHardVersion.js` | Key algorithmic application from Day 2026-11-16. |
+| [Sum on Subarrays](https://codeforces.com/problemset/problem/1809/C) | `Codeforces` | `1500` | `sumOnSubarrays.js` | Key algorithmic application from Day 2026-11-16. |
+| [Almost Identity Permutations](https://codeforces.com/problemset/problem/888/D) | `Codeforces` | `1600` | `almostIdentityPermutations.js` | Key algorithmic application from Day 2026-11-16. |
+| [Almost All Divisors](https://codeforces.com/problemset/problem/1165/D) | `Codeforces` | `1600` | `almostAllDivisors.js` | Key algorithmic application from Day 2026-11-16. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
