@@ -1,0 +1,12 @@
+[
+  {
+    "input": "\"bcabc\"",
+    "output": "\"abc\"",
+    "expected": "\"abc\""
+  },
+  {
+    "input": "\"cbacdcbc\"",
+    "output": "\"acdb\"",
+    "expected": "\"acdb\""
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "input": "6\n3\na\na\nc\n3\na\nb\nc\n4\nba\nbac\ndaba\ne\n2\nbac\ne\n2\na\nd\n3\nabcd\nb\nc",
+    "output": "3\n1\n1\n1\n1\n1",
+    "expected": "3\n1\n1\n1\n1\n1"
+  }
+]

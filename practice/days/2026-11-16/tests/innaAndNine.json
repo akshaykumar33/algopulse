@@ -1,0 +1,12 @@
+[
+  {
+    "input": "369727",
+    "output": "2",
+    "expected": "2"
+  },
+  {
+    "input": "123456789",
+    "output": "1",
+    "expected": "1"
+  }
+]

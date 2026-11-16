@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abcde\naab",
+    "output": "2",
+    "expected": "2"
+  },
+  {
+    "input": "ab\nabc",
+    "output": "-1",
+    "expected": "-1"
+  }
+]

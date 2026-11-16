@@ -1,0 +1,7 @@
+[
+  {
+    "input": "6\n+ 1 2\n+ 3 4\n+ 2 3\n- 1 2\n- 2 3\n- 3 4",
+    "output": "NO\nYES\nYES\nNO\nNO\nNO",
+    "expected": "NO\nYES\nYES\nNO\nNO\nNO"
+  }
+]
