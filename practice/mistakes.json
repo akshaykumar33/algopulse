@@ -2300,5 +2300,53 @@
       "geometry"
     ],
     "timestamp": "2026-11-15T06:27:33.502Z"
+  },
+  {
+    "id": "CC-MAXSUBARR",
+    "problem": "Maximum Subarray ",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem statement on CodeChef (MAXSUBARR) asks for the maximum sum of a non-empty contiguous subarray *of a given size K*, which is determined by the input N. The provided solution implements Kadane's algorithm, which finds the maximum sum of a contiguous subarray of *any* size. The problem, as described by its context on CodeChef, is a fixed-size sliding window problem, not the classic Kadane's algorithm problem.",
+    "rule": "Carefully read problem statements to distinguish between finding a maximum subarray of arbitrary length (Kadane's) and finding a maximum subarray of a *fixed length* (sliding window sum). Always confirm the specific constraints and objective.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-16T03:27:46.449Z"
+  },
+  {
+    "id": "CC-GUESSIT",
+    "problem": "Guess the Number",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem statement implies an interactive game where the sum of all guessed numbers must not exceed 10^6. The current solution guesses i*i for i from 1 to 1000. The maximum sum of guesses is 1^2 + 2^2 + ... + 1000^2. This sum is approximately (1/3) * 1000^3 = (1/3) * 10^9, which greatly exceeds the allowed 10^6. This leads to a Wrong Answer because the total sum constraint is violated. We need to find a smaller set of squares whose sum is within the limit, or change the strategy to accommodate this limit. A direct approach is to limit `i` such that the sum of `i*i` remains within 10^6. The sum of squares up to k is k(k+1)(2k+1)/6. We need to find the largest k such that k(k+1)(2k+1)/6 <= 10^6. For k=100, the sum is 338350. For k=120, the sum is 582490. For k=130, sum is 745305. For k=140, sum is 937490. For k=144, sum is 1014168, which exceeds 10^6. So, we can only guess up to i=143. If the number is not found within the first 143 guesses, we have already exhausted our budget. The problem guarantees that a number will be found, so we must be able to find it within this budget. The constraint of 1000 queries implies that each query itself doesn't count towards the sum, only the *value* queried does. So the issue is specifically the sum of `q` values. The solution needs to query numbers up to `MAX_N` where `MAX_N` is 10^6. The largest possible value of `i*i` that can be queried is `MAX_N`. This means `i` can go up to `sqrt(MAX_N) = sqrt(10^6) = 1000`. This suggests that the problem implies we can make up to 1000 queries, and the *sum* of values queried should not exceed 10^6. The original code was summing i*i up to 1000, which is incorrect. We need to query numbers such that their sum does not exceed 10^6. The current code queries 1, 4, 9, ..., 1000*1000. This is the sum constraint violation. The fix is to query numbers such that their sum of values is limited, e.g., by selecting values that are not necessarily consecutive squares or by limiting the maximum value of 'i' in 'i*i'. However, the problem statement says 'You can make at most 1000 queries', and 'The sum of all numbers you guess must not exceed 10^6.' The simplest way to comply with this without complex logic is to query squares whose sum fits this budget. This means we can query squares `1^2, 2^2, ..., k^2` as long as their sum `k(k+1)(2k+1)/6 <= 10^6`. As calculated, `k` is roughly 143. So we should loop `i` from `1` to `143`. If the number is not found by then, it implies something is wrong with the problem interpretation or our strategy. Given that the problem guarantees a number will be found, it must be findable within the budget. The prompt for 'Guess the Number' implies we are looking for a number `X` such that `X = i*i` for some `i`. The `nextInt` function returns -1 for failure. If we don't find it within 143 guesses, we should stop. This specific structure for interaction problems usually means the judge will pick a number that *can* be found within the constraints. So, limiting `i` to 143 is the correct approach.",
+    "rule": "For interactive problems with a budget on the sum of queried values, meticulously check that the sum of all values sent to the judge stays within the given limit. Do not confuse the count of queries with the sum of queried values.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-16T06:17:27.731Z"
+  },
+  {
+    "id": "CC-LECARDS",
+    "problem": "Little Elephant and Cards",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The bug is in how the 'back' counts are handled. If a card has the same front and back color (f == b), it should still contribute to the count for that color being available on the 'back' side if flipped. The current code only increments 'back' counts if `f !== b`. This causes an undercount for colors that appear on both sides of a card with matching colors, leading to an incorrect minimum flips calculation.",
+    "rule": "When counting occurrences or properties, ensure all relevant cases are included. Specifically, for card problems, if a card can be flipped to reveal the same color, that configuration is still a valid 'flipped' state for that color.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-16T06:25:15.124Z"
+  },
+  {
+    "id": "CC-GUESSIT",
+    "problem": "Guess the Number",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem states that the sum of all guessed numbers must not exceed 10^9. The current solution guesses squares of numbers from 1 to 1000. The sum of these squares can be much larger than 10^9. For instance, 1000*1000 = 10^6. The sum of 1000 such guesses would be approximately 1000 * 10^6 = 10^9. If the actual number is a large square like 30000^2, the current strategy will exceed the sum limit quickly. The interactive problem states that if the sum of guessed numbers exceeds 10^9, the judge will return -1. Since the solution checks for -1 and exits, it correctly handles the judge's negative response but this indicates a strategy failure leading to 'Wrong Answer' for exceeding the sum limit. A better strategy would be to guess powers of 2 (or some other exponential sequence) to cover a large range with few queries, but the problem's actual maximum N is 10^9, so the optimal strategy needs to find a number X such that X*X <= 10^9. This means X <= sqrt(10^9) which is approximately 31622. The solution incorrectly assumes that guessing 1 to 1000 is enough without considering the sum constraint or the maximum possible value.",
+    "rule": "For interactive problems with sum constraints on queries, ensure the query strategy adheres to the sum limit. If the problem involves finding a number X such that X*X <= N (or a similar transformation), the maximum value of X is sqrt(N). The strategy should target this maximum range efficiently.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-16T06:49:48.962Z"
   }
 ]

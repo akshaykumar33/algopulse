@@ -1,0 +1,233 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "1338A",
+    "name": "Powered Addition",
+    "file": "poweredAddition",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-16T04:39:18.660Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1338A",
+      "name": "Powered Addition",
+      "rating": 1500,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1338/A",
+      "file": "poweredAddition",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "submissionUrl": "https://codeforces.com/contest/1338/submission/398746810"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "10B",
+    "name": "Cinema Cashier",
+    "file": "cinemaCashier",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-16T04:43:45.968Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "10B",
+      "name": "Cinema Cashier",
+      "rating": 1500,
+      "tags": [
+        "dp",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/10/B",
+      "file": "cinemaCashier",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-16T06:30:27.672Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "374B",
+    "name": "Inna and Nine",
+    "file": "innaAndNine",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-16T04:47:37.193Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "374B",
+      "name": "Inna and Nine",
+      "rating": 1500,
+      "tags": [
+        "combinatorics",
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/374/B",
+      "file": "innaAndNine",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-16T06:32:51.343Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "670D2",
+    "name": "Magic Powder - 2",
+    "file": "magicPowder2",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-16T04:52:02.518Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "670D2",
+      "name": "Magic Powder - 2",
+      "rating": 1500,
+      "tags": [
+        "binary search",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/670/D2",
+      "file": "magicPowder2",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-16T06:35:04.475Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-THREENUMBERS",
+    "name": "Three Numbers",
+    "file": "threeNumbers",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-16T05:20:20.745Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-THREENUMBERS",
+      "name": "Three Numbers",
+      "rating": 1675,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/THREENUMBERS",
+      "file": "threeNumbers",
+      "template": "templates/codechef.js"
+    },
+    "resolvedAt": "2026-11-16T06:22:51.018Z",
+    "finalVerdict": "Correct Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "356A",
+    "name": "Knight Tournament",
+    "file": "knightTournament",
+    "tier": "hard",
+    "initialVerdict": "RUNTIME_ERROR",
+    "enqueuedAt": "2026-11-16T05:26:27.638Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "356A",
+      "name": "Knight Tournament",
+      "rating": 1500,
+      "tags": [
+        "data structures",
+        "dsu"
+      ],
+      "url": "https://codeforces.com/problemset/problem/356/A",
+      "file": "knightTournament",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-16T06:37:02.430Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-LECARDS",
+    "name": "Little Elephant and Cards",
+    "file": "littleElephantAndCards",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-16T05:51:02.626Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-LECARDS",
+      "name": "Little Elephant and Cards",
+      "rating": 1689,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/LECARDS",
+      "file": "littleElephantAndCards",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Correct Answer",
+    "submissionUrl": "https://www.codechef.com/viewsolution/1393475833"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1165D",
+    "name": "Almost All Divisors",
+    "file": "almostAllDivisors",
+    "tier": "hard",
+    "initialVerdict": "Time limit exceeded on test 4",
+    "enqueuedAt": "2026-11-16T06:23:56.190Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1165D",
+      "name": "Almost All Divisors",
+      "rating": 1600,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1165/D",
+      "file": "almostAllDivisors",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "submissionUrl": "https://codeforces.com/contest/1165/submission/398746972"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-GUESSIT",
+    "name": "Guess the Number",
+    "file": "guessTheNumber",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-16T06:54:52.104Z",
+    "attempts": 1,
+    "status": "PLATFORM_UNSUPPORTED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-GUESSIT",
+      "name": "Guess the Number",
+      "rating": 1660,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GUESSIT",
+      "file": "guessTheNumber",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Platform Interactive Submission Unsupported (isSupportedByJudge: false)",
+    "reason": "CodeChef web IDE permanently disables interactive problem submission piping in practice mode. Verified locally against test grader."
+  }
+]
