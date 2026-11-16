@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\nA\nAB\nABA",
+    "output": "1\n2\n3",
+    "expected": "1\n2\n3"
+  }
+]

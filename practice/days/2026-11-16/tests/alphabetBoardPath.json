@@ -1,0 +1,12 @@
+[
+  {
+    "input": "\"leet\"",
+    "output": "\"DDR!UURRR!!DDD!\"",
+    "expected": "\"DDR!UURRR!!DDD!\""
+  },
+  {
+    "input": "\"code\"",
+    "output": "\"RR!DDRR!LUU!R!\"",
+    "expected": "\"RR!DDRR!LUU!R!\""
+  }
+]

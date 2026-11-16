@@ -1,0 +1,12 @@
+[
+  {
+    "input": "3\n4\nabcd\n6\nccbbaa\n6\nabccba",
+    "output": "YES\nNO\nYES",
+    "expected": "YES\nNO\nYES"
+  },
+  {
+    "input": "2\n3\nccb\n5\nabcde",
+    "output": "NO\nNO",
+    "expected": "NO\nNO"
+  }
+]

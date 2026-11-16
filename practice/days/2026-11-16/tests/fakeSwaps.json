@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\n4\n1010\n0101\n3\n111\n000\n3\n111\n111",
+    "output": "YES\nNO\nYES",
+    "expected": "YES\nNO\nYES"
+  }
+]

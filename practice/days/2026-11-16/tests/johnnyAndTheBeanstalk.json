@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n2\n0 2\n1\n1\n",
+    "expected": "Yes\nYes\n",
+    "output": "Yes\nYes\n"
+  }
+]
