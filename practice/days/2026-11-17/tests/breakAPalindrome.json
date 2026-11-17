@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"abccba\"]",
+    "output": "\"aaccba\""
+  },
+  {
+    "input": "[\"a\"]",
+    "output": "\"\""
+  },
+  {
+    "input": "[\"aa\"]",
+    "output": "\"ab\""
+  }
+]
