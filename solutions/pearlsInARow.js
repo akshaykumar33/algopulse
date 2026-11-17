@@ -1,24 +1,23 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
   let ptr = 0;
-  const n = parseInt(input[ptr++], 10);
-  const a = [];
-  for (let i = 0; i < n; i++) a.push(parseInt(input[ptr++], 10));
+  const n = parseInt(tokens[ptr++], 10);
+  const a = new Int32Array(n);
+  for (let i = 0; i < n; i++) a[i] = parseInt(tokens[ptr++], 10);
 
   const segs = [];
-  let set = new Set();
   let l = 0;
-
-  for (let i = 0; i < n; i++) {
-    if (set.has(a[i])) {
-      segs.push([l + 1, i + 1]);
-      l = i + 1;
-      set = new Set();
+  let seen = new Set();
+  for (let r = 0; r < n; r++) {
+    if (seen.has(a[r])) {
+      segs.push([l + 1, r + 1]);
+      seen.clear();
+      l = r + 1;
     } else {
-      set.add(a[i]);
+      seen.add(a[r]);
     }
   }
 
@@ -29,7 +28,9 @@ function solve() {
 
   segs[segs.length - 1][1] = n;
   const out = [segs.length];
-  for (const [s, e] of segs) out.push(s + ' ' + e);
+  for (let i = 0; i < segs.length; i++) {
+    out.push(segs[i][0] + ' ' + segs[i][1]);
+  }
   console.log(out.join('\n'));
 }
 

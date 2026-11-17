@@ -1,26 +1,59 @@
 const fs = require('fs');
-const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-if (input.length === 1 && input[0] === '') process.exit(0);
-let ptr = 0;
-const T = parseInt(input[ptr++], 10);
-const MOD = 1000000007;
-const out = [];
 
-for (let t = 0; t < T; t++) {
-  const n = parseInt(input[ptr++], 10);
-  let evens = 0;
-  for (let i = 0; i < n; i++) {
-    const val = parseInt(input[ptr++], 10);
-    if (val % 2 === 0) evens++;
+function solve() {
+  const buffer = fs.readFileSync(0);
+  let offset = 0;
+
+  function readInt() {
+    while (offset < buffer.length && buffer[offset] <= 32) {
+      offset++;
+    }
+    if (offset >= buffer.length) return null;
+    let num = 0;
+    while (offset < buffer.length && buffer[offset] > 32) {
+      num = num * 10 + (buffer[offset] - 48);
+      offset++;
+    }
+    return num;
   }
 
-  let ans = 1;
-  for (let i = 0; i < evens; i++) {
-    ans = (ans * 2) % MOD;
+  const T = readInt();
+  if (T === null) return;
+  const MOD = 1000000007n;
+
+  function power(base, exp) {
+    let res = 1n;
+    base = base % MOD;
+    while (exp > 0n) {
+      if (exp & 1n) res = (res * base) % MOD;
+      base = (base * base) % MOD;
+      exp >>= 1n;
+    }
+    return res;
   }
-  if (evens === n) {
-    ans = (ans - 1 + MOD) % MOD;
+
+  const out = [];
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    if (n === null) break;
+    let evenCount = 0n;
+    let oddCount = 0n;
+    for (let i = 0; i < n; i++) {
+      const val = readInt();
+      if (val % 2 === 0) {
+        evenCount++;
+      } else {
+        oddCount++;
+      }
+    }
+    let ans = power(2n, evenCount);
+    if (oddCount === 0n) {
+      ans = (ans - 1n + MOD) % MOD;
+    }
+    out.push(ans.toString());
   }
-  out.push(ans);
+
+  console.log(out.join('\n'));
 }
-console.log(out.join('\n'));
+
+solve();
