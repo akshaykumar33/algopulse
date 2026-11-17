@@ -212,6 +212,10 @@ class MinHeap {
 | [Integers Shop](https://codeforces.com/problemset/problem/1621/B) | `Codeforces` | `1500` | `integersShop.js` | Key algorithmic application from Day 2026-11-16. |
 | [In Love](https://codeforces.com/problemset/problem/1883/D) | `Codeforces` | `1500` | `inLove.js` | Key algorithmic application from Day 2026-11-16. |
 | [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
+| [Dima and Staircase](https://codeforces.com/problemset/problem/272/C) | `Codeforces` | `1500` | `dimaAndStaircase.js` | Key algorithmic application from Day 2026-11-17. |
+| [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Polycarp's phone book](https://codeforces.com/problemset/problem/858/D) | `Codeforces` | `1600` | `polycarpSPhoneBook.js` | Key algorithmic application from Day 2026-11-17. |
+| [Milking cows](https://codeforces.com/problemset/problem/383/A) | `Codeforces` | `1600` | `milkingCows.js` | Key algorithmic application from Day 2026-11-17. |
 
 ---
 

@@ -157,6 +157,10 @@ for (let right = 0; right < arr.length; right++) {
 | [Cellular Network](https://codeforces.com/problemset/problem/702/C) | `Codeforces` | `1500` | `cellularNetwork.js` | Key algorithmic application from Day 2026-11-16. |
 | [Multitasking](https://codeforces.com/problemset/problem/384/B) | `Codeforces` | `1500` | `multitasking.js` | Key algorithmic application from Day 2026-11-16. |
 | [Three-level Laser](https://codeforces.com/problemset/problem/924/B) | `Codeforces` | `1600` | `threeLevelLaser.js` | Key algorithmic application from Day 2026-11-16. |
+| [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
+| [Kefa and Company](https://codeforces.com/problemset/problem/580/B) | `Codeforces` | `1500` | `kefaAndCompany.js` | Key algorithmic application from Day 2026-11-17. |
+| [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
+| [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 
 ---
 
