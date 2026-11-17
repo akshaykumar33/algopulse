@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n7 3\nfaberty\n7 5\nbbaaaba\n4 4\nzxwy",
+    "expected": "abferty\naababba\nwxyz"
+  }
+]
