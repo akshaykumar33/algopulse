@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"leetcodeleet\", 4]",
+    "output": "1"
+  },
+  {
+    "input": "[\"leetcoleet\", 2]",
+    "output": "3"
+  }
+]

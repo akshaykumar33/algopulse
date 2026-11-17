@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2 2 1\nab\ncd\n1\nA\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "2 2 1\nab\ncS\n5\nabcBA\n",
+    "output": "1\n"
+  }
+]

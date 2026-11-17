@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n3\n1 2 7\n2\n1 2\n3\n6 5 8\n5\n12 32 45 23 47",
+    "expected": "NO\nYES\nYES\nNO"
+  }
+]
