@@ -1,16 +1,31 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
+  const buffer = fs.readFileSync(0);
+  let offset = 0;
+
+  function readInt() {
+    while (offset < buffer.length && buffer[offset] <= 32) {
+      offset++;
+    }
+    if (offset >= buffer.length) return null;
+    let num = 0;
+    while (offset < buffer.length && buffer[offset] > 32) {
+      num = num * 10 + (buffer[offset] - 48);
+      offset++;
+    }
+    return num;
+  }
+
+  const T = readInt();
+  if (T === null) return;
   const MOD = 1000000007n;
   const out = [];
 
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const m = parseInt(input[ptr++], 10);
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    const m = readInt();
+    if (n === null) break;
 
     const parent = new Int32Array(n + 1);
     const size = new Int32Array(n + 1);
@@ -19,39 +34,53 @@ function solve() {
       size[i] = 1;
     }
 
-    function find(x) {
-      while (x !== parent[x]) {
-        parent[x] = parent[parent[x]];
-        x = parent[x];
+    function find(i) {
+      let root = i;
+      while (root !== parent[root]) {
+        root = parent[root];
       }
-      return x;
+      let curr = i;
+      while (curr !== root) {
+        const next = parent[curr];
+        parent[curr] = root;
+        curr = next;
+      }
+      return root;
     }
 
-    function union(x, y) {
-      const rx = find(x);
-      const ry = find(y);
-      if (rx !== ry) {
-        parent[rx] = ry;
-        size[ry] += size[rx];
+    function union(i, j) {
+      const rootI = find(i);
+      const rootJ = find(j);
+      if (rootI !== rootJ) {
+        if (size[rootI] < size[rootJ]) {
+          parent[rootI] = rootJ;
+          size[rootJ] += size[rootI];
+        } else {
+          parent[rootJ] = rootI;
+          size[rootI] += size[rootJ];
+        }
       }
     }
 
     for (let i = 0; i < m; i++) {
-      union(parseInt(input[ptr++], 10), parseInt(input[ptr++], 10));
+      const u = readInt();
+      const v = readInt();
+      union(u, v);
     }
 
-    let components = 0;
+    let groups = 0;
     let ways = 1n;
 
     for (let i = 1; i <= n; i++) {
       if (parent[i] === i) {
-        components++;
+        groups++;
         ways = (ways * BigInt(size[i])) % MOD;
       }
     }
 
-    out.push(components + ' ' + ways.toString());
+    out.push(`${groups} ${ways.toString()}`);
   }
+
   console.log(out.join('\n'));
 }
 

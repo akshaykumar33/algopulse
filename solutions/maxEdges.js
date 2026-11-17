@@ -1,26 +1,50 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
+  const buffer = fs.readFileSync(0);
+  let offset = 0;
+
+  function readBigInt() {
+    while (offset < buffer.length && buffer[offset] <= 32) {
+      offset++;
+    }
+    if (offset >= buffer.length) return null;
+    let num = 0n;
+    while (offset < buffer.length && buffer[offset] > 32) {
+      num = num * 10n + BigInt(buffer[offset] - 48);
+      offset++;
+    }
+    return num;
+  }
+
+  const T_val = readBigInt();
+  if (T_val === null) return;
+  const T = Number(T_val);
   const out = [];
 
-  for (let tc = 0; tc < t; tc++) {
-    const n = BigInt(input[ptr++]);
-    const k = BigInt(input[ptr++]);
-    const l = BigInt(input[ptr++]);
+  for (let t = 0; t < T; t++) {
+    const n = readBigInt();
+    const k = readBigInt();
+    const l = readBigInt();
+    if (n === null) break;
 
+    let overlap = 0n;
     if (k + l > n) {
-      const ans = (n - k) * (n - l);
-      out.push(ans.toString());
-    } else {
-      const m = n - k - l;
-      const ans = (m * (m - 1n)) / 2n + m * (k + l) + k * l;
-      out.push(ans.toString());
+      overlap = k + l - n;
     }
+
+    const uniqueSources = k - overlap;
+    const uniqueSinks = l - overlap;
+    const middle = n - uniqueSources - uniqueSinks - overlap;
+
+    let ans = uniqueSources * uniqueSinks;
+    ans += uniqueSources * middle;
+    ans += middle * uniqueSinks;
+    ans += (middle * (middle - 1n)) / 2n;
+
+    out.push(ans.toString());
   }
+
   console.log(out.join('\n'));
 }
 
