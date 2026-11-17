@@ -331,6 +331,9 @@ function constructMatrix(n, m) {
 | [Weights Assignment For Tree Edges](https://codeforces.com/problemset/problem/1611/D) | `Codeforces` | `1500` | `weightsAssignmentForTreeEdges.js` | Key algorithmic application from Day 2026-11-16. |
 | [From Y to Y](https://codeforces.com/problemset/problem/848/A) | `Codeforces` | `1600` | `fromYToY.js` | Key algorithmic application from Day 2026-11-16. |
 | [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
+| [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
+| [ABBC or BACB](https://codeforces.com/problemset/problem/1873/G) | `Codeforces` | `1500` | `aBBCOrBACB.js` | Key algorithmic application from Day 2026-11-17. |
+| [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
 
 ---
 

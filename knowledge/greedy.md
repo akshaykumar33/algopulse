@@ -562,6 +562,16 @@ for (const x of arr) {
 | [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
 | [Three-level Laser](https://codeforces.com/problemset/problem/924/B) | `Codeforces` | `1600` | `threeLevelLaser.js` | Key algorithmic application from Day 2026-11-16. |
 | [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
+| [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
+| [Division into Teams](https://codeforces.com/problemset/problem/149/C) | `Codeforces` | `1500` | `divisionIntoTeams.js` | Key algorithmic application from Day 2026-11-17. |
+| [Number Reduction](https://codeforces.com/problemset/problem/1765/N) | `Codeforces` | `1500` | `numberReduction.js` | Key algorithmic application from Day 2026-11-17. |
+| [ABBC or BACB](https://codeforces.com/problemset/problem/1873/G) | `Codeforces` | `1500` | `aBBCOrBACB.js` | Key algorithmic application from Day 2026-11-17. |
+| [Convert to Ones](https://codeforces.com/problemset/problem/997/A) | `Codeforces` | `1500` | `convertToOnes.js` | Key algorithmic application from Day 2026-11-17. |
+| [Torus Path](https://codeforces.com/problemset/problem/1765/K) | `Codeforces` | `1500` | `torusPath.js` | Key algorithmic application from Day 2026-11-17. |
+| [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
+| [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Milking cows](https://codeforces.com/problemset/problem/383/A) | `Codeforces` | `1600` | `milkingCows.js` | Key algorithmic application from Day 2026-11-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

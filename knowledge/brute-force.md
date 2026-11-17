@@ -311,6 +311,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Array Walk](https://codeforces.com/problemset/problem/1389/B) | `Codeforces` | `1600` | `arrayWalk.js` | Key algorithmic application from Day 2026-11-15. |
 | [Removing Columns](https://codeforces.com/problemset/problem/496/C) | `Codeforces` | `1500` | `removingColumns.js` | Key algorithmic application from Day 2026-11-16. |
 | [Basic Diplomacy](https://codeforces.com/problemset/problem/1482/C) | `Codeforces` | `1600` | `basicDiplomacy.js` | Key algorithmic application from Day 2026-11-16. |
+| [Acacius and String](https://codeforces.com/problemset/problem/1379/A) | `Codeforces` | `1500` | `acaciusAndString.js` | Key algorithmic application from Day 2026-11-17. |
+| [Solution for Cube](https://codeforces.com/problemset/problem/887/C) | `Codeforces` | `1500` | `solutionForCube.js` | Key algorithmic application from Day 2026-11-17. |
+| [New Problem](https://codeforces.com/problemset/problem/278/B) | `Codeforces` | `1500` | `newProblem.js` | Key algorithmic application from Day 2026-11-17. |
+| [Divisibility by Eight](https://codeforces.com/problemset/problem/550/C) | `Codeforces` | `1500` | `divisibilityByEight.js` | Key algorithmic application from Day 2026-11-17. |
+| [Convert to Ones](https://codeforces.com/problemset/problem/997/A) | `Codeforces` | `1500` | `convertToOnes.js` | Key algorithmic application from Day 2026-11-17. |
+| [Easy Tape Programming](https://codeforces.com/problemset/problem/239/B) | `Codeforces` | `1500` | `easyTapeProgramming.js` | Key algorithmic application from Day 2026-11-17. |
+| [The Robot](https://codeforces.com/problemset/problem/1468/K) | `Codeforces` | `1600` | `theRobot.js` | Key algorithmic application from Day 2026-11-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

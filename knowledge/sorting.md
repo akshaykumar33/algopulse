@@ -245,6 +245,12 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Multitasking](https://codeforces.com/problemset/problem/384/B) | `Codeforces` | `1500` | `multitasking.js` | Key algorithmic application from Day 2026-11-16. |
 | [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
 | [Day at the Beach](https://codeforces.com/problemset/problem/599/C) | `Codeforces` | `1600` | `dayAtTheBeach.js` | Key algorithmic application from Day 2026-11-16. |
+| [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
+| [Division into Teams](https://codeforces.com/problemset/problem/149/C) | `Codeforces` | `1500` | `divisionIntoTeams.js` | Key algorithmic application from Day 2026-11-17. |
+| [Kefa and Company](https://codeforces.com/problemset/problem/580/B) | `Codeforces` | `1500` | `kefaAndCompany.js` | Key algorithmic application from Day 2026-11-17. |
+| [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Polycarp's phone book](https://codeforces.com/problemset/problem/858/D) | `Codeforces` | `1600` | `polycarpSPhoneBook.js` | Key algorithmic application from Day 2026-11-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

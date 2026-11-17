@@ -503,6 +503,13 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Sum on Subarrays](https://codeforces.com/problemset/problem/1809/C) | `Codeforces` | `1500` | `sumOnSubarrays.js` | Key algorithmic application from Day 2026-11-16. |
 | [Almost Identity Permutations](https://codeforces.com/problemset/problem/888/D) | `Codeforces` | `1600` | `almostIdentityPermutations.js` | Key algorithmic application from Day 2026-11-16. |
 | [Almost All Divisors](https://codeforces.com/problemset/problem/1165/D) | `Codeforces` | `1600` | `almostAllDivisors.js` | Key algorithmic application from Day 2026-11-16. |
+| [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
+| [Division into Teams](https://codeforces.com/problemset/problem/149/C) | `Codeforces` | `1500` | `divisionIntoTeams.js` | Key algorithmic application from Day 2026-11-17. |
+| [Divisibility by Eight](https://codeforces.com/problemset/problem/550/C) | `Codeforces` | `1500` | `divisibilityByEight.js` | Key algorithmic application from Day 2026-11-17. |
+| [Convert to Ones](https://codeforces.com/problemset/problem/997/A) | `Codeforces` | `1500` | `convertToOnes.js` | Key algorithmic application from Day 2026-11-17. |
+| [Controllers](https://codeforces.com/problemset/problem/1776/L) | `Codeforces` | `1500` | `controllers.js` | Key algorithmic application from Day 2026-11-17. |
+| [Torus Path](https://codeforces.com/problemset/problem/1765/K) | `Codeforces` | `1500` | `torusPath.js` | Key algorithmic application from Day 2026-11-17. |
+| [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

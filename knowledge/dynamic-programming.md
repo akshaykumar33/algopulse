@@ -225,6 +225,10 @@ dp.fill(-1); // Memoization sentinel
 | [Cinema Cashier](https://codeforces.com/problemset/problem/10/B) | `Codeforces` | `1500` | `cinemaCashier.js` | Key algorithmic application from Day 2026-11-16. |
 | [Maximum Submatrix 2](https://codeforces.com/problemset/problem/375/B) | `Codeforces` | `1600` | `maximumSubmatrix2.js` | Key algorithmic application from Day 2026-11-16. |
 | [Almost Identity Permutations](https://codeforces.com/problemset/problem/888/D) | `Codeforces` | `1600` | `almostIdentityPermutations.js` | Key algorithmic application from Day 2026-11-16. |
+| [Divisibility by Eight](https://codeforces.com/problemset/problem/550/C) | `Codeforces` | `1500` | `divisibilityByEight.js` | Key algorithmic application from Day 2026-11-17. |
+| [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
+| [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
+| [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 
 ---
 
