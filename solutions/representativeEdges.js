@@ -1,36 +1,44 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
+  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
   let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
+  const t = parseInt(tokens[ptr++], 10);
   const out = [];
 
   for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const a = [];
-    for (let i = 0; i < n; i++) a.push(parseInt(input[ptr++], 10));
+    const n = parseInt(tokens[ptr++], 10);
+    const a = new Int32Array(n);
+    for (let i = 0; i < n; i++) {
+      a[i] = parseInt(tokens[ptr++], 10);
+    }
 
     if (n <= 2) {
       out.push(0);
       continue;
     }
 
-    let maxMatch = 1;
+    let maxKeep = 2;
     for (let i = 0; i < n; i++) {
       for (let j = i + 1; j < n; j++) {
-        let match = 0;
-        const diff = a[j] - a[i];
-        const step = j - i;
+        let keep = 0;
+        const di = j - i;
+        const dv = a[j] - a[i];
         for (let k = 0; k < n; k++) {
-          if ((a[k] - a[i]) * step === diff * (k - i)) match++;
+          if ((a[k] - a[i]) * di === dv * (k - i)) {
+            keep++;
+          }
         }
-        if (match > maxMatch) maxMatch = match;
+        if (keep > maxKeep) {
+          maxKeep = keep;
+        }
       }
     }
-    out.push(n - maxMatch);
+
+    out.push(n - maxKeep);
   }
+
   console.log(out.join('\n'));
 }
 
