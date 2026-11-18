@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"abcacb\", \"ab\", [3, 1, 0]]",
+    "output": "2"
+  },
+  {
+    "input": "[\"abcbddddd\", \"abcd\", [3, 2, 1, 4, 5, 6]]",
+    "output": "1"
+  },
+  {
+    "input": "[\"abcab\", \"abc\", [0, 1, 2, 3, 4]]",
+    "output": "0"
+  }
+]

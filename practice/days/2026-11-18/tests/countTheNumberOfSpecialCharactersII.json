@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aaAbcBC\"",
+    "output": "3"
+  },
+  {
+    "input": "\"abc\"",
+    "output": "0"
+  },
+  {
+    "input": "\"AbBCab\"",
+    "output": "0"
+  }
+]
