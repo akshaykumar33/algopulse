@@ -1,31 +1,47 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const tVal = nextInt();
+  if (tVal === null) return;
+  const t = tVal;
   const out = [];
 
   for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const a = [];
-    for (let i = 0; i < n; i++) a.push(parseInt(input[ptr++], 10));
+    const n = nextInt();
+    const a = new Int32Array(n);
+    for (let i = 0; i < n; i++) a[i] = nextInt();
 
-    let ans = 0n;
-    let cap = BigInt(a[n - 1]);
+    let ops = 0n;
+    let limit = BigInt(a[n - 1]);
+
     for (let i = n - 2; i >= 0; i--) {
       const val = BigInt(a[i]);
-      if (val <= cap) {
-        cap = val;
+      if (val > limit) {
+        const k = (val + limit - 1n) / limit;
+        ops += (k - 1n);
+        limit = val / k;
       } else {
-        const k = (val + cap - 1n) / cap;
-        ans += k - 1n;
-        cap = val / k;
+        limit = val;
       }
     }
-    out.push(ans.toString());
+
+    out.push(ops.toString());
   }
+
   console.log(out.join('\n'));
 }
 

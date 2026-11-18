@@ -1,57 +1,69 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length < 3) return;
-  let ptr = 0;
-  const n = parseInt(input[ptr++], 10);
-  const pattern = input[ptr++];
-  const m = parseInt(input[ptr++], 10);
+  const buf = fs.readFileSync(0);
+  let pos = 0;
 
-  const revealed = new Set();
-  for (let i = 0; i < n; i++) {
-    if (pattern[i] !== '*') revealed.add(pattern[i]);
+  function nextWord() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    const start = pos;
+    while (pos < buf.length && buf[pos] > 32) pos++;
+    return buf.toString('latin1', start, pos);
   }
 
-  const candidates = [];
+  const nStr = nextWord();
+  if (!nStr) return;
+  const n = parseInt(nStr, 10);
+  const s = nextWord();
+  const m = parseInt(nextWord(), 10);
+
+  const opened = new Uint8Array(26);
+  for (let i = 0; i < n; i++) {
+    if (s[i] !== '*') {
+      opened[s.charCodeAt(i) - 97] = 1;
+    }
+  }
+
+  const validWords = [];
   for (let i = 0; i < m; i++) {
-    const w = input[ptr++];
-    if (w.length !== n) continue;
-    let match = true;
+    const w = nextWord();
+    let ok = true;
     for (let j = 0; j < n; j++) {
-      if (pattern[j] !== '*') {
-        if (w[j] !== pattern[j]) {
-          match = false;
-          break;
-        }
-      } else {
-        if (revealed.has(w[j])) {
-          match = false;
-          break;
-        }
+      if (s[j] !== '*' && s[j] !== w[j]) {
+        ok = false;
+        break;
+      }
+      if (s[j] === '*' && opened[w.charCodeAt(j) - 97] === 1) {
+        ok = false;
+        break;
       }
     }
-    if (match) candidates.push(w);
+    if (ok) validWords.push(w);
   }
 
-  if (candidates.length === 0) {
+  if (validWords.length === 0) {
     console.log(0);
     return;
   }
 
-  let ans = 0;
-  for (let c = 97; c <= 122; c++) {
-    const char = String.fromCharCode(c);
-    if (revealed.has(char)) continue;
-    let inAll = true;
-    for (const w of candidates) {
-      if (!w.includes(char)) {
-        inAll = false;
-        break;
+  let candMask = (1 << 26) - 1;
+  for (let i = 0; i < validWords.length; i++) {
+    const w = validWords[i];
+    let wordMask = 0;
+    for (let j = 0; j < n; j++) {
+      if (s[j] === '*') {
+        wordMask |= (1 << (w.charCodeAt(j) - 97));
       }
     }
-    if (inAll) ans++;
+    candMask &= wordMask;
   }
+
+  let ans = 0;
+  for (let i = 0; i < 26; i++) {
+    if ((candMask >> i) & 1) ans++;
+  }
+
   console.log(ans);
 }
 

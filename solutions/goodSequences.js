@@ -1,36 +1,58 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const n = parseInt(input[ptr++], 10);
-  const a = [];
-  for (let i = 0; i < n; i++) a.push(parseInt(input[ptr++], 10));
+  const buf = fs.readFileSync(0);
+  let pos = 0;
 
-  const dp = new Int32Array(100005);
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const n = nextInt();
+  if (n === null) return;
+
+  const MAX = 100001;
+  const spf = new Int32Array(MAX);
+  for (let i = 2; i < MAX; i++) {
+    if (spf[i] === 0) {
+      for (let j = i; j < MAX; j += i) {
+        if (spf[j] === 0) spf[j] = i;
+      }
+    }
+  }
+
+  const dp = new Int32Array(MAX);
   let ans = 1;
 
   for (let i = 0; i < n; i++) {
-    let val = a[i];
-    let temp = val;
-    const primes = [];
-    for (let d = 2; d * d <= temp; d++) {
-      if (temp % d === 0) {
-        primes.push(d);
-        while (temp % d === 0) temp /= d;
-      }
-    }
-    if (temp > 1) primes.push(temp);
+    let x = nextInt();
+    if (x === 1) continue;
 
-    let maxPrev = 0;
-    for (const p of primes) {
-      if (dp[p] > maxPrev) maxPrev = dp[p];
+    const primes = [];
+    let temp = x;
+    while (temp > 1) {
+      const p = spf[temp];
+      primes.push(p);
+      while (temp % p === 0) temp = Math.floor(temp / p);
     }
-    const cur = maxPrev + 1;
+
+    let maxVal = 0;
+    for (let j = 0; j < primes.length; j++) {
+      if (dp[primes[j]] > maxVal) maxVal = dp[primes[j]];
+    }
+
+    const cur = maxVal + 1;
     if (cur > ans) ans = cur;
-    for (const p of primes) {
-      if (cur > dp[p]) dp[p] = cur;
+
+    for (let j = 0; j < primes.length; j++) {
+      if (cur > dp[primes[j]]) dp[primes[j]] = cur;
     }
   }
 

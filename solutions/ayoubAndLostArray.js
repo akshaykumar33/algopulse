@@ -1,35 +1,49 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length < 3) return;
-  const n = parseInt(input[0], 10);
-  const l = parseInt(input[1], 10);
-  const r = parseInt(input[2], 10);
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
+    }
+    return res;
+  }
+
+  const n = nextInt();
+  if (n === null) return;
+  const l = nextInt();
+  const r = nextInt();
+
+  function countRem(x, rem) {
+    if (x <= 0) return 0;
+    if (rem === 0) return Math.floor(x / 3);
+    if (rem === 1) return Math.floor((x + 2) / 3);
+    return Math.floor((x + 1) / 3);
+  }
+
   const MOD = 1000000007n;
+  const c0 = BigInt(countRem(r, 0) - countRem(l - 1, 0));
+  const c1 = BigInt(countRem(r, 1) - countRem(l - 1, 1));
+  const c2 = BigInt(countRem(r, 2) - countRem(l - 1, 2));
 
-  function countMod(rem) {
-    if (l > r) return 0n;
-    const countR = Math.floor((r - rem) / 3) - Math.floor((rem === 0 ? 0 : -1));
-    const totalR = Math.floor(r / 3) + (rem > 0 && r % 3 >= rem ? 1 : 0);
-    const totalL = Math.floor((l - 1) / 3) + (rem > 0 && (l - 1) % 3 >= rem ? 1 : 0);
-    return BigInt(totalR - totalL);
-  }
+  let dp0 = 1n, dp1 = 0n, dp2 = 0n;
 
-  const c0 = countMod(0);
-  const c1 = countMod(1);
-  const c2 = countMod(2);
-
-  let dp = [1n, 0n, 0n];
   for (let i = 0; i < n; i++) {
-    const nextDp = [0n, 0n, 0n];
-    nextDp[0] = (dp[0] * c0 + dp[1] * c2 + dp[2] * c1) % MOD;
-    nextDp[1] = (dp[0] * c1 + dp[1] * c0 + dp[2] * c2) % MOD;
-    nextDp[2] = (dp[0] * c2 + dp[1] * c1 + dp[2] * c0) % MOD;
-    dp = nextDp;
+    const next0 = (dp0 * c0 + dp1 * c2 + dp2 * c1) % MOD;
+    const next1 = (dp0 * c1 + dp1 * c0 + dp2 * c2) % MOD;
+    const next2 = (dp0 * c2 + dp1 * c1 + dp2 * c0) % MOD;
+    dp0 = next0;
+    dp1 = next1;
+    dp2 = next2;
   }
 
-  console.log(dp[0].toString());
+  console.log(dp0.toString());
 }
 
 solve();
