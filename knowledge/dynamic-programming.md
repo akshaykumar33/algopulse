@@ -229,6 +229,12 @@ dp.fill(-1); // Memoization sentinel
 | [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
 | [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
 | [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [Pipes](https://codeforces.com/problemset/problem/1234/C) | `Codeforces` | `1500` | `pipes.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
+| [Line Empire](https://codeforces.com/problemset/problem/1659/C) | `Codeforces` | `1500` | `lineEmpire.js` | Key algorithmic application from Day 2026-11-18. |
+| [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
+| [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
+| [Two Arrays](https://codeforces.com/problemset/problem/1288/C) | `Codeforces` | `1600` | `twoArrays.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

@@ -334,6 +334,10 @@ function constructMatrix(n, m) {
 | [The Party and Sweets](https://codeforces.com/problemset/problem/1158/A) | `Codeforces` | `1500` | `thePartyAndSweets.js` | Key algorithmic application from Day 2026-11-17. |
 | [ABBC or BACB](https://codeforces.com/problemset/problem/1873/G) | `Codeforces` | `1500` | `aBBCOrBACB.js` | Key algorithmic application from Day 2026-11-17. |
 | [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
+| [Binary Table (Easy Version)](https://codeforces.com/problemset/problem/1439/A1) | `Codeforces` | `1500` | `binaryTableEasyVersion.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
+| [Binary String To Subsequences](https://codeforces.com/problemset/problem/1399/D) | `Codeforces` | `1500` | `binaryStringToSubsequences.js` | Key algorithmic application from Day 2026-11-18. |
+| [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

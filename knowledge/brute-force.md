@@ -318,6 +318,12 @@ function backtrack(index, currentSum, target, arr) {
 | [Convert to Ones](https://codeforces.com/problemset/problem/997/A) | `Codeforces` | `1500` | `convertToOnes.js` | Key algorithmic application from Day 2026-11-17. |
 | [Easy Tape Programming](https://codeforces.com/problemset/problem/239/B) | `Codeforces` | `1500` | `easyTapeProgramming.js` | Key algorithmic application from Day 2026-11-17. |
 | [The Robot](https://codeforces.com/problemset/problem/1468/K) | `Codeforces` | `1600` | `theRobot.js` | Key algorithmic application from Day 2026-11-17. |
+| [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
+| [Line Empire](https://codeforces.com/problemset/problem/1659/C) | `Codeforces` | `1500` | `lineEmpire.js` | Key algorithmic application from Day 2026-11-18. |
+| [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
+| [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
+| [The Enchanted Forest](https://codeforces.com/problemset/problem/1687/A) | `Codeforces` | `1600` | `theEnchantedForest.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -202,6 +202,8 @@ function dfsIterative(start, adj, n) {
 | [Weights Assignment For Tree Edges](https://codeforces.com/problemset/problem/1611/D) | `Codeforces` | `1500` | `weightsAssignmentForTreeEdges.js` | Key algorithmic application from Day 2026-11-16. |
 | [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
 | [Valera and Elections](https://codeforces.com/problemset/problem/369/C) | `Codeforces` | `1600` | `valeraAndElections.js` | Key algorithmic application from Day 2026-11-17. |
+| [Lunar New Year and a Wander](https://codeforces.com/problemset/problem/1106/D) | `Codeforces` | `1500` | `lunarNewYearAndAWander.js` | Key algorithmic application from Day 2026-11-18. |
+| [Pairs](https://codeforces.com/problemset/problem/1169/B) | `Codeforces` | `1500` | `pairs.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

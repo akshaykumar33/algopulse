@@ -161,6 +161,11 @@ for (let right = 0; right < arr.length; right++) {
 | [Kefa and Company](https://codeforces.com/problemset/problem/580/B) | `Codeforces` | `1500` | `kefaAndCompany.js` | Key algorithmic application from Day 2026-11-17. |
 | [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
 | [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
+| [A Tale of Two Lands](https://codeforces.com/problemset/problem/1166/C) | `Codeforces` | `1500` | `aTaleOfTwoLands.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
+| [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
+| [Minimize The Integer](https://codeforces.com/problemset/problem/1251/C) | `Codeforces` | `1600` | `minimizeTheInteger.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

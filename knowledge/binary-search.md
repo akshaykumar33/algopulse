@@ -203,6 +203,15 @@ function lowerBound(arr, target) {
 | [Kefa and Company](https://codeforces.com/problemset/problem/580/B) | `Codeforces` | `1500` | `kefaAndCompany.js` | Key algorithmic application from Day 2026-11-17. |
 | [Controllers](https://codeforces.com/problemset/problem/1776/L) | `Codeforces` | `1500` | `controllers.js` | Key algorithmic application from Day 2026-11-17. |
 | [Job Interview](https://codeforces.com/problemset/problem/1976/C) | `Codeforces` | `1600` | `jobInterview.js` | Key algorithmic application from Day 2026-11-17. |
+| [A Tale of Two Lands](https://codeforces.com/problemset/problem/1166/C) | `Codeforces` | `1500` | `aTaleOfTwoLands.js` | Key algorithmic application from Day 2026-11-18. |
+| [Turtle vs. Rabbit Race: Optimal Trainings](https://codeforces.com/problemset/problem/1933/E) | `Codeforces` | `1500` | `turtleVsRabbitRaceOptimalTrainings.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
+| [Queue](https://codeforces.com/problemset/problem/91/B) | `Codeforces` | `1500` | `queue.js` | Key algorithmic application from Day 2026-11-18. |
+| [Burning Midnight Oil](https://codeforces.com/problemset/problem/165/B) | `Codeforces` | `1500` | `burningMidnightOil.js` | Key algorithmic application from Day 2026-11-18. |
+| [Line Empire](https://codeforces.com/problemset/problem/1659/C) | `Codeforces` | `1500` | `lineEmpire.js` | Key algorithmic application from Day 2026-11-18. |
+| [Anton and Fairy Tale](https://codeforces.com/problemset/problem/785/C) | `Codeforces` | `1600` | `antonAndFairyTale.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
+| [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

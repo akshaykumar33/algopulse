@@ -184,6 +184,8 @@ function isPalindrome(s) {
 | [K-Complete Word](https://codeforces.com/problemset/problem/1332/C) | `Codeforces` | `1500` | `kCompleteWord.js` | Key algorithmic application from Day 2026-11-16. |
 | [Acacius and String](https://codeforces.com/problemset/problem/1379/A) | `Codeforces` | `1500` | `acaciusAndString.js` | Key algorithmic application from Day 2026-11-17. |
 | [New Problem](https://codeforces.com/problemset/problem/278/B) | `Codeforces` | `1500` | `newProblem.js` | Key algorithmic application from Day 2026-11-17. |
+| [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vanya and Label](https://codeforces.com/problemset/problem/677/C) | `Codeforces` | `1500` | `vanyaAndLabel.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
