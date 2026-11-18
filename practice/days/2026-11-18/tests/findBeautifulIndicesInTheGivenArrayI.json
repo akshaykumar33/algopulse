@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"isawshesawsayshello\", \"saw\", \"shesaw\", 5]",
+    "output": "[1,7]"
+  },
+  {
+    "input": "[\"bjakjh\", \"j\", \"bjakjh\", 6]",
+    "output": "[1,4]"
+  }
+]
