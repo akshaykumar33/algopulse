@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n3\nHamilton\nVettel\nWebber\n2\nWebber\nVettel\n2\nHamilton\nVettel\n",
+    "output": "Vettel\nHamilton\n"
+  }
+]
