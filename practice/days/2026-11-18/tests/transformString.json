@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\naccd\ncd\nabcd\ned\naaaabbb\naa\n",
+    "output": "2\n-1\n11\n"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nXOX\nXXO\nO_O\nXXX\nOOO\n___\nXOX\nOX_\nXO_\n",
+    "output": "2\n3\n1\n"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "input": "7\n2 2\nWW\nBB\n2 3\nBWB\nBBB\n2 3\nAWA\nBBB\n2 3\nBAA\nABB\n3 5\nBWAAB\nBWBWB\nBBBBB\n3 3\nBBB\nBAB\nBBB\n3 3\nBBB\nBWB\nBBB\n",
+    "output": "no\nyes\nno\nno\nno\nno\nno\n"
+  }
+]
