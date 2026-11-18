@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nmanutd 8 vs. 2 arsenal\nlyon 1 vs. 2 manutd\nfcbarca 0 vs. 0 lyon\nfcbarca 5 vs. 1 arsenal\nmanutd 3 vs. 1 fcbarca\narsenal 6 vs. 0 lyon\narsenal 0 vs. 0 manutd\nmanutd 4 vs. 2 lyon\narsenal 2 vs. 2 fcbarca\nlyon 0 vs. 3 fcbarca\nlyon 1 vs. 0 arsenal\nfcbarca 0 vs. 1 manutd\na 3 vs. 0 b\na 0 vs. 0 c\na 0 vs. 0 d\nb 0 vs. 0 a\nb 4 vs. 0 c\nb 0 vs. 0 d\nc 0 vs. 0 a\nc 0 vs. 0 b\nc 1 vs. 0 d\nd 3 vs. 0 a\nd 0 vs. 0 b\nd 0 vs. 0 c\n",
+    "output": "manutd fcbarca\nd b\n"
+  }
+]
