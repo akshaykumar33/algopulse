@@ -10,15 +10,17 @@ var maxScore = function(nums) {
   return ans;
 };
 
+var solve = maxScore;
+
 if (require.main === module) {
   const fs = require('fs');
-  const raw = fs.readFileSync(0, 'utf-8').trim();
-  if (raw) {
-    const lines = raw.split(/\r?\n/).filter(Boolean);
-    for (let i = 0; i < lines.length; i++) {
-      console.log(JSON.stringify(maxScore(JSON.parse(lines[i]))));
+  try {
+    const raw = fs.readFileSync(0, 'utf-8').trim();
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      console.log(JSON.stringify(Array.isArray(parsed) && solve.length > 1 ? solve(...parsed) : solve(parsed)));
     }
-  }
+  } catch (e) {}
 }
 
 module.exports = maxScore;
