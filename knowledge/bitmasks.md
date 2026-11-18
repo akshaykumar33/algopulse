@@ -160,6 +160,8 @@ function missingNumber(nums) {
 | [And Matching](https://codeforces.com/problemset/problem/1630/A) | `Codeforces` | `1500` | `andMatching.js` | Key algorithmic application from Day 2026-11-15. |
 | [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
 | [The Brand New Function](https://codeforces.com/problemset/problem/243/A) | `Codeforces` | `1600` | `theBrandNewFunction.js` | Key algorithmic application from Day 2026-11-17. |
+| [Vanya and Label](https://codeforces.com/problemset/problem/677/C) | `Codeforces` | `1500` | `vanyaAndLabel.js` | Key algorithmic application from Day 2026-11-18. |
+| [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

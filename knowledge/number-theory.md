@@ -202,6 +202,8 @@ function sieve(maxN) {
 | [Dora and C++](https://codeforces.com/problemset/problem/2007/C) | `Codeforces` | `1500` | `doraAndCPlusPlus.js` | Key algorithmic application from Day 2026-11-15. |
 | [Orac and LCM](https://codeforces.com/problemset/problem/1349/A) | `Codeforces` | `1600` | `oracAndLCM.js` | Key algorithmic application from Day 2026-11-15. |
 | [Almost All Divisors](https://codeforces.com/problemset/problem/1165/D) | `Codeforces` | `1600` | `almostAllDivisors.js` | Key algorithmic application from Day 2026-11-16. |
+| [Indivisibility](https://codeforces.com/problemset/problem/630/K) | `Codeforces` | `1500` | `indivisibility.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

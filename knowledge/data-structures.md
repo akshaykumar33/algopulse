@@ -216,6 +216,10 @@ class MinHeap {
 | [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 | [Polycarp's phone book](https://codeforces.com/problemset/problem/858/D) | `Codeforces` | `1600` | `polycarpSPhoneBook.js` | Key algorithmic application from Day 2026-11-17. |
 | [Milking cows](https://codeforces.com/problemset/problem/383/A) | `Codeforces` | `1600` | `milkingCows.js` | Key algorithmic application from Day 2026-11-17. |
+| [Lunar New Year and a Wander](https://codeforces.com/problemset/problem/1106/D) | `Codeforces` | `1500` | `lunarNewYearAndAWander.js` | Key algorithmic application from Day 2026-11-18. |
+| [Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Codeforces` | `1500` | `littleGirlAndMaximumSum.js` | Key algorithmic application from Day 2026-11-18. |
+| [Binary String To Subsequences](https://codeforces.com/problemset/problem/1399/D) | `Codeforces` | `1500` | `binaryStringToSubsequences.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
 
 ---
 

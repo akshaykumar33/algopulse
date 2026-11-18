@@ -251,6 +251,9 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 | [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 | [Polycarp's phone book](https://codeforces.com/problemset/problem/858/D) | `Codeforces` | `1600` | `polycarpSPhoneBook.js` | Key algorithmic application from Day 2026-11-17. |
+| [A Tale of Two Lands](https://codeforces.com/problemset/problem/1166/C) | `Codeforces` | `1500` | `aTaleOfTwoLands.js` | Key algorithmic application from Day 2026-11-18. |
+| [Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Codeforces` | `1500` | `littleGirlAndMaximumSum.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

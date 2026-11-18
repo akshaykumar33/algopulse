@@ -572,6 +572,14 @@ for (const x of arr) {
 | [K for the Price of One (Hard Version)](https://codeforces.com/problemset/problem/1282/B2) | `Codeforces` | `1600` | `kForThePriceOfOneHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 | [Seating Arrangements (hard version) ](https://codeforces.com/problemset/problem/1566/D2) | `Codeforces` | `1600` | `seatingArrangementsHardVersion.js` | Key algorithmic application from Day 2026-11-17. |
 | [Milking cows](https://codeforces.com/problemset/problem/383/A) | `Codeforces` | `1600` | `milkingCows.js` | Key algorithmic application from Day 2026-11-17. |
+| [Lunar New Year and a Wander](https://codeforces.com/problemset/problem/1106/D) | `Codeforces` | `1500` | `lunarNewYearAndAWander.js` | Key algorithmic application from Day 2026-11-18. |
+| [Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Codeforces` | `1500` | `littleGirlAndMaximumSum.js` | Key algorithmic application from Day 2026-11-18. |
+| [Binary String To Subsequences](https://codeforces.com/problemset/problem/1399/D) | `Codeforces` | `1500` | `binaryStringToSubsequences.js` | Key algorithmic application from Day 2026-11-18. |
+| [Line Empire](https://codeforces.com/problemset/problem/1659/C) | `Codeforces` | `1500` | `lineEmpire.js` | Key algorithmic application from Day 2026-11-18. |
+| [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
+| [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
+| [Minimize The Integer](https://codeforces.com/problemset/problem/1251/C) | `Codeforces` | `1600` | `minimizeTheInteger.js` | Key algorithmic application from Day 2026-11-18. |
+| [The Enchanted Forest](https://codeforces.com/problemset/problem/1687/A) | `Codeforces` | `1600` | `theEnchantedForest.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

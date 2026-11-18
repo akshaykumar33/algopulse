@@ -510,6 +510,14 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Controllers](https://codeforces.com/problemset/problem/1776/L) | `Codeforces` | `1500` | `controllers.js` | Key algorithmic application from Day 2026-11-17. |
 | [Torus Path](https://codeforces.com/problemset/problem/1765/K) | `Codeforces` | `1500` | `torusPath.js` | Key algorithmic application from Day 2026-11-17. |
 | [Divan and bitwise operations](https://codeforces.com/problemset/problem/1614/C) | `Codeforces` | `1500` | `divanAndBitwiseOperations.js` | Key algorithmic application from Day 2026-11-17. |
+| [Turtle vs. Rabbit Race: Optimal Trainings](https://codeforces.com/problemset/problem/1933/E) | `Codeforces` | `1500` | `turtleVsRabbitRaceOptimalTrainings.js` | Key algorithmic application from Day 2026-11-18. |
+| [Indivisibility](https://codeforces.com/problemset/problem/630/K) | `Codeforces` | `1500` | `indivisibility.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
+| [Vanya and Label](https://codeforces.com/problemset/problem/677/C) | `Codeforces` | `1500` | `vanyaAndLabel.js` | Key algorithmic application from Day 2026-11-18. |
+| [Line Empire](https://codeforces.com/problemset/problem/1659/C) | `Codeforces` | `1500` | `lineEmpire.js` | Key algorithmic application from Day 2026-11-18. |
+| [Anton and Fairy Tale](https://codeforces.com/problemset/problem/785/C) | `Codeforces` | `1600` | `antonAndFairyTale.js` | Key algorithmic application from Day 2026-11-18. |
+| [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
+| [Two Arrays](https://codeforces.com/problemset/problem/1288/C) | `Codeforces` | `1600` | `twoArrays.js` | Key algorithmic application from Day 2026-11-18. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
