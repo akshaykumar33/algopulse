@@ -324,6 +324,16 @@ function backtrack(index, currentSum, target, arr) {
 | [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
 | [The Enchanted Forest](https://codeforces.com/problemset/problem/1687/A) | `Codeforces` | `1600` | `theEnchantedForest.js` | Key algorithmic application from Day 2026-11-18. |
+| [Uniqueness](https://codeforces.com/problemset/problem/1208/B) | `Codeforces` | `1500` | `uniqueness.js` | Key algorithmic application from Day 2026-11-19. |
+| [MEX Cycle](https://codeforces.com/problemset/problem/2049/C) | `Codeforces` | `1500` | `mEXCycle.js` | Key algorithmic application from Day 2026-11-19. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [Special Elements](https://codeforces.com/problemset/problem/1352/E) | `Codeforces` | `1500` | `specialElements.js` | Key algorithmic application from Day 2026-11-19. |
+| [New Year and Curling](https://codeforces.com/problemset/problem/908/C) | `Codeforces` | `1500` | `newYearAndCurling.js` | Key algorithmic application from Day 2026-11-19. |
+| [Modulo Equality](https://codeforces.com/problemset/problem/1269/B) | `Codeforces` | `1500` | `moduloEquality.js` | Key algorithmic application from Day 2026-11-19. |
+| [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
+| [Five-In-a-Row](https://codeforces.com/problemset/problem/825/B) | `Codeforces` | `1600` | `fiveInARow.js` | Key algorithmic application from Day 2026-11-19. |
+| [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
+| [Gerald's Hexagon](https://codeforces.com/problemset/problem/559/A) | `Codeforces` | `1600` | `geraldSHexagon.js` | Key algorithmic application from Day 2026-11-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

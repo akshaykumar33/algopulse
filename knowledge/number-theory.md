@@ -204,6 +204,10 @@ function sieve(maxN) {
 | [Almost All Divisors](https://codeforces.com/problemset/problem/1165/D) | `Codeforces` | `1600` | `almostAllDivisors.js` | Key algorithmic application from Day 2026-11-16. |
 | [Indivisibility](https://codeforces.com/problemset/problem/630/K) | `Codeforces` | `1500` | `indivisibility.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
+| [Polycarp and Div 3](https://codeforces.com/problemset/problem/1005/D) | `Codeforces` | `1500` | `polycarpAndDiv3.js` | Key algorithmic application from Day 2026-11-19. |
+| [Submarine in the Rybinsk Sea (easy edition)](https://codeforces.com/problemset/problem/1195/D1) | `Codeforces` | `1500` | `submarineInTheRybinskSeaEasyEdition.js` | Key algorithmic application from Day 2026-11-19. |
+| [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
+| [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 

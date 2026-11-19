@@ -220,6 +220,9 @@ class MinHeap {
 | [Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Codeforces` | `1500` | `littleGirlAndMaximumSum.js` | Key algorithmic application from Day 2026-11-18. |
 | [Binary String To Subsequences](https://codeforces.com/problemset/problem/1399/D) | `Codeforces` | `1500` | `binaryStringToSubsequences.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
+| [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
+| [Preparing for Merge Sort](https://codeforces.com/problemset/problem/847/B) | `Codeforces` | `1600` | `preparingForMergeSort.js` | Key algorithmic application from Day 2026-11-19. |
+| [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 

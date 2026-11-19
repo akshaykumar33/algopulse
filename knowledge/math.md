@@ -518,6 +518,17 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Anton and Fairy Tale](https://codeforces.com/problemset/problem/785/C) | `Codeforces` | `1600` | `antonAndFairyTale.js` | Key algorithmic application from Day 2026-11-18. |
 | [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
 | [Two Arrays](https://codeforces.com/problemset/problem/1288/C) | `Codeforces` | `1600` | `twoArrays.js` | Key algorithmic application from Day 2026-11-18. |
+| [24 Game](https://codeforces.com/problemset/problem/468/A) | `Codeforces` | `1500` | `p24Game.js` | Key algorithmic application from Day 2026-11-19. |
+| [Eastern Exhibition](https://codeforces.com/problemset/problem/1486/B) | `Codeforces` | `1500` | `easternExhibition.js` | Key algorithmic application from Day 2026-11-19. |
+| [New Year and Curling](https://codeforces.com/problemset/problem/908/C) | `Codeforces` | `1500` | `newYearAndCurling.js` | Key algorithmic application from Day 2026-11-19. |
+| [Bertown Subway](https://codeforces.com/problemset/problem/884/C) | `Codeforces` | `1500` | `bertownSubway.js` | Key algorithmic application from Day 2026-11-19. |
+| [Submarine in the Rybinsk Sea (easy edition)](https://codeforces.com/problemset/problem/1195/D1) | `Codeforces` | `1500` | `submarineInTheRybinskSeaEasyEdition.js` | Key algorithmic application from Day 2026-11-19. |
+| [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
+| [Pyramid of Glasses](https://codeforces.com/problemset/problem/676/B) | `Codeforces` | `1500` | `pyramidOfGlasses.js` | Key algorithmic application from Day 2026-11-19. |
+| [Divide The Students](https://codeforces.com/problemset/problem/1250/L) | `Codeforces` | `1500` | `divideTheStudents.js` | Key algorithmic application from Day 2026-11-19. |
+| [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
+| [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
+| [Gerald's Hexagon](https://codeforces.com/problemset/problem/559/A) | `Codeforces` | `1600` | `geraldSHexagon.js` | Key algorithmic application from Day 2026-11-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

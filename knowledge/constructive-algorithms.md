@@ -338,6 +338,11 @@ function constructMatrix(n, m) {
 | [Vladik and fractions](https://codeforces.com/problemset/problem/743/C) | `Codeforces` | `1500` | `vladikAndFractions.js` | Key algorithmic application from Day 2026-11-18. |
 | [Binary String To Subsequences](https://codeforces.com/problemset/problem/1399/D) | `Codeforces` | `1500` | `binaryStringToSubsequences.js` | Key algorithmic application from Day 2026-11-18. |
 | [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
+| [MEX Cycle](https://codeforces.com/problemset/problem/2049/C) | `Codeforces` | `1500` | `mEXCycle.js` | Key algorithmic application from Day 2026-11-19. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [24 Game](https://codeforces.com/problemset/problem/468/A) | `Codeforces` | `1500` | `p24Game.js` | Key algorithmic application from Day 2026-11-19. |
+| [Yet Another Array Partitioning Task](https://codeforces.com/problemset/problem/1114/B) | `Codeforces` | `1500` | `yetAnotherArrayPartitioningTask.js` | Key algorithmic application from Day 2026-11-19. |
+| [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 

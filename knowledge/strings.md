@@ -186,6 +186,7 @@ function isPalindrome(s) {
 | [New Problem](https://codeforces.com/problemset/problem/278/B) | `Codeforces` | `1500` | `newProblem.js` | Key algorithmic application from Day 2026-11-17. |
 | [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vanya and Label](https://codeforces.com/problemset/problem/677/C) | `Codeforces` | `1500` | `vanyaAndLabel.js` | Key algorithmic application from Day 2026-11-18. |
+| [They Are Everywhere](https://codeforces.com/problemset/problem/701/C) | `Codeforces` | `1500` | `theyAreEverywhere.js` | Key algorithmic application from Day 2026-11-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

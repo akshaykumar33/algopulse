@@ -254,6 +254,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [A Tale of Two Lands](https://codeforces.com/problemset/problem/1166/C) | `Codeforces` | `1500` | `aTaleOfTwoLands.js` | Key algorithmic application from Day 2026-11-18. |
 | [Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Codeforces` | `1500` | `littleGirlAndMaximumSum.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [Phoenix and Socks](https://codeforces.com/problemset/problem/1515/D) | `Codeforces` | `1500` | `phoenixAndSocks.js` | Key algorithmic application from Day 2026-11-19. |
+| [Eastern Exhibition](https://codeforces.com/problemset/problem/1486/B) | `Codeforces` | `1500` | `easternExhibition.js` | Key algorithmic application from Day 2026-11-19. |
+| [Modulo Equality](https://codeforces.com/problemset/problem/1269/B) | `Codeforces` | `1500` | `moduloEquality.js` | Key algorithmic application from Day 2026-11-19. |
+| [Yet Another Array Partitioning Task](https://codeforces.com/problemset/problem/1114/B) | `Codeforces` | `1500` | `yetAnotherArrayPartitioningTask.js` | Key algorithmic application from Day 2026-11-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
