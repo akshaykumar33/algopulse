@@ -1,0 +1,17 @@
+[
+  {
+    "input": "[\"abacaba\", 3]",
+    "expected": "2",
+    "output": "2"
+  },
+  {
+    "input": "[\"abacaba\", 4]",
+    "expected": "1",
+    "output": "1"
+  },
+  {
+    "input": "[\"abcbabcd\", 2]",
+    "expected": "4",
+    "output": "4"
+  }
+]
