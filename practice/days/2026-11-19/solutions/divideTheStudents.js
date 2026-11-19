@@ -14,13 +14,9 @@ function solve() {
     const c = Number(input[ptr++]);
 
     function check(M) {
+      if (a + b + c > 3 * M) return false;
       if (a > 2 * M || c > 2 * M) return false;
-      const remA = Math.max(0, a - M);
-      const remC = Math.max(0, c - M);
-      const cap1 = M - Math.min(a, M);
-      const cap3 = M - Math.min(c, M);
-      const remB = Math.max(0, b - cap1 - cap3);
-      return remA + remC + remB <= M;
+      return a <= M || c <= M;
     }
 
     let low = Math.ceil((a + b + c) / 3);

@@ -1,0 +1,150 @@
+[
+  {
+    "platform": "CodeChef",
+    "id": "CC-MIRTREE",
+    "name": "Weirwood Trees",
+    "file": "weirwoodTrees",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-19T05:41:00.129Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MIRTREE",
+      "name": "Weirwood Trees",
+      "rating": 1678,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MIRTREE",
+      "file": "weirwoodTrees",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2580",
+    "name": "Count Ways to Group Overlapping Ranges",
+    "file": "countWaysToGroupOverlappingRanges",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-19T06:09:17.252Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2580",
+      "name": "Count Ways to Group Overlapping Ranges",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/",
+      "file": "countWaysToGroupOverlappingRanges",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1250L",
+    "name": "Divide The Students",
+    "file": "divideTheStudents",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-19T06:32:47.564Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1250L",
+      "name": "Divide The Students",
+      "rating": 1500,
+      "tags": [
+        "binary search",
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1250/L",
+      "file": "divideTheStudents",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "559A",
+    "name": "Gerald's Hexagon",
+    "file": "geraldSHexagon",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 2",
+    "enqueuedAt": "2026-11-19T06:56:34.661Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "559A",
+      "name": "Gerald's Hexagon",
+      "rating": 1600,
+      "tags": [
+        "brute force",
+        "geometry",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/559/A",
+      "file": "geraldSHexagon",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CIELDIST",
+    "name": "Minimum Distance",
+    "file": "minimumDistance",
+    "tier": "hard",
+    "initialVerdict": "wrong answer",
+    "enqueuedAt": "2026-11-19T07:12:30.392Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CIELDIST",
+      "name": "Minimum Distance",
+      "rating": 1646,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CIELDIST",
+      "file": "minimumDistance",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "wrong answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CDQU1",
+    "name": "Charlie and Prime Numbers",
+    "file": "charlieAndPrimeNumbers",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-19T07:19:41.512Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CDQU1",
+      "name": "Charlie and Prime Numbers",
+      "rating": 1620,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CDQU1",
+      "file": "charlieAndPrimeNumbers",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]

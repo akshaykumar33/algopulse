@@ -2375,5 +2375,17 @@
       "algorithms"
     ],
     "timestamp": "2026-11-18T08:50:33.031Z"
+  },
+  {
+    "id": "CC-MIRTREE",
+    "problem": "Weirwood Trees",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem statement defines H as the number of nodes at the current tree level. Initially, it's n+1 nodes because the initial tree is a path of n nodes, resulting in n+1 levels (0 to n). However, the initial value of H in the code is set to `BigInt(n + 1) % MOD`. This is incorrect. H should represent the *actual count* of nodes at the current level, which starts at `n + 1` (a plain number) and not `(n + 1) % MOD`. When n+1 is used in calculations, it should be the correct numerical value, then results are taken modulo MOD. The expression `(n + 1) % MOD` is only correct if n+1 is already a very large number, which it isn't initially for `n` up to 10^5. The initial H should be `BigInt(n + 1)`, and subsequent operations use this `BigInt` value, taking modulo when performing arithmetic.",
+    "rule": "When a variable represents a count or a size, initialize it with the actual numerical value (as a BigInt if it's involved in BigInt arithmetic and might exceed Number.MAX_SAFE_INTEGER, or if it interacts with other BigInts). Only apply modulo operations after arithmetic calculations, not during initialization of a small count, unless the count itself is defined as a residue modulo MOD.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-19T06:56:00.319Z"
   }
 ]
