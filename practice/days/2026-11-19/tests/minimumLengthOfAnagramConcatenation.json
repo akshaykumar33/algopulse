@@ -1,0 +1,12 @@
+[
+  {
+    "input": "[\"abba\"]",
+    "expected": "2",
+    "output": "2"
+  },
+  {
+    "input": "[\"cdef\"]",
+    "expected": "4",
+    "output": "4"
+  }
+]

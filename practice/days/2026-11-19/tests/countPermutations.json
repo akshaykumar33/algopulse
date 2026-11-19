@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n2\n3",
+    "output": "0\n2",
+    "expected": "0\n2"
+  }
+]

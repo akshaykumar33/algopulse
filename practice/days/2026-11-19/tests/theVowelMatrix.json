@@ -1,0 +1,7 @@
+[
+  {
+    "input": "2\n3 1\nneo\n10 2\nbabylonian",
+    "output": "1\n2",
+    "expected": "1\n2"
+  }
+]
