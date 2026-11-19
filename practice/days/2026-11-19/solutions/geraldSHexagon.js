@@ -12,7 +12,7 @@ function solve() {
   const a6 = Number(input[5]);
 
   const L = a1 + a2 + a3;
-  const ans = L * L - a2 * a2 - a4 * a4 - a6 * a6;
+  const ans = L * L - a1 * a1 - a3 * a3 - a5 * a5;
 
   console.log(ans);
 }
