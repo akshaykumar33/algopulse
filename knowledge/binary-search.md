@@ -212,6 +212,16 @@ function lowerBound(arr, target) {
 | [Anton and Fairy Tale](https://codeforces.com/problemset/problem/785/C) | `Codeforces` | `1600` | `antonAndFairyTale.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
 | [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
+| [Uniqueness](https://codeforces.com/problemset/problem/1208/B) | `Codeforces` | `1500` | `uniqueness.js` | Key algorithmic application from Day 2026-11-19. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [They Are Everywhere](https://codeforces.com/problemset/problem/701/C) | `Codeforces` | `1500` | `theyAreEverywhere.js` | Key algorithmic application from Day 2026-11-19. |
+| [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
+| [Eastern Exhibition](https://codeforces.com/problemset/problem/1486/B) | `Codeforces` | `1500` | `easternExhibition.js` | Key algorithmic application from Day 2026-11-19. |
+| [Limited Repainting](https://codeforces.com/problemset/problem/2070/C) | `Codeforces` | `1500` | `limitedRepainting.js` | Key algorithmic application from Day 2026-11-19. |
+| [Divide The Students](https://codeforces.com/problemset/problem/1250/L) | `Codeforces` | `1500` | `divideTheStudents.js` | Key algorithmic application from Day 2026-11-19. |
+| [Preparing for Merge Sort](https://codeforces.com/problemset/problem/847/B) | `Codeforces` | `1600` | `preparingForMergeSort.js` | Key algorithmic application from Day 2026-11-19. |
+| [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
+| [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 

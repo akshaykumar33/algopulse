@@ -166,6 +166,14 @@ for (let right = 0; right < arr.length; right++) {
 | [Vasya and Basketball](https://codeforces.com/problemset/problem/493/C) | `Codeforces` | `1600` | `vasyaAndBasketball.js` | Key algorithmic application from Day 2026-11-18. |
 | [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
 | [Minimize The Integer](https://codeforces.com/problemset/problem/1251/C) | `Codeforces` | `1600` | `minimizeTheInteger.js` | Key algorithmic application from Day 2026-11-18. |
+| [Uniqueness](https://codeforces.com/problemset/problem/1208/B) | `Codeforces` | `1500` | `uniqueness.js` | Key algorithmic application from Day 2026-11-19. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [They Are Everywhere](https://codeforces.com/problemset/problem/701/C) | `Codeforces` | `1500` | `theyAreEverywhere.js` | Key algorithmic application from Day 2026-11-19. |
+| [Phoenix and Socks](https://codeforces.com/problemset/problem/1515/D) | `Codeforces` | `1500` | `phoenixAndSocks.js` | Key algorithmic application from Day 2026-11-19. |
+| [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
+| [Special Elements](https://codeforces.com/problemset/problem/1352/E) | `Codeforces` | `1500` | `specialElements.js` | Key algorithmic application from Day 2026-11-19. |
+| [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
+| [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 

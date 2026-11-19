@@ -580,6 +580,21 @@ for (const x of arr) {
 | [Fence Painting](https://codeforces.com/problemset/problem/1481/C) | `Codeforces` | `1600` | `fencePainting.js` | Key algorithmic application from Day 2026-11-18. |
 | [Minimize The Integer](https://codeforces.com/problemset/problem/1251/C) | `Codeforces` | `1600` | `minimizeTheInteger.js` | Key algorithmic application from Day 2026-11-18. |
 | [The Enchanted Forest](https://codeforces.com/problemset/problem/1687/A) | `Codeforces` | `1600` | `theEnchantedForest.js` | Key algorithmic application from Day 2026-11-18. |
+| [Air Conditioner](https://codeforces.com/problemset/problem/1304/C) | `Codeforces` | `1500` | `airConditioner.js` | Key algorithmic application from Day 2026-11-19. |
+| [Polycarp and Div 3](https://codeforces.com/problemset/problem/1005/D) | `Codeforces` | `1500` | `polycarpAndDiv3.js` | Key algorithmic application from Day 2026-11-19. |
+| [MEX Cycle](https://codeforces.com/problemset/problem/2049/C) | `Codeforces` | `1500` | `mEXCycle.js` | Key algorithmic application from Day 2026-11-19. |
+| [Sage's Birthday (hard version)](https://codeforces.com/problemset/problem/1419/D2) | `Codeforces` | `1500` | `sageSBirthdayHardVersion.js` | Key algorithmic application from Day 2026-11-19. |
+| [24 Game](https://codeforces.com/problemset/problem/468/A) | `Codeforces` | `1500` | `p24Game.js` | Key algorithmic application from Day 2026-11-19. |
+| [Phoenix and Socks](https://codeforces.com/problemset/problem/1515/D) | `Codeforces` | `1500` | `phoenixAndSocks.js` | Key algorithmic application from Day 2026-11-19. |
+| [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
+| [Feed with Candy](https://codeforces.com/problemset/problem/436/A) | `Codeforces` | `1500` | `feedWithCandy.js` | Key algorithmic application from Day 2026-11-19. |
+| [Bertown Subway](https://codeforces.com/problemset/problem/884/C) | `Codeforces` | `1500` | `bertownSubway.js` | Key algorithmic application from Day 2026-11-19. |
+| [Limited Repainting](https://codeforces.com/problemset/problem/2070/C) | `Codeforces` | `1500` | `limitedRepainting.js` | Key algorithmic application from Day 2026-11-19. |
+| [Yet Another Array Partitioning Task](https://codeforces.com/problemset/problem/1114/B) | `Codeforces` | `1500` | `yetAnotherArrayPartitioningTask.js` | Key algorithmic application from Day 2026-11-19. |
+| [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
+| [Divide The Students](https://codeforces.com/problemset/problem/1250/L) | `Codeforces` | `1500` | `divideTheStudents.js` | Key algorithmic application from Day 2026-11-19. |
+| [Cram Time](https://codeforces.com/problemset/problem/1031/C) | `Codeforces` | `1600` | `cramTime.js` | Key algorithmic application from Day 2026-11-19. |
+| [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

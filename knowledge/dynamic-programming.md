@@ -235,6 +235,9 @@ dp.fill(-1); // Memoization sentinel
 | [Good Key, Bad Key](https://codeforces.com/problemset/problem/1703/G) | `Codeforces` | `1600` | `goodKeyBadKey.js` | Key algorithmic application from Day 2026-11-18. |
 | [Hard Process](https://codeforces.com/problemset/problem/660/C) | `Codeforces` | `1600` | `hardProcess.js` | Key algorithmic application from Day 2026-11-18. |
 | [Two Arrays](https://codeforces.com/problemset/problem/1288/C) | `Codeforces` | `1600` | `twoArrays.js` | Key algorithmic application from Day 2026-11-18. |
+| [Polycarp and Div 3](https://codeforces.com/problemset/problem/1005/D) | `Codeforces` | `1500` | `polycarpAndDiv3.js` | Key algorithmic application from Day 2026-11-19. |
+| [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
+| [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
 
 ---
 
