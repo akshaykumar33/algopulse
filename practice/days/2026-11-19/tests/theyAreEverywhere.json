@@ -1,0 +1,14 @@
+[
+  {
+    "input": "3\nAaA\n",
+    "output": "2\n"
+  },
+  {
+    "input": "7\nbcAAAbc\n",
+    "output": "3\n"
+  },
+  {
+    "input": "6\naaBCCe\n",
+    "output": "5\n"
+  }
+]

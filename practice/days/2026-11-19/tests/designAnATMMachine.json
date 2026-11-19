@@ -1,0 +1,7 @@
+[
+  {
+    "input": "[\"ATM\",\"deposit\",\"withdraw\",\"deposit\",\"withdraw\",\"withdraw\"]\n[[],[[0,0,1,2,1]],[600],[[0,1,0,1,1]],[600],[550]]",
+    "expected": "[null,null,[0,0,1,0,1],null,[-1],[0,1,0,0,1]]",
+    "output": "[null,null,[0,0,1,0,1],null,[-1],[0,1,0,0,1]]"
+  }
+]
