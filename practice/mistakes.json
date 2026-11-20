@@ -2387,5 +2387,55 @@
       "codechef"
     ],
     "timestamp": "2026-11-19T06:56:00.319Z"
+  },
+  {
+    "id": "346A",
+    "problem": "Alice and Bob",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem statement for Codeforces 346A is about a game between Alice and Bob involving an array of numbers, where they take turns replacing a number with the absolute difference of two numbers from the array. The game ends when all numbers are equal. The winner is determined by whether the final common number is 0 or not. The provided solution completely misunderstands the problem. It seems to be attempting to solve a different problem related to counting elements less than/greater than a given 'a' and then outputting 'a+1' or 'a-1'. This is fundamentally incorrect for Codeforces 346A. The actual problem involves properties of GCDs (greatest common divisors) and the maximum element.",
+    "rule": "Always carefully read and understand the problem statement, especially for game theory or number theory problems. A slight misinterpretation can lead to solving a completely different problem. For problems involving GCDs or absolute differences that converge to a single value, the final value is often related to the GCD of the initial set of numbers. The game ends when all numbers are equal to their greatest common divisor, and the number of moves is determined by the largest element divided by the GCD. If the largest element divided by the GCD is odd, Alice wins, otherwise Bob wins.",
+    "tags": [
+      "games",
+      "math",
+      "number theory"
+    ],
+    "timestamp": "2026-11-20T03:01:53.273Z"
+  },
+  {
+    "id": "LC-2349",
+    "problem": "Design a Number Container System",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The MinHeap in the `find` method can contain stale indices. When `change(index, number)` is called, a new `number` is associated with `index`, but the old `number`'s heap still contains `index`. The `find` method iteratively `pop()`s elements until it finds one where `idxToNum.get(top)` matches the `number` being searched. If many stale indices are at the top of the heap for a given `number`, `find` can perform many `pop` operations. In the worst case, if every `change` operation reassigns an `index` to a different `number`, the heap could store a large number of stale indices. A `find` operation might have to traverse a significant portion of the heap, potentially leading to TLE or, with extreme test cases, a stack overflow if the heap operations were recursive (though they are iterative here). The more precise issue for 'Runtime Error' on LeetCode with this structure is likely due to the `find` loop continuing to pop elements, possibly leading to an empty heap, or the repeated `pop` and `peek` operations on a potentially very large heap in the worst case contributing to time limits if not outright causing a specific `pop` access error when the heap is logically empty but still being probed. The key is that `pop()` and `peek()` are called inside a `while` loop without guarantees of quick convergence to a valid element, if such elements exist at all after many changes. This could cause the heap to become logically empty but still be iterated, or the large number of pops to exceed time limits, which LeetCode often reports as 'Runtime Error' when it's technically a TLE from excessive operations.",
+    "rule": "When designing data structures that store indices or references to mutable state, ensure that operations (especially lookups and retrievals) efficiently handle stale or invalid entries. Proactively clean up stale entries or use lazy deletion with validation during retrieval to avoid iterating over large numbers of defunct elements. If a data structure can hold elements that might become invalid due to external state changes, its retrieval methods must efficiently skip or remove these invalid elements without excessive operations.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-20T04:38:40.743Z"
+  },
+  {
+    "id": "LC-2349",
+    "problem": "Design a Number Container System",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The MinHeap stores indices for each number. When an index's associated number is changed (via `change` method), the old number's heap might still contain this index, now mapping to a different number. The `find` method correctly checks `idxToNum.get(top) === number` to filter out stale indices. However, it only removes a stale index from the heap if `top` is not `number`. If `oldNum` (the number previously at `index`) is eventually searched via `find(oldNum)`, and `index` is still at the top of its heap, the condition `this.idxToNum.get(top) === oldNum` will be false. The problem is that the `change` method doesn't explicitly remove the `index` from the `oldNum`'s heap. This leads to the `find` method potentially iterating through many stale indices before finding a valid one or determining none exist, causing a Time Limit Exceeded (TLE) in test cases with frequent `change` operations followed by `find` on the `oldNum`, or an excessively large number of indices in the heap. The original problem statement and knowledge base point to 'Runtime Error' but this is typically a TLE issue on LeetCode for such logic.",
+    "rule": "When designing data structures that rely on 'stale' or 'invalidated' entries (e.g., MinHeaps with elements whose properties have changed elsewhere), ensure that lookup methods actively 'clean up' or skip stale entries until a valid one is found. If cleanup involves repeated `pop` operations, it can become inefficient (TLE) if many stale entries accumulate. The most efficient way is to only `push` fresh entries and use a check during `peek` to discard stale ones. The critical part is that `pop` must be used to remove the stale entry if `peek` finds one.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-20T05:11:51.710Z"
+  },
+  {
+    "id": "CC-ANDOR1",
+    "problem": "AND OR Conversion 1",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks whether it's possible to convert string 'a' to string 'b' using specific bitwise operations. The provided solution incorrectly assumes that this is related to the number of alternating blocks of characters (0s and 1s) and the first character. The problem states that a string 's' can be transformed into 's XOR c' or 's OR c' where 'c' is chosen such that the result is still a binary string. This implies that if a character at an index 'i' in 'a' is '1' and 'b' at 'i' is '0', we can achieve this with XOR. If 'a' at 'i' is '0' and 'b' at 'i' is '1', we can achieve this with OR. The only impossible transformation is from '1' to '0' using OR or from '0' to '1' using XOR. However, the key insight is that an 'OR' operation can change a '0' to a '1' (by ORing with '1'), but cannot change a '1' to a '0'. Conversely, an 'XOR' operation can change '0' to '1' (by XORing with '1') or '1' to '0' (by XORing with '1'). If we choose 'c' to be all '0's, nothing changes. If we choose 'c' to be all '1's, 's XOR 1' flips all bits and 's OR 1' makes all bits '1'. The problem implies a more general bitwise OR/XOR operation. The core constraint comes from the OR operation: it can never change a '1' to a '0'. Therefore, if any bit at index `i` in string `a` is '1' and the corresponding bit at `i` in string `b` is '0', it's impossible to transform `a` to `b`. Otherwise, it's always possible. The provided solution completely misses this logic.",
+    "rule": "For problems involving bitwise operations (AND, OR, XOR) and transformations between binary strings, carefully analyze the properties of each operation. Specifically, an OR operation can never turn a '1' bit into a '0' bit. An AND operation can never turn a '0' bit into a '1' bit. XOR operations can flip bits in both directions. The crucial constraint often comes from the irreversible nature of certain bit changes by specific operations.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-20T05:12:48.256Z"
   }
 ]
