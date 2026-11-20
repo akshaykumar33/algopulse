@@ -187,6 +187,11 @@ function isPalindrome(s) {
 | [Vasya and String](https://codeforces.com/problemset/problem/676/C) | `Codeforces` | `1500` | `vasyaAndString.js` | Key algorithmic application from Day 2026-11-18. |
 | [Vanya and Label](https://codeforces.com/problemset/problem/677/C) | `Codeforces` | `1500` | `vanyaAndLabel.js` | Key algorithmic application from Day 2026-11-18. |
 | [They Are Everywhere](https://codeforces.com/problemset/problem/701/C) | `Codeforces` | `1500` | `theyAreEverywhere.js` | Key algorithmic application from Day 2026-11-19. |
+| [s-palindrome](https://codeforces.com/problemset/problem/691/B) | `Codeforces` | `1600` | `sPalindrome.js` | Key algorithmic application from Day 2026-11-20. |
+| [Ancient Prophesy](https://codeforces.com/problemset/problem/260/B) | `Codeforces` | `1600` | `ancientProphesy.js` | Key algorithmic application from Day 2026-11-20. |
+| [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Love Rescue](https://codeforces.com/problemset/problem/939/D) | `Codeforces` | `1600` | `loveRescue.js` | Key algorithmic application from Day 2026-11-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

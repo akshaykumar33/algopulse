@@ -222,6 +222,12 @@ function lowerBound(arr, target) {
 | [Preparing for Merge Sort](https://codeforces.com/problemset/problem/847/B) | `Codeforces` | `1600` | `preparingForMergeSort.js` | Key algorithmic application from Day 2026-11-19. |
 | [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
+| [Born This Way](https://codeforces.com/problemset/problem/1148/B) | `Codeforces` | `1600` | `bornThisWay.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Stairs and Elevators](https://codeforces.com/problemset/problem/925/A) | `Codeforces` | `1600` | `stairsAndElevators.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
+| [Energy exchange](https://codeforces.com/problemset/problem/68/B) | `Codeforces` | `1600` | `energyExchange.js` | Key algorithmic application from Day 2026-11-20. |
+| [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

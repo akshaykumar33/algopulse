@@ -529,6 +529,15 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 | [Gerald's Hexagon](https://codeforces.com/problemset/problem/559/A) | `Codeforces` | `1600` | `geraldSHexagon.js` | Key algorithmic application from Day 2026-11-19. |
+| [Shocking Arrangement](https://codeforces.com/problemset/problem/1798/D) | `Codeforces` | `1600` | `shockingArrangement.js` | Key algorithmic application from Day 2026-11-20. |
+| [New Year and Permutation](https://codeforces.com/problemset/problem/1284/C) | `Codeforces` | `1600` | `newYearAndPermutation.js` | Key algorithmic application from Day 2026-11-20. |
+| [Magic Formulas](https://codeforces.com/problemset/problem/424/C) | `Codeforces` | `1600` | `magicFormulas.js` | Key algorithmic application from Day 2026-11-20. |
+| [Jumping Jack](https://codeforces.com/problemset/problem/11/B) | `Codeforces` | `1600` | `jumpingJack.js` | Key algorithmic application from Day 2026-11-20. |
+| [D-Function](https://codeforces.com/problemset/problem/1985/G) | `Codeforces` | `1600` | `dFunction.js` | Key algorithmic application from Day 2026-11-20. |
+| [Plus and Square Root](https://codeforces.com/problemset/problem/715/A) | `Codeforces` | `1600` | `plusAndSquareRoot.js` | Key algorithmic application from Day 2026-11-20. |
+| [Triangle Coloring](https://codeforces.com/problemset/problem/1795/D) | `Codeforces` | `1600` | `triangleColoring.js` | Key algorithmic application from Day 2026-11-20. |
+| [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Lines](https://codeforces.com/problemset/problem/593/B) | `Codeforces` | `1600` | `antonAndLines.js` | Key algorithmic application from Day 2026-11-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

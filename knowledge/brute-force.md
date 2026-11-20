@@ -334,6 +334,14 @@ function backtrack(index, currentSum, target, arr) {
 | [Five-In-a-Row](https://codeforces.com/problemset/problem/825/B) | `Codeforces` | `1600` | `fiveInARow.js` | Key algorithmic application from Day 2026-11-19. |
 | [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
 | [Gerald's Hexagon](https://codeforces.com/problemset/problem/559/A) | `Codeforces` | `1600` | `geraldSHexagon.js` | Key algorithmic application from Day 2026-11-19. |
+| [Born This Way](https://codeforces.com/problemset/problem/1148/B) | `Codeforces` | `1600` | `bornThisWay.js` | Key algorithmic application from Day 2026-11-20. |
+| [Ancient Prophesy](https://codeforces.com/problemset/problem/260/B) | `Codeforces` | `1600` | `ancientProphesy.js` | Key algorithmic application from Day 2026-11-20. |
+| [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
+| [Strange Addition](https://codeforces.com/problemset/problem/305/A) | `Codeforces` | `1600` | `strangeAddition.js` | Key algorithmic application from Day 2026-11-20. |
+| [Flag of Berland](https://codeforces.com/problemset/problem/837/B) | `Codeforces` | `1600` | `flagOfBerland.js` | Key algorithmic application from Day 2026-11-20. |
+| [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

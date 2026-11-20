@@ -343,6 +343,11 @@ function constructMatrix(n, m) {
 | [24 Game](https://codeforces.com/problemset/problem/468/A) | `Codeforces` | `1500` | `p24Game.js` | Key algorithmic application from Day 2026-11-19. |
 | [Yet Another Array Partitioning Task](https://codeforces.com/problemset/problem/1114/B) | `Codeforces` | `1500` | `yetAnotherArrayPartitioningTask.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
+| [Shocking Arrangement](https://codeforces.com/problemset/problem/1798/D) | `Codeforces` | `1600` | `shockingArrangement.js` | Key algorithmic application from Day 2026-11-20. |
+| [Bear and Two Paths](https://codeforces.com/problemset/problem/643/B) | `Codeforces` | `1600` | `bearAndTwoPaths.js` | Key algorithmic application from Day 2026-11-20. |
+| [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
+| [Plus and Square Root](https://codeforces.com/problemset/problem/715/A) | `Codeforces` | `1600` | `plusAndSquareRoot.js` | Key algorithmic application from Day 2026-11-20. |
+| [Strange Addition](https://codeforces.com/problemset/problem/305/A) | `Codeforces` | `1600` | `strangeAddition.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

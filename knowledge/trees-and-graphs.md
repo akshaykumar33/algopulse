@@ -206,6 +206,13 @@ function dfsIterative(start, adj, n) {
 | [Pairs](https://codeforces.com/problemset/problem/1169/B) | `Codeforces` | `1500` | `pairs.js` | Key algorithmic application from Day 2026-11-18. |
 | [Resort](https://codeforces.com/problemset/problem/350/B) | `Codeforces` | `1500` | `resort.js` | Key algorithmic application from Day 2026-11-19. |
 | [Bertown Subway](https://codeforces.com/problemset/problem/884/C) | `Codeforces` | `1500` | `bertownSubway.js` | Key algorithmic application from Day 2026-11-19. |
+| [Bear and Two Paths](https://codeforces.com/problemset/problem/643/B) | `Codeforces` | `1600` | `bearAndTwoPaths.js` | Key algorithmic application from Day 2026-11-20. |
+| [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
+| [The Two Routes](https://codeforces.com/problemset/problem/601/A) | `Codeforces` | `1600` | `theTwoRoutes.js` | Key algorithmic application from Day 2026-11-20. |
+| [Love Rescue](https://codeforces.com/problemset/problem/939/D) | `Codeforces` | `1600` | `loveRescue.js` | Key algorithmic application from Day 2026-11-20. |
+| [Fair](https://codeforces.com/problemset/problem/986/A) | `Codeforces` | `1600` | `fair.js` | Key algorithmic application from Day 2026-11-20. |
+| [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
+| [Timofey and a tree](https://codeforces.com/problemset/problem/763/A) | `Codeforces` | `1600` | `timofeyAndATree.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

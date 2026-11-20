@@ -238,6 +238,11 @@ dp.fill(-1); // Memoization sentinel
 | [Polycarp and Div 3](https://codeforces.com/problemset/problem/1005/D) | `Codeforces` | `1500` | `polycarpAndDiv3.js` | Key algorithmic application from Day 2026-11-19. |
 | [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
 | [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
+| [Working out](https://codeforces.com/problemset/problem/429/B) | `Codeforces` | `1600` | `workingOut.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
+| [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
+| [Timofey and a tree](https://codeforces.com/problemset/problem/763/A) | `Codeforces` | `1600` | `timofeyAndATree.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

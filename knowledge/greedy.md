@@ -595,6 +595,14 @@ for (const x of arr) {
 | [Divide The Students](https://codeforces.com/problemset/problem/1250/L) | `Codeforces` | `1500` | `divideTheStudents.js` | Key algorithmic application from Day 2026-11-19. |
 | [Cram Time](https://codeforces.com/problemset/problem/1031/C) | `Codeforces` | `1600` | `cramTime.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
+| [Shocking Arrangement](https://codeforces.com/problemset/problem/1798/D) | `Codeforces` | `1600` | `shockingArrangement.js` | Key algorithmic application from Day 2026-11-20. |
+| [Strange Game On Matrix](https://codeforces.com/problemset/problem/873/C) | `Codeforces` | `1600` | `strangeGameOnMatrix.js` | Key algorithmic application from Day 2026-11-20. |
+| [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Love Rescue](https://codeforces.com/problemset/problem/939/D) | `Codeforces` | `1600` | `loveRescue.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
+| [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
+| [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
