@@ -1,0 +1,12 @@
+[
+  {
+    "input": "8 4\ndbcadabc",
+    "output": "dbca",
+    "expected": "dbca"
+  },
+  {
+    "input": "4 5\nabcd",
+    "output": "aaaaa",
+    "expected": "aaaaa"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "input": "3\nabb\ndad",
+    "output": "2\na d\nb a",
+    "expected": "2\na d\nb a"
+  }
+]

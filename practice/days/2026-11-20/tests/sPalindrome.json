@@ -1,0 +1,17 @@
+[
+  {
+    "input": "oXo",
+    "output": "TAK",
+    "expected": "TAK"
+  },
+  {
+    "input": "bod",
+    "output": "TAK",
+    "expected": "TAK"
+  },
+  {
+    "input": "ER",
+    "output": "NIE",
+    "expected": "NIE"
+  }
+]

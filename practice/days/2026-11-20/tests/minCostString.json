@@ -1,0 +1,7 @@
+[
+  {
+    "input": "9 4",
+    "output": "aabacadbb",
+    "expected": "aabacadbb"
+  }
+]

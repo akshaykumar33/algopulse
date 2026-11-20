@@ -1,0 +1,12 @@
+[
+  {
+    "input": "6 5\nRRRRR\nRRRRR\nBBBBB\nBBBBB\nGGGGG\nGGGGG",
+    "output": "YES",
+    "expected": "YES"
+  },
+  {
+    "input": "3 3\nRGB\nRGB\nRGB",
+    "output": "YES",
+    "expected": "YES"
+  }
+]
