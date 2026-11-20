@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abcde\"",
+    "output": "\"1a1b1c1d1e\""
+  },
+  {
+    "input": "\"aaaaaaaaaaaaaabb\"",
+    "output": "\"9a5a2b\""
+  }
+]
