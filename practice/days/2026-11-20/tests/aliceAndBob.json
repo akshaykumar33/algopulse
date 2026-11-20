@@ -1,0 +1,12 @@
+[
+  {
+    "input": "2\n2 3",
+    "output": "Alice",
+    "expected": "Alice"
+  },
+  {
+    "input": "2\n2 4",
+    "output": "Bob",
+    "expected": "Bob"
+  }
+]
