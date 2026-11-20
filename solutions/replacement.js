@@ -1,22 +1,37 @@
 const fs = require('fs');
 
 function solve() {
-  const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!tokens || tokens.length === 0 || tokens[0] === '') return;
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
+  if (!input || input.length === 0 || input[0] === '') return;
   let ptr = 0;
-  const n = parseInt(tokens[ptr++], 10);
-  const arr = [];
-  for (let i = 0; i < n; i++) {
-    arr.push(parseInt(tokens[ptr++], 10));
+  const n = parseInt(input[ptr++], 10);
+  const m = parseInt(input[ptr++], 10);
+  const chars = input[ptr++].split('');
+
+  let dots = 0;
+  for (let i = 0; i < n - 1; i++) {
+    if (chars[i] === '.' && chars[i + 1] === '.') {
+      dots++;
+    }
   }
-  arr.sort((a, b) => a - b);
-  if (arr[n - 1] === 1) {
-    arr[n - 1] = 2;
-  } else {
-    arr[n - 1] = 1;
+
+  const out = [];
+  for (let q = 0; q < m; q++) {
+    const x = parseInt(input[ptr++], 10) - 1;
+    const c = input[ptr++];
+
+    if (chars[x] === '.' && c !== '.') {
+      if (x > 0 && chars[x - 1] === '.') dots--;
+      if (x < n - 1 && chars[x + 1] === '.') dots--;
+    } else if (chars[x] !== '.' && c === '.') {
+      if (x > 0 && chars[x - 1] === '.') dots++;
+      if (x < n - 1 && chars[x + 1] === '.') dots++;
+    }
+    chars[x] = c;
+    out.push(dots);
   }
-  arr.sort((a, b) => a - b);
-  console.log(arr.join(' '));
+
+  console.log(out.join('\n'));
 }
 
 solve();

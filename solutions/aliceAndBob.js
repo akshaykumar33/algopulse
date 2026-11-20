@@ -1,34 +1,32 @@
 const fs = require('fs');
 
+function gcd(a, b) {
+  while (b) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+}
+
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (input.length === 0 || input[0] === '') return;
-
+  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/).map(Number);
+  if (!input || input.length === 0 || isNaN(input[0])) return;
   let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
-  const out = [];
+  const n = input[ptr++];
+  const arr = input.slice(ptr, ptr + n);
 
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const a = parseInt(input[ptr++], 10);
-
-    let countLess = 0;
-    let countGreater = 0;
-
-    for (let i = 0; i < n; i++) {
-      const v = parseInt(input[ptr++], 10);
-      if (v < a) countLess++;
-      else if (v > a) countGreater++;
-    }
-
-    if (countGreater > countLess) {
-      out.push(a + 1);
-    } else {
-      out.push(a - 1 >= 0 ? a - 1 : a + 1);
-    }
+  let g = arr[0];
+  let maxVal = arr[0];
+  for (let i = 1; i < n; i++) {
+    g = gcd(g, arr[i]);
+    if (arr[i] > maxVal) maxVal = arr[i];
   }
 
-  console.log(out.join('\n'));
+  const moves = Math.floor(maxVal / g) - n;
+  if (moves % 2 === 1) {
+    console.log('Alice');
+  } else {
+    console.log('Bob');
+  }
 }
 
 solve();
