@@ -208,6 +208,7 @@ function sieve(maxN) {
 | [Submarine in the Rybinsk Sea (easy edition)](https://codeforces.com/problemset/problem/1195/D1) | `Codeforces` | `1500` | `submarineInTheRybinskSeaEasyEdition.js` | Key algorithmic application from Day 2026-11-19. |
 | [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
+| [D-Function](https://codeforces.com/problemset/problem/1985/G) | `Codeforces` | `1600` | `dFunction.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

@@ -223,6 +223,8 @@ class MinHeap {
 | [Maximum width](https://codeforces.com/problemset/problem/1492/C) | `Codeforces` | `1500` | `maximumWidth.js` | Key algorithmic application from Day 2026-11-19. |
 | [Preparing for Merge Sort](https://codeforces.com/problemset/problem/847/B) | `Codeforces` | `1600` | `preparingForMergeSort.js` | Key algorithmic application from Day 2026-11-19. |
 | [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
+| [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
+| [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

@@ -174,6 +174,11 @@ for (let right = 0; right < arr.length; right++) {
 | [Special Elements](https://codeforces.com/problemset/problem/1352/E) | `Codeforces` | `1500` | `specialElements.js` | Key algorithmic application from Day 2026-11-19. |
 | [Beautiful Sequence](https://codeforces.com/problemset/problem/2069/C) | `Codeforces` | `1500` | `beautifulSequence.js` | Key algorithmic application from Day 2026-11-19. |
 | [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
+| [Born This Way](https://codeforces.com/problemset/problem/1148/B) | `Codeforces` | `1600` | `bornThisWay.js` | Key algorithmic application from Day 2026-11-20. |
+| [Strange Game On Matrix](https://codeforces.com/problemset/problem/873/C) | `Codeforces` | `1600` | `strangeGameOnMatrix.js` | Key algorithmic application from Day 2026-11-20. |
+| [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
+| [MP3](https://codeforces.com/problemset/problem/1198/A) | `Codeforces` | `1600` | `mP3.js` | Key algorithmic application from Day 2026-11-20. |
 
 ---
 

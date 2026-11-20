@@ -259,6 +259,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Eastern Exhibition](https://codeforces.com/problemset/problem/1486/B) | `Codeforces` | `1500` | `easternExhibition.js` | Key algorithmic application from Day 2026-11-19. |
 | [Modulo Equality](https://codeforces.com/problemset/problem/1269/B) | `Codeforces` | `1500` | `moduloEquality.js` | Key algorithmic application from Day 2026-11-19. |
 | [Yet Another Array Partitioning Task](https://codeforces.com/problemset/problem/1114/B) | `Codeforces` | `1500` | `yetAnotherArrayPartitioningTask.js` | Key algorithmic application from Day 2026-11-19. |
+| [MP3](https://codeforces.com/problemset/problem/1198/A) | `Codeforces` | `1600` | `mP3.js` | Key algorithmic application from Day 2026-11-20. |
+| [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
+| [Anton and Lines](https://codeforces.com/problemset/problem/593/B) | `Codeforces` | `1600` | `antonAndLines.js` | Key algorithmic application from Day 2026-11-20. |
+| [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
