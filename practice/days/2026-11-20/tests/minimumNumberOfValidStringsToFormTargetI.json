@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[[\"a\", \"b\", \"c\", \"ab\"], \"abc\"]",
+    "output": "2"
+  },
+  {
+    "input": "[[\"abababab\", \"ab\"], \"ababaababa\"]",
+    "output": "2"
+  },
+  {
+    "input": "[[\"abcdef\"], \"xyz\"]",
+    "output": "-1"
+  }
+]

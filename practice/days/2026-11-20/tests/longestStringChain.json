@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"a\", \"b\", \"ba\", \"bca\", \"bda\", \"bdca\"]",
+    "output": "4"
+  },
+  {
+    "input": "[\"xbc\", \"pcxbcf\", \"xb\", \"cxbc\", \"pcxbc\"]",
+    "output": "5"
+  },
+  {
+    "input": "[\"abcd\", \"dbqca\"]",
+    "output": "1"
+  }
+]

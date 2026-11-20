@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"leetscode\", [\"leet\", \"code\", \"leetcode\"]]",
+    "output": "1"
+  },
+  {
+    "input": "[\"sayhelloworld\", [\"hello\", \"world\"]]",
+    "output": "3"
+  }
+]
