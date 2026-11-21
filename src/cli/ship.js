@@ -117,6 +117,15 @@ async function main() {
     console.log('  ✓ Knowledge base synchronized.');
   }
 
+  // 3.5 Finalize Day Status & README badge before creating PR batches
+  console.log('[ship] Step 3.5: Finalizing day status and README badge ...');
+  try {
+    updateDayStatus(date, { forceFinished: true });
+    console.log('  ✓ Day status and README badge finalized.');
+  } catch (err) {
+    console.warn(`  ! Failed to update day status: ${err.message}`);
+  }
+
   // 4. Git Operations with Segregated Batches (<= 50 files/PR)
   console.log(`[ship] Step 4: Building segregated PR batches (<= 50 files limit) ...`);
   const problems = set.problems || [];
@@ -303,7 +312,6 @@ async function main() {
     runSh('git pull --ff-only origin main');
   }
 
-  try { updateDayStatus(date); } catch {}
   console.log(`\n[ship] Day ${set.day} (${date}) ship workflow completed successfully!`);
 }
 
