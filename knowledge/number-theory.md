@@ -209,6 +209,11 @@ function sieve(maxN) {
 | [Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | `Codeforces` | `1600` | `physicalEducationLesson.js` | Key algorithmic application from Day 2026-11-19. |
 | [Quiz](https://codeforces.com/problemset/problem/337/C) | `Codeforces` | `1600` | `quiz.js` | Key algorithmic application from Day 2026-11-19. |
 | [D-Function](https://codeforces.com/problemset/problem/1985/G) | `Codeforces` | `1600` | `dFunction.js` | Key algorithmic application from Day 2026-11-20. |
+| [Divide Candies](https://codeforces.com/problemset/problem/1056/B) | `Codeforces` | `1600` | `divideCandies.js` | Key algorithmic application from Day 2026-11-21. |
+| [X-Magic Pair](https://codeforces.com/problemset/problem/1612/D) | `Codeforces` | `1600` | `xMagicPair.js` | Key algorithmic application from Day 2026-11-21. |
+| [Lucky Chains](https://codeforces.com/problemset/problem/1766/D) | `Codeforces` | `1600` | `luckyChains.js` | Key algorithmic application from Day 2026-11-21. |
+| [Cave Painting](https://codeforces.com/problemset/problem/922/C) | `Codeforces` | `1600` | `cavePainting.js` | Key algorithmic application from Day 2026-11-21. |
+| [Row GCD](https://codeforces.com/problemset/problem/1458/A) | `Codeforces` | `1600` | `rowGCD.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

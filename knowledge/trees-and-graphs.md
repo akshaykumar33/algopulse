@@ -213,6 +213,9 @@ function dfsIterative(start, adj, n) {
 | [Fair](https://codeforces.com/problemset/problem/986/A) | `Codeforces` | `1600` | `fair.js` | Key algorithmic application from Day 2026-11-20. |
 | [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
 | [Timofey and a tree](https://codeforces.com/problemset/problem/763/A) | `Codeforces` | `1600` | `timofeyAndATree.js` | Key algorithmic application from Day 2026-11-20. |
+| [Igor and his way to work](https://codeforces.com/problemset/problem/793/B) | `Codeforces` | `1600` | `igorAndHisWayToWork.js` | Key algorithmic application from Day 2026-11-21. |
+| [Tree Jumps](https://codeforces.com/problemset/problem/2070/D) | `Codeforces` | `1600` | `treeJumps.js` | Key algorithmic application from Day 2026-11-21. |
+| [Jamie and Interesting Graph](https://codeforces.com/problemset/problem/916/C) | `Codeforces` | `1600` | `jamieAndInterestingGraph.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

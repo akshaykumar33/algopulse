@@ -179,6 +179,8 @@ for (let right = 0; right < arr.length; right++) {
 | [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
 | [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
 | [MP3](https://codeforces.com/problemset/problem/1198/A) | `Codeforces` | `1600` | `mP3.js` | Key algorithmic application from Day 2026-11-20. |
+| [Coffee Break](https://codeforces.com/problemset/problem/1041/C) | `Codeforces` | `1600` | `coffeeBreak.js` | Key algorithmic application from Day 2026-11-21. |
+| [To Add or Not to Add](https://codeforces.com/problemset/problem/231/C) | `Codeforces` | `1600` | `toAddOrNotToAdd.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

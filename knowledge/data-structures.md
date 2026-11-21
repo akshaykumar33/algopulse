@@ -225,6 +225,11 @@ class MinHeap {
 | [Tracking Segments](https://codeforces.com/problemset/problem/1843/E) | `Codeforces` | `1600` | `trackingSegments.js` | Key algorithmic application from Day 2026-11-19. |
 | [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
 | [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
+| [Even Path](https://codeforces.com/problemset/problem/1252/C) | `Codeforces` | `1600` | `evenPath.js` | Key algorithmic application from Day 2026-11-21. |
+| [Coffee Break](https://codeforces.com/problemset/problem/1041/C) | `Codeforces` | `1600` | `coffeeBreak.js` | Key algorithmic application from Day 2026-11-21. |
+| [Suspects](https://codeforces.com/problemset/problem/156/B) | `Codeforces` | `1600` | `suspects.js` | Key algorithmic application from Day 2026-11-21. |
+| [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
+| [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

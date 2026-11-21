@@ -342,6 +342,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Strange Addition](https://codeforces.com/problemset/problem/305/A) | `Codeforces` | `1600` | `strangeAddition.js` | Key algorithmic application from Day 2026-11-20. |
 | [Flag of Berland](https://codeforces.com/problemset/problem/837/B) | `Codeforces` | `1600` | `flagOfBerland.js` | Key algorithmic application from Day 2026-11-20. |
 | [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
+| [Ehab and Prefix MEXs](https://codeforces.com/problemset/problem/1364/C) | `Codeforces` | `1600` | `ehabAndPrefixMEXs.js` | Key algorithmic application from Day 2026-11-21. |
+| [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
+| [Cave Painting](https://codeforces.com/problemset/problem/922/C) | `Codeforces` | `1600` | `cavePainting.js` | Key algorithmic application from Day 2026-11-21. |
+| [Hamburgers](https://codeforces.com/problemset/problem/371/C) | `Codeforces` | `1600` | `hamburgers.js` | Key algorithmic application from Day 2026-11-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

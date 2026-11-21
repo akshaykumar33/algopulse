@@ -243,6 +243,7 @@ dp.fill(-1); // Memoization sentinel
 | [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
 | [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
 | [Timofey and a tree](https://codeforces.com/problemset/problem/763/A) | `Codeforces` | `1600` | `timofeyAndATree.js` | Key algorithmic application from Day 2026-11-20. |
+| [Tree Jumps](https://codeforces.com/problemset/problem/2070/D) | `Codeforces` | `1600` | `treeJumps.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

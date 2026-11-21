@@ -538,6 +538,15 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Triangle Coloring](https://codeforces.com/problemset/problem/1795/D) | `Codeforces` | `1600` | `triangleColoring.js` | Key algorithmic application from Day 2026-11-20. |
 | [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
 | [Anton and Lines](https://codeforces.com/problemset/problem/593/B) | `Codeforces` | `1600` | `antonAndLines.js` | Key algorithmic application from Day 2026-11-20. |
+| [Maximum Set](https://codeforces.com/problemset/problem/1796/C) | `Codeforces` | `1600` | `maximumSet.js` | Key algorithmic application from Day 2026-11-21. |
+| [Wallpaper](https://codeforces.com/problemset/problem/139/B) | `Codeforces` | `1600` | `wallpaper.js` | Key algorithmic application from Day 2026-11-21. |
+| [Magical Boxes](https://codeforces.com/problemset/problem/269/A) | `Codeforces` | `1600` | `magicalBoxes.js` | Key algorithmic application from Day 2026-11-21. |
+| [Divide Candies](https://codeforces.com/problemset/problem/1056/B) | `Codeforces` | `1600` | `divideCandies.js` | Key algorithmic application from Day 2026-11-21. |
+| [New Year and Rating](https://codeforces.com/problemset/problem/750/C) | `Codeforces` | `1600` | `newYearAndRating.js` | Key algorithmic application from Day 2026-11-21. |
+| [Sequence Transformation](https://codeforces.com/problemset/problem/1059/C) | `Codeforces` | `1600` | `sequenceTransformation.js` | Key algorithmic application from Day 2026-11-21. |
+| [X-Magic Pair](https://codeforces.com/problemset/problem/1612/D) | `Codeforces` | `1600` | `xMagicPair.js` | Key algorithmic application from Day 2026-11-21. |
+| [Lucky Chains](https://codeforces.com/problemset/problem/1766/D) | `Codeforces` | `1600` | `luckyChains.js` | Key algorithmic application from Day 2026-11-21. |
+| [Row GCD](https://codeforces.com/problemset/problem/1458/A) | `Codeforces` | `1600` | `rowGCD.js` | Key algorithmic application from Day 2026-11-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

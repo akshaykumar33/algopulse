@@ -348,6 +348,12 @@ function constructMatrix(n, m) {
 | [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
 | [Plus and Square Root](https://codeforces.com/problemset/problem/715/A) | `Codeforces` | `1600` | `plusAndSquareRoot.js` | Key algorithmic application from Day 2026-11-20. |
 | [Strange Addition](https://codeforces.com/problemset/problem/305/A) | `Codeforces` | `1600` | `strangeAddition.js` | Key algorithmic application from Day 2026-11-20. |
+| [Ehab and Prefix MEXs](https://codeforces.com/problemset/problem/1364/C) | `Codeforces` | `1600` | `ehabAndPrefixMEXs.js` | Key algorithmic application from Day 2026-11-21. |
+| [Suspects](https://codeforces.com/problemset/problem/156/B) | `Codeforces` | `1600` | `suspects.js` | Key algorithmic application from Day 2026-11-21. |
+| [Sequence Transformation](https://codeforces.com/problemset/problem/1059/C) | `Codeforces` | `1600` | `sequenceTransformation.js` | Key algorithmic application from Day 2026-11-21. |
+| [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
+| [Jamie and Interesting Graph](https://codeforces.com/problemset/problem/916/C) | `Codeforces` | `1600` | `jamieAndInterestingGraph.js` | Key algorithmic application from Day 2026-11-21. |
+| [Slava and tanks](https://codeforces.com/problemset/problem/877/C) | `Codeforces` | `1600` | `slavaAndTanks.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

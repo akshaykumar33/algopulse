@@ -192,6 +192,9 @@ function isPalindrome(s) {
 | [Min Cost String](https://codeforces.com/problemset/problem/1511/D) | `Codeforces` | `1600` | `minCostString.js` | Key algorithmic application from Day 2026-11-20. |
 | [Erase and Extend (Easy Version)](https://codeforces.com/problemset/problem/1537/E1) | `Codeforces` | `1600` | `eraseAndExtendEasyVersion.js` | Key algorithmic application from Day 2026-11-20. |
 | [Love Rescue](https://codeforces.com/problemset/problem/939/D) | `Codeforces` | `1600` | `loveRescue.js` | Key algorithmic application from Day 2026-11-20. |
+| [Grammar Lessons](https://codeforces.com/problemset/problem/113/A) | `Codeforces` | `1600` | `grammarLessons.js` | Key algorithmic application from Day 2026-11-21. |
+| [Extract Numbers](https://codeforces.com/problemset/problem/600/A) | `Codeforces` | `1600` | `extractNumbers.js` | Key algorithmic application from Day 2026-11-21. |
+| [Character Swap (Hard Version)](https://codeforces.com/problemset/problem/1243/B2) | `Codeforces` | `1600` | `characterSwapHardVersion.js` | Key algorithmic application from Day 2026-11-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
