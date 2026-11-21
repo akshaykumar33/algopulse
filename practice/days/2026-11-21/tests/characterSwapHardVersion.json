@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n5\nsouse\nhouhe\n3\ncat\ndog\n2\naa\naz\n3\nabc\nbca",
+    "output": "Yes\n1\n4 1\nNo\nNo\nYes\n3\n3 3\n3 1\n3 2"
+  }
+]

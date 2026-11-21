@@ -1,0 +1,14 @@
+[
+  {
+    "input": "3\n-7 1\n5 2\n8 2",
+    "output": "1907"
+  },
+  {
+    "input": "2\n57 1\n22 2",
+    "output": "Impossible"
+  },
+  {
+    "input": "1\n-5 1",
+    "output": "Infinity"
+  }
+]
