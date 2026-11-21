@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aabca\"",
+    "output": "3"
+  },
+  {
+    "input": "\"adc\"",
+    "output": "0"
+  },
+  {
+    "input": "\"bbcbaba\"",
+    "output": "4"
+  }
+]
