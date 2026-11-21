@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n3 1 0\n1 2 3\nXOR\n3 1 0\n1 2 3\nAND\n3 1 0\n1 2 3\nOR",
+    "output": "0\n0\n3"
+  }
+]
