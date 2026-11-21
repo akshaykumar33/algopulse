@@ -1,0 +1,10 @@
+[
+  {
+    "input": "petr",
+    "output": "YES"
+  },
+  {
+    "input": "etis atis animatis",
+    "output": "NO"
+  }
+]

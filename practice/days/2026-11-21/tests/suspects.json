@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1 1\n+1",
+    "output": "Truth"
+  },
+  {
+    "input": "3 2\n-1\n-2\n-3",
+    "output": "Not defined\nNot defined\nNot defined"
+  }
+]
