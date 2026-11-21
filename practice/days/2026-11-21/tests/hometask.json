@@ -1,0 +1,6 @@
+[
+  {
+    "input": "abacaba\n1\nab",
+    "output": "2"
+  }
+]

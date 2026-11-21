@@ -1,0 +1,10 @@
+[
+  {
+    "input": "BBBSSC\n6 4 1\n1 2 3\n4",
+    "output": "2"
+  },
+  {
+    "input": "BBC\n1 10 1\n1 10 1\n21",
+    "output": "7"
+  }
+]
