@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"aeioqq\", 1]",
+    "output": "0"
+  },
+  {
+    "input": "[\"aeiou\", 0]",
+    "output": "1"
+  },
+  {
+    "input": "[\"ieaouqqieaouqq\", 1]",
+    "output": "3"
+  }
+]
