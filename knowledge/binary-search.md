@@ -228,6 +228,13 @@ function lowerBound(arr, target) {
 | [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
 | [Energy exchange](https://codeforces.com/problemset/problem/68/B) | `Codeforces` | `1600` | `energyExchange.js` | Key algorithmic application from Day 2026-11-20. |
 | [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
+| [Balanced Stone Heaps](https://codeforces.com/problemset/problem/1623/C) | `Codeforces` | `1600` | `balancedStoneHeaps.js` | Key algorithmic application from Day 2026-11-21. |
+| [Maximum Set](https://codeforces.com/problemset/problem/1796/C) | `Codeforces` | `1600` | `maximumSet.js` | Key algorithmic application from Day 2026-11-21. |
+| [Coffee Break](https://codeforces.com/problemset/problem/1041/C) | `Codeforces` | `1600` | `coffeeBreak.js` | Key algorithmic application from Day 2026-11-21. |
+| [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
+| [New Year and Rating](https://codeforces.com/problemset/problem/750/C) | `Codeforces` | `1600` | `newYearAndRating.js` | Key algorithmic application from Day 2026-11-21. |
+| [To Add or Not to Add](https://codeforces.com/problemset/problem/231/C) | `Codeforces` | `1600` | `toAddOrNotToAdd.js` | Key algorithmic application from Day 2026-11-21. |
+| [Hamburgers](https://codeforces.com/problemset/problem/371/C) | `Codeforces` | `1600` | `hamburgers.js` | Key algorithmic application from Day 2026-11-21. |
 
 ---
 

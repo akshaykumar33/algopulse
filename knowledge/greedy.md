@@ -603,6 +603,16 @@ for (const x of arr) {
 | [Anton and Making Potions](https://codeforces.com/problemset/problem/734/C) | `Codeforces` | `1600` | `antonAndMakingPotions.js` | Key algorithmic application from Day 2026-11-20. |
 | [New Year Permutation](https://codeforces.com/problemset/problem/500/B) | `Codeforces` | `1600` | `newYearPermutation.js` | Key algorithmic application from Day 2026-11-20. |
 | [Best Price](https://codeforces.com/problemset/problem/2051/E) | `Codeforces` | `1600` | `bestPrice.js` | Key algorithmic application from Day 2026-11-20. |
+| [Polycarp at the Radio](https://codeforces.com/problemset/problem/723/C) | `Codeforces` | `1600` | `polycarpAtTheRadio.js` | Key algorithmic application from Day 2026-11-21. |
+| [Balanced Stone Heaps](https://codeforces.com/problemset/problem/1623/C) | `Codeforces` | `1600` | `balancedStoneHeaps.js` | Key algorithmic application from Day 2026-11-21. |
+| [Azamon Web Services](https://codeforces.com/problemset/problem/1281/B) | `Codeforces` | `1600` | `azamonWebServices.js` | Key algorithmic application from Day 2026-11-21. |
+| [Ehab and Prefix MEXs](https://codeforces.com/problemset/problem/1364/C) | `Codeforces` | `1600` | `ehabAndPrefixMEXs.js` | Key algorithmic application from Day 2026-11-21. |
+| [Coffee Break](https://codeforces.com/problemset/problem/1041/C) | `Codeforces` | `1600` | `coffeeBreak.js` | Key algorithmic application from Day 2026-11-21. |
+| [Magical Boxes](https://codeforces.com/problemset/problem/269/A) | `Codeforces` | `1600` | `magicalBoxes.js` | Key algorithmic application from Day 2026-11-21. |
+| [New Year and Rating](https://codeforces.com/problemset/problem/750/C) | `Codeforces` | `1600` | `newYearAndRating.js` | Key algorithmic application from Day 2026-11-21. |
+| [Hometask](https://codeforces.com/problemset/problem/154/A) | `Codeforces` | `1600` | `hometask.js` | Key algorithmic application from Day 2026-11-21. |
+| [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
+| [Multi-Subject Competition](https://codeforces.com/problemset/problem/1082/C) | `Codeforces` | `1600` | `multiSubjectCompetition.js` | Key algorithmic application from Day 2026-11-21. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

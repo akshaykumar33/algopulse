@@ -2437,5 +2437,45 @@
       "codechef"
     ],
     "timestamp": "2026-11-20T05:12:48.256Z"
+  },
+  {
+    "id": "113A",
+    "problem": "Grammar Lessons",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 3",
+    "diagnosis": "The problem statement specifies that a word can be feminine or masculine based on its ending. The crucial detail is that the endings must be specific lengths to be valid. For example, a word ending in 'lios' must be at least 4 characters long. The current implementation uses `endsWith`, which does not check the minimum length of the word itself. If a word is shorter than the suffix length (e.g., 'ios' ending in 'lios'), `endsWith` would still return true, leading to incorrect classification. Test 3 likely includes such a short word.",
+    "rule": "When checking suffixes or prefixes, ensure the string is at least as long as the suffix/prefix to avoid misclassification of short words.",
+    "tags": [
+      "implementation",
+      "strings"
+    ],
+    "timestamp": "2026-11-21T05:16:39.185Z"
+  },
+  {
+    "id": "793B",
+    "problem": "Igor and his way to work",
+    "platform": "Codeforces",
+    "verdict": "Memory limit exceeded on test 9",
+    "diagnosis": "The primary cause of 'Memory limit exceeded' is the declaration of fixed-size queues (qR, qC, qD) with a size of `n * m * 4 + 10`. While `n` and `m` are up to 50, `50 * 50 * 4 = 10000`. This alone isn't problematic. However, the `dist` array is `n * m * 4` Int8Array, where each `Int8Array(4)` is created. This structure is very memory inefficient in JavaScript. An `Int8Array` of length 4 actually occupies much more memory than 4 bytes due to object overhead. Furthermore, each `new Int8Array(4)` call creates a new object. For N=50, M=50, this creates 2500 `Int8Array` objects, each with overhead. A more memory-efficient approach is to use a flat `Int8Array` for the `dist` array or a regular JavaScript array of numbers, as `100` easily fits into an 8-bit integer.",
+    "rule": "For multi-dimensional DP or distance arrays, especially when the last dimension is small, consider flattening the array into a single typed array (e.g., `Int8Array(N*M*D)`) or using nested regular JavaScript arrays of numbers to avoid excessive object overhead from many small typed array instances. Typed arrays are not always more memory efficient when used as many small objects.",
+    "tags": [
+      "dfs and similar",
+      "graphs",
+      "implementation",
+      "shortest paths"
+    ],
+    "timestamp": "2026-11-21T05:19:15.225Z"
+  },
+  {
+    "id": "LC-1786",
+    "problem": "Number of Restricted Paths From First to Last Node",
+    "platform": "LeetCode",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The primary cause of Time Limit Exceeded is the inefficient priority queue implementation. The `pq.sort((a, b) => a[0] - b[0])` operation within the while loop re-sorts the entire priority queue in each iteration, leading to an O(N*M) or O(N*logN) per-edge cost instead of the expected O(logN) using a proper min-priority queue (e.g., using a min-heap). For a dense graph, this can easily degrade to O(E * V) or worse, where E is the number of edges and V is the number of vertices, instead of O(E log V).",
+    "rule": "For algorithms requiring a priority queue (like Dijkstra's), always implement a proper min-heap or use a library equivalent. Avoid `Array.prototype.sort()` inside a loop for priority queue operations, as it is O(K log K) where K is the current size of the array, leading to TLE.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-21T05:35:25.630Z"
   }
 ]

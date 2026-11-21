@@ -188,12 +188,48 @@ async function main() {
   const knowledgeDir = path.join(REPO, 'knowledge');
   if (fs.existsSync(knowledgeDir)) {
     const kFiles = fs.readdirSync(knowledgeDir).filter((f) => f.endsWith('.md')).map((f) => `knowledge/${f}`);
+    if (fs.existsSync(path.join(REPO, 'practice/mistakes.json'))) {
+      kFiles.push('practice/mistakes.json');
+    }
+    if (fs.existsSync(path.join(REPO, 'src/cli/ship.js'))) {
+      kFiles.push('src/cli/ship.js');
+    }
     batches.push({
       branch: `docs/sync-knowledge-day${set.day}`,
       title: `docs(knowledge): sync knowledge base catalogs for Day ${set.day}`,
       body: `Synchronize 14 algorithmic topic catalogs in knowledge base with Day ${set.day} solved problems.`,
       verify: '`node src/cli/knowledge.js --sync` (clean catalog audit)',
       files: kFiles.filter((f) => fs.existsSync(path.join(REPO, f))),
+    });
+  }
+
+  for (const plat of platforms) {
+    const platProblems = problems.filter((p) => (p.platform || '').toLowerCase() === plat.key.toLowerCase());
+    if (platProblems.length === 0) continue;
+
+    const files = [];
+    for (const p of platProblems) {
+      files.push(`solutions/${p.file}.js`);
+    }
+
+    const isLastPlat = plat.prefix === 'cc';
+    if (isLastPlat) {
+      if (fs.existsSync(path.join(REPO, `practice/days/${date}/status.json`))) {
+        files.push(`practice/days/${date}/status.json`);
+      }
+      if (fs.existsSync(path.join(REPO, `practice/days/${date}/dlq.json`))) {
+        files.push(`practice/days/${date}/dlq.json`);
+      }
+    }
+
+    batches.push({
+      branch: isLastPlat ? `feat/day${set.day}-standalone-${plat.prefix}-meta` : `feat/day${set.day}-standalone-${plat.prefix}`,
+      title: isLastPlat
+        ? `feat(day${set.day}): add ${plat.name} standalone mirror solutions and metadata`
+        : `feat(day${set.day}): add ${plat.name} standalone mirror solutions`,
+      body: `Add standalone mirror solutions in solutions/ for universal runner discovery (${plat.prefix.toUpperCase()} ${plat.name}).`,
+      verify: 'Runner auto-discovery audit.',
+      files: files.filter((f) => fs.existsSync(path.join(REPO, f))),
     });
   }
 
