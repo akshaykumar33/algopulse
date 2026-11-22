@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\nab\nab\naba\ncde\nab\ncd",
+    "output": "B\nA\nB"
+  }
+]
