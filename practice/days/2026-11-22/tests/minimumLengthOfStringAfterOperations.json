@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"abaacbcbb\"]",
+    "output": "5"
+  },
+  {
+    "input": "[\"aa\"]",
+    "output": "2"
+  }
+]
