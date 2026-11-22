@@ -1,0 +1,131 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-1131",
+    "name": "Maximum of Absolute Value Expression",
+    "file": "maximumOfAbsoluteValueExpression",
+    "tier": "medium",
+    "initialVerdict": "ERROR: page.waitForTimeout: Target page, context or browser has been closed",
+    "enqueuedAt": "2026-11-22T03:54:21.754Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1131",
+      "name": "Maximum of Absolute Value Expression",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-of-absolute-value-expression/",
+      "file": "maximumOfAbsoluteValueExpression",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-22T08:23:52.954Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "411B",
+    "name": "Multi-core Processor",
+    "file": "multiCoreProcessor",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-22T05:48:17.847Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "411B",
+      "name": "Multi-core Processor",
+      "rating": 1600,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/411/B",
+      "file": "multiCoreProcessor",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-22T08:23:52.961Z"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MERGEHD",
+    "name": "Merging (Hard)",
+    "file": "mergingHard",
+    "tier": "hard",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-11-22T05:48:51.992Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MERGEHD",
+      "name": "Merging (Hard)",
+      "rating": 1847,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MERGEHD",
+      "file": "mergingHard",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-22T08:23:52.961Z"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1829G",
+    "name": "Hits Different",
+    "file": "hitsDifferent",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-22T06:20:49.108Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1829G",
+      "name": "Hits Different",
+      "rating": 1600,
+      "tags": [
+        "data structures",
+        "dp",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1829/G",
+      "file": "hitsDifferent",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-22T08:23:52.961Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "849B",
+    "name": "Tell Your World",
+    "file": "tellYourWorld",
+    "tier": "hard",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-22T06:39:16.917Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "849B",
+      "name": "Tell Your World",
+      "rating": 1600,
+      "tags": [
+        "brute force",
+        "geometry"
+      ],
+      "url": "https://codeforces.com/problemset/problem/849/B",
+      "file": "tellYourWorld",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Accepted",
+    "resolvedAt": "2026-11-22T08:23:52.961Z"
+  }
+]

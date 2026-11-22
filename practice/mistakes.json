@@ -2477,5 +2477,43 @@
       "algorithms"
     ],
     "timestamp": "2026-11-21T05:35:25.630Z"
+  },
+  {
+    "id": "411B",
+    "problem": "Multi-core Processor",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The bug is in the logic for resetting the 'locked' status of memory cells. The problem states that a memory cell becomes free for use after the current time unit (t) finishes. The current solution marks memory cells as locked if multiple cores request them simultaneously at time 't' or if a core requests an already locked cell at time 't'. However, it never explicitly unlocks these memory cells for subsequent time units. This causes memory cells to remain locked indefinitely, leading to more failures than intended and incorrect output. The 'locked' array should be reset at the beginning of each time unit 't' to reflect that all memory cells are initially available.",
+    "rule": "Memory cell state reset: When simulating processes over discrete time steps where resources can be locked and then become available, ensure that resource states (e.g., 'locked' status) are correctly reset or updated at the start of each new time step, unless the problem statement specifies persistent locking.",
+    "tags": [
+      "implementation"
+    ],
+    "timestamp": "2026-11-22T05:46:50.917Z"
+  },
+  {
+    "id": "CC-MERGEHD",
+    "problem": "Merging (Hard)",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The primary cause of Time Limit Exceeded is the nested loop structure for dynamic programming. Specifically, `for (let i = 0; i < blockSizes.length; i++)` iterates over blocks, and inside it, `for (let j = 0; j + sz <= n; j++)` iterates up to `n`. The `blockSizes.length` can be up to `n`, and `sz` can also be up to `n`. This results in an `O(N^2)` DP transition for each test case, making the overall complexity `T * N^2`, which is too slow for `N=2000, T=5` (5 * 2000^2 = 2 * 10^7, which might be acceptable) or `N=2000, T=50` (50 * 2000^2 = 2 * 10^8, which is too slow). The problem constraints suggest `N` up to 2000, implying an `O(N log N)` or `O(N)` solution per test case, or possibly `O(N^2)` if `T` is very small. In this case, the `blockSizes` array can contain up to `N` elements, and `sz` can be up to `N`. The `nextDp = new Int32Array(dp)` line also copies the entire array in each iteration, adding to the constant factor, but the `O(N^2)` inner loop is the dominant factor. The DP recurrence `dp[j + sz] = (dp[j + sz] + dp[j]) % MOD` suggests a prefix sum or sliding window optimization for a typical knapsack-like problem, but here `sz` is a fixed value for the inner loop. The correct DP approach for a sum of sizes `j + sz` from `dp[j]` values is to iterate `j` from `0` to `n - sz` and update `dp[j + sz]`. This is indeed `O(N)` per block. However, applying this for each of `B` blocks, where `B` can be up to `N`, still results in `O(N * B)` or `O(N^2)` total complexity.",
+    "rule": "For dynamic programming problems with constraints `N` up to `2000`, an `O(N^2)` solution per test case is often acceptable if the number of test cases `T` is small (e.g., `T=1` or `T <= 10`). If `T` is larger (e.g., `T <= 50` or `T <= 100`), `O(N^2)` per test case is usually too slow, and a faster approach (e.g., `O(N log N)` or `O(N)`) is required. When working with DP where new states are formed by adding values to previous states (like a knapsack variation), consider prefix sums or other techniques to optimize transitions if the complexity becomes too high. In this specific problem, `blockSizes` effectively acts as items in a knapsack. The `dp[j]` represents the number of ways to achieve a total size `j`. The iteration `for (let j = 0; j + sz <= n; j++)` correctly updates `dp[j+sz]` using `dp[j]`. The error is not in the DP transition itself, but in how it is applied over many blocks. The issue is that the DP state `dp` is updated in place, but `nextDp = new Int32Array(dp)` creates a copy. The transition should be done on `dp` directly, but carefully to avoid using already updated values from the current block. For this kind of knapsack problem (summing up sizes), when `dp[j + sz]` is updated from `dp[j]`, iterating `j` from `0` to `n-sz` is correct if `dp` is updated based on `dp` values from the *previous* block, not the *current* block's updates. However, the current code copies `dp` to `nextDp` and updates `nextDp`. This means `nextDp` accumulates the changes. This is functionally equivalent to `O(N)` transitions per block. The overall complexity is `O(sum of blockSizes.length * N)` which is effectively `O(N^2)` in the worst case (`blockSizes.length` can be `N`, each `sz` is `1`). The key insight to fixing this for knapsack-like problems is that `dp[j + sz]` is calculated using `dp[j]`. If we want to add `sz` to the current set of reachable sums, we can iterate `j` from `n` down to `sz`. This way `dp[j]` refers to the state *before* adding the current `sz`, and `dp[j-sz]` is used to update `dp[j]`, without interfering with updates for the current `sz` that use smaller `j` values. The current code's `nextDp` effectively does this by providing a copy of the DP state from *before* processing the current block. The problem is thus fundamentally `O(N^2)` due to the nested loops `for (let i = 0; i < blockSizes.length; i++)` and `for (let j = 0; j + sz <= n; j++)`. The sum of `sz` values is `n`. The sum of `N` over `T` test cases could be `N_total <= 200000` but `N` per test case is `2000`. So it's `T * N^2` complexity. The optimization is to change the DP from `dp[j+sz] = dp[j+sz] + dp[j]` to `dp[j] = dp[j] + dp[j-sz]` by iterating `j` downwards, eliminating the need for `nextDp` and making it an `O(N)` update for each block. This doesn't change the overall `O(N^2)` complexity in the worst case (e.g. `N` blocks of size 1), but it reduces constant factors by avoiding array copies and potentially allows for more efficient cache usage. The problem is that the sum of `sz` values is `N`, not `blockSizes.length * N`. The DP transition `for (let j = 0; j + sz <= n; j++)` is `O(N - sz)` operations. Summing `N - sz` over `blockSizes` where sum of `sz` is `N` leads to `O(N * blockSizes.length)` operations. In the worst case, `blockSizes.length` can be `N` (e.g., `p = [1,2,3,...,N]`, `blockSizes = [1,1,1,...,1]`). This makes it `O(N^2)`. This `O(N^2)` is the bottleneck. A fixed `O(N^2)` per test case is acceptable if `T` is small. For `N=2000` and `T=5`, `5 * 2000^2 = 2 * 10^7`, which should pass. If `T` is larger, like `50`, then `50 * 2000^2 = 2 * 10^8`, which will TLE. The problem typically has `T` small for `N^2` or `T` large for `N log N` or `N`. Given the rating, `N^2` is expected. The issue might be the constant factor of `Int32Array` creation inside the loop, or it might be that `T * N^2` is truly too slow. Let's fix the array copy and constant factor. Instead of `nextDp = new Int32Array(dp)`, we can iterate `j` downwards to do the update in place. This will reduce constant factors by avoiding repeated array allocations and copies.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-22T05:47:06.456Z"
+  },
+  {
+    "id": "1857F",
+    "problem": "Sum and Product",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 6",
+    "diagnosis": "The `isSquare` function is incorrect for large BigInt inputs. It attempts to approximate the square root using `Math.sqrt(Number(n))` which loses precision for `n` values larger than `Number.MAX_SAFE_INTEGER`. This leads to `x` being an incorrect initial guess, and the subsequent `while` loops might not converge correctly or efficiently, or might converge to the wrong value, especially if `n` is a perfect square but its `Number` representation's square root is slightly off. For instance, if `n` is slightly less than a perfect square but `Math.sqrt(Number(n))` rounds up, `x` might start too high and the `while (x * x > n) x--;` loop could be insufficient to find the correct square root or determine if it's not a perfect square. The problem implies numbers up to 10^9, so their squares could be up to 10^18, which fits in BigInt but not accurately in `Number` for `Math.sqrt` if the initial number `D` itself is large.",
+    "rule": "When dealing with `BigInt` values that might exceed `Number.MAX_SAFE_INTEGER` (approx 9e15), `Math.sqrt(Number(bigInt))` must not be used for precision-critical calculations like checking perfect squares. Implement a `BigInt` square root function that operates solely on `BigInt`s, typically using binary search or Newton's method.",
+    "tags": [
+      "binary search",
+      "data structures",
+      "math"
+    ],
+    "timestamp": "2026-11-22T06:43:32.600Z"
   }
 ]
