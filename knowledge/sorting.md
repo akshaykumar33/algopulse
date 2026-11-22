@@ -266,6 +266,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
 | [Multi-Subject Competition](https://codeforces.com/problemset/problem/1082/C) | `Codeforces` | `1600` | `multiSubjectCompetition.js` | Key algorithmic application from Day 2026-11-21. |
 | [To Add or Not to Add](https://codeforces.com/problemset/problem/231/C) | `Codeforces` | `1600` | `toAddOrNotToAdd.js` | Key algorithmic application from Day 2026-11-21. |
+| [Linova and Kingdom](https://codeforces.com/problemset/problem/1336/A) | `Codeforces` | `1600` | `linovaAndKingdom.js` | Key algorithmic application from Day 2026-11-22. |
+| [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
+| [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
+| [Maximal Intersection](https://codeforces.com/problemset/problem/1029/C) | `Codeforces` | `1600` | `maximalIntersection.js` | Key algorithmic application from Day 2026-11-22. |
+| [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

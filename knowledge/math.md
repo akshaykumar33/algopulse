@@ -547,6 +547,22 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [X-Magic Pair](https://codeforces.com/problemset/problem/1612/D) | `Codeforces` | `1600` | `xMagicPair.js` | Key algorithmic application from Day 2026-11-21. |
 | [Lucky Chains](https://codeforces.com/problemset/problem/1766/D) | `Codeforces` | `1600` | `luckyChains.js` | Key algorithmic application from Day 2026-11-21. |
 | [Row GCD](https://codeforces.com/problemset/problem/1458/A) | `Codeforces` | `1600` | `rowGCD.js` | Key algorithmic application from Day 2026-11-21. |
+| [Quantity of Strings](https://codeforces.com/problemset/problem/150/B) | `Codeforces` | `1600` | `quantityOfStrings.js` | Key algorithmic application from Day 2026-11-22. |
+| [Nastya and a Wardrobe](https://codeforces.com/problemset/problem/992/C) | `Codeforces` | `1600` | `nastyaAndAWardrobe.js` | Key algorithmic application from Day 2026-11-22. |
+| [Circle of Monsters](https://codeforces.com/problemset/problem/1334/C) | `Codeforces` | `1600` | `circleOfMonsters.js` | Key algorithmic application from Day 2026-11-22. |
+| [Hits Different](https://codeforces.com/problemset/problem/1829/G) | `Codeforces` | `1600` | `hitsDifferent.js` | Key algorithmic application from Day 2026-11-22. |
+| [Carrying Conundrum](https://codeforces.com/problemset/problem/1567/C) | `Codeforces` | `1600` | `carryingConundrum.js` | Key algorithmic application from Day 2026-11-22. |
+| [Sequence Pair Weight](https://codeforces.com/problemset/problem/1527/C) | `Codeforces` | `1600` | `sequencePairWeight.js` | Key algorithmic application from Day 2026-11-22. |
+| [Standard Free2play](https://codeforces.com/problemset/problem/1238/C) | `Codeforces` | `1600` | `standardFree2play.js` | Key algorithmic application from Day 2026-11-22. |
+| [Nastya Studies Informatics](https://codeforces.com/problemset/problem/992/B) | `Codeforces` | `1600` | `nastyaStudiesInformatics.js` | Key algorithmic application from Day 2026-11-22. |
+| [Tell Your World](https://codeforces.com/problemset/problem/849/B) | `Codeforces` | `1600` | `tellYourWorld.js` | Key algorithmic application from Day 2026-11-22. |
+| [Block Towers](https://codeforces.com/problemset/problem/626/C) | `Codeforces` | `1600` | `blockTowers.js` | Key algorithmic application from Day 2026-11-22. |
+| [Sum and Product](https://codeforces.com/problemset/problem/1857/F) | `Codeforces` | `1600` | `sumAndProduct.js` | Key algorithmic application from Day 2026-11-22. |
+| [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
+| [Round Table Knights](https://codeforces.com/problemset/problem/71/C) | `Codeforces` | `1600` | `roundTableKnights.js` | Key algorithmic application from Day 2026-11-22. |
+| [Maximal Intersection](https://codeforces.com/problemset/problem/1029/C) | `Codeforces` | `1600` | `maximalIntersection.js` | Key algorithmic application from Day 2026-11-22. |
+| [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
+| [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

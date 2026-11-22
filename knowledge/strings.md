@@ -195,6 +195,7 @@ function isPalindrome(s) {
 | [Grammar Lessons](https://codeforces.com/problemset/problem/113/A) | `Codeforces` | `1600` | `grammarLessons.js` | Key algorithmic application from Day 2026-11-21. |
 | [Extract Numbers](https://codeforces.com/problemset/problem/600/A) | `Codeforces` | `1600` | `extractNumbers.js` | Key algorithmic application from Day 2026-11-21. |
 | [Character Swap (Hard Version)](https://codeforces.com/problemset/problem/1243/B2) | `Codeforces` | `1600` | `characterSwapHardVersion.js` | Key algorithmic application from Day 2026-11-21. |
+| [Decreasing String](https://codeforces.com/problemset/problem/1886/C) | `Codeforces` | `1600` | `decreasingString.js` | Key algorithmic application from Day 2026-11-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

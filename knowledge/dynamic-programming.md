@@ -244,6 +244,13 @@ dp.fill(-1); // Memoization sentinel
 | [Planar Reflections](https://codeforces.com/problemset/problem/1498/C) | `Codeforces` | `1600` | `planarReflections.js` | Key algorithmic application from Day 2026-11-20. |
 | [Timofey and a tree](https://codeforces.com/problemset/problem/763/A) | `Codeforces` | `1600` | `timofeyAndATree.js` | Key algorithmic application from Day 2026-11-20. |
 | [Tree Jumps](https://codeforces.com/problemset/problem/2070/D) | `Codeforces` | `1600` | `treeJumps.js` | Key algorithmic application from Day 2026-11-21. |
+| [Hits Different](https://codeforces.com/problemset/problem/1829/G) | `Codeforces` | `1600` | `hitsDifferent.js` | Key algorithmic application from Day 2026-11-22. |
+| [Linova and Kingdom](https://codeforces.com/problemset/problem/1336/A) | `Codeforces` | `1600` | `linovaAndKingdom.js` | Key algorithmic application from Day 2026-11-22. |
+| [Carrying Conundrum](https://codeforces.com/problemset/problem/1567/C) | `Codeforces` | `1600` | `carryingConundrum.js` | Key algorithmic application from Day 2026-11-22. |
+| [Standard Free2play](https://codeforces.com/problemset/problem/1238/C) | `Codeforces` | `1600` | `standardFree2play.js` | Key algorithmic application from Day 2026-11-22. |
+| [Serval and The Formula](https://codeforces.com/problemset/problem/2085/C) | `Codeforces` | `1600` | `servalAndTheFormula.js` | Key algorithmic application from Day 2026-11-22. |
+| [Infected Tree](https://codeforces.com/problemset/problem/1689/C) | `Codeforces` | `1600` | `infectedTree.js` | Key algorithmic application from Day 2026-11-22. |
+| [Round Table Knights](https://codeforces.com/problemset/problem/71/C) | `Codeforces` | `1600` | `roundTableKnights.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

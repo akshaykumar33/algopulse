@@ -216,6 +216,11 @@ function dfsIterative(start, adj, n) {
 | [Igor and his way to work](https://codeforces.com/problemset/problem/793/B) | `Codeforces` | `1600` | `igorAndHisWayToWork.js` | Key algorithmic application from Day 2026-11-21. |
 | [Tree Jumps](https://codeforces.com/problemset/problem/2070/D) | `Codeforces` | `1600` | `treeJumps.js` | Key algorithmic application from Day 2026-11-21. |
 | [Jamie and Interesting Graph](https://codeforces.com/problemset/problem/916/C) | `Codeforces` | `1600` | `jamieAndInterestingGraph.js` | Key algorithmic application from Day 2026-11-21. |
+| [Quantity of Strings](https://codeforces.com/problemset/problem/150/B) | `Codeforces` | `1600` | `quantityOfStrings.js` | Key algorithmic application from Day 2026-11-22. |
+| [Military Problem](https://codeforces.com/problemset/problem/1006/E) | `Codeforces` | `1600` | `militaryProblem.js` | Key algorithmic application from Day 2026-11-22. |
+| [Linova and Kingdom](https://codeforces.com/problemset/problem/1336/A) | `Codeforces` | `1600` | `linovaAndKingdom.js` | Key algorithmic application from Day 2026-11-22. |
+| [The Labyrinth](https://codeforces.com/problemset/problem/616/C) | `Codeforces` | `1600` | `theLabyrinth.js` | Key algorithmic application from Day 2026-11-22. |
+| [Infected Tree](https://codeforces.com/problemset/problem/1689/C) | `Codeforces` | `1600` | `infectedTree.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

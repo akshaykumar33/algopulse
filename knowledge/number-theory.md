@@ -214,6 +214,10 @@ function sieve(maxN) {
 | [Lucky Chains](https://codeforces.com/problemset/problem/1766/D) | `Codeforces` | `1600` | `luckyChains.js` | Key algorithmic application from Day 2026-11-21. |
 | [Cave Painting](https://codeforces.com/problemset/problem/922/C) | `Codeforces` | `1600` | `cavePainting.js` | Key algorithmic application from Day 2026-11-21. |
 | [Row GCD](https://codeforces.com/problemset/problem/1458/A) | `Codeforces` | `1600` | `rowGCD.js` | Key algorithmic application from Day 2026-11-21. |
+| [Nastya Studies Informatics](https://codeforces.com/problemset/problem/992/B) | `Codeforces` | `1600` | `nastyaStudiesInformatics.js` | Key algorithmic application from Day 2026-11-22. |
+| [Block Towers](https://codeforces.com/problemset/problem/626/C) | `Codeforces` | `1600` | `blockTowers.js` | Key algorithmic application from Day 2026-11-22. |
+| [Round Table Knights](https://codeforces.com/problemset/problem/71/C) | `Codeforces` | `1600` | `roundTableKnights.js` | Key algorithmic application from Day 2026-11-22. |
+| [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

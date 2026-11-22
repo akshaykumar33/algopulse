@@ -613,6 +613,19 @@ for (const x of arr) {
 | [Hometask](https://codeforces.com/problemset/problem/154/A) | `Codeforces` | `1600` | `hometask.js` | Key algorithmic application from Day 2026-11-21. |
 | [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
 | [Multi-Subject Competition](https://codeforces.com/problemset/problem/1082/C) | `Codeforces` | `1600` | `multiSubjectCompetition.js` | Key algorithmic application from Day 2026-11-21. |
+| [Potions (Hard Version)](https://codeforces.com/problemset/problem/1526/C2) | `Codeforces` | `1600` | `potionsHardVersion.js` | Key algorithmic application from Day 2026-11-22. |
+| [Circle of Monsters](https://codeforces.com/problemset/problem/1334/C) | `Codeforces` | `1600` | `circleOfMonsters.js` | Key algorithmic application from Day 2026-11-22. |
+| [Linova and Kingdom](https://codeforces.com/problemset/problem/1336/A) | `Codeforces` | `1600` | `linovaAndKingdom.js` | Key algorithmic application from Day 2026-11-22. |
+| [Standard Free2play](https://codeforces.com/problemset/problem/1238/C) | `Codeforces` | `1600` | `standardFree2play.js` | Key algorithmic application from Day 2026-11-22. |
+| [Serval and The Formula](https://codeforces.com/problemset/problem/2085/C) | `Codeforces` | `1600` | `servalAndTheFormula.js` | Key algorithmic application from Day 2026-11-22. |
+| [Floor or Ceil](https://codeforces.com/problemset/problem/2082/B) | `Codeforces` | `1600` | `floorOrCeil.js` | Key algorithmic application from Day 2026-11-22. |
+| [Block Towers](https://codeforces.com/problemset/problem/626/C) | `Codeforces` | `1600` | `blockTowers.js` | Key algorithmic application from Day 2026-11-22. |
+| [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
+| [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
+| [Maximal Intersection](https://codeforces.com/problemset/problem/1029/C) | `Codeforces` | `1600` | `maximalIntersection.js` | Key algorithmic application from Day 2026-11-22. |
+| [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
+| [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
+| [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
