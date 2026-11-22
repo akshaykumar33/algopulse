@@ -181,6 +181,7 @@ for (let right = 0; right < arr.length; right++) {
 | [MP3](https://codeforces.com/problemset/problem/1198/A) | `Codeforces` | `1600` | `mP3.js` | Key algorithmic application from Day 2026-11-20. |
 | [Coffee Break](https://codeforces.com/problemset/problem/1041/C) | `Codeforces` | `1600` | `coffeeBreak.js` | Key algorithmic application from Day 2026-11-21. |
 | [To Add or Not to Add](https://codeforces.com/problemset/problem/231/C) | `Codeforces` | `1600` | `toAddOrNotToAdd.js` | Key algorithmic application from Day 2026-11-21. |
+| [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

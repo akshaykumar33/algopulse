@@ -354,6 +354,11 @@ function constructMatrix(n, m) {
 | [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
 | [Jamie and Interesting Graph](https://codeforces.com/problemset/problem/916/C) | `Codeforces` | `1600` | `jamieAndInterestingGraph.js` | Key algorithmic application from Day 2026-11-21. |
 | [Slava and tanks](https://codeforces.com/problemset/problem/877/C) | `Codeforces` | `1600` | `slavaAndTanks.js` | Key algorithmic application from Day 2026-11-21. |
+| [Circle of Monsters](https://codeforces.com/problemset/problem/1334/C) | `Codeforces` | `1600` | `circleOfMonsters.js` | Key algorithmic application from Day 2026-11-22. |
+| [Serval and The Formula](https://codeforces.com/problemset/problem/2085/C) | `Codeforces` | `1600` | `servalAndTheFormula.js` | Key algorithmic application from Day 2026-11-22. |
+| [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
+| [Set Theory](https://codeforces.com/problemset/problem/856/A) | `Codeforces` | `1600` | `setTheory.js` | Key algorithmic application from Day 2026-11-22. |
+| [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

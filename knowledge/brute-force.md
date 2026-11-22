@@ -346,6 +346,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
 | [Cave Painting](https://codeforces.com/problemset/problem/922/C) | `Codeforces` | `1600` | `cavePainting.js` | Key algorithmic application from Day 2026-11-21. |
 | [Hamburgers](https://codeforces.com/problemset/problem/371/C) | `Codeforces` | `1600` | `hamburgers.js` | Key algorithmic application from Day 2026-11-21. |
+| [Circle of Monsters](https://codeforces.com/problemset/problem/1334/C) | `Codeforces` | `1600` | `circleOfMonsters.js` | Key algorithmic application from Day 2026-11-22. |
+| [Tell Your World](https://codeforces.com/problemset/problem/849/B) | `Codeforces` | `1600` | `tellYourWorld.js` | Key algorithmic application from Day 2026-11-22. |
+| [Floor or Ceil](https://codeforces.com/problemset/problem/2082/B) | `Codeforces` | `1600` | `floorOrCeil.js` | Key algorithmic application from Day 2026-11-22. |
+| [Block Towers](https://codeforces.com/problemset/problem/626/C) | `Codeforces` | `1600` | `blockTowers.js` | Key algorithmic application from Day 2026-11-22. |
+| [Set Theory](https://codeforces.com/problemset/problem/856/A) | `Codeforces` | `1600` | `setTheory.js` | Key algorithmic application from Day 2026-11-22. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

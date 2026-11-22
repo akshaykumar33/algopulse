@@ -230,6 +230,12 @@ class MinHeap {
 | [Suspects](https://codeforces.com/problemset/problem/156/B) | `Codeforces` | `1600` | `suspects.js` | Key algorithmic application from Day 2026-11-21. |
 | [Divide and Summarize](https://codeforces.com/problemset/problem/1461/D) | `Codeforces` | `1600` | `divideAndSummarize.js` | Key algorithmic application from Day 2026-11-21. |
 | [Heap Operations](https://codeforces.com/problemset/problem/681/C) | `Codeforces` | `1600` | `heapOperations.js` | Key algorithmic application from Day 2026-11-21. |
+| [Producing Snow](https://codeforces.com/problemset/problem/923/B) | `Codeforces` | `1600` | `producingSnow.js` | Key algorithmic application from Day 2026-11-22. |
+| [Potions (Hard Version)](https://codeforces.com/problemset/problem/1526/C2) | `Codeforces` | `1600` | `potionsHardVersion.js` | Key algorithmic application from Day 2026-11-22. |
+| [Hits Different](https://codeforces.com/problemset/problem/1829/G) | `Codeforces` | `1600` | `hitsDifferent.js` | Key algorithmic application from Day 2026-11-22. |
+| [Character Blocking](https://codeforces.com/problemset/problem/1840/E) | `Codeforces` | `1600` | `characterBlocking.js` | Key algorithmic application from Day 2026-11-22. |
+| [Sum and Product](https://codeforces.com/problemset/problem/1857/F) | `Codeforces` | `1600` | `sumAndProduct.js` | Key algorithmic application from Day 2026-11-22. |
+| [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 

@@ -235,6 +235,11 @@ function lowerBound(arr, target) {
 | [New Year and Rating](https://codeforces.com/problemset/problem/750/C) | `Codeforces` | `1600` | `newYearAndRating.js` | Key algorithmic application from Day 2026-11-21. |
 | [To Add or Not to Add](https://codeforces.com/problemset/problem/231/C) | `Codeforces` | `1600` | `toAddOrNotToAdd.js` | Key algorithmic application from Day 2026-11-21. |
 | [Hamburgers](https://codeforces.com/problemset/problem/371/C) | `Codeforces` | `1600` | `hamburgers.js` | Key algorithmic application from Day 2026-11-21. |
+| [Producing Snow](https://codeforces.com/problemset/problem/923/B) | `Codeforces` | `1600` | `producingSnow.js` | Key algorithmic application from Day 2026-11-22. |
+| [The Meeting Place Cannot Be Changed](https://codeforces.com/problemset/problem/780/B) | `Codeforces` | `1600` | `theMeetingPlaceCannotBeChanged.js` | Key algorithmic application from Day 2026-11-22. |
+| [Sum and Product](https://codeforces.com/problemset/problem/1857/F) | `Codeforces` | `1600` | `sumAndProduct.js` | Key algorithmic application from Day 2026-11-22. |
+| [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
+| [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
 
 ---
 
