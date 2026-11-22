@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"Robot\", \"step\", \"step\", \"getPos\", \"getDir\", \"step\", \"step\", \"step\", \"getPos\", \"getDir\"]\n[[6, 3], [2], [2], [], [], [2], [1], [4], [], []]",
+    "output": "[null,null,null,[4,0],\"East\",null,null,null,[1,2],\"West\"]"
+  }
+]

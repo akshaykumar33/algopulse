@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[\"abc\", \"bca\"]",
+    "output": "true"
+  },
+  {
+    "input": "[\"a\", \"aa\"]",
+    "output": "false"
+  },
+  {
+    "input": "[\"cabbba\", \"abbccc\"]",
+    "output": "true"
+  }
+]
