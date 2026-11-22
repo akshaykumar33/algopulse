@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\nDocName\nDocument content",
+    "output": "2"
+  }
+]
