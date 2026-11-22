@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"aczzx\"]",
+    "output": "5"
+  },
+  {
+    "input": "[\"abcdef\"]",
+    "output": "0"
+  }
+]
