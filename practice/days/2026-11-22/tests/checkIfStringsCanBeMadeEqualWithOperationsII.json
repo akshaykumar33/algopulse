@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"abcdba\", \"cabdab\"]",
+    "output": "true"
+  },
+  {
+    "input": "[\"abe\", \"bea\"]",
+    "output": "false"
+  }
+]
