@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\naaaaa#bb#cc#dddd\nacb#a#b#c",
+    "output": "16\n7"
+  }
+]
