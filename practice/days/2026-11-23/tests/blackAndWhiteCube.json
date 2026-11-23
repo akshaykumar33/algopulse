@@ -1,0 +1,10 @@
+[
+  {
+    "input": "1\n",
+    "output": "-1\n"
+  },
+  {
+    "input": "2\n",
+    "output": "bb\nww\n\nbb\nww\n"
+  }
+]
