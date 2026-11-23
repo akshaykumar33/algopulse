@@ -221,6 +221,9 @@ function dfsIterative(start, adj, n) {
 | [Linova and Kingdom](https://codeforces.com/problemset/problem/1336/A) | `Codeforces` | `1600` | `linovaAndKingdom.js` | Key algorithmic application from Day 2026-11-22. |
 | [The Labyrinth](https://codeforces.com/problemset/problem/616/C) | `Codeforces` | `1600` | `theLabyrinth.js` | Key algorithmic application from Day 2026-11-22. |
 | [Infected Tree](https://codeforces.com/problemset/problem/1689/C) | `Codeforces` | `1600` | `infectedTree.js` | Key algorithmic application from Day 2026-11-22. |
+| [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Mike and Shortcuts](https://codeforces.com/problemset/problem/689/B) | `Codeforces` | `1600` | `mikeAndShortcuts.js` | Key algorithmic application from Day 2026-11-23. |
+| [Add on a Tree](https://codeforces.com/problemset/problem/1188/A1) | `Codeforces` | `1600` | `addOnATree.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 

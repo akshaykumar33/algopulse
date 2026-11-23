@@ -563,6 +563,20 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Maximal Intersection](https://codeforces.com/problemset/problem/1029/C) | `Codeforces` | `1600` | `maximalIntersection.js` | Key algorithmic application from Day 2026-11-22. |
 | [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
 | [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
+| [Mafia](https://codeforces.com/problemset/problem/348/A) | `Codeforces` | `1600` | `mafia.js` | Key algorithmic application from Day 2026-11-23. |
+| [Black-and-White Cube](https://codeforces.com/problemset/problem/323/A) | `Codeforces` | `1600` | `blackAndWhiteCube.js` | Key algorithmic application from Day 2026-11-23. |
+| [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
+| [Rational Resistance](https://codeforces.com/problemset/problem/343/A) | `Codeforces` | `1600` | `rationalResistance.js` | Key algorithmic application from Day 2026-11-23. |
+| [Wizards and Trolleybuses](https://codeforces.com/problemset/problem/167/A) | `Codeforces` | `1600` | `wizardsAndTrolleybuses.js` | Key algorithmic application from Day 2026-11-23. |
+| [388535 (Easy Version)](https://codeforces.com/problemset/problem/1658/D1) | `Codeforces` | `1600` | `p388535EasyVersion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Connect Three](https://codeforces.com/problemset/problem/1085/C) | `Codeforces` | `1600` | `connectThree.js` | Key algorithmic application from Day 2026-11-23. |
+| [Polygon for the Angle](https://codeforces.com/problemset/problem/1096/C) | `Codeforces` | `1600` | `polygonForTheAngle.js` | Key algorithmic application from Day 2026-11-23. |
+| [Advertising Agency](https://codeforces.com/problemset/problem/1475/E) | `Codeforces` | `1600` | `advertisingAgency.js` | Key algorithmic application from Day 2026-11-23. |
+| [Stas and the Queue at the Buffet](https://codeforces.com/problemset/problem/1151/D) | `Codeforces` | `1600` | `stasAndTheQueueAtTheBuffet.js` | Key algorithmic application from Day 2026-11-23. |
+| [Help Farmer](https://codeforces.com/problemset/problem/142/A) | `Codeforces` | `1600` | `helpFarmer.js` | Key algorithmic application from Day 2026-11-23. |
+| [Plate Game](https://codeforces.com/problemset/problem/197/A) | `Codeforces` | `1600` | `plateGame.js` | Key algorithmic application from Day 2026-11-23. |
+| [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
+| [How Does the Rook Move?](https://codeforces.com/problemset/problem/1957/C) | `Codeforces` | `1600` | `howDoesTheRookMove.js` | Key algorithmic application from Day 2026-11-23. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

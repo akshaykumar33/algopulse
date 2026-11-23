@@ -104,6 +104,7 @@ function determineWinner(a, b, c) {
 | [Ela and Crickets](https://codeforces.com/problemset/problem/1737/C) | `Codeforces` | `1500` | `elaAndCrickets.js` | Key algorithmic application from Day 2026-11-14. |
 | [Even Number Addicts](https://codeforces.com/problemset/problem/1738/C) | `Codeforces` | `1500` | `evenNumberAddicts.js` | Key algorithmic application from Day 2026-11-15. |
 | [Eat the Chip](https://codeforces.com/problemset/problem/1921/E) | `Codeforces` | `1600` | `eatTheChip.js` | Key algorithmic application from Day 2026-11-15. |
+| [Plate Game](https://codeforces.com/problemset/problem/197/A) | `Codeforces` | `1600` | `plateGame.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 

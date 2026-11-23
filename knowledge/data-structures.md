@@ -236,6 +236,9 @@ class MinHeap {
 | [Character Blocking](https://codeforces.com/problemset/problem/1840/E) | `Codeforces` | `1600` | `characterBlocking.js` | Key algorithmic application from Day 2026-11-22. |
 | [Sum and Product](https://codeforces.com/problemset/problem/1857/F) | `Codeforces` | `1600` | `sumAndProduct.js` | Key algorithmic application from Day 2026-11-22. |
 | [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
+| [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
+| [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Cows and Sequence](https://codeforces.com/problemset/problem/283/A) | `Codeforces` | `1600` | `cowsAndSequence.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 

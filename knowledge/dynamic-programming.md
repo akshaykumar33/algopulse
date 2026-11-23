@@ -251,6 +251,9 @@ dp.fill(-1); // Memoization sentinel
 | [Serval and The Formula](https://codeforces.com/problemset/problem/2085/C) | `Codeforces` | `1600` | `servalAndTheFormula.js` | Key algorithmic application from Day 2026-11-22. |
 | [Infected Tree](https://codeforces.com/problemset/problem/1689/C) | `Codeforces` | `1600` | `infectedTree.js` | Key algorithmic application from Day 2026-11-22. |
 | [Round Table Knights](https://codeforces.com/problemset/problem/71/C) | `Codeforces` | `1600` | `roundTableKnights.js` | Key algorithmic application from Day 2026-11-22. |
+| [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
+| [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
+| [How Does the Rook Move?](https://codeforces.com/problemset/problem/1957/C) | `Codeforces` | `1600` | `howDoesTheRookMove.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 
