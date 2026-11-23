@@ -15,72 +15,64 @@ function solve() {
     const s = sStr.split('').map(Number);
     const c = [];
     for (let i = 0; i < n - 1; i++) c.push(BigInt(input[ptr++]));
-    const valleys = [];
-    let i = 0;
-    while (i < n - 1) {
+
+    const intervals = [];
+    let lastDec = -1;
+    for (let i = 0; i < n - 1; i++) {
       if (a[i] > a[i + 1]) {
-        let lastDec = i;
-        while (lastDec + 1 < n - 1 && a[lastDec + 1] > a[lastDec + 2]) {
-          lastDec++;
+        lastDec = i;
+      } else if (a[i] < a[i + 1]) {
+        if (lastDec !== -1) {
+          intervals.push([lastDec, i]);
+          lastDec = -1;
         }
-        let firstInc = lastDec + 1;
-        while (firstInc < n - 1 && a[firstInc] === a[firstInc + 1]) {
-          firstInc++;
-        }
-        if (firstInc < n - 1 && a[firstInc] < a[firstInc + 1]) {
-          valleys.push([lastDec, firstInc]);
-          i = firstInc + 1;
-        } else {
-          i = firstInc + 1;
-        }
-      } else {
-        i++;
       }
     }
+
+    const valleyOf = new Int32Array(n - 1).fill(-1);
     const valleyReq = [];
-    let minNeeded = 0n;
-    for (const [l, r] of valleys) {
+    let totalNeeded = 0n;
+
+    for (let v = 0; v < intervals.length; v++) {
+      const [l, r] = intervals[v];
       let alreadyHas = false;
+      let bestCost = -1n;
       for (let k = l; k <= r; k++) {
-        if (s[k] === 1) { alreadyHas = true; break; }
+        valleyOf[k] = v;
+        if (s[k] === 1) alreadyHas = true;
+        if (bestCost === -1n || c[k] < bestCost) bestCost = c[k];
       }
       if (alreadyHas) {
-        valleyReq.push({ l, r, satisfied: true, minCost: 0n });
+        valleyReq.push({ satisfied: true, minCost: 0n });
       } else {
-        let bestCost = Infinity;
-        for (let k = l; k <= r; k++) {
-          if (c[k] < bestCost) bestCost = c[k];
-        }
-        minNeeded += bestCost;
-        valleyReq.push({ l, r, satisfied: false, minCost: bestCost });
+        valleyReq.push({ satisfied: false, minCost: bestCost });
+        totalNeeded += bestCost;
       }
     }
-    if (minNeeded > bBudget) {
+
+    if (totalNeeded > bBudget) {
       out.push('-1');
       continue;
     }
+
     for (let k = 0; k < n - 1; k++) {
       if (s[k] === 1) continue;
       const cost = c[k];
-      let satisfiesValleys = [];
-      let savedMin = 0n;
-      for (let v = 0; v < valleyReq.length; v++) {
-        const vq = valleyReq[v];
-        if (!vq.satisfied && k >= vq.l && k <= vq.r) {
-          satisfiesValleys.push(v);
-          savedMin += vq.minCost;
-        }
+      const v = valleyOf[k];
+      let newNeeded = totalNeeded;
+      if (v !== -1 && !valleyReq[v].satisfied) {
+        newNeeded -= valleyReq[v].minCost;
       }
-      const newNeeded = minNeeded - savedMin;
       if (bBudget >= cost && bBudget - cost >= newNeeded) {
         s[k] = 1;
         bBudget -= cost;
-        minNeeded = newNeeded;
-        for (const v of satisfiesValleys) {
+        totalNeeded = newNeeded;
+        if (v !== -1) {
           valleyReq[v].satisfied = true;
         }
       }
     }
+
     out.push(s.join(''));
   }
   console.log(out.join('\n'));
