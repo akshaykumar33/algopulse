@@ -1,0 +1,6 @@
+[
+  {
+    "input": "1\n7\n5 1 10 15 rated random\n11 1 20 15 rated random\n10 3 30 15 rated random\n2 5 15 15 rated random\n30 20 60 60 unrated white\n50 20 40 60 unrated random\n50 20 40 60 unrated black\n",
+    "output": "wait\nwait\n1\n2\nwait\nwait\n5\n"
+  }
+]

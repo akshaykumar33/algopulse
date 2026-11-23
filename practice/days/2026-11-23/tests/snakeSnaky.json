@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n10 10 3 2 6\nURDDL\n6 6 1 6 13\nRRRRRDDDLLLU\n",
+    "output": "WALL 2\nBODY 1\n"
+  }
+]
