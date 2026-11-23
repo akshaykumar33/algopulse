@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n2 Dee\n101\n010\n2 Dum\n101\n010\n",
+    "output": "Dum\nDee\n"
+  }
+]
