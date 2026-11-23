@@ -1,18 +1,28 @@
-var minOperations = function(nums) {
-  const maxVal = 1000000;
-  const spf = new Int32Array(maxVal + 1);
-  for (let i = 2; i <= maxVal; i++) {
+const maxVal = 1000000;
+let spf = null;
+function initSpf() {
+  if (spf) return;
+  spf = new Int32Array(maxVal + 1);
+  for (let i = 2; i * i <= maxVal; i++) {
     if (spf[i] === 0) {
-      for (let j = i; j <= maxVal; j += i) {
+      for (let j = i * i; j <= maxVal; j += i) {
         if (spf[j] === 0) spf[j] = i;
       }
     }
   }
+  for (let i = 2; i <= maxVal; i++) {
+    if (spf[i] === 0) spf[i] = i;
+  }
+}
+
+var minOperations = function(nums) {
+  initSpf();
   let ans = 0;
   for (let i = nums.length - 2; i >= 0; i--) {
-    while (nums[i] > nums[i + 1]) {
-      if (spf[nums[i]] === nums[i]) return -1;
-      nums[i] = spf[nums[i]];
+    if (nums[i] > nums[i + 1]) {
+      const s = spf[nums[i]];
+      if (s > nums[i + 1]) return -1;
+      nums[i] = s;
       ans++;
     }
   }
