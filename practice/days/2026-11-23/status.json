@@ -8,27 +8,27 @@
   "testsCount": 99,
   "explanationsCount": 99,
   "verifiedCount": 99,
-  "submittedCount": 0,
-  "acceptedCount": 0,
-  "dlqCount": 0,
+  "submittedCount": 99,
+  "acceptedCount": 65,
+  "dlqCount": 35,
   "percentVerified": 100,
-  "percentSubmitted": 0,
-  "percentAccepted": 0,
+  "percentSubmitted": 100,
+  "percentAccepted": 66,
   "byPlatform": {
     "codeforces": {
       "name": "Codeforces",
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
-      "accepted": 0
+      "submitted": 33,
+      "accepted": 33
     },
     "leetcode": {
       "name": "LeetCode",
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
+      "submitted": 33,
       "accepted": 0
     },
     "codechef": {
@@ -36,9 +36,9 @@
       "total": 33,
       "solutions": 33,
       "verified": 33,
-      "submitted": 0,
-      "accepted": 0
+      "submitted": 33,
+      "accepted": 32
     }
   },
-  "updatedAt": "2026-11-23T05:20:22.575Z"
+  "updatedAt": "2026-11-23T07:23:27.300Z"
 }
