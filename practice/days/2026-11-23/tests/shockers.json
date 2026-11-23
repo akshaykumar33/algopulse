@@ -1,0 +1,14 @@
+[
+  {
+    "input": "5\n! abc\n. ad\n. b\n! cd\n? c\n",
+    "output": "1\n"
+  },
+  {
+    "input": "8\n! hello\n! codeforces\n? c\n. o\n? d\n? h\n. l\n? e\n",
+    "output": "2\n"
+  },
+  {
+    "input": "7\n! ababahalamaha\n? a\n? b\n? a\n? b\n? a\n? h\n",
+    "output": "0\n"
+  }
+]
