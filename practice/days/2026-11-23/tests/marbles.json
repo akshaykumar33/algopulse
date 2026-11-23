@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n5\nab?c?\naeg?k\n6\nabcde?\nehio??\n4\nabcd\nabcd\n",
+    "output": "4\n6\n0\n"
+  }
+]

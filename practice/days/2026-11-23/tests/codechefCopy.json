@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\ncodecook\nodeckooc\nffffffff\n",
+    "output": "dcckeooo\nodeckooc\n-1\n"
+  }
+]

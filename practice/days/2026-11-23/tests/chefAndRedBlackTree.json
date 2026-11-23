@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\nQb 4 5\nQr 4 5\nQi\nQb 4 5\nQr 4 5\n",
+    "output": "2\n1\n1\n2\n"
+  }
+]
