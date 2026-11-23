@@ -1,0 +1,6 @@
+[
+  {
+    "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\",\"seat\",\"leave\",\"seat\"]\n[[10],[],[],[],[],[4],[]]",
+    "output": "[null,0,9,4,2,null,5]"
+  }
+]

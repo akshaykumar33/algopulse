@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"fabccddg\"",
+    "output": "3"
+  },
+  {
+    "input": "\"abababaccddb\"",
+    "output": "2"
+  }
+]
