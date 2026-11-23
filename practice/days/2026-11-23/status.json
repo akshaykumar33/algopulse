@@ -9,11 +9,11 @@
   "explanationsCount": 99,
   "verifiedCount": 99,
   "submittedCount": 99,
-  "acceptedCount": 65,
+  "acceptedCount": 86,
   "dlqCount": 35,
   "percentVerified": 100,
   "percentSubmitted": 100,
-  "percentAccepted": 66,
+  "percentAccepted": 87,
   "byPlatform": {
     "codeforces": {
       "name": "Codeforces",
@@ -29,7 +29,7 @@
       "solutions": 33,
       "verified": 33,
       "submitted": 33,
-      "accepted": 0
+      "accepted": 20
     },
     "codechef": {
       "name": "CodeChef",
@@ -37,8 +37,8 @@
       "solutions": 33,
       "verified": 33,
       "submitted": 33,
-      "accepted": 32
+      "accepted": 33
     }
   },
-  "updatedAt": "2026-11-23T07:23:27.300Z"
+  "updatedAt": "2026-11-23T08:22:42.087Z"
 }
