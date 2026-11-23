@@ -240,6 +240,11 @@ function lowerBound(arr, target) {
 | [Sum and Product](https://codeforces.com/problemset/problem/1857/F) | `Codeforces` | `1600` | `sumAndProduct.js` | Key algorithmic application from Day 2026-11-22. |
 | [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
 | [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
+| [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
+| [Mafia](https://codeforces.com/problemset/problem/348/A) | `Codeforces` | `1600` | `mafia.js` | Key algorithmic application from Day 2026-11-23. |
+| [Set or Decrease](https://codeforces.com/problemset/problem/1622/C) | `Codeforces` | `1600` | `setOrDecrease.js` | Key algorithmic application from Day 2026-11-23. |
+| [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
+| [Save the Nature](https://codeforces.com/problemset/problem/1223/C) | `Codeforces` | `1600` | `saveTheNature.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 

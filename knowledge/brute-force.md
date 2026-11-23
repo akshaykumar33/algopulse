@@ -351,6 +351,13 @@ function backtrack(index, currentSum, target, arr) {
 | [Floor or Ceil](https://codeforces.com/problemset/problem/2082/B) | `Codeforces` | `1600` | `floorOrCeil.js` | Key algorithmic application from Day 2026-11-22. |
 | [Block Towers](https://codeforces.com/problemset/problem/626/C) | `Codeforces` | `1600` | `blockTowers.js` | Key algorithmic application from Day 2026-11-22. |
 | [Set Theory](https://codeforces.com/problemset/problem/856/A) | `Codeforces` | `1600` | `setTheory.js` | Key algorithmic application from Day 2026-11-22. |
+| [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Set or Decrease](https://codeforces.com/problemset/problem/1622/C) | `Codeforces` | `1600` | `setOrDecrease.js` | Key algorithmic application from Day 2026-11-23. |
+| [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
+| [Interactive Bulls and Cows (Easy)](https://codeforces.com/problemset/problem/753/B) | `Codeforces` | `1600` | `interactiveBullsAndCowsEasy.js` | Key algorithmic application from Day 2026-11-23. |
+| [Polygon for the Angle](https://codeforces.com/problemset/problem/1096/C) | `Codeforces` | `1600` | `polygonForTheAngle.js` | Key algorithmic application from Day 2026-11-23. |
+| [Help Farmer](https://codeforces.com/problemset/problem/142/A) | `Codeforces` | `1600` | `helpFarmer.js` | Key algorithmic application from Day 2026-11-23. |
+| [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -271,6 +271,11 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
 | [Maximal Intersection](https://codeforces.com/problemset/problem/1029/C) | `Codeforces` | `1600` | `maximalIntersection.js` | Key algorithmic application from Day 2026-11-22. |
 | [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
+| [Mafia](https://codeforces.com/problemset/problem/348/A) | `Codeforces` | `1600` | `mafia.js` | Key algorithmic application from Day 2026-11-23. |
+| [Set or Decrease](https://codeforces.com/problemset/problem/1622/C) | `Codeforces` | `1600` | `setOrDecrease.js` | Key algorithmic application from Day 2026-11-23. |
+| [Phoenix and Distribution](https://codeforces.com/problemset/problem/1348/C) | `Codeforces` | `1600` | `phoenixAndDistribution.js` | Key algorithmic application from Day 2026-11-23. |
+| [Advertising Agency](https://codeforces.com/problemset/problem/1475/E) | `Codeforces` | `1600` | `advertisingAgency.js` | Key algorithmic application from Day 2026-11-23. |
+| [Stas and the Queue at the Buffet](https://codeforces.com/problemset/problem/1151/D) | `Codeforces` | `1600` | `stasAndTheQueueAtTheBuffet.js` | Key algorithmic application from Day 2026-11-23. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

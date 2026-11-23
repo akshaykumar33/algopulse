@@ -359,6 +359,12 @@ function constructMatrix(n, m) {
 | [Permutation of Rows and Columns](https://codeforces.com/problemset/problem/1980/E) | `Codeforces` | `1600` | `permutationOfRowsAndColumns.js` | Key algorithmic application from Day 2026-11-22. |
 | [Set Theory](https://codeforces.com/problemset/problem/856/A) | `Codeforces` | `1600` | `setTheory.js` | Key algorithmic application from Day 2026-11-22. |
 | [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
+| [Black-and-White Cube](https://codeforces.com/problemset/problem/323/A) | `Codeforces` | `1600` | `blackAndWhiteCube.js` | Key algorithmic application from Day 2026-11-23. |
+| [Short Program](https://codeforces.com/problemset/problem/878/A) | `Codeforces` | `1600` | `shortProgram.js` | Key algorithmic application from Day 2026-11-23. |
+| [Interactive Bulls and Cows (Easy)](https://codeforces.com/problemset/problem/753/B) | `Codeforces` | `1600` | `interactiveBullsAndCowsEasy.js` | Key algorithmic application from Day 2026-11-23. |
+| [Phoenix and Distribution](https://codeforces.com/problemset/problem/1348/C) | `Codeforces` | `1600` | `phoenixAndDistribution.js` | Key algorithmic application from Day 2026-11-23. |
+| [Plate Game](https://codeforces.com/problemset/problem/197/A) | `Codeforces` | `1600` | `plateGame.js` | Key algorithmic application from Day 2026-11-23. |
+| [Cows and Sequence](https://codeforces.com/problemset/problem/283/A) | `Codeforces` | `1600` | `cowsAndSequence.js` | Key algorithmic application from Day 2026-11-23. |
 
 ---
 

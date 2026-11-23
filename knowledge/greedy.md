@@ -626,6 +626,15 @@ for (const x of arr) {
 | [Ilya and Sticks](https://codeforces.com/problemset/problem/525/C) | `Codeforces` | `1600` | `ilyaAndSticks.js` | Key algorithmic application from Day 2026-11-22. |
 | [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
 | [Doremy's IQ](https://codeforces.com/problemset/problem/1707/A) | `Codeforces` | `1600` | `doremySIQ.js` | Key algorithmic application from Day 2026-11-22. |
+| [Door Frames](https://codeforces.com/problemset/problem/910/B) | `Codeforces` | `1600` | `doorFrames.js` | Key algorithmic application from Day 2026-11-23. |
+| [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Set or Decrease](https://codeforces.com/problemset/problem/1622/C) | `Codeforces` | `1600` | `setOrDecrease.js` | Key algorithmic application from Day 2026-11-23. |
+| [Mike and Shortcuts](https://codeforces.com/problemset/problem/689/B) | `Codeforces` | `1600` | `mikeAndShortcuts.js` | Key algorithmic application from Day 2026-11-23. |
+| [Save the Nature](https://codeforces.com/problemset/problem/1223/C) | `Codeforces` | `1600` | `saveTheNature.js` | Key algorithmic application from Day 2026-11-23. |
+| [Phoenix and Distribution](https://codeforces.com/problemset/problem/1348/C) | `Codeforces` | `1600` | `phoenixAndDistribution.js` | Key algorithmic application from Day 2026-11-23. |
+| [Stas and the Queue at the Buffet](https://codeforces.com/problemset/problem/1151/D) | `Codeforces` | `1600` | `stasAndTheQueueAtTheBuffet.js` | Key algorithmic application from Day 2026-11-23. |
+| [Minimum Value Rectangle](https://codeforces.com/problemset/problem/1027/C) | `Codeforces` | `1600` | `minimumValueRectangle.js` | Key algorithmic application from Day 2026-11-23. |
+| [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
