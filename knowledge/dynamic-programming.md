@@ -259,6 +259,11 @@ dp.fill(-1); // Memoization sentinel
 | [EKG](https://codeforces.com/problemset/problem/316/B2) | `Codeforces` | `1600` | `eKG.js` | Key algorithmic application from Day 2026-11-24. |
 | [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
 | [Kevin and Puzzle](https://codeforces.com/problemset/problem/2061/C) | `Codeforces` | `1600` | `kevinAndPuzzle.js` | Key algorithmic application from Day 2026-11-24. |
+| [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
+| [DZY Loves Sequences](https://codeforces.com/problemset/problem/446/A) | `Codeforces` | `1600` | `dZYLovesSequences.js` | Key algorithmic application from Day 2026-11-25. |
+| [Basketball Team](https://codeforces.com/problemset/problem/107/B) | `Codeforces` | `1600` | `basketballTeam.js` | Key algorithmic application from Day 2026-11-25. |
+| [Long Path](https://codeforces.com/problemset/problem/407/B) | `Codeforces` | `1600` | `longPath.js` | Key algorithmic application from Day 2026-11-25. |
+| [Sasha and a Bit of Relax](https://codeforces.com/problemset/problem/1109/A) | `Codeforces` | `1600` | `sashaAndABitOfRelax.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 

@@ -362,6 +362,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Menorah](https://codeforces.com/problemset/problem/1615/C) | `Codeforces` | `1600` | `menorah.js` | Key algorithmic application from Day 2026-11-24. |
 | [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
 | [Perfect Pair](https://codeforces.com/problemset/problem/317/A) | `Codeforces` | `1600` | `perfectPair.js` | Key algorithmic application from Day 2026-11-24. |
+| [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
+| [Smallest number](https://codeforces.com/problemset/problem/55/B) | `Codeforces` | `1600` | `smallestNumber.js` | Key algorithmic application from Day 2026-11-25. |
+| [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
+| [Permutation by Sum](https://codeforces.com/problemset/problem/1512/E) | `Codeforces` | `1600` | `permutationBySum.js` | Key algorithmic application from Day 2026-11-25. |
+| [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

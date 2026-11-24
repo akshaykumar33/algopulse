@@ -373,6 +373,9 @@ function constructMatrix(n, m) {
 | [The Phone Number](https://codeforces.com/problemset/problem/1017/C) | `Codeforces` | `1600` | `thePhoneNumber.js` | Key algorithmic application from Day 2026-11-24. |
 | [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
 | [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
+| [Umka and a Long Flight](https://codeforces.com/problemset/problem/1811/D) | `Codeforces` | `1600` | `umkaAndALongFlight.js` | Key algorithmic application from Day 2026-11-25. |
+| [Points and Segments (easy)](https://codeforces.com/problemset/problem/430/A) | `Codeforces` | `1600` | `pointsAndSegmentsEasy.js` | Key algorithmic application from Day 2026-11-25. |
+| [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 

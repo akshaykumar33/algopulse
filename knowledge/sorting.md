@@ -280,6 +280,7 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Counting Kangaroos is Fun](https://codeforces.com/problemset/problem/372/A) | `Codeforces` | `1600` | `countingKangaroosIsFun.js` | Key algorithmic application from Day 2026-11-24. |
 | [Cutting Out](https://codeforces.com/problemset/problem/1077/D) | `Codeforces` | `1600` | `cuttingOut.js` | Key algorithmic application from Day 2026-11-24. |
 | [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
+| [Points and Segments (easy)](https://codeforces.com/problemset/problem/430/A) | `Codeforces` | `1600` | `pointsAndSegmentsEasy.js` | Key algorithmic application from Day 2026-11-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -223,6 +223,9 @@ function sieve(maxN) {
 | [Find Maximum](https://codeforces.com/problemset/problem/353/C) | `Codeforces` | `1600` | `findMaximum.js` | Key algorithmic application from Day 2026-11-24. |
 | [Joty and Chocolate](https://codeforces.com/problemset/problem/678/C) | `Codeforces` | `1600` | `jotyAndChocolate.js` | Key algorithmic application from Day 2026-11-24. |
 | [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
+| [Taxes](https://codeforces.com/problemset/problem/735/D) | `Codeforces` | `1600` | `taxes.js` | Key algorithmic application from Day 2026-11-25. |
+| [Final Countdown](https://codeforces.com/problemset/problem/1932/E) | `Codeforces` | `1600` | `finalCountdown.js` | Key algorithmic application from Day 2026-11-25. |
+| [LCM Challenge](https://codeforces.com/problemset/problem/235/A) | `Codeforces` | `1600` | `lCMChallenge.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 

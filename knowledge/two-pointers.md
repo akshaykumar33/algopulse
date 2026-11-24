@@ -184,6 +184,7 @@ for (let right = 0; right < arr.length; right++) {
 | [PriceFixed](https://codeforces.com/problemset/problem/1539/D) | `Codeforces` | `1600` | `priceFixed.js` | Key algorithmic application from Day 2026-11-22. |
 | [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
 | [Counting Kangaroos is Fun](https://codeforces.com/problemset/problem/372/A) | `Codeforces` | `1600` | `countingKangaroosIsFun.js` | Key algorithmic application from Day 2026-11-24. |
+| [DZY Loves Sequences](https://codeforces.com/problemset/problem/446/A) | `Codeforces` | `1600` | `dZYLovesSequences.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 
