@@ -46,19 +46,19 @@
       "platform": "Codeforces",
       "id": "407A",
       "name": "Triangle",
-      "verdict": "Pending",
-      "submissionId": null,
-      "submissionUrl": null,
-      "timestamp": "2026-11-24T06:11:18.389Z"
+      "verdict": "Accepted",
+      "submissionId": 399694249,
+      "submissionUrl": "https://codeforces.com/contest/407/submission/399694249",
+      "timestamp": "2026-11-24T11:44:10.665Z"
     },
     "1455D": {
       "platform": "Codeforces",
       "id": "1455D",
       "name": "Sequence and Swaps",
-      "verdict": "Pending",
-      "submissionId": null,
-      "submissionUrl": null,
-      "timestamp": "2026-11-24T06:57:29.146Z"
+      "verdict": "Accepted",
+      "submissionId": 399694289,
+      "submissionUrl": "https://codeforces.com/contest/1455/submission/399694289",
+      "timestamp": "2026-11-24T11:44:38.668Z"
     },
     "CC-TEAMNAME": {
       "platform": "CodeChef",
@@ -109,355 +109,532 @@
       "platform": "Codeforces",
       "id": "1175B",
       "name": "Catch Overflow!",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399692806,
+      "submissionUrl": "https://codeforces.com/contest/1175/submission/399692806",
+      "timestamp": "2026-11-24T11:28:40.233Z"
     },
     "1137B": {
       "platform": "Codeforces",
       "id": "1137B",
       "name": "Camp Schedule",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399692840,
+      "submissionUrl": "https://codeforces.com/contest/1137/submission/399692840",
+      "timestamp": "2026-11-24T11:29:11.094Z"
     },
     "817C": {
       "platform": "Codeforces",
       "id": "817C",
       "name": "Really Big Numbers",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399692892,
+      "submissionUrl": "https://codeforces.com/contest/817/submission/399692892",
+      "timestamp": "2026-11-24T11:29:53.886Z"
     },
     "1615C": {
       "platform": "Codeforces",
       "id": "1615C",
       "name": "Menorah",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399692947,
+      "submissionUrl": "https://codeforces.com/contest/1615/submission/399692947",
+      "timestamp": "2026-11-24T11:30:14.312Z"
     },
     "818B": {
       "platform": "Codeforces",
       "id": "818B",
       "name": "Permutation Game",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399692970,
+      "submissionUrl": "https://codeforces.com/contest/818/submission/399692970",
+      "timestamp": "2026-11-24T11:30:48.137Z"
     },
     "1787C": {
       "platform": "Codeforces",
       "id": "1787C",
       "name": "Remove the Bracket",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693029,
+      "submissionUrl": "https://codeforces.com/contest/1787/submission/399693029",
+      "timestamp": "2026-11-24T11:31:08.424Z"
     },
     "518C": {
       "platform": "Codeforces",
       "id": "518C",
       "name": "Anya and Smartphone",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693075,
+      "submissionUrl": "https://codeforces.com/contest/518/submission/399693075",
+      "timestamp": "2026-11-24T11:31:56.479Z"
     },
     "250C": {
       "platform": "Codeforces",
       "id": "250C",
       "name": "Movie Critics",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": "399693145",
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T11:32:49.550Z"
     },
     "1665C": {
       "platform": "Codeforces",
       "id": "1665C",
       "name": "Tree Infection",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693212,
+      "submissionUrl": "https://codeforces.com/contest/1665/submission/399693212",
+      "timestamp": "2026-11-24T11:33:09.287Z"
     },
     "316B2": {
       "platform": "Codeforces",
       "id": "316B2",
       "name": "EKG",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693254,
+      "submissionUrl": "https://codeforces.com/contest/316/submission/399693254",
+      "timestamp": "2026-11-24T11:34:00.674Z"
     },
     "1303C": {
       "platform": "Codeforces",
       "id": "1303C",
       "name": "Perfect Keyboard",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693335,
+      "submissionUrl": "https://codeforces.com/contest/1303/submission/399693335",
+      "timestamp": "2026-11-24T11:34:40.629Z"
     },
     "1878D": {
       "platform": "Codeforces",
       "id": "1878D",
       "name": "Reverse Madness",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693397,
+      "submissionUrl": "https://codeforces.com/contest/1878/submission/399693397",
+      "timestamp": "2026-11-24T11:35:20.540Z"
     },
     "372A": {
       "platform": "Codeforces",
       "id": "372A",
       "name": "Counting Kangaroos is Fun",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693450,
+      "submissionUrl": "https://codeforces.com/contest/372/submission/399693450",
+      "timestamp": "2026-11-24T11:35:54.130Z"
     },
     "75C": {
       "platform": "Codeforces",
       "id": "75C",
       "name": "Modified GCD",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693506,
+      "submissionUrl": "https://codeforces.com/contest/75/submission/399693506",
+      "timestamp": "2026-11-24T11:36:20.568Z"
     },
     "518A": {
       "platform": "Codeforces",
       "id": "518A",
       "name": "Vitaly and Strings",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693548,
+      "submissionUrl": "https://codeforces.com/contest/518/submission/399693548",
+      "timestamp": "2026-11-24T11:37:08.238Z"
     },
     "735C": {
       "platform": "Codeforces",
       "id": "735C",
       "name": "Tennis Championship",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693623,
+      "submissionUrl": "https://codeforces.com/contest/735/submission/399693623",
+      "timestamp": "2026-11-24T11:37:34.541Z"
     },
     "1593E": {
       "platform": "Codeforces",
       "id": "1593E",
       "name": "Gardener and Tree",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": "399693661",
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T11:38:28.696Z"
     },
     "1946C": {
       "platform": "Codeforces",
       "id": "1946C",
       "name": "Tree Cutting",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": "399693728",
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T11:39:23.513Z"
     },
     "317A": {
       "platform": "Codeforces",
       "id": "317A",
       "name": "Perfect Pair",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": "399693801",
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T11:40:17.593Z"
     },
     "659E": {
       "platform": "Codeforces",
       "id": "659E",
       "name": "New Reform",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693898,
+      "submissionUrl": "https://codeforces.com/contest/659/submission/399693898",
+      "timestamp": "2026-11-24T11:40:53.124Z"
     },
     "1862E": {
       "platform": "Codeforces",
       "id": "1862E",
       "name": "Kolya and Movie Theatre",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693941,
+      "submissionUrl": "https://codeforces.com/contest/1862/submission/399693941",
+      "timestamp": "2026-11-24T11:41:04.993Z"
     },
     "353C": {
       "platform": "Codeforces",
       "id": "353C",
       "name": "Find Maximum",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399693961,
+      "submissionUrl": "https://codeforces.com/contest/353/submission/399693961",
+      "timestamp": "2026-11-24T11:41:31.884Z"
     },
     "1017C": {
       "platform": "Codeforces",
       "id": "1017C",
       "name": "The Phone Number",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694005,
+      "submissionUrl": "https://codeforces.com/contest/1017/submission/399694005",
+      "timestamp": "2026-11-24T11:41:49.289Z"
     },
     "2061C": {
       "platform": "Codeforces",
       "id": "2061C",
       "name": "Kevin and Puzzle",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694036,
+      "submissionUrl": "https://codeforces.com/contest/2061/submission/399694036",
+      "timestamp": "2026-11-24T11:42:06.914Z"
     },
     "678C": {
       "platform": "Codeforces",
       "id": "678C",
       "name": "Joty and Chocolate",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694063,
+      "submissionUrl": "https://codeforces.com/contest/678/submission/399694063",
+      "timestamp": "2026-11-24T11:42:33.225Z"
     },
     "1603B": {
       "platform": "Codeforces",
       "id": "1603B",
       "name": "Moderate Modular Mode",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694111,
+      "submissionUrl": "https://codeforces.com/contest/1603/submission/399694111",
+      "timestamp": "2026-11-24T11:42:44.787Z"
     },
     "1077D": {
       "platform": "Codeforces",
       "id": "1077D",
       "name": "Cutting Out",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694133,
+      "submissionUrl": "https://codeforces.com/contest/1077/submission/399694133",
+      "timestamp": "2026-11-24T11:43:24.609Z"
     },
     "2034D": {
       "platform": "Codeforces",
       "id": "2034D",
       "name": "Darius' Wisdom",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Accepted",
+      "submissionId": 399694208,
+      "submissionUrl": "https://codeforces.com/contest/2034/submission/399694208",
+      "timestamp": "2026-11-24T11:43:44.658Z"
     },
     "CC-MAXMIN6": {
       "platform": "CodeChef",
       "id": "CC-MAXMIN6",
       "name": "Max Minus Min",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399444649",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399444649",
+      "timestamp": "2026-11-24T11:28:33.592Z"
     },
     "CC-MISINTER": {
       "platform": "CodeChef",
       "id": "CC-MISINTER",
       "name": "Misinterpretation",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399444784",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399444784",
+      "timestamp": "2026-11-24T11:28:52.398Z"
     },
     "CC-LUCKY10": {
       "platform": "CodeChef",
       "id": "CC-LUCKY10",
       "name": "Little Elephant and Order",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Pending",
+      "submissionId": null,
+      "submissionUrl": "https://www.codechef.com/problems/LUCKY10",
+      "timestamp": "2026-11-24T11:48:24.562Z"
     },
     "CC-MANYCHEF": {
       "platform": "CodeChef",
       "id": "CC-MANYCHEF",
       "name": "Many Chefs",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399445563",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399445563",
+      "timestamp": "2026-11-24T11:30:47.241Z"
     },
     "CC-MVCOIN": {
       "platform": "CodeChef",
       "id": "CC-MVCOIN",
       "name": "Moving Coins",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399445668",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399445668",
+      "timestamp": "2026-11-24T11:31:04.407Z"
     },
     "CC-FINDPERM343": {
       "platform": "CodeChef",
       "id": "CC-FINDPERM343",
       "name": "Find Permutation ",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399445786",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399445786",
+      "timestamp": "2026-11-24T11:31:27.093Z"
     },
     "CC-ONEKING": {
       "platform": "CodeChef",
       "id": "CC-ONEKING",
       "name": "One Dimensional Kingdoms",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399445899",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399445899",
+      "timestamp": "2026-11-24T11:31:44.277Z"
     },
     "CC-ABX01": {
       "platform": "CodeChef",
       "id": "CC-ABX01",
       "name": "Strange Function",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446016",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446016",
+      "timestamp": "2026-11-24T11:32:01.410Z"
     },
     "CC-MUNCHMOD": {
       "platform": "CodeChef",
       "id": "CC-MUNCHMOD",
       "name": "Munchys Modulo",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446161",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446161",
+      "timestamp": "2026-11-24T11:32:20.134Z"
     },
     "CC-BILBRA": {
       "platform": "CodeChef",
       "id": "CC-BILBRA",
       "name": "Books in Library",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446269",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446269",
+      "timestamp": "2026-11-24T11:32:37.283Z"
     },
     "CC-DISJOINTSUB": {
       "platform": "CodeChef",
       "id": "CC-DISJOINTSUB",
       "name": "Disjoint Non-Decreasing Array",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446401",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446401",
+      "timestamp": "2026-11-24T11:32:54.469Z"
     },
     "CC-MINWALK": {
       "platform": "CodeChef",
       "id": "CC-MINWALK",
       "name": "Minimum Cost Walk",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446500",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446500",
+      "timestamp": "2026-11-24T11:33:21.592Z"
     },
     "CC-AVGPR": {
       "platform": "CodeChef",
       "id": "CC-AVGPR",
       "name": "Average of Pairs",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399446675",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399446675",
+      "timestamp": "2026-11-24T11:33:38.635Z"
     },
     "CC-NUTANIX10": {
       "platform": "CodeChef",
       "id": "CC-NUTANIX10",
       "name": "Minimum Platforms",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Pending",
+      "submissionId": null,
+      "submissionUrl": "https://www.codechef.com/problems/NUTANIX10",
+      "timestamp": "2026-11-24T11:35:17.840Z"
     },
     "CC-PERMMODK": {
       "platform": "CodeChef",
       "id": "CC-PERMMODK",
       "name": "Permutation Mod K",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447356",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447356",
+      "timestamp": "2026-11-24T11:35:35.038Z"
     },
     "CC-CHODE": {
       "platform": "CodeChef",
       "id": "CC-CHODE",
       "name": "Chef and Codes",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447468",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447468",
+      "timestamp": "2026-11-24T11:35:53.643Z"
     },
     "CC-BUYSWEET": {
       "platform": "CodeChef",
       "id": "CC-BUYSWEET",
       "name": "Buying Sweets",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447572",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447572",
+      "timestamp": "2026-11-24T11:36:10.925Z"
     },
     "CC-FAIR_DISTRIB": {
       "platform": "CodeChef",
       "id": "CC-FAIR_DISTRIB",
       "name": "Fair Distribution",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447672",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447672",
+      "timestamp": "2026-11-24T11:36:27.813Z"
     },
     "CC-CIRCUT": {
       "platform": "CodeChef",
       "id": "CC-CIRCUT",
       "name": "Monochrome Cut",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447805",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447805",
+      "timestamp": "2026-11-24T11:36:45.058Z"
     },
     "CC-STRCOMPARE": {
       "platform": "CodeChef",
       "id": "CC-STRCOMPARE",
       "name": "Compare those strings",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399447909",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399447909",
+      "timestamp": "2026-11-24T11:37:02.250Z"
     },
     "CC-ARTBALAN": {
       "platform": "CodeChef",
       "id": "CC-ARTBALAN",
       "name": "Art of Balance",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448036",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448036",
+      "timestamp": "2026-11-24T11:37:25.155Z"
     },
     "CC-NDLVOTE": {
       "platform": "CodeChef",
       "id": "CC-NDLVOTE",
       "name": "Vote for the Noodle Soup",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448177",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448177",
+      "timestamp": "2026-11-24T11:37:43.858Z"
     },
     "CC-SUMAGCD": {
       "platform": "CodeChef",
       "id": "CC-SUMAGCD",
       "name": "Sum and GCD",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448274",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448274",
+      "timestamp": "2026-11-24T11:38:11.005Z"
     },
     "CC-SUMMODE": {
       "platform": "CodeChef",
       "id": "CC-SUMMODE",
       "name": "Sum of Modes",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448435",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448435",
+      "timestamp": "2026-11-24T11:38:28.061Z"
     },
     "CC-BINDIF": {
       "platform": "CodeChef",
       "id": "CC-BINDIF",
       "name": "Strings",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "correct answer",
+      "submissionId": "1399448545",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448545",
+      "timestamp": "2026-11-24T11:38:46.577Z"
     },
     "CC-CAPIMOVE": {
       "platform": "CodeChef",
       "id": "CC-CAPIMOVE",
       "name": "Capital Movement",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448652",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448652",
+      "timestamp": "2026-11-24T11:39:07.902Z"
     },
     "CC-SUBMIMX": {
       "platform": "CodeChef",
       "id": "CC-SUBMIMX",
       "name": "Substring Minimum Function",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448775",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448775",
+      "timestamp": "2026-11-24T11:39:25.204Z"
     },
     "CC-TLAPM": {
       "platform": "CodeChef",
       "id": "CC-TLAPM",
       "name": "The Last Problem",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448869",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448869",
+      "timestamp": "2026-11-24T11:39:42.419Z"
     },
     "CC-ATOMS": {
       "platform": "CodeChef",
       "id": "CC-ATOMS",
       "name": "Breaking Into Atoms",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399448987",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399448987",
+      "timestamp": "2026-11-24T11:39:59.563Z"
     },
     "CC-BRKNLIFE": {
       "platform": "CodeChef",
       "id": "CC-BRKNLIFE",
       "name": "Broken Life",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399449097",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399449097",
+      "timestamp": "2026-11-24T11:40:16.673Z"
     },
     "CC-HXOR": {
       "platform": "CodeChef",
       "id": "CC-HXOR",
       "name": "Hail XOR",
-      "verdict": "NO_SOLUTION_FILE"
+      "verdict": "Correct Answer",
+      "submissionId": "1399449224",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399449224",
+      "timestamp": "2026-11-24T11:40:33.621Z"
     },
     "LC-2866": {
       "platform": "LeetCode",
