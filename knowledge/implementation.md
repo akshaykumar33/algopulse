@@ -3134,6 +3134,35 @@ function solve() {
 | [Breaking Into Atoms](https://www.codechef.com/problems/ATOMS) | `CodeChef` | `1762` | `breakingIntoAtoms.js` | Key algorithmic application from Day 2026-11-24. |
 | [Broken Life](https://www.codechef.com/problems/BRKNLIFE) | `CodeChef` | `1772` | `brokenLife.js` | Key algorithmic application from Day 2026-11-24. |
 | [Hail XOR](https://www.codechef.com/problems/HXOR) | `CodeChef` | `1786` | `hailXOR.js` | Key algorithmic application from Day 2026-11-24. |
+| [Beautiful Towers II](https://leetcode.com/problems/beautiful-towers-ii/) | `LeetCode` | `Medium` | `beautifulTowersII.js` | Key algorithmic application from Day 2026-11-24. |
+| [Construct Smallest Number From DI String](https://leetcode.com/problems/construct-smallest-number-from-di-string/) | `LeetCode` | `Medium` | `constructSmallestNumberFromDIString.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find the Integer Added to Array II](https://leetcode.com/problems/find-the-integer-added-to-array-ii/) | `LeetCode` | `Medium` | `findTheIntegerAddedToArrayII.js` | Key algorithmic application from Day 2026-11-24. |
+| [Most Frequent Prime](https://leetcode.com/problems/most-frequent-prime/) | `LeetCode` | `Medium` | `mostFrequentPrime.js` | Key algorithmic application from Day 2026-11-24. |
+| [Divide Array Into Arrays With Max Difference](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/) | `LeetCode` | `Medium` | `divideArrayIntoArraysWithMaxDifference.js` | Key algorithmic application from Day 2026-11-24. |
+| [Count Collisions of Monkeys on a Polygon](https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/) | `LeetCode` | `Medium` | `countCollisionsOfMonkeysOnAPolygon.js` | Key algorithmic application from Day 2026-11-24. |
+| [Number of Ways to Buy Pens and Pencils](https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/) | `LeetCode` | `Medium` | `numberOfWaysToBuyPensAndPencils.js` | Key algorithmic application from Day 2026-11-24. |
+| [Decode XORed Permutation](https://leetcode.com/problems/decode-xored-permutation/) | `LeetCode` | `Medium` | `decodeXORedPermutation.js` | Key algorithmic application from Day 2026-11-24. |
+| [Special Permutations](https://leetcode.com/problems/special-permutations/) | `LeetCode` | `Medium` | `specialPermutations.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Longest Special Substring That Occurs Thrice I](https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-i/) | `LeetCode` | `Medium` | `findLongestSpecialSubstringThatOccursThriceI.js` | Key algorithmic application from Day 2026-11-24. |
+| [Time Needed to Rearrange a Binary String](https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/) | `LeetCode` | `Medium` | `timeNeededToRearrangeABinaryString.js` | Key algorithmic application from Day 2026-11-24. |
+| [Longest Happy String](https://leetcode.com/problems/longest-happy-string/) | `LeetCode` | `Medium` | `longestHappyString.js` | Key algorithmic application from Day 2026-11-24. |
+| [Sort Vowels in a String](https://leetcode.com/problems/sort-vowels-in-a-string/) | `LeetCode` | `Medium` | `sortVowelsInAString.js` | Key algorithmic application from Day 2026-11-24. |
+| [Check If Array Pairs Are Divisible by k](https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/) | `LeetCode` | `Medium` | `checkIfArrayPairsAreDivisibleByK.js` | Key algorithmic application from Day 2026-11-24. |
+| [Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element/) | `LeetCode` | `Medium` | `frequencyOfTheMostFrequentElement.js` | Key algorithmic application from Day 2026-11-24. |
+| [Alice and Bob Playing Flower Game](https://leetcode.com/problems/alice-and-bob-playing-flower-game/) | `LeetCode` | `Medium` | `aliceAndBobPlayingFlowerGame.js` | Key algorithmic application from Day 2026-11-24. |
+| [Maximum Tastiness of Candy Basket](https://leetcode.com/problems/maximum-tastiness-of-candy-basket/) | `LeetCode` | `Medium` | `maximumTastinessOfCandyBasket.js` | Key algorithmic application from Day 2026-11-24. |
+| [Smallest Value After Replacing With Sum of Prime Factors](https://leetcode.com/problems/smallest-value-after-replacing-with-sum-of-prime-factors/) | `LeetCode` | `Medium` | `smallestValueAfterReplacingWithSumOfPrimeFactors.js` | Key algorithmic application from Day 2026-11-24. |
+| [Count Collisions on a Road](https://leetcode.com/problems/count-collisions-on-a-road/) | `LeetCode` | `Medium` | `countCollisionsOnARoad.js` | Key algorithmic application from Day 2026-11-24. |
+| [Maximum Subsequence Score](https://leetcode.com/problems/maximum-subsequence-score/) | `LeetCode` | `Medium` | `maximumSubsequenceScore.js` | Key algorithmic application from Day 2026-11-24. |
+| [Sort the Students by Their Kth Score](https://leetcode.com/problems/sort-the-students-by-their-kth-score/) | `LeetCode` | `Medium` | `sortTheStudentsByTheirKthScore.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Good Days to Rob the Bank](https://leetcode.com/problems/find-good-days-to-rob-the-bank/) | `LeetCode` | `Medium` | `findGoodDaysToRobTheBank.js` | Key algorithmic application from Day 2026-11-24. |
+| [Minimum Cost to Set Cooking Time](https://leetcode.com/problems/minimum-cost-to-set-cooking-time/) | `LeetCode` | `Medium` | `minimumCostToSetCookingTime.js` | Key algorithmic application from Day 2026-11-24. |
+| [Count Number of Texts](https://leetcode.com/problems/count-number-of-texts/) | `LeetCode` | `Medium` | `countNumberOfTexts.js` | Key algorithmic application from Day 2026-11-24. |
+| [Maximum Xor Product](https://leetcode.com/problems/maximum-xor-product/) | `LeetCode` | `Medium` | `maximumXorProduct.js` | Key algorithmic application from Day 2026-11-24. |
+| [Most Popular Video Creator](https://leetcode.com/problems/most-popular-video-creator/) | `LeetCode` | `Medium` | `mostPopularVideoCreator.js` | Key algorithmic application from Day 2026-11-24. |
+| [Execution of All Suffix Instructions Staying in a Grid](https://leetcode.com/problems/execution-of-all-suffix-instructions-staying-in-a-grid/) | `LeetCode` | `Medium` | `executionOfAllSuffixInstructionsStayingInAGrid.js` | Key algorithmic application from Day 2026-11-24. |
+| [Stone Game VII](https://leetcode.com/problems/stone-game-vii/) | `LeetCode` | `Medium` | `stoneGameVII.js` | Key algorithmic application from Day 2026-11-24. |
+| [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) | `LeetCode` | `Medium` | `minimumRemoveToMakeValidParentheses.js` | Key algorithmic application from Day 2026-11-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

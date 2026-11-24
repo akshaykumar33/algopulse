@@ -1427,9 +1427,7 @@ async function main() {
         try {
           const authData = JSON.parse(fs.readFileSync(pCfg.authFile, 'utf-8'));
           if (Array.isArray(authData.cookies) && authData.cookies.length > 0) {
-            const valid = pk === 'codeforces'
-              ? authData.cookies.filter((c) => c.domain && c.domain.includes('codeforces'))
-              : authData.cookies;
+            const valid = authData.cookies.filter((c) => !c.domain || c.domain.includes(pk));
             await persistentContext.addCookies(valid);
           }
         } catch {}

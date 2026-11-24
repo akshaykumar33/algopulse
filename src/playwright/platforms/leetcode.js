@@ -59,7 +59,9 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
   let problemUrl = problem.url;
   if (!problemUrl && problem.name) {
     const slug = problem.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    problemUrl = 'https://leetcode.com/problems/' + slug + '/';
+    problemUrl = 'https://leetcode.com/problems/' + slug + '/description/';
+  } else if (problemUrl && !problemUrl.includes('/description')) {
+    problemUrl = problemUrl.replace(/\/+$/, '') + '/description/';
   }
 
   if (!problemUrl) {
@@ -73,7 +75,7 @@ async function submitLeetCode(page, problem, rawCode, { timeout = 60000 } = {}) 
       break;
     } catch (err) {
       if (attempt === 2) throw err;
-      await page.waitForTimeout(2000);
+      await new Promise((r) => setTimeout(r, 2000));
     }
   }
 

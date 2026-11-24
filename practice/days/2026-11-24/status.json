@@ -40,5 +40,722 @@
       "accepted": 2
     }
   },
-  "updatedAt": "2026-11-24T08:37:10.133Z"
+  "updatedAt": "2026-11-24T08:37:10.133Z",
+  "submissions": {
+    "407A": {
+      "platform": "Codeforces",
+      "id": "407A",
+      "name": "Triangle",
+      "verdict": "Pending",
+      "submissionId": null,
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T06:11:18.389Z"
+    },
+    "1455D": {
+      "platform": "Codeforces",
+      "id": "1455D",
+      "name": "Sequence and Swaps",
+      "verdict": "Pending",
+      "submissionId": null,
+      "submissionUrl": null,
+      "timestamp": "2026-11-24T06:57:29.146Z"
+    },
+    "CC-TEAMNAME": {
+      "platform": "CodeChef",
+      "id": "CC-TEAMNAME",
+      "name": "Team Name",
+      "verdict": "Correct Answer",
+      "submissionId": "1399241885",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399241885",
+      "timestamp": "2026-11-24T04:09:34.352Z"
+    },
+    "CC-CHRL2": {
+      "platform": "CodeChef",
+      "id": "CC-CHRL2",
+      "name": "Chef and String",
+      "verdict": "Correct Answer",
+      "submissionId": "1399243843",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399243843",
+      "timestamp": "2026-11-24T04:15:36.934Z"
+    },
+    "1095D": {
+      "platform": "Codeforces",
+      "id": "1095D",
+      "name": "Circular Dance",
+      "verdict": "Accepted",
+      "submissionId": 399664417,
+      "submissionUrl": "https://codeforces.com/contest/1095/submission/399664417",
+      "timestamp": "2026-11-24T05:46:35.222Z"
+    },
+    "125C": {
+      "platform": "Codeforces",
+      "id": "125C",
+      "name": "Hobbits' Party",
+      "verdict": "Accepted",
+      "submissionId": 399664634,
+      "submissionUrl": "https://codeforces.com/contest/125/submission/399664634",
+      "timestamp": "2026-11-24T05:49:43.729Z"
+    },
+    "405C": {
+      "platform": "Codeforces",
+      "id": "405C",
+      "name": "Unusual Product",
+      "verdict": "Accepted",
+      "submissionId": 399675934,
+      "submissionUrl": "https://codeforces.com/contest/405/submission/399675934",
+      "timestamp": "2026-11-24T08:16:03.114Z"
+    },
+    "1175B": {
+      "platform": "Codeforces",
+      "id": "1175B",
+      "name": "Catch Overflow!",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1137B": {
+      "platform": "Codeforces",
+      "id": "1137B",
+      "name": "Camp Schedule",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "817C": {
+      "platform": "Codeforces",
+      "id": "817C",
+      "name": "Really Big Numbers",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1615C": {
+      "platform": "Codeforces",
+      "id": "1615C",
+      "name": "Menorah",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "818B": {
+      "platform": "Codeforces",
+      "id": "818B",
+      "name": "Permutation Game",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1787C": {
+      "platform": "Codeforces",
+      "id": "1787C",
+      "name": "Remove the Bracket",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "518C": {
+      "platform": "Codeforces",
+      "id": "518C",
+      "name": "Anya and Smartphone",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "250C": {
+      "platform": "Codeforces",
+      "id": "250C",
+      "name": "Movie Critics",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1665C": {
+      "platform": "Codeforces",
+      "id": "1665C",
+      "name": "Tree Infection",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "316B2": {
+      "platform": "Codeforces",
+      "id": "316B2",
+      "name": "EKG",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1303C": {
+      "platform": "Codeforces",
+      "id": "1303C",
+      "name": "Perfect Keyboard",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1878D": {
+      "platform": "Codeforces",
+      "id": "1878D",
+      "name": "Reverse Madness",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "372A": {
+      "platform": "Codeforces",
+      "id": "372A",
+      "name": "Counting Kangaroos is Fun",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "75C": {
+      "platform": "Codeforces",
+      "id": "75C",
+      "name": "Modified GCD",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "518A": {
+      "platform": "Codeforces",
+      "id": "518A",
+      "name": "Vitaly and Strings",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "735C": {
+      "platform": "Codeforces",
+      "id": "735C",
+      "name": "Tennis Championship",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1593E": {
+      "platform": "Codeforces",
+      "id": "1593E",
+      "name": "Gardener and Tree",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1946C": {
+      "platform": "Codeforces",
+      "id": "1946C",
+      "name": "Tree Cutting",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "317A": {
+      "platform": "Codeforces",
+      "id": "317A",
+      "name": "Perfect Pair",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "659E": {
+      "platform": "Codeforces",
+      "id": "659E",
+      "name": "New Reform",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1862E": {
+      "platform": "Codeforces",
+      "id": "1862E",
+      "name": "Kolya and Movie Theatre",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "353C": {
+      "platform": "Codeforces",
+      "id": "353C",
+      "name": "Find Maximum",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1017C": {
+      "platform": "Codeforces",
+      "id": "1017C",
+      "name": "The Phone Number",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "2061C": {
+      "platform": "Codeforces",
+      "id": "2061C",
+      "name": "Kevin and Puzzle",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "678C": {
+      "platform": "Codeforces",
+      "id": "678C",
+      "name": "Joty and Chocolate",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1603B": {
+      "platform": "Codeforces",
+      "id": "1603B",
+      "name": "Moderate Modular Mode",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "1077D": {
+      "platform": "Codeforces",
+      "id": "1077D",
+      "name": "Cutting Out",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "2034D": {
+      "platform": "Codeforces",
+      "id": "2034D",
+      "name": "Darius' Wisdom",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MAXMIN6": {
+      "platform": "CodeChef",
+      "id": "CC-MAXMIN6",
+      "name": "Max Minus Min",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MISINTER": {
+      "platform": "CodeChef",
+      "id": "CC-MISINTER",
+      "name": "Misinterpretation",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-LUCKY10": {
+      "platform": "CodeChef",
+      "id": "CC-LUCKY10",
+      "name": "Little Elephant and Order",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MANYCHEF": {
+      "platform": "CodeChef",
+      "id": "CC-MANYCHEF",
+      "name": "Many Chefs",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MVCOIN": {
+      "platform": "CodeChef",
+      "id": "CC-MVCOIN",
+      "name": "Moving Coins",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-FINDPERM343": {
+      "platform": "CodeChef",
+      "id": "CC-FINDPERM343",
+      "name": "Find Permutation ",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-ONEKING": {
+      "platform": "CodeChef",
+      "id": "CC-ONEKING",
+      "name": "One Dimensional Kingdoms",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-ABX01": {
+      "platform": "CodeChef",
+      "id": "CC-ABX01",
+      "name": "Strange Function",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MUNCHMOD": {
+      "platform": "CodeChef",
+      "id": "CC-MUNCHMOD",
+      "name": "Munchys Modulo",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-BILBRA": {
+      "platform": "CodeChef",
+      "id": "CC-BILBRA",
+      "name": "Books in Library",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-DISJOINTSUB": {
+      "platform": "CodeChef",
+      "id": "CC-DISJOINTSUB",
+      "name": "Disjoint Non-Decreasing Array",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-MINWALK": {
+      "platform": "CodeChef",
+      "id": "CC-MINWALK",
+      "name": "Minimum Cost Walk",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-AVGPR": {
+      "platform": "CodeChef",
+      "id": "CC-AVGPR",
+      "name": "Average of Pairs",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-NUTANIX10": {
+      "platform": "CodeChef",
+      "id": "CC-NUTANIX10",
+      "name": "Minimum Platforms",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-PERMMODK": {
+      "platform": "CodeChef",
+      "id": "CC-PERMMODK",
+      "name": "Permutation Mod K",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-CHODE": {
+      "platform": "CodeChef",
+      "id": "CC-CHODE",
+      "name": "Chef and Codes",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-BUYSWEET": {
+      "platform": "CodeChef",
+      "id": "CC-BUYSWEET",
+      "name": "Buying Sweets",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-FAIR_DISTRIB": {
+      "platform": "CodeChef",
+      "id": "CC-FAIR_DISTRIB",
+      "name": "Fair Distribution",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-CIRCUT": {
+      "platform": "CodeChef",
+      "id": "CC-CIRCUT",
+      "name": "Monochrome Cut",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-STRCOMPARE": {
+      "platform": "CodeChef",
+      "id": "CC-STRCOMPARE",
+      "name": "Compare those strings",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-ARTBALAN": {
+      "platform": "CodeChef",
+      "id": "CC-ARTBALAN",
+      "name": "Art of Balance",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-NDLVOTE": {
+      "platform": "CodeChef",
+      "id": "CC-NDLVOTE",
+      "name": "Vote for the Noodle Soup",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-SUMAGCD": {
+      "platform": "CodeChef",
+      "id": "CC-SUMAGCD",
+      "name": "Sum and GCD",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-SUMMODE": {
+      "platform": "CodeChef",
+      "id": "CC-SUMMODE",
+      "name": "Sum of Modes",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-BINDIF": {
+      "platform": "CodeChef",
+      "id": "CC-BINDIF",
+      "name": "Strings",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-CAPIMOVE": {
+      "platform": "CodeChef",
+      "id": "CC-CAPIMOVE",
+      "name": "Capital Movement",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-SUBMIMX": {
+      "platform": "CodeChef",
+      "id": "CC-SUBMIMX",
+      "name": "Substring Minimum Function",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-TLAPM": {
+      "platform": "CodeChef",
+      "id": "CC-TLAPM",
+      "name": "The Last Problem",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-ATOMS": {
+      "platform": "CodeChef",
+      "id": "CC-ATOMS",
+      "name": "Breaking Into Atoms",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-BRKNLIFE": {
+      "platform": "CodeChef",
+      "id": "CC-BRKNLIFE",
+      "name": "Broken Life",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "CC-HXOR": {
+      "platform": "CodeChef",
+      "id": "CC-HXOR",
+      "name": "Hail XOR",
+      "verdict": "NO_SOLUTION_FILE"
+    },
+    "LC-2866": {
+      "platform": "LeetCode",
+      "id": "LC-2866",
+      "name": "Beautiful Towers II",
+      "verdict": "Accepted",
+      "submissionId": 2202496004,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202496004/",
+      "timestamp": "2026-11-24T09:51:01.379Z"
+    },
+    "LC-2375": {
+      "platform": "LeetCode",
+      "id": "LC-2375",
+      "name": "Construct Smallest Number From DI String",
+      "verdict": "Accepted",
+      "submissionId": 2202513437,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202513437/",
+      "timestamp": "2026-11-24T10:23:02.014Z"
+    },
+    "LC-3132": {
+      "platform": "LeetCode",
+      "id": "LC-3132",
+      "name": "Find the Integer Added to Array II",
+      "verdict": "Accepted",
+      "submissionId": 2202514709,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202514709/",
+      "timestamp": "2026-11-24T10:25:22.728Z"
+    },
+    "LC-3044": {
+      "platform": "LeetCode",
+      "id": "LC-3044",
+      "name": "Most Frequent Prime",
+      "verdict": "Accepted",
+      "submissionId": 2202515859,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202515859/",
+      "timestamp": "2026-11-24T10:27:30.390Z"
+    },
+    "LC-1864": {
+      "platform": "LeetCode",
+      "id": "LC-1864",
+      "name": "Minimum Number of Swaps to Make the Binary String Alternating",
+      "verdict": "Accepted",
+      "submissionId": 2202516918,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202516918/",
+      "timestamp": "2026-11-24T10:29:35.780Z"
+    },
+    "LC-2966": {
+      "platform": "LeetCode",
+      "id": "LC-2966",
+      "name": "Divide Array Into Arrays With Max Difference",
+      "verdict": "Accepted",
+      "submissionId": 2202517517,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202517517/",
+      "timestamp": "2026-11-24T10:30:47.503Z"
+    },
+    "LC-2550": {
+      "platform": "LeetCode",
+      "id": "LC-2550",
+      "name": "Count Collisions of Monkeys on a Polygon",
+      "verdict": "Accepted",
+      "submissionId": 2202520153,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520153/",
+      "timestamp": "2026-11-24T10:36:14.475Z"
+    },
+    "LC-2240": {
+      "platform": "LeetCode",
+      "id": "LC-2240",
+      "name": "Number of Ways to Buy Pens and Pencils",
+      "verdict": "Accepted",
+      "submissionId": 2202520263,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520263/",
+      "timestamp": "2026-11-24T10:36:27.753Z"
+    },
+    "LC-1734": {
+      "platform": "LeetCode",
+      "id": "LC-1734",
+      "name": "Decode XORed Permutation",
+      "verdict": "Accepted",
+      "submissionId": 2202520378,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520378/",
+      "timestamp": "2026-11-24T10:36:41.654Z"
+    },
+    "LC-2741": {
+      "platform": "LeetCode",
+      "id": "LC-2741",
+      "name": "Special Permutations",
+      "verdict": "Accepted",
+      "submissionId": 2202520493,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520493/",
+      "timestamp": "2026-11-24T10:36:55.076Z"
+    },
+    "LC-2981": {
+      "platform": "LeetCode",
+      "id": "LC-2981",
+      "name": "Find Longest Special Substring That Occurs Thrice I",
+      "verdict": "Accepted",
+      "submissionId": 2202520598,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520598/",
+      "timestamp": "2026-11-24T10:37:08.753Z"
+    },
+    "LC-2380": {
+      "platform": "LeetCode",
+      "id": "LC-2380",
+      "name": "Time Needed to Rearrange a Binary String",
+      "verdict": "Accepted",
+      "submissionId": 2202520711,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520711/",
+      "timestamp": "2026-11-24T10:37:22.468Z"
+    },
+    "LC-1524": {
+      "platform": "LeetCode",
+      "id": "LC-1524",
+      "name": "Number of Sub-arrays With Odd Sum",
+      "verdict": "Accepted",
+      "submissionId": 2202520820,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520820/",
+      "timestamp": "2026-11-24T10:37:35.648Z"
+    },
+    "LC-1405": {
+      "platform": "LeetCode",
+      "id": "LC-1405",
+      "name": "Longest Happy String",
+      "verdict": "Accepted",
+      "submissionId": 2202520931,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202520931/",
+      "timestamp": "2026-11-24T10:37:48.761Z"
+    },
+    "LC-2785": {
+      "platform": "LeetCode",
+      "id": "LC-2785",
+      "name": "Sort Vowels in a String",
+      "verdict": "Accepted",
+      "submissionId": 2202521042,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521042/",
+      "timestamp": "2026-11-24T10:38:02.252Z"
+    },
+    "LC-1497": {
+      "platform": "LeetCode",
+      "id": "LC-1497",
+      "name": "Check If Array Pairs Are Divisible by k",
+      "verdict": "Accepted",
+      "submissionId": 2202521164,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521164/",
+      "timestamp": "2026-11-24T10:38:15.812Z"
+    },
+    "LC-1838": {
+      "platform": "LeetCode",
+      "id": "LC-1838",
+      "name": "Frequency of the Most Frequent Element",
+      "verdict": "Accepted",
+      "submissionId": 2202521272,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521272/",
+      "timestamp": "2026-11-24T10:38:28.925Z"
+    },
+    "LC-3021": {
+      "platform": "LeetCode",
+      "id": "LC-3021",
+      "name": "Alice and Bob Playing Flower Game",
+      "verdict": "Accepted",
+      "submissionId": 2202521386,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521386/",
+      "timestamp": "2026-11-24T10:38:42.180Z"
+    },
+    "LC-2786": {
+      "platform": "LeetCode",
+      "id": "LC-2786",
+      "name": "Visit Array Positions to Maximize Score",
+      "verdict": "Accepted",
+      "submissionId": 2202521496,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521496/",
+      "timestamp": "2026-11-24T10:38:55.472Z"
+    },
+    "LC-2517": {
+      "platform": "LeetCode",
+      "id": "LC-2517",
+      "name": "Maximum Tastiness of Candy Basket",
+      "verdict": "Accepted",
+      "submissionId": 2202521605,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521605/",
+      "timestamp": "2026-11-24T10:39:08.691Z"
+    },
+    "LC-2507": {
+      "platform": "LeetCode",
+      "id": "LC-2507",
+      "name": "Smallest Value After Replacing With Sum of Prime Factors",
+      "verdict": "Accepted",
+      "submissionId": 2202521727,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521727/",
+      "timestamp": "2026-11-24T10:39:22.015Z"
+    },
+    "LC-2211": {
+      "platform": "LeetCode",
+      "id": "LC-2211",
+      "name": "Count Collisions on a Road",
+      "verdict": "Accepted",
+      "submissionId": 2202521826,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521826/",
+      "timestamp": "2026-11-24T10:39:35.662Z"
+    },
+    "LC-1915": {
+      "platform": "LeetCode",
+      "id": "LC-1915",
+      "name": "Number of Wonderful Substrings",
+      "verdict": "Accepted",
+      "submissionId": 2202521942,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202521942/",
+      "timestamp": "2026-11-24T10:39:49.002Z"
+    },
+    "LC-2542": {
+      "platform": "LeetCode",
+      "id": "LC-2542",
+      "name": "Maximum Subsequence Score",
+      "verdict": "Accepted",
+      "submissionId": 2202522050,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522050/",
+      "timestamp": "2026-11-24T10:40:02.123Z"
+    },
+    "LC-2545": {
+      "platform": "LeetCode",
+      "id": "LC-2545",
+      "name": "Sort the Students by Their Kth Score",
+      "verdict": "Accepted",
+      "submissionId": 2202522181,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522181/",
+      "timestamp": "2026-11-24T10:40:15.645Z"
+    },
+    "LC-2100": {
+      "platform": "LeetCode",
+      "id": "LC-2100",
+      "name": "Find Good Days to Rob the Bank",
+      "verdict": "Accepted",
+      "submissionId": 2202522295,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522295/",
+      "timestamp": "2026-11-24T10:40:28.893Z"
+    },
+    "LC-2162": {
+      "platform": "LeetCode",
+      "id": "LC-2162",
+      "name": "Minimum Cost to Set Cooking Time",
+      "verdict": "Accepted",
+      "submissionId": 2202522423,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522423/",
+      "timestamp": "2026-11-24T10:40:42.727Z"
+    },
+    "LC-2266": {
+      "platform": "LeetCode",
+      "id": "LC-2266",
+      "name": "Count Number of Texts",
+      "verdict": "Accepted",
+      "submissionId": 2202522549,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522549/",
+      "timestamp": "2026-11-24T10:40:55.732Z"
+    },
+    "LC-2939": {
+      "platform": "LeetCode",
+      "id": "LC-2939",
+      "name": "Maximum Xor Product",
+      "verdict": "Accepted",
+      "submissionId": 2202522676,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522676/",
+      "timestamp": "2026-11-24T10:41:09.535Z"
+    },
+    "LC-2456": {
+      "platform": "LeetCode",
+      "id": "LC-2456",
+      "name": "Most Popular Video Creator",
+      "verdict": "Accepted",
+      "submissionId": 2202522791,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522791/",
+      "timestamp": "2026-11-24T10:41:22.882Z"
+    },
+    "LC-2120": {
+      "platform": "LeetCode",
+      "id": "LC-2120",
+      "name": "Execution of All Suffix Instructions Staying in a Grid",
+      "verdict": "Accepted",
+      "submissionId": 2202522900,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202522900/",
+      "timestamp": "2026-11-24T10:41:36.233Z"
+    },
+    "LC-1690": {
+      "platform": "LeetCode",
+      "id": "LC-1690",
+      "name": "Stone Game VII",
+      "verdict": "Accepted",
+      "submissionId": 2202523022,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202523022/",
+      "timestamp": "2026-11-24T10:41:50.607Z"
+    },
+    "LC-1249": {
+      "platform": "LeetCode",
+      "id": "LC-1249",
+      "name": "Minimum Remove to Make Valid Parentheses",
+      "verdict": "Accepted",
+      "submissionId": 2202523164,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202523164/",
+      "timestamp": "2026-11-24T10:42:04.963Z"
+    }
+  },
+  "allVerified": true
 }
