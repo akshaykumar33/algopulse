@@ -1,0 +1,29 @@
+[
+  {
+    "platform": "Codeforces",
+    "id": "407A",
+    "name": "Triangle",
+    "file": "triangle",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-24T04:11:14.974Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "407A",
+      "name": "Triangle",
+      "rating": 1600,
+      "tags": [
+        "brute force",
+        "geometry",
+        "implementation",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/407/A",
+      "file": "triangle",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "Pending"
+  }
+]
