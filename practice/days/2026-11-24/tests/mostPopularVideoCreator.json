@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"alice\",\"bob\",\"alice\",\"chris\"] [\"one\",\"two\",\"three\",\"two\"] [5,10,5,4]",
+    "output": "[[\"alice\",\"one\"],[\"bob\",\"two\"]]"
+  },
+  {
+    "input": "[\"alice\",\"alice\",\"alice\"] [\"a\",\"b\",\"c\"] [1,2,2]",
+    "output": "[[\"alice\",\"b\"]]"
+  }
+]

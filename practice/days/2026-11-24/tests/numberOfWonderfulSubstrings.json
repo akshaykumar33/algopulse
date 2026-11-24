@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aba\"",
+    "output": "4"
+  },
+  {
+    "input": "\"aabb\"",
+    "output": "9"
+  },
+  {
+    "input": "\"he\"",
+    "output": "2"
+  }
+]
