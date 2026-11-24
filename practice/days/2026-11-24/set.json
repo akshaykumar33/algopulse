@@ -862,6 +862,402 @@
       "url": "https://www.codechef.com/problems/HXOR",
       "file": "hailXOR",
       "template": "templates/codechef.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2866",
+      "name": "Beautiful Towers II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/beautiful-towers-ii/",
+      "file": "beautifulTowersII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2375",
+      "name": "Construct Smallest Number From DI String",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/construct-smallest-number-from-di-string/",
+      "file": "constructSmallestNumberFromDIString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3132",
+      "name": "Find the Integer Added to Array II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-integer-added-to-array-ii/",
+      "file": "findTheIntegerAddedToArrayII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3044",
+      "name": "Most Frequent Prime",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/most-frequent-prime/",
+      "file": "mostFrequentPrime",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1864",
+      "name": "Minimum Number of Swaps to Make the Binary String Alternating",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating/",
+      "file": "minimumNumberOfSwapsToMakeTheBinaryStringAlternating",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2966",
+      "name": "Divide Array Into Arrays With Max Difference",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/",
+      "file": "divideArrayIntoArraysWithMaxDifference",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2550",
+      "name": "Count Collisions of Monkeys on a Polygon",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/",
+      "file": "countCollisionsOfMonkeysOnAPolygon",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2240",
+      "name": "Number of Ways to Buy Pens and Pencils",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/",
+      "file": "numberOfWaysToBuyPensAndPencils",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1734",
+      "name": "Decode XORed Permutation",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/decode-xored-permutation/",
+      "file": "decodeXORedPermutation",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2741",
+      "name": "Special Permutations",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/special-permutations/",
+      "file": "specialPermutations",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2981",
+      "name": "Find Longest Special Substring That Occurs Thrice I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-i/",
+      "file": "findLongestSpecialSubstringThatOccursThriceI",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2380",
+      "name": "Time Needed to Rearrange a Binary String",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/",
+      "file": "timeNeededToRearrangeABinaryString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1524",
+      "name": "Number of Sub-arrays With Odd Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
+      "file": "numberOfSubArraysWithOddSum",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1405",
+      "name": "Longest Happy String",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-happy-string/",
+      "file": "longestHappyString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2785",
+      "name": "Sort Vowels in a String",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sort-vowels-in-a-string/",
+      "file": "sortVowelsInAString",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1497",
+      "name": "Check If Array Pairs Are Divisible by k",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/",
+      "file": "checkIfArrayPairsAreDivisibleByK",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1838",
+      "name": "Frequency of the Most Frequent Element",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/frequency-of-the-most-frequent-element/",
+      "file": "frequencyOfTheMostFrequentElement",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-3021",
+      "name": "Alice and Bob Playing Flower Game",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/alice-and-bob-playing-flower-game/",
+      "file": "aliceAndBobPlayingFlowerGame",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2786",
+      "name": "Visit Array Positions to Maximize Score",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/visit-array-positions-to-maximize-score/",
+      "file": "visitArrayPositionsToMaximizeScore",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2517",
+      "name": "Maximum Tastiness of Candy Basket",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-tastiness-of-candy-basket/",
+      "file": "maximumTastinessOfCandyBasket",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2507",
+      "name": "Smallest Value After Replacing With Sum of Prime Factors",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/smallest-value-after-replacing-with-sum-of-prime-factors/",
+      "file": "smallestValueAfterReplacingWithSumOfPrimeFactors",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2211",
+      "name": "Count Collisions on a Road",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-collisions-on-a-road/",
+      "file": "countCollisionsOnARoad",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1915",
+      "name": "Number of Wonderful Substrings",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-wonderful-substrings/",
+      "file": "numberOfWonderfulSubstrings",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2542",
+      "name": "Maximum Subsequence Score",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-subsequence-score/",
+      "file": "maximumSubsequenceScore",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2545",
+      "name": "Sort the Students by Their Kth Score",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sort-the-students-by-their-kth-score/",
+      "file": "sortTheStudentsByTheirKthScore",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2100",
+      "name": "Find Good Days to Rob the Bank",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-good-days-to-rob-the-bank/",
+      "file": "findGoodDaysToRobTheBank",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2162",
+      "name": "Minimum Cost to Set Cooking Time",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-cost-to-set-cooking-time/",
+      "file": "minimumCostToSetCookingTime",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2266",
+      "name": "Count Number of Texts",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-number-of-texts/",
+      "file": "countNumberOfTexts",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2939",
+      "name": "Maximum Xor Product",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-xor-product/",
+      "file": "maximumXorProduct",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2456",
+      "name": "Most Popular Video Creator",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/most-popular-video-creator/",
+      "file": "mostPopularVideoCreator",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-2120",
+      "name": "Execution of All Suffix Instructions Staying in a Grid",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/execution-of-all-suffix-instructions-staying-in-a-grid/",
+      "file": "executionOfAllSuffixInstructionsStayingInAGrid",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1690",
+      "name": "Stone Game VII",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/stone-game-vii/",
+      "file": "stoneGameVII",
+      "template": "templates/leetcode.js"
+    },
+    {
+      "platform": "LeetCode",
+      "id": "LC-1249",
+      "name": "Minimum Remove to Make Valid Parentheses",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/",
+      "file": "minimumRemoveToMakeValidParentheses",
+      "template": "templates/leetcode.js"
     }
   ]
 }

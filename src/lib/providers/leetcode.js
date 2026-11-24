@@ -9,7 +9,10 @@ async function fetchLeetCodeGraphQL({ difficulty = 'Medium', limit = 100, skip =
   if (fs.existsSync(authPath)) {
     try {
       const auth = JSON.parse(fs.readFileSync(authPath, 'utf8'));
-      cookieStr = (auth.cookies || []).map((c) => c.name + '=' + c.value).join('; ');
+      cookieStr = (auth.cookies || [])
+        .filter((c) => !c.domain || c.domain.includes('leetcode'))
+        .map((c) => c.name + '=' + c.value)
+        .join('; ');
     } catch {}
   }
 
