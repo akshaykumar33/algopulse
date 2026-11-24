@@ -245,6 +245,11 @@ class MinHeap {
 | [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
 | [New Reform](https://codeforces.com/problemset/problem/659/E) | `Codeforces` | `1600` | `newReform.js` | Key algorithmic application from Day 2026-11-24. |
 | [Kolya and Movie Theatre](https://codeforces.com/problemset/problem/1862/E) | `Codeforces` | `1600` | `kolyaAndMovieTheatre.js` | Key algorithmic application from Day 2026-11-24. |
+| [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
+| [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
+| [Cat Party (Hard Edition)](https://codeforces.com/problemset/problem/1163/B2) | `Codeforces` | `1600` | `catPartyHardEdition.js` | Key algorithmic application from Day 2026-11-25. |
+| [Destroying Array](https://codeforces.com/problemset/problem/722/C) | `Codeforces` | `1600` | `destroyingArray.js` | Key algorithmic application from Day 2026-11-25. |
+| [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 

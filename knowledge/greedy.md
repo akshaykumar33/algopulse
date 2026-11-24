@@ -651,6 +651,14 @@ for (const x of arr) {
 | [Kolya and Movie Theatre](https://codeforces.com/problemset/problem/1862/E) | `Codeforces` | `1600` | `kolyaAndMovieTheatre.js` | Key algorithmic application from Day 2026-11-24. |
 | [The Phone Number](https://codeforces.com/problemset/problem/1017/C) | `Codeforces` | `1600` | `thePhoneNumber.js` | Key algorithmic application from Day 2026-11-24. |
 | [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
+| [Social Network](https://codeforces.com/problemset/problem/1609/D) | `Codeforces` | `1600` | `socialNetwork.js` | Key algorithmic application from Day 2026-11-25. |
+| [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
+| [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
+| [The Elder Trolls IV: Oblivon](https://codeforces.com/problemset/problem/73/A) | `Codeforces` | `1600` | `theElderTrollsIVOblivon.js` | Key algorithmic application from Day 2026-11-25. |
+| [Permutation by Sum](https://codeforces.com/problemset/problem/1512/E) | `Codeforces` | `1600` | `permutationBySum.js` | Key algorithmic application from Day 2026-11-25. |
+| [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
+| [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
+| [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

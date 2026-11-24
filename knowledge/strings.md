@@ -201,6 +201,9 @@ function isPalindrome(s) {
 | [Catch Overflow!](https://codeforces.com/problemset/problem/1175/B) | `Codeforces` | `1600` | `catchOverflow.js` | Key algorithmic application from Day 2026-11-24. |
 | [Camp Schedule](https://codeforces.com/problemset/problem/1137/B) | `Codeforces` | `1600` | `campSchedule.js` | Key algorithmic application from Day 2026-11-24. |
 | [Vitaly and Strings](https://codeforces.com/problemset/problem/518/A) | `Codeforces` | `1600` | `vitalyAndStrings.js` | Key algorithmic application from Day 2026-11-24. |
+| [Petya and Exam](https://codeforces.com/problemset/problem/832/B) | `Codeforces` | `1600` | `petyaAndExam.js` | Key algorithmic application from Day 2026-11-25. |
+| [Hockey](https://codeforces.com/problemset/problem/95/A) | `Codeforces` | `1600` | `hockey.js` | Key algorithmic application from Day 2026-11-25. |
+| [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

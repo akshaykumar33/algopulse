@@ -586,6 +586,15 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Kevin and Puzzle](https://codeforces.com/problemset/problem/2061/C) | `Codeforces` | `1600` | `kevinAndPuzzle.js` | Key algorithmic application from Day 2026-11-24. |
 | [Joty and Chocolate](https://codeforces.com/problemset/problem/678/C) | `Codeforces` | `1600` | `jotyAndChocolate.js` | Key algorithmic application from Day 2026-11-24. |
 | [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
+| [Taxes](https://codeforces.com/problemset/problem/735/D) | `Codeforces` | `1600` | `taxes.js` | Key algorithmic application from Day 2026-11-25. |
+| [Final Countdown](https://codeforces.com/problemset/problem/1932/E) | `Codeforces` | `1600` | `finalCountdown.js` | Key algorithmic application from Day 2026-11-25. |
+| [Basketball Team](https://codeforces.com/problemset/problem/107/B) | `Codeforces` | `1600` | `basketballTeam.js` | Key algorithmic application from Day 2026-11-25. |
+| [Umka and a Long Flight](https://codeforces.com/problemset/problem/1811/D) | `Codeforces` | `1600` | `umkaAndALongFlight.js` | Key algorithmic application from Day 2026-11-25. |
+| [The Elder Trolls IV: Oblivon](https://codeforces.com/problemset/problem/73/A) | `Codeforces` | `1600` | `theElderTrollsIVOblivon.js` | Key algorithmic application from Day 2026-11-25. |
+| [Permutation by Sum](https://codeforces.com/problemset/problem/1512/E) | `Codeforces` | `1600` | `permutationBySum.js` | Key algorithmic application from Day 2026-11-25. |
+| [Polycarpus' Dice](https://codeforces.com/problemset/problem/534/C) | `Codeforces` | `1600` | `polycarpusDice.js` | Key algorithmic application from Day 2026-11-25. |
+| [Challenge Pennants](https://codeforces.com/problemset/problem/630/G) | `Codeforces` | `1600` | `challengePennants.js` | Key algorithmic application from Day 2026-11-25. |
+| [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

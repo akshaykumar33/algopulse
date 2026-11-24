@@ -251,6 +251,8 @@ function lowerBound(arr, target) {
 | [Modified GCD](https://codeforces.com/problemset/problem/75/C) | `Codeforces` | `1600` | `modifiedGCD.js` | Key algorithmic application from Day 2026-11-24. |
 | [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
 | [Cutting Out](https://codeforces.com/problemset/problem/1077/D) | `Codeforces` | `1600` | `cuttingOut.js` | Key algorithmic application from Day 2026-11-24. |
+| [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
+| [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 

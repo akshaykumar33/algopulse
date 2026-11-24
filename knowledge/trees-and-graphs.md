@@ -231,6 +231,10 @@ function dfsIterative(start, adj, n) {
 | [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
 | [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
 | [New Reform](https://codeforces.com/problemset/problem/659/E) | `Codeforces` | `1600` | `newReform.js` | Key algorithmic application from Day 2026-11-24. |
+| [Social Network](https://codeforces.com/problemset/problem/1609/D) | `Codeforces` | `1600` | `socialNetwork.js` | Key algorithmic application from Day 2026-11-25. |
+| [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
+| [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
+| [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
 
 ---
 
