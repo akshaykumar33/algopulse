@@ -239,6 +239,12 @@ class MinHeap {
 | [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
 | [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
 | [Cows and Sequence](https://codeforces.com/problemset/problem/283/A) | `Codeforces` | `1600` | `cowsAndSequence.js` | Key algorithmic application from Day 2026-11-23. |
+| [Catch Overflow!](https://codeforces.com/problemset/problem/1175/B) | `Codeforces` | `1600` | `catchOverflow.js` | Key algorithmic application from Day 2026-11-24. |
+| [Anya and Smartphone](https://codeforces.com/problemset/problem/518/C) | `Codeforces` | `1600` | `anyaAndSmartphone.js` | Key algorithmic application from Day 2026-11-24. |
+| [Reverse Madness](https://codeforces.com/problemset/problem/1878/D) | `Codeforces` | `1600` | `reverseMadness.js` | Key algorithmic application from Day 2026-11-24. |
+| [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
+| [New Reform](https://codeforces.com/problemset/problem/659/E) | `Codeforces` | `1600` | `newReform.js` | Key algorithmic application from Day 2026-11-24. |
+| [Kolya and Movie Theatre](https://codeforces.com/problemset/problem/1862/E) | `Codeforces` | `1600` | `kolyaAndMovieTheatre.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 

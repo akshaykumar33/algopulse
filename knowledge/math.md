@@ -577,6 +577,15 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Plate Game](https://codeforces.com/problemset/problem/197/A) | `Codeforces` | `1600` | `plateGame.js` | Key algorithmic application from Day 2026-11-23. |
 | [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
 | [How Does the Rook Move?](https://codeforces.com/problemset/problem/1957/C) | `Codeforces` | `1600` | `howDoesTheRookMove.js` | Key algorithmic application from Day 2026-11-23. |
+| [Unusual Product](https://codeforces.com/problemset/problem/405/C) | `Codeforces` | `1600` | `unusualProduct.js` | Key algorithmic application from Day 2026-11-24. |
+| [Really Big Numbers](https://codeforces.com/problemset/problem/817/C) | `Codeforces` | `1600` | `reallyBigNumbers.js` | Key algorithmic application from Day 2026-11-24. |
+| [Menorah](https://codeforces.com/problemset/problem/1615/C) | `Codeforces` | `1600` | `menorah.js` | Key algorithmic application from Day 2026-11-24. |
+| [Remove the Bracket](https://codeforces.com/problemset/problem/1787/C) | `Codeforces` | `1600` | `removeTheBracket.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tennis Championship](https://codeforces.com/problemset/problem/735/C) | `Codeforces` | `1600` | `tennisChampionship.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Maximum](https://codeforces.com/problemset/problem/353/C) | `Codeforces` | `1600` | `findMaximum.js` | Key algorithmic application from Day 2026-11-24. |
+| [Kevin and Puzzle](https://codeforces.com/problemset/problem/2061/C) | `Codeforces` | `1600` | `kevinAndPuzzle.js` | Key algorithmic application from Day 2026-11-24. |
+| [Joty and Chocolate](https://codeforces.com/problemset/problem/678/C) | `Codeforces` | `1600` | `jotyAndChocolate.js` | Key algorithmic application from Day 2026-11-24. |
+| [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

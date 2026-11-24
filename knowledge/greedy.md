@@ -635,6 +635,22 @@ for (const x of arr) {
 | [Stas and the Queue at the Buffet](https://codeforces.com/problemset/problem/1151/D) | `Codeforces` | `1600` | `stasAndTheQueueAtTheBuffet.js` | Key algorithmic application from Day 2026-11-23. |
 | [Minimum Value Rectangle](https://codeforces.com/problemset/problem/1027/C) | `Codeforces` | `1600` | `minimumValueRectangle.js` | Key algorithmic application from Day 2026-11-23. |
 | [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
+| [Hobbits' Party](https://codeforces.com/problemset/problem/125/C) | `Codeforces` | `1600` | `hobbitsParty.js` | Key algorithmic application from Day 2026-11-24. |
+| [Camp Schedule](https://codeforces.com/problemset/problem/1137/B) | `Codeforces` | `1600` | `campSchedule.js` | Key algorithmic application from Day 2026-11-24. |
+| [Menorah](https://codeforces.com/problemset/problem/1615/C) | `Codeforces` | `1600` | `menorah.js` | Key algorithmic application from Day 2026-11-24. |
+| [Remove the Bracket](https://codeforces.com/problemset/problem/1787/C) | `Codeforces` | `1600` | `removeTheBracket.js` | Key algorithmic application from Day 2026-11-24. |
+| [Movie Critics](https://codeforces.com/problemset/problem/250/C) | `Codeforces` | `1600` | `movieCritics.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Infection](https://codeforces.com/problemset/problem/1665/C) | `Codeforces` | `1600` | `treeInfection.js` | Key algorithmic application from Day 2026-11-24. |
+| [Perfect Keyboard](https://codeforces.com/problemset/problem/1303/C) | `Codeforces` | `1600` | `perfectKeyboard.js` | Key algorithmic application from Day 2026-11-24. |
+| [Reverse Madness](https://codeforces.com/problemset/problem/1878/D) | `Codeforces` | `1600` | `reverseMadness.js` | Key algorithmic application from Day 2026-11-24. |
+| [Counting Kangaroos is Fun](https://codeforces.com/problemset/problem/372/A) | `Codeforces` | `1600` | `countingKangaroosIsFun.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tennis Championship](https://codeforces.com/problemset/problem/735/C) | `Codeforces` | `1600` | `tennisChampionship.js` | Key algorithmic application from Day 2026-11-24. |
+| [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
+| [New Reform](https://codeforces.com/problemset/problem/659/E) | `Codeforces` | `1600` | `newReform.js` | Key algorithmic application from Day 2026-11-24. |
+| [Kolya and Movie Theatre](https://codeforces.com/problemset/problem/1862/E) | `Codeforces` | `1600` | `kolyaAndMovieTheatre.js` | Key algorithmic application from Day 2026-11-24. |
+| [The Phone Number](https://codeforces.com/problemset/problem/1017/C) | `Codeforces` | `1600` | `thePhoneNumber.js` | Key algorithmic application from Day 2026-11-24. |
+| [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

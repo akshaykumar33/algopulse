@@ -365,6 +365,14 @@ function constructMatrix(n, m) {
 | [Phoenix and Distribution](https://codeforces.com/problemset/problem/1348/C) | `Codeforces` | `1600` | `phoenixAndDistribution.js` | Key algorithmic application from Day 2026-11-23. |
 | [Plate Game](https://codeforces.com/problemset/problem/197/A) | `Codeforces` | `1600` | `plateGame.js` | Key algorithmic application from Day 2026-11-23. |
 | [Cows and Sequence](https://codeforces.com/problemset/problem/283/A) | `Codeforces` | `1600` | `cowsAndSequence.js` | Key algorithmic application from Day 2026-11-23. |
+| [Hobbits' Party](https://codeforces.com/problemset/problem/125/C) | `Codeforces` | `1600` | `hobbitsParty.js` | Key algorithmic application from Day 2026-11-24. |
+| [Anya and Smartphone](https://codeforces.com/problemset/problem/518/C) | `Codeforces` | `1600` | `anyaAndSmartphone.js` | Key algorithmic application from Day 2026-11-24. |
+| [Vitaly and Strings](https://codeforces.com/problemset/problem/518/A) | `Codeforces` | `1600` | `vitalyAndStrings.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tennis Championship](https://codeforces.com/problemset/problem/735/C) | `Codeforces` | `1600` | `tennisChampionship.js` | Key algorithmic application from Day 2026-11-24. |
+| [Kolya and Movie Theatre](https://codeforces.com/problemset/problem/1862/E) | `Codeforces` | `1600` | `kolyaAndMovieTheatre.js` | Key algorithmic application from Day 2026-11-24. |
+| [The Phone Number](https://codeforces.com/problemset/problem/1017/C) | `Codeforces` | `1600` | `thePhoneNumber.js` | Key algorithmic application from Day 2026-11-24. |
+| [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
+| [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 

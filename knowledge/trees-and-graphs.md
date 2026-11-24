@@ -224,6 +224,13 @@ function dfsIterative(start, adj, n) {
 | [Compression and Expansion](https://codeforces.com/problemset/problem/1523/C) | `Codeforces` | `1600` | `compressionAndExpansion.js` | Key algorithmic application from Day 2026-11-23. |
 | [Mike and Shortcuts](https://codeforces.com/problemset/problem/689/B) | `Codeforces` | `1600` | `mikeAndShortcuts.js` | Key algorithmic application from Day 2026-11-23. |
 | [Add on a Tree](https://codeforces.com/problemset/problem/1188/A1) | `Codeforces` | `1600` | `addOnATree.js` | Key algorithmic application from Day 2026-11-23. |
+| [Menorah](https://codeforces.com/problemset/problem/1615/C) | `Codeforces` | `1600` | `menorah.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Infection](https://codeforces.com/problemset/problem/1665/C) | `Codeforces` | `1600` | `treeInfection.js` | Key algorithmic application from Day 2026-11-24. |
+| [EKG](https://codeforces.com/problemset/problem/316/B2) | `Codeforces` | `1600` | `eKG.js` | Key algorithmic application from Day 2026-11-24. |
+| [Perfect Keyboard](https://codeforces.com/problemset/problem/1303/C) | `Codeforces` | `1600` | `perfectKeyboard.js` | Key algorithmic application from Day 2026-11-24. |
+| [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
+| [New Reform](https://codeforces.com/problemset/problem/659/E) | `Codeforces` | `1600` | `newReform.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 

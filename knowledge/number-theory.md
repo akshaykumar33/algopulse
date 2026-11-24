@@ -219,6 +219,10 @@ function sieve(maxN) {
 | [Round Table Knights](https://codeforces.com/problemset/problem/71/C) | `Codeforces` | `1600` | `roundTableKnights.js` | Key algorithmic application from Day 2026-11-22. |
 | [Hossam and Trainees](https://codeforces.com/problemset/problem/1771/C) | `Codeforces` | `1600` | `hossamAndTrainees.js` | Key algorithmic application from Day 2026-11-22. |
 | [Rational Resistance](https://codeforces.com/problemset/problem/343/A) | `Codeforces` | `1600` | `rationalResistance.js` | Key algorithmic application from Day 2026-11-23. |
+| [Modified GCD](https://codeforces.com/problemset/problem/75/C) | `Codeforces` | `1600` | `modifiedGCD.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Maximum](https://codeforces.com/problemset/problem/353/C) | `Codeforces` | `1600` | `findMaximum.js` | Key algorithmic application from Day 2026-11-24. |
+| [Joty and Chocolate](https://codeforces.com/problemset/problem/678/C) | `Codeforces` | `1600` | `jotyAndChocolate.js` | Key algorithmic application from Day 2026-11-24. |
+| [Moderate Modular Mode](https://codeforces.com/problemset/problem/1603/B) | `Codeforces` | `1600` | `moderateModularMode.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 
