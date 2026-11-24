@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nP 1\nP 2\n\n2\nP 2\nM -2\n\n0",
+    "output": "1\n1"
+  }
+]
