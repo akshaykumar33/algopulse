@@ -254,6 +254,11 @@ dp.fill(-1); // Memoization sentinel
 | [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
 | [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
 | [How Does the Rook Move?](https://codeforces.com/problemset/problem/1957/C) | `Codeforces` | `1600` | `howDoesTheRookMove.js` | Key algorithmic application from Day 2026-11-23. |
+| [Really Big Numbers](https://codeforces.com/problemset/problem/817/C) | `Codeforces` | `1600` | `reallyBigNumbers.js` | Key algorithmic application from Day 2026-11-24. |
+| [Remove the Bracket](https://codeforces.com/problemset/problem/1787/C) | `Codeforces` | `1600` | `removeTheBracket.js` | Key algorithmic application from Day 2026-11-24. |
+| [EKG](https://codeforces.com/problemset/problem/316/B2) | `Codeforces` | `1600` | `eKG.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
+| [Kevin and Puzzle](https://codeforces.com/problemset/problem/2061/C) | `Codeforces` | `1600` | `kevinAndPuzzle.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 

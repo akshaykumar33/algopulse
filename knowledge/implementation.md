@@ -3094,6 +3094,46 @@ function solve() {
 | [Game on a Strip](https://www.codechef.com/problems/ARRGAME) | `CodeChef` | `1705` | `gameOnAStrip.js` | Key algorithmic application from Day 2026-11-23. |
 | [Chef&#39;s Dream](https://www.codechef.com/problems/DREAM) | `CodeChef` | `1761` | `chef39SDream.js` | Key algorithmic application from Day 2026-11-23. |
 | [Transformation Cost](https://www.codechef.com/problems/TRANCST) | `CodeChef` | `1723` | `transformationCost.js` | Key algorithmic application from Day 2026-11-23. |
+| [Circular Dance](https://codeforces.com/problemset/problem/1095/D) | `Codeforces` | `1600` | `circularDance.js` | Key algorithmic application from Day 2026-11-24. |
+| [Unusual Product](https://codeforces.com/problemset/problem/405/C) | `Codeforces` | `1600` | `unusualProduct.js` | Key algorithmic application from Day 2026-11-24. |
+| [Catch Overflow!](https://codeforces.com/problemset/problem/1175/B) | `Codeforces` | `1600` | `catchOverflow.js` | Key algorithmic application from Day 2026-11-24. |
+| [Permutation Game](https://codeforces.com/problemset/problem/818/B) | `Codeforces` | `1600` | `permutationGame.js` | Key algorithmic application from Day 2026-11-24. |
+| [Anya and Smartphone](https://codeforces.com/problemset/problem/518/C) | `Codeforces` | `1600` | `anyaAndSmartphone.js` | Key algorithmic application from Day 2026-11-24. |
+| [Perfect Keyboard](https://codeforces.com/problemset/problem/1303/C) | `Codeforces` | `1600` | `perfectKeyboard.js` | Key algorithmic application from Day 2026-11-24. |
+| [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Maximum](https://codeforces.com/problemset/problem/353/C) | `Codeforces` | `1600` | `findMaximum.js` | Key algorithmic application from Day 2026-11-24. |
+| [Joty and Chocolate](https://codeforces.com/problemset/problem/678/C) | `Codeforces` | `1600` | `jotyAndChocolate.js` | Key algorithmic application from Day 2026-11-24. |
+| [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
+| [Max Minus Min](https://www.codechef.com/problems/MAXMIN6) | `CodeChef` | `1738` | `maxMinusMin.js` | Key algorithmic application from Day 2026-11-24. |
+| [Misinterpretation](https://www.codechef.com/problems/MISINTER) | `CodeChef` | `1632` | `misinterpretation.js` | Key algorithmic application from Day 2026-11-24. |
+| [Little Elephant and Order](https://www.codechef.com/problems/LUCKY10) | `CodeChef` | `1722` | `littleElephantAndOrder.js` | Key algorithmic application from Day 2026-11-24. |
+| [Many Chefs](https://www.codechef.com/problems/MANYCHEF) | `CodeChef` | `1740` | `manyChefs.js` | Key algorithmic application from Day 2026-11-24. |
+| [Moving Coins](https://www.codechef.com/problems/MVCOIN) | `CodeChef` | `1733` | `movingCoins.js` | Key algorithmic application from Day 2026-11-24. |
+| [Find Permutation ](https://www.codechef.com/problems/FINDPERM343) | `CodeChef` | `1765` | `findPermutation.js` | Key algorithmic application from Day 2026-11-24. |
+| [One Dimensional Kingdoms](https://www.codechef.com/problems/ONEKING) | `CodeChef` | `1743` | `oneDimensionalKingdoms.js` | Key algorithmic application from Day 2026-11-24. |
+| [Strange Function](https://www.codechef.com/problems/ABX01) | `CodeChef` | `1789` | `strangeFunction.js` | Key algorithmic application from Day 2026-11-24. |
+| [Munchys Modulo](https://www.codechef.com/problems/MUNCHMOD) | `CodeChef` | `1665` | `munchysModulo.js` | Key algorithmic application from Day 2026-11-24. |
+| [Books in Library](https://www.codechef.com/problems/BILBRA) | `CodeChef` | `1720` | `booksInLibrary.js` | Key algorithmic application from Day 2026-11-24. |
+| [Disjoint Non-Decreasing Array](https://www.codechef.com/problems/DISJOINTSUB) | `CodeChef` | `1754` | `disjointNonDecreasingArray.js` | Key algorithmic application from Day 2026-11-24. |
+| [Minimum Cost Walk](https://www.codechef.com/problems/MINWALK) | `CodeChef` | `1750` | `minimumCostWalk.js` | Key algorithmic application from Day 2026-11-24. |
+| [Average of Pairs](https://www.codechef.com/problems/AVGPR) | `CodeChef` | `1776` | `averageOfPairs.js` | Key algorithmic application from Day 2026-11-24. |
+| [Minimum Platforms](https://www.codechef.com/problems/NUTANIX10) | `CodeChef` | `1620` | `minimumPlatforms.js` | Key algorithmic application from Day 2026-11-24. |
+| [Permutation Mod K](https://www.codechef.com/problems/PERMMODK) | `CodeChef` | `1760` | `permutationModK.js` | Key algorithmic application from Day 2026-11-24. |
+| [Chef and Codes](https://www.codechef.com/problems/CHODE) | `CodeChef` | `1703` | `chefAndCodes.js` | Key algorithmic application from Day 2026-11-24. |
+| [Buying Sweets](https://www.codechef.com/problems/BUYSWEET) | `CodeChef` | `1706` | `buyingSweets.js` | Key algorithmic application from Day 2026-11-24. |
+| [Monochrome Cut](https://www.codechef.com/problems/CIRCUT) | `CodeChef` | `1755` | `monochromeCut.js` | Key algorithmic application from Day 2026-11-24. |
+| [Compare those strings](https://www.codechef.com/problems/STRCOMPARE) | `CodeChef` | `1756` | `compareThoseStrings.js` | Key algorithmic application from Day 2026-11-24. |
+| [Art of Balance](https://www.codechef.com/problems/ARTBALAN) | `CodeChef` | `1788` | `artOfBalance.js` | Key algorithmic application from Day 2026-11-24. |
+| [Vote for the Noodle Soup](https://www.codechef.com/problems/NDLVOTE) | `CodeChef` | `1766` | `voteForTheNoodleSoup.js` | Key algorithmic application from Day 2026-11-24. |
+| [Sum and GCD](https://www.codechef.com/problems/SUMAGCD) | `CodeChef` | `1798` | `sumAndGCD.js` | Key algorithmic application from Day 2026-11-24. |
+| [Sum of Modes](https://www.codechef.com/problems/SUMMODE) | `CodeChef` | `1734` | `sumOfModes.js` | Key algorithmic application from Day 2026-11-24. |
+| [Capital Movement](https://www.codechef.com/problems/CAPIMOVE) | `CodeChef` | `1780` | `capitalMovement.js` | Key algorithmic application from Day 2026-11-24. |
+| [Substring Minimum Function](https://www.codechef.com/problems/SUBMIMX) | `CodeChef` | `1778` | `substringMinimumFunction.js` | Key algorithmic application from Day 2026-11-24. |
+| [The Last Problem](https://www.codechef.com/problems/TLAPM) | `CodeChef` | `1788` | `theLastProblem.js` | Key algorithmic application from Day 2026-11-24. |
+| [Breaking Into Atoms](https://www.codechef.com/problems/ATOMS) | `CodeChef` | `1762` | `breakingIntoAtoms.js` | Key algorithmic application from Day 2026-11-24. |
+| [Broken Life](https://www.codechef.com/problems/BRKNLIFE) | `CodeChef` | `1772` | `brokenLife.js` | Key algorithmic application from Day 2026-11-24. |
+| [Hail XOR](https://www.codechef.com/problems/HXOR) | `CodeChef` | `1786` | `hailXOR.js` | Key algorithmic application from Day 2026-11-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

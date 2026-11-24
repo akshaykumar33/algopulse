@@ -358,6 +358,10 @@ function backtrack(index, currentSum, target, arr) {
 | [Polygon for the Angle](https://codeforces.com/problemset/problem/1096/C) | `Codeforces` | `1600` | `polygonForTheAngle.js` | Key algorithmic application from Day 2026-11-23. |
 | [Help Farmer](https://codeforces.com/problemset/problem/142/A) | `Codeforces` | `1600` | `helpFarmer.js` | Key algorithmic application from Day 2026-11-23. |
 | [Cards Partition](https://codeforces.com/problemset/problem/2018/A) | `Codeforces` | `1600` | `cardsPartition.js` | Key algorithmic application from Day 2026-11-23. |
+| [Really Big Numbers](https://codeforces.com/problemset/problem/817/C) | `Codeforces` | `1600` | `reallyBigNumbers.js` | Key algorithmic application from Day 2026-11-24. |
+| [Menorah](https://codeforces.com/problemset/problem/1615/C) | `Codeforces` | `1600` | `menorah.js` | Key algorithmic application from Day 2026-11-24. |
+| [Gardener and Tree](https://codeforces.com/problemset/problem/1593/E) | `Codeforces` | `1600` | `gardenerAndTree.js` | Key algorithmic application from Day 2026-11-24. |
+| [Perfect Pair](https://codeforces.com/problemset/problem/317/A) | `Codeforces` | `1600` | `perfectPair.js` | Key algorithmic application from Day 2026-11-24. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

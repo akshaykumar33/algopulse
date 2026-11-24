@@ -245,6 +245,12 @@ function lowerBound(arr, target) {
 | [Set or Decrease](https://codeforces.com/problemset/problem/1622/C) | `Codeforces` | `1600` | `setOrDecrease.js` | Key algorithmic application from Day 2026-11-23. |
 | [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
 | [Save the Nature](https://codeforces.com/problemset/problem/1223/C) | `Codeforces` | `1600` | `saveTheNature.js` | Key algorithmic application from Day 2026-11-23. |
+| [Really Big Numbers](https://codeforces.com/problemset/problem/817/C) | `Codeforces` | `1600` | `reallyBigNumbers.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Infection](https://codeforces.com/problemset/problem/1665/C) | `Codeforces` | `1600` | `treeInfection.js` | Key algorithmic application from Day 2026-11-24. |
+| [Counting Kangaroos is Fun](https://codeforces.com/problemset/problem/372/A) | `Codeforces` | `1600` | `countingKangaroosIsFun.js` | Key algorithmic application from Day 2026-11-24. |
+| [Modified GCD](https://codeforces.com/problemset/problem/75/C) | `Codeforces` | `1600` | `modifiedGCD.js` | Key algorithmic application from Day 2026-11-24. |
+| [Tree Cutting](https://codeforces.com/problemset/problem/1946/C) | `Codeforces` | `1600` | `treeCutting.js` | Key algorithmic application from Day 2026-11-24. |
+| [Cutting Out](https://codeforces.com/problemset/problem/1077/D) | `Codeforces` | `1600` | `cuttingOut.js` | Key algorithmic application from Day 2026-11-24. |
 
 ---
 
