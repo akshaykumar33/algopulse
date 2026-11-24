@@ -1,32 +1,40 @@
 const fs = require('fs');
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
-  const out = [];
-
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    let x = parseInt(input[ptr++], 10);
-    const a = [];
-    for (let i = 0; i < n; i++) a.push(parseInt(input[ptr++], 10));
-
-    function isSorted(arr) {
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < arr[i - 1]) return false;
-      }
-      return true;
+  const buf = fs.readFileSync(0);
+  let pos = 0;
+  function nextInt() {
+    while (pos < buf.length && buf[pos] <= 32) pos++;
+    if (pos >= buf.length) return null;
+    let res = 0;
+    while (pos < buf.length && buf[pos] > 32) {
+      res = res * 10 + (buf[pos] - 48);
+      pos++;
     }
-
-    if (isSorted(a)) {
+    return res;
+  }
+  const tVal = nextInt();
+  if (tVal === null) return;
+  const t = tVal;
+  const out = [];
+  function isSorted(arr, n) {
+    for (let i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) return false;
+    }
+    return true;
+  }
+  for (let tc = 0; tc < t; tc++) {
+    const n = nextInt();
+    let x = nextInt();
+    const a = new Int32Array(n);
+    for (let i = 0; i < n; i++) a[i] = nextInt();
+    if (isSorted(a, n)) {
       out.push(0);
       continue;
     }
-
     let ops = 0;
-    while (!isSorted(a)) {
+    let ok = false;
+    for (let step = 0; step < n; step++) {
       let idx = -1;
       for (let i = 0; i < n; i++) {
         if (a[i] > x) {
@@ -34,20 +42,18 @@ function solve() {
           break;
         }
       }
-      if (idx === -1) {
-        ops = -1;
-        break;
-      }
-      const temp = a[idx];
+      if (idx === -1) break;
+      const tmp = a[idx];
       a[idx] = x;
-      x = temp;
+      x = tmp;
       ops++;
-      if (ops > 2 * n) {
-        ops = -1;
+      if (isSorted(a, n)) {
+        ok = true;
         break;
       }
     }
-    out.push(ops);
+    if (ok) out.push(ops);
+    else out.push(-1);
   }
   console.log(out.join('\n'));
 }
