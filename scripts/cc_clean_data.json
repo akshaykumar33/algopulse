@@ -1,0 +1,402 @@
+{
+  "maxMinusMin": {
+    "code": "MAXMIN6",
+    "name": "Max Minus Min",
+    "statement": "You are given an array $A$ of $N$ integers.\n\nYou can perform the following operation as many times as you want (possibly $0$):\n\n- Choose index $i$ ($1 \\le i \\le N$), and multiply $A_i$ by $2$.\n\nFind the **minimum** possible value of $\\max(A) - \\min(A)$ you can achieve through the use of the operations. ",
+    "constraints": "- $1 \\le T \\le 10^4$\n- $2 \\le N \\le 10^5$\n- $1 \\le A_i \\le 10^5$\n- The sum of $N$ over all test cases does not exceed $10^5$.",
+    "samples": [
+      {
+        "input": "3\n3\n2 3 1\n3\n1 2 2\n5\n4 2 3 57 10\n",
+        "output": "1\n0\n24"
+      }
+    ]
+  },
+  "misinterpretation": {
+    "code": "MISINTER",
+    "name": "Misinterpretation",
+    "statement": "<p>\nChef's brother likes to put words in Chef's mouth.\nChef hates it about him of course.\nHe has decided to become extremely careful about what he speaks.\nFortunately, he knows how his brother transforms the words, that Chef uses.\nHe has decided to use only those words which remain the same even after his brother's transformation!</p>\n\n<p>\nIf Chef speaks an N letter word, his brother moves all the letters which are at even positions (assuming, numbering of positions starts from 1), to the beginning of the word; and the rest of the letters follow as they appeared in the word. Eg. abdef becomes beadf; cdcd becomes ddcc.</p>\n\n<p>Chef wants to know how many words can he use, provided that each word is composed of exactly N lowercase letters of the English alphabet. They use an ancient language in Byteland, which allows all possible words within the above definition!</p>\n\n<p>Input format</p>\n\n<p>\nThe first line contains the number T, the number of test cases. In the following lines, T test cases follow. Every test case is a single line, that contains a single positive integer, N,\nwhich is the length of the words that Chef wants to use.</p>\n\n<p>Output format</p>\n\n<p>\nFor each test case, print the number of words of length N that Chef can use; that is, number of words, which remain the same after brother's transformation. \nSince the result can be quite large, output the result modulo 1000000007.</p>\n\n<p>Constraints</p>\n<p>1 ≤ T ≤ 100<br />\n1 ≤ N ≤ 100000<br /></p>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "3\n1\n14\n45",
+        "output": "26\n456976\n827063120"
+      }
+    ]
+  },
+  "littleElephantAndOrder": {
+    "code": "LUCKY10",
+    "name": "Little Elephant and Order",
+    "statement": "<p style=\"text-align:justify;\">\nThe Little Elephant loves lucky strings. Everybody knows that the lucky string is a string of digits that contains only the lucky digits <b>4</b> and <b>7</b>. For example, strings <b>\"47\"</b>, <b>\"744\"</b>, <b>\"4\"</b> are lucky while <b>\"5\"</b>, <b>\"17\"</b>, <b>\"467\"</b> are not.\n</p>\n\n<p style=\"text-align:justify;\">\nThe Little Elephant has the strings <b>A</b> and <b>B</b> of digits. These strings are of equal lengths, that is <b>|A|</b> = <b>|B|</b>. He wants to get some lucky string from them. For this he performs the following operations. At first he arbitrary reorders digits of <b>A</b>. Then he arbitrary reorders digits of <b>B</b>. After that he creates the string <b>C</b> such that its <b>i</b>-th digit is the maximum between the <b>i</b>-th digit of <b>A</b> and the <b>i</b>-th digit of <b>B</b>. In other words, <b>C</b>[<b>i</b>] = <b>max</b>{<b>A</b>[<b>i</b>], <b>B</b>[<b>i</b>]} for <b>i</b> from <b>1</b> to |<b>A</b>|. After that he removes from <b>C</b> all non-lucky digits saving the order of the remaining (lucky) digits. So <b>C</b> now becomes a lucky string. For example, if after reordering <b>A = \"754\"</b> and <b>B = \"873\"</b>, then <b>C</b> is at first <b>\"874\"</b> and then it becomes <b>\"74\"</b>.\n</p>\n\n<p style=\"text-align:justify;\">\nThe Little Elephant wants the resulting string to be as lucky as possible. The formal definition of this is that the resulting string should be the lexicographically greatest possible string among all the strings that can be obtained from the given strings <b>A</b> and <b>B</b> by the described process.\n</p>\n\n<b>Notes</b>\n<ul><li><b>|A|</b> denotes the length of the string <b>A</b>.</li>\n<li><b>A</b>[<b>i</b>] denotes the <b>i</b>-th digit of the string <b>A</b>. Here we numerate the digits starting from <b>1</b>. So <b>1</b> ≤ <b>i</b> ≤ |<b>A</b>|.</li>\n<li>The string <b>A</b> is called lexicographically greater than the string <b>B</b> if either there exists some index <b>i</b> such that <b>A[i] > B[i]</b> and for each <b>j < i</b> we have <b>A[j] = B[j]</b>, or <b>B</b> is a proper prefix of <b>A</b>, that is, |<b>A</b>| > |<b>B</b>| and first |<b>B</b>| digits of <b>A</b> coincide with the corresponding digits of <b>B</b>.</li>\n</ul><h3>Input</h3>\n<p style=\"text-align:justify;\">\nThe first line of the input contains a single integer <b>T</b>, the number of test cases. <b>T</b> test cases follow. Each test case consists of two lines. The first line contains the string <b>A</b>. The second line contains the string <b>B</b>.\n</p>\n\n<h3>Output</h3>\n<p style=\"text-align:justify;\">\nFor each test case output a single line containing the answer for the corresponding test case. Note, that the answer can be an empty string. In this case you should print an empty line for the corresponding test case.\n</p>\n\n<h3>Constraints</h3>\n<p style=\"text-align:justify;\">\n<b>1</b> ≤ <b>T</b> ≤ <b>10000</b><br /><b>1</b> ≤ <b>|A|</b> ≤ <b>20000</b><br />\n|<b>A</b>| = |<b>B</b>|<br />\nEach character of <b>A</b> and <b>B</b> is a digit.<br />\nSum of |<b>A</b>| across all the tests in the input does not exceed <b>200000</b>.\n</p>\n",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "4\n4\n7\n435\n479\n7\n8\n1675475\n9756417",
+        "output": "7\n74\n\n777744"
+      }
+    ]
+  },
+  "manyChefs": {
+    "code": "MANYCHEF",
+    "name": "Many Chefs",
+    "statement": "<p>Chef Ciel wants to put a fancy neon signboard over the entrance of her restaurant. She has not enough money to buy the new one so she bought some old neon signboard through the internet. Ciel was quite disappointed when she received her order - some of its letters were broken. But she realized that this is even better - she could replace each broken letter by any letter she wants. So she decided to do such a replacement that the resulting signboard will contain the word <b>\"CHEF\"</b> as many times as possible.</p>\n<p>We can model the signboard as a string <b>S</b> having capital letters from <b>'A'</b> to <b>'Z'</b>, inclusive, and question marks <b>'?'</b>. Letters in the string indicate the intact letters at the signboard, while question marks indicate broken letters. So Ciel will replace each question mark with some capital letter and her goal is to get the string that contains as many substrings equal to <b>\"CHEF\"</b> as possible. If there exist several such strings, she will choose the lexicographically smallest one.</p>\n<p><b>Note 1.</b> The string <b>S = S<sub>1</sub>...S<sub>N</sub></b> has the substring <b>\"CHEF\"</b> if for some <b>i</b> we have <b>S<sub>i</sub>S<sub>i+1</sub>S<sub>i+2</sub>S<sub>i+3</sub> = \"CHEF\"</b>. The number of times <b>\"CHEF\"</b> is the substring of <b>S</b> is the number of those <b>i</b> for which <b>S<sub>i</sub>S<sub>i+1</sub>S<sub>i+2</sub>S<sub>i+3</sub> = \"CHEF\"</b>.</p>\n<p><b>Note 2.</b> The string <b>A = A<sub>1</sub>...A<sub>N</sub></b> is called lexicographically smaller than the string <b>B = B<sub>1</sub>...B<sub>N</sub></b> if there exists <b>K</b> from <b>1</b> to <b>N</b>, inclusive, such that <b>A<sub>i</sub> = B<sub>i</sub></b> for <b>i = 1, ..., K-1</b>, and <b>A<sub>K</sub> < B<sub>K</sub></b>. In particular, <b>A</b> is lexicographically smaller than <b>B</b> if <b>A<sub>1</sub> < B<sub>1</sub></b>. We compare capital letters by their positions in the English alphabet. So <b>'A'</b> is the smallest letter, <b>'B'</b> is the second smallest letter, ..., <b>'Z'</b> is the largest letter.\n\n</p><h3>Input</h3>\n<p>The first line of the input contains an integer <b>T</b> denoting the number of test cases. The description of <b>T</b> test cases follows. The only line of each test case contains a string <b>S</b>.</p>\n\n<h3>Output</h3>\n<p>For each test case, output a single line containing the content of the signboard Chef Ciel will come up with. That is you should output the lexicographically smallest string that could be obtained from the input string by replacing all its question marks by some capital letters and having as many substrings equal to <b>\"CHEF\"</b> as possible.</p>\n\n<h3>Constraints</h3>\n<ul><li><b>1</b> ≤ <b>T</b> ≤ <b>2013</b></li><li><b>1</b> ≤ length of <b>S</b> ≤ <b>2013</b></li><li>Each character in <b>S</b> is either a capital letter from <b>'A'</b> to <b>'Z'</b>, inclusive, or the question mark <b>'?'</b>.</li></ul>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "5\n????CIELIS???E?\n????CIELISOUR???F\nT?KEITE?SY\n????????\n???C???",
+        "output": "CHEFCIELISACHEF\nCHEFCIELISOURCHEF\nTAKEITEASY\nCHEFCHEF\nAAACHEF"
+      }
+    ]
+  },
+  "movingCoins": {
+    "code": "MVCOIN",
+    "name": "Moving Coins",
+    "statement": "<p>There is a line with 1000 cells numbered from 1 to 1000 from left to right and <b>N</b> coins placed on it. Coin <b>i</b> is placed at cell <b>X<sub>i</sub></b>, and no two coins are placed at the same cell.\n\n</p><p>Bob would like to move the coins to the <b>N</b> leftmost cells of the line. To do this, he is allowed to take a coin from any cell <b>T</b> and move it to cell <b>T</b>-<b>j</b>, where <b>j</b> is an integer between 1 and <b>K</b>, inclusive. This action is possible only if:\n</p><ul><li> cell <b>T</b>-<b>j</b> actually exists and doesn't contain a coin;\n</li><li> each of the cells <b>T</b>-<b>j</b>+1, ..., <b>T</b>-1 contains a coin.</li></ul><br /><p>One coin movement takes exactly one second. Find the smallest time in which Bob can achieve his goal.\n\n</p><h3>Input</h3>\n<p>The first line of the input file contains one integer <b>T</b> -- the number of test cases (no more than 10). Then <b>T</b> test cases follow, and every test case is described by two lines: the first of them contains two integers <b>N</b> and <b>K</b> (1 <= <b>N</b>, <b>K</b> <= 1000), the second of them contains <b>N</b> integers <b>X<sub>1</sub></b>, ..., <b>X<sub>N</sub></b> in strictly increasing order (1 <= <b>X<sub>i</sub></b> <= 1000).\n\n</p><h3>Output</h3>\n<p>For each test case output one line containing the requested minimal time for Bob to put all the coins to the left side of the line.</p>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "2\n3 2\n2 4 7\n5 3\n1 2 3 4 5",
+        "output": "5\n0"
+      }
+    ]
+  },
+  "findPermutation": {
+    "code": "FINDPERM343",
+    "name": "Find Permutation ",
+    "statement": "You are given an array $A$ of length $2\\cdot N$ consisting of **exactly two** occurrences of each integer from $1$ to $N$.\n\nFind a *permutation* $P$ of length $N$, such that, for each $1 \\le i \\le N$:\n- If we delete **both** occurrences of $P_j$ **for all** $i \\lt j \\leq N$ from $A$ without changing the order of remaining elements, there will be **atmost** $\\frac{|A|}{2}$ elements between both occurrences of $P_i$ in remaining $A$.\n\nIt is guaranteed that one such permutation always exists.  \nIf multiple such permutations exist, you may print any.\n\nNote that a permutation of length $N$ consists of all integers from $1$ to $N$ exactly once.",
+    "constraints": "- $1 \\leq T \\leq 10^5$\n- $1 \\leq N \\leq 3 \\cdot 10^5$\n- $1 \\leq A_i \\leq N$\n- $A_i$ occurs exactly twice in $A$\n- The sum of $N$ over all test cases won't exceed $3 \\cdot 10^5$.",
+    "samples": [
+      {
+        "input": "3\n1\n1 1\n2\n1 2 2 1\n3\n1 1 2 2 3 3\n",
+        "output": "1\n2 1\n3 1 2\n"
+      }
+    ]
+  },
+  "oneDimensionalKingdoms": {
+    "code": "ONEKING",
+    "name": "One Dimensional Kingdoms",
+    "statement": "<p><b>N</b> one dimensional kingdoms are represented as intervals of the form <b>[a<sub>i</sub> , b<sub>i</sub>]</b> on the real line.\nA kingdom of the form <b>[L, R]</b> can be destroyed completely by placing a bomb at a point <b>x</b> on the real line if <b>L \n≤ x ≤ R</b>.\n</p>\n\n<p>\nYour task is to determine minimum number of bombs required to destroy all the one dimensional kingdoms.</p>\n\n<h3>Input</h3>\n<ul><li>\nFirst line of the input contains <b>T</b> denoting number of test cases.\n</li>\n<li>\nFor each test case, first line contains <b>N</b> denoting the number of one dimensional kingdoms.<br /></li>\n<li>\nFor each next <b>N</b> lines, each line contains two space separated integers <b>a<sub>i</sub></b> and <b>b<sub>i</sub></b>.\n</li>\n</ul><h3>Output</h3>\n<p>For each test case , output an integer denoting the minimum  number of bombs required.</p>\n\n<h3>Constraints</h3>\n<p>Subtask 1 (20 points) : <b>1 ≤ T ≤ 100 , 1 ≤ N ≤ 100 , 0 ≤ a<sub>i</sub> ≤ b<sub>i</sub> ≤500 </b> </p>\n<p>Subtask 2 (30 points) : <b>1 ≤ T ≤ 100 , 1 ≤ N ≤ 1000 , 0 ≤ a<sub>i</sub> ≤ b<sub>i</sub> ≤ 1000  </b> </p>\n<p>Subtask 3 (50 points) : <b>1 ≤ T ≤ 20 , 1 ≤ N ≤ 10<sup>5</sup>, 0 ≤ a<sub>i</sub> ≤ b<sub>i</sub> ≤ 2000</b> </p>\n",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1\n3\n1 3\n2 5\n6 9",
+        "output": "2"
+      }
+    ]
+  },
+  "strangeFunction": {
+    "code": "ABX01",
+    "name": "Strange Function",
+    "statement": "<p>As New Year is approaching, Salik is studying functions in order to sharpen his math skills. Instead of regular functions, he is studying a strange function <b>F</b> which operates on non-negative integers. The value of <b>F</b>(<b>A</b>) is obtained by the following process:\n<ul>\n<li>Compute the sum of digits of <b>A</b>; let's denote this sum by <b>S</b>.</li>\n<li>If <b>S</b> is a single-digit integer, then <b>F</b>(<b>A</b>) = <b>S</b>.</li>\n<li>Otherwise, <b>F</b>(<b>A</b>) = <b>F</b>(<b>S</b>).</li>\n</ul></p>\n<p>It's guaranteed that this process correctly defines the function <b>F</b>.</p>\n\n<p>\nSince this problem was pretty straightforward, he invented a new problem: Given two integers <b>A</b> and <b>N</b>, compute <b>F</b>(<b>A<sup>N</sup></b>). Can you help him solve this task?</p>\n\n<h3>Input</h3>\n<p><ul>\n<li>The first line of the input contains a single integer <b>T</b> denoting the number of test cases. The description of <b>T</b> test cases follows.</li>\n<li>The first and only line of each test case contains two space-separated integers <b>A</b> and <b>N</b>.</li>\n</ul></p>\n\n<h3>Output</h3>\n<p>For each test case, print a single line containing one integer — the value of <b>F</b>(<b>A<sup>N</sup></b>).</p>\n\n<h3>Constraints</h3>\n<ul>\n<li>1 ≤ <b>T</b> ≤ 10<sup>5</sup></li>\n<li>1 ≤ <b>A</b>, <b>N</b> ≤ 10<sup>18</sup></li>\n</ul>\n\n<h3>Subtasks</h3>\n\n<p>\n<b>Subtask #1 (10 points):</b>\n<ul>\n<li>1 ≤ <b>N</b> ≤ 3</li>\n<li>1 ≤ <b>A</b> ≤ 10<sup>5</sup></li>\n</ul>\n</p>\n\n<p>\n<b>Subtask #2 (20 points):</b>\n<ul>\n<li>1 ≤ <b>N</b> ≤ 100</li>\n<li>1 ≤ <b>A</b> ≤ 10<sup>5</sup></li>\n</ul>\n</p>\n\n<p>\n<b>Subtask #3 (70 points):</b> original constraints\n</p>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "3\n5 2\n7 2\n127 1",
+        "output": "7\n4\n1"
+      }
+    ]
+  },
+  "munchysModulo": {
+    "code": "MUNCHMOD",
+    "name": "Munchys Modulo",
+    "statement": "You are given an array $A$ of $N$ integers. Find the maximum value of $(A_i \\mod (A_j + A_k))$ over all possible triplets satisfying $1 \\le i, j, k \\le N$ and $i, j, k$ are pairwise distinct. ",
+    "constraints": "- $1 \\le T \\le 10^4$\n- $3 \\le N \\le 5000$\n- $1 \\le A_i \\le 10^9$\n- The sum of $N^2$ over all test cases does not exceed $5000^2$.",
+    "samples": [
+      {
+        "input": "2\n3\n1 2 3\n3\n1 3 3\n",
+        "output": "2\n3\n"
+      }
+    ]
+  },
+  "booksInLibrary": {
+    "code": "BILBRA",
+    "name": "Books in Library",
+    "statement": "Chef has $N$ books arranged in a row, where the $i$-th book contains $B_i$ pages. He wants to distribute all the books among $A$ students so that each student receives a non-empty contiguous group of books. Every book must be assigned to exactly one student.\n\nFind the **minimum** possible value of the **maximum** total number of pages assigned to any student.",
+    "constraints": "- $1 \\leq T \\leq 100$\n- $1 \\leq N \\leq 10^5$\n- $1 \\leq A \\leq N$\n- $1 \\leq B_i \\leq 10^5$\n- The sum of $N$ over all test cases won't exceed $2 \\cdot 10^5$.",
+    "samples": [
+      {
+        "input": "2\n5 2\n4 8 2 6 10\n5 5\n10 5 10 12 18\n",
+        "output": "16\n18\n"
+      }
+    ]
+  },
+  "teamName": {
+    "code": "TEAMNAME",
+    "name": "Team Name",
+    "statement": "\r\nСhef has assembled a football team! Now he needs to choose a name for his team. There are $N$ words in English that Chef considers *funny*. These words are $s_1, s_2, \\dots, s_N$.\r\n\r\nChef thinks that a good team name should consist of two words such that they are not funny, but if we swap the first letters in them, the resulting words are funny. Note that under the given constraints, this means that a word is a non-empty string containing only lowercase English letters.\r\n\r\nCan you tell Chef how many good team names there are?\r\n\r\n### Input\r\n- The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows.\r\n- The first line of each test case contains a single integer $N$.\r\n- The second line contains $N$ space-separated strings $s_1, s_2, \\ldots, s_N$.\r\n\r\n### Output\r\nFor each test case, print a single line containing one integer — the number of ways to choose a good team name.\r\n\r\n### Constraints\r\n- $1 \\leq T \\leq 100$\r\n- $2 \\leq N \\leq 2 \\cdot 10^4$\r\n- $2 \\leq |s_i| \\leq 20$ for each valid $i$\r\n- $s_1, s_2, \\ldots, s_N$ contain only lowercase English letters\r\n- $s_1, s_2, \\ldots, s_N$ are pairwise distinct\r\n- the sum of $N$ over all test cases does not exceed $2 \\cdot 10^4$\r\n\r\n### Subtasks\r\n**Subtask #1 (20 points):** $s_1, s_2, \\ldots, s_N$ contain only letters 'a' and 'b'\r\n\r\n**Subtask #2 (80 points):** original constraints",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "3\r\n2\r\nsuf mas\r\n3\r\ngood game guys\r\n4\r\nhell bell best test",
+        "output": "2\r\n0\r\n2"
+      }
+    ]
+  },
+  "disjointNonDecreasingArray": {
+    "code": "DISJOINTSUB",
+    "name": "Disjoint Non-Decreasing Array",
+    "statement": "You are given an array $A$ of length $N$. You can do the following operation **at most** once:\n- Select any non-empty subsequence such that no two consecutive elements are chosen;\n- Add any **positive** integer $X$ to all the chosen elements.\n\nFind whether you can make the array **non-decreasing** by doing **at most one** such operation.",
+    "constraints": "- $1 \\leq T \\leq 10^4$\n- $1 \\leq N \\leq 2 \\cdot 10^5$\n- $1 \\leq A_i \\leq 10^9$\n- The sum of $N$ over all test cases won't exceed $2 \\cdot 10^5$.",
+    "samples": [
+      {
+        "input": "5\n4\n1 1 3 1\n4\n4 1 3 2\n3\n1 1 3\n5\n3 1 3 2 4\n6\n4 1 3 5 6 5\n",
+        "output": "Yes\nNo\nYes\nYes\nNo"
+      }
+    ]
+  },
+  "minimumCostWalk": {
+    "code": "MINWALK",
+    "name": "Minimum Cost Walk",
+    "statement": "<p>\r\n\r\nConsider a weighted, undirected and connected graph with <b>N</b> nodes, numbered 1 to <b>N</b>, and <b>M</b> edges. Find the minimum cost of any walk from node <b>S</b> to node <b>T</b> , via node <b>V</b> (visiting node <b>V</b> is compulsory) , where cost of a walk is the sum of weights of distinct edges occurring in the walk. This means that even if an edge occurs multiple times in a walk, its weight is added only once to the cost of the walk.<br><br>\r\n\r\n<b>Warning:</b> Large input data, use faster methods for Input.<br>\r\n\r\n</p>\r\n\r\n\r\n<h3>Input</h3>\r\n<p>\r\n<br>\r\nThe first line contains an integer <b>t</b> , the number of test cases.<br>\r\n<b>t</b> test cases follow:<br>\r\nThe first line of each test case contains 2 space seperated integers: <b>N</b> and <b>M</b>.<br>\r\nThe next line contains 3 space seperated integers: <b>S</b>, <b>T</b> and <b>V</b>.<br>\r\nThe next <b>M</b> lines contain 3 space seperated integers each: <b>a b c</b> , denoting an edge between nodes <b>a</b> and <b>b</b> with weight c</b>.<br>\r\nNote: There is at most one edge between any pair of nodes and there are no self loops.\r\n\r\n</p>\r\n\r\n\r\n<h3>Output</h3>\r\n<p>\r\nOutput the required answer for each test case on a separate line<br>\r\n</b>\r\n</p>\r\n\r\n\r\n<h3>Constraints</h3>\r\n<ul>\r\n\r\n<li><b>1</b> ≤ <b>t</b> ≤ <b>5</b></li>\r\n<li><b>1</b> ≤ <b>N</b> ≤ <b>100000</b></li>\r\n<li><b>1</b> ≤ <b>S,T,V</b> ≤ <b>N</b></li>\r\n<li><b>N-1</b> ≤ <b>M</b> ≤ <b>min(100000,N*(N-1)/2)</b></li>\r\n<li><b>1</b> ≤ <b>a, b</b> ≤ <b>N</b></li>\r\n<li><b>1</b> ≤ <b>c</b> ≤ <b>10<sup>9</sup></b></li>\r\n\r\n</ul>\r\n\r\n<h3>Example</h3>\r\n<pre><b>Input:</b>\r\n2\r\n4 3\r\n1 3 4\r\n1 2 1\r\n2 3 2\r\n2 4 3\r\n4 3\r\n1 1 4\r\n1 2 1\r\n2 3 2\r\n2 4 3\r\n\r\n<b>Output:</b>\r\n6\r\n4\r\n</pre>\r\n\r\n<h3>Explanation:</h3>\r\n\r\nTest case 1:<br>\r\nThe walk with least cost is: 1->2->3->2->4<br>\r\nNote that the edge (2-3) occurs twice in the walk, but its weight is added only once to the walk.",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "2\n4 3\n1 3 4\n1 2 1\n2 3 2\n2 4 3\n4 3\n1 1 4\n1 2 1\n2 3 2\n2 4 3",
+        "output": "6\n4\n"
+      }
+    ]
+  },
+  "averageOfPairs": {
+    "code": "AVGPR",
+    "name": "Average of Pairs",
+    "statement": "You are given an integer sequence $A$ with length $N$.\n\nFind the number of (unordered) pairs of elements such that the average of these two elements is also present in the sequence. Formally, find the number of pairs $(i,j)$ such that $1 \\le i \\lt j \\le N$ and there is an index $k$ ($1 \\le k \\le N$) for which $2A_k = A_i+A_j$ holds.\n\n### Input\n- The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows.\n- The first line of each test case contains a single integer $N$.\n- The second line contains $N$ space-separated integers $A_1, A_2, \\dots, A_N$.\n\n### Output\nFor each test case, print a single line containing one integer — the number of valid pairs $(i,j)$.\n\n### Constraints \n- $1 \\le T \\le 10$\n- $1 \\le N \\le 10^5$\n- $|A_i| \\le 10^3$ for each valid $i$\n\n### Subtasks\n\n**Subtask #1 (30 points):** $1 \\le N \\le 10^3$\n\n**Subtask #2 (70 points):** $1 \\le N \\le 10^5$\n",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "3\n2\n2 2\n3\n2 1 3\n6\n4 2 5 1 3 5",
+        "output": "1\n1\n7"
+      }
+    ]
+  },
+  "minimumPlatforms": {
+    "code": "NUTANIX10",
+    "name": "Minimum Platforms",
+    "statement": "Indian Railways plans to optimize their platform management by simulating train arrivals and departures at their busiest station.\n\nYou are given two arrays $AT$ (Arrival Times) and $DT$ (Departure Times) of length $n$, where $AT[i]$ and $DT[i]$ represent the arrival and departure times of the $i^{th}$ train. Your task is to find the minimum number of platforms needed at the railway station to accommodate all trains such that no train has to wait for a platform.\n\n**Note:**\n* Each train arrives and departs on the same day (e.g., $DT[i] > AT[i]$ for all $i$).\n* Times are given in 24-hour format without colons (e.g., $905$ for 9:05 AM, $2110$ for 9:10 PM).\n* Times have no leading zeros (e.g., $10$ for 12:10 AM, not $0010$).\n* Multiple trains can arrive or depart at the exact same time.\n\n---\n\n## Function Declaration\n\n### Function Name\n$findMinPlatforms$ – This function computes the minimum number of platforms required at the station so that no train is kept waiting.\n\n### Parameters\n\n* $AT$ : A list/array of integers of length $N$, representing the arrival times of the trains.\n* $DT$ : A list/array of integers of length $N$, representing the corresponding departure times of the trains.\n* $n$ : An integer representing the total number of trains.\n\n### Return Value\n\nReturns an integer: The minimum number of platforms needed to safely accommodate all trains without overlapping conflicts.\n\n---\n\n### Constraints:\n* $1 \\leq T \\leq 100$\n* $1 \\leq n \\leq 5 \\cdot 10^4$\n* $0 \\leq AT[i] < DT[i] \\leq 2359$ for each $0 \\leq i < n$\n* Both $AT$ and $DT$ represent valid times in a 24-hour clock system.\n\n**The input and output formats provided below are only for testing with custom inputs. You only need to return the value. Printing is handled automatically**",
+    "constraints": "- $1 \\leq T \\leq 1000$\n- $2 \\leq N \\leq 10^5$\n- $1 \\leq A_i \\leq 10^9$\n- The sum of $N$ across all test cases does not exceed $10^5$",
+    "samples": [
+      {
+        "input": "2\n6\n900 940 950 1100 1500 1800\n910 1200 1120 1130 1900 2000\n3\n200 300 400\n300 400 500",
+        "output": "3\n2"
+      }
+    ]
+  },
+  "permutationModK": {
+    "code": "PERMMODK",
+    "name": "Permutation Mod K",
+    "statement": "A permutation $P_1, P_2, .... P_N$ is called good if $P_i \\mod K \\ne i \\mod K$ for all $1 \\le i \\le N$.\n\nGiven the values of $N$ and $K$, find a good permutation, or claim it does not exist.\n\nA permutation of length $N$ contains each of the values $1, 2, ...N$ exactly once.",
+    "constraints": "- $1 \\le T \\le 100$\n- $1 \\le K \\le N \\le 100$",
+    "samples": [
+      {
+        "input": "3\n4 3\n1 1\n2 2\n",
+        "output": "3 4 1 2\n-1\n2 1"
+      }
+    ]
+  },
+  "chefAndCodes": {
+    "code": "CHODE",
+    "name": "Chef and Codes",
+    "statement": "<p>Once upon a time chef decided to learn encodings. And, obviously, he started with the easiest one (well, actually the easiest after Caesar cypher) – substitution cypher.<br /><br /> \nBut very soon Chef got bored with encoding/decoding, so he started thinking how to hack this cypher. \nHe already knows some algorithm, which is not always correct, \nbut it’s sufficient for now. Here is its description.<br /><br />\n\nImagine we know frequency sequence of English letters (this means, that letters are sorted by their frequency of appearing in English texts, in ascending order). \nAnd let’s find frequency sequence of cyphered letters (if some of them appear equal number of times, then first in frequency sequence will be lower letter between them).\nNow, using this two frequency sequences we can recover plain text. Just substitute cyphered letter with origin one, if they are at same positions in sequences. <br /><br />\n\nNow, Chef has frequency sequence of English letters and cypher text. And he asks you to recover plain text. Please, help him.<br /></p>\n\n<h3>Input</h3>\n<p>In first line number <b>T</b> is given - number of test cases. Then <b>T</b> test cases follow. Each test case consists of two lines - frequency sequence and encrypted text.</p>\n\n<h3>Output</h3>\n<p>For each test case you should output decrypted with the given frequency sequence text. Please note, that the case of letters should be preserved. </p>\n\n<h3>Constraints</h3>\n<p>\n</p><ul><li> <b>1</b> ≤ <b>T</b> ≤ <b>1000</b>; </li>\n<li> Length of frequency sequence is always 26; </li>\n<li> <b>1</b> ≤ length of the text ≤ <b>150000</b>; </li>\n<li> <b>1</b> ≤ sum lengths of all texts ≤ <b>150000</b>. </li>\n<li> Frequency sequence consists of all lowercase English letters. Text consists of any characters. </li>\n</ul>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "3\nqwrtyuipasdfgjkzxcvbnmheol\ndummy!\nbfgjklmopqrstuwxzhvnicdyea\nabcd b efgd hbi!\nqwrtyuipasdfgjkzxcvbnmheol\nDummy!",
+        "output": "hello!\nhave a nice day!\nHello!"
+      }
+    ]
+  },
+  "chefAndString": {
+    "code": "CHRL2",
+    "name": "Chef and String",
+    "statement": "<h3> Read problems statements in <a target=\"_blank\" href=\"https://www.codechef.com/download/translated/LTIME08/russian/CHRL2.pdf\" rel=\"nofollow noreferrer noopener\">Russian</a> also.</h3>\n<p>Chef likes playing with strings. The most interesting game are named \"CHEF in string\". The move of the game consists of the following: Chef takes a <b>subsequence</b> of string's letters that form the word \"CHEF\" and then he removes that symbols. The goal of the game is to make the maximal number of moves. Please, help Chef and tell him the maximal possible number of moves that he is able to make for the given string <b>S</b>.</p>\n\n<h3>Input</h3>\n<p> The first line of each test case contains a given string. This string consists of uppercase letters from the set {\"C\", \"H\", \"E\", \"F\"}. </p>\n\n<h3>Output</h3>\n<p>Output a single line containing the maximal possible number of moves.</p>\n\n<h3>Constraints</h3>\n<ul><li><b>1 </b> ≤ <b>|S|</b> ≤ <b>100000</b></li>\n</ul><h3>Scoring</h3>\nSubtask 1 (25 points): <b>|S|</b> ≤ 2000 <br />\nSubtask 2 (75 points):  See the constraints. <br />",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "CHEFCHEFFFF\n",
+        "output": "2"
+      },
+      {
+        "input": "CHHHEEEFFCC",
+        "output": "1"
+      }
+    ]
+  },
+  "buyingSweets": {
+    "code": "BUYSWEET",
+    "name": "Buying Sweets",
+    "statement": "There are $N$ sweets in the store. The cost of the $i^{th}$ sweet is $A_i$ rupees. Chef is a regular customer, so **after** buying the $i^{th}$ sweet, he gets a **cashback** of $B_i$ rupees.\n\nChef has $R$ rupees. He is fond of all the sweets, so he wants you to calculate the maximum number of sweets he can buy. Note that he can buy the same type of sweet multiple times, as long as he has the money to do so.",
+    "constraints": "- $1 \\le T \\le 2 \\cdot 10^5$\n- $1 \\le N \\le 2 \\cdot 10^5$\n- $1 \\le B_i < A_i \\le 10^9$\n- $1 \\le R \\leq 10^9$\n- It is guaranteed that the sum of $N$ over all test cases does not exceed $2 \\cdot 10^5$",
+    "samples": [
+      {
+        "input": "3\n3 3\n2 3 4\n1 1 1\n2 4\n5 4\n1 2\n4 10\n4 4 5 5\n1 2 4 2",
+        "output": "2\n1\n7\n"
+      }
+    ]
+  },
+  "fairDistribution": {
+    "code": "FAIR_DISTRIB",
+    "name": "Fair Distribution",
+    "statement": "A mother bought a set of $N$ toys for her $2$ kids, Alice and Bob. She has already decided which toy goes to whom, however she has forgotten the monetary values of the toys. She only remembers that she ordered the toys in ascending order of their value. The prices are always non-negative.\n\nA distribution is said to be *fair* when no matter what the actual values were, the difference between the values of the toys Alice got, and the toys Bob got, does not exceed the maximum value of any toy.\n\nFormally, let $v_i$ be the value of $i$-th toy, and $S$ be a binary string such that $S_i = 1$ if the toy is to be given to Alice, and $S_i = 0$ if the toy is to be given to Bob.  \nThen, the distribution represented by $S$ is said to be *fair* if, for **all possible** arrays $v$ satisfying $0 \\le v_1 \\le v_2 \\le .... \\le v_N$,\n\n$$\n\\left| \\sum\\limits_{i = 1}^{N} v_i \\cdot [s_i = 1] - \\sum\\limits_{i = 1}^{N} v_i \\cdot [s_i = 0] \\right| \\leq v_N\n$$\n\nwhere $[P]$ is $1$ iff $P$ is true, and $0$ otherwise.\n\nYou are given the binary string $S$ representing the distribution.  \nPrint `YES` if the given distribution is *fair*, and `NO` otherwise.",
+    "constraints": "- $1 \\leq T \\leq 10^4$\n- $1 \\leq N \\leq 10^5$\n- The sum of $N$ over all test cases won't exceed $3 \\cdot 10^5$.\n- $S$ is a binary string of length $N$.",
+    "samples": [
+      {
+        "input": "6\n1\n1\n2\n00\n4\n1010\n4\n1100\n6\n010101\n5\n00001\n",
+        "output": "YES\nNO\nYES\nNO\nYES\nNO\n"
+      }
+    ]
+  },
+  "monochromeCut": {
+    "code": "CIRCUT",
+    "name": "Monochrome Cut",
+    "statement": "There is a circle with $N$ points marked on it, numbered $1$ to $N$ in clockwise order.  \n\nPoint $i$ has value $A_i$ and a color: either red or blue.  \nThe colors are represented by a binary string $S$, where $S_i = 0$ if point $i$ is colored red, and $S_i = 1$ if it's colored blue.\n\nIt is guaranteed that there is at least one red point and at least one blue point.\n\nYou want to split the points into two groups.  \nThat will be done as follows:\n- First, choose two indices $i$ and $j$ ($1 \\le i \\lt j \\le N$) satisfying:\n    - $S_i \\ne S_{i+1}$,\n    - $S_i \\ne S_j$, and\n    - $S_i = S_{j+1}$\n- Then, cut the circle between points $i$ and $i+1$; and also cut the circle between points $j$ and $j+1$.\n- This will split the points into two groups: $\\{i+1, i+2, \\ldots, j\\}$ and $\\{1, 2, \\ldots, i, j+1, \\ldots, N\\}$.\n\nNote that we're working with cyclic indices, so $S_{N+1} = S_1$.\n\nThe condition on the choice of indices $i$ and $j$ really just says that after the groups are formed, the 'endpoints' of one group will both be red, while the 'endpoints' of the other group will both be blue.\n\nThe *score* of a group of points is the **maximum value** that any of them have.\n\nYour task is to find the maximum possible sum of scores of groups, across all valid ways of forming the groups.\n",
+    "constraints": "- $1 \\leq T \\leq 10^5$\n- $2 \\leq N \\leq 2\\cdot 10^5$\n- $1 \\leq A_i \\le 10^9$\n- $S_i \\in \\{0, 1\\}$\n- Both $0$ and $1$ appear in $S$.\n- The sum of $N$ over all test cases won't exceed $2\\cdot 10^5$.",
+    "samples": [
+      {
+        "input": "4\n2\n7 3\n01\n4\n4 9 2 6\n0110\n5\n8 3 10 7 5\n01011\n6\n5 9 2 8 6 4\n100110\n",
+        "output": "10\n15\n18\n17"
+      }
+    ]
+  },
+  "compareThoseStrings": {
+    "code": "STRCOMPARE",
+    "name": "Compare those strings",
+    "statement": "Chef has two strings $A$ and $B$ consisting of lowercase alphabets, each of length $N$. Help Chef in finding the number of indices $i$ $(1 \\leq i \\leq N)$ such that $A[i \\dots N] \\lt B[i \\dots N]$.\n\n- $S[i \\dots N]$ denotes the suffix of string $S$ starting at index $i$, i.e. $S_iS_{i+1}$ $\\dots$ $S_{N}$. \n- String $S \\lt$ String $T$ denotes that $S$ is lexicographically smaller than $T$. If two strings $S$ and $T$ have the same length $N$, we say that $S$ is lexicographically smaller than $T$ if there exists an index $i(1 \\le i \\le N)$ such that $S_1 = T_1,$ $S_2 = T_2, \\ldots, S_{i-1} = T_{i-1}$ and $S_i \\lt T_i$. For example, \"$abc$\" is lexicographically smaller than \"$acd$\", \"$abe$\", but not smaller than \"$abc$\", \"$aac$\".\n\n",
+    "constraints": "- $1 \\leq T \\leq 10^5$\n- $1 \\leq N \\leq 10^6$\n- The sum of $N$ over all test cases does not exceed $10^6$\n",
+    "samples": [
+      {
+        "input": "2\n2\nab\nbb\n3\naaa\naab",
+        "output": "1\n3\n"
+      }
+    ]
+  },
+  "artOfBalance": {
+    "code": "ARTBALAN",
+    "name": "Art of Balance",
+    "statement": "\n\"Everything in the universe is balanced. Every disappointment you face in life will be balanced by something good for you! Keep going, never give up.\"\n\nLet's call a string *balanced* if all characters that occur in this string occur in it the same number of times.\n\nYou are given a string $S$; this string may only contain uppercase English letters. You may perform the following operation any number of times (including zero): choose one letter in $S$ and replace it by another uppercase English letter. Note that even if the replaced letter occurs in $S$ multiple times, only the chosen occurrence of this letter is replaced.\n\nFind the minimum number of operations required to convert the given string to a balanced string.\n\n### Input\n- The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows.\n- The first and only line of each test case contains a single string $S$.\n\n### Output\nFor each test case, print a single line containing one integer ― the minimum number of operations.\n\n### Constraints\n- $1 \\le T \\le 10,000$\n- $1 \\le |S| \\le 1,000,000$\n- the sum of $|S|$ over all test cases does not exceed $5,000,000$\n- $S$ contains only uppercase English letters\n\n### Subtasks\n**Subtask #1 (20 points):**\n- $T \\le 10$\n- $|S| \\le 18$\n\n**Subtask #2 (80 points):** original constraints",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "2\nABCB\nBBC",
+        "output": "1\n1"
+      }
+    ]
+  },
+  "voteForTheNoodleSoup": {
+    "code": "NDLVOTE",
+    "name": "Vote for the Noodle Soup",
+    "statement": "<p align=\"justify\">Did you ever hear about 'crossing the bridge noodle' ? Let me tell you that it's not some kind of bridge made of noodles. It's a dish, a kind of rice noodle soup. Mr.Ping makes the best noodle soup and his son Po is eagerly waiting for the user reviews in his father's blog. Users can vote with a (+) or a (-) and accordingly +1 or -1 is added to the total score respectively. Note that if a user votes multiple times, only his/her latest vote is counted towards the total score.\n</p><p align=\"justify\">Po opens the blog to see initial score of 0. To see the updated score without refreshing the page, he has to keep voting himself. After each of Po's clicks on (+) or (-), he can see the current total score, of course that considers Po's vote too. He is wondering how many users other than him could have possibly voted. Given the sequence of clicks made by Po and the total score displayed just after each of his clicks, can you tell him the minimum number of users that could have possibly voted at least once, other than Po.\n\n</p><h3>Input</h3>\n<p align=\"justify\">There are multiple test cases ( at most 21 ). Each case starts with an integer <i>N</i> ( 1 <= <i>N</i> <= 1000 ), the number of Po's clicks. Sequence of <i>N</i> clicks follows, one on each line of the form <i>\"vote score\"</i> (without quotes, separated by a space), where <i>vote</i> is either a 'P' or a 'M', representing Plus(+) and Minus(-) respectively, the one clicked by Po and <i>score</i> is the score displayed after Po's click ( -1,000,000,000 <= <i>score</i> <= 1,000,000,000 ). The last case has <i>N</i> = 0 and should not be processed. Each case is followed by an empty line.\n\n</p><h3>Output</h3>\n<p align=\"justify\">For each test case, output the minimum number of users that could have possibly voted at least once.\n</p>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "2\nP 1\nP 2\n\n2\nP 2\nM -2\n\n0",
+        "output": "1\n1"
+      }
+    ]
+  },
+  "sumAndGCD": {
+    "code": "SUMAGCD",
+    "name": "Sum and GCD",
+    "statement": "\r\nChef has a sequence of positive integers $A_1, A_2, \\ldots, A_N$. He wants to split this sequence into two non-empty (not necessarily contiguous) subsequences $B$ and $C$ such that $\\mathrm{GCD}\\,(B) + \\mathrm{GCD}\\,(C)$ is maximum possible. Help him find this maximum value.\r\n\r\nNote: The greatest common divisor (GCD) of a sequence of positive integers is the largest positive integer that divides each element of this sequence. For example, the GCD of the sequence $(8, 12)$ is $4$.\r\n\r\n### Input\r\n- The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows.\r\n- The first line of each test case contains a single integer $N$.\r\n- The second line contains $N$ space-separated integers $A_1, A_2, \\ldots, A_N$.\r\n\r\n### Output\r\nFor each test case, print a single line containing one integer — the maximum value of $\\mathrm{GCD}\\,(B) + \\mathrm{GCD}\\,(C)$.\r\n\r\n### Constraints \r\n- $1 \\le T \\le 10$\r\n- $2 \\le N \\le 10^5$\r\n- $1 \\le A_i \\le 10^9$ for each valid $i$\r\n\r\n### Subtasks\r\n**Subtask #1 (20 points):** $2 \\le N \\le 20$\r\n\r\n**Subtask #2 (80 points):** original constraints",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1              \r\n4                    \r\n4 4 7 6",
+        "output": "9"
+      }
+    ]
+  },
+  "sumOfModes": {
+    "code": "SUMMODE",
+    "name": "Sum of Modes",
+    "statement": "For a **binary** string $T$, let $f(T) = $ the number of modes$^\\dagger$ of string $T$.  \nFor example, $f(101) = 1$, as it has a unique mode $1$ while $f(01) = 2$, as it has $2$ modes, both $0$ and $1$.\n\nGiven a **binary** string $S$ of length $N$, compute the value of $\\displaystyle{\\sum_{L = 1}^{N} \\sum_{R = L}^{N} f(S[L,R])}$, where $S[L,R]$ denotes the substring $S_LS_{L+1}\\ldots S_R$.\n\n$^\\dagger$ Mode of a string is the character with maximum frequency. If multiple characters have maximum frequency, all of them are said to be modes. For example, string $111$ has mode $1$ while string $10$ has $2$ modes, both $0$ and $1$.",
+    "constraints": "- $1 \\le T \\le 10^4$\n- $1 \\le N \\le 10^5$\n- $S_i \\in \\{0, 1\\}$\n- The sum of $N$ over all test cases does not exceed $10^5$.",
+    "samples": [
+      {
+        "input": "3\n2\n01\n4\n0011\n5\n10101\n",
+        "output": "4\n12\n21\n"
+      }
+    ]
+  },
+  "strings": {
+    "code": "BINDIF",
+    "name": "Strings",
+    "statement": "Given a binary number $S$ containing only of 1's and 0's, find two binary numbers $A$ and $B$ such that the sum of the number of 1's in $A$ and $B$ is minimum and $A-B=S$. If there are many such numbers, you can print any.\n\nThe binary number $S$ has some properties. See the Constraints section for details.\n\n### Input:\n\n- The only line of input contains a single binary number $S$ without leading zeroes. \n\n### Output:\nPrint two numbers $A$ and $B$ in one line without leading zeroes. If any number is zero, just print $0$.\n\n### Constraints \n- $2 \\leq$ number of bits in $S \\leq 10^6$\n- The string $S$ has at least 1 one and 1 zero and has exactly two parts: all 1's followed by all 0's.\n",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1110000",
+        "output": "10000000 10000"
+      }
+    ]
+  },
+  "capitalMovement": {
+    "code": "CAPIMOVE",
+    "name": "Capital Movement",
+    "statement": "<p>Chef is playing a video game. In a video game, there's a advanced civilization that has a total of <b>N</b> planets under control. All of those planets are connected with <b>N-1</b> teleports in such a way, that it's possible to travel between any two planets using those teleports.</p>\n\n<p>There's a chance that some planet gets infected. In this case it takes 24 hours for civilization to find out infection and prevent it from spreading. During this time infection uses teleport one time and infect all the planets that can be achieved in one teleport jump. So, once infection is detected at planet <b>V</b>, scientists already know that all planets connected to <b>V</b> via teleport are also infected. All the neccessary teleports are disabled right away and medics start working on eliminating the infection.</p>\n<p>Each planet has population. Planets are numbered from <b>1</b> to <b>N</b> and their populations are <b>P<sub>1</sub></b>, <b>P<sub>2</sub></b>, ..., <b>P<sub>N</sub></b>. It is known that all the <b>P<sub>i</sub></b> are distinct.</p>\n\n<p>There's a capital among all those planets. The capital is known to have the biggest population.</p>\n<p>Once infection is detected at planet <b>V</b>, after disabling teleports on planet <b>V</b> and all connected to them, government has to establish a new capital if needed in the remaining not-infected planets. So, they list all the planets that are not connected to <b>V</b> and are not <b>V</b>. Then they pick the planet with biggest population. Your task is to find the number of this planet for every possible <b>V</b>.</p>\n\n<h3>Input</h3>\n<p>The first line of the input contains an integer <b>T</b> denoting the number of test cases. The description of <b>T</b> test cases follows.</p>\n<p>The first line of each test case contains one integer <b>N</b>.</p>\n<p>Next line contains <b>N</b> space-separated integers <b>P<sub>1</sub></b>, <b>P<sub>2</sub></b>, ..., <b>P<sub>N</sub></b> denoting the population of each planet.</p>\n<p>Next <b>N-1</b> lines contain two space-separated integers each <b>V</b> and <b>U</b> denoting that there's a teleport between planet <b>V</b> and <b>U</b>.</p>\n\n<h3>Output</h3>\n<p>For each test case, output a single line containing <b>N</b> integers <b>A<sub>1</sub></b>, <b>A<sub>2</sub></b>, ..., <b>A<sub>N</sub></b> separated by a space. Here <b>A<sub>i</sub></b> denotes the number of the planet picked to be new capital in case infection starts spreading from the planet <b>i</b>. In case infection affects all the planets output <b>0</b>.</p>\n\n<h3>Constraints</h3>\n<ul>\n<li><b>1</b> ≤ <b>T</b> ≤ <b>5</b></li>\n<li><b>1</b> ≤ <b>N</b> ≤ <b>50000</b></li>\n<li><b>1</b> ≤ <b>P<sub>i</sub></b> ≤ <b>10<sup>9</sup></b></li>\n<li>All <b>P<sub>i</sub></b> are distinct</li>\n<li><b>1</b> ≤ <b>V</b> ≤ <b>N</b></li>\n<li><b>1</b> ≤ <b>U</b> ≤ <b>N</b></li>\n</ul>\n\n<h3>Subtasks</h3>\n<ul>\n<li><b>Subtask #1 (20 points): N ≤ 100</b></li>\n<li><b>Subtask #2 (30 points): N ≤ 10000</b></li>\n<li><b>Subtask #3 (50 points): No additional constraints</b></li>\n</ul>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1\n6\n5 10 15 20 25 30\n1 3\n2 3\n3 4\n4 5\n4 6",
+        "output": "6 6 6 2 6 5"
+      }
+    ]
+  },
+  "substringMinimumFunction": {
+    "code": "SUBMIMX",
+    "name": "Substring Minimum Function",
+    "statement": "` It's your birthday today! So, you ask your dad to buy a brand new bicycle. But your dad knows you are weak in math. Hence he gives you the following task. If you solve it, he will purchase the bicycle you want! The task is:`\n \nYou are given a binary string. $N$ denotes the length of a binary string and $M$ denotes the number of occurrences of the character $1$ in the string $S$.\n\nLet $F(S)$ be a function that gives the number of different substrings of string $S$, made up of the character $0$ only. \nLet $Sub_{l,r}$ denote the substring of $S$ starting from $l^{th}$ index and terminating at $r^{th}$ index. Two substrings $Sub_{p,q}$ and $Sub_{r,s}$ are considered same if $p = r$ and $q = s$ otherwise the two substrings are considered different. \n\nAmong all possible strings $S$ of length $N$ having exactly $M$ occurrences of the character $1$, print the **minimum** possible value of $F(S)$.",
+    "constraints": "- $1 \\leq T \\leq 2 \\cdot 10^5$\n- $1 \\leq N \\leq 10^6$\n- $0 \\leq M \\leq N$\n",
+    "samples": [
+      {
+        "input": "2\n3 1\n7 2",
+        "output": "2\n7"
+      }
+    ]
+  },
+  "theLastProblem": {
+    "code": "TLAPM",
+    "name": "The Last Problem",
+    "statement": "\nDeep wants to become a 7-star coder on CodeChef. To achieve this goal, everyday, he has to solve as many problems as he can. But for the first time since he was new to programming, he wasn't able to solve a single problem and lost his confidence. Can you help him solve the problem so that he gets a new boost to go ahead?\n\nIn this problem, you are given a matrix that extends infinitely to the right and down, filled with values as shown below.\n\n<img alt=\"Coding\" width=\"250\" src=\"https://user-images.githubusercontent.com/43384092/113391831-be87d700-93b1-11eb-8190-dfe914ec3c3e.jpeg\" />\n\nLet $(x, y)$ denote the cell in the $x$-th row and $y$-th column. The upper-left cell $(1, 1)$ contains an integer $1$. You begin at the cell $(x_1, y_1)$ and must walk to the cell $(x_2, y_2)$ by only moving right and down. Formally, from the cell $(x, y)$, in one step you can move to the cell $(x+1, y)$ or $(x, y+1)$.\n\nThe value of a path is the sum of the values in all visited cells, including $(x_1, y_1)$ and $(x_2, y_2)$. You need to calculate the maximum possible value on the path of a path from $(x_1, y_1)$ to $(x_2, y_2)$.\n\n###Input\n\n- The first line contains an integer $T$, the number of test cases. Then the test cases follow. \n- Each test case contains of a single line of input, four integers $x_1$, $y_1$, $x_2$, $y_2$.\n\n###Output\nFor each test case, output in a single line the maximum possible value of a path from $(x_1, y_1)$ to $(x_2, y_2)$.\n\n###Constraints \n- $1 \\leq T \\leq 1000$\n- $1\\leq x_1\\leq x_2\\leq 1000$\n- $1\\leq y_1\\leq y_2\\leq 1000$",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1\n1 1 3 3",
+        "output": "32"
+      }
+    ]
+  },
+  "breakingIntoAtoms": {
+    "code": "ATOMS",
+    "name": "Breaking Into Atoms",
+    "statement": "<p>\nLet X be the set of all integers between 0 and n-1. Suppose we have a collection S<sub>1</sub>, S<sub>2</sub>, ..., S<sub>m</sub> of subsets of X. Say an atom A is a subset of X such that for each S<sub>i</sub> we have either A is a subset of S<sub>i</sub> or A and S<sub>i</sub> do not have any common elements.\n\n</p><p>\nYour task is to find a collection A<sub>1</sub>, ..., A<sub>k</sub> of atoms such that every item in X is in some A<sub>i</sub> and no two A<sub>i</sub>, A<sub>j</sub> with i ≠ j share a common item. Surely such a collection exists as we could create a single set {x} for each x in X. A more interesting question is to minimize k, the number of atoms.\n\n</p><h3>Input</h3>\n<p>\nThe first line contains a single positive integer t ≤ 30 indicating the number of test cases. Each test case begins with two integers n,m where n is the size of X and m is the number of sets S<sub>i</sub>. Then m lines follow where the i'th such line begins with an integer v<sub>i</sub> between 1 and n (inclusive) indicating the size of S<sub>i</sub>. Following this are v<sub>i</sub> distinct integers between 0 and n-1 that describe the contents of S<sub>i</sub>.\n\n</p><p>\nYou are guaranteed that 1 ≤ n ≤ 100 and 1 ≤ m ≤ \n30. Furthermore, each number between 0 and n-1 will appear in at least one set S<sub>i</sub>.\n</p><h3>Output</h3>\n<p>\nFor each test case you are to output a single integer indicating the minimum number of atoms that X can be partitioned into to satisfy the constraints.\n</p>",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "2\n5 2\n3 0 1 2\n3 2 3 4\n4 3\n2 0 1\n2 1 2\n2 2 3",
+        "output": "3\n4"
+      }
+    ]
+  },
+  "brokenLife": {
+    "code": "BRKNLIFE",
+    "name": "Broken Life",
+    "statement": "You are given two strings $S$ and $A$ of lengths $N$ and $M$ respectively.\n- String $S$ contains characters from the set $\\texttt{\\{?, a, b, c, d, e\\}}$. \n- String $A$ contains characters from the set $\\texttt{\\{a, b, c, d, e\\}}$. \n\nLet $S'$ denote the string formed by replacing **all** the $\\texttt{?}$ in $S$ using the characters from the set $\\texttt{\\{a, b, c, d, e\\}}$.  \nConstruct $S'$ such that $A$ is **not** a [subsequence](https://en.wikipedia.org/wiki/Subsequence) of $S'$.\n\nIf multiple such $S'$ exist, output any. If no such $S'$ exists, print $-1$.",
+    "constraints": "- $1 \\leq T \\leq 1000$\n- $1 \\leq N,M \\leq 10^5$\n- Sum of $N$ over all test cases does not exceed $3 \\cdot 10^5$.\n- Sum of $M$ over all test cases does not exceed $3 \\cdot 10^5$.\n",
+    "samples": [
+      {
+        "input": "2\n4 2\n?ab?\nba\n4 2\na??b\nab\n",
+        "output": "aabe\n-1"
+      }
+    ]
+  },
+  "hailXOR": {
+    "code": "HXOR",
+    "name": "Hail XOR",
+    "statement": "\r\nYou are given a sequence $A_1, A_2, \\ldots, A_N$ and you have to perform the following operation exactly $X$ times:\r\n- Choose two integers $i$ and $j$ such that $1 \\le i \\lt j \\le N$.\r\n- Choose a non-negative integer $p$.\r\n- Change $A_i$ to $A_i \\oplus 2^p$, and change $A_j$ to $A_j \\oplus 2^p$, where $\\oplus$ denotes [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).\r\n\r\nFind the lexicographically smallest sequence which can be obtained by performing this operation exactly $X$ times.\r\n\r\nA sequence $B_1, B_2, \\ldots, B_N$ is said to be lexicographically smaller than a sequence $C_1, C_2, \\ldots, C_N$ if there is an index $i$ such that $B_i \\lt C_i$ and for each valid $j \\lt i$, $B_j = C_j$.\r\n\r\n### Input\r\n- The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows.\r\n- The first line of each test case contains two space-separated integers $N$ and $X$. \r\n- The second line contains $N$ space-separated integers $A_1, A_2, \\ldots, A_N$.\r\n\r\n### Output\r\nFor each test case, print a single line containing $N$ space-separated integers ― the lexicographically smallest obtainable sequence.\r\n\r\n### Constraints\r\n- $1 \\le T \\le 10$\r\n- $2 \\le N \\le 10^5$\r\n- $1 \\le X \\le 10^9$\r\n- $1 \\le A_i \\le 10^9$ for each valid $i$\r\n\r\n### Subtasks\r\n**Subtask #1 (30 points):** $N \\le 100$\r\n\r\n**Subtask #2 (70 points):** original constraints",
+    "constraints": "",
+    "samples": [
+      {
+        "input": "1\r\n3 3\r\n2 2 3",
+        "output": "0 0 3"
+      }
+    ]
+  }
+}

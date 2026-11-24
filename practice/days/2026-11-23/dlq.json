@@ -1,0 +1,842 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-3528",
+    "name": "Unit Conversion I",
+    "file": "unitConversionI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-23T05:25:30.331Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3528",
+      "name": "Unit Conversion I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/unit-conversion-i/",
+      "file": "unitConversionI",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3479",
+    "name": "Fruits Into Baskets III",
+    "file": "fruitsIntoBasketsIII",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:27:42.727Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3479",
+      "name": "Fruits Into Baskets III",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/fruits-into-baskets-iii/",
+      "file": "fruitsIntoBasketsIII",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1338",
+    "name": "Reduce Array Size to The Half",
+    "file": "reduceArraySizeToTheHalf",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:29:34.351Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1338",
+      "name": "Reduce Array Size to The Half",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reduce-array-size-to-the-half/",
+      "file": "reduceArraySizeToTheHalf",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2410",
+    "name": "Maximum Matching of Players With Trainers",
+    "file": "maximumMatchingOfPlayersWithTrainers",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:31:13.074Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2410",
+      "name": "Maximum Matching of Players With Trainers",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-matching-of-players-with-trainers/",
+      "file": "maximumMatchingOfPlayersWithTrainers",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3404",
+    "name": "Count Special Subsequences",
+    "file": "countSpecialSubsequences",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:32:56.044Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3404",
+      "name": "Count Special Subsequences",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-special-subsequences/",
+      "file": "countSpecialSubsequences",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3468",
+    "name": "Find the Number of Copy Arrays",
+    "file": "findTheNumberOfCopyArrays",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:34:48.697Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3468",
+      "name": "Find the Number of Copy Arrays",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-number-of-copy-arrays/",
+      "file": "findTheNumberOfCopyArrays",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2079",
+    "name": "Watering Plants",
+    "file": "wateringPlants",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:38:44.249Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2079",
+      "name": "Watering Plants",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/watering-plants/",
+      "file": "wateringPlants",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2521",
+    "name": "Distinct Prime Factors of Product of Array",
+    "file": "distinctPrimeFactorsOfProductOfArray",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:40:45.795Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2521",
+      "name": "Distinct Prime Factors of Product of Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/distinct-prime-factors-of-product-of-array/",
+      "file": "distinctPrimeFactorsOfProductOfArray",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3240",
+    "name": "Minimum Number of Flips to Make Binary Grid Palindromic II",
+    "file": "minimumNumberOfFlipsToMakeBinaryGridPalindromicII",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:42:32.390Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3240",
+      "name": "Minimum Number of Flips to Make Binary Grid Palindromic II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-number-of-flips-to-make-binary-grid-palindromic-ii/",
+      "file": "minimumNumberOfFlipsToMakeBinaryGridPalindromicII",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1535",
+    "name": "Find the Winner of an Array Game",
+    "file": "findTheWinnerOfAnArrayGame",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:44:21.568Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1535",
+      "name": "Find the Winner of an Array Game",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-winner-of-an-array-game/",
+      "file": "findTheWinnerOfAnArrayGame",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3030",
+    "name": "Find the Grid of Region Average",
+    "file": "findTheGridOfRegionAverage",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:45:59.762Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3030",
+      "name": "Find the Grid of Region Average",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-grid-of-region-average/",
+      "file": "findTheGridOfRegionAverage",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1329",
+    "name": "Sort the Matrix Diagonally",
+    "file": "sortTheMatrixDiagonally",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:48:17.152Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1329",
+      "name": "Sort the Matrix Diagonally",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sort-the-matrix-diagonally/",
+      "file": "sortTheMatrixDiagonally",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3413",
+    "name": "Maximum Coins From K Consecutive Bags",
+    "file": "maximumCoinsFromKConsecutiveBags",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:49:58.730Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3413",
+      "name": "Maximum Coins From K Consecutive Bags",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/",
+      "file": "maximumCoinsFromKConsecutiveBags",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1038",
+    "name": "Binary Search Tree to Greater Sum Tree",
+    "file": "binarySearchTreeToGreaterSumTree",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:51:48.539Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1038",
+      "name": "Binary Search Tree to Greater Sum Tree",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/",
+      "file": "binarySearchTreeToGreaterSumTree",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3015",
+    "name": "Count the Number of Houses at a Certain Distance I",
+    "file": "countTheNumberOfHousesAtACertainDistanceI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:53:52.001Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3015",
+      "name": "Count the Number of Houses at a Certain Distance I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/",
+      "file": "countTheNumberOfHousesAtACertainDistanceI",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2830",
+    "name": "Maximize the Profit as the Salesman",
+    "file": "maximizeTheProfitAsTheSalesman",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:55:32.675Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2830",
+      "name": "Maximize the Profit as the Salesman",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximize-the-profit-as-the-salesman/",
+      "file": "maximizeTheProfitAsTheSalesman",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3071",
+    "name": "Minimum Operations to Write the Letter Y on a Grid",
+    "file": "minimumOperationsToWriteTheLetterYOnAGrid",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:57:36.730Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3071",
+      "name": "Minimum Operations to Write the Letter Y on a Grid",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/",
+      "file": "minimumOperationsToWriteTheLetterYOnAGrid",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1895",
+    "name": "Largest Magic Square",
+    "file": "largestMagicSquare",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T05:59:36.510Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1895",
+      "name": "Largest Magic Square",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/largest-magic-square/",
+      "file": "largestMagicSquare",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3144",
+    "name": "Minimum Substring Partition of Equal Character Frequency",
+    "file": "minimumSubstringPartitionOfEqualCharacterFrequency",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:01:13.417Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3144",
+      "name": "Minimum Substring Partition of Equal Character Frequency",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/",
+      "file": "minimumSubstringPartitionOfEqualCharacterFrequency",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2948",
+    "name": "Make Lexicographically Smallest Array by Swapping Elements",
+    "file": "makeLexicographicallySmallestArrayBySwappingElements",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:03:29.388Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2948",
+      "name": "Make Lexicographically Smallest Array by Swapping Elements",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/",
+      "file": "makeLexicographicallySmallestArrayBySwappingElements",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3255",
+    "name": "Find the Power of K-Size Subarrays II",
+    "file": "findThePowerOfKSizeSubarraysII",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:05:28.078Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3255",
+      "name": "Find the Power of K-Size Subarrays II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-the-power-of-k-size-subarrays-ii/",
+      "file": "findThePowerOfKSizeSubarraysII",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3092",
+    "name": "Most Frequent IDs",
+    "file": "mostFrequentIDs",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:07:21.199Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3092",
+      "name": "Most Frequent IDs",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/most-frequent-ids/",
+      "file": "mostFrequentIDs",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-855",
+    "name": "Exam Room",
+    "file": "examRoom",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:09:08.064Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-855",
+      "name": "Exam Room",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/exam-room/",
+      "file": "examRoom",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2110",
+    "name": "Number of Smooth Descent Periods of a Stock",
+    "file": "numberOfSmoothDescentPeriodsOfAStock",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:11:06.756Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2110",
+      "name": "Number of Smooth Descent Periods of a Stock",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/",
+      "file": "numberOfSmoothDescentPeriodsOfAStock",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-988",
+    "name": "Smallest String Starting From Leaf",
+    "file": "smallestStringStartingFromLeaf",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:12:45.011Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-988",
+      "name": "Smallest String Starting From Leaf",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/smallest-string-starting-from-leaf/",
+      "file": "smallestStringStartingFromLeaf",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-1054",
+    "name": "Distant Barcodes",
+    "file": "distantBarcodes",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:14:33.758Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-1054",
+      "name": "Distant Barcodes",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/distant-barcodes/",
+      "file": "distantBarcodes",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3076",
+    "name": "Shortest Uncommon Substring in an Array",
+    "file": "shortestUncommonSubstringInAnArray",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:16:47.780Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3076",
+      "name": "Shortest Uncommon Substring in an Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/",
+      "file": "shortestUncommonSubstringInAnArray",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3446",
+    "name": "Sort Matrix by Diagonals",
+    "file": "sortMatrixByDiagonals",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:18:50.653Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3446",
+      "name": "Sort Matrix by Diagonals",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/sort-matrix-by-diagonals/",
+      "file": "sortMatrixByDiagonals",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3439",
+    "name": "Reschedule Meetings for Maximum Free Time I",
+    "file": "rescheduleMeetingsForMaximumFreeTimeI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:20:55.963Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3439",
+      "name": "Reschedule Meetings for Maximum Free Time I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/reschedule-meetings-for-maximum-free-time-i/",
+      "file": "rescheduleMeetingsForMaximumFreeTimeI",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3355",
+    "name": "Zero Array Transformation I",
+    "file": "zeroArrayTransformationI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:22:57.159Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3355",
+      "name": "Zero Array Transformation I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/zero-array-transformation-i/",
+      "file": "zeroArrayTransformationI",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3599",
+    "name": "Partition Array to Minimize XOR",
+    "file": "partitionArrayToMinimizeXOR",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:24:36.664Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3599",
+      "name": "Partition Array to Minimize XOR",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/partition-array-to-minimize-xor/",
+      "file": "partitionArrayToMinimizeXOR",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3529",
+    "name": "Count Cells in Overlapping Horizontal and Vertical Substrings",
+    "file": "countCellsInOverlappingHorizontalAndVerticalSubstrings",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-23T06:26:11.843Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3529",
+      "name": "Count Cells in Overlapping Horizontal and Vertical Substrings",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-cells-in-overlapping-horizontal-and-vertical-substrings/",
+      "file": "countCellsInOverlappingHorizontalAndVerticalSubstrings",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first."
+  },
+  {
+    "platform": "Codeforces",
+    "id": "28A",
+    "name": "Bender Problem",
+    "file": "benderProblem",
+    "tier": "hard",
+    "initialVerdict": "ERROR: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.submit[type=\"submit\"], input[value=\"Submit\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"submit\" class=\"submit\" value=\"Submit\" id=\"singlePageSubmitButton\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n",
+    "enqueuedAt": "2026-11-23T06:32:53.470Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "28A",
+      "name": "Bender Problem",
+      "rating": 1600,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/28/A",
+      "file": "benderProblem",
+      "template": "templates/codeforces.js"
+    },
+    "resolvedAt": "2026-11-23T07:07:03.171Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-RESOSIL",
+    "name": "Resonance Silhouette",
+    "file": "resonanceSilhouette",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-23T06:51:17.577Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-RESOSIL",
+      "name": "Resonance Silhouette",
+      "rating": 1795,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/RESOSIL",
+      "file": "resonanceSilhouette",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3326",
+    "name": "Minimum Division Operations to Make Array Non Decreasing",
+    "file": "minimumDivisionOperationsToMakeArrayNonDecreasing",
+    "tier": "medium",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-11-23T07:49:33.936Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3326",
+      "name": "Minimum Division Operations to Make Array Non Decreasing",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-division-operations-to-make-array-non-decreasing/",
+      "file": "minimumDivisionOperationsToMakeArrayNonDecreasing",
+      "template": "templates/leetcode.js"
+    }
+  }
+]

@@ -25,5 +25,28 @@
       "template": "templates/codeforces.js"
     },
     "finalVerdict": "Pending"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAXMIN6",
+    "name": "Max Minus Min",
+    "file": "maxMinusMin",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-24T05:48:09.834Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAXMIN6",
+      "name": "Max Minus Min",
+      "rating": 1738,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAXMIN6",
+      "file": "maxMinusMin",
+      "template": "templates/codechef.js"
+    }
   }
 ]

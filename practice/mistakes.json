@@ -2515,5 +2515,56 @@
       "math"
     ],
     "timestamp": "2026-11-22T06:43:32.600Z"
+  },
+  {
+    "id": "407A",
+    "problem": "Triangle",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem asks to find two integer points (x1, y1) and (x2, y2) such that three conditions are met: the distance from (0,0) to (x1,y1) is 'a', the distance from (0,0) to (x2,y2) is 'b', and the triangle formed by (0,0), (x1,y1), and (x2,y2) has a right angle at (0,0). This implies that (x1,y1) and (x2,y2) must be orthogonal, meaning their dot product (x1*x2 + y1*y2) must be zero. The original code provided is for a completely different problem (minimum path sum in a triangle), hence it fails on test 1 as it doesn't even attempt to solve the given geometry problem. The correct approach involves iterating through all possible integer coordinates for (x1, y1) and then for each valid (x1, y1) finding a corresponding (x2, y2) that satisfies the distance 'b' and orthogonality conditions.",
+    "rule": "Always ensure the submitted code addresses the actual problem statement. A 'Wrong Answer on Test 1' for a geometry problem when the code solves a dynamic programming path sum problem clearly indicates a complete mismatch between the problem and the provided solution.",
+    "tags": [
+      "brute force",
+      "geometry",
+      "implementation",
+      "math"
+    ],
+    "timestamp": "2026-11-24T04:09:44.121Z"
+  },
+  {
+    "id": "CC-CHRL2",
+    "problem": "Chef and String",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem description for 'Chef and String' (CC-CHRL2) is about checking if a string can be formed by concatenating two palindromic strings of equal length or by taking a single character string. The provided solution incorrectly implements a check for a repeating pattern (s[i] === s[(i+2)%n]) which is not related to the actual problem statement. The problem asks if a string S can be represented as S = P + Q where P and Q are palindromic strings of equal length (N/2), or if N=1. The solution fails because it solves a different problem.",
+    "rule": "Always carefully read and re-read the problem statement to ensure the implemented logic directly addresses the problem's requirements, especially when the problem description might be subtle or easily misinterpreted. Misinterpreting the core task leads to solving the wrong problem.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-24T04:12:43.293Z"
+  },
+  {
+    "id": "CC-CHRL2",
+    "problem": "Chef and String",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem description for CHRL2 'Chef and String' is about checking if the input string 'S' can be rearranged to form 'CHEF'. The current solution attempts to solve a completely different problem: checking if a string can be split into two equal halves, where both halves are palindromes. This fundamental misunderstanding of the problem statement leads to incorrect logic and a 'Wrong Answer' verdict. The correct approach involves counting the occurrences of 'C', 'H', 'E', 'F' in the input string and determining the minimum count among them, as each 'CHEF' subsequence requires one of each character.",
+    "rule": "Always carefully read and understand the problem statement. A common competitive programming mistake is misinterpreting the problem's core requirement, leading to a solution for a different problem. When a problem asks to form a specific string using characters from another string, often a frequency count or greedy approach is needed.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-24T04:14:04.901Z"
+  },
+  {
+    "id": "CC-MAXMIN6",
+    "problem": "Max Minus Min",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem asks for the maximum difference between any two elements remaining after deleting exactly N-2 elements. This means we are left with exactly two elements. The current solution incorrectly assumes that either the minimum or maximum element of the original array will always be one of the two remaining elements. It calculates the maximum difference by considering only `arr[j] - arr[0]` and `arr[n-1] - arr[j]`. This is equivalent to finding the maximum difference if we remove all elements except `arr[0]` and `arr[j]`, or `arr[j]` and `arr[n-1]`. However, we could also remove `arr[0]` and `arr[n-1]` and other elements, leaving `arr[i]` and `arr[j]` (where `i > 0` and `j < n-1`). The crucial insight is that after deleting N-2 elements, only two elements remain. To maximize their difference, we simply need to pick any two elements from the original sorted array. The largest possible difference will always be `arr[n-1] - arr[0]`, which is achieved by keeping only the original minimum and maximum elements and deleting all others. The problem statement guarantees N >= 2, so there are always at least two elements. The wording \"exactly N-2 elements are deleted\" means two elements remain. The question is asking for the maximum possible difference between these two remaining elements. This is always `arr[n-1] - arr[0]` after sorting.",
+    "rule": "When a problem asks to perform operations (like deletions) to arrive at a fixed small number of elements, and then find an extremum (max/min), carefully consider what elements *could* remain. If the goal is to maximize the difference between two remaining elements after deleting N-2 elements, it means any two elements from the original set can be chosen to remain. To maximize their difference, always pick the original maximum and minimum. Don't overcomplicate by iterating through possibilities if the desired outcome (e.g., max difference) is always achieved by the extremum original values.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-24T05:46:25.433Z"
   }
 ]
