@@ -1,0 +1,10 @@
+[
+  {
+    "input": "a\nc\n",
+    "output": "b\n"
+  },
+  {
+    "input": "a\nb\n",
+    "output": "No such string\n"
+  }
+]
