@@ -1,0 +1,10 @@
+[
+  {
+    "input": "CHEFCHEFFFF\n",
+    "output": "2"
+  },
+  {
+    "input": "CHHHEEEFFCC",
+    "output": "1"
+  }
+]
