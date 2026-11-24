@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\nababa\ncodedoca\nabcda\nzxzytyz\nabcdefghijklmnopqrstuvwxyza\n",
+    "output": "YES\nabcdefghijklmnopqrstuvwxyz\nYES\nacodebfghijklmnpqrstuvwxyz\nNO\nYES\ntyzxabcdefghijklmnopqrsuvw\nNO\n"
+  }
+]
