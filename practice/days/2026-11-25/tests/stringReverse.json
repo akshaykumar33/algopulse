@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2\nabdeba\ncodechef",
+    "output": "3\n7"
+  },
+  {
+    "input": "4\na\nabba\nabcd\naaabbb",
+    "output": "0\n0\n3\n3"
+  }
+]

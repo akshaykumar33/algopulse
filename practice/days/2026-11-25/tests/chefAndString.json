@@ -1,0 +1,10 @@
+[
+  {
+    "input": "6\n3 2\nIAI\n5 1\nCILLI\n5 3\nCILLI\n7 2\nEXUNITE\n5 1000000000\nIIIII\n20 3\nILOVEEXUNWENOTIIIIII\n",
+    "output": "5\n3\n9\n3\n4999999999\n24"
+  },
+  {
+    "input": "4\n1 1\nA\n1 5\nA\n1 5\nI\n2 2\nAI",
+    "output": "0\n4\n4\n3"
+  }
+]

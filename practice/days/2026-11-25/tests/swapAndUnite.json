@@ -1,0 +1,10 @@
+[
+  {
+    "input": "4\naba\nabab\nbaabba\nppssppss\n",
+    "output": "0\n1\n1\n2"
+  },
+  {
+    "input": "5\na\naaaa\nabcde\naaabaaa\nabcabcabc",
+    "output": "0\n0\n0\n0\n2"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "input": "2\n8 2\n00011101\n6 2\n100111",
+    "output": "01100110\nIMPOSSIBLE"
+  },
+  {
+    "input": "3\n4 4\n1010\n6 3\n001100\n4 1\n1100",
+    "output": "0011\n001100\nIMPOSSIBLE"
+  }
+]
