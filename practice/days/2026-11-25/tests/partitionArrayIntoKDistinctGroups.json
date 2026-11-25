@@ -1,0 +1,8 @@
+[
+  { "input": "[1,2,3,4]\n2", "output": "true" },
+  { "input": "[3,5,2,2]\n2", "output": "true" },
+  { "input": "[1,5,2,3]\n3", "output": "false" },
+  { "input": "[1,1,1,1]\n1", "output": "true" },
+  { "input": "[1,1,1,2]\n2", "output": "false" },
+  { "input": "[1,2,3]\n3", "output": "true" }
+]
