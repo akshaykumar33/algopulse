@@ -1,0 +1,22 @@
+[
+  {
+    "input": "21 5\n",
+    "output": "2\n"
+  },
+  {
+    "input": "9435152 272\n",
+    "output": "282\n"
+  },
+  {
+    "input": "10 10\n",
+    "output": "infinity\n"
+  },
+  {
+    "input": "5 10\n",
+    "output": "0\n"
+  },
+  {
+    "input": "0 0\n",
+    "output": "infinity\n"
+  }
+]
