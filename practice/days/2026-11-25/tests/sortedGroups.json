@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n3\nabc\n3\ncba\n4\nbdca",
+    "output": "abc\ncab\nbdac"
+  },
+  {
+    "input": "4\n1\nz\n4\ndcba\n5\nabedc\n5\nccaba",
+    "output": "z\ndabc\nabecd\nccaab"
+  }
+]
