@@ -1,0 +1,22 @@
+[
+  {
+    "input": "\"yz\"",
+    "output": "2"
+  },
+  {
+    "input": "\"a\"",
+    "output": "0"
+  },
+  {
+    "input": "\"b\"",
+    "output": "25"
+  },
+  {
+    "input": "\"az\"",
+    "output": "1"
+  },
+  {
+    "input": "\"cba\"",
+    "output": "25"
+  }
+]
