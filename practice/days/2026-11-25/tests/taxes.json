@@ -1,0 +1,26 @@
+[
+  {
+    "input": "4\n",
+    "output": "2\n"
+  },
+  {
+    "input": "27\n",
+    "output": "3\n"
+  },
+  {
+    "input": "2\n",
+    "output": "1\n"
+  },
+  {
+    "input": "9\n",
+    "output": "2\n"
+  },
+  {
+    "input": "1999999973\n",
+    "output": "1\n"
+  },
+  {
+    "input": "2000000000\n",
+    "output": "2\n"
+  }
+]

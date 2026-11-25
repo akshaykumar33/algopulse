@@ -1,0 +1,34 @@
+[
+  {
+    "input": "1 1\nday\nmay\nsun\nfun\n",
+    "output": "aabb\n"
+  },
+  {
+    "input": "1 1\nday\nmay\ngray\nway\n",
+    "output": "aaaa\n"
+  },
+  {
+    "input": "2 1\na\na\na\na\na\na\nee\nee\n",
+    "output": "aabb\n"
+  },
+  {
+    "input": "2 1\nday\nmay\nsun\nfun\ntest\nhill\nfest\nthrill\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "2 2\nababa\nacaca\nxxaxa\nyyaxa\ncada\nbada\npada\nsada\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "2 2\nbabeb\ncadeg\nxyzya\nuvwze\nklama\nmnaea\npoeio\nqruao\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "1 2\naaaa\nbbbaa\ncccaaa\ndddaa\n",
+    "output": "aaaa\n"
+  },
+  {
+    "input": "2 1\naaa\naaa\naaa\naaa\nbca\ndce\nece\nfca\n",
+    "output": "abba\n"
+  }
+]
