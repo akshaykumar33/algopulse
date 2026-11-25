@@ -1,0 +1,26 @@
+[
+  {
+    "input": "ab\na?a\n2\naaa\naab\n",
+    "output": "YES\nNO\n"
+  },
+  {
+    "input": "abc\na?a?a*\n4\nabacaba\nabaca\napapa\naaaaax\n",
+    "output": "NO\nYES\nNO\nYES\n"
+  },
+  {
+    "input": "a\n*\n3\na\nb\nxyz\n",
+    "output": "NO\nYES\nYES\n"
+  },
+  {
+    "input": "abc\n*z*\n1\nxyz\n",
+    "output": "NO\n"
+  },
+  {
+    "input": "abc\n*z\n3\nz\nxxz\naaz\n",
+    "output": "YES\nYES\nNO\n"
+  },
+  {
+    "input": "a\nz?z\n3\nzaz\nzzz\nz\n",
+    "output": "YES\nNO\nNO\n"
+  }
+]

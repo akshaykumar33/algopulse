@@ -1,0 +1,18 @@
+[
+  {
+    "input": "3\nbers\nucky\nelu\nPetrLoveLuckyNumbers\nt\n",
+    "output": "PetrLovtTttttNumtttt\n"
+  },
+  {
+    "input": "4\nhello\nparty\nabefglghjdhfgj\nIVan\npetrsmatchwin\na\n",
+    "output": "petrsmatchwin\n"
+  },
+  {
+    "input": "2\naCa\ncba\nabAcaba\nc\n",
+    "output": "abCacba\n"
+  },
+  {
+    "input": "1\naa\naAAa\na\n",
+    "output": "bBBb\n"
+  }
+]
