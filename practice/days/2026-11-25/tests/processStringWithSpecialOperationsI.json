@@ -1,0 +1,5 @@
+[
+  { "input": "\"a#b%*\"", "output": "\"ba\"" },
+  { "input": "\"z*#\"", "output": "\"\"" },
+  { "input": "\"***a%#\"", "output": "\"aa\"" }
+]

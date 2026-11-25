@@ -1,0 +1,6 @@
+[
+  { "input": "\"aeioqq\"\n1", "output": "0" },
+  { "input": "\"aeiou\"\n0", "output": "1" },
+  { "input": "\"ieaouqqieaouqq\"\n1", "output": "3" },
+  { "input": "\"aaeeiioouu\"\n0", "output": "4" }
+]
