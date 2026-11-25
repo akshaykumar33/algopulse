@@ -1,0 +1,10 @@
+[
+  {
+    "input": "6\n1 1\nG\n3 1\nGII\n4 1\nGGGI\n4 1\nGGIG\n6 2\nGGGGGI\n6 3\nGGGGGI\n",
+    "output": "YES\nYES\nNO\nYES\nNO\nYES\n"
+  },
+  {
+    "input": "3\n2 1\nII\n3 1\nGGI\n4 2\nGIGI",
+    "output": "YES\nYES\nYES"
+  }
+]

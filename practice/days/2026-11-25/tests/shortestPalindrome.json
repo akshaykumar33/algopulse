@@ -1,0 +1,14 @@
+[
+  {
+    "input": "3\nrace\nlevel\nxyz\n",
+    "output": "ecarace\nlevel\nzyxyz\n"
+  },
+  {
+    "input": "1\naaab",
+    "output": "baaab"
+  },
+  {
+    "input": "3\na\nabba\naaaabaaaa",
+    "output": "a\nabba\naaaabaaaa"
+  }
+]
