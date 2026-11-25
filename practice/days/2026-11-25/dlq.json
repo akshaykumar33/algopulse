@@ -1,0 +1,126 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-2673",
+    "name": "Make Costs of Paths Equal in a Binary Tree",
+    "file": "makeCostsOfPathsEqualInABinaryTree",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-25T07:46:49.860Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2673",
+      "name": "Make Costs of Paths Equal in a Binary Tree",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/",
+      "file": "makeCostsOfPathsEqualInABinaryTree",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-25T07:58:19.773Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3366",
+    "name": "Minimum Array Sum",
+    "file": "minimumArraySum",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-25T07:48:03.697Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3366",
+      "name": "Minimum Array Sum",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-array-sum/",
+      "file": "minimumArraySum",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-25T07:59:29.426Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3588",
+    "name": "Find Maximum Area of a Triangle",
+    "file": "findMaximumAreaOfATriangle",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-25T07:48:16.652Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3588",
+      "name": "Find Maximum Area of a Triangle",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-maximum-area-of-a-triangle/",
+      "file": "findMaximumAreaOfATriangle",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-25T08:00:39.419Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2271",
+    "name": "Maximum White Tiles Covered by a Carpet",
+    "file": "maximumWhiteTilesCoveredByACarpet",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-25T07:53:05.565Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2271",
+      "name": "Maximum White Tiles Covered by a Carpet",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/",
+      "file": "maximumWhiteTilesCoveredByACarpet",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-25T08:01:48.868Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-T24",
+    "name": "MCQ Game",
+    "file": "mCQGame",
+    "tier": "hard",
+    "initialVerdict": "wrong answer",
+    "enqueuedAt": "2026-11-25T08:14:55.435Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-T24",
+      "name": "MCQ Game",
+      "rating": 1720,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/T24",
+      "file": "mCQGame",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "wrong answer"
+  }
+]
