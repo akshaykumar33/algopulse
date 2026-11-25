@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n4 2\nabcb\n7 1\naayzbaa\n12 80123123\nabzbabzbazab",
+    "output": "6\n2\n64197148392731290"
+  },
+  {
+    "input": "2\n1 5\na\n2 10000\nab",
+    "output": "0\n50005000"
+  }
+]
