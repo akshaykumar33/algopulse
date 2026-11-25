@@ -2566,5 +2566,67 @@
       "codechef"
     ],
     "timestamp": "2026-11-24T05:46:25.433Z"
+  },
+  {
+    "id": "CC-BTAR",
+    "problem": "Beautiful Array",
+    "platform": "CodeChef",
+    "verdict": "Wrong Answer",
+    "diagnosis": "The problem description for BTAR is completely different from the provided code's logic. The problem asks to determine if an array can be made 'beautiful' (sum divisible by 4) by operations, and if so, output the minimum operations. The given code attempts to solve a problem with two input integers 'a' and 'b' and outputs '1' and 'a' or '3' and three numbers based on 'a' and 'b' being equal or not. This is a complete mismatch with the problem statement of CC-BTAR (Beautiful Array). The provided code's logic is for a different problem entirely.",
+    "rule": "Always carefully read and understand the problem statement, including constraints and examples. Do not assume the problem based on code logic or a previous unrelated problem. The code must directly address the specific problem ID and description given.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-24T18:33:12.476Z"
+  },
+  {
+    "id": "1033C",
+    "problem": "Permutation Game",
+    "platform": "Codeforces",
+    "verdict": "Wrong answer on test 1",
+    "diagnosis": "The problem description is for Permutation Game (Codeforces 1033C), which is a game theory/DP problem. The provided code, however, implements a solution for a different problem, likely Codeforces 1033A, 1033B, or 1033D, or a similar assignment problem involving permutations and sequences. The current code attempts to construct a permutation 'p' based on difference constraints derived from a sequence 'a', which does not align with the gameplay described in 1033C where players take turns moving pieces on a board. The 'Wrong answer on test 1' is because the code solves a completely different problem.",
+    "rule": "Always carefully read and understand the problem statement, including example inputs/outputs and constraints, to ensure the implemented algorithm actually addresses the given problem, not a superficially similar one. A common pitfall is misinterpreting the problem or copy-pasting code from a related but different problem.",
+    "tags": [
+      "brute force",
+      "dp",
+      "games"
+    ],
+    "timestamp": "2026-11-24T18:33:13.165Z"
+  },
+  {
+    "id": "CC-T24",
+    "problem": "MCQ Game",
+    "platform": "CodeChef",
+    "verdict": "wrong answer",
+    "diagnosis": "The problem asks for the sum of a geometric progression where the first term is `k` and the common ratio is `k`. The formula for the sum of the first `n` terms is `S_n = k * (k^n - 1) / (k - 1)`. The current `mul` function is for multiplying two numbers `a` and `b` modulo `MOD`, but it incorrectly splits `a` into high and low parts by multiplying `hi` by `b` and then by `32768`. This approach is only valid if `32768 * 32768` does not exceed the maximum safe integer, which it does. A standard `(a * b) % MOD` is sufficient if `a * b` fits in `Number` (up to `9e15`), and since `MOD * MOD` is roughly `10^18`, `a * b` will exceed safe integer limits if `a` and `b` are both close to `MOD`. For Node.js, direct `(a * b) % MOD` multiplication works correctly for numbers up to `9e15`. Here, `k` and `n` can be up to `10^9`, but `k` is taken modulo `MOD` before multiplication. The `modPow` function applies modulo to `base` correctly. The issue is simply `mul` being overly complicated and incorrect; a direct multiplication `(a * b) % MOD` is needed, which is safe for `a, b < MOD` because `MOD * MOD` is about `10^18` which can be handled by Node.js numbers (floating point, but generally safe up to `2^53`).",
+    "rule": "For modulo multiplication `(a * b) % MOD` in JavaScript, if `a` and `b` are guaranteed to be less than `MOD` and `MOD * MOD` is within safe integer limits (approximately `9e15`), then a direct `(a * b) % MOD` operation is sufficient and correct. Avoid overly complex custom multiplication functions unless `MOD * MOD` exceeds `9e15`, in which case `BigInt` or a 'multiplication by parts' approach with proper overflow handling is necessary. In this specific case, `MOD` is `10^9+7`, so `MOD * MOD` is roughly `10^18`, which *does* exceed safe integer limits. Therefore, a custom multiplication function is needed, but the current `mul` is incorrect. A correct custom multiplication would be `((a % MOD) * (b % MOD)) % MOD` if intermediate products `a*b` don't exceed `2^53`. Since `MOD * MOD` exceeds `2^53`, a different `mul` function is needed. One way is using `BigInt` or a technique like Karatsuba-like multiplication for numbers modulo `MOD` when `MOD` itself is large.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-25T07:49:31.939Z"
+  },
+  {
+    "id": "CC-T24",
+    "problem": "MCQ Game",
+    "platform": "CodeChef",
+    "verdict": "wrong answer",
+    "diagnosis": "The problem asks for the sum of a geometric series k + k^2 + ... + k^n. This is k * (k^n - 1) / (k - 1) for k != 1, and n for k = 1. The code correctly handles k=1, but the main issue is that it performs `k % MOD` when checking `k % MOD === 1`. This is incorrect because `k` itself can be 1, or `k` can be `1 + MOD`, `1 + 2*MOD`, etc. In these cases, `k % MOD === 1` will be true, but `k` is not actually 1. The formula requires `k=1` specifically, not `k % MOD = 1`. If `k` is, for example, `1 + MOD`, then `k-1` is `MOD`, which is 0 modulo `MOD`. Dividing by `k-1` (or its modular inverse) would be division by zero modulo `MOD` when `k-1` is a multiple of `MOD`. The solution must handle the case where `k-1` is a multiple of `MOD` separately, which means `k % MOD === 1` should trigger the `n` case.",
+    "rule": "When a formula requires a specific value for a variable (e.g., `k=1`), check the variable itself, not its modulo. If the denominator of a fraction `(k-1)` can be a multiple of `MOD`, then modular inverse cannot be used; that specific case must be handled separately.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-25T07:51:17.902Z"
+  },
+  {
+    "id": "CC-T24",
+    "problem": "MCQ Game",
+    "platform": "CodeChef",
+    "verdict": "wrong answer",
+    "diagnosis": "The problem asks for the sum of a geometric series k + k^2 + ... + k^n. The formula used is S = k * (k^n - 1) / (k - 1). The base case k=1 is correctly handled by outputting n. However, the problem statement clarifies that the series is k^1 + k^2 + ... + k^n, and when k = 1, this simplifies to 1 + 1 + ... + 1 (n times), which is n. The original code's check `if (k % MOD === 1)` is incorrect because `k` itself could be `MOD + 1`, `2*MOD + 1`, etc., and still behave as `1` in modulo arithmetic. If `k` is actually `1` (not just `k % MOD === 1`), then the sum is `n`. If `k` is `MOD + 1`, then `k % MOD` is `1`, but the actual value of `k` is not `1`, and the formula `n` is incorrect; instead, it should be `(MOD + 1) * (((MOD + 1)^n - 1) / ((MOD + 1) - 1))` which evaluates to `1 * (1^n - 1) / (1 - 1)` modulo `MOD` IF `(MOD+1)` is reduced to `1` first. The correct logic is to check if `k === 1` *before* modulo reduction, and only then if `k` is indeed `1`, the sum is `n`. For all other `k`, the general geometric series formula should be applied, using `k % MOD` for calculations.",
+    "rule": "For problems involving special cases like `k=1` in geometric series, always check the actual value of `k` against the special condition *before* applying modulo operations to `k` itself, especially when `k` might be `X * MOD + 1`. If `k` is truly `1`, apply the special case. Otherwise, proceed with modulo arithmetic on `k` for the general formula.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-25T08:03:01.470Z"
   }
 ]

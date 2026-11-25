@@ -4,41 +4,935 @@
   "status": "FINISHED",
   "finished": true,
   "totalProblems": 99,
-  "solutionsCount": 0,
-  "testsCount": 0,
+  "solutionsCount": 99,
+  "testsCount": 99,
   "explanationsCount": 99,
-  "verifiedCount": 0,
-  "submittedCount": 0,
-  "acceptedCount": 0,
-  "dlqCount": 0,
-  "percentVerified": 0,
-  "percentSubmitted": 0,
-  "percentAccepted": 0,
+  "verifiedCount": 99,
+  "submittedCount": 99,
+  "acceptedCount": 97,
+  "dlqCount": 5,
+  "percentVerified": 100,
+  "percentSubmitted": 100,
+  "percentAccepted": 98,
   "byPlatform": {
     "codeforces": {
       "name": "Codeforces",
       "total": 33,
-      "solutions": 0,
-      "verified": 0,
-      "submitted": 0,
-      "accepted": 0
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 33
     },
     "leetcode": {
       "name": "LeetCode",
       "total": 33,
-      "solutions": 0,
-      "verified": 0,
-      "submitted": 0,
-      "accepted": 0
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 33
     },
     "codechef": {
       "name": "CodeChef",
       "total": 33,
-      "solutions": 0,
-      "verified": 0,
-      "submitted": 0,
-      "accepted": 0
+      "solutions": 33,
+      "verified": 33,
+      "submitted": 33,
+      "accepted": 31
     }
   },
-  "updatedAt": "2026-11-24T18:30:45.839Z"
+  "updatedAt": "2026-11-25T08:17:07.099Z",
+  "submissions": {
+    "LC-2673": {
+      "platform": "LeetCode",
+      "id": "LC-2673",
+      "name": "Make Costs of Paths Equal in a Binary Tree",
+      "verdict": "Accepted",
+      "submissionId": 2203086266,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203086266/",
+      "timestamp": "2026-11-25T07:58:19.767Z"
+    },
+    "1033C": {
+      "platform": "Codeforces",
+      "id": "1033C",
+      "name": "Permutation Game",
+      "verdict": "Accepted",
+      "submissionId": 399735923,
+      "submissionUrl": "https://codeforces.com/contest/1033/submission/399735923",
+      "timestamp": "2026-11-24T18:34:54.804Z"
+    },
+    "LC-2611": {
+      "platform": "LeetCode",
+      "id": "LC-2611",
+      "name": "Mice and Cheese",
+      "verdict": "Accepted",
+      "submissionId": 2202798525,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2202798525/",
+      "timestamp": "2026-11-24T18:34:56.595Z"
+    },
+    "CC-BTAR": {
+      "platform": "CodeChef",
+      "id": "CC-BTAR",
+      "name": "Beautiful Array",
+      "verdict": "Correct Answer",
+      "submissionId": "1399883825",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399883825",
+      "timestamp": "2026-11-25T07:47:00.491Z"
+    },
+    "LC-3795": {
+      "platform": "LeetCode",
+      "id": "LC-3795",
+      "name": "Minimum Subarray Length With Distinct Sum At Least K",
+      "verdict": "Accepted",
+      "submissionId": 2203081522,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203081522/",
+      "timestamp": "2026-11-25T07:47:03.661Z"
+    },
+    "LC-3048": {
+      "platform": "LeetCode",
+      "id": "LC-3048",
+      "name": "Earliest Second to Mark Indices I",
+      "verdict": "Accepted",
+      "submissionId": 2203081607,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203081607/",
+      "timestamp": "2026-11-25T07:47:17.280Z"
+    },
+    "LC-3207": {
+      "platform": "LeetCode",
+      "id": "LC-3207",
+      "name": "Maximum Points After Enemy Battles",
+      "verdict": "Accepted",
+      "submissionId": 2203081733,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203081733/",
+      "timestamp": "2026-11-25T07:47:35.454Z"
+    },
+    "LC-3281": {
+      "platform": "LeetCode",
+      "id": "LC-3281",
+      "name": "Maximize Score of Numbers in Ranges",
+      "verdict": "Accepted",
+      "submissionId": 2203081821,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203081821/",
+      "timestamp": "2026-11-25T07:47:48.707Z"
+    },
+    "LC-3366": {
+      "platform": "LeetCode",
+      "id": "LC-3366",
+      "name": "Minimum Array Sum",
+      "verdict": "Accepted",
+      "submissionId": 2203086736,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203086736/",
+      "timestamp": "2026-11-25T07:59:29.420Z"
+    },
+    "LC-3588": {
+      "platform": "LeetCode",
+      "id": "LC-3588",
+      "name": "Find Maximum Area of a Triangle",
+      "verdict": "Accepted",
+      "submissionId": 2203087202,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203087202/",
+      "timestamp": "2026-11-25T08:00:39.412Z"
+    },
+    "LC-3494": {
+      "platform": "LeetCode",
+      "id": "LC-3494",
+      "name": "Find the Minimum Amount of Time to Brew Potions",
+      "verdict": "Accepted",
+      "submissionId": 2203082144,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082144/",
+      "timestamp": "2026-11-25T07:48:31.079Z"
+    },
+    "LC-3607": {
+      "platform": "LeetCode",
+      "id": "LC-3607",
+      "name": "Power Grid Maintenance",
+      "verdict": "Accepted",
+      "submissionId": 2203082248,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082248/",
+      "timestamp": "2026-11-25T07:48:45.444Z"
+    },
+    "LC-3653": {
+      "platform": "LeetCode",
+      "id": "LC-3653",
+      "name": "XOR After Range Multiplication Queries I",
+      "verdict": "Accepted",
+      "submissionId": 2203082354,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082354/",
+      "timestamp": "2026-11-25T07:49:01.106Z"
+    },
+    "LC-2871": {
+      "platform": "LeetCode",
+      "id": "LC-2871",
+      "name": "Split Array Into Maximum Number of Subarrays",
+      "verdict": "Accepted",
+      "submissionId": 2203082462,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082462/",
+      "timestamp": "2026-11-25T07:49:14.663Z"
+    },
+    "LC-3371": {
+      "platform": "LeetCode",
+      "id": "LC-3371",
+      "name": "Identify the Largest Outlier in an Array",
+      "verdict": "Accepted",
+      "submissionId": 2203082593,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082593/",
+      "timestamp": "2026-11-25T07:49:32.960Z"
+    },
+    "LC-2680": {
+      "platform": "LeetCode",
+      "id": "LC-2680",
+      "name": "Maximum OR",
+      "verdict": "Accepted",
+      "submissionId": 2203082705,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082705/",
+      "timestamp": "2026-11-25T07:49:46.435Z"
+    },
+    "LC-3394": {
+      "platform": "LeetCode",
+      "id": "LC-3394",
+      "name": "Check if Grid can be Cut into Sections",
+      "verdict": "Accepted",
+      "submissionId": 2203082799,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082799/",
+      "timestamp": "2026-11-25T07:50:00.116Z"
+    },
+    "LC-998": {
+      "platform": "LeetCode",
+      "id": "LC-998",
+      "name": "Maximum Binary Tree II",
+      "verdict": "Accepted",
+      "submissionId": 2203082926,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203082926/",
+      "timestamp": "2026-11-25T07:50:16.907Z"
+    },
+    "LC-3176": {
+      "platform": "LeetCode",
+      "id": "LC-3176",
+      "name": "Find the Maximum Length of a Good Subsequence I",
+      "verdict": "Accepted",
+      "submissionId": 2203083038,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083038/",
+      "timestamp": "2026-11-25T07:50:30.505Z"
+    },
+    "LC-3675": {
+      "platform": "LeetCode",
+      "id": "LC-3675",
+      "name": "Minimum Operations to Transform String",
+      "verdict": "Accepted",
+      "submissionId": 2203083138,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083138/",
+      "timestamp": "2026-11-25T07:50:44.063Z"
+    },
+    "LC-1191": {
+      "platform": "LeetCode",
+      "id": "LC-1191",
+      "name": "K-Concatenation Maximum Sum",
+      "verdict": "Accepted",
+      "submissionId": 2203083235,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083235/",
+      "timestamp": "2026-11-25T07:50:57.654Z"
+    },
+    "LC-1981": {
+      "platform": "LeetCode",
+      "id": "LC-1981",
+      "name": "Minimize the Difference Between Target and Chosen Elements",
+      "verdict": "Accepted",
+      "submissionId": 2203083313,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083313/",
+      "timestamp": "2026-11-25T07:51:11.406Z"
+    },
+    "LC-3659": {
+      "platform": "LeetCode",
+      "id": "LC-3659",
+      "name": "Partition Array Into K-Distinct Groups",
+      "verdict": "Accepted",
+      "submissionId": 2203083442,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083442/",
+      "timestamp": "2026-11-25T07:51:29.963Z"
+    },
+    "LC-3196": {
+      "platform": "LeetCode",
+      "id": "LC-3196",
+      "name": "Maximize Total Cost of Alternating Subarrays",
+      "verdict": "Accepted",
+      "submissionId": 2203083556,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083556/",
+      "timestamp": "2026-11-25T07:51:44.036Z"
+    },
+    "LC-2771": {
+      "platform": "LeetCode",
+      "id": "LC-2771",
+      "name": "Longest Non-decreasing Subarray From Two Arrays",
+      "verdict": "Accepted",
+      "submissionId": 2203083647,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083647/",
+      "timestamp": "2026-11-25T07:51:57.295Z"
+    },
+    "LC-3319": {
+      "platform": "LeetCode",
+      "id": "LC-3319",
+      "name": "K-th Largest Perfect Subtree Size in Binary Tree",
+      "verdict": "Accepted",
+      "submissionId": 2203083745,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083745/",
+      "timestamp": "2026-11-25T07:52:10.986Z"
+    },
+    "LC-3780": {
+      "platform": "LeetCode",
+      "id": "LC-3780",
+      "name": "Maximum Sum of Three Numbers Divisible by Three",
+      "verdict": "Accepted",
+      "submissionId": 2203083840,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083840/",
+      "timestamp": "2026-11-25T07:52:24.404Z"
+    },
+    "LC-3306": {
+      "platform": "LeetCode",
+      "id": "LC-3306",
+      "name": "Count of Substrings Containing Every Vowel and K Consonants II",
+      "verdict": "Accepted",
+      "submissionId": 2203083933,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203083933/",
+      "timestamp": "2026-11-25T07:52:38.098Z"
+    },
+    "LC-3612": {
+      "platform": "LeetCode",
+      "id": "LC-3612",
+      "name": "Process String with Special Operations I",
+      "verdict": "Accepted",
+      "submissionId": 2203084023,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203084023/",
+      "timestamp": "2026-11-25T07:52:51.431Z"
+    },
+    "LC-2271": {
+      "platform": "LeetCode",
+      "id": "LC-2271",
+      "name": "Maximum White Tiles Covered by a Carpet",
+      "verdict": "Accepted",
+      "submissionId": 2203087681,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203087681/",
+      "timestamp": "2026-11-25T08:01:48.861Z"
+    },
+    "LC-2087": {
+      "platform": "LeetCode",
+      "id": "LC-2087",
+      "name": "Minimum Cost Homecoming of a Robot in a Grid",
+      "verdict": "Accepted",
+      "submissionId": 2203090391,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203090391/",
+      "timestamp": "2026-11-25T08:08:25.885Z"
+    },
+    "LC-2938": {
+      "platform": "LeetCode",
+      "id": "LC-2938",
+      "name": "Separate Black and White Balls",
+      "verdict": "Accepted",
+      "submissionId": 2203090479,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203090479/",
+      "timestamp": "2026-11-25T08:08:37.640Z"
+    },
+    "LC-769": {
+      "platform": "LeetCode",
+      "id": "LC-769",
+      "name": "Max Chunks To Make Sorted",
+      "verdict": "Accepted",
+      "submissionId": 2203090561,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203090561/",
+      "timestamp": "2026-11-25T08:08:49.584Z"
+    },
+    "LC-866": {
+      "platform": "LeetCode",
+      "id": "LC-866",
+      "name": "Prime Palindrome",
+      "verdict": "Accepted",
+      "submissionId": 2203085702,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203085702/",
+      "timestamp": "2026-11-25T07:56:56.320Z"
+    },
+    "LC-3239": {
+      "platform": "LeetCode",
+      "id": "LC-3239",
+      "name": "Minimum Number of Flips to Make Binary Grid Palindromic I",
+      "verdict": "Accepted",
+      "submissionId": 2203085809,
+      "submissionUrl": "https://leetcode.com/submissions/detail/2203085809/",
+      "timestamp": "2026-11-25T07:57:10.645Z"
+    },
+    "CC-F1": {
+      "platform": "CodeChef",
+      "id": "CC-F1",
+      "name": "Golf course",
+      "verdict": "Correct Answer",
+      "submissionId": "1399883930",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399883930",
+      "timestamp": "2026-11-25T07:47:17.723Z"
+    },
+    "CC-PCJ18C": {
+      "platform": "CodeChef",
+      "id": "CC-PCJ18C",
+      "name": "Chef and Polygon Cakes",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884049",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884049",
+      "timestamp": "2026-11-25T07:47:34.857Z"
+    },
+    "CC-TIMEASR": {
+      "platform": "CodeChef",
+      "id": "CC-TIMEASR",
+      "name": "Time measure",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884175",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884175",
+      "timestamp": "2026-11-25T07:47:51.964Z"
+    },
+    "CC-CO92MATR": {
+      "platform": "CodeChef",
+      "id": "CC-CO92MATR",
+      "name": "Chef Restores a Matrix",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884310",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884310",
+      "timestamp": "2026-11-25T07:48:09.151Z"
+    },
+    "CC-SWAPUNITE": {
+      "platform": "CodeChef",
+      "id": "CC-SWAPUNITE",
+      "name": "Swap and Unite",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884434",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884434",
+      "timestamp": "2026-11-25T07:48:26.263Z"
+    },
+    "CC-STR_REVERSE": {
+      "platform": "CodeChef",
+      "id": "CC-STR_REVERSE",
+      "name": "String Reverse",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884560",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884560",
+      "timestamp": "2026-11-25T07:48:43.396Z"
+    },
+    "CC-HILLSEQ": {
+      "platform": "CodeChef",
+      "id": "CC-HILLSEQ",
+      "name": "Hill Sequence",
+      "verdict": "Correct Answer",
+      "submissionId": "1399884683",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399884683",
+      "timestamp": "2026-11-25T07:49:00.522Z"
+    },
+    "CC-T24": {
+      "platform": "CodeChef",
+      "id": "CC-T24",
+      "name": "MCQ Game",
+      "verdict": "wrong answer",
+      "submissionId": "1399895776",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399895776",
+      "timestamp": "2026-11-25T08:16:09.636Z"
+    },
+    "CC-FINDALL": {
+      "platform": "CodeChef",
+      "id": "CC-FINDALL",
+      "name": "Finding All",
+      "verdict": "Correct Answer",
+      "submissionId": "1399886533",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399886533",
+      "timestamp": "2026-11-25T07:53:11.060Z"
+    },
+    "CC-COVID19B": {
+      "platform": "CodeChef",
+      "id": "CC-COVID19B",
+      "name": "Coronavirus Spread 2",
+      "verdict": "Correct Answer",
+      "submissionId": "1399886707",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399886707",
+      "timestamp": "2026-11-25T07:53:27.782Z"
+    },
+    "CC-FARSWAP": {
+      "platform": "CodeChef",
+      "id": "CC-FARSWAP",
+      "name": "Far Swapping (Ver 2)",
+      "verdict": "Correct Answer",
+      "submissionId": "1399886863",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399886863",
+      "timestamp": "2026-11-25T07:53:44.774Z"
+    },
+    "CC-P4235": {
+      "platform": "CodeChef",
+      "id": "CC-P4235",
+      "name": "Sorted Groups",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887021",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887021",
+      "timestamp": "2026-11-25T07:54:01.904Z"
+    },
+    "CC-MXPERST": {
+      "platform": "CodeChef",
+      "id": "CC-MXPERST",
+      "name": "Subarray Maximums",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887176",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887176",
+      "timestamp": "2026-11-25T07:54:22.943Z"
+    },
+    "CC-KFOLD": {
+      "platform": "CodeChef",
+      "id": "CC-KFOLD",
+      "name": "K-Foldable String",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887334",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887334",
+      "timestamp": "2026-11-25T07:54:42.697Z"
+    },
+    "CC-ANDORUNI": {
+      "platform": "CodeChef",
+      "id": "CC-ANDORUNI",
+      "name": "And Or Union",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887432",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887432",
+      "timestamp": "2026-11-25T07:54:59.825Z"
+    },
+    "CC-WENOTI": {
+      "platform": "CodeChef",
+      "id": "CC-WENOTI",
+      "name": "Chef and String",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887571",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887571",
+      "timestamp": "2026-11-25T07:55:17.044Z"
+    },
+    "CC-FGFS": {
+      "platform": "CodeChef",
+      "id": "CC-FGFS",
+      "name": "Bon Appetit",
+      "verdict": "Correct Answer",
+      "submissionId": "1399887659",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399887659",
+      "timestamp": "2026-11-25T07:55:39.819Z"
+    },
+    "CC-MAXEP": {
+      "platform": "CodeChef",
+      "id": "CC-MAXEP",
+      "name": "Max and Electrical Panel",
+      "verdict": "Pending",
+      "submissionId": null,
+      "submissionUrl": "https://www.codechef.com/problems/MAXEP",
+      "timestamp": "2026-11-25T08:10:37.325Z"
+    },
+    "CC-XORGAND": {
+      "platform": "CodeChef",
+      "id": "CC-XORGAND",
+      "name": "Mystical Numbers",
+      "verdict": "Correct Answer",
+      "submissionId": "1399888476",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399888476",
+      "timestamp": "2026-11-25T07:57:44.847Z"
+    },
+    "CC-GOODMATRIX": {
+      "platform": "CodeChef",
+      "id": "CC-GOODMATRIX",
+      "name": "The Best Matrix",
+      "verdict": "Correct Answer",
+      "submissionId": "1399888653",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399888653",
+      "timestamp": "2026-11-25T07:58:02.134Z"
+    },
+    "CC-SUBSEQDIST": {
+      "platform": "CodeChef",
+      "id": "CC-SUBSEQDIST",
+      "name": "Add to Subsequence",
+      "verdict": "Correct Answer",
+      "submissionId": "1399888780",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399888780",
+      "timestamp": "2026-11-25T07:58:19.358Z"
+    },
+    "CC-MEANDIFF": {
+      "platform": "CodeChef",
+      "id": "CC-MEANDIFF",
+      "name": "Mean Difference (Easy)",
+      "verdict": "Correct Answer",
+      "submissionId": "1399888886",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399888886",
+      "timestamp": "2026-11-25T07:58:36.557Z"
+    },
+    "CC-PALINT": {
+      "platform": "CodeChef",
+      "id": "CC-PALINT",
+      "name": "XOR Equal",
+      "verdict": "Correct Answer",
+      "submissionId": "1399888999",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399888999",
+      "timestamp": "2026-11-25T07:58:53.692Z"
+    },
+    "CC-ARMTRN": {
+      "platform": "CodeChef",
+      "id": "CC-ARMTRN",
+      "name": "Army Training",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889114",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889114",
+      "timestamp": "2026-11-25T07:59:10.872Z"
+    },
+    "CC-ABREPEAT": {
+      "platform": "CodeChef",
+      "id": "CC-ABREPEAT",
+      "name": "Bear and AB",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889252",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889252",
+      "timestamp": "2026-11-25T07:59:28.103Z"
+    },
+    "CC-CEILSUM": {
+      "platform": "CodeChef",
+      "id": "CC-CEILSUM",
+      "name": "Ceiling Sum",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889363",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889363",
+      "timestamp": "2026-11-25T07:59:45.197Z"
+    },
+    "CC-IC26CB": {
+      "platform": "CodeChef",
+      "id": "CC-IC26CB",
+      "name": "D - Curio Packing",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889460",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889460",
+      "timestamp": "2026-11-25T08:00:02.374Z"
+    },
+    "CC-MONMED": {
+      "platform": "CodeChef",
+      "id": "CC-MONMED",
+      "name": "Monotone Median",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889574",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889574",
+      "timestamp": "2026-11-25T08:00:23.541Z"
+    },
+    "CC-MUL2": {
+      "platform": "CodeChef",
+      "id": "CC-MUL2",
+      "name": "Multiply 2 to Minimize",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889710",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889710",
+      "timestamp": "2026-11-25T08:00:44.698Z"
+    },
+    "CC-SHORTPALINDR": {
+      "platform": "CodeChef",
+      "id": "CC-SHORTPALINDR",
+      "name": "Shortest Palindrome",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889875",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889875",
+      "timestamp": "2026-11-25T08:01:04.289Z"
+    },
+    "CC-SUBMEDIA": {
+      "platform": "CodeChef",
+      "id": "CC-SUBMEDIA",
+      "name": "Meet In The Median",
+      "verdict": "Correct Answer",
+      "submissionId": "1399889999",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399889999",
+      "timestamp": "2026-11-25T08:01:21.531Z"
+    },
+    "CC-SHUFFLE": {
+      "platform": "CodeChef",
+      "id": "CC-SHUFFLE",
+      "name": "Another Birthday Present!",
+      "verdict": "Correct Answer",
+      "submissionId": "1399890121",
+      "submissionUrl": "https://www.codechef.com/viewsolution/1399890121",
+      "timestamp": "2026-11-25T08:01:38.667Z"
+    },
+    "138A": {
+      "platform": "Codeforces",
+      "id": "138A",
+      "name": "Literature Lesson",
+      "verdict": "Accepted",
+      "submissionId": 399774124,
+      "submissionUrl": "https://codeforces.com/contest/138/submission/399774124",
+      "timestamp": "2026-11-25T07:47:19.663Z"
+    },
+    "832B": {
+      "platform": "Codeforces",
+      "id": "832B",
+      "name": "Petya and Exam",
+      "verdict": "Accepted",
+      "submissionId": 399774168,
+      "submissionUrl": "https://codeforces.com/contest/832/submission/399774168",
+      "timestamp": "2026-11-25T07:47:53.438Z"
+    },
+    "1609D": {
+      "platform": "Codeforces",
+      "id": "1609D",
+      "name": "Social Network",
+      "verdict": "Accepted",
+      "submissionId": 399774221,
+      "submissionUrl": "https://codeforces.com/contest/1609/submission/399774221",
+      "timestamp": "2026-11-25T07:48:05.072Z"
+    },
+    "95A": {
+      "platform": "Codeforces",
+      "id": "95A",
+      "name": "Hockey",
+      "verdict": "Accepted",
+      "submissionId": "399774236",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T07:48:58.363Z"
+    },
+    "149B": {
+      "platform": "Codeforces",
+      "id": "149B",
+      "name": "Martian Clock",
+      "verdict": "Accepted",
+      "submissionId": 399774287,
+      "submissionUrl": "https://codeforces.com/contest/149/submission/399774287",
+      "timestamp": "2026-11-25T07:49:26.457Z"
+    },
+    "735D": {
+      "platform": "Codeforces",
+      "id": "735D",
+      "name": "Taxes",
+      "verdict": "Accepted",
+      "submissionId": 399774329,
+      "submissionUrl": "https://codeforces.com/contest/735/submission/399774329",
+      "timestamp": "2026-11-25T07:50:00.257Z"
+    },
+    "2004D": {
+      "platform": "Codeforces",
+      "id": "2004D",
+      "name": "Colored Portals",
+      "verdict": "Accepted",
+      "submissionId": 399774366,
+      "submissionUrl": "https://codeforces.com/contest/2004/submission/399774366",
+      "timestamp": "2026-11-25T07:50:48.558Z"
+    },
+    "178B2": {
+      "platform": "Codeforces",
+      "id": "178B2",
+      "name": "Greedy Merchants",
+      "verdict": "Accepted",
+      "submissionId": 399774416,
+      "submissionUrl": "https://codeforces.com/contest/178/submission/399774416",
+      "timestamp": "2026-11-25T07:51:14.109Z"
+    },
+    "1932E": {
+      "platform": "Codeforces",
+      "id": "1932E",
+      "name": "Final Countdown",
+      "verdict": "Accepted",
+      "submissionId": "399774460",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T07:52:07.658Z"
+    },
+    "55B": {
+      "platform": "Codeforces",
+      "id": "55B",
+      "name": "Smallest number",
+      "verdict": "Accepted",
+      "submissionId": 399774522,
+      "submissionUrl": "https://codeforces.com/contest/55/submission/399774522",
+      "timestamp": "2026-11-25T07:52:33.544Z"
+    },
+    "1714D": {
+      "platform": "Codeforces",
+      "id": "1714D",
+      "name": "Color with Occurrences",
+      "verdict": "Accepted",
+      "submissionId": 399774554,
+      "submissionUrl": "https://codeforces.com/contest/1714/submission/399774554",
+      "timestamp": "2026-11-25T07:53:21.481Z"
+    },
+    "1163B2": {
+      "platform": "Codeforces",
+      "id": "1163B2",
+      "name": "Cat Party (Hard Edition)",
+      "verdict": "Accepted",
+      "submissionId": "399774613",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T07:54:15.265Z"
+    },
+    "446A": {
+      "platform": "Codeforces",
+      "id": "446A",
+      "name": "DZY Loves Sequences",
+      "verdict": "Accepted",
+      "submissionId": 399775670,
+      "submissionUrl": "https://codeforces.com/contest/446/submission/399775670",
+      "timestamp": "2026-11-25T08:09:04.002Z"
+    },
+    "235A": {
+      "platform": "Codeforces",
+      "id": "235A",
+      "name": "LCM Challenge",
+      "verdict": "Accepted",
+      "submissionId": 399774719,
+      "submissionUrl": "https://codeforces.com/contest/235/submission/399774719",
+      "timestamp": "2026-11-25T07:55:29.177Z"
+    },
+    "678B": {
+      "platform": "Codeforces",
+      "id": "678B",
+      "name": "The Same Calendar",
+      "verdict": "Accepted",
+      "submissionId": 399774749,
+      "submissionUrl": "https://codeforces.com/contest/678/submission/399774749",
+      "timestamp": "2026-11-25T07:55:55.077Z"
+    },
+    "107B": {
+      "platform": "Codeforces",
+      "id": "107B",
+      "name": "Basketball Team",
+      "verdict": "Accepted",
+      "submissionId": "399774787",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T07:56:48.643Z"
+    },
+    "1811D": {
+      "platform": "Codeforces",
+      "id": "1811D",
+      "name": "Umka and a Long Flight",
+      "verdict": "Accepted",
+      "submissionId": "399774852",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T07:57:41.791Z"
+    },
+    "73A": {
+      "platform": "Codeforces",
+      "id": "73A",
+      "name": "The Elder Trolls IV: Oblivon",
+      "verdict": "Accepted",
+      "submissionId": 399774925,
+      "submissionUrl": "https://codeforces.com/contest/73/submission/399774925",
+      "timestamp": "2026-11-25T07:58:13.384Z"
+    },
+    "1633D": {
+      "platform": "Codeforces",
+      "id": "1633D",
+      "name": "Make Them Equal",
+      "verdict": "Accepted",
+      "submissionId": 399774965,
+      "submissionUrl": "https://codeforces.com/contest/1633/submission/399774965",
+      "timestamp": "2026-11-25T07:58:33.433Z"
+    },
+    "1512E": {
+      "platform": "Codeforces",
+      "id": "1512E",
+      "name": "Permutation by Sum",
+      "verdict": "Accepted",
+      "submissionId": 399774984,
+      "submissionUrl": "https://codeforces.com/contest/1512/submission/399774984",
+      "timestamp": "2026-11-25T07:58:45.319Z"
+    },
+    "407B": {
+      "platform": "Codeforces",
+      "id": "407B",
+      "name": "Long Path",
+      "verdict": "Accepted",
+      "submissionId": 399774997,
+      "submissionUrl": "https://codeforces.com/contest/407/submission/399774997",
+      "timestamp": "2026-11-25T07:59:13.443Z"
+    },
+    "1175C": {
+      "platform": "Codeforces",
+      "id": "1175C",
+      "name": "Electrification",
+      "verdict": "Accepted",
+      "submissionId": 399775032,
+      "submissionUrl": "https://codeforces.com/contest/1175/submission/399775032",
+      "timestamp": "2026-11-25T07:59:52.121Z"
+    },
+    "1109A": {
+      "platform": "Codeforces",
+      "id": "1109A",
+      "name": "Sasha and a Bit of Relax",
+      "verdict": "Accepted",
+      "submissionId": "399775084",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T08:00:45.270Z"
+    },
+    "534C": {
+      "platform": "Codeforces",
+      "id": "534C",
+      "name": "Polycarpus' Dice",
+      "verdict": "Accepted",
+      "submissionId": 399775150,
+      "submissionUrl": "https://codeforces.com/contest/534/submission/399775150",
+      "timestamp": "2026-11-25T08:01:19.542Z"
+    },
+    "630G": {
+      "platform": "Codeforces",
+      "id": "630G",
+      "name": "Challenge Pennants",
+      "verdict": "Accepted",
+      "submissionId": 399775184,
+      "submissionUrl": "https://codeforces.com/contest/630/submission/399775184",
+      "timestamp": "2026-11-25T08:01:39.233Z"
+    },
+    "722C": {
+      "platform": "Codeforces",
+      "id": "722C",
+      "name": "Destroying Array",
+      "verdict": "Accepted",
+      "submissionId": 399775211,
+      "submissionUrl": "https://codeforces.com/contest/722/submission/399775211",
+      "timestamp": "2026-11-25T08:01:50.597Z"
+    },
+    "253C": {
+      "platform": "Codeforces",
+      "id": "253C",
+      "name": "Text Editor",
+      "verdict": "Accepted",
+      "submissionId": 399775225,
+      "submissionUrl": "https://codeforces.com/contest/253/submission/399775225",
+      "timestamp": "2026-11-25T08:02:18.554Z"
+    },
+    "430A": {
+      "platform": "Codeforces",
+      "id": "430A",
+      "name": "Points and Segments (easy)",
+      "verdict": "Accepted",
+      "submissionId": 399775253,
+      "submissionUrl": "https://codeforces.com/contest/430/submission/399775253",
+      "timestamp": "2026-11-25T08:02:46.560Z"
+    },
+    "495B": {
+      "platform": "Codeforces",
+      "id": "495B",
+      "name": "Modular Equations",
+      "verdict": "Accepted",
+      "submissionId": 399775282,
+      "submissionUrl": "https://codeforces.com/contest/495/submission/399775282",
+      "timestamp": "2026-11-25T08:03:18.316Z"
+    },
+    "730G": {
+      "platform": "Codeforces",
+      "id": "730G",
+      "name": "Car Repair Shop",
+      "verdict": "Accepted",
+      "submissionId": 399775306,
+      "submissionUrl": "https://codeforces.com/contest/730/submission/399775306",
+      "timestamp": "2026-11-25T08:04:03.493Z"
+    },
+    "1530D": {
+      "platform": "Codeforces",
+      "id": "1530D",
+      "name": "Secret Santa",
+      "verdict": "Accepted",
+      "submissionId": "399775344",
+      "submissionUrl": null,
+      "timestamp": "2026-11-25T08:04:57.330Z"
+    },
+    "741B": {
+      "platform": "Codeforces",
+      "id": "741B",
+      "name": "Arpa's weak amphitheater and Mehrdad's valuable Hoses",
+      "verdict": "Accepted",
+      "submissionId": 399775400,
+      "submissionUrl": "https://codeforces.com/contest/741/submission/399775400",
+      "timestamp": "2026-11-25T08:05:45.658Z"
+    }
+  },
+  "allVerified": true
 }
