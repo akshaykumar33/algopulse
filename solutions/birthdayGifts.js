@@ -1,32 +1,27 @@
 const fs = require('fs');
+const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+let inputIndex = 0;
+const readLine = () => input[inputIndex++];
+const readInt = () => parseInt(readLine(), 10);
+const readIntArray = () => readLine().trim().split(/\s+/).map(Number);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
-  const out = [];
-
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const k = parseInt(input[ptr++], 10);
-    const a = [];
-    for (let i = 0; i < n; i++) a.push(BigInt(input[ptr++]));
-
-    a.sort((x, y) => (x > y ? -1 : x < y ? 1 : 0));
-
-    let sum1 = 0n;
-    let sum2 = 0n;
-    for (let i = 0; i < k; i++) {
-      sum1 += a[2 * i];
-      sum2 += a[2 * i + 1];
-    }
-    sum2 += a[2 * k];
-
-    const best = sum1 > sum2 ? sum1 : sum2;
-    out.push(best.toString());
+  const T = readInt();
+  for (let t = 0; t < T; t++) {
+    const [n, k] = readIntArray();
+    const a = readIntArray();
+    a.sort((x, y) => y - x);
+    let first = 0;
+    for (let i = 0; i < 2 * k; i += 2) first += a[i];
+    let second = 0;
+    for (let i = 1; i <= 2 * k; i += 2) second += a[i];
+    second += a[2 * k];
+    print(Math.max(first, second));
   }
-  console.log(out.join('\n'));
 }
 
 solve();
+printAll();

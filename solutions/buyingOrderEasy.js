@@ -1,24 +1,24 @@
 const fs = require('fs');
+const input = fs.readFileSync(0, 'utf-8').trim().split(/\r?\n/);
+let inputIndex = 0;
+const readLine = () => input[inputIndex++];
+const readInt = () => parseInt(readLine(), 10);
+const readIntArray = () => readLine().trim().split(/\s+/).map(Number);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
 
 function solve() {
-  const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-  if (!input || input.length === 0 || input[0] === '') return;
-  let ptr = 0;
-  const t = parseInt(input[ptr++], 10);
-  const out = [];
-
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(input[ptr++], 10);
-    const b = [];
-    for (let i = 0; i < n; i++) b.push(parseInt(input[ptr++], 10));
-
-    if (b[0] === 0 && b[n - 1] === 1) {
-      out.push(2 * n - 2);
-    } else {
-      out.push(2 * n - 1);
-    }
+  const T = readInt();
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    const b = readIntArray();
+    let c0 = 0, c1 = 0;
+    for (const v of b) { if (v === 0) c0++; else c1++; }
+    const bonus = (c0 > 0 ? c0 - 1 : 0) + (c1 > 0 ? c1 - 1 : 0);
+    print(n + bonus);
   }
-  console.log(out.join('\n'));
 }
 
 solve();
+printAll();
