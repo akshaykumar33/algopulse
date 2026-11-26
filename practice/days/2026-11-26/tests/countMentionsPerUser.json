@@ -1,0 +1,18 @@
+[
+  {
+    "input": "2\n[[\"MESSAGE\",\"10\",\"id1 id0\"],[\"OFFLINE\",\"11\",\"0\"],[\"MESSAGE\",\"71\",\"HERE\"]]",
+    "output": "[2,2]"
+  },
+  {
+    "input": "2\n[[\"MESSAGE\",\"10\",\"id1 id0\"],[\"OFFLINE\",\"11\",\"0\"],[\"MESSAGE\",\"12\",\"ALL\"]]",
+    "output": "[2,2]"
+  },
+  {
+    "input": "2\n[[\"OFFLINE\",\"10\",\"0\"],[\"MESSAGE\",\"12\",\"HERE\"]]",
+    "output": "[0,1]"
+  },
+  {
+    "input": "3\n[[\"MESSAGE\",\"2\",\"HERE\"],[\"OFFLINE\",\"2\",\"1\"],[\"OFFLINE\",\"1\",\"0\"],[\"MESSAGE\",\"1\",\"ALL\"]]",
+    "output": "[1,1,2]"
+  }
+]

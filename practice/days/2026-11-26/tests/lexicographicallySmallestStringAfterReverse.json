@@ -1,0 +1,18 @@
+[
+  {
+    "input": "\"dcab\"",
+    "output": "\"acdb\""
+  },
+  {
+    "input": "\"abba\"",
+    "output": "\"aabb\""
+  },
+  {
+    "input": "\"zxy\"",
+    "output": "\"xzy\""
+  },
+  {
+    "input": "\"a\"",
+    "output": "\"a\""
+  }
+]

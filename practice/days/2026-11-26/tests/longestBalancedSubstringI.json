@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abbac\"",
+    "output": "4"
+  },
+  {
+    "input": "\"zzabccy\"",
+    "output": "4"
+  },
+  {
+    "input": "\"aba\"",
+    "output": "2"
+  }
+]

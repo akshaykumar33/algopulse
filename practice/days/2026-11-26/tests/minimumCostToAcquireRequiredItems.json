@@ -1,0 +1,18 @@
+[
+  {
+    "input": "3\n2\n1\n3\n2",
+    "output": "3"
+  },
+  {
+    "input": "5\n4\n15\n2\n3",
+    "output": "22"
+  },
+  {
+    "input": "5\n4\n15\n0\n0",
+    "output": "0"
+  },
+  {
+    "input": "10\n10\n3\n5\n1",
+    "output": "15"
+  }
+]
