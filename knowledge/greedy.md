@@ -659,6 +659,19 @@ for (const x of arr) {
 | [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
 | [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
 | [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
+| [Alyona and Spreadsheet](https://codeforces.com/problemset/problem/777/C) | `Codeforces` | `1600` | `alyonaAndSpreadsheet.js` | Key algorithmic application from Day 2026-11-26. |
+| [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Remove Adjacent](https://codeforces.com/problemset/problem/1321/C) | `Codeforces` | `1600` | `removeAdjacent.js` | Key algorithmic application from Day 2026-11-26. |
+| [Arcology On Permafrost](https://codeforces.com/problemset/problem/2084/D) | `Codeforces` | `1600` | `arcologyOnPermafrost.js` | Key algorithmic application from Day 2026-11-26. |
+| [Geometry Horse](https://codeforces.com/problemset/problem/175/C) | `Codeforces` | `1600` | `geometryHorse.js` | Key algorithmic application from Day 2026-11-26. |
+| [Boboniu and Bit Operations](https://codeforces.com/problemset/problem/1395/C) | `Codeforces` | `1600` | `boboniuAndBitOperations.js` | Key algorithmic application from Day 2026-11-26. |
+| [Meeting on the Line](https://codeforces.com/problemset/problem/1730/B) | `Codeforces` | `1600` | `meetingOnTheLine.js` | Key algorithmic application from Day 2026-11-26. |
+| [Reverse the Rivers](https://codeforces.com/problemset/problem/2036/E) | `Codeforces` | `1600` | `reverseTheRivers.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hacker, pack your bags!](https://codeforces.com/problemset/problem/822/C) | `Codeforces` | `1600` | `hackerPackYourBags.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Walking Between Houses](https://codeforces.com/problemset/problem/1015/D) | `Codeforces` | `1600` | `walkingBetweenHouses.js` | Key algorithmic application from Day 2026-11-26. |
+| [Memory and De-Evolution](https://codeforces.com/problemset/problem/712/C) | `Codeforces` | `1600` | `memoryAndDeEvolution.js` | Key algorithmic application from Day 2026-11-26. |
+| [DZY Loves Physics](https://codeforces.com/problemset/problem/444/A) | `Codeforces` | `1600` | `dZYLovesPhysics.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

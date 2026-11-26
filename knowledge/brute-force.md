@@ -367,6 +367,15 @@ function backtrack(index, currentSum, target, arr) {
 | [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
 | [Permutation by Sum](https://codeforces.com/problemset/problem/1512/E) | `Codeforces` | `1600` | `permutationBySum.js` | Key algorithmic application from Day 2026-11-25. |
 | [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
+| [Kuroni and Impossible Calculation](https://codeforces.com/problemset/problem/1305/C) | `Codeforces` | `1600` | `kuroniAndImpossibleCalculation.js` | Key algorithmic application from Day 2026-11-26. |
+| [Remove Adjacent](https://codeforces.com/problemset/problem/1321/C) | `Codeforces` | `1600` | `removeAdjacent.js` | Key algorithmic application from Day 2026-11-26. |
+| [Binary String Copying](https://codeforces.com/problemset/problem/1849/C) | `Codeforces` | `1600` | `binaryStringCopying.js` | Key algorithmic application from Day 2026-11-26. |
+| [Arcology On Permafrost](https://codeforces.com/problemset/problem/2084/D) | `Codeforces` | `1600` | `arcologyOnPermafrost.js` | Key algorithmic application from Day 2026-11-26. |
+| [An impassioned circulation of affection](https://codeforces.com/problemset/problem/814/C) | `Codeforces` | `1600` | `anImpassionedCirculationOfAffection.js` | Key algorithmic application from Day 2026-11-26. |
+| [Boboniu and Bit Operations](https://codeforces.com/problemset/problem/1395/C) | `Codeforces` | `1600` | `boboniuAndBitOperations.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sagheer, the Hausmeister](https://codeforces.com/problemset/problem/812/B) | `Codeforces` | `1600` | `sagheerTheHausmeister.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [Thor](https://codeforces.com/problemset/problem/704/A) | `Codeforces` | `1600` | `thor.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

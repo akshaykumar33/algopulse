@@ -185,6 +185,12 @@ for (let right = 0; right < arr.length; right++) {
 | [Rudolf and k Bridges](https://codeforces.com/problemset/problem/1941/E) | `Codeforces` | `1600` | `rudolfAndKBridges.js` | Key algorithmic application from Day 2026-11-23. |
 | [Counting Kangaroos is Fun](https://codeforces.com/problemset/problem/372/A) | `Codeforces` | `1600` | `countingKangaroosIsFun.js` | Key algorithmic application from Day 2026-11-24. |
 | [DZY Loves Sequences](https://codeforces.com/problemset/problem/446/A) | `Codeforces` | `1600` | `dZYLovesSequences.js` | Key algorithmic application from Day 2026-11-25. |
+| [Alyona and Spreadsheet](https://codeforces.com/problemset/problem/777/C) | `Codeforces` | `1600` | `alyonaAndSpreadsheet.js` | Key algorithmic application from Day 2026-11-26. |
+| [An impassioned circulation of affection](https://codeforces.com/problemset/problem/814/C) | `Codeforces` | `1600` | `anImpassionedCirculationOfAffection.js` | Key algorithmic application from Day 2026-11-26. |
+| [Geometry Horse](https://codeforces.com/problemset/problem/175/C) | `Codeforces` | `1600` | `geometryHorse.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 

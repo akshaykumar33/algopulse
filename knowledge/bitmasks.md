@@ -167,6 +167,8 @@ function missingNumber(nums) {
 | [Strange Test](https://codeforces.com/problemset/problem/1632/C) | `Codeforces` | `1600` | `strangeTest.js` | Key algorithmic application from Day 2026-11-23. |
 | [Short Program](https://codeforces.com/problemset/problem/878/A) | `Codeforces` | `1600` | `shortProgram.js` | Key algorithmic application from Day 2026-11-23. |
 | [388535 (Easy Version)](https://codeforces.com/problemset/problem/1658/D1) | `Codeforces` | `1600` | `p388535EasyVersion.js` | Key algorithmic application from Day 2026-11-23. |
+| [Boboniu and Bit Operations](https://codeforces.com/problemset/problem/1395/C) | `Codeforces` | `1600` | `boboniuAndBitOperations.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sagheer, the Hausmeister](https://codeforces.com/problemset/problem/812/B) | `Codeforces` | `1600` | `sagheerTheHausmeister.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

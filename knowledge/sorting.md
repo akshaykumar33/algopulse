@@ -281,6 +281,10 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Cutting Out](https://codeforces.com/problemset/problem/1077/D) | `Codeforces` | `1600` | `cuttingOut.js` | Key algorithmic application from Day 2026-11-24. |
 | [Darius' Wisdom](https://codeforces.com/problemset/problem/2034/D) | `Codeforces` | `1600` | `dariusWisdom.js` | Key algorithmic application from Day 2026-11-24. |
 | [Points and Segments (easy)](https://codeforces.com/problemset/problem/430/A) | `Codeforces` | `1600` | `pointsAndSegmentsEasy.js` | Key algorithmic application from Day 2026-11-25. |
+| [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Skyscrapers](https://codeforces.com/problemset/problem/1137/A) | `Codeforces` | `1600` | `skyscrapers.js` | Key algorithmic application from Day 2026-11-26. |
+| [Geometry Horse](https://codeforces.com/problemset/problem/175/C) | `Codeforces` | `1600` | `geometryHorse.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hacker, pack your bags!](https://codeforces.com/problemset/problem/822/C) | `Codeforces` | `1600` | `hackerPackYourBags.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

@@ -204,6 +204,11 @@ function isPalindrome(s) {
 | [Petya and Exam](https://codeforces.com/problemset/problem/832/B) | `Codeforces` | `1600` | `petyaAndExam.js` | Key algorithmic application from Day 2026-11-25. |
 | [Hockey](https://codeforces.com/problemset/problem/95/A) | `Codeforces` | `1600` | `hockey.js` | Key algorithmic application from Day 2026-11-25. |
 | [Color with Occurrences](https://codeforces.com/problemset/problem/1714/D) | `Codeforces` | `1600` | `colorWithOccurrences.js` | Key algorithmic application from Day 2026-11-25. |
+| [Remove Adjacent](https://codeforces.com/problemset/problem/1321/C) | `Codeforces` | `1600` | `removeAdjacent.js` | Key algorithmic application from Day 2026-11-26. |
+| [Binary String Copying](https://codeforces.com/problemset/problem/1849/C) | `Codeforces` | `1600` | `binaryStringCopying.js` | Key algorithmic application from Day 2026-11-26. |
+| [An impassioned circulation of affection](https://codeforces.com/problemset/problem/814/C) | `Codeforces` | `1600` | `anImpassionedCirculationOfAffection.js` | Key algorithmic application from Day 2026-11-26. |
+| [Palindrome Pairs](https://codeforces.com/problemset/problem/1045/I) | `Codeforces` | `1600` | `palindromePairs.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

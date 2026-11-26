@@ -264,6 +264,16 @@ dp.fill(-1); // Memoization sentinel
 | [Basketball Team](https://codeforces.com/problemset/problem/107/B) | `Codeforces` | `1600` | `basketballTeam.js` | Key algorithmic application from Day 2026-11-25. |
 | [Long Path](https://codeforces.com/problemset/problem/407/B) | `Codeforces` | `1600` | `longPath.js` | Key algorithmic application from Day 2026-11-25. |
 | [Sasha and a Bit of Relax](https://codeforces.com/problemset/problem/1109/A) | `Codeforces` | `1600` | `sashaAndABitOfRelax.js` | Key algorithmic application from Day 2026-11-25. |
+| [Alyona and Spreadsheet](https://codeforces.com/problemset/problem/777/C) | `Codeforces` | `1600` | `alyonaAndSpreadsheet.js` | Key algorithmic application from Day 2026-11-26. |
+| [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Travel Card](https://codeforces.com/problemset/problem/756/B) | `Codeforces` | `1600` | `travelCard.js` | Key algorithmic application from Day 2026-11-26. |
+| [An impassioned circulation of affection](https://codeforces.com/problemset/problem/814/C) | `Codeforces` | `1600` | `anImpassionedCirculationOfAffection.js` | Key algorithmic application from Day 2026-11-26. |
+| [Boboniu and Bit Operations](https://codeforces.com/problemset/problem/1395/C) | `Codeforces` | `1600` | `boboniuAndBitOperations.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sagheer, the Hausmeister](https://codeforces.com/problemset/problem/812/B) | `Codeforces` | `1600` | `sagheerTheHausmeister.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
+| [Multicolored Marbles](https://codeforces.com/problemset/problem/209/A) | `Codeforces` | `1600` | `multicoloredMarbles.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 
