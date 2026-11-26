@@ -1,0 +1,22 @@
+[
+  {
+    "input": "3\nrivest\nshamir\nadleman\n",
+    "output": "bcdefghijklmnopqrsatuvwxyz\n"
+  },
+  {
+    "input": "10\ntourist\npetr\nwjmzbmr\nyeputons\nvepifanov\nscottwu\noooooooooooooooo\nsubscriber\nrowdark\ntankengineer\n",
+    "output": "Impossible\n"
+  },
+  {
+    "input": "10\npetr\negor\nendagorion\nfeferivan\nilovetanyaromanova\nkostka\ndmitriyh\nmaratsnowbear\nbredorjaguarturnik\ncgyforever\n",
+    "output": "aghjlnopefikdmbcqrstuvwxyz\n"
+  },
+  {
+    "input": "7\ncar\ncare\ncareful\ncarefully\nbecarefuldontforgetsomething\notherwiseyouwillbehacked\ngoodluck\n",
+    "output": "acbdefhijklmnogpqrstuvwxyz\n"
+  },
+  {
+    "input": "2\nab\na\n",
+    "output": "Impossible\n"
+  }
+]
