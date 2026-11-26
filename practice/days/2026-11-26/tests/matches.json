@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n1 1\n2 2\n1 3\n155 47\n6 4\n",
+    "output": "Ari\nAri\nAri\nAri\nRich\n"
+  }
+]

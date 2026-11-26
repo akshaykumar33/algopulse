@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\n4 5\nI::M\n9 10\nMIM_XII:M\n",
+    "output": "1\n2\n"
+  }
+]
