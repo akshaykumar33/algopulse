@@ -1,0 +1,18 @@
+[
+  {
+    "input": "10 2 15\n",
+    "output": "YES\n10 4\n"
+  },
+  {
+    "input": "10 9 45\n",
+    "output": "YES\n10 1 10 1 6 7 8 9 10\n"
+  },
+  {
+    "input": "10 9 81\n",
+    "output": "YES\n10 1 10 1 10 1 10 1 10\n"
+  },
+  {
+    "input": "10 9 82\n",
+    "output": "NO\n"
+  }
+]

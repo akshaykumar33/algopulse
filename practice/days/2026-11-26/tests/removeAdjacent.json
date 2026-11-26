@@ -1,0 +1,18 @@
+[
+  {
+    "input": "8\nbacabcab\n",
+    "output": "4\n"
+  },
+  {
+    "input": "4\nbcda\n",
+    "output": "3\n"
+  },
+  {
+    "input": "6\nabbbbb\n",
+    "output": "5\n"
+  },
+  {
+    "input": "1\nz\n",
+    "output": "0\n"
+  }
+]
