@@ -1,0 +1,22 @@
+[
+  {
+    "input": "\"ab1z9\"",
+    "output": "3"
+  },
+  {
+    "input": "\"4m7n\"",
+    "output": "2"
+  },
+  {
+    "input": "\"byby\"",
+    "output": "0"
+  },
+  {
+    "input": "\"a\"",
+    "output": "1"
+  },
+  {
+    "input": "\"az09\"",
+    "output": "0"
+  }
+]

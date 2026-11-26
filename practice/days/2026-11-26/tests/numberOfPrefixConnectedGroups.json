@@ -1,0 +1,18 @@
+[
+  {
+    "input": "[\"apple\",\"apply\",\"banana\",\"bandit\"]\n2",
+    "output": "2"
+  },
+  {
+    "input": "[\"car\",\"cat\",\"cartoon\"]\n3",
+    "output": "1"
+  },
+  {
+    "input": "[\"bat\",\"dog\",\"dog\",\"doggy\",\"bat\"]\n3",
+    "output": "2"
+  },
+  {
+    "input": "[\"a\",\"ab\",\"ac\"]\n2",
+    "output": "0"
+  }
+]
