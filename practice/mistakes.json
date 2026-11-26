@@ -2628,5 +2628,17 @@
       "codechef"
     ],
     "timestamp": "2026-11-25T08:03:01.470Z"
+  },
+  {
+    "id": "CC-FEMA2",
+    "problem": "Iron, Magnet and Wall",
+    "platform": "CodeChef",
+    "verdict": "Time Limit Exceeded",
+    "diagnosis": "The primary cause of Time Limit Exceeded is the inefficient calculation of sheets (walls) between an iron and a magnet. The inner loop iterates through 'p' from 'lo' to 'hi' to count sheets for each (iron, magnet) pair. This O(N) operation is repeated potentially O(N^2) times within a segment, leading to an overall complexity of O(N^3) per segment in the worst case, which is too slow given N up to 10^5. The 'sheetsBefore' prefix sum array is computed but not utilized correctly in the inner loop. Instead, the number of sheets between 'fi' and 'mi' can be found in O(1) time using prefix sums as sheetsBefore[hi] - sheetsBefore[lo] + (seg[lo] === ':' ? 1 : 0). Additionally, the nested loops for matching irons and magnets result in O(I * M) complexity per segment, where I and M are counts of irons and magnets. A two-pointer approach or similar optimized matching strategy would be more efficient.",
+    "rule": "For range queries or calculations over contiguous parts of a string/array, precompute prefix sums (or similar data structures) to answer queries in O(1) time instead of O(N). When matching elements from two different lists based on a condition, consider optimizing from O(N*M) to O(N+M) or O(N log N) using two pointers, sorting, or other greedy approaches, especially if the condition has a monotonic property.",
+    "tags": [
+      "codechef"
+    ],
+    "timestamp": "2026-11-26T10:55:07.702Z"
   }
 ]
