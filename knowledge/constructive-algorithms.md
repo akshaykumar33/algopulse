@@ -376,6 +376,14 @@ function constructMatrix(n, m) {
 | [Umka and a Long Flight](https://codeforces.com/problemset/problem/1811/D) | `Codeforces` | `1600` | `umkaAndALongFlight.js` | Key algorithmic application from Day 2026-11-25. |
 | [Points and Segments (easy)](https://codeforces.com/problemset/problem/430/A) | `Codeforces` | `1600` | `pointsAndSegmentsEasy.js` | Key algorithmic application from Day 2026-11-25. |
 | [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
+| [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Remove Adjacent](https://codeforces.com/problemset/problem/1321/C) | `Codeforces` | `1600` | `removeAdjacent.js` | Key algorithmic application from Day 2026-11-26. |
+| [Arcology On Permafrost](https://codeforces.com/problemset/problem/2084/D) | `Codeforces` | `1600` | `arcologyOnPermafrost.js` | Key algorithmic application from Day 2026-11-26. |
+| [k-LCM (hard version)](https://codeforces.com/problemset/problem/1497/C2) | `Codeforces` | `1600` | `kLCMHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
+| [Reverse the Rivers](https://codeforces.com/problemset/problem/2036/E) | `Codeforces` | `1600` | `reverseTheRivers.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Walking Between Houses](https://codeforces.com/problemset/problem/1015/D) | `Codeforces` | `1600` | `walkingBetweenHouses.js` | Key algorithmic application from Day 2026-11-26. |
+| [Vupsen, Pupsen and 0](https://codeforces.com/problemset/problem/1582/D) | `Codeforces` | `1600` | `vupsenPupsenAnd0.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 

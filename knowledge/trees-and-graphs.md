@@ -235,6 +235,9 @@ function dfsIterative(start, adj, n) {
 | [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
 | [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
 | [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
+| [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Socks](https://codeforces.com/problemset/problem/731/C) | `Codeforces` | `1600` | `socks.js` | Key algorithmic application from Day 2026-11-26. |
+| [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 

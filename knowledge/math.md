@@ -595,6 +595,17 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Polycarpus' Dice](https://codeforces.com/problemset/problem/534/C) | `Codeforces` | `1600` | `polycarpusDice.js` | Key algorithmic application from Day 2026-11-25. |
 | [Challenge Pennants](https://codeforces.com/problemset/problem/630/G) | `Codeforces` | `1600` | `challengePennants.js` | Key algorithmic application from Day 2026-11-25. |
 | [Secret Santa](https://codeforces.com/problemset/problem/1530/D) | `Codeforces` | `1600` | `secretSanta.js` | Key algorithmic application from Day 2026-11-25. |
+| [Kuroni and Impossible Calculation](https://codeforces.com/problemset/problem/1305/C) | `Codeforces` | `1600` | `kuroniAndImpossibleCalculation.js` | Key algorithmic application from Day 2026-11-26. |
+| [Celex Update](https://codeforces.com/problemset/problem/1358/C) | `Codeforces` | `1600` | `celexUpdate.js` | Key algorithmic application from Day 2026-11-26. |
+| [Arcology On Permafrost](https://codeforces.com/problemset/problem/2084/D) | `Codeforces` | `1600` | `arcologyOnPermafrost.js` | Key algorithmic application from Day 2026-11-26. |
+| [Decode](https://codeforces.com/problemset/problem/1996/E) | `Codeforces` | `1600` | `decode.js` | Key algorithmic application from Day 2026-11-26. |
+| [Meeting on the Line](https://codeforces.com/problemset/problem/1730/B) | `Codeforces` | `1600` | `meetingOnTheLine.js` | Key algorithmic application from Day 2026-11-26. |
+| [k-LCM (hard version)](https://codeforces.com/problemset/problem/1497/C2) | `Codeforces` | `1600` | `kLCMHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [Memory and De-Evolution](https://codeforces.com/problemset/problem/712/C) | `Codeforces` | `1600` | `memoryAndDeEvolution.js` | Key algorithmic application from Day 2026-11-26. |
+| [Vupsen, Pupsen and 0](https://codeforces.com/problemset/problem/1582/D) | `Codeforces` | `1600` | `vupsenPupsenAnd0.js` | Key algorithmic application from Day 2026-11-26. |
+| [DZY Loves Physics](https://codeforces.com/problemset/problem/444/A) | `Codeforces` | `1600` | `dZYLovesPhysics.js` | Key algorithmic application from Day 2026-11-26. |
+| [Multicolored Marbles](https://codeforces.com/problemset/problem/209/A) | `Codeforces` | `1600` | `multicoloredMarbles.js` | Key algorithmic application from Day 2026-11-26. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

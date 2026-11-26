@@ -1,0 +1,163 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-2998",
+    "name": "Minimum Number of Operations to Make X and Y Equal",
+    "file": "minimumNumberOfOperationsToMakeXAndYEqual",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-26T10:39:09.634Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2998",
+      "name": "Minimum Number of Operations to Make X and Y Equal",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-number-of-operations-to-make-x-and-y-equal/",
+      "file": "minimumNumberOfOperationsToMakeXAndYEqual",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3218",
+    "name": "Minimum Cost for Cutting Cake I",
+    "file": "minimumCostForCuttingCakeI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-26T10:39:40.776Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3218",
+      "name": "Minimum Cost for Cutting Cake I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-cost-for-cutting-cake-i/",
+      "file": "minimumCostForCuttingCakeI",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3914",
+    "name": "Minimum Operations to Make Array Non Decreasing",
+    "file": "minimumOperationsToMakeArrayNonDecreasing",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-26T10:41:50.138Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3914",
+      "name": "Minimum Operations to Make Array Non Decreasing",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-make-array-non-decreasing/",
+      "file": "minimumOperationsToMakeArrayNonDecreasing",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3969",
+    "name": "Valid Subarrays With Matching Sum Digits I",
+    "file": "validSubarraysWithMatchingSumDigitsI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-26T10:43:36.200Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3969",
+      "name": "Valid Subarrays With Matching Sum Digits I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/valid-subarrays-with-matching-sum-digits-i/",
+      "file": "validSubarraysWithMatchingSumDigitsI",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3713",
+    "name": "Longest Balanced Substring I",
+    "file": "longestBalancedSubstringI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-26T10:43:46.531Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3713",
+      "name": "Longest Balanced Substring I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/longest-balanced-substring-i/",
+      "file": "longestBalancedSubstringI",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3635",
+    "name": "Earliest Finish Time for Land and Water Rides II",
+    "file": "earliestFinishTimeForLandAndWaterRidesII",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-26T10:44:51.697Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3635",
+      "name": "Earliest Finish Time for Land and Water Rides II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-ii/",
+      "file": "earliestFinishTimeForLandAndWaterRidesII",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3796",
+    "name": "Find Maximum Value in a Constrained Sequence",
+    "file": "findMaximumValueInAConstrainedSequence",
+    "tier": "medium",
+    "initialVerdict": "NO_SOLUTION_FILE",
+    "enqueuedAt": "2026-11-26T10:47:40.276Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3796",
+      "name": "Find Maximum Value in a Constrained Sequence",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/",
+      "file": "findMaximumValueInAConstrainedSequence",
+      "template": "templates/leetcode.js"
+    }
+  }
+]

@@ -253,6 +253,15 @@ function lowerBound(arr, target) {
 | [Cutting Out](https://codeforces.com/problemset/problem/1077/D) | `Codeforces` | `1600` | `cuttingOut.js` | Key algorithmic application from Day 2026-11-24. |
 | [Colored Portals](https://codeforces.com/problemset/problem/2004/D) | `Codeforces` | `1600` | `coloredPortals.js` | Key algorithmic application from Day 2026-11-25. |
 | [Electrification](https://codeforces.com/problemset/problem/1175/C) | `Codeforces` | `1600` | `electrification.js` | Key algorithmic application from Day 2026-11-25. |
+| [Alyona and Spreadsheet](https://codeforces.com/problemset/problem/777/C) | `Codeforces` | `1600` | `alyonaAndSpreadsheet.js` | Key algorithmic application from Day 2026-11-26. |
+| [Travel Card](https://codeforces.com/problemset/problem/756/B) | `Codeforces` | `1600` | `travelCard.js` | Key algorithmic application from Day 2026-11-26. |
+| [Binary String Copying](https://codeforces.com/problemset/problem/1849/C) | `Codeforces` | `1600` | `binaryStringCopying.js` | Key algorithmic application from Day 2026-11-26. |
+| [Arcology On Permafrost](https://codeforces.com/problemset/problem/2084/D) | `Codeforces` | `1600` | `arcologyOnPermafrost.js` | Key algorithmic application from Day 2026-11-26. |
+| [Meeting on the Line](https://codeforces.com/problemset/problem/1730/B) | `Codeforces` | `1600` | `meetingOnTheLine.js` | Key algorithmic application from Day 2026-11-26. |
+| [Reverse the Rivers](https://codeforces.com/problemset/problem/2036/E) | `Codeforces` | `1600` | `reverseTheRivers.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hacker, pack your bags!](https://codeforces.com/problemset/problem/822/C) | `Codeforces` | `1600` | `hackerPackYourBags.js` | Key algorithmic application from Day 2026-11-26. |
+| [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 

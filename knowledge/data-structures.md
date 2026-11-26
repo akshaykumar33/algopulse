@@ -250,6 +250,12 @@ class MinHeap {
 | [Cat Party (Hard Edition)](https://codeforces.com/problemset/problem/1163/B2) | `Codeforces` | `1600` | `catPartyHardEdition.js` | Key algorithmic application from Day 2026-11-25. |
 | [Destroying Array](https://codeforces.com/problemset/problem/722/C) | `Codeforces` | `1600` | `destroyingArray.js` | Key algorithmic application from Day 2026-11-25. |
 | [Text Editor](https://codeforces.com/problemset/problem/253/C) | `Codeforces` | `1600` | `textEditor.js` | Key algorithmic application from Day 2026-11-25. |
+| [Alyona and Spreadsheet](https://codeforces.com/problemset/problem/777/C) | `Codeforces` | `1600` | `alyonaAndSpreadsheet.js` | Key algorithmic application from Day 2026-11-26. |
+| [Binary String Copying](https://codeforces.com/problemset/problem/1849/C) | `Codeforces` | `1600` | `binaryStringCopying.js` | Key algorithmic application from Day 2026-11-26. |
+| [Decode](https://codeforces.com/problemset/problem/1996/E) | `Codeforces` | `1600` | `decode.js` | Key algorithmic application from Day 2026-11-26. |
+| [Reverse the Rivers](https://codeforces.com/problemset/problem/2036/E) | `Codeforces` | `1600` | `reverseTheRivers.js` | Key algorithmic application from Day 2026-11-26. |
+| [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
+| [Thor](https://codeforces.com/problemset/problem/704/A) | `Codeforces` | `1600` | `thor.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 

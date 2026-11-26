@@ -226,6 +226,7 @@ function sieve(maxN) {
 | [Taxes](https://codeforces.com/problemset/problem/735/D) | `Codeforces` | `1600` | `taxes.js` | Key algorithmic application from Day 2026-11-25. |
 | [Final Countdown](https://codeforces.com/problemset/problem/1932/E) | `Codeforces` | `1600` | `finalCountdown.js` | Key algorithmic application from Day 2026-11-25. |
 | [LCM Challenge](https://codeforces.com/problemset/problem/235/A) | `Codeforces` | `1600` | `lCMChallenge.js` | Key algorithmic application from Day 2026-11-25. |
+| [Kuroni and Impossible Calculation](https://codeforces.com/problemset/problem/1305/C) | `Codeforces` | `1600` | `kuroniAndImpossibleCalculation.js` | Key algorithmic application from Day 2026-11-26. |
 
 ---
 
