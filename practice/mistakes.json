@@ -2640,5 +2640,17 @@
       "codechef"
     ],
     "timestamp": "2026-11-26T10:55:07.702Z"
+  },
+  {
+    "id": "LC-3926",
+    "problem": "Count Valid Word Occurrences",
+    "platform": "LeetCode",
+    "verdict": "Runtime Error",
+    "diagnosis": "The runtime error occurs when `words` or `pattern` might be `null`, `undefined`, or non-iterable types in the LeetCode test environment, or if `pattern` is an empty string while `words` contains non-empty strings. The original code assumes `words` and `pattern` are always valid arrays/strings. The reference solution for LC-3926 `if w.length === pattern.length { ... }` implies `pattern` is a string. The failure might be due to `pattern` being `undefined` or `null` in some test cases, leading to `pattern.length` throwing an error. The given problem details `words` as an array of strings and `pattern` as a string.",
+    "rule": "Always handle edge cases for input types and values (e.g., null, undefined, empty arrays/strings) for all parameters, especially when accessing properties like `length` or iterating.",
+    "tags": [
+      "algorithms"
+    ],
+    "timestamp": "2026-11-27T13:05:12.935Z"
   }
 ]
