@@ -606,6 +606,17 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Vupsen, Pupsen and 0](https://codeforces.com/problemset/problem/1582/D) | `Codeforces` | `1600` | `vupsenPupsenAnd0.js` | Key algorithmic application from Day 2026-11-26. |
 | [DZY Loves Physics](https://codeforces.com/problemset/problem/444/A) | `Codeforces` | `1600` | `dZYLovesPhysics.js` | Key algorithmic application from Day 2026-11-26. |
 | [Multicolored Marbles](https://codeforces.com/problemset/problem/209/A) | `Codeforces` | `1600` | `multicoloredMarbles.js` | Key algorithmic application from Day 2026-11-26. |
+| [Interesting Sequence](https://codeforces.com/problemset/problem/1775/C) | `Codeforces` | `1600` | `interestingSequence.js` | Key algorithmic application from Day 2026-11-27. |
+| [Alternative Thinking](https://codeforces.com/problemset/problem/603/A) | `Codeforces` | `1600` | `alternativeThinking.js` | Key algorithmic application from Day 2026-11-27. |
+| [Divisible by Seven](https://codeforces.com/problemset/problem/375/A) | `Codeforces` | `1600` | `divisibleBySeven.js` | Key algorithmic application from Day 2026-11-27. |
+| [Primes or Palindromes?](https://codeforces.com/problemset/problem/568/A) | `Codeforces` | `1600` | `primesOrPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Bear and Blocks](https://codeforces.com/problemset/problem/573/B) | `Codeforces` | `1600` | `bearAndBlocks.js` | Key algorithmic application from Day 2026-11-27. |
+| [Good Subarrays](https://codeforces.com/problemset/problem/1398/C) | `Codeforces` | `1600` | `goodSubarrays.js` | Key algorithmic application from Day 2026-11-27. |
+| [Making Anti-Palindromes](https://codeforces.com/problemset/problem/1822/E) | `Codeforces` | `1600` | `makingAntiPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Yet Another Counting Problem](https://codeforces.com/problemset/problem/1342/C) | `Codeforces` | `1600` | `yetAnotherCountingProblem.js` | Key algorithmic application from Day 2026-11-27. |
+| [Partitioning the Array](https://codeforces.com/problemset/problem/1920/C) | `Codeforces` | `1600` | `partitioningTheArray.js` | Key algorithmic application from Day 2026-11-27. |
+| [Hilbert's Hotel](https://codeforces.com/problemset/problem/1344/A) | `Codeforces` | `1600` | `hilbertSHotel.js` | Key algorithmic application from Day 2026-11-27. |
+| [Tourist Problem](https://codeforces.com/problemset/problem/340/C) | `Codeforces` | `1600` | `touristProblem.js` | Key algorithmic application from Day 2026-11-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

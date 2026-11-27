@@ -238,6 +238,8 @@ function dfsIterative(start, adj, n) {
 | [Decorate Apple Tree](https://codeforces.com/problemset/problem/1056/D) | `Codeforces` | `1600` | `decorateAppleTree.js` | Key algorithmic application from Day 2026-11-26. |
 | [Socks](https://codeforces.com/problemset/problem/731/C) | `Codeforces` | `1600` | `socks.js` | Key algorithmic application from Day 2026-11-26. |
 | [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
+| [Minimal Height Tree](https://codeforces.com/problemset/problem/1437/D) | `Codeforces` | `1600` | `minimalHeightTree.js` | Key algorithmic application from Day 2026-11-27. |
+| [Lakes in Berland](https://codeforces.com/problemset/problem/723/D) | `Codeforces` | `1600` | `lakesInBerland.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 

@@ -285,6 +285,8 @@ uintArr.sort(); // [1, 2, 5, 10] - unlike regular Array.sort()!
 | [Skyscrapers](https://codeforces.com/problemset/problem/1137/A) | `Codeforces` | `1600` | `skyscrapers.js` | Key algorithmic application from Day 2026-11-26. |
 | [Geometry Horse](https://codeforces.com/problemset/problem/175/C) | `Codeforces` | `1600` | `geometryHorse.js` | Key algorithmic application from Day 2026-11-26. |
 | [Hacker, pack your bags!](https://codeforces.com/problemset/problem/822/C) | `Codeforces` | `1600` | `hackerPackYourBags.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hilbert's Hotel](https://codeforces.com/problemset/problem/1344/A) | `Codeforces` | `1600` | `hilbertSHotel.js` | Key algorithmic application from Day 2026-11-27. |
+| [Playlist](https://codeforces.com/problemset/problem/1140/C) | `Codeforces` | `1600` | `playlist.js` | Key algorithmic application from Day 2026-11-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

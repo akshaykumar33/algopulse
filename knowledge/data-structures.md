@@ -256,6 +256,12 @@ class MinHeap {
 | [Reverse the Rivers](https://codeforces.com/problemset/problem/2036/E) | `Codeforces` | `1600` | `reverseTheRivers.js` | Key algorithmic application from Day 2026-11-26. |
 | [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
 | [Thor](https://codeforces.com/problemset/problem/704/A) | `Codeforces` | `1600` | `thor.js` | Key algorithmic application from Day 2026-11-26. |
+| [Least Prefix Sum](https://codeforces.com/problemset/problem/1779/C) | `Codeforces` | `1600` | `leastPrefixSum.js` | Key algorithmic application from Day 2026-11-27. |
+| [Bear and Blocks](https://codeforces.com/problemset/problem/573/B) | `Codeforces` | `1600` | `bearAndBlocks.js` | Key algorithmic application from Day 2026-11-27. |
+| [Good Subarrays](https://codeforces.com/problemset/problem/1398/C) | `Codeforces` | `1600` | `goodSubarrays.js` | Key algorithmic application from Day 2026-11-27. |
+| [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
+| [Playlist](https://codeforces.com/problemset/problem/1140/C) | `Codeforces` | `1600` | `playlist.js` | Key algorithmic application from Day 2026-11-27. |
+| [Distinct Characters Queries](https://codeforces.com/problemset/problem/1234/D) | `Codeforces` | `1600` | `distinctCharactersQueries.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 

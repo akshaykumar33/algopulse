@@ -209,6 +209,9 @@ function isPalindrome(s) {
 | [An impassioned circulation of affection](https://codeforces.com/problemset/problem/814/C) | `Codeforces` | `1600` | `anImpassionedCirculationOfAffection.js` | Key algorithmic application from Day 2026-11-26. |
 | [Palindrome Pairs](https://codeforces.com/problemset/problem/1045/I) | `Codeforces` | `1600` | `palindromePairs.js` | Key algorithmic application from Day 2026-11-26. |
 | [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
+| [Hard problem](https://codeforces.com/problemset/problem/706/C) | `Codeforces` | `1600` | `hardProblem.js` | Key algorithmic application from Day 2026-11-27. |
+| [Making Anti-Palindromes](https://codeforces.com/problemset/problem/1822/E) | `Codeforces` | `1600` | `makingAntiPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Bill Total Value](https://codeforces.com/problemset/problem/727/B) | `Codeforces` | `1600` | `billTotalValue.js` | Key algorithmic application from Day 2026-11-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

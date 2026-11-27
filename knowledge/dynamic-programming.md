@@ -274,6 +274,13 @@ dp.fill(-1); // Memoization sentinel
 | [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
 | [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
 | [Multicolored Marbles](https://codeforces.com/problemset/problem/209/A) | `Codeforces` | `1600` | `multicoloredMarbles.js` | Key algorithmic application from Day 2026-11-26. |
+| [Alternative Thinking](https://codeforces.com/problemset/problem/603/A) | `Codeforces` | `1600` | `alternativeThinking.js` | Key algorithmic application from Day 2026-11-27. |
+| [Sending a Sequence Over the Network](https://codeforces.com/problemset/problem/1741/E) | `Codeforces` | `1600` | `sendingASequenceOverTheNetwork.js` | Key algorithmic application from Day 2026-11-27. |
+| [Bear and Blocks](https://codeforces.com/problemset/problem/573/B) | `Codeforces` | `1600` | `bearAndBlocks.js` | Key algorithmic application from Day 2026-11-27. |
+| [Good Subarrays](https://codeforces.com/problemset/problem/1398/C) | `Codeforces` | `1600` | `goodSubarrays.js` | Key algorithmic application from Day 2026-11-27. |
+| [Party Lemonade](https://codeforces.com/problemset/problem/913/C) | `Codeforces` | `1600` | `partyLemonade.js` | Key algorithmic application from Day 2026-11-27. |
+| [Hard problem](https://codeforces.com/problemset/problem/706/C) | `Codeforces` | `1600` | `hardProblem.js` | Key algorithmic application from Day 2026-11-27. |
+| [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 

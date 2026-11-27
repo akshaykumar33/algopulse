@@ -384,6 +384,8 @@ function constructMatrix(n, m) {
 | [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
 | [Walking Between Houses](https://codeforces.com/problemset/problem/1015/D) | `Codeforces` | `1600` | `walkingBetweenHouses.js` | Key algorithmic application from Day 2026-11-26. |
 | [Vupsen, Pupsen and 0](https://codeforces.com/problemset/problem/1582/D) | `Codeforces` | `1600` | `vupsenPupsenAnd0.js` | Key algorithmic application from Day 2026-11-26. |
+| [Matrix and Shifts](https://codeforces.com/problemset/problem/1660/E) | `Codeforces` | `1600` | `matrixAndShifts.js` | Key algorithmic application from Day 2026-11-27. |
+| [Fish Weight](https://codeforces.com/problemset/problem/297/B) | `Codeforces` | `1600` | `fishWeight.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 

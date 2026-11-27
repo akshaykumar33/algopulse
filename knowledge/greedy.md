@@ -672,6 +672,17 @@ for (const x of arr) {
 | [Walking Between Houses](https://codeforces.com/problemset/problem/1015/D) | `Codeforces` | `1600` | `walkingBetweenHouses.js` | Key algorithmic application from Day 2026-11-26. |
 | [Memory and De-Evolution](https://codeforces.com/problemset/problem/712/C) | `Codeforces` | `1600` | `memoryAndDeEvolution.js` | Key algorithmic application from Day 2026-11-26. |
 | [DZY Loves Physics](https://codeforces.com/problemset/problem/444/A) | `Codeforces` | `1600` | `dZYLovesPhysics.js` | Key algorithmic application from Day 2026-11-26. |
+| [Secrets](https://codeforces.com/problemset/problem/333/A) | `Codeforces` | `1600` | `secrets.js` | Key algorithmic application from Day 2026-11-27. |
+| [Least Prefix Sum](https://codeforces.com/problemset/problem/1779/C) | `Codeforces` | `1600` | `leastPrefixSum.js` | Key algorithmic application from Day 2026-11-27. |
+| [Matrix and Shifts](https://codeforces.com/problemset/problem/1660/E) | `Codeforces` | `1600` | `matrixAndShifts.js` | Key algorithmic application from Day 2026-11-27. |
+| [Alternative Thinking](https://codeforces.com/problemset/problem/603/A) | `Codeforces` | `1600` | `alternativeThinking.js` | Key algorithmic application from Day 2026-11-27. |
+| [Minimal Height Tree](https://codeforces.com/problemset/problem/1437/D) | `Codeforces` | `1600` | `minimalHeightTree.js` | Key algorithmic application from Day 2026-11-27. |
+| [Load Testing](https://codeforces.com/problemset/problem/847/H) | `Codeforces` | `1600` | `loadTesting.js` | Key algorithmic application from Day 2026-11-27. |
+| [Fish Weight](https://codeforces.com/problemset/problem/297/B) | `Codeforces` | `1600` | `fishWeight.js` | Key algorithmic application from Day 2026-11-27. |
+| [Lakes in Berland](https://codeforces.com/problemset/problem/723/D) | `Codeforces` | `1600` | `lakesInBerland.js` | Key algorithmic application from Day 2026-11-27. |
+| [Beaver's Calculator 1.0](https://codeforces.com/problemset/problem/207/A1) | `Codeforces` | `1600` | `beaverSCalculator10.js` | Key algorithmic application from Day 2026-11-27. |
+| [Party Lemonade](https://codeforces.com/problemset/problem/913/C) | `Codeforces` | `1600` | `partyLemonade.js` | Key algorithmic application from Day 2026-11-27. |
+| [Making Anti-Palindromes](https://codeforces.com/problemset/problem/1822/E) | `Codeforces` | `1600` | `makingAntiPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

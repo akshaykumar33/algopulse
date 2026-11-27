@@ -376,6 +376,11 @@ function backtrack(index, currentSum, target, arr) {
 | [Sagheer, the Hausmeister](https://codeforces.com/problemset/problem/812/B) | `Codeforces` | `1600` | `sagheerTheHausmeister.js` | Key algorithmic application from Day 2026-11-26. |
 | [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
 | [Thor](https://codeforces.com/problemset/problem/704/A) | `Codeforces` | `1600` | `thor.js` | Key algorithmic application from Day 2026-11-26. |
+| [Matrix and Shifts](https://codeforces.com/problemset/problem/1660/E) | `Codeforces` | `1600` | `matrixAndShifts.js` | Key algorithmic application from Day 2026-11-27. |
+| [Primes or Palindromes?](https://codeforces.com/problemset/problem/568/A) | `Codeforces` | `1600` | `primesOrPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Partitioning the Array](https://codeforces.com/problemset/problem/1920/C) | `Codeforces` | `1600` | `partitioningTheArray.js` | Key algorithmic application from Day 2026-11-27. |
+| [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
+| [Playlist](https://codeforces.com/problemset/problem/1140/C) | `Codeforces` | `1600` | `playlist.js` | Key algorithmic application from Day 2026-11-27. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
