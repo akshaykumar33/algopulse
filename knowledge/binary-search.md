@@ -262,6 +262,9 @@ function lowerBound(arr, target) {
 | [Hacker, pack your bags!](https://codeforces.com/problemset/problem/822/C) | `Codeforces` | `1600` | `hackerPackYourBags.js` | Key algorithmic application from Day 2026-11-26. |
 | [Another Problem on Strings](https://codeforces.com/problemset/problem/165/C) | `Codeforces` | `1600` | `anotherProblemOnStrings.js` | Key algorithmic application from Day 2026-11-26. |
 | [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
+| [Alena And The Heater](https://codeforces.com/problemset/problem/940/D) | `Codeforces` | `1600` | `alenaAndTheHeater.js` | Key algorithmic application from Day 2026-11-27. |
+| [Bear and Blocks](https://codeforces.com/problemset/problem/573/B) | `Codeforces` | `1600` | `bearAndBlocks.js` | Key algorithmic application from Day 2026-11-27. |
+| [Primes on Interval](https://codeforces.com/problemset/problem/237/C) | `Codeforces` | `1600` | `primesOnInterval.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 

@@ -227,6 +227,12 @@ function sieve(maxN) {
 | [Final Countdown](https://codeforces.com/problemset/problem/1932/E) | `Codeforces` | `1600` | `finalCountdown.js` | Key algorithmic application from Day 2026-11-25. |
 | [LCM Challenge](https://codeforces.com/problemset/problem/235/A) | `Codeforces` | `1600` | `lCMChallenge.js` | Key algorithmic application from Day 2026-11-25. |
 | [Kuroni and Impossible Calculation](https://codeforces.com/problemset/problem/1305/C) | `Codeforces` | `1600` | `kuroniAndImpossibleCalculation.js` | Key algorithmic application from Day 2026-11-26. |
+| [Divisible by Seven](https://codeforces.com/problemset/problem/375/A) | `Codeforces` | `1600` | `divisibleBySeven.js` | Key algorithmic application from Day 2026-11-27. |
+| [Primes or Palindromes?](https://codeforces.com/problemset/problem/568/A) | `Codeforces` | `1600` | `primesOrPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Primes on Interval](https://codeforces.com/problemset/problem/237/C) | `Codeforces` | `1600` | `primesOnInterval.js` | Key algorithmic application from Day 2026-11-27. |
+| [Yet Another Counting Problem](https://codeforces.com/problemset/problem/1342/C) | `Codeforces` | `1600` | `yetAnotherCountingProblem.js` | Key algorithmic application from Day 2026-11-27. |
+| [Partitioning the Array](https://codeforces.com/problemset/problem/1920/C) | `Codeforces` | `1600` | `partitioningTheArray.js` | Key algorithmic application from Day 2026-11-27. |
+| [Hilbert's Hotel](https://codeforces.com/problemset/problem/1344/A) | `Codeforces` | `1600` | `hilbertSHotel.js` | Key algorithmic application from Day 2026-11-27. |
 
 ---
 
