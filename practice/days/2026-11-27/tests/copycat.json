@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nhello\nworld\n",
+    "output": "hello\nworld\n"
+  }
+]
