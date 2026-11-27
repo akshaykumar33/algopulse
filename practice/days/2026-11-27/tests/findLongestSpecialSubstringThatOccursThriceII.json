@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aaaa\"\n",
+    "output": "2"
+  },
+  {
+    "input": "\"abcdef\"\n",
+    "output": "-1"
+  },
+  {
+    "input": "\"abcaba\"\n",
+    "output": "1"
+  }
+]
