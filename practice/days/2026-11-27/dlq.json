@@ -319,7 +319,7 @@
     "file": "greedIslandBomber",
     "tier": "hard",
     "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-27T13:18:41.218Z",
+    "enqueuedAt": "2026-11-27T13:21:30.800Z",
     "attempts": 1,
     "status": "HALTED_UNRESOLVED",
     "problem": {
@@ -345,7 +345,7 @@
     "initialVerdict": "RUNTIME_ERROR",
     "enqueuedAt": "2026-11-27T13:22:18.206Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "207A1",
@@ -357,7 +357,8 @@
       "url": "https://codeforces.com/problemset/problem/207/A1",
       "file": "beaverSCalculator10",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Pending"
   },
   {
     "platform": "CodeChef",
@@ -366,7 +367,7 @@
     "file": "digitOperation",
     "tier": "hard",
     "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-27T13:19:45.596Z",
+    "enqueuedAt": "2026-11-27T13:23:14.495Z",
     "attempts": 1,
     "status": "HALTED_UNRESOLVED",
     "problem": {
@@ -390,7 +391,7 @@
     "file": "crossingBlocks",
     "tier": "hard",
     "initialVerdict": "Wrong Answer",
-    "enqueuedAt": "2026-11-27T13:21:00.245Z",
+    "enqueuedAt": "2026-11-27T13:24:30.516Z",
     "attempts": 1,
     "status": "HALTED_UNRESOLVED",
     "problem": {
@@ -464,7 +465,7 @@
     "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal",
     "enqueuedAt": "2026-11-27T13:27:28.229Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3084",
@@ -476,7 +477,8 @@
       "url": "https://leetcode.com/problems/count-substrings-starting-and-ending-with-given-character/",
       "file": "countSubstringsStartingAndEndingWithGivenCharacter",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal"
   },
   {
     "platform": "CodeChef",
@@ -559,7 +561,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:30:46.851Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-GENARSEQ",
@@ -571,7 +573,8 @@
       "url": "https://www.codechef.com/problems/GENARSEQ",
       "file": "generalizedArithmeticProgressionFreeSequence",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "LeetCode",
@@ -582,7 +585,7 @@
     "initialVerdict": "Time Limit Exceeded",
     "enqueuedAt": "2026-11-27T13:30:52.880Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3942",
@@ -594,7 +597,8 @@
       "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
       "file": "minimumOperationsToSortAPermutation",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Time Limit Exceeded"
   },
   {
     "platform": "LeetCode",
@@ -605,7 +609,7 @@
     "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
     "enqueuedAt": "2026-11-27T13:31:48.228Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3975",
@@ -617,7 +621,8 @@
       "url": "https://leetcode.com/problems/filter-occupied-intervals/",
       "file": "filterOccupiedIntervals",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "CodeChef",
@@ -628,7 +633,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:31:57.112Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-CRCKT",
@@ -640,7 +645,8 @@
       "url": "https://www.codechef.com/problems/CRCKT",
       "file": "specialGame",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "CodeChef",
@@ -651,7 +657,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:33:09.983Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-PONEG",
@@ -663,7 +669,8 @@
       "url": "https://www.codechef.com/problems/PONEG",
       "file": "positiveNegative",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "LeetCode",
@@ -674,7 +681,7 @@
     "initialVerdict": "Runtime Error",
     "enqueuedAt": "2026-11-27T13:33:47.804Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3593",
@@ -686,7 +693,8 @@
       "url": "https://leetcode.com/problems/minimum-increments-to-equalize-leaf-paths/",
       "file": "minimumIncrementsToEqualizeLeafPaths",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Runtime Error"
   },
   {
     "platform": "CodeChef",
@@ -697,7 +705,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:35:19.641Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-CHEFBRO",
@@ -709,7 +717,8 @@
       "url": "https://www.codechef.com/problems/CHEFBRO",
       "file": "youngerBrother",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "LeetCode",
@@ -720,7 +729,7 @@
     "initialVerdict": "Time Limit Exceeded",
     "enqueuedAt": "2026-11-27T13:36:15.977Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3623",
@@ -732,7 +741,8 @@
       "url": "https://leetcode.com/problems/count-number-of-trapezoids-i/",
       "file": "countNumberOfTrapezoidsI",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Time Limit Exceeded"
   },
   {
     "platform": "LeetCode",
@@ -743,7 +753,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:38:23.393Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3788",
@@ -755,7 +765,8 @@
       "url": "https://leetcode.com/problems/maximum-score-of-a-split/",
       "file": "maximumScoreOfASplit",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "CodeChef",
@@ -766,7 +777,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:39:13.661Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-MAKEDISTK",
@@ -778,7 +789,8 @@
       "url": "https://www.codechef.com/problems/MAKEDISTK",
       "file": "makeDistinct",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "LeetCode",
@@ -789,7 +801,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:39:35.980Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3828",
@@ -801,7 +813,8 @@
       "url": "https://leetcode.com/problems/final-element-after-subarray-deletions/",
       "file": "finalElementAfterSubarrayDeletions",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   },
   {
     "platform": "Codeforces",
@@ -812,7 +825,7 @@
     "initialVerdict": "Wrong answer on test 4",
     "enqueuedAt": "2026-11-27T13:41:10.242Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1342C",
@@ -825,7 +838,8 @@
       "url": "https://codeforces.com/problemset/problem/1342/C",
       "file": "yetAnotherCountingProblem",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Pending"
   },
   {
     "platform": "LeetCode",
@@ -836,7 +850,7 @@
     "initialVerdict": "Runtime Error",
     "enqueuedAt": "2026-11-27T13:42:41.807Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3987",
@@ -848,7 +862,8 @@
       "url": "https://leetcode.com/problems/minimum-total-cost-to-process-all-elements/",
       "file": "minimumTotalCostToProcessAllElements",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "Runtime Error"
   },
   {
     "platform": "LeetCode",
@@ -859,7 +874,7 @@
     "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
     "enqueuedAt": "2026-11-27T13:43:34.622Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "LeetCode",
       "id": "LC-3346",
@@ -871,7 +886,8 @@
       "url": "https://leetcode.com/problems/maximum-frequency-of-an-element-after-performing-operations-i/",
       "file": "maximumFrequencyOfAnElementAfterPerformingOperationsI",
       "template": "templates/leetcode.js"
-    }
+    },
+    "finalVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}"
   },
   {
     "platform": "Codeforces",
@@ -882,7 +898,7 @@
     "initialVerdict": "Wrong answer on test 1",
     "enqueuedAt": "2026-11-27T13:44:26.220Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "Codeforces",
       "id": "1677A",
@@ -896,7 +912,8 @@
       "url": "https://codeforces.com/problemset/problem/1677/A",
       "file": "tokitsukazeAndStrangeInequality",
       "template": "templates/codeforces.js"
-    }
+    },
+    "finalVerdict": "Wrong answer on test 1"
   },
   {
     "platform": "CodeChef",
@@ -907,7 +924,7 @@
     "initialVerdict": "Wrong Answer",
     "enqueuedAt": "2026-11-27T13:48:23.437Z",
     "attempts": 1,
-    "status": "PENDING_RETRY",
+    "status": "HALTED_UNRESOLVED",
     "problem": {
       "platform": "CodeChef",
       "id": "CC-APP_BAL_SCA",
@@ -919,6 +936,7 @@
       "url": "https://www.codechef.com/problems/APP_BAL_SCA",
       "file": "crushedApplesAndABalanceScale",
       "template": "templates/codechef.js"
-    }
+    },
+    "finalVerdict": "Wrong Answer"
   }
 ]
