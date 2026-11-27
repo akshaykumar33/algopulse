@@ -1,0 +1,924 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-3085",
+    "name": "Minimum Deletions to Make String K-Special",
+    "file": "minimumDeletionsToMakeStringKSpecial",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-27T13:03:58.126Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3085",
+      "name": "Minimum Deletions to Make String K-Special",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/",
+      "file": "minimumDeletionsToMakeStringKSpecial",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-27T13:44:34.026Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-BIS",
+    "name": "Binary Substring",
+    "file": "binarySubstring",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:04:26.217Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-BIS",
+      "name": "Binary Substring",
+      "rating": 1785,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/BIS",
+      "file": "binarySubstring",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3926",
+    "name": "Count Valid Word Occurrences",
+    "file": "countValidWordOccurrences",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-27T13:06:12.991Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3926",
+      "name": "Count Valid Word Occurrences",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-valid-word-occurrences/",
+      "file": "countValidWordOccurrences",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MODSUB",
+    "name": "Modify and Subtract",
+    "file": "modifyAndSubtract",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:07:00.799Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MODSUB",
+      "name": "Modify and Subtract",
+      "rating": 1757,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MODSUB",
+      "file": "modifyAndSubtract",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3905",
+    "name": "Multi Source Flood Fill",
+    "file": "multiSourceFloodFill",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-27T13:07:22.567Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3905",
+      "name": "Multi Source Flood Fill",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/multi-source-flood-fill/",
+      "file": "multiSourceFloodFill",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3776",
+    "name": "Minimum Moves to Balance Circular Array",
+    "file": "minimumMovesToBalanceCircularArray",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal",
+    "enqueuedAt": "2026-11-27T13:09:36.526Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3776",
+      "name": "Minimum Moves to Balance Circular Array",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-moves-to-balance-circular-array/",
+      "file": "minimumMovesToBalanceCircularArray",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3895",
+    "name": "Count Digit Appearances",
+    "file": "countDigitAppearances",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:10:46.126Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3895",
+      "name": "Count Digit Appearances",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-digit-appearances/",
+      "file": "countDigitAppearances",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3927",
+    "name": "Minimize Array Sum Using Divisible Replacements",
+    "file": "minimizeArraySumUsingDivisibleReplacements",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:13:28.925Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3927",
+      "name": "Minimize Array Sum Using Divisible Replacements",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimize-array-sum-using-divisible-replacements/",
+      "file": "minimizeArraySumUsingDivisibleReplacements",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-COUNT0110",
+    "name": "Counting 01 and 10",
+    "file": "counting01And10",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:14:38.878Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-COUNT0110",
+      "name": "Counting 01 and 10",
+      "rating": 1776,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COUNT0110",
+      "file": "counting01And10",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-2930",
+    "name": "Number of Strings Which Can Be Rearranged to Contain Substring",
+    "file": "numberOfStringsWhichCanBeRearrangedToContainSubstring",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:17:01.379Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2930",
+      "name": "Number of Strings Which Can Be Rearranged to Contain Substring",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/number-of-strings-which-can-be-rearranged-to-contain-substring/",
+      "file": "numberOfStringsWhichCanBeRearrangedToContainSubstring",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-SUPSKIP",
+    "name": "Recurrence Reachability",
+    "file": "recurrenceReachability",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:17:50.765Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-SUPSKIP",
+      "name": "Recurrence Reachability",
+      "rating": 1759,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/SUPSKIP",
+      "file": "recurrenceReachability",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3919",
+    "name": "Minimum Cost to Move Between Indices",
+    "file": "minimumCostToMoveBetweenIndices",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-27T13:18:14.404Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3919",
+      "name": "Minimum Cost to Move Between Indices",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-cost-to-move-between-indices/",
+      "file": "minimumCostToMoveBetweenIndices",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Runtime Error"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3645",
+    "name": "Maximum Total from Optimal Activation Order",
+    "file": "maximumTotalFromOptimalActivationOrder",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:20:19.637Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3645",
+      "name": "Maximum Total from Optimal Activation Order",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-total-from-optimal-activation-order/",
+      "file": "maximumTotalFromOptimalActivationOrder",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-GENTHRU",
+    "name": "Greed Island Bomber",
+    "file": "greedIslandBomber",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:18:41.218Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-GENTHRU",
+      "name": "Greed Island Bomber",
+      "rating": 1650,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GENTHRU",
+      "file": "greedIslandBomber",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "207A1",
+    "name": "Beaver's Calculator 1.0",
+    "file": "beaverSCalculator10",
+    "tier": "hard",
+    "initialVerdict": "RUNTIME_ERROR",
+    "enqueuedAt": "2026-11-27T13:22:18.206Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "207A1",
+      "name": "Beaver's Calculator 1.0",
+      "rating": 1600,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/207/A1",
+      "file": "beaverSCalculator10",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-DIGITOP",
+    "name": "Digit Operation",
+    "file": "digitOperation",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:19:45.596Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-DIGITOP",
+      "name": "Digit Operation",
+      "rating": 1798,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/DIGITOP",
+      "file": "digitOperation",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CROSBLK",
+    "name": "Crossing Blocks",
+    "file": "crossingBlocks",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:21:00.245Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CROSBLK",
+      "name": "Crossing Blocks",
+      "rating": 1762,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CROSBLK",
+      "file": "crossingBlocks",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3871",
+    "name": "Count Commas in Range II",
+    "file": "countCommasInRangeII",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:25:31.102Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3871",
+      "name": "Count Commas in Range II",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-commas-in-range-ii/",
+      "file": "countCommasInRangeII",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3983",
+    "name": "Subsequence After One Replacement",
+    "file": "subsequenceAfterOneReplacement",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:26:33.976Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3983",
+      "name": "Subsequence After One Replacement",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/subsequence-after-one-replacement/",
+      "file": "subsequenceAfterOneReplacement",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3084",
+    "name": "Count Substrings Starting and Ending with Given Character",
+    "file": "countSubstringsStartingAndEndingWithGivenCharacter",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 429: <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scal",
+    "enqueuedAt": "2026-11-27T13:27:28.229Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3084",
+      "name": "Count Substrings Starting and Ending with Given Character",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-substrings-starting-and-ending-with-given-character/",
+      "file": "countSubstringsStartingAndEndingWithGivenCharacter",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CFACTOR",
+    "name": "Christmas Factor",
+    "file": "christmasFactor",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:24:48.525Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CFACTOR",
+      "name": "Christmas Factor",
+      "rating": 1720,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CFACTOR",
+      "file": "christmasFactor",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3309",
+    "name": "Maximum Possible Number by Binary Concatenation",
+    "file": "maximumPossibleNumberByBinaryConcatenation",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:28:31.757Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3309",
+      "name": "Maximum Possible Number by Binary Concatenation",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-possible-number-by-binary-concatenation/",
+      "file": "maximumPossibleNumberByBinaryConcatenation",
+      "template": "templates/leetcode.js"
+    },
+    "finalVerdict": "ERROR: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:text-is(\"Submit\"), button[data-cy=\"submit-code-btn\"]') to be visible\u001b[22m\n"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-COPYCAT",
+    "name": "Copycat",
+    "file": "copycat",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:26:04.025Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-COPYCAT",
+      "name": "Copycat",
+      "rating": 1714,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/COPYCAT",
+      "file": "copycat",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-GENARSEQ",
+    "name": "Generalized Arithmetic Progression Free Sequence",
+    "file": "generalizedArithmeticProgressionFreeSequence",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:30:46.851Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-GENARSEQ",
+      "name": "Generalized Arithmetic Progression Free Sequence",
+      "rating": 1792,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GENARSEQ",
+      "file": "generalizedArithmeticProgressionFreeSequence",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3942",
+    "name": "Minimum Operations to Sort a Permutation",
+    "file": "minimumOperationsToSortAPermutation",
+    "tier": "medium",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-11-27T13:30:52.880Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3942",
+      "name": "Minimum Operations to Sort a Permutation",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+      "file": "minimumOperationsToSortAPermutation",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3975",
+    "name": "Filter Occupied Intervals",
+    "file": "filterOccupiedIntervals",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:31:48.228Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3975",
+      "name": "Filter Occupied Intervals",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/filter-occupied-intervals/",
+      "file": "filterOccupiedIntervals",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CRCKT",
+    "name": "Special Game",
+    "file": "specialGame",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:31:57.112Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CRCKT",
+      "name": "Special Game",
+      "rating": 1720,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CRCKT",
+      "file": "specialGame",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-PONEG",
+    "name": "Positive-Negative",
+    "file": "positiveNegative",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:33:09.983Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-PONEG",
+      "name": "Positive-Negative",
+      "rating": 1770,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/PONEG",
+      "file": "positiveNegative",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3593",
+    "name": "Minimum Increments to Equalize Leaf Paths",
+    "file": "minimumIncrementsToEqualizeLeafPaths",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-27T13:33:47.804Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3593",
+      "name": "Minimum Increments to Equalize Leaf Paths",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-increments-to-equalize-leaf-paths/",
+      "file": "minimumIncrementsToEqualizeLeafPaths",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-CHEFBRO",
+    "name": "Younger Brother",
+    "file": "youngerBrother",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:35:19.641Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-CHEFBRO",
+      "name": "Younger Brother",
+      "rating": 1689,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/CHEFBRO",
+      "file": "youngerBrother",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3623",
+    "name": "Count Number of Trapezoids I",
+    "file": "countNumberOfTrapezoidsI",
+    "tier": "medium",
+    "initialVerdict": "Time Limit Exceeded",
+    "enqueuedAt": "2026-11-27T13:36:15.977Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3623",
+      "name": "Count Number of Trapezoids I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/count-number-of-trapezoids-i/",
+      "file": "countNumberOfTrapezoidsI",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3788",
+    "name": "Maximum Score of a Split",
+    "file": "maximumScoreOfASplit",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:38:23.393Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3788",
+      "name": "Maximum Score of a Split",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-score-of-a-split/",
+      "file": "maximumScoreOfASplit",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-MAKEDISTK",
+    "name": "Make Distinct",
+    "file": "makeDistinct",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:39:13.661Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-MAKEDISTK",
+      "name": "Make Distinct",
+      "rating": 1702,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/MAKEDISTK",
+      "file": "makeDistinct",
+      "template": "templates/codechef.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3828",
+    "name": "Final Element After Subarray Deletions",
+    "file": "finalElementAfterSubarrayDeletions",
+    "tier": "medium",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:39:35.980Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3828",
+      "name": "Final Element After Subarray Deletions",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/final-element-after-subarray-deletions/",
+      "file": "finalElementAfterSubarrayDeletions",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1342C",
+    "name": "Yet Another Counting Problem",
+    "file": "yetAnotherCountingProblem",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 4",
+    "enqueuedAt": "2026-11-27T13:41:10.242Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1342C",
+      "name": "Yet Another Counting Problem",
+      "rating": 1600,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1342/C",
+      "file": "yetAnotherCountingProblem",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3987",
+    "name": "Minimum Total Cost to Process All Elements",
+    "file": "minimumTotalCostToProcessAllElements",
+    "tier": "medium",
+    "initialVerdict": "Runtime Error",
+    "enqueuedAt": "2026-11-27T13:42:41.807Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3987",
+      "name": "Minimum Total Cost to Process All Elements",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/minimum-total-cost-to-process-all-elements/",
+      "file": "minimumTotalCostToProcessAllElements",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "LeetCode",
+    "id": "LC-3346",
+    "name": "Maximum Frequency of an Element After Performing Operations I",
+    "file": "maximumFrequencyOfAnElementAfterPerformingOperationsI",
+    "tier": "medium",
+    "initialVerdict": "ERROR: LeetCode submit rejected with HTTP 403: {\"error\": \"User is not authenticated\"}",
+    "enqueuedAt": "2026-11-27T13:43:34.622Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-3346",
+      "name": "Maximum Frequency of an Element After Performing Operations I",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/maximum-frequency-of-an-element-after-performing-operations-i/",
+      "file": "maximumFrequencyOfAnElementAfterPerformingOperationsI",
+      "template": "templates/leetcode.js"
+    }
+  },
+  {
+    "platform": "Codeforces",
+    "id": "1677A",
+    "name": "Tokitsukaze and Strange Inequality",
+    "file": "tokitsukazeAndStrangeInequality",
+    "tier": "hard",
+    "initialVerdict": "Wrong answer on test 1",
+    "enqueuedAt": "2026-11-27T13:44:26.220Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "1677A",
+      "name": "Tokitsukaze and Strange Inequality",
+      "rating": 1600,
+      "tags": [
+        "brute force",
+        "data structures",
+        "dp"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1677/A",
+      "file": "tokitsukazeAndStrangeInequality",
+      "template": "templates/codeforces.js"
+    }
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-APP_BAL_SCA",
+    "name": "Crushed Apples and a Balance Scale",
+    "file": "crushedApplesAndABalanceScale",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-27T13:48:23.437Z",
+    "attempts": 1,
+    "status": "PENDING_RETRY",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-APP_BAL_SCA",
+      "name": "Crushed Apples and a Balance Scale",
+      "rating": 1736,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/APP_BAL_SCA",
+      "file": "crushedApplesAndABalanceScale",
+      "template": "templates/codechef.js"
+    }
+  }
+]
