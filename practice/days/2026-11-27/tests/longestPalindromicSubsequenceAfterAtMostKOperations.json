@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abced\"\n2\n",
+    "output": "3"
+  },
+  {
+    "input": "\"aaazzz\"\n4\n",
+    "output": "6"
+  }
+]
