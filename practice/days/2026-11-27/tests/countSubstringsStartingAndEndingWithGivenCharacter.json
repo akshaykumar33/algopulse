@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"abada\"\n\"a\"\n",
+    "output": "6"
+  },
+  {
+    "input": "\"zzz\"\n\"z\"\n",
+    "output": "6"
+  }
+]
