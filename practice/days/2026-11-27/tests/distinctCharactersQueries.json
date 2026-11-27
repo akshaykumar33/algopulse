@@ -1,0 +1,6 @@
+[
+  {
+    "input": "abacaba\n5\n2 1 4\n1 4 b\n2 4 7\n1 5 d\n2 1 7\n",
+    "output": "3\n2\n3\n"
+  }
+]
