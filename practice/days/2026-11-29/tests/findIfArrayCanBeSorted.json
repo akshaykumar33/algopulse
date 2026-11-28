@@ -1,0 +1,14 @@
+[
+  {
+    "input": "[8,4,2,30,15]\n",
+    "output": "true"
+  },
+  {
+    "input": "[1,2,3,4,5]\n",
+    "output": "true"
+  },
+  {
+    "input": "[3,16,8,4,2]\n",
+    "output": "false"
+  }
+]
