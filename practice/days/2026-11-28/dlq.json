@@ -1,0 +1,75 @@
+[
+  {
+    "platform": "LeetCode",
+    "id": "LC-2767",
+    "name": "Partition String Into Minimum Beautiful Substrings",
+    "file": "partitionStringIntoMinimumBeautifulSubstrings",
+    "tier": "medium",
+    "initialVerdict": "ERROR: Not authenticated on LeetCode. Please run \"npm run submit:auth -- --platform leetcode\" to log in first.",
+    "enqueuedAt": "2026-11-28T04:40:57.756Z",
+    "attempts": 1,
+    "status": "RESOLVED",
+    "problem": {
+      "platform": "LeetCode",
+      "id": "LC-2767",
+      "name": "Partition String Into Minimum Beautiful Substrings",
+      "rating": "Medium",
+      "tags": [
+        "algorithms"
+      ],
+      "url": "https://leetcode.com/problems/partition-string-into-minimum-beautiful-substrings/",
+      "file": "partitionStringIntoMinimumBeautifulSubstrings",
+      "template": "templates/leetcode.js"
+    },
+    "resolvedAt": "2026-11-28T04:42:25.525Z",
+    "finalVerdict": "Accepted"
+  },
+  {
+    "platform": "Codeforces",
+    "id": "52B",
+    "name": "Right Triangles",
+    "file": "rightTriangles",
+    "tier": "hard",
+    "initialVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first.",
+    "enqueuedAt": "2026-11-28T04:42:30.157Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "Codeforces",
+      "id": "52B",
+      "name": "Right Triangles",
+      "rating": 1600,
+      "tags": [
+        "combinatorics"
+      ],
+      "url": "https://codeforces.com/problemset/problem/52/B",
+      "file": "rightTriangles",
+      "template": "templates/codeforces.js"
+    },
+    "finalVerdict": "ERROR: Not authenticated on Codeforces. Please run \"npm run submit:auth -- --platform codeforces\" to log in first."
+  },
+  {
+    "platform": "CodeChef",
+    "id": "CC-GPL",
+    "name": "Palindromic Substrings",
+    "file": "palindromicSubstrings",
+    "tier": "hard",
+    "initialVerdict": "Wrong Answer",
+    "enqueuedAt": "2026-11-28T04:44:16.735Z",
+    "attempts": 1,
+    "status": "HALTED_UNRESOLVED",
+    "problem": {
+      "platform": "CodeChef",
+      "id": "CC-GPL",
+      "name": "Palindromic Substrings",
+      "rating": 1723,
+      "tags": [
+        "codechef"
+      ],
+      "url": "https://www.codechef.com/problems/GPL",
+      "file": "palindromicSubstrings",
+      "template": "templates/codechef.js"
+    },
+    "finalVerdict": "Wrong Answer"
+  }
+]
