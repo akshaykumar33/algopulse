@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abcde\"\n",
+    "output": "5"
+  },
+  {
+    "input": "\"xyzxyzxyzxyz\"\n",
+    "output": "12"
+  },
+  {
+    "input": "\"aabbccddeeffgghhiiiiii\"\n",
+    "output": "24"
+  }
+]

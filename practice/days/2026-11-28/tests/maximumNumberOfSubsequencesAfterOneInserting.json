@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"LMCT\"\n",
+    "output": "2"
+  },
+  {
+    "input": "\"LCCT\"\n",
+    "output": "4"
+  },
+  {
+    "input": "\"L\"\n",
+    "output": "0"
+  }
+]
