@@ -262,6 +262,8 @@ class MinHeap {
 | [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
 | [Playlist](https://codeforces.com/problemset/problem/1140/C) | `Codeforces` | `1600` | `playlist.js` | Key algorithmic application from Day 2026-11-27. |
 | [Distinct Characters Queries](https://codeforces.com/problemset/problem/1234/D) | `Codeforces` | `1600` | `distinctCharactersQueries.js` | Key algorithmic application from Day 2026-11-27. |
+| [Optimal Subsequences (Easy Version)](https://codeforces.com/problemset/problem/1227/D1) | `Codeforces` | `1600` | `optimalSubsequencesEasyVersion.js` | Key algorithmic application from Day 2026-11-28. |
+| [To Become Max](https://codeforces.com/problemset/problem/1856/C) | `Codeforces` | `1600` | `toBecomeMax.js` | Key algorithmic application from Day 2026-11-28. |
 
 ---
 

@@ -617,6 +617,20 @@ const safeProduct = BigInt(a) * BigInt(b);
 | [Partitioning the Array](https://codeforces.com/problemset/problem/1920/C) | `Codeforces` | `1600` | `partitioningTheArray.js` | Key algorithmic application from Day 2026-11-27. |
 | [Hilbert's Hotel](https://codeforces.com/problemset/problem/1344/A) | `Codeforces` | `1600` | `hilbertSHotel.js` | Key algorithmic application from Day 2026-11-27. |
 | [Tourist Problem](https://codeforces.com/problemset/problem/340/C) | `Codeforces` | `1600` | `touristProblem.js` | Key algorithmic application from Day 2026-11-27. |
+| [p-binary](https://codeforces.com/problemset/problem/1225/C) | `Codeforces` | `1600` | `pBinary.js` | Key algorithmic application from Day 2026-11-28. |
+| [Radio Towers](https://codeforces.com/problemset/problem/1452/D) | `Codeforces` | `1600` | `radioTowers.js` | Key algorithmic application from Day 2026-11-28. |
+| [Rectangle and Square](https://codeforces.com/problemset/problem/135/B) | `Codeforces` | `1600` | `rectangleAndSquare.js` | Key algorithmic application from Day 2026-11-28. |
+| [Equalizing by Division (hard version)](https://codeforces.com/problemset/problem/1213/D2) | `Codeforces` | `1600` | `equalizingByDivisionHardVersion.js` | Key algorithmic application from Day 2026-11-28. |
+| [Dreamoon and Sums](https://codeforces.com/problemset/problem/476/C) | `Codeforces` | `1600` | `dreamoonAndSums.js` | Key algorithmic application from Day 2026-11-28. |
+| [Banh-mi](https://codeforces.com/problemset/problem/1062/C) | `Codeforces` | `1600` | `banhMi.js` | Key algorithmic application from Day 2026-11-28. |
+| [Making Sequences is Fun](https://codeforces.com/problemset/problem/373/B) | `Codeforces` | `1600` | `makingSequencesIsFun.js` | Key algorithmic application from Day 2026-11-28. |
+| [Repaintings](https://codeforces.com/problemset/problem/40/B) | `Codeforces` | `1600` | `repaintings.js` | Key algorithmic application from Day 2026-11-28. |
+| [Malek Dance Club](https://codeforces.com/problemset/problem/319/A) | `Codeforces` | `1600` | `malekDanceClub.js` | Key algorithmic application from Day 2026-11-28. |
+| [Customer Service](https://codeforces.com/problemset/problem/2059/C) | `Codeforces` | `1600` | `customerService.js` | Key algorithmic application from Day 2026-11-28. |
+| [Arpa's loud Owf and Mehrdad's evil plan](https://codeforces.com/problemset/problem/741/A) | `Codeforces` | `1600` | `arpaSLoudOwfAndMehrdadSEvilPlan.js` | Key algorithmic application from Day 2026-11-28. |
+| [Ciel and Flowers](https://codeforces.com/problemset/problem/322/B) | `Codeforces` | `1600` | `cielAndFlowers.js` | Key algorithmic application from Day 2026-11-28. |
+| [Zmei Gorynich](https://codeforces.com/problemset/problem/1217/B) | `Codeforces` | `1600` | `zmeiGorynich.js` | Key algorithmic application from Day 2026-11-28. |
+| [Circle Perimeter](https://codeforces.com/problemset/problem/1971/F) | `Codeforces` | `1600` | `circlePerimeter.js` | Key algorithmic application from Day 2026-11-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

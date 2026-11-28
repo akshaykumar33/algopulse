@@ -386,6 +386,11 @@ function constructMatrix(n, m) {
 | [Vupsen, Pupsen and 0](https://codeforces.com/problemset/problem/1582/D) | `Codeforces` | `1600` | `vupsenPupsenAnd0.js` | Key algorithmic application from Day 2026-11-26. |
 | [Matrix and Shifts](https://codeforces.com/problemset/problem/1660/E) | `Codeforces` | `1600` | `matrixAndShifts.js` | Key algorithmic application from Day 2026-11-27. |
 | [Fish Weight](https://codeforces.com/problemset/problem/297/B) | `Codeforces` | `1600` | `fishWeight.js` | Key algorithmic application from Day 2026-11-27. |
+| [Dima and a Bad XOR](https://codeforces.com/problemset/problem/1151/B) | `Codeforces` | `1600` | `dimaAndABadXOR.js` | Key algorithmic application from Day 2026-11-28. |
+| [Squares and not squares](https://codeforces.com/problemset/problem/898/E) | `Codeforces` | `1600` | `squaresAndNotSquares.js` | Key algorithmic application from Day 2026-11-28. |
+| [Permutation Cycle](https://codeforces.com/problemset/problem/932/C) | `Codeforces` | `1600` | `permutationCycle.js` | Key algorithmic application from Day 2026-11-28. |
+| [Customer Service](https://codeforces.com/problemset/problem/2059/C) | `Codeforces` | `1600` | `customerService.js` | Key algorithmic application from Day 2026-11-28. |
+| [The Very Beautiful Blanket](https://codeforces.com/problemset/problem/1801/A) | `Codeforces` | `1600` | `theVeryBeautifulBlanket.js` | Key algorithmic application from Day 2026-11-28. |
 
 ---
 

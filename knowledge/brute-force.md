@@ -381,6 +381,15 @@ function backtrack(index, currentSum, target, arr) {
 | [Partitioning the Array](https://codeforces.com/problemset/problem/1920/C) | `Codeforces` | `1600` | `partitioningTheArray.js` | Key algorithmic application from Day 2026-11-27. |
 | [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
 | [Playlist](https://codeforces.com/problemset/problem/1140/C) | `Codeforces` | `1600` | `playlist.js` | Key algorithmic application from Day 2026-11-27. |
+| [Flexible String](https://codeforces.com/problemset/problem/1778/C) | `Codeforces` | `1600` | `flexibleString.js` | Key algorithmic application from Day 2026-11-28. |
+| [p-binary](https://codeforces.com/problemset/problem/1225/C) | `Codeforces` | `1600` | `pBinary.js` | Key algorithmic application from Day 2026-11-28. |
+| [Rectangle and Square](https://codeforces.com/problemset/problem/135/B) | `Codeforces` | `1600` | `rectangleAndSquare.js` | Key algorithmic application from Day 2026-11-28. |
+| [Equalizing by Division (hard version)](https://codeforces.com/problemset/problem/1213/D2) | `Codeforces` | `1600` | `equalizingByDivisionHardVersion.js` | Key algorithmic application from Day 2026-11-28. |
+| [Dima and a Bad XOR](https://codeforces.com/problemset/problem/1151/B) | `Codeforces` | `1600` | `dimaAndABadXOR.js` | Key algorithmic application from Day 2026-11-28. |
+| [Permutation Cycle](https://codeforces.com/problemset/problem/932/C) | `Codeforces` | `1600` | `permutationCycle.js` | Key algorithmic application from Day 2026-11-28. |
+| [To Become Max](https://codeforces.com/problemset/problem/1856/C) | `Codeforces` | `1600` | `toBecomeMax.js` | Key algorithmic application from Day 2026-11-28. |
+| [Customer Service](https://codeforces.com/problemset/problem/2059/C) | `Codeforces` | `1600` | `customerService.js` | Key algorithmic application from Day 2026-11-28. |
+| [Circle Perimeter](https://codeforces.com/problemset/problem/1971/F) | `Codeforces` | `1600` | `circlePerimeter.js` | Key algorithmic application from Day 2026-11-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

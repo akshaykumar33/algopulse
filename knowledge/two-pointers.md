@@ -192,6 +192,7 @@ for (let right = 0; right < arr.length; right++) {
 | [RGB Substring (hard version)](https://codeforces.com/problemset/problem/1196/D2) | `Codeforces` | `1600` | `rGBSubstringHardVersion.js` | Key algorithmic application from Day 2026-11-26. |
 | [Hungry Games](https://codeforces.com/problemset/problem/1994/C) | `Codeforces` | `1600` | `hungryGames.js` | Key algorithmic application from Day 2026-11-26. |
 | [Primes on Interval](https://codeforces.com/problemset/problem/237/C) | `Codeforces` | `1600` | `primesOnInterval.js` | Key algorithmic application from Day 2026-11-27. |
+| [Functions again](https://codeforces.com/problemset/problem/788/A) | `Codeforces` | `1600` | `functionsAgain.js` | Key algorithmic application from Day 2026-11-28. |
 
 ---
 
