@@ -1,22 +1,34 @@
 const fs = require('fs');
-const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-if (tokens.length && tokens[0] !== '') {
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
-  const out = [];
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(tokens[ptr++], 10);
-    const res = [];
-    for (let i = 0; i < n; i++) {
-      let x = i, val = 0, p = 1;
-      while (x > 0) {
-        val += (x % 2) * p;
-        p *= 3;
-        x = Math.floor(x / 2);
+const input = fs.readFileSync(0, 'utf-8').split(/\s+/).filter(Boolean);
+let idx = 0;
+const next = () => input[idx++];
+const readInt = () => parseInt(next(), 10);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
+
+function solve() {
+  const T = readInt();
+  const LIM = 1100000;
+  const mark = new Int32Array(LIM);
+  for (let t = 1; t <= T; t++) {
+    const a = readInt(), b = readInt(), n = readInt();
+    const x = [];
+    let cur = 0;
+    for (let k = 0; k < n; k++) {
+      cur++;
+      while (mark[cur] === t) cur++;
+      x.push(cur);
+      for (let j = 0; j <= k; j++) {
+        const v1 = a * cur - b * x[j];
+        if (v1 > cur && v1 < LIM) mark[v1] = t;
+        const v2 = a * x[j] - b * cur;
+        if (v2 > cur && v2 < LIM) mark[v2] = t;
       }
-      res.push(val + 1);
     }
-    out.push(res.join(' '));
+    print(x.join(' '));
   }
-  console.log(out.join('\n'));
 }
+
+solve();
+printAll();

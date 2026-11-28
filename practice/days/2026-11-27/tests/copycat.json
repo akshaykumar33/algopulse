@@ -1,6 +1,6 @@
 [
   {
-    "input": "2\nhello\nworld\n",
-    "output": "hello\nworld\n"
+    "input": "4\n3\n110\n5\n01001\n5\n10101\n9\n011010011\n",
+    "output": "2\n1\n2\n3\n"
   }
 ]
