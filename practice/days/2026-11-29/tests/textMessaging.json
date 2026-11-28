@@ -1,0 +1,14 @@
+[
+  {
+    "input": "25\nHello. I am a little walrus.\n",
+    "output": "2\n"
+  },
+  {
+    "input": "2\nHow are you?\n",
+    "output": "Impossible\n"
+  },
+  {
+    "input": "19\nHello! Do you like fish? Why?\n",
+    "output": "3\n"
+  }
+]
