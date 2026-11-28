@@ -1,0 +1,6 @@
+[
+  {
+    "input": "5\n12\nA 3\nB 12\nC 6\nA 9\nB 12\nC 12\nD 3\nB 9\nD 3\nB 12\nB 9\nC 6\n7\nA 9\nA 9\nB 6\nC 3\nD 12\nA 9\nB 6\n2\nA 9\nB 6\n1\nD 12\n0\n",
+    "output": "575\n525\n-25 \n-200 \n-400\n475\n"
+  }
+]
