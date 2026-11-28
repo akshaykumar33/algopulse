@@ -212,6 +212,7 @@ function isPalindrome(s) {
 | [Hard problem](https://codeforces.com/problemset/problem/706/C) | `Codeforces` | `1600` | `hardProblem.js` | Key algorithmic application from Day 2026-11-27. |
 | [Making Anti-Palindromes](https://codeforces.com/problemset/problem/1822/E) | `Codeforces` | `1600` | `makingAntiPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
 | [Bill Total Value](https://codeforces.com/problemset/problem/727/B) | `Codeforces` | `1600` | `billTotalValue.js` | Key algorithmic application from Day 2026-11-27. |
+| [Flexible String](https://codeforces.com/problemset/problem/1778/C) | `Codeforces` | `1600` | `flexibleString.js` | Key algorithmic application from Day 2026-11-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

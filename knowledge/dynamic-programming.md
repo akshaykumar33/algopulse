@@ -281,6 +281,11 @@ dp.fill(-1); // Memoization sentinel
 | [Party Lemonade](https://codeforces.com/problemset/problem/913/C) | `Codeforces` | `1600` | `partyLemonade.js` | Key algorithmic application from Day 2026-11-27. |
 | [Hard problem](https://codeforces.com/problemset/problem/706/C) | `Codeforces` | `1600` | `hardProblem.js` | Key algorithmic application from Day 2026-11-27. |
 | [Tokitsukaze and Strange Inequality](https://codeforces.com/problemset/problem/1677/A) | `Codeforces` | `1600` | `tokitsukazeAndStrangeInequality.js` | Key algorithmic application from Day 2026-11-27. |
+| [Radio Towers](https://codeforces.com/problemset/problem/1452/D) | `Codeforces` | `1600` | `radioTowers.js` | Key algorithmic application from Day 2026-11-28. |
+| [Alyona and the Tree](https://codeforces.com/problemset/problem/682/C) | `Codeforces` | `1600` | `alyonaAndTheTree.js` | Key algorithmic application from Day 2026-11-28. |
+| [Dima and a Bad XOR](https://codeforces.com/problemset/problem/1151/B) | `Codeforces` | `1600` | `dimaAndABadXOR.js` | Key algorithmic application from Day 2026-11-28. |
+| [Functions again](https://codeforces.com/problemset/problem/788/A) | `Codeforces` | `1600` | `functionsAgain.js` | Key algorithmic application from Day 2026-11-28. |
+| [To Become Max](https://codeforces.com/problemset/problem/1856/C) | `Codeforces` | `1600` | `toBecomeMax.js` | Key algorithmic application from Day 2026-11-28. |
 
 ---
 

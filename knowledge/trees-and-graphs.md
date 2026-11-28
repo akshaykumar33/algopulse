@@ -240,6 +240,10 @@ function dfsIterative(start, adj, n) {
 | [Sum in the tree](https://codeforces.com/problemset/problem/1098/A) | `Codeforces` | `1600` | `sumInTheTree.js` | Key algorithmic application from Day 2026-11-26. |
 | [Minimal Height Tree](https://codeforces.com/problemset/problem/1437/D) | `Codeforces` | `1600` | `minimalHeightTree.js` | Key algorithmic application from Day 2026-11-27. |
 | [Lakes in Berland](https://codeforces.com/problemset/problem/723/D) | `Codeforces` | `1600` | `lakesInBerland.js` | Key algorithmic application from Day 2026-11-27. |
+| [Alyona and the Tree](https://codeforces.com/problemset/problem/682/C) | `Codeforces` | `1600` | `alyonaAndTheTree.js` | Key algorithmic application from Day 2026-11-28. |
+| [Fight Against Traffic](https://codeforces.com/problemset/problem/954/D) | `Codeforces` | `1600` | `fightAgainstTraffic.js` | Key algorithmic application from Day 2026-11-28. |
+| [Arpa's loud Owf and Mehrdad's evil plan](https://codeforces.com/problemset/problem/741/A) | `Codeforces` | `1600` | `arpaSLoudOwfAndMehrdadSEvilPlan.js` | Key algorithmic application from Day 2026-11-28. |
+| [Circle Perimeter](https://codeforces.com/problemset/problem/1971/F) | `Codeforces` | `1600` | `circlePerimeter.js` | Key algorithmic application from Day 2026-11-28. |
 
 ---
 

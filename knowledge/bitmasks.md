@@ -171,6 +171,10 @@ function missingNumber(nums) {
 | [Sagheer, the Hausmeister](https://codeforces.com/problemset/problem/812/B) | `Codeforces` | `1600` | `sagheerTheHausmeister.js` | Key algorithmic application from Day 2026-11-26. |
 | [Interesting Sequence](https://codeforces.com/problemset/problem/1775/C) | `Codeforces` | `1600` | `interestingSequence.js` | Key algorithmic application from Day 2026-11-27. |
 | [Party Lemonade](https://codeforces.com/problemset/problem/913/C) | `Codeforces` | `1600` | `partyLemonade.js` | Key algorithmic application from Day 2026-11-27. |
+| [Flexible String](https://codeforces.com/problemset/problem/1778/C) | `Codeforces` | `1600` | `flexibleString.js` | Key algorithmic application from Day 2026-11-28. |
+| [p-binary](https://codeforces.com/problemset/problem/1225/C) | `Codeforces` | `1600` | `pBinary.js` | Key algorithmic application from Day 2026-11-28. |
+| [Dima and a Bad XOR](https://codeforces.com/problemset/problem/1151/B) | `Codeforces` | `1600` | `dimaAndABadXOR.js` | Key algorithmic application from Day 2026-11-28. |
+| [The Very Beautiful Blanket](https://codeforces.com/problemset/problem/1801/A) | `Codeforces` | `1600` | `theVeryBeautifulBlanket.js` | Key algorithmic application from Day 2026-11-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns

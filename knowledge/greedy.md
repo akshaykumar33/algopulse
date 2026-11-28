@@ -683,6 +683,14 @@ for (const x of arr) {
 | [Beaver's Calculator 1.0](https://codeforces.com/problemset/problem/207/A1) | `Codeforces` | `1600` | `beaverSCalculator10.js` | Key algorithmic application from Day 2026-11-27. |
 | [Party Lemonade](https://codeforces.com/problemset/problem/913/C) | `Codeforces` | `1600` | `partyLemonade.js` | Key algorithmic application from Day 2026-11-27. |
 | [Making Anti-Palindromes](https://codeforces.com/problemset/problem/1822/E) | `Codeforces` | `1600` | `makingAntiPalindromes.js` | Key algorithmic application from Day 2026-11-27. |
+| [Remove the Substring (easy version)](https://codeforces.com/problemset/problem/1203/D1) | `Codeforces` | `1600` | `removeTheSubstringEasyVersion.js` | Key algorithmic application from Day 2026-11-28. |
+| [Banh-mi](https://codeforces.com/problemset/problem/1062/C) | `Codeforces` | `1600` | `banhMi.js` | Key algorithmic application from Day 2026-11-28. |
+| [Squares and not squares](https://codeforces.com/problemset/problem/898/E) | `Codeforces` | `1600` | `squaresAndNotSquares.js` | Key algorithmic application from Day 2026-11-28. |
+| [Alarm Clock](https://codeforces.com/problemset/problem/898/D) | `Codeforces` | `1600` | `alarmClock.js` | Key algorithmic application from Day 2026-11-28. |
+| [Optimal Subsequences (Easy Version)](https://codeforces.com/problemset/problem/1227/D1) | `Codeforces` | `1600` | `optimalSubsequencesEasyVersion.js` | Key algorithmic application from Day 2026-11-28. |
+| [Keshi Is Throwing a Party](https://codeforces.com/problemset/problem/1610/C) | `Codeforces` | `1600` | `keshiIsThrowingAParty.js` | Key algorithmic application from Day 2026-11-28. |
+| [Customer Service](https://codeforces.com/problemset/problem/2059/C) | `Codeforces` | `1600` | `customerService.js` | Key algorithmic application from Day 2026-11-28. |
+| [Zmei Gorynich](https://codeforces.com/problemset/problem/1217/B) | `Codeforces` | `1600` | `zmeiGorynich.js` | Key algorithmic application from Day 2026-11-28. |
 
 
 ## 7. Common Pitfalls & Anti-Patterns
