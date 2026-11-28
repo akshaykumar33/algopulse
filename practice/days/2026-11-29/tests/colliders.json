@@ -1,0 +1,6 @@
+[
+  {
+    "input": "10 10\n+ 6\n+ 10\n+ 5\n- 10\n- 5\n- 6\n+ 10\n+ 3\n+ 6\n+ 3\n",
+    "output": "Success\nConflict with 6\nSuccess\nAlready off\nSuccess\nSuccess\nSuccess\nSuccess\nConflict with 10\nAlready on\n"
+  }
+]
