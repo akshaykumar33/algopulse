@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"???\"\n",
+    "output": "\"abc\""
+  },
+  {
+    "input": "\"a?a?\"\n",
+    "output": "\"abac\""
+  }
+]
