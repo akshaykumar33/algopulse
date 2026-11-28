@@ -1,17 +1,21 @@
 const fs = require('fs');
-const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-if (tokens.length && tokens[0] !== '') {
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
-  const out = [];
-  for (let tc = 0; tc < t; tc++) {
-    const s = tokens[ptr++];
-    let c01 = 0, c10 = 0;
-    for (let i = 0; i < s.length - 1; i++) {
-      if (s[i] === '0' && s[i + 1] === '1') c01++;
-      if (s[i] === '1' && s[i + 1] === '0') c10++;
-    }
-    out.push(c01 + ' ' + c10);
+const input = fs.readFileSync(0, 'utf-8').split(/\s+/).filter(Boolean);
+let idx = 0;
+const next = () => input[idx++];
+const readInt = () => parseInt(next(), 10);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
+
+function solve() {
+  const T = readInt();
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    let ans = 0;
+    for (let k = 0; 2 * k <= n; k++) ans += k * (n - k) + 1;
+    print(ans);
   }
-  console.log(out.join('\n'));
 }
+
+solve();
+printAll();

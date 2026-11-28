@@ -1,21 +1,32 @@
 const fs = require('fs');
-const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-if (tokens.length && tokens[0] !== '') {
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
-  const out = [];
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(tokens[ptr++], 10);
-    const k = parseInt(tokens[ptr++], 10);
+const input = fs.readFileSync(0, 'utf-8').split(/\s+/).filter(Boolean);
+let idx = 0;
+const next = () => input[idx++];
+const readInt = () => parseInt(next(), 10);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
+
+function solve() {
+  const T = readInt();
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    const k = BigInt(next());
     const a = [];
-    const b = [];
-    for (let i = 0; i < n; i++) a.push(tokens[ptr++]);
-    for (let i = 0; i < n; i++) b.push(tokens[ptr++]);
-    let diff = 0;
+    for (let i = 0; i < n; i++) a.push(next());
+    const ca = new Array(10).fill(0), cb = new Array(10).fill(0);
+    let ok = true;
     for (let i = 0; i < n; i++) {
-      for (let j = 0; j < a[i].length; j++) if (a[i][j] !== b[i][j]) diff++;
+      const b = next();
+      if (b.length !== a[i].length) ok = false;
+      for (let j = 0; j < a[i].length; j++) ca[a[i].charCodeAt(j) - 48]++;
+      for (let j = 0; j < b.length; j++) cb[b.charCodeAt(j) - 48]++;
     }
-    out.push(diff <= k ? 'YES' : 'NO');
+    let cost = 0;
+    for (let d = 0; d < 10; d++) if (cb[d] > ca[d]) cost += cb[d] - ca[d];
+    print(ok && BigInt(cost) <= k ? 'YES' : 'NO');
   }
-  console.log(out.join('\n'));
 }
+
+solve();
+printAll();

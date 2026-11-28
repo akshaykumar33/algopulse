@@ -1,25 +1,31 @@
 const fs = require('fs');
-const tokens = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
-if (tokens.length && tokens[0] !== '') {
-  let ptr = 0;
-  const t = parseInt(tokens[ptr++], 10);
-  const out = [];
-  for (let tc = 0; tc < t; tc++) {
-    const n = parseInt(tokens[ptr++], 10);
+const input = fs.readFileSync(0, 'utf-8').split(/\s+/).filter(Boolean);
+let idx = 0;
+const next = () => input[idx++];
+const readInt = () => parseInt(next(), 10);
+const output = [];
+const print = (val) => output.push(val);
+const printAll = () => console.log(output.join('\n'));
+
+function solve() {
+  const T = readInt();
+  for (let t = 0; t < T; t++) {
+    const n = readInt();
+    const k = readInt();
     const a = new Int32Array(n);
-    for (let i = 0; i < n; i++) a[i] = parseInt(tokens[ptr++], 10);
-    a.sort((x, y) => x - y);
-    let cur = a[0];
-    let moves = 0n;
-    for (let i = 1; i < n; i++) {
-      if (a[i] <= cur) {
-        cur++;
-        moves += BigInt(cur - a[i]);
-      } else {
-        cur = a[i];
-      }
+    for (let i = 0; i < n; i++) a[i] = readInt();
+    a.sort();
+    let prev = -1, mx = 0, sum = 0;
+    for (let i = 0; i < n; i++) {
+      const b = Math.max(a[i], prev + 1);
+      const d = b - a[i];
+      if (d > mx) mx = d;
+      sum += d;
+      prev = b;
     }
-    out.push(moves.toString());
+    print(Math.max(mx, Math.ceil(sum / k)));
   }
-  console.log(out.join('\n'));
 }
+
+solve();
+printAll();

@@ -1,6 +1,6 @@
 [
   {
-    "input": "1\n2 2\n1 2\n3 4\n",
-    "output": "Chef\n"
+    "input": "1\n1\n2 2\n",
+    "output": "MasterChef\n"
   }
 ]
