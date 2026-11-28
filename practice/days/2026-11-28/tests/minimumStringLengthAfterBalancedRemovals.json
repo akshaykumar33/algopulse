@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"aabbab\"\n",
+    "output": "0"
+  },
+  {
+    "input": "\"aaaa\"\n",
+    "output": "4"
+  },
+  {
+    "input": "\"aaabb\"\n",
+    "output": "1"
+  }
+]

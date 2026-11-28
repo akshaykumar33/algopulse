@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"ababccc\"\n",
+    "output": "5"
+  },
+  {
+    "input": "\"aba\"\n",
+    "output": "2"
+  },
+  {
+    "input": "\"aa\"\n",
+    "output": "1"
+  }
+]
