@@ -1,0 +1,6 @@
+[
+  {
+    "input": "2\nR23C55\nBC23\n",
+    "output": "BC23\nR23C55\n"
+  }
+]

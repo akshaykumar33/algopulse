@@ -1,0 +1,6 @@
+[
+  {
+    "input": "4\n5\nhello\n10\ncodeforces\n5\neevee\n6\nappall\n",
+    "output": "1\nhelno\n2\ncodefofced\n1\neeeee\n0\nappall\n"
+  }
+]
