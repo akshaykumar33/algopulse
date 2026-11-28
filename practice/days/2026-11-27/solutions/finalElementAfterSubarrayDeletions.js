@@ -1,5 +1,5 @@
 var finalElement = function(nums) {
-  return nums[0];
+  return Math.max(nums[0], nums[nums.length - 1]);
 };
 var solve = finalElement;
 if (require.main === module) {

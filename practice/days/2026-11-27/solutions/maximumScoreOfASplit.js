@@ -1,17 +1,16 @@
-var maxScore = function(nums) {
-  let ans = -Infinity;
-  let pref = 0;
-  let total = 0;
-  for (const x of nums) total += x;
-  for (let i = 0; i < nums.length - 1; i++) {
-    pref += nums[i];
-    const suff = total - pref;
-    const score = pref * suff;
-    if (score > ans) ans = score;
+var maximumScore = function(nums) {
+  const n = nums.length;
+  const suf = new Array(n);
+  suf[n - 1] = nums[n - 1];
+  for (let i = n - 2; i >= 0; i--) suf[i] = Math.min(nums[i], suf[i + 1]);
+  let pre = 0, ans = -Infinity;
+  for (let i = 0; i < n - 1; i++) {
+    pre += nums[i];
+    ans = Math.max(ans, pre - suf[i + 1]);
   }
   return ans;
 };
-var solve = maxScore;
+var solve = maximumScore;
 if (require.main === module) {
   const fs = require('fs');
   const raw = fs.readFileSync(0, 'utf-8').trim();
@@ -22,4 +21,4 @@ if (require.main === module) {
     console.log(JSON.stringify(res));
   }
 }
-module.exports = maxScore;
+module.exports = maximumScore;

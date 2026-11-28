@@ -1,21 +1,14 @@
 var countTrapezoids = function(points) {
-  const map = new Map();
-  for (const [x, y] of points) {
-    if (!map.has(y)) map.set(y, []);
-    map.get(y).push(x);
+  const MOD = 1000000007n;
+  const cnt = new Map();
+  for (const [, y] of points) cnt.set(y, (cnt.get(y) || 0) + 1);
+  let sum = 0n, ans = 0n;
+  for (const c of cnt.values()) {
+    const e = BigInt(c) * BigInt(c - 1) / 2n % MOD;
+    ans = (ans + e * sum) % MOD;
+    sum = (sum + e) % MOD;
   }
-  let ans = 0;
-  const ys = Array.from(map.keys());
-  for (let i = 0; i < ys.length; i++) {
-    for (let j = i + 1; j < ys.length; j++) {
-      const c1 = map.get(ys[i]).length;
-      const c2 = map.get(ys[j]).length;
-      if (c1 >= 2 && c2 >= 2) {
-        ans += (c1 * (c1 - 1) / 2) * (c2 * (c2 - 1) / 2);
-      }
-    }
-  }
-  return ans;
+  return Number(ans);
 };
 var solve = countTrapezoids;
 if (require.main === module) {

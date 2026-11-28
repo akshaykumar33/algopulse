@@ -1,9 +1,13 @@
-var minTotalCost = function(nums, costs) {
-  let ans = 0;
-  for (let i = 0; i < nums.length; i++) ans += nums[i] * costs[i];
-  return ans;
+var minimumCost = function(nums, k) {
+  let pre = 0, q = 0;
+  for (const x of nums) {
+    pre += x;
+    if (pre > k) q = Math.max(q, Math.ceil((pre - k) / k));
+  }
+  const Q = BigInt(q);
+  return Number(Q * (Q + 1n) / 2n % 1000000007n);
 };
-var solve = minTotalCost;
+var solve = minimumCost;
 if (require.main === module) {
   const fs = require('fs');
   const raw = fs.readFileSync(0, 'utf-8').trim();
@@ -14,4 +18,4 @@ if (require.main === module) {
     console.log(JSON.stringify(res));
   }
 }
-module.exports = minTotalCost;
+module.exports = minimumCost;
