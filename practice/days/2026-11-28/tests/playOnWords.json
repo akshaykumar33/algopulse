@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n2\ndirecti\ncodechef\n3\nskenzo\nlogicboxes\norderbox\n2\nok\nok\n",
+    "output": "The door cannot be opened.\nOrdering is possible.\nThe door cannot be opened.\n"
+  }
+]
