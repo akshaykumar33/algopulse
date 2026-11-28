@@ -1,0 +1,6 @@
+[
+  {
+    "input": "3\n2 2\n3 3\n2 5\n",
+    "output": "2\nR.\n.R\n4\nR..\nR..\n.RR\n4\nRR...\n..RR.\n"
+  }
+]
