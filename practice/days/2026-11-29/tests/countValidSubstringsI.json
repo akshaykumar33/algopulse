@@ -1,0 +1,14 @@
+[
+  {
+    "input": "\"abac\"\n",
+    "output": "10"
+  },
+  {
+    "input": "\"abc\"\n",
+    "output": "5"
+  },
+  {
+    "input": "\"ac\"\n",
+    "output": "3"
+  }
+]
