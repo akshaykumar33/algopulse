@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"leetcode\"\n\"coats\"\n",
+    "output": "7"
+  },
+  {
+    "input": "\"night\"\n\"thing\"\n",
+    "output": "0"
+  }
+]
