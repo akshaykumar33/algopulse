@@ -1,0 +1,10 @@
+[
+  {
+    "input": "[\"fusion\",\"layout\"]\n",
+    "output": "1"
+  },
+  {
+    "input": "[\"ab\",\"aa\",\"za\",\"aa\"]\n",
+    "output": "2"
+  }
+]

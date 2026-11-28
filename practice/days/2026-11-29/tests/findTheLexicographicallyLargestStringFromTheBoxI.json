@@ -1,0 +1,10 @@
+[
+  {
+    "input": "\"dbca\"\n2\n",
+    "output": "\"dbc\""
+  },
+  {
+    "input": "\"gggg\"\n4\n",
+    "output": "\"g\""
+  }
+]
