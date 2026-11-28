@@ -1,6 +1,10 @@
 [
   {
-    "input": "\"abc\"\n\"ab\"\n",
-    "output": "2"
+    "input": "\"cat\"\n\"chat\"\n",
+    "output": "true"
+  },
+  {
+    "input": "\"plane\"\n\"apple\"\n",
+    "output": "false"
   }
 ]

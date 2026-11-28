@@ -1,13 +1,14 @@
-var countDigits = function(n, d) {
+var countDigitOccurrences = function(nums, digit) {
   let ans = 0;
-  const s = d.toString();
-  for (let i = 1; i <= n; i++) {
-    const str = i.toString();
-    for (let j = 0; j < str.length; j++) if (str[j] === s) ans++;
+  for (let x of nums) {
+    while (x > 0) {
+      if (x % 10 === digit) ans++;
+      x = Math.floor(x / 10);
+    }
   }
   return ans;
 };
-var solve = countDigits;
+var solve = countDigitOccurrences;
 if (require.main === module) {
   const fs = require('fs');
   const raw = fs.readFileSync(0, 'utf-8').trim();
@@ -18,4 +19,4 @@ if (require.main === module) {
     console.log(JSON.stringify(res));
   }
 }
-module.exports = countDigits;
+module.exports = countDigitOccurrences;

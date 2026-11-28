@@ -1,7 +1,14 @@
-var maxTotal = function(values) {
-  values.sort((a, b) => b - a);
+var maxTotal = function(value, limit) {
+  const n = value.length;
+  const groups = Array.from({ length: n + 1 }, () => []);
+  for (let i = 0; i < n; i++) groups[limit[i]].push(value[i]);
   let ans = 0;
-  for (let i = 0; i < values.length; i++) ans += values[i] * (i + 1);
+  for (let l = 1; l <= n; l++) {
+    const g = groups[l];
+    if (!g.length) continue;
+    g.sort((a, b) => b - a);
+    for (let i = 0; i < Math.min(l, g.length); i++) ans += g[i];
+  }
   return ans;
 };
 var solve = maxTotal;
